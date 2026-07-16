@@ -15,7 +15,7 @@
         "clean": true
     },
     "include_files": [
-        "dd.54900.dll"
+        "DD.dll"
     ],
     "hidden_imports": [
         "mido",

@@ -548,11 +548,11 @@ class MidiToKeysConverter:
         code_lines.append("    if getattr(sys, 'frozen', False):")
         code_lines.append("        # 打包环境，DLL在临时目录")
         code_lines.append(
-            "        dll_path = os.path.join(sys._MEIPASS, 'dd.54900.dll')"
+            "        dll_path = os.path.join(sys._MEIPASS, 'DD.dll')"
         )
         code_lines.append("    else:")
         code_lines.append("        # 开发环境")
-        code_lines.append("        dll_path = './dd.54900.dll'")
+        code_lines.append("        dll_path = './DD.dll'")
         code_lines.append("    dd = PyDD(dll_path)")
         code_lines.append("    log_message('✅ 按键模拟模块加载成功')")
         code_lines.append("except Exception as e:")

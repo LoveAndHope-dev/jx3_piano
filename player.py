@@ -40,10 +40,10 @@ class JX3Player:
             # 确定DLL路径
             if getattr(sys, "frozen", False):
                 # 打包环境，DLL在临时目录
-                dll_path = os.path.join(sys._MEIPASS, "dd.54900.dll")
+                dll_path = os.path.join(sys._MEIPASS, "DD.dll")
             else:
                 # 开发环境
-                dll_path = "./dd.54900.dll"
+                dll_path = "./DD.dll"
 
             self.dd = PyDD(dll_path)
             self._log("✅ 按键模拟模块加载成功")

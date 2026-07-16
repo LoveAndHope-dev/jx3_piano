@@ -22,7 +22,7 @@ def main():
     print("=" * 60)
 
     # 检查必要文件是否存在
-    required_files = ["gui.py", "build_music.py", "pydd.py", "dd.54900.dll", "icon.ico"]
+    required_files = ["gui.py", "build_music.py", "pydd.py", "DD.dll", "icon.ico"]
 
     missing_files = []
     for file in required_files:
@@ -82,7 +82,7 @@ def main():
         "--windowed",  # GUI模式，不显示控制台
         "--noconfirm",  # 不询问确认
         f"--icon={current_dir / 'icon.ico'}",  # 设置图标
-        f"--add-data={current_dir / 'dd.54900.dll'};.",  # 添加DLL文件
+        f"--add-data={current_dir / 'DD.dll'};.",  # 添加DLL文件
         "--uac-admin",  # 请求管理员权限
         "--clean",  # 清理临时文件
         "gui.py",  # 主脚本

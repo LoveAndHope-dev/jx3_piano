@@ -15,7 +15,7 @@ pydd - DD驱动Python包装器
 使用方法:
     from pydd import PyDD, DDError
 
-    dd = PyDD("./dd.54900.dll")
+    dd = PyDD("./DD.dll")
     dd.mouse_click("left", 100, 100)
     dd.type_text("Hello World!")
 """
@@ -200,7 +200,7 @@ class PyDD:
         "x5": MouseButton.X5_UP,
     }
 
-    def __init__(self, dll_path: str = "./dd.54900.dll"):
+    def __init__(self, dll_path: str = "./DD.dll"):
         """
         初始化DD驱动包装器。
 
@@ -661,7 +661,7 @@ class PyDD:
 if __name__ == "__main__":
     try:
         # 初始化DD驱动
-        dd = PyDD("./dd.54900.dll")
+        dd = PyDD("./DD.dll")
         print("DD驱动初始化成功")
 
         # 鼠标操作示例

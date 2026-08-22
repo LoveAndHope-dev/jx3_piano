@@ -88,10 +88,14 @@ class MidiToKeysConverter:
         # 标准音符映射 - 只映射自然音符（白键）
         # 标准中央C (C4) = MIDI 60
         self.base_note_mapping = {
-            # 倍低音域 (只有5,6,7)
-            36: "B",  # 倍低5 (C2)
-            38: "N",  # 倍低6 (D2)
-            40: "M",  # 倍低7 (E2)
+            # 倍低音域 1234567
+            36: "Z",  # 倍低1 (C2)
+            38: "X",  # 倍低2 (D2)
+            40: "C",  # 倍低3 (E2)
+            41: "V",  # 倍低4 (F2)
+            43: "B",  # 倍低5 (G2)
+            45: "N",  # 倍低6 (A2)
+            47: "M",  # 倍低7 (B2)
             # 低音域 1234567
             48: "A",  # 低1 (C3)
             50: "S",  # 低2 (D3)
@@ -108,19 +112,24 @@ class MidiToKeysConverter:
             67: "T",  # 中5 (G4)
             69: "Y",  # 中6 (A4)
             71: "U",  # 中7 (B4)
-            # 高音域 12345
+            # 高音域 1234567
             72: "1",  # 高1 (C5)
             74: "2",  # 高2 (D5)
             76: "3",  # 高3 (E5)
             77: "4",  # 高4 (F5)
             79: "5",  # 高5 (G5)
+            81: "6",  # 高6 (A5)
+            83: "7",  # 高7 (B5)
         }
 
         # 半音映射表（升号音符）
         self.sharp_notes = {
             # 倍低音域
-            37: (36, True),  # C#2 -> 倍低5#
-            39: (38, True),  # D#2 -> 倍低6#
+            37: (36, True),  # C#2 -> 倍低1#
+            39: (38, True),  # D#2 -> 倍低2#
+            42: (41, True),  # F#2 -> 倍低4#
+            44: (43, True),  # G#2 -> 倍低5#
+            46: (45, True),  # A#2 -> 倍低6#
             # 低音域
             49: (48, True),  # C#3 -> 低1#
             51: (50, True),  # D#3 -> 低2#
@@ -138,6 +147,7 @@ class MidiToKeysConverter:
             75: (74, True),  # D#5 -> 高2#
             78: (77, True),  # F#5 -> 高4#
             80: (79, True),  # G#5 -> 高5#
+            82: (81, True),  # A#5 -> 高6#
         }
 
         # 特殊功能键
@@ -327,7 +337,10 @@ class MidiToKeysConverter:
                 if key_sequence:
                     mapped_count += count
 
-            if mapped_count > best_mapped_count:
+            if mapped_count > best_mapped_count or (
+                mapped_count == best_mapped_count
+                and abs(transpose) < abs(best_transpose)
+            ):
                 best_mapped_count = mapped_count
                 best_transpose = transpose
 
@@ -561,8 +574,8 @@ class MidiToKeysConverter:
         code_lines.append("")
 
         code_lines.append("# 按键映射说明:")
-        code_lines.append("# 高音12345=12345, 中音1234567=QWERTYU")
-        code_lines.append("# 低音1234567=ASDFGHJ, 倍低音567=BNM")
+        code_lines.append("# 高音1234567=1234567, 中音1234567=QWERTYU")
+        code_lines.append("# 低音1234567=ASDFGHJ, 倍低音1234567=ZXCVBNM")
         code_lines.append("# 升半音=+, 降半音=- (状态管理，只在需要时切换)")
         code_lines.append("# 按ESC键可随时停止播放")
         if transpose != 0:
@@ -783,10 +796,10 @@ class MidiToKeysConverter:
             # 按键映射说明
             "key_mapping": {
                 "description": "剑网三钢琴按键映射",
-                "high_notes": "12345 -> 12345",
+                "high_notes": "1234567 -> 1234567",
                 "mid_notes": "1234567 -> QWERTYU",
                 "low_notes": "1234567 -> ASDFGHJ",
-                "extra_low_notes": "567 -> BNM",
+                "extra_low_notes": "1234567 -> ZXCVBNM",
                 "sharp": "+ (升半音)",
                 "flat": "- (降半音)",
             },

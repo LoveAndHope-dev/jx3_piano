@@ -181,10 +181,10 @@ class JX3Player:
 
         # 按键映射说明
         self._log("🎹 按键映射:")
-        self._log("  高音12345 = 12345")
+        self._log("  高音1234567 = 1234567")
         self._log("  中音1234567 = QWERTYU")
         self._log("  低音1234567 = ASDFGHJ")
-        self._log("  倍低音567 = BNM")
+        self._log("  倍低音1234567 = ZXCVBNM")
         self._log("  升半音 = +, 降半音 = -")
         self._log("")
 

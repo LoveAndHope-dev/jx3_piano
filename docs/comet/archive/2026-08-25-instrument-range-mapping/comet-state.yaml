@@ -1,0 +1,205 @@
+schema: comet.native.v4
+name: instrument-range-mapping
+language: zh-CN
+phase: archive
+status: done
+state_version: 13
+brief: brief.md
+spec_changes: []
+workspace:
+  isolation: current
+  change_branch: main
+  target_branch: main
+  finish: null
+loop:
+  stage: done
+  goal_cycle: 1
+  iteration: 3
+  attempt: 1
+  retry_epoch: 0
+  failed_iteration_count: 0
+  no_progress_count: 0
+  execution_failure_count: 0
+  previous_unresolved_ids: []
+  next_action: null
+acceptance:
+  - id: A1
+    source: brief.md
+    text: "A1: 选中一首已导入的 MIDI 曲目后，铺面顶部出现「显示/隐藏映射」按钮和两个映射下拉框（默认显示 A / J）；点击按钮后铺面上出现覆盖
+      MIDI 47～60（共 14 个半音／黑白键）范围、横向贯穿整个时间轴的黄色半透明框体。"
+    result: passed
+    reason:
+      text: 默认区间 A/J 扩展为 MIDI 47-60（14半音）；切换可见性正确渲染黄色框体。
+      truncated: false
+  - id: A2
+    source: brief.md
+    text: "A2: 将「最低映射」下拉框改为 V、「最高映射」改为 3 后，音域框（若可见）立即更新为覆盖 MIDI 40～77（共 38
+      个半音／黑白键）的范围。"
+    result: passed
+    reason:
+      text: 下拉框改为 V/3 后扩展区间为 MIDI 40-77（38半音），与修正后的数值一致。
+      truncated: false
+  - id: A3
+    source: brief.md
+    text: "A3: 音域框可见时，在框体内部（非音符处）按下并上下拖动，可整体平移音域框到合法的键位位置，两个下拉框的值随拖动实时更新；拖动到 Z 以下或 7
+      以上会被限制在边界。"
+    result: passed
+    reason:
+      text: 真实 QMouseEvent 拖动整体平移框体并保持键位跨度不变，实时同步两个下拉框；越界拖动在 Z/7 处正确夹紧。
+      truncated: false
+  - id: A4
+    source: brief.md
+    text: "A4: 点击播放（▶️）后，不产生/不写入任何 `play_code/*.json`
+      文件；实际触发的按键序列只包含音高落在当前音域框扩展范围内的音符，范围外的音符被静默跳过（可通过检查生成的内存按键序列验证，无需真实连接游戏）。"
+    result: passed
+    reason:
+      text: regenerate_playback_from_notes 按当前音域框范围正确过滤音符；播放前后均未产生/修改
+        play_code/*.json。
+      truncated: false
+  - id: A5
+    source: brief.md
+    text: "A5: 播放列表来自 `midi/` 目录下已导入的 `.mid`/`.midi` 文件，而不是 `play_code/*.json`；导入一个新
+      MIDI 文件后列表中出现对应条目，且不会在 `play_code/` 下生成新文件。"
+    result: passed
+    reason:
+      text: 播放列表读取 midi/*.mid/*.midi；导入流程只校验+复制，不再生成 play_code json。
+      truncated: false
+  - id: A6
+    source: brief.md
+    text: "A6: 选中曲目 A 并调整音域框范围后，切换选中曲目 B 再切回曲目 A，音域框范围重置为默认 A～J（不保留上次调整）。"
+    result: passed
+    reason:
+      text: 重新选中曲目后音域框范围与可见性均重置为默认 A/J、隐藏。
+      truncated: false
+  - id: A7
+    source: brief.md
+    text: "A7: 在铺面中新增/删除/拖动/调整某个音符后，无需保存即可直接点击播放，触发的按键序列反映编辑后的音符状态（含音域框范围过滤）。"
+    result: passed
+    reason:
+      text: 播放直接读取铺面当前（含编辑）状态与音域框范围生成内存数据，无需保存。
+      truncated: false
+  - id: A8
+    source: brief.md
+    text: "A8: 编辑音符后点击「保存」，`midi/` 目录下出现一个新的 `.mid`
+      文件（不同于原始导入文件名，且原始文件内容不变），播放列表自动刷新并选中这个新文件；重新选中它时铺面显示的音符与保存前的编辑结果一致（通过重新解析\
+      该新 MIDI 文件验证）。"
+    result: passed
+    reason:
+      text: 已修复此前失败的场景：track0为纯tempo音轨、track1为旋律（processed_tracks=[1]）时，通过真实鼠标点击新增的音符现在正确落在
+        track1（set_default_track 生效），保存后的新 MIDI 文件包含该新增音符，原文件不变，重新解析后音符与编辑结果一致。
+      truncated: false
+  - id: A9
+    source: brief.md
+    text: 'A9: 铺面存在未保存的编辑时切换选中到另一个曲目，或尝试关闭程序，工具会提示用户确认是否放弃未保存的更改（沿用既有确认机制，只是"保存"目标改为
+      MIDI 文件）。'
+    result: passed
+    reason:
+      text: 未保存修改时切换曲目/关闭程序会触发放弃确认对话框，逻辑未受本轮改动影响。
+      truncated: false
+builder_handoff:
+  candidate_id: 259a0eb7-b997-4e55-824a-9effe8f48dc3
+  identity_provider: skill-coordinated
+  builder_execution_ref: skill-coordinated:builder:9d1de522-8111-433a-9f64-0bb09140907e
+  iteration: 3
+  summary:
+    text: 修复独立 Verifier 发现的 A8 真实缺陷：铺面中新增音符此前硬编码 track=0，当自动选中的 processed_tracks 不包含
+      0（常见于 track0 是纯 tempo/meta 音轨、track1+ 才是旋律的多音轨 MIDI）时，write_notes_to_midi
+      按 processed_tracks 分组写回，导致这些新增音符在另存为 MIDI 时被静默丢弃。修复分两处：(1) piano_roll.py
+      新增 set_default_track(track_idx)，由 gui.py 在加载曲目时传入
+      processed_tracks[0]，新增音符使用该音轨号而不是硬编码 0；(2) write_notes_to_midi 增加防御性兜底——任何
+      track 字段不在 processed_tracks 内的音符统一归入
+      processed_tracks[0]，不再静默丢弃（覆盖新增音符默认音轨以外的其它潜在来源）。已用 Verifier
+      报告的确切复现场景（tempo 音轨在 track0、旋律在
+      track1、processed_tracks=[1]）复现问题、验证修复：通过真实鼠标点击新增音符、保存、重新解析新文件，确认音符数量与铺面显示一致，不再丢失。三处前一轮的纯
+      UI 调整（音域框颜色、播放/保存按钮位置、Tab与下拉框深色样式）未再改动。
+    truncated: false
+  addressed_acceptance_ids:
+    - A1
+    - A2
+    - A3
+    - A4
+    - A5
+    - A6
+    - A7
+    - A8
+    - A9
+  checks:
+    - name:
+        text: python -m ast 语法检查 gui.py/build_music.py/player.py/piano_roll.py
+        truncated: false
+      result: not-run
+      note: null
+  checks_truncated: false
+  known_limits:
+    - text: write_notes_to_midi 在把编辑后的音符换算回 tick 时假定全曲恒定 tempo（沿用上一轮已知限制，未改动）。
+      truncated: false
+    - text: 未做真实游戏内按键回放/DD驱动端到端验证（沙箱无法连接真实游戏客户端）。
+      truncated: false
+  known_limits_truncated: false
+  submitted_at: 2026-08-25T17:58:40.595Z
+blockers: []
+verification:
+  candidate_id: 259a0eb7-b997-4e55-824a-9effe8f48dc3
+  identity_provider: skill-coordinated
+  verifier_execution_ref: skill-coordinated:verifier:f8c0ad40-7cbb-4cf4-a067-709f7beef755
+  iteration: 3
+  attempt: 1
+  assurance: skill-coordinated
+  verdict: pass
+  checks: []
+  summary:
+    text: 9/9 项验收通过。此前发现的 A8 缺陷（多音轨 MIDI 中新增音符因硬编码 track=0
+      而在保存时被静默丢弃）已通过双重修复解决：铺面新增音符现在使用当前曲目实际处理音轨（set_default_track），write_notes_to_midi
+      额外增加防御性兜底防止任何音符因音轨不匹配而丢失。已用与失败报告完全一致的复现场景重新验证通过。
+    truncated: false
+  risks:
+    - text: write_notes_to_midi 新增的 track 兜底逻辑（不在 processed_tracks 内的音符归入
+        processed_tracks[0]）是防御性设计，当前唯一的音符来源（铺面新增音符）已通过 set_default_track
+        正确赋值，该兜底路径在正常使用中不会被触发；仅在理论上防止未来出现的音符数据带有过期/错误 track 值时静默丢失，不影响当前行为。
+      truncated: false
+  risks_truncated: false
+  completed_at: 2026-08-25T18:03:22.813Z
+history:
+  - goal_cycle: 1
+    iteration: 1
+    attempt: 1
+    outcome: recovery
+    unresolved_ids: []
+    summary:
+      text: Observed implementation write before piano_roll.py
+      truncated: false
+    completed_at: 2026-08-25T17:42:13.590Z
+  - goal_cycle: 1
+    iteration: 2
+    attempt: 1
+    outcome: recovery
+    unresolved_ids: []
+    summary:
+      text: Observed implementation write before piano_roll.py
+      truncated: false
+    completed_at: 2026-08-25T17:57:15.762Z
+  - goal_cycle: 1
+    iteration: 3
+    attempt: 1
+    outcome: pass
+    unresolved_ids: []
+    summary:
+      text: 9/9 项验收通过。此前发现的 A8 缺陷（多音轨 MIDI 中新增音符因硬编码 track=0
+        而在保存时被静默丢弃）已通过双重修复解决：铺面新增音符现在使用当前曲目实际处理音轨（set_default_track），write_notes_to_midi
+        额外增加防御性兜底防止任何音符因音轨不匹配而丢失。已用与失败报告完全一致的复现场景重新验证通过。
+      truncated: false
+    completed_at: 2026-08-25T18:03:22.813Z
+history_overflow:
+  dropped_entries: 0
+  first_dropped_at: null
+  last_dropped_at: null
+  outcome_counts:
+    pass: 0
+    fail: 0
+    blocked: 0
+    execution-error: 0
+    recovery: 0
+verification_result: pass
+verification_report: verification.md
+archived: true
+created_at: 2026-08-25T17:07:19.719Z

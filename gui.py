@@ -10,6 +10,8 @@ from datetime import datetime
 from typing import Optional
 import ctypes
 
+import mido
+
 # PyQt5 imports
 from PyQt5.QtWidgets import (
     QApplication,
@@ -31,6 +33,9 @@ from PyQt5.QtWidgets import (
     QToolBar,
     QAction,
     QGroupBox,
+    QTabWidget,
+    QStackedWidget,
+    QComboBox,
 )
 from PyQt5.QtCore import (
     Qt,
@@ -62,14 +67,17 @@ try:
         PLAY_CODE_DIR,
         get_midi_dir_path,
         get_play_code_dir_path,
+        get_natural_key_ladder,
     )
 except ImportError:
     print("错误: 无法导入主程序模块，请确保主程序文件在同一目录下")
     sys.exit(1)
 
+from piano_roll import PianoRollWidget
+
 
 class BatchConversionWorker(QThread):
-    """批量MIDI转换工作线程"""
+    """批量MIDI导入工作线程（只校验+复制到 midi/，不再转换/生成 play_code json）"""
 
     log_signal = pyqtSignal(str)
     finished_signal = pyqtSignal(bool, str)
@@ -81,10 +89,10 @@ class BatchConversionWorker(QThread):
     def run(self):
         try:
             total_files = len(self.file_paths)
-            successful_conversions = 0
-            failed_conversions = 0
+            successful_imports = 0
+            failed_imports = 0
 
-            self.log_signal.emit(f"🔄 开始批量处理 {total_files} 个MIDI文件...")
+            self.log_signal.emit(f"🔄 开始批量导入 {total_files} 个MIDI文件...")
 
             for i, file_path in enumerate(self.file_paths, 1):
                 try:
@@ -93,12 +101,33 @@ class BatchConversionWorker(QThread):
 
                     self.log_signal.emit(f"📁 [{i}/{total_files}] 正在处理: {filename}")
 
+                    # 校验：能被 mido 解析，且至少存在一个音符
+                    try:
+                        mid = mido.MidiFile(file_path)
+                        has_note = any(
+                            msg.type == "note_on" and msg.velocity > 0
+                            for track in mid.tracks
+                            for msg in track
+                        )
+                    except Exception as parse_error:
+                        self.log_signal.emit(
+                            f"❌ [{i}/{total_files}] {filename} 无法解析: {parse_error}"
+                        )
+                        failed_imports += 1
+                        continue
+
+                    if not has_note:
+                        self.log_signal.emit(
+                            f"⚠️ [{i}/{total_files}] {filename} 未找到可用音符，已跳过"
+                        )
+                        failed_imports += 1
+                        continue
+
                     # 复制文件（如果目标文件不存在或者源文件更新）
                     if not os.path.exists(target_path) or os.path.getmtime(
                         file_path
                     ) > os.path.getmtime(target_path):
                         try:
-                            # 如果目标文件存在，先删除
                             if os.path.exists(target_path):
                                 os.remove(target_path)
                             shutil.copy2(file_path, target_path)
@@ -107,94 +136,50 @@ class BatchConversionWorker(QThread):
                             )
                         except Exception as copy_error:
                             self.log_signal.emit(
-                                f"⚠️ [{i}/{total_files}] 文件复制失败，尝试直接使用源文件: {str(copy_error)}"
+                                f"❌ [{i}/{total_files}] {filename} 复制失败: {copy_error}"
                             )
-                            target_path = file_path  # 直接使用源文件路径
+                            failed_imports += 1
+                            continue
                     else:
                         self.log_signal.emit(
                             f"📋 [{i}/{total_files}] 文件已存在，跳过复制"
                         )
 
-                    # 创建转换器实例
-                    converter = MidiToKeysConverter(self.log_callback)
-
-                    # 分析文件
-                    analysis = converter.analyze_midi_file(target_path)
-                    if "error" in analysis:
-                        self.log_signal.emit(
-                            f"❌ [{i}/{total_files}] {filename} 分析失败: {analysis['error']}"
-                        )
-                        failed_conversions += 1
-                        continue
-
-                    # 找到最佳移调
-                    transpose = converter.find_best_transpose(target_path)
-
-                    # 选择前2个音轨 TODO: 这里可以根据实际需求调整音轨选择逻辑
-                    track_filter = [0, 1]
-
-                    if not track_filter:
-                        self.log_signal.emit(
-                            f"⚠️ [{i}/{total_files}] {filename} 没有找到合适的音轨"
-                        )
-                        failed_conversions += 1
-                        continue
-
-                    # 生成完整数据文件（新模式）
-                    result = converter.generate_complete_data_file(
-                        target_path,
-                        track_filter=track_filter,
-                        transpose=transpose,
-                    )
-
-                    if not result.get("success"):
-                        self.log_signal.emit(
-                            f"❌ [{i}/{total_files}] {filename} 生成失败: {result.get('error', '未知错误')}"
-                        )
-                        failed_conversions += 1
-                        continue
-
-                    self.log_signal.emit(f"✅ [{i}/{total_files}] {filename} 转换完成")
-                    successful_conversions += 1
-
-                    # 添加小延迟避免文件操作冲突
-                    time.sleep(0.1)
+                    self.log_signal.emit(f"✅ [{i}/{total_files}] {filename} 导入完成")
+                    successful_imports += 1
 
                 except Exception as e:
                     self.log_signal.emit(
-                        f"❌ [{i}/{total_files}] {os.path.basename(file_path)} 转换失败: {str(e)}"
+                        f"❌ [{i}/{total_files}] {os.path.basename(file_path)} 导入失败: {str(e)}"
                     )
-                    failed_conversions += 1
+                    failed_imports += 1
                     continue
 
             # 汇总结果
-            if successful_conversions > 0:
+            if successful_imports > 0:
                 self.log_signal.emit(
-                    f"🎉 批量转换完成! 成功: {successful_conversions}, 失败: {failed_conversions}"
+                    f"🎉 批量导入完成! 成功: {successful_imports}, 失败: {failed_imports}"
                 )
                 self.finished_signal.emit(
-                    True, f"成功转换 {successful_conversions} 个文件"
+                    True, f"成功导入 {successful_imports} 个文件"
                 )
             else:
-                self.finished_signal.emit(False, "所有文件转换失败")
+                self.finished_signal.emit(False, "所有文件导入失败")
 
         except Exception as e:
             self.finished_signal.emit(False, str(e))
 
-    def log_callback(self, message):
-        # 这里可以选择是否输出详细的转换日志
-        pass
-
 
 class PlayThread(QThread):
-    """使用新播放器模块的播放线程"""
+    """使用新播放器模块的播放线程；播放数据在内存中生成，不经过任何文件"""
 
     log_signal = pyqtSignal(str)
+    progress_signal = pyqtSignal(float)  # 距实际播放开始的已耗时秒数
     finished_signal = pyqtSignal(bool)  # True=正常完成, False=被中断
 
-    def __init__(self, json_file_path):
+    def __init__(self, data: dict):
         super().__init__()
-        self.json_file_path = json_file_path
+        self.data = data
         self.player = None
         self.should_stop = False
 
@@ -203,11 +188,14 @@ class PlayThread(QThread):
             # 导入播放器模块
             from player import JX3Player
 
-            # 创建播放器实例，设置日志回调
-            self.player = JX3Player(log_callback=self.log_signal.emit)
+            # 创建播放器实例，设置日志回调与进度回调
+            self.player = JX3Player(
+                log_callback=self.log_signal.emit,
+                progress_callback=self.progress_signal.emit,
+            )
 
-            # 开始播放
-            success = self.player.play_from_json(self.json_file_path)
+            # 开始播放（直接使用内存数据，不读取文件）
+            success = self.player.play_from_data(self.data)
 
             self.finished_signal.emit(success)
 
@@ -239,6 +227,17 @@ class MidiConverterGUI(QMainWindow):
         # 播放相关变量
         self.play_thread = None
         self.is_playing = False
+        self.currently_playing_midi_path = None
+
+        # 铺面编辑相关变量
+        self.current_midi_path = None
+        self.current_processed_tracks = []
+        self.current_transpose = 0
+        self.piano_roll_dirty = False
+
+        # 乐器音域框相关变量
+        self.key_ladder = get_natural_key_ladder()
+        self._syncing_range_combos = False
 
         # 设置应用样式
         self.setup_style()
@@ -438,7 +437,60 @@ class MidiConverterGUI(QMainWindow):
             QSplitter::handle:hover {
                 background: #3498DB;
             }
-            
+
+            QTabWidget::pane {
+                background: rgba(44, 62, 80, 0.7);
+                border: 2px solid #34495E;
+                border-radius: 10px;
+                top: -1px;
+            }
+
+            QTabBar::tab {
+                background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #34495E, stop:1 #2C3E50);
+                color: #ECF0F1;
+                border: 1px solid #34495E;
+                border-bottom: none;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                padding: 8px 16px;
+                margin-right: 2px;
+                font-size: 13px;
+            }
+
+            QTabBar::tab:selected {
+                background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #3498DB, stop:1 #2980B9);
+                color: white;
+            }
+
+            QTabBar::tab:hover:!selected {
+                background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #45607A, stop:1 #34495E);
+            }
+
+            QComboBox {
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                    stop:0 rgba(52, 73, 94, 0.8), stop:1 rgba(44, 62, 80, 0.8));
+                border: 2px solid #34495E;
+                border-radius: 6px;
+                padding: 4px 8px;
+                color: #ECF0F1;
+                font-size: 13px;
+                min-width: 50px;
+            }
+
+            QComboBox:hover {
+                border: 2px solid #3498DB;
+            }
+
+            QComboBox QAbstractItemView {
+                background: #2C3E50;
+                color: #ECF0F1;
+                selection-background-color: #3498DB;
+                border: 1px solid #34495E;
+            }
+
         """
         )
 
@@ -486,16 +538,6 @@ class MidiConverterGUI(QMainWindow):
 
         control_layout.addLayout(btn_row1)
 
-        # 按钮行2
-        btn_row2 = QHBoxLayout()
-
-        self.play_btn = QPushButton("▶️ 播放")
-        self.play_btn.setObjectName("playBtn")
-        self.play_btn.clicked.connect(self.toggle_play)
-        btn_row2.addWidget(self.play_btn)
-
-        control_layout.addLayout(btn_row2)
-
         # 添加作者信息
         credit_label = QLabel("by 66maer")
         credit_label.setObjectName("creditLabel")
@@ -510,6 +552,7 @@ class MidiConverterGUI(QMainWindow):
 
         self.play_listbox = QListWidget()
         self.play_listbox.itemSelectionChanged.connect(self.on_select_play_file)
+        self.play_listbox.currentItemChanged.connect(self.on_piano_roll_selection_changed)
         list_layout.addWidget(self.play_listbox)
 
         # 右侧面板
@@ -519,6 +562,126 @@ class MidiConverterGUI(QMainWindow):
 
         right_layout = QVBoxLayout(right_frame)
         right_layout.setContentsMargins(15, 15, 15, 15)
+
+        self.right_tabs = QTabWidget()
+        right_layout.addWidget(self.right_tabs)
+
+        self._setup_piano_roll_tab()
+        self._setup_log_tab()
+
+        # 设置分割器比例
+        splitter.setSizes([350, 650])
+
+    def _setup_piano_roll_tab(self):
+        """构建「铺面编辑」标签页"""
+        piano_tab = QWidget()
+        piano_layout = QVBoxLayout(piano_tab)
+        piano_layout.setContentsMargins(0, 0, 0, 0)
+
+        toolbar = QHBoxLayout()
+        title_label = QLabel("🎼 铺面编辑")
+        title_label.setFont(QFont("Microsoft YaHei UI", 14, QFont.Bold))
+        toolbar.addWidget(title_label)
+        toolbar.addStretch()
+
+        self.piano_dirty_label = QLabel("")
+        toolbar.addWidget(self.piano_dirty_label)
+
+        self.play_btn = QPushButton("▶️ 播放")
+        self.play_btn.setObjectName("playBtn")
+        self.play_btn.clicked.connect(self.toggle_play)
+        toolbar.addWidget(self.play_btn)
+
+        self.piano_save_btn = QPushButton("💾 保存")
+        self.piano_save_btn.setEnabled(False)
+        self.piano_save_btn.clicked.connect(self.save_piano_roll)
+        toolbar.addWidget(self.piano_save_btn)
+
+        piano_layout.addLayout(toolbar)
+
+        # 乐器音域框工具栏
+        range_toolbar = QHBoxLayout()
+
+        self.range_toggle_btn = QPushButton("🟨 显示映射")
+        self.range_toggle_btn.setCheckable(True)
+        self.range_toggle_btn.setEnabled(False)
+        self.range_toggle_btn.clicked.connect(self.on_range_toggle_clicked)
+        range_toolbar.addWidget(self.range_toggle_btn)
+
+        range_toolbar.addWidget(QLabel("最低映射:"))
+        self.range_low_combo = QComboBox()
+        self.range_low_combo.setEnabled(False)
+        range_toolbar.addWidget(self.range_low_combo)
+
+        range_toolbar.addWidget(QLabel("最高映射:"))
+        self.range_high_combo = QComboBox()
+        self.range_high_combo.setEnabled(False)
+        range_toolbar.addWidget(self.range_high_combo)
+
+        range_toolbar.addStretch()
+        piano_layout.addLayout(range_toolbar)
+
+        self._populate_range_combos()
+        self.range_low_combo.currentIndexChanged.connect(self.on_range_low_combo_changed)
+        self.range_high_combo.currentIndexChanged.connect(self.on_range_high_combo_changed)
+
+        self.piano_stack = QStackedWidget()
+
+        self.piano_placeholder = QLabel("请选择左侧播放列表中的曲目以查看铺面")
+        self.piano_placeholder.setAlignment(Qt.AlignCenter)
+        self.piano_stack.addWidget(self.piano_placeholder)  # index 0
+
+        self.piano_error_label = QLabel(
+            "无法解析该 MIDI 文件，请确认文件格式是否正确"
+        )
+        self.piano_error_label.setAlignment(Qt.AlignCenter)
+        self.piano_error_label.setWordWrap(True)
+        self.piano_stack.addWidget(self.piano_error_label)  # index 1
+
+        self.mapped_pitches = self._build_mapped_pitch_set()
+        self.piano_roll = PianoRollWidget(self.mapped_pitches)
+        self.piano_roll.notesChanged.connect(self.on_piano_roll_notes_changed)
+        self.piano_roll.instrumentRangeChanged.connect(self.on_piano_roll_range_dragged)
+        self.piano_stack.addWidget(self.piano_roll)  # index 2
+
+        self.piano_stack.setCurrentWidget(self.piano_placeholder)
+        piano_layout.addWidget(self.piano_stack)
+
+        self.right_tabs.addTab(piano_tab, "🎼 铺面编辑")
+
+    def _populate_range_combos(self):
+        """用28个键位标签（按音高升序）填充最低/最高映射下拉框"""
+        for combo in (self.range_low_combo, self.range_high_combo):
+            combo.blockSignals(True)
+            combo.clear()
+            for pitch, label in self.key_ladder:
+                combo.addItem(label, pitch)
+            combo.blockSignals(False)
+
+        default_low_pitch = self._pitch_for_label("A")
+        default_high_pitch = self._pitch_for_label("J")
+        self._select_combo_by_pitch(self.range_low_combo, default_low_pitch)
+        self._select_combo_by_pitch(self.range_high_combo, default_high_pitch)
+
+    def _pitch_for_label(self, label: str) -> int:
+        for pitch, key_label in self.key_ladder:
+            if key_label == label:
+                return pitch
+        return self.key_ladder[0][0]
+
+    def _select_combo_by_pitch(self, combo: QComboBox, pitch: int):
+        for i in range(combo.count()):
+            if combo.itemData(i) == pitch:
+                combo.blockSignals(True)
+                combo.setCurrentIndex(i)
+                combo.blockSignals(False)
+                return
+
+    def _setup_log_tab(self):
+        """构建「操作日志」标签页"""
+        log_tab = QWidget()
+        log_tab_layout = QVBoxLayout(log_tab)
+        log_tab_layout.setContentsMargins(0, 0, 0, 0)
 
         # 日志标题和功能按钮
         log_header = QHBoxLayout()
@@ -540,15 +703,26 @@ class MidiConverterGUI(QMainWindow):
         self.clear_btn.clicked.connect(self.clear_log)
         log_header.addWidget(self.clear_btn)
 
-        right_layout.addLayout(log_header)
+        log_tab_layout.addLayout(log_header)
 
         # 日志文本框
         self.log_text = QTextEdit()
         self.log_text.setReadOnly(True)
-        right_layout.addWidget(self.log_text)
+        log_tab_layout.addWidget(self.log_text)
 
-        # 设置分割器比例
-        splitter.setSizes([350, 650])
+        self.right_tabs.addTab(log_tab, "📋 操作日志")
+
+    def _build_mapped_pitch_set(self):
+        """计算88键范围内可被映射为游戏按键的MIDI音高集合"""
+        converter = MidiToKeysConverter()
+        mapped = set()
+        for pitch in range(21, 109):
+            key_sequence, _ = converter.midi_note_to_key_sequence(
+                pitch, {"sharp": False, "flat": False}
+            )
+            if key_sequence:
+                mapped.add(pitch)
+        return mapped
 
     def log(self, message: str):
         """添加日志信息"""
@@ -593,7 +767,7 @@ class MidiConverterGUI(QMainWindow):
             try:
                 self.log(f"📁 准备导入 {len(file_paths)} 个文件...")
 
-                # 开始批量转换
+                # 开始批量导入
                 self.batch_conversion_worker = BatchConversionWorker(file_paths)
                 self.batch_conversion_worker.log_signal.connect(self.log)
                 self.batch_conversion_worker.finished_signal.connect(
@@ -603,7 +777,7 @@ class MidiConverterGUI(QMainWindow):
 
                 # 禁用导入按钮
                 self.import_btn.setEnabled(False)
-                self.import_btn.setText("🔄 批量转换中...")
+                self.import_btn.setText("🔄 批量导入中...")
 
             except Exception as e:
                 self.log(f"❌ 导入失败: {str(e)}")
@@ -617,53 +791,32 @@ class MidiConverterGUI(QMainWindow):
 
         if success:
             self.refresh_play_list()
-            self.log("🎊 批量导入和转换完成!")
+            self.log("🎊 批量导入完成!")
         else:
-            self.log(f"❌ 批量转换失败: {result}")
-            QMessageBox.critical(self, "批量转换失败", f"批量转换失败：{result}")
+            self.log(f"❌ 批量导入失败: {result}")
+            QMessageBox.critical(self, "批量导入失败", f"批量导入失败：{result}")
 
     def refresh_play_list(self):
-        """刷新播放文件列表"""
+        """刷新播放文件列表（直接列出 midi/ 目录下已导入的 MIDI 文件）"""
         self.play_listbox.clear()
 
         try:
-            # 查找JSON文件（新格式）
-            json_files = glob.glob(os.path.join(get_play_code_dir_path(), "*.json"))
+            midi_files = glob.glob(
+                os.path.join(get_midi_dir_path(), "*.mid")
+            ) + glob.glob(os.path.join(get_midi_dir_path(), "*.midi"))
 
-            valid_files = 0
-            for file_path in sorted(json_files):
+            for file_path in sorted(midi_files):
                 filename = os.path.basename(file_path)
+                display_name = f"🎵 {os.path.splitext(filename)[0]}"
 
-                # 尝试加载JSON文件
-                try:
-                    with open(file_path, "r", encoding="utf-8") as f:
-                        data = json.load(f)
+                item = QListWidgetItem(display_name)
+                item.setData(Qt.UserRole, file_path)
+                self.play_listbox.addItem(item)
 
-                    # 检查是否是我们的完整数据文件
-                    if (
-                        data.get("type") == "jx3_piano_complete"
-                        and data.get("version") == "2.0"
-                    ):
-                        display_name = f"🎵 {data['filename']}"
-                        if data.get("transpose", 0) != 0:
-                            display_name += f" (移调{data['transpose']})"
-
-                        item = QListWidgetItem(display_name)
-                        item.setData(Qt.UserRole, file_path)
-                        self.play_listbox.addItem(item)
-                        valid_files += 1
-                    else:
-                        # 不是我们的格式，跳过
-                        continue
-
-                except Exception:
-                    # 文件格式不对，跳过
-                    continue
-
-            if valid_files > 0:
-                self.log(f"🔄 已刷新列表，找到 {valid_files} 个播放文件")
+            if midi_files:
+                self.log(f"🔄 已刷新列表，找到 {len(midi_files)} 个已导入的 MIDI 文件")
             else:
-                self.log("📝 暂无播放文件，请导入MIDI文件")
+                self.log("📝 暂无已导入的 MIDI 文件，请导入MIDI文件")
 
         except Exception as e:
             self.log(f"❌ 刷新列表失败: {str(e)}")
@@ -675,34 +828,217 @@ class MidiConverterGUI(QMainWindow):
             return
 
         try:
-            json_file_path = current_item.data(Qt.UserRole)
-            filename = os.path.basename(json_file_path)
+            midi_path = current_item.data(Qt.UserRole)
+            filename = os.path.basename(midi_path)
 
             self.log(f"📄 已选择: {filename}")
 
-            # 加载JSON文件
             try:
-                with open(json_file_path, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-
-                self.log("=" * 50)
-                self.log("📊 文件信息:")
-                self.log(f"  🎵 曲目名称: {data['filename']}")
-                self.log(f"  🎼 音轨数量: {data['statistics']['total_tracks']}")
-                self.log(f"  ⏱️ 总时长: {data['statistics']['total_duration']:.2f}秒")
-                self.log(f"  🎵 移调: {data['transpose']}半音")
-                self.log(f"  🎹 处理音轨: {data['processed_tracks']}")
-                self.log(f"  🔢 音符数量: {data['statistics']['note_count']}")
-                self.log(f"  ⚙️ 操作数量: {data['statistics']['operation_count']}")
-                self.log(f"  🎹 按键数量: {data['statistics']['key_count']}")
-                self.log(f"  ⏰ 延迟数量: {data['statistics']['delay_count']}")
-                self.log("=" * 50)
+                converter = MidiToKeysConverter()
+                analysis = converter.analyze_midi_file(midi_path)
+                if "error" in analysis:
+                    self.log(f"⚠️ 无法读取文件信息: {analysis['error']}")
+                else:
+                    file_info = analysis["文件信息"]
+                    self.log("=" * 50)
+                    self.log("📊 文件信息:")
+                    self.log(f"  🎼 音轨数量: {file_info['音轨数量']}")
+                    self.log(f"  ⏱️ 总时长: {file_info['总时长']:.2f}秒")
+                    self.log(f"  🔢 音符数量: {sum(analysis['音符统计'].values())}")
+                    self.log("=" * 50)
 
             except Exception as e:
                 self.log(f"⚠️ 无法读取文件信息: {str(e)}")
 
         except Exception as e:
             self.log(f"❌ 选择文件时出错: {str(e)}")
+
+    def on_piano_roll_selection_changed(self, current, previous):
+        """播放列表选中项变化时，按需切换铺面编辑区域显示的曲目"""
+        if self.piano_roll_dirty:
+            if not self._confirm_discard_piano_changes():
+                self.play_listbox.blockSignals(True)
+                self.play_listbox.setCurrentItem(previous)
+                self.play_listbox.blockSignals(False)
+                return
+            self.piano_roll_dirty = False
+            self._update_piano_dirty_indicator()
+
+        if current is None:
+            self.current_midi_path = None
+            self.piano_stack.setCurrentWidget(self.piano_placeholder)
+            self.piano_save_btn.setEnabled(False)
+            self._set_range_controls_enabled(False)
+            return
+
+        midi_path = current.data(Qt.UserRole)
+        self._load_piano_roll(midi_path)
+
+    def _confirm_discard_piano_changes(self) -> bool:
+        """存在未保存的铺面修改时，弹出确认框询问是否放弃"""
+        reply = QMessageBox.question(
+            self,
+            "未保存的修改",
+            "当前铺面存在未保存的修改，是否放弃这些修改？",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No,
+        )
+        return reply == QMessageBox.Yes
+
+    def _load_piano_roll(self, midi_path: str):
+        """从 MIDI 文件即时解析结构化音符数据并加载到铺面编辑区域"""
+        try:
+            converter = MidiToKeysConverter()
+            track_filter, transpose = converter.auto_select_tracks_and_transpose(midi_path)
+            if not track_filter:
+                raise ValueError("未找到足够的音符以自动选择音轨")
+            notes = converter.extract_notes(midi_path, track_filter=track_filter, transpose=transpose)
+        except Exception as e:
+            # 解析失败：不把 current_midi_path 指向一个从未成功加载音符的文件，
+            # 避免播放/保存误用铺面上残留的上一首曲目的音符
+            self.current_midi_path = None
+            self.log(f"❌ 解析 MIDI 失败: {e}")
+            self.piano_stack.setCurrentWidget(self.piano_error_label)
+            self.piano_save_btn.setEnabled(False)
+            self._set_range_controls_enabled(False)
+            return
+
+        self.current_midi_path = midi_path
+        self.current_processed_tracks = track_filter
+        self.current_transpose = transpose
+
+        # 新增音符必须落在实际会被处理/保存的音轨上，否则另存为 MIDI 时会被静默丢弃
+        self.piano_roll.set_default_track(track_filter[0])
+        self.piano_roll.set_notes(notes)
+        self.piano_roll.set_read_only(self.is_playing)
+        if not (self.is_playing and midi_path == self.currently_playing_midi_path):
+            self.piano_roll.set_playhead(None)
+
+        self._reset_instrument_range()
+        self._set_range_controls_enabled(True)
+
+        self.piano_stack.setCurrentWidget(self.piano_roll)
+        self.piano_roll_dirty = False
+        self.piano_save_btn.setEnabled(False)
+        self._update_piano_dirty_indicator()
+
+    def on_piano_roll_notes_changed(self):
+        """铺面上任意一次编辑（新增/删除/移动/调整时长）完成后触发"""
+        self.piano_roll_dirty = True
+        self.piano_save_btn.setEnabled(True)
+        self._update_piano_dirty_indicator()
+
+    def _update_piano_dirty_indicator(self):
+        self.piano_dirty_label.setText("● 未保存" if self.piano_roll_dirty else "")
+
+    def _set_range_controls_enabled(self, enabled: bool):
+        self.range_toggle_btn.setEnabled(enabled)
+        self.range_low_combo.setEnabled(enabled)
+        self.range_high_combo.setEnabled(enabled)
+        if not enabled:
+            self.range_toggle_btn.setChecked(False)
+
+    def _reset_instrument_range(self):
+        """每次切换选中曲目时，乐器音域框重置为默认范围（A~J）并隐藏"""
+        default_low_pitch = self._pitch_for_label("A")
+        default_high_pitch = self._pitch_for_label("J")
+
+        self._select_combo_by_pitch(self.range_low_combo, default_low_pitch)
+        self._select_combo_by_pitch(self.range_high_combo, default_high_pitch)
+
+        self.range_toggle_btn.setChecked(False)
+        self.range_toggle_btn.setText("🟨 显示映射")
+
+        self.piano_roll.set_instrument_range(default_low_pitch, default_high_pitch)
+        self.piano_roll.set_instrument_range_visible(False)
+
+    def on_range_toggle_clicked(self):
+        """切换乐器音域框在铺面中的可见性（纯视觉开关，不影响播放使用的范围）"""
+        visible = self.range_toggle_btn.isChecked()
+        self.range_toggle_btn.setText("🟨 隐藏映射" if visible else "🟨 显示映射")
+        self.piano_roll.set_instrument_range_visible(visible)
+
+    def on_range_low_combo_changed(self, index: int):
+        if self._syncing_range_combos or index < 0:
+            return
+        low_pitch = self.range_low_combo.itemData(index)
+        high_pitch = self.range_high_combo.itemData(self.range_high_combo.currentIndex())
+        if low_pitch > high_pitch:
+            self._select_combo_by_pitch(self.range_high_combo, low_pitch)
+            high_pitch = low_pitch
+        self.piano_roll.set_instrument_range(low_pitch, high_pitch)
+
+    def on_range_high_combo_changed(self, index: int):
+        if self._syncing_range_combos or index < 0:
+            return
+        high_pitch = self.range_high_combo.itemData(index)
+        low_pitch = self.range_low_combo.itemData(self.range_low_combo.currentIndex())
+        if high_pitch < low_pitch:
+            self._select_combo_by_pitch(self.range_low_combo, high_pitch)
+            low_pitch = high_pitch
+        self.piano_roll.set_instrument_range(low_pitch, high_pitch)
+
+    def on_piano_roll_range_dragged(self, low_pitch: int, high_pitch: int):
+        """拖动黄色音域框后，同步更新两个下拉框的显示值"""
+        self._syncing_range_combos = True
+        self._select_combo_by_pitch(self.range_low_combo, low_pitch)
+        self._select_combo_by_pitch(self.range_high_combo, high_pitch)
+        self._syncing_range_combos = False
+
+    def save_piano_roll(self):
+        """把铺面编辑结果另存为一个新的 MIDI 文件（不覆盖原始导入文件）"""
+        if not self.current_midi_path:
+            return
+
+        try:
+            notes = self.piano_roll.get_notes()
+            base_name = os.path.splitext(os.path.basename(self.current_midi_path))[0]
+            output_path = self._next_available_edited_midi_path(base_name)
+
+            converter = MidiToKeysConverter()
+            converter.write_notes_to_midi(
+                self.current_midi_path, notes, self.current_processed_tracks, output_path
+            )
+
+            self.piano_roll_dirty = False
+            self.piano_save_btn.setEnabled(False)
+            self._update_piano_dirty_indicator()
+            self.log(f"💾 已另存为新 MIDI 文件: {os.path.basename(output_path)}")
+
+            self.refresh_play_list()
+            self._select_play_list_item_by_path(output_path)
+
+        except Exception as e:
+            self.log(f"❌ 保存 MIDI 失败: {str(e)}")
+            QMessageBox.critical(self, "保存失败", f"保存 MIDI 失败：{str(e)}")
+
+    def _next_available_edited_midi_path(self, base_name: str) -> str:
+        """为另存为生成一个不与现有文件冲突的新文件名"""
+        midi_dir = get_midi_dir_path()
+        candidate = os.path.join(midi_dir, f"{base_name}_edited.mid")
+        if not os.path.exists(candidate):
+            return candidate
+        i = 2
+        while True:
+            candidate = os.path.join(midi_dir, f"{base_name}_edited_{i}.mid")
+            if not os.path.exists(candidate):
+                return candidate
+            i += 1
+
+    def _select_play_list_item_by_path(self, path: str):
+        for i in range(self.play_listbox.count()):
+            item = self.play_listbox.item(i)
+            if item.data(Qt.UserRole) == path:
+                self.play_listbox.setCurrentRow(i)
+                return
+
+    def on_play_progress(self, elapsed: float):
+        """播放线程上报的实时播放进度，驱动铺面播放线"""
+        if (
+            self.currently_playing_midi_path
+            and self.current_midi_path == self.currently_playing_midi_path
+        ):
+            self.piano_roll.set_playhead(elapsed)
 
     def toggle_play(self):
         """切换播放状态"""
@@ -718,20 +1054,50 @@ class MidiConverterGUI(QMainWindow):
             QMessageBox.warning(self, "警告", "请先选择一个播放文件")
             return
 
+        if not self.current_midi_path or current_item.data(Qt.UserRole) != self.current_midi_path:
+            QMessageBox.warning(self, "警告", "请先在铺面中打开要播放的曲目")
+            return
+
         try:
-            json_file_path = current_item.data(Qt.UserRole)
-            filename = os.path.basename(json_file_path)
+            filename = os.path.basename(self.current_midi_path)
+
+            # 基于铺面当前状态（含编辑）与乐器音域框范围，在内存中生成播放数据
+            notes = self.piano_roll.get_notes()
+            low_pitch, high_pitch = self.piano_roll.get_instrument_range()
+
+            converter = MidiToKeysConverter()
+            result = converter.regenerate_playback_from_notes(
+                notes, pitch_range=(low_pitch, high_pitch)
+            )
+            playback_data = result["playback_data"]
+
+            if not playback_data:
+                QMessageBox.warning(self, "警告", "当前乐器音域范围内没有可播放的音符")
+                return
+
+            data = {
+                "type": "jx3_piano_complete",
+                "version": "2.0",
+                "filename": os.path.splitext(filename)[0],
+                "transpose": self.current_transpose,
+                "processed_tracks": self.current_processed_tracks,
+                "playback_data": playback_data,
+                "statistics": result["statistics"],
+            }
 
             self.log("")
             self.log(f"▶️ 开始播放: {filename}")
 
-            # 使用新的播放线程
-            self.play_thread = PlayThread(json_file_path)
+            # 使用新的播放线程（直接播放内存数据，不落盘）
+            self.play_thread = PlayThread(data)
             self.play_thread.log_signal.connect(self.log)
+            self.play_thread.progress_signal.connect(self.on_play_progress)
             self.play_thread.finished_signal.connect(self.on_play_finished)
             self.play_thread.start()
 
             self.is_playing = True
+            self.currently_playing_midi_path = self.current_midi_path
+            self.piano_roll.set_read_only(True)
 
             # 更新按钮
             self.play_btn.setText("⏹️ 停止(ESC)")
@@ -757,6 +1123,9 @@ class MidiConverterGUI(QMainWindow):
                 pass
 
         self.is_playing = False
+        self.currently_playing_midi_path = None
+        self.piano_roll.set_read_only(False)
+        self.piano_roll.set_playhead(None)
 
         # 更新按钮
         self.play_btn.setText("▶️ 播放")
@@ -767,6 +1136,10 @@ class MidiConverterGUI(QMainWindow):
 
     def closeEvent(self, event):
         """程序关闭事件"""
+        if self.piano_roll_dirty:
+            if not self._confirm_discard_piano_changes():
+                event.ignore()
+                return
         if self.is_playing:
             self.stop_playing()
         event.accept()
@@ -775,7 +1148,10 @@ class MidiConverterGUI(QMainWindow):
         """播放完成后的回调"""
         if self.is_playing:  # 只在确实在播放时才更新状态
             self.is_playing = False
+            self.currently_playing_midi_path = None
             self.play_thread = None
+            self.piano_roll.set_read_only(False)
+            self.piano_roll.set_playhead(None)
 
             # 更新按钮
             self.play_btn.setText("▶️ 播放")

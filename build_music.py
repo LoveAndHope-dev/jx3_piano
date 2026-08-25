@@ -77,6 +77,16 @@ def ensure_directories_exist():
         # 即使创建文件夹失败，程序也应该继续运行
 
 
+def get_natural_key_ladder() -> List[Tuple[int, str]]:
+    """
+    返回游戏全部自然音键位映射（共28个），按 MIDI 音高升序排列。
+    单一数据来源为 MidiToKeysConverter.base_note_mapping，供乐器音域框
+    的下拉框/拖动吸附使用，避免与按键映射表出现第二份不一致的副本。
+    """
+    converter = MidiToKeysConverter()
+    return sorted(converter.base_note_mapping.items())
+
+
 class MidiToKeysConverter:
     def __init__(self, log_callback=None):
         """
@@ -721,6 +731,306 @@ class MidiToKeysConverter:
 
         return result
 
+    def _scan_base_tempo(self, mid: "mido.MidiFile") -> int:
+        """
+        扫描整个文件（不受 track_filter 限制）找到第一个 set_tempo 事件的值，
+        作为绝对时间换算的基准 tempo。很多 Type 1 MIDI 文件把 tempo 放在不含
+        音符的第 0 音轨（常常不在 track_filter 内），如果只在被处理的音轨内查找
+        tempo 会漏掉它，导致时间换算基于错误的默认 120bpm。
+        """
+        for track in mid.tracks:
+            for msg in track:
+                if msg.type == "set_tempo":
+                    return msg.tempo
+        return 500000
+
+    def auto_select_tracks_and_transpose(
+        self, midi_file_path: str
+    ) -> Tuple[List[int], int]:
+        """
+        自动选择要处理的音轨（音符数最多的前两条）与最佳移调，逻辑与
+        convert_midi 中的自动选择保持一致，但不生成/保存任何文件，供铺面
+        在选中曲目时即时调用。
+        """
+        analysis = self.analyze_midi_file(midi_file_path)
+        if "error" in analysis:
+            return [], 0
+
+        transpose = self.find_best_transpose(midi_file_path)
+
+        best_tracks = []
+        for i, track_info in enumerate(analysis["音轨详情"]):
+            if track_info["音符事件"] > 10:
+                best_tracks.append((i, track_info["音符事件"]))
+        best_tracks.sort(key=lambda x: x[1], reverse=True)
+        track_filter = [track[0] for track in best_tracks[:2]]
+
+        return track_filter, transpose
+
+    def write_notes_to_midi(
+        self,
+        source_midi_path: str,
+        notes: List[Dict[str, Any]],
+        processed_tracks: List[int],
+        output_path: str,
+    ) -> None:
+        """
+        把（可能已被铺面编辑器修改的）音符列表另存为一个新的 MIDI 文件。
+        只重写 processed_tracks 涉及的音轨的音符内容，该音轨内原有的非
+        note_on/note_off 事件（音轨名、乐器、原有 tempo 等）原样保留在新
+        音轨开头；未被处理的其他音轨与文件级 ticks_per_beat 完全不变。
+        """
+        mid = mido.MidiFile(source_midi_path)
+        tempo = self._scan_base_tempo(mid)
+
+        processed_set = set(processed_tracks)
+        fallback_track = processed_tracks[0] if processed_tracks else 0
+
+        notes_by_track: Dict[int, List[Dict[str, Any]]] = defaultdict(list)
+        for note in notes:
+            track_idx = int(note.get("track", 0))
+            # 音符所在音轨不在本次处理范围内（例如铺面新增音符时取到了过期的默认音轨）
+            # 时归入第一个已处理音轨，避免静默丢弃
+            if track_idx not in processed_set:
+                track_idx = fallback_track
+            notes_by_track[track_idx].append(note)
+
+        for track_idx in processed_tracks:
+            if track_idx >= len(mid.tracks):
+                continue
+
+            original_track = mid.tracks[track_idx]
+            meta_messages = [
+                msg
+                for msg in original_track
+                if msg.type not in ("note_on", "note_off", "end_of_track")
+            ]
+
+            new_track = mido.MidiTrack()
+            for msg in meta_messages:
+                new_track.append(msg.copy(time=0))
+
+            events: List[Tuple[int, Any]] = []
+            for note in sorted(
+                notes_by_track.get(track_idx, []), key=lambda n: n.get("start", 0.0)
+            ):
+                pitch = int(note["pitch"])
+                channel = int(note.get("channel", 0))
+                velocity = max(1, min(127, int(note.get("velocity", 100))))
+                start_seconds = float(note.get("start", 0.0))
+                duration_seconds = max(float(note.get("duration", 0.05)), 0.02)
+
+                start_tick = int(
+                    round(mido.second2tick(start_seconds, mid.ticks_per_beat, tempo))
+                )
+                end_tick = int(
+                    round(
+                        mido.second2tick(
+                            start_seconds + duration_seconds, mid.ticks_per_beat, tempo
+                        )
+                    )
+                )
+                events.append(
+                    (start_tick, mido.Message("note_on", note=pitch, velocity=velocity, channel=channel))
+                )
+                events.append(
+                    (end_tick, mido.Message("note_off", note=pitch, velocity=0, channel=channel))
+                )
+
+            events.sort(key=lambda e: e[0])
+            last_tick = 0
+            for tick, msg in events:
+                delta = max(0, tick - last_tick)
+                new_track.append(msg.copy(time=delta))
+                last_tick = tick
+
+            new_track.append(mido.MetaMessage("end_of_track", time=0))
+            mid.tracks[track_idx] = new_track
+
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        mid.save(output_path)
+
+    def extract_notes(
+        self,
+        midi_file_path: str,
+        track_filter: List[int] = None,
+        channel_filter: List[int] = None,
+        transpose: int = 0,
+    ) -> List[Dict[str, Any]]:
+        """
+        从MIDI文件直接解析出结构化音符列表（用于铺面编辑），保留独立的
+        音高/起始时间/时长信息，而不是像 convert_to_playback_data 那样
+        压缩成按键+延迟序列。
+
+        返回: [{"id", "track", "channel", "pitch", "start", "duration",
+                "velocity", "mapped"}, ...]，按 start 时间升序排列。
+        """
+        mid = mido.MidiFile(midi_file_path)
+        notes: List[Dict[str, Any]] = []
+        tempo = self._scan_base_tempo(mid)
+
+        for track_idx, track in enumerate(mid.tracks):
+            if track_filter and track_idx not in track_filter:
+                continue
+
+            track_time = 0.0
+            active: Dict[Tuple[int, int], Tuple[float, int]] = {}
+
+            for msg in track:
+                if msg.type == "set_tempo":
+                    tempo = msg.tempo
+
+                track_time += mido.tick2second(msg.time, mid.ticks_per_beat, tempo)
+
+                if msg.type == "note_on" and msg.velocity > 0:
+                    if channel_filter and msg.channel not in channel_filter:
+                        continue
+                    active[(msg.channel, msg.note)] = (track_time, msg.velocity)
+                elif msg.type == "note_off" or (
+                    msg.type == "note_on" and msg.velocity == 0
+                ):
+                    if channel_filter and msg.channel not in channel_filter:
+                        continue
+                    key = (msg.channel, msg.note)
+                    if key in active:
+                        start_time, velocity = active.pop(key)
+                        notes.append(
+                            self._build_note_entry(
+                                track_idx,
+                                msg.channel,
+                                msg.note,
+                                start_time,
+                                track_time,
+                                velocity,
+                                transpose,
+                            )
+                        )
+
+            # 轨道结束时仍未收到 note_off 的音符，以轨道末尾时间作为结束
+            for (channel, note), (start_time, velocity) in active.items():
+                notes.append(
+                    self._build_note_entry(
+                        track_idx,
+                        channel,
+                        note,
+                        start_time,
+                        track_time,
+                        velocity,
+                        transpose,
+                    )
+                )
+
+        notes.sort(key=lambda n: (n["start"], n["track"]))
+        for i, note in enumerate(notes):
+            note["id"] = i
+
+        return notes
+
+    def _build_note_entry(
+        self,
+        track_idx: int,
+        channel: int,
+        note: int,
+        start_time: float,
+        end_time: float,
+        velocity: int,
+        transpose: int,
+    ) -> Dict[str, Any]:
+        """构造单个音符条目（内部辅助方法）"""
+        duration = max(end_time - start_time, 0.02)
+        transposed_note = self.transpose_note(note, transpose)
+        temp_state = {"sharp": False, "flat": False}
+        key_sequence, _ = self.midi_note_to_key_sequence(transposed_note, temp_state)
+        return {
+            "id": 0,  # 由调用方在排序后重新分配
+            "track": track_idx,
+            "channel": channel,
+            "pitch": transposed_note,
+            "start": round(start_time, 3),
+            "duration": round(duration, 3),
+            "velocity": velocity,
+            "mapped": bool(key_sequence),
+        }
+
+    def regenerate_playback_from_notes(
+        self,
+        notes: List[Dict[str, Any]],
+        pitch_range: Optional[Tuple[int, int]] = None,
+    ) -> Dict[str, Any]:
+        """
+        由（可能已被铺面编辑器修改的）结构化音符列表重新生成播放数据与统计信息。
+        复用 midi_note_to_key_sequence 状态机，按音符起始时间排序后统一走一遍
+        状态机，再按相同时间戳分组，逻辑上等价于 convert_to_playback_data。
+
+        pitch_range: 可选的 (最低映射音高, 最高映射音高) 闭区间（未扩展半音）。
+        传入时会在闭区间基础上向下/向上各扩展 1 个半音，只保留音高落在扩展
+        区间内的音符（乐器音域框功能使用）；为 None 时不做范围过滤，保持原有
+        （复用全部 28 个键位映射系统）行为不变。
+
+        返回: {"playback_data", "note_statistics", "statistics"}
+        """
+        sorted_notes = sorted(notes, key=lambda n: (n.get("start", 0.0), n.get("track", 0)))
+
+        range_low = pitch_range[0] - 1 if pitch_range else None
+        range_high = pitch_range[1] + 1 if pitch_range else None
+
+        current_state = {"sharp": False, "flat": False}
+        grouped: Dict[float, List[str]] = {}
+        note_statistics: Dict[int, int] = defaultdict(int)
+
+        for note in sorted_notes:
+            pitch = int(note["pitch"])
+            note_statistics[pitch] += 1
+
+            if pitch_range is not None and not (range_low <= pitch <= range_high):
+                continue
+
+            key_sequence, current_state = self.midi_note_to_key_sequence(
+                pitch, current_state
+            )
+            if not key_sequence:
+                continue
+
+            start = round(float(note.get("start", 0.0)), 3)
+            grouped.setdefault(start, []).extend(key_sequence)
+
+        playback_data: List[Any] = []
+        last_time = 0.0
+        is_first_group = True
+        for t in sorted(grouped.keys()):
+            if not is_first_group:
+                delay = t - last_time
+                if delay > 0:
+                    playback_data.append(round(delay, 3))
+            playback_data.extend(grouped[t])
+            last_time = t
+            is_first_group = False
+
+        total_duration = max(
+            (
+                float(n.get("start", 0.0)) + float(n.get("duration", 0.0))
+                for n in notes
+            ),
+            default=0.0,
+        )
+
+        statistics = {
+            "total_tracks": len({n.get("track", 0) for n in notes}),
+            "total_duration": total_duration,
+            "note_count": len(notes),
+            "operation_count": len(playback_data),
+            "key_count": sum(1 for item in playback_data if isinstance(item, str)),
+            "delay_count": sum(
+                1 for item in playback_data if isinstance(item, (int, float))
+            ),
+        }
+
+        return {
+            "playback_data": playback_data,
+            "note_statistics": dict(note_statistics),
+            "statistics": statistics,
+        }
+
     def generate_complete_data_file(
         self,
         midi_file_path: str,
@@ -755,6 +1065,11 @@ class MidiToKeysConverter:
         if not playback_data:
             playback_data = []
 
+        # 解析结构化音符列表（供铺面编辑器使用）
+        notes = self.extract_notes(
+            midi_file_path, track_filter, channel_filter, transpose
+        )
+
         # 准备文件名
         base_name = (
             os.path.basename(midi_file_path).replace(".mid", "").replace(".midi", "")
@@ -782,6 +1097,8 @@ class MidiToKeysConverter:
             "note_statistics": analysis["音符统计"],
             # 播放数据
             "playback_data": playback_data,
+            # 结构化音符列表（铺面编辑用；音高已应用移调）
+            "notes": notes,
             # 统计信息
             "statistics": {
                 "total_tracks": len(analysis["音轨详情"]),

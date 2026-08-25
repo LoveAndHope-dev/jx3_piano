@@ -14,14 +14,21 @@ from typing import List, Optional, Callable
 class JX3Player:
     """剑网三自动演奏播放器"""
 
-    def __init__(self, log_callback: Optional[Callable] = None):
+    def __init__(
+        self,
+        log_callback: Optional[Callable] = None,
+        progress_callback: Optional[Callable] = None,
+    ):
         """
         初始化播放器
 
         Args:
             log_callback: 日志回调函数，用于向GUI发送日志信息
+            progress_callback: 播放进度回调函数，参数为距离实际开始播放的
+                已耗时秒数，用于GUI驱动铺面上的播放线
         """
         self.log_callback = log_callback
+        self.progress_callback = progress_callback
         self.should_stop = False
         self.dd = None
         self.keyboard = None
@@ -176,8 +183,12 @@ class JX3Player:
             return False
 
         start_time = time.time()
+        last_progress_emit = 0.0
         key_count = 0
         delay_count = 0
+
+        if self.progress_callback:
+            self.progress_callback(0.0)
 
         # 按键映射说明
         self._log("🎹 按键映射:")
@@ -212,6 +223,11 @@ class JX3Player:
                         time.sleep(step)
                         remaining_delay -= step
 
+                        now = time.time()
+                        if self.progress_callback and (now - last_progress_emit) >= 0.05:
+                            self.progress_callback(now - start_time)
+                            last_progress_emit = now
+
                     if self.is_stop_requested():
                         self._log("🛑 播放被中断")
                         return False
@@ -230,8 +246,15 @@ class JX3Player:
                 except Exception as e:
                     self._log(f"⚠️ 按键 {item} 执行失败: {e}")
 
+            now = time.time()
+            if self.progress_callback and (now - last_progress_emit) >= 0.05:
+                self.progress_callback(now - start_time)
+                last_progress_emit = now
+
         # 播放完成统计
         elapsed = time.time() - start_time
+        if self.progress_callback:
+            self.progress_callback(elapsed)
         self._log("✅ 播放完成")
         self._log(f"⏱️ 总播放时长: {elapsed:.1f}秒")
         self._log(f"🎹 共执行 {key_count} 个按键操作")
@@ -252,10 +275,28 @@ class JX3Player:
         try:
             with open(json_file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
+        except Exception as e:
+            self._log(f"❌ 播放失败: {e}")
+            return False
 
-            # 检查文件格式
+        return self.play_from_data(data)
+
+    def play_from_data(self, data: dict) -> bool:
+        """
+        直接从内存中的完整数据字典开始播放，不经过任何文件读取。
+        供铺面根据当前音符与乐器音域框实时生成的播放数据使用。
+
+        Args:
+            data: 与 play_from_json 读取的 JSON 结构相同的字典，
+                  至少需要 "type"/"version"/"playback_data" 字段。
+
+        Returns:
+            bool: True表示播放完成，False表示被中断或出错
+        """
+        try:
+            # 检查数据格式
             if data.get("type") != "jx3_piano_complete" or data.get("version") != "2.0":
-                self._log(f"❌ 不支持的文件格式: {json_file_path}")
+                self._log("❌ 不支持的播放数据格式")
                 return False
 
             # 获取播放数据
@@ -264,14 +305,14 @@ class JX3Player:
                 self._log("❌ 播放数据为空")
                 return False
 
-            # 显示文件信息
+            # 显示曲目信息
             filename = data.get("filename", "未知")
             transpose = data.get("transpose", 0)
             stats = data.get("statistics", {})
 
             self._log(f"🎵 曲目: {filename}")
             if transpose != 0:
-                self._log(f"� 移调: {transpose}半音")
+                self._log(f"🎵 移调: {transpose}半音")
             self._log(
                 f"📊 统计: {stats.get('operation_count', 0)}个操作, {stats.get('key_count', 0)}个按键, {stats.get('delay_count', 0)}个延迟"
             )

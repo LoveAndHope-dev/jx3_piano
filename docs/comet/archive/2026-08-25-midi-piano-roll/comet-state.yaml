@@ -1,0 +1,215 @@
+schema: comet.native.v4
+name: midi-piano-roll
+language: zh-CN
+phase: archive
+status: done
+state_version: 14
+brief: brief.md
+spec_changes: []
+workspace:
+  isolation: current
+  change_branch: main
+  target_branch: main
+  finish: null
+loop:
+  stage: done
+  goal_cycle: 2
+  iteration: 1
+  attempt: 1
+  retry_epoch: 0
+  failed_iteration_count: 0
+  no_progress_count: 0
+  execution_failure_count: 0
+  previous_unresolved_ids: []
+  next_action: null
+acceptance:
+  - id: A1
+    source: brief.md
+    text: "A1: 成功导入并转换一个 `.mid` 文件后，在播放列表中点击该曲目，无需任何弹窗，主窗口内「🎼 铺面编辑」标签页立即显示覆盖 88
+      键范围的钢琴铺面，已有音符按正确的音高（纵轴）与起始时间/时长（横轴）渲染。"
+    result: passed
+    reason:
+      text: 选中曲目后铺面切换显示，音符矩形位置=start*70/(108-pitch)*10，渲染正确。
+      truncated: false
+  - id: A2
+    source: brief.md
+    text: "A2: 在铺面中拖动一个可映射音符改变其音高和起始时间，点击保存后，重新查看该曲目的
+      `play_code/*.json`，`playback_data` 反映了修改后的音高对应按键与新的时间间隔。"
+    result: passed
+    reason:
+      text: 移动音高与起始时间并保存后，playback_data 反映新按键与新时间间隔（['W', 2.0, 'E']）。
+      truncated: false
+  - id: A3
+    source: brief.md
+    text: "A3: 在铺面中拖动一个音符的右边缘缩短/延长其时长，铺面上矩形宽度相应变化（可视化/编辑辅助）；保存后 `playback_data`
+      不因该时长调整而改变（游戏按键回放是点按模型，时长不改变按键与延迟），与调整前保持一致。"
+    result: passed
+    reason:
+      text: 仅修改 duration（0.5→9.0）并保存，playback_data 与修改前基线完全一致（['Q', 1.0,
+        'W']）；regenerate_playback_from_notes 从不读取 duration 构建 playback_data，与
+        brief.md 修订后的 A3 一致。
+      truncated: false
+  - id: A4
+    source: brief.md
+    text: "A4: 在铺面空白处新增一个可映射音符，保存后 `playback_data` 中出现对应新按键，且
+      `statistics.note_count`/`key_count` 相应增加。"
+    result: passed
+    reason:
+      text: 新增可映射音符并保存后 playback_data 出现对应按键，note_count/key_count 各 +1。
+      truncated: false
+  - id: A5
+    source: brief.md
+    text: "A5: 选中一个已存在的音符并删除，保存后 `playback_data` 不再包含该音符对应按键，其余音符时间关系保持正确。"
+    result: passed
+    reason:
+      text: 删除音符并保存后对应按键消失，其余按键保持。
+      truncated: false
+  - id: A6
+    source: brief.md
+    text: "A6: 将一个音符拖动到映射范围之外（如超出约 4 个八度的可映射区间），铺面上以区别于可映射音符的样式显示；保存后该音符不出现在生成的
+      `playback_data` 中（与现有静默跳过一致）。"
+    result: passed
+    reason:
+      text: "拖动到映射范围外 mapped=False，视觉样式区分（#7F8C8D/#E59866 vs #58D68D/#F5B041）；保存后未出现在
+        playback_data 中。"
+      truncated: false
+  - id: A7
+    source: brief.md
+    text: "A7: 对一个由旧版本（不含结构化音符列表字段）生成的 `play_code/*.json`
+      在播放列表中点击选中，铺面区域给出明确提示（需要重新导入该 MIDI 才能编辑），不会崩溃或产生错误数据。"
+    result: passed
+    reason:
+      text: 缺少 notes 字段的文件被选中时切换到提示文案，Save 禁用，无异常。
+      truncated: false
+  - id: A8
+    source: brief.md
+    text: "A8: 铺面存在未保存的修改时切换选中到另一个曲目，或尝试关闭程序，工具会提示用户确认是否放弃未保存的更改。"
+    result: passed
+    reason:
+      text: 存在未保存修改时切换曲目/关闭窗口触发确认框，取消后选中项与 dirty 状态回退/保留。
+      truncated: false
+  - id: A9
+    source: brief.md
+    text: "A9:
+      点击▶️播放开始播放某曲目，且铺面区域当前显示的正是该曲目时，铺面上出现随实际播放耗时移动的播放线；播放正常结束或被手动停止后，播放线消失或复位。"
+    result: passed
+    reason:
+      text: 播放线基于 time.time() 实际耗时；仅当显示曲目与播放曲目一致时显示，停止/结束后清除。
+      truncated: false
+  - id: A10
+    source: brief.md
+    text: "A10: 播放进行中，铺面的新增/删除/拖动/调整时长交互被禁用；播放结束或停止后恢复可用。"
+    result: passed
+    reason:
+      text: 播放期间 set_read_only(True) 阻止所有编辑交互；停止/结束后恢复。
+      truncated: false
+builder_handoff:
+  candidate_id: 99439021-0d29-459f-9462-c8c1474ec903
+  identity_provider: skill-coordinated
+  builder_execution_ref: skill-coordinated:builder:1771a7bf-6b1f-45af-ad13-212e6086dc56
+  iteration: 1
+  summary:
+    text: 修复 A3：与用户确认音符时长仅作为铺面可视化/编辑辅助，保存后不影响 playback_data（已更新 brief.md 的 A3 验收文字与
+      Decisions）；额外收紧了 Save
+      按钮状态——铺面刚加载（未编辑）时禁用，任意编辑后启用，保存成功后重新禁用，避免“未做任何编辑就点击保存”导致 playback_data
+      时间间隔发生非预期变化（Verify 阶段发现的风险项）。其余 9 项验收（A1/A2/A4-A10）保持原实现不变。
+    truncated: false
+  addressed_acceptance_ids:
+    - A3
+  checks:
+    - name:
+        text: python -m ast 语法检查 gui.py/build_music.py/player.py/piano_roll.py
+        truncated: false
+      result: not-run
+      note: null
+  checks_truncated: false
+  known_limits:
+    - text: note_statistics
+        在保存后按“已移调音高”记键，与导入直出文件按“原始未移调音高”记键的既有约定不一致；该字段当前未被任何代码读取，属于低风险的语义漂移，未做修复。
+      truncated: false
+    - text: 未做真实游戏内按键回放的端到端验证（受限于沙箱无法连接 DD 驱动/游戏客户端）。
+      truncated: false
+  known_limits_truncated: false
+  submitted_at: 2026-08-25T16:25:59.598Z
+blockers: []
+verification:
+  candidate_id: 99439021-0d29-459f-9462-c8c1474ec903
+  identity_provider: skill-coordinated
+  verifier_execution_ref: skill-coordinated:verifier:9f865cae-9927-4073-aed1-cca5daebc39a
+  iteration: 1
+  attempt: 1
+  assurance: skill-coordinated
+  verdict: pass
+  checks: []
+  summary:
+    text: 10/10 项验收通过。A3 已按用户确认的收窄范围（时长仅可视化，不影响
+      playback_data）重新验证通过；此前发现的“零编辑保存导致时间间隔意外变化”风险已通过 Save 按钮的 dirty
+      状态门控关闭，并独立验证四个状态迁移点均正确。
+    truncated: false
+  risks:
+    - text: note_statistics 字段在首次保存前后语义不同：保存前来自 analyze_midi_file，按原始未移调音高统计全部音轨；保存后由
+        regenerate_playback_from_notes 生成，按已移调音高、仅统计当前编辑后的 processed_tracks
+        音符。属合理的既有语义漂移（不在任何验收项约束范围内），当前无代码读取该字段，非阻塞。
+      truncated: false
+  risks_truncated: false
+  completed_at: 2026-08-25T16:30:45.212Z
+history:
+  - goal_cycle: 1
+    iteration: 1
+    attempt: 1
+    outcome: execution-error
+    unresolved_ids: []
+    summary:
+      text: "Native Verifier response was invalid: Native Verifier risks must be text
+        entries"
+      truncated: false
+    completed_at: 2026-08-25T16:20:28.670Z
+  - goal_cycle: 1
+    iteration: 1
+    attempt: 2
+    outcome: fail
+    unresolved_ids:
+      - A3
+    summary:
+      text: 9/10 项验收通过；A3（拖动调整时长应影响保存后 playback_data
+        的延迟）未实现——当前游戏按键回放模型是纯“点按”而非“按住”，delay 完全由音符 start 决定，duration
+        字段目前对导出数据无任何影响，只影响铺面上矩形的可视宽度。这是一个需要在 Shape 阶段与用户核实的真实需求缺口：player.py 的
+        key_press 实际支持 duration 按住参数（当前未被调用），但按住语义会改变 playback_data 结构和
+        player.py 执行逻辑，与本次已确认的 Non-goals（不修改 player.py 按键执行逻辑）冲突，需要用户决定是放宽
+        A3（时长仅可视化，不影响播放）还是扩大范围实现真实按住时长。
+      truncated: false
+    completed_at: 2026-08-25T16:20:58.385Z
+  - goal_cycle: 1
+    iteration: 2
+    attempt: 0
+    outcome: recovery
+    unresolved_ids: []
+    summary:
+      text: Formal requirement write requested for brief.md
+      truncated: false
+    completed_at: 2026-08-25T16:22:13.522Z
+  - goal_cycle: 2
+    iteration: 1
+    attempt: 1
+    outcome: pass
+    unresolved_ids: []
+    summary:
+      text: 10/10 项验收通过。A3 已按用户确认的收窄范围（时长仅可视化，不影响
+        playback_data）重新验证通过；此前发现的“零编辑保存导致时间间隔意外变化”风险已通过 Save 按钮的 dirty
+        状态门控关闭，并独立验证四个状态迁移点均正确。
+      truncated: false
+    completed_at: 2026-08-25T16:30:45.212Z
+history_overflow:
+  dropped_entries: 0
+  first_dropped_at: null
+  last_dropped_at: null
+  outcome_counts:
+    pass: 0
+    fail: 0
+    blocked: 0
+    execution-error: 0
+    recovery: 0
+verification_result: pass
+verification_report: verification.md
+archived: true
+created_at: 2026-08-25T15:51:38.785Z

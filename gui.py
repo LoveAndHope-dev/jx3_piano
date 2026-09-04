@@ -237,7 +237,6 @@ class MidiConverterGUI(QMainWindow):
 
         # 乐器音域框相关变量
         self.key_ladder = get_natural_key_ladder()
-        self._syncing_range_combos = False
 
         # 设置应用样式
         self.setup_style()
@@ -641,7 +640,6 @@ class MidiConverterGUI(QMainWindow):
         self.mapped_pitches = self._build_mapped_pitch_set()
         self.piano_roll = PianoRollWidget(self.mapped_pitches)
         self.piano_roll.notesChanged.connect(self.on_piano_roll_notes_changed)
-        self.piano_roll.instrumentRangeChanged.connect(self.on_piano_roll_range_dragged)
         self.piano_stack.addWidget(self.piano_roll)  # index 2
 
         self.piano_stack.setCurrentWidget(self.piano_placeholder)
@@ -650,7 +648,7 @@ class MidiConverterGUI(QMainWindow):
         self.right_tabs.addTab(piano_tab, "🎼 铺面编辑")
 
     def _populate_range_combos(self):
-        """用28个键位标签（按音高升序）填充最低/最高映射下拉框"""
+        """用全部88键范围内的自然音键位标签（按音高升序）填充最低/最高映射下拉框"""
         for combo in (self.range_low_combo, self.range_high_combo):
             combo.blockSignals(True)
             combo.clear()
@@ -959,31 +957,34 @@ class MidiConverterGUI(QMainWindow):
         self.piano_roll.set_instrument_range_visible(visible)
 
     def on_range_low_combo_changed(self, index: int):
-        if self._syncing_range_combos or index < 0:
+        """最低映射变化：只重新计算框体跨度（保持框体当前低边界不变），不移动框体位置"""
+        if index < 0:
             return
         low_pitch = self.range_low_combo.itemData(index)
         high_pitch = self.range_high_combo.itemData(self.range_high_combo.currentIndex())
         if low_pitch > high_pitch:
             self._select_combo_by_pitch(self.range_high_combo, low_pitch)
             high_pitch = low_pitch
-        self.piano_roll.set_instrument_range(low_pitch, high_pitch)
+        span_idx = self._ladder_index_for_pitch(high_pitch) - self._ladder_index_for_pitch(low_pitch)
+        self.piano_roll.set_instrument_span(span_idx)
 
     def on_range_high_combo_changed(self, index: int):
-        if self._syncing_range_combos or index < 0:
+        """最高映射变化：只重新计算框体跨度（保持框体当前低边界不变），不移动框体位置"""
+        if index < 0:
             return
         high_pitch = self.range_high_combo.itemData(index)
         low_pitch = self.range_low_combo.itemData(self.range_low_combo.currentIndex())
         if high_pitch < low_pitch:
             self._select_combo_by_pitch(self.range_low_combo, high_pitch)
             low_pitch = high_pitch
-        self.piano_roll.set_instrument_range(low_pitch, high_pitch)
+        span_idx = self._ladder_index_for_pitch(high_pitch) - self._ladder_index_for_pitch(low_pitch)
+        self.piano_roll.set_instrument_span(span_idx)
 
-    def on_piano_roll_range_dragged(self, low_pitch: int, high_pitch: int):
-        """拖动黄色音域框后，同步更新两个下拉框的显示值"""
-        self._syncing_range_combos = True
-        self._select_combo_by_pitch(self.range_low_combo, low_pitch)
-        self._select_combo_by_pitch(self.range_high_combo, high_pitch)
-        self._syncing_range_combos = False
+    def _ladder_index_for_pitch(self, pitch: int) -> int:
+        for i, (p, _label) in enumerate(self.key_ladder):
+            if p == pitch:
+                return i
+        return 0
 
     def save_piano_roll(self):
         """把铺面编辑结果另存为一个新的 MIDI 文件（不覆盖原始导入文件）"""
@@ -1064,10 +1065,13 @@ class MidiConverterGUI(QMainWindow):
             # 基于铺面当前状态（含编辑）与乐器音域框范围，在内存中生成播放数据
             notes = self.piano_roll.get_notes()
             low_pitch, high_pitch = self.piano_roll.get_instrument_range()
+            # 移调量：只用「最低映射」作锚点，把框体范围内的音符整体移调到目标按键范围
+            target_low_pitch = self.range_low_combo.itemData(self.range_low_combo.currentIndex())
+            transpose = target_low_pitch - low_pitch
 
             converter = MidiToKeysConverter()
             result = converter.regenerate_playback_from_notes(
-                notes, pitch_range=(low_pitch, high_pitch)
+                notes, pitch_range=(low_pitch, high_pitch), transpose=transpose
             )
             playback_data = result["playback_data"]
 

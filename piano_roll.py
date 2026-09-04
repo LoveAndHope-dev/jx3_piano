@@ -77,7 +77,7 @@ class PianoRollWidget(QGraphicsView):
         self._range_high_pitch = default_high
         self._range_visible = False
         self._range_item: Optional[QGraphicsRectItem] = None
-        self._drag_range_start_low = 0
+        self._drag_range_start_low_idx = 0
         self._drag_range_span_idx = 0
 
         self._scene = QGraphicsScene(self)
@@ -168,9 +168,22 @@ class PianoRollWidget(QGraphicsView):
         self.ensureVisible(QRectF(x - 5, 0, 10, height), 60, 0)
 
     def set_instrument_range(self, low_pitch: int, high_pitch: int) -> None:
-        """设置乐器音域框的（未扩展半音的）最低/最高映射音高，由外部下拉框调用"""
+        """整体设置框体的低/高边界音高（用于切换曲目时的完整重置）"""
         self._range_low_pitch = low_pitch
         self._range_high_pitch = high_pitch
+        self._update_range_item_geometry()
+
+    def set_instrument_span(self, span_idx: int) -> None:
+        """按最低/最高映射下拉框的位置差重新计算框体跨度，保持框体当前低边界不变，
+        只调整高边界；若新跨度会让高边界超出键位序列顶端，则把低边界下压以完整容纳
+        这个跨度（与拖动到边界时的钳制方式一致），不回写下拉框。"""
+        span_idx = max(0, span_idx)
+        low_idx = self._nearest_ladder_index_for_pitch(self._range_low_pitch)
+        max_low_idx = len(self._ladder) - 1 - span_idx
+        low_idx = max(0, min(low_idx, max_low_idx))
+        high_idx = low_idx + span_idx
+        self._range_low_pitch = self._ladder[low_idx][0]
+        self._range_high_pitch = self._ladder[high_idx][0]
         self._update_range_item_geometry()
 
     def set_instrument_range_visible(self, visible: bool) -> None:
@@ -383,9 +396,9 @@ class PianoRollWidget(QGraphicsView):
             self._select_note(None)
             self._drag_mode = "range"
             self._drag_start_scene = scene_pos
-            self._drag_range_start_low = self._range_low_pitch
             low_idx = self._nearest_ladder_index_for_pitch(self._range_low_pitch)
             high_idx = self._nearest_ladder_index_for_pitch(self._range_high_pitch)
+            self._drag_range_start_low_idx = low_idx
             self._drag_range_span_idx = high_idx - low_idx
         else:
             pitch = self._y_to_pitch(scene_pos.y())
@@ -413,10 +426,11 @@ class PianoRollWidget(QGraphicsView):
         if self._drag_mode == "range" and not self._read_only:
             scene_pos = self.mapToScene(event.pos())
             dy = scene_pos.y() - self._drag_start_scene.y()
-            row_delta = round(dy / ROW_HEIGHT)
-            target_low_pitch = self._drag_range_start_low - row_delta
-
-            new_low_idx = self._nearest_ladder_index_for_pitch(target_low_pitch)
+            # 按键位序列的位置步长（而非原始 MIDI 半音距离）换算拖动增量：
+            # B-C、E-F 之间相邻自然键只差 1 个半音，若按半音距离取最近键，
+            # 这两个位置的可命中像素区间只有其余键位的一半，正常速度拖动就会被跳过。
+            idx_delta = round(dy / ROW_HEIGHT)
+            new_low_idx = self._drag_range_start_low_idx - idx_delta
             max_low_idx = len(self._ladder) - 1 - self._drag_range_span_idx
             new_low_idx = max(0, min(new_low_idx, max_low_idx))
             new_high_idx = new_low_idx + self._drag_range_span_idx

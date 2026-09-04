@@ -1,0 +1,679 @@
+schema: comet.native.v4
+name: range-box-full-keyboard-drag
+language: zh-CN
+phase: archive
+status: done
+state_version: 26
+brief: brief.md
+spec_changes:
+  - capability: instrument-range-mapping
+    operation: create
+    source: specs/instrument-range-mapping/spec.md
+workspace:
+  isolation: current
+  change_branch: main
+  target_branch: main
+  finish: null
+loop:
+  stage: done
+  goal_cycle: 2
+  iteration: 3
+  attempt: 1
+  retry_epoch: 0
+  failed_iteration_count: 0
+  no_progress_count: 0
+  execution_failure_count: 0
+  previous_unresolved_ids: []
+  next_action: null
+acceptance:
+  - id: A1
+    source: brief.md
+    text: "A1: 音域框可见时，从框体内部（非音符所在位置）按下并拖动，框体在铺面全部 88
+      键自然音范围内整体平移到新位置；拖动过程中及拖动结束后，「最低映射」「最高映射」两个下拉框的显示值都保持不变（不再随拖动实时更新）。"
+    result: passed
+    reason:
+      text: instrumentRangeChanged signal exists but is never connected in gui.py;
+        combos updated only via _select_combo_by_pitch from user selection.
+      truncated: false
+  - id: A2
+    source: brief.md
+    text: "A2: 把「最低映射」下拉框改为 Z、「最高映射」改为 M（自然音序列中位置差为 6）后，框体的跨度（高边界 − 低边界，按序列位置差计算）变为
+      6；框体当前的低边界不变，只有高边界随之调整。"
+    result: passed
+    reason:
+      text: set_instrument_span keeps current low boundary
+        (nearest_ladder_index_for_pitch(self._range_low_pitch)) and recomputes
+        high from span_idx; verified Z-M ladder index diff = 6.
+      truncated: false
+  - id: A3
+    source: brief.md
+    text: "A3: 在框体当前低边界已经很靠近铺面顶端（如 C8
+      附近）的情况下，把「最高映射」下拉框改为一个会让新跨度超出铺面顶端的值：框体的低边界会被自动下压，以完整容纳这个跨度（跨度本身不被截断），与当前拖\
+      动到边界时的钳制表现一致。"
+    result: passed
+    reason:
+      text: set_instrument_span clamps low_idx to max_low_idx =
+        len(ladder)-1-span_idx, pushing low down while preserving full span;
+        verified with span=10 near top boundary.
+      truncated: false
+  - id: A4
+    source: brief.md
+    text: "A4: 构造一段音符（小星星前两小节：C4,C4,G4,G4,A4,A4,G4,F4,F4,E4,E4,D4,D4,C4，对应 MIDI
+      60,60,67,67,69,69,67,65,65,64,64,62,62,60），把框体拖动到低边界为 MIDI 60（键位标签
+      `Q`）、跨度覆盖到至少 MIDI 69 的位置，并设置「最低映射」= `Z`（MIDI 36）、「最高映射」= `M`（MIDI
+      47）后点击播放：生成的内存音高序列应为原音符整体下移 24 个半音的结果（MIDI
+      36,36,43,43,45,45,43,41,41,40,40,38,38,36，对应
+      C2,C2,G2,G2,A2,A2,G2,F2,F2,E2,E2,D2,D2,C2），音符间的原有音程关系保持不变（不发生拉伸/压缩），且这些移调\
+      后的音高都能在游戏 28 键实际映射表中找到对应按键（Z/B/N/V/C/X），实际生成非空的按键序列。"
+    result: passed
+    reason:
+      text: regenerate_playback_from_notes(pitch_range=(60,69), transpose=-24) on
+        Twinkle Twinkle notes produced Z,Z,B,B,N,N,B,V,V,C,C,X,X,Z, exactly
+        matching -24 semitone transposed pitches
+        36,36,43,43,45,45,43,41,41,40,40,38,38,36.
+      truncated: false
+  - id: A5
+    source: brief.md
+    text: "A5: 在 A4 的基础上，把其中一个音符的原始音高改为落在框体当前范围（含 ±1 半音扩展）之外（例如把最高音改为 MIDI
+      90），点击播放：该音符被静默跳过，不参与移调和按键生成，其余音符表现不变，不报错。"
+    result: passed
+    reason:
+      text: Changing one note's pitch to 90 (outside [59,70] filter window) caused it
+        to be silently dropped from output (one N missing) with no exception.
+      truncated: false
+  - id: A6
+    source: brief.md
+    text: 'A6: 把「最低映射」改为一个使移调后音高落在游戏 28 键实际映射范围之外的值（例如把 A4
+      场景的「最低映射」改为一个非常低的值，使移调后的音高低于 MIDI
+      35），点击播放：这些音符按现有"无法映射返回空按键列表"的行为被静默跳过，不报错、不崩溃；若移调后没有任何音符能生成按键，弹出既有的"当前乐器音域范围内没有可播放的音符"提示。'
+    result: passed
+    reason:
+      text: transpose to move all pitches outside the 36-83 base_note_mapping range
+        caused regenerate_playback_from_notes to return empty playback_data with
+        no error; gui.py:1078-1080 shows the warning dialog on empty
+        playback_data.
+      truncated: false
+  - id: A7
+    source: brief.md
+    text: "A7: 选中曲目、切换到其他曲目再切回后，框体位置与两个下拉框都重置为默认值 A~J（对应 MIDI
+      48/59）；此时点击播放，若不做任何拖动或下拉框调整，播放表现与本次改动前（移调量为 0）完全一致。"
+    result: passed
+    reason:
+      text: _reset_instrument_range() (gui.py:939-951) is invoked from
+        _load_piano_roll, called on every currentItemChanged (track switch),
+        resetting combos to A/J, range to (48,59), and visibility to hidden.
+      truncated: false
+  - id: A8
+    source: specs/instrument-range-mapping/spec.md
+    text: 铺面编辑 Tab
+      中，覆盖当前显示曲目钢琴铺面（横向贯穿整个时间轴）的一个可拖动的黄色半透明覆盖层，加上「最低映射」「最高映射」两个下拉框。框体本身代表"演奏时要从当前铺面的原始音符里截取哪一段音高走向"（源音高选取窗口）；两个下拉框代表"实际演奏时允许使用的最低/最高按键"（目标按键范围）。两者互相解耦：框体只能通过拖动移动，下拉框只能通过下拉选择设置，任何一方的变化都不会回写到另一方。播放时，先用框体筛选原始音符，再把筛选出的音符按统一的移调量整体平移，最后复用既有的按键状态机映射为实际按键。
+    result: passed
+    reason:
+      text: PianoRollWidget renders a QGraphicsRectItem overlay (RANGE_FILL_COLOR,
+        semi-transparent yellow) drawn from _range_low_pitch/_range_high_pitch,
+        decoupled from the two QComboBox widgets in gui.py; playback path
+        filters->transposes->maps as described.
+      truncated: false
+  - id: A9
+    source: specs/instrument-range-mapping/spec.md
+    text: 数据来源：以 `MidiToKeysConverter.base_note_mapping`（游戏 28 个固定按键，MIDI 36~83
+      的自然音，字母 `Z X C V B N M A S D F G H J Q W E R T Y U 1 2 3 4 5 6 7`）为基础，向下补齐
+      MIDI 21~35、向上补齐 MIDI 84~108 范围内的全部自然音（白键，即一个八度内相对偏移不在 `{1,3,6,8,10}`
+      的音高），得到一个覆盖 MIDI 21~108 全部自然音位置、按音高升序排列的序列（共约 52 项）。
+    result: passed
+    reason:
+      text: get_natural_key_ladder() returns 52 ascending natural-note entries
+        covering MIDI 21 to 108, verified programmatically (pitches[0]==21,
+        pitches[-1]==108, strictly ascending, no duplicates).
+      truncated: false
+  - id: A10
+    source: specs/instrument-range-mapping/spec.md
+    text: 标签：序列中原属于 `base_note_mapping` 的 28
+      个位置显示对应的游戏按键字母标签；其余新增位置显示标准音名（`{音名}{八度号}`，八度号 = `pitch // 12 - 1`，与铺面背景 C
+      音标签同一口径），例如 `A0`、`B0`、`C1`、`C8`。
+    result: passed
+    reason:
+      text: Verified every ladder entry's label matches base_note_mapping for MIDI
+        36-83 entries and get_note_name() (e.g. A0, B0, C1, C8) for the rest.
+      truncated: false
+  - id: A11
+    source: specs/instrument-range-mapping/spec.md
+    text: 该序列是「最低映射」「最高映射」下拉框选项、框体拖动吸附、以及框体跨度计算的唯一数据来源；黑键/半音位置不出现在序列中。
+    result: passed
+    reason:
+      text: Ladder is the sole source for combo population (gui.py:655), drag snapping
+        (piano_roll.py's self._ladder), and span calc; verified no pitch in
+        ladder has (pitch%12) in the black-key offset set.
+      truncated: false
+  - id: A12
+    source: specs/instrument-range-mapping/spec.md
+    text: 「最低映射」「最高映射」两个下拉框的选项为上述键位序列（约 52 项），按音高升序排列。
+    result: passed
+    reason:
+      text: _populate_range_combos (gui.py:650-662) fills both combos from
+        self.key_ladder = get_natural_key_ladder(), 52 items ascending.
+      truncated: false
+  - id: A13
+    source: specs/instrument-range-mapping/spec.md
+    text: 默认选中项为序列中对应字母 `A`（MIDI 48）与 `J`（MIDI 59）的两项。
+    result: passed
+    reason:
+      text: _populate_range_combos selects A (MIDI48) and J (MIDI59) as defaults via
+        _pitch_for_label; confirmed label_to_pitch['A']==48, ['J']==59.
+      truncated: false
+  - id: A14
+    source: specs/instrument-range-mapping/spec.md
+    text: 修改任一下拉框的值后：若新值使「最低」>「最高」，自动把另一侧下拉框同步到与之相等的值（保持最低 ≤ 最高的不变量）。
+    result: passed
+    reason:
+      text: on_range_low_combo_changed/on_range_high_combo_changed (gui.py:959-981)
+        sync the opposite combo when low>high or high<low.
+      truncated: false
+  - id: A15
+    source: specs/instrument-range-mapping/spec.md
+    text: 下拉框的值发生变化（且校验通过）后，按两者在键位序列中的位置差，重新计算框体的跨度（见下）；下拉框本身不再直接设置框体的低/高边界音高。
+    result: passed
+    reason:
+      text: Both combo-changed handlers call only
+        piano_roll.set_instrument_span(span_idx), never set_instrument_range;
+        span recomputed from ladder index difference.
+      truncated: false
+  - id: A16
+    source: specs/instrument-range-mapping/spec.md
+    text: 下拉框的值只由用户下拉选择改变，不随框体拖动而改变。
+    result: passed
+    reason:
+      text: Combos are only set via _select_combo_by_pitch from user actions/reset;
+        drag code path (piano_roll.py) has no reference to gui.py combos and the
+        emitted signal is unconnected.
+      truncated: false
+  - id: A17
+    source: specs/instrument-range-mapping/spec.md
+    text: 框体自身维护一个独立的"低边界音高"状态，只能通过拖动改变。
+    result: passed
+    reason:
+      text: self._range_low_pitch is only mutated in mouseMoveEvent (drag) and
+        set_instrument_range (full reset, called only from gui's
+        _reset_instrument_range/initial state), never from combo handlers.
+      truncated: false
+  - id: A18
+    source: specs/instrument-range-mapping/spec.md
+    text: 框体的跨度（`span_idx`，按键位序列中的位置数计算，不按半音数）= 「最高映射」在键位序列中的位置 −
+      「最低映射」在键位序列中的位置；下拉框变化时立即按新的位置差重新计算框体跨度。
+    result: passed
+    reason:
+      text: set_instrument_span computes span purely from ladder index difference (not
+        semitones); verified default A-J and Z-M both produce the expected index
+        diff, mechanism is index-based per code at piano_roll.py:176-187.
+      truncated: false
+  - id: A19
+    source: specs/instrument-range-mapping/spec.md
+    text: 框体跨度重新计算时：保持框体当前低边界音高不变，只重新计算高边界（`高边界 = 键位序列[低边界在序列中的位置 +
+      span_idx]`）；如果这样计算出的高边界会超出键位序列的最高项（对应铺面顶端 MIDI 108
+      附近），把低边界下压到刚好能使新跨度完整落在序列范围内的位置（`低边界在序列中的位置 = min(原位置, 序列长度 - 1 -
+      span_idx)`），跨度本身不被截断——与拖动到边界时的钳制方式一致。
+    result: passed
+    reason:
+      text: "Same clamp logic as A3: low boundary preserved unless it would push span
+        past ladder end, in which case low is pushed down to fit full span,
+        verified via test at ladder near-top boundary."
+      truncated: false
+  - id: A20
+    source: specs/instrument-range-mapping/spec.md
+    text: 框体默认低边界为序列中对应字母 `A`（MIDI 48）的位置，默认跨度对应「最低映射」=`A`、「最高映射」=`J` 的位置差（即默认高边界为
+      `J`，MIDI 59），与下拉框默认值一致。
+    result: passed
+    reason:
+      text: gui.py's _reset_instrument_range calls set_instrument_range(48,59)
+        matching A/J combo defaults; span between A and J indices verified = 6.
+      truncated: false
+  - id: A21
+    source: specs/instrument-range-mapping/spec.md
+    text: 仅当框体可见，且鼠标在框体内部、非音符所在位置按下时，进入"平移框体"拖动模式。
+    result: passed
+    reason:
+      text: "mousePressEvent: note hit-test takes priority (drag_mode=move/resize);
+        only when no note is hit does the elif self._range_visible and
+        self._is_within_range_band(...) branch set drag_mode='range', matching
+        'visible + inside box + not on a note'."
+      truncated: false
+  - id: A22
+    source: specs/instrument-range-mapping/spec.md
+    text: 拖动过程中，框体的低、高边界音高同步平移，平移跨度（按键位序列中的位置距离计算）保持不变；新的低/高位置吸附到键位序列中最接近目标音高的位置。
+    result: passed
+    reason:
+      text: mouseMoveEvent computes idx_delta=round(dy/ROW_HEIGHT) and shifts both
+        low/high ladder indices by the same delta, keeping span_idx fixed;
+        snapped values are exact ladder[idx] entries. A pixel-by-pixel drag
+        sweep from D4 now hits every consecutive natural key
+        (W,Q,J,H,G,F,D,S,A,M,N) with zero skipped indices, confirming the
+        B-C/E-F skip bug is fixed.
+      truncated: false
+  - id: A23
+    source: specs/instrument-range-mapping/spec.md
+    text: 平移边界为整条键位序列的两端：可以一路平移到序列最低项（覆盖铺面最底端，MIDI 21 附近）或最高项（覆盖铺面最顶端，MIDI 108 附近）。
+    result: passed
+    reason:
+      text: new_low_idx clamped to [0, len(ladder)-1-span_idx], allowing translation
+        across the full ladder from index 0 (MIDI21) to the top; verified via
+        full dy sweep with no unreachable indices.
+      truncated: false
+  - id: A24
+    source: specs/instrument-range-mapping/spec.md
+    text: 拖动过程中每次位置变化都：更新框体内部的低/高边界音高状态、重新绘制框体几何；拖动不会读取或改变「最低映射」「最高映射」两个下拉框的当前显示值。
+    result: passed
+    reason:
+      text: Each changed position calls self._update_range_item_geometry() (redraw)
+        and updates self._range_low_pitch/_range_high_pitch; no code path in
+        mouseMoveEvent's range branch reads or writes gui.py combo state.
+      truncated: false
+  - id: A25
+    source: specs/instrument-range-mapping/spec.md
+    text: 不支持通过拖动框体边缘单独调整跨度；调整跨度只能通过两个下拉框的差值。
+    result: passed
+    reason:
+      text: mousePressEvent has no edge-detection/resize-margin check for the range
+        band (unlike note resize which checks RESIZE_MARGIN); mouseMoveEvent's
+        range branch only translates using fixed self._drag_range_span_idx,
+        never changes span.
+      truncated: false
+  - id: A26
+    source: specs/instrument-range-mapping/spec.md
+    text: 「显示/隐藏映射」按钮切换框体在铺面中的可见性，纯视觉开关：不可见时不绘制黄色框体，但框体当前的低边界/跨度、以及两个下拉框的当前值，仍然是播放时使用的依据，不受可见性影响。
+    result: passed
+    reason:
+      text: on_range_toggle_clicked only calls set_instrument_range_visible (drawing
+        toggle); get_instrument_range() returns _range_low/high_pitch
+        unconditionally, and start_playing() reads it regardless of visibility.
+      truncated: false
+  - id: A27
+    source: specs/instrument-range-mapping/spec.md
+    text: 每次在播放列表中选中（或重新选中）一首曲目时，框体位置（低边界 + 跨度）与两个下拉框都重置为默认值（对应字母 `A`~`J`，MIDI
+      48~59），可见性重置为隐藏；同一首曲目保持选中期间对框体位置/下拉框/可见性的调整会保留，直到切换到其他曲目。
+    result: passed
+    reason:
+      text: _reset_instrument_range is called only from _load_piano_roll (bound to
+        currentItemChanged, i.e., on switching to a different track);
+        adjustments made while a track stays selected persist since nothing else
+        calls reset.
+      truncated: false
+  - id: A28
+    source: specs/instrument-range-mapping/spec.md
+    text: 点击播放时，基于当前铺面上显示的音符（含铺面编辑的当前状态）、框体当前范围与两个下拉框当前值，按以下三步在内存中生成按键序列：
+    result: passed
+    reason:
+      text: start_playing() (gui.py:1051-1113) reads piano_roll.get_notes(),
+        get_instrument_range(), and range_low_combo current value, then calls
+        regenerate_playback_from_notes performing filter->transpose->map.
+      truncated: false
+  - id: A29
+    source: specs/instrument-range-mapping/spec.md
+    text: "**筛选（源端，按原始音高）**：框体的实际筛选范围 = `[框体当前低边界音高 - 1, 框体当前高边界音高 + 1]`（半音，MIDI
+      值，按半音而非序列相邻标签计算）。只有原始音高落在这个范围内的音符被选中，其余音符被静默跳过，不参与后续步骤。"
+    result: passed
+    reason:
+      text: "regenerate_playback_from_notes: range_low=pitch_range[0]-1,
+        range_high=pitch_range[1]+1, filter condition
+        range_low<=pitch<=range_high (build_music.py:994-1006)."
+      truncated: false
+  - id: A30
+    source: specs/instrument-range-mapping/spec.md
+    text: "**移调（统一整体平移）**：移调量 = 「最低映射」当前对应音高 −
+      框体当前低边界音高（只用「最低映射」作锚点，「最高映射」的绝对音高不直接参与这一步计算）。所有被选中的音符按这个移调量整体平移（`播放音高 =
+      原始音高 + 移调量`），音符之间原有的音程关系保持不变，不做任何按比例拉伸或压缩。"
+    result: passed
+    reason:
+      text: gui.py:1069-1070 computes transpose = target_low_pitch - low_pitch
+        (target_low_pitch = current low combo value, low_pitch = box's current
+        low boundary); applied uniformly as pitch+transpose
+        (build_music.py:1009).
+      truncated: false
+  - id: A31
+    source: specs/instrument-range-mapping/spec.md
+    text: '**按键映射（复用既有状态机）**：对每个移调后的播放音高，复用
+      `MidiToKeysConverter.midi_note_to_key_sequence` 现有的音高 →
+      按键状态机逻辑生成按键序列；该状态机的既有行为不变——落在游戏 28
+      键实际映射表（`base_note_mapping`/`sharp_notes`/对应降号推导，约 MIDI
+      35~84）之外的播放音高，状态机返回空按键列表，这些音符被静默跳过，不报错。状态机的"半音"处理（升/降号临时切换、下一个自然音符时复原）沿用既有实现：这里的"半音"专指框体或按键序列边界处、无法直接用某个自然键按出、只能通过游戏内"+"（升半音特殊功能键）/"-"（降半音特殊功能键）临时切换、演奏完当前这一个音符后立刻复原的音符，不等同于笼统的"黑键"。'
+    result: passed
+    reason:
+      text: "midi_note_to_key_sequence is reused unchanged; unmapped transposed
+        pitches return [] and are skipped via 'if not key_sequence: continue'
+        (build_music.py:1011-1012), verified with A6 test producing empty result
+        without error."
+      truncated: false
+  - id: A32
+    source: specs/instrument-range-mapping/spec.md
+    text: 若筛选、移调、按键映射三步之后没有任何可播放音符，弹出既有的"当前乐器音域范围内没有可播放的音符"提示，不触发实际播放。播放数据全程在内存中生成，不写入
+      `play_code/` 或任何磁盘文件。
+    result: passed
+    reason:
+      text: gui.py:1078-1080 shows QMessageBox.warning and returns before starting
+        PlayThread when playback_data is empty; data is passed to PlayThread as
+        an in-memory dict, no disk writes occur in
+        regenerate_playback_from_notes.
+      truncated: false
+builder_handoff:
+  candidate_id: 7b2ca7ac-2dbb-4036-ace7-34c68ad34ddf
+  identity_provider: skill-coordinated
+  builder_execution_ref: skill-coordinated:builder:294f357a-fb2d-460d-b634-7ff6f15d5f31
+  iteration: 3
+  summary:
+    text: 定位并修复了拖动黄色音域框跨越 B-C、E-F 处会跳过一个自然键位的 bug。根因：piano_roll.py 的 mouseMoveEvent
+      中 range 拖动分支原先按原始 MIDI 半音距离换算鼠标位移（row_delta =
+      round(dy/ROW_HEIGHT)，target_low_pitch = 起始低边界音高 - row_delta），再用
+      _nearest_ladder_index_for_pitch 找最近自然键。由于键位序列里绝大多数相邻自然键相差 2
+      个半音（中间隔一个黑键），只有 B-C、E-F 相差 1 个半音，nearest 取整会让 B、C、E、F
+      各自的可命中像素窗口只有正常键位的一半（约 10px vs 20px），且用整数 row_delta 逐级步进时，某些整数半音目标（如本例中的
+      F）永远不会被 round(dy/10) 命中，导致该键在任何拖动速度下都会被确定性跳过（不是概率性的事件合并问题）。用纯 Python
+      脚本复现：从 D4 开始逐 px 模拟旧算法，dy 0~60 范围内 W→Q→J→H→G 的转换序列中 F
+      完全没有出现过，证实其被跳过；同样脚本换成修复后算法得到
+      W→Q→J→H→G→F→D，六个键位全部出现且窗口宽度均匀。修复方式：改为在键位序列（ladder）索引空间里计算拖动增量，而不是原始半音空间——mousePressEvent
+      记录起始低边界对应的 ladder 索引（新增 self._drag_range_start_low_idx，替换原来存储原始音高的
+      self._drag_range_start_low），mouseMoveEvent 里 idx_delta =
+      round(dy/ROW_HEIGHT) 直接作用于该 ladder 索引（new_low_idx = start_low_idx -
+      idx_delta），再按原有逻辑 clamp 到 [0, len(ladder)-1-span_idx] 并算出 new_high_idx =
+      new_low_idx + span_idx。这样每个自然键（不论是否与黑键相邻）在拖动方向上都获得完全相等的命中窗口，彻底消除了 B-C/E-F
+      处的窄窗口问题，同时不影响其余任何逻辑：跨度(span_idx)计算、框体几何绘制(_update_range_item_geometry/_pitch_to_y)、下拉框与框体解耦、播放时的移调与
+      ±1
+      半音扩展筛选（regenerate_playback_from_notes）均未改动，_nearest_ladder_index_for_pitch
+      仍用于 mousePressEvent 里根据当前音高求起始 ladder 索引（未被拖动逻辑复用，语义未变）。
+    truncated: false
+  addressed_acceptance_ids:
+    - A21
+    - A22
+    - A23
+    - A24
+    - A25
+  checks:
+    - name:
+        text: py_compile piano_roll.py
+        truncated: false
+      result: passed
+      note:
+        text: python -m py_compile 编译通过，无语法错误
+        truncated: false
+    - name:
+        text: 标准库脚本复现修复前 bug（D4 起点，dy 0-60px 内 F 键从未出现在旧算法的转换序列中）
+        truncated: false
+      result: passed
+      note:
+        text: 验证了修复前算法在真实 get_natural_key_ladder() 数据上确定性跳过 F 键
+        truncated: false
+    - name:
+        text: 同一脚本验证修复后算法（同一 dy 范围内 W/Q/J/H/G/F/D 全部按序出现，窗口宽度均匀约 9-11px）
+        truncated: false
+      result: passed
+      note:
+        text: 确认修复后不再跳过任何自然键，且拖动窗口宽度在 B-C/E-F 与其他位置之间保持一致
+        truncated: false
+    - name:
+        text: 离屏 QApplication 下用真实 QMouseEvent 序列端到端拖拽 PianoRollWidget（起点
+          D4，span_idx=0，逐 px 发送 MouseButtonPress/MouseMove/MouseButtonRelease）
+        truncated: false
+      result: passed
+      note:
+        text: 实际 widget 拖拽下 W→Q(60)→J(59)→H(57)→G(55)→F(53)→D(52)
+          七个自然键位全部按序命中，与纯逻辑复现结果完全一致，F 键（原先被跳过的键）在真实事件流下也正确命中
+        truncated: false
+    - name:
+        text: 离屏 QApplication 下验证拖动到键盘两端的钳制与跨度保持（span_idx=6，从 A~J 拖到顶端/底端）
+        truncated: false
+      result: passed
+      note:
+        text: 拖到顶端得到 (98,108)，拖到底端得到 (21,31)，均与 ladder 实际两端一致，且跨度在两种钳制场景下都保持为 6，与拖动前一致
+        truncated: false
+  checks_truncated: false
+  known_limits:
+    - text: 本次修复只改变了拖动增量的换算方式（半音空间→ladder 索引空间），未改变 _nearest_ladder_index_for_pitch
+        本身的实现，也未触碰 set_instrument_span、下拉框逻辑、播放筛选/移调逻辑。
+      truncated: false
+  known_limits_truncated: false
+  submitted_at: 2026-09-04T17:20:02.156Z
+blockers: []
+verification:
+  candidate_id: 7b2ca7ac-2dbb-4036-ace7-34c68ad34ddf
+  identity_provider: skill-coordinated
+  verifier_execution_ref: skill-coordinated:verifier:677d9520-a95b-4ca1-a85f-f720a8d4cb3e
+  iteration: 3
+  attempt: 1
+  assurance: skill-coordinated
+  verdict: pass
+  checks:
+    - id: py-compile-piano-roll
+      name:
+        text: py_compile piano_roll.py
+        truncated: false
+      argv_display:
+        - text: -m
+          truncated: false
+        - text: py_compile
+          truncated: false
+        - text: piano_roll.py
+          truncated: false
+      argv_truncated: false
+      cwd_ref: .
+      status: passed
+      exit_code: 0
+      duration_ms: 150
+  summary:
+    text: "All 32 acceptance items independently verified against the current code
+      in piano_roll.py, gui.py, and build_music.py via direct source review plus
+      executable offscreen-PyQt5 tests. The targeted bug fix (B-C/E-F key-skip
+      during range-box drag) is confirmed resolved: a simulated continuous drag
+      from D4 now hits every consecutive natural key (W,Q,J,H,G,F,D,S,A,M,N)
+      with no gaps, versus the previously reported F-skipping behavior. No
+      regressions found in the remaining 27 items covering dropdown/box
+      decoupling, span recalculation and boundary clamping, per-track reset, and
+      the filter->transpose->map playback pipeline."
+    truncated: false
+  risks: []
+  risks_truncated: false
+  completed_at: 2026-09-04T17:28:02.025Z
+history:
+  - goal_cycle: 1
+    iteration: 1
+    attempt: 1
+    outcome: pass
+    unresolved_ids: []
+    summary:
+      text: "Independently re-derived and verified all 24 acceptance items (A1-A5 from
+        brief.md, A6-A24 from spec.md) against the actual current content of
+        build_music.py, piano_roll.py, and gui.py, plus my own re-run of the
+        builder's synthetic drag/ladder/playback scripts and several additional
+        ad hoc checks (clamping arithmetic for A2, an extra
+        in-range-but-unmapped pitch for A23). get_natural_key_ladder() now
+        returns 52 ascending natural-note entries (MIDI 21-108) with the
+        original 28 base_note_mapping letter labels preserved byte-for-byte and
+        new entries labeled via get_note_name; no black keys are present; gui.py
+        and piano_roll.py were not modified and consume the extended ladder
+        generically (no hardcoded '28' length assumptions found anywhere in
+        code, only in a couple of now-stale comments). Drag translation now
+        reaches both extremes of the full 88-key natural-note range instead of
+        being stuck at the old MIDI 36/83 boundary, while span-preservation,
+        visibility semantics, default-reset-on-track-switch, the +/-1 semitone
+        extension arithmetic, and play-time silent-skip filtering for both
+        out-of-range and in-range-but-unmapped notes all remain byte-identical
+        to the pre-change implementation (regenerate_playback_from_notes and
+        midi_note_to_key_sequence were untouched by the diff). All 24 items:
+        passed. No blockers."
+      truncated: false
+    completed_at: 2026-08-26T14:23:49.133Z
+  - goal_cycle: 1
+    iteration: 1
+    attempt: 1
+    outcome: recovery
+    unresolved_ids: []
+    summary:
+      text: 用户要求先修正 gui.py 中一处过时注释（仍写28个键位标签），再重新验收
+      truncated: false
+    completed_at: 2026-08-26T15:03:51.549Z
+  - goal_cycle: 1
+    iteration: 2
+    attempt: 1
+    outcome: pass
+    unresolved_ids: []
+    summary:
+      text: "Second-round independent re-verification of all 24 acceptance items
+        (A1-A5 from brief.md, A6-A24 from spec.md). git diff HEAD shows only two
+        files changed since the pre-change baseline: build_music.py (the round-1
+        extension of get_natural_key_ladder() from 28 to 52 natural-note entries
+        across MIDI 21-108) and gui.py (a single-line docstring fix in
+        _populate_range_combos, from '用28个键位标签...填充' to
+        '用全部88键范围内的自然音键位标签...填充'). piano_roll.py is completely unmodified in the
+        diff, as expected. Read the actual current code for
+        get_natural_key_ladder/base_note_mapping/get_note_name in
+        build_music.py, _populate_range_combos and all range-related methods in
+        gui.py, and the range-drag/background logic in piano_roll.py, and
+        independently re-ran (and extended) the builder's synthetic PyQt5
+        offscreen drag test plus wrote several new standalone checks (ladder
+        content/ordering/no-duplicate-labels, dropdown population, out-of-range
+        and in-range-but-unmapped playback filtering,
+        signal-emission-matches-state, press-outside-band and
+        press-while-invisible not entering drag mode, span preservation during
+        drag). All checks passed. The docstring fix itself is accurate: it
+        correctly states the ladder now covers all 88-key-range natural note
+        positions rather than the stale '28 key labels' claim, with no remaining
+        staleness or typos found in that docstring or any other range-related
+        comment. No functional/behavioral regressions found; all 24 acceptance
+        items pass."
+      truncated: false
+    completed_at: 2026-08-26T15:08:51.614Z
+  - goal_cycle: 1
+    iteration: 2
+    attempt: 1
+    outcome: recovery
+    unresolved_ids: []
+    summary:
+      text: 用户澄清需求发生根本性变化：黄色框体不再是纯过滤窗口，而是拆分为'源音高截取框'（完全由拖动控制位置，跨度=最低/最高映射下拉框的自然音序列位置差）与'目标按键映射'（最低/最高映射下拉框，代表实际演奏允许使用的按键范围）两部分，播放时对框内音符整体移调（锚点=最低映射-框体当前低边界）后再走既有按键状态机；这是用户可见行为和验收标准的重大变化，需要回到
+        Shape 重写 brief 和 spec
+      truncated: false
+    completed_at: 2026-08-26T15:39:00.309Z
+  - goal_cycle: 2
+    iteration: 1
+    attempt: 1
+    outcome: execution-error
+    unresolved_ids: []
+    summary:
+      text: "Native Verifier response was invalid: Native Verifier acceptance coverage
+        is invalid (duplicate: none; unknown: none; missing: A29)"
+      truncated: false
+    completed_at: 2026-08-26T15:50:58.511Z
+  - goal_cycle: 2
+    iteration: 1
+    attempt: 2
+    outcome: pass
+    unresolved_ids: []
+    summary:
+      text: "Independently re-verified all 32 acceptance items (A1-A7 from brief.md,
+        A8-A32 from spec.md) for this goal_cycle's box/dropdown decoupling
+        redesign, against the actual current contents of piano_roll.py, gui.py,
+        and build_music.py (not just the builder's description). Confirmed via
+        git diff that: piano_roll.py gained set_instrument_span(span_idx) with
+        the exact low-fixed/high-recomputed/clamp-by-lowering-low behavior
+        (min(orig_low_idx, len(ladder)-1-span_idx)), matching the pre-existing
+        drag-clamp direction; gui.py's
+        instrumentRangeChanged->on_piano_roll_range_dragged connection and the
+        on_piano_roll_range_dragged method and _syncing_range_combos flag are
+        all fully removed (grep confirms zero remaining references);
+        on_range_low/high_combo_changed now compute span_idx via a new
+        _ladder_index_for_pitch helper and call set_instrument_span instead of
+        set_instrument_range; start_playing now computes transpose =
+        target_low_pitch (from the low combo) - box_low_pitch and passes it
+        through; build_music.py's regenerate_playback_from_notes gained a
+        transpose: int = 0 parameter, applied only at the
+        midi_note_to_key_sequence(pitch + transpose, ...) call site, with the
+        original-pitch-based [low-1, high+1] filter left untouched. Re-ran the
+        existing scratch tests (test_transpose.py, test_gui_combo_wiring.py) --
+        both pass -- and wrote and ran a further battery of checks
+        (verifier_checks.py) covering the ladder's exact content/labels, combo
+        population and low>high auto-sync, drag-vs-dropdown decoupling in both
+        directions after interleaved operations, the exact clamp-formula
+        arithmetic in both overflow and non-overflow cases, drag boundary reach
+        at both ladder extremes, press-outside-band/press-while-invisible not
+        entering drag mode, visibility being purely cosmetic, the real
+        _reset_instrument_range method restoring box+combos+visibility to
+        spec-exact defaults, the exact Twinkle-Twinkle -24 semitone transpose
+        end-to-end, source-filter-uses-original-pitch semantics, transpose being
+        anchored solely to the low side independent of the high side, the
+        existing sharp/flat toggle state machine being reused untouched, and the
+        exact 'no playable notes' warning string. All 32 acceptance items pass;
+        no blockers or risks found."
+      truncated: false
+    completed_at: 2026-08-26T15:53:31.663Z
+  - goal_cycle: 2
+    iteration: 1
+    attempt: 2
+    outcome: recovery
+    unresolved_ids: []
+    summary:
+      text: Observed implementation write before _run_elevated.bat
+      truncated: false
+    completed_at: 2026-08-26T16:38:00.798Z
+  - goal_cycle: 2
+    iteration: 2
+    attempt: 1
+    outcome: pass
+    unresolved_ids: []
+    summary:
+      text: "Independently re-verified all 32 acceptance items against the actual
+        current code in build_music.py, piano_roll.py, and gui.py (not just the
+        builder's summary), using direct reads plus standalone Python scripts
+        (including a PyQt5 offscreen QApplication) that exercised
+        get_natural_key_ladder(), set_instrument_span's clamp formula, simulated
+        drag translation at both ladder extremes, and the full
+        filter->transpose->key-mapping playback pipeline on the Twinkle-Twinkle
+        example plus out-of-range and unmappable-after-transpose variants.
+        Specifically confirmed the point the user asked to double-check: the
+        box's span (span_idx) is computed strictly from natural-note
+        ladder-position differences between the two dropdowns (A18), independent
+        of the +/-1-semitone extension used for the box's actual
+        filtering/visual range, which is computed separately using real MIDI
+        semitone arithmetic (regenerate_playback_from_notes:
+        range_low=pitch_range[0]-1, range_high=pitch_range[1]+1; piano_roll.py's
+        _update_range_item_geometry/_range_band_y_bounds use the identical
+        low-1/high+1 convention for drawing and drag hit-testing) (A29). All 32
+        items passed; no discrepancies, risks, or blockers found."
+      truncated: false
+    completed_at: 2026-08-28T17:26:19.284Z
+  - goal_cycle: 2
+    iteration: 2
+    attempt: 1
+    outcome: recovery
+    unresolved_ids: []
+    summary:
+      text: 用户报告：拖动黄色音域框跨越每个八度的B-C、E-F边界时会跳过一个自然键位（因该处相邻自然键仅相差1个半音，鼠标位移量按半音换算再取最近自然键会产生比其他键窄一半的可命中区间，正常速度拖动即可被跳过）。回到Build按自然键位序列索引而非原始MIDI半音距离计算拖动增量，消除该处过窄的命中区间。
+      truncated: false
+    completed_at: 2026-09-04T17:16:05.866Z
+  - goal_cycle: 2
+    iteration: 3
+    attempt: 1
+    outcome: pass
+    unresolved_ids: []
+    summary:
+      text: "All 32 acceptance items independently verified against the current code
+        in piano_roll.py, gui.py, and build_music.py via direct source review
+        plus executable offscreen-PyQt5 tests. The targeted bug fix (B-C/E-F
+        key-skip during range-box drag) is confirmed resolved: a simulated
+        continuous drag from D4 now hits every consecutive natural key
+        (W,Q,J,H,G,F,D,S,A,M,N) with no gaps, versus the previously reported
+        F-skipping behavior. No regressions found in the remaining 27 items
+        covering dropdown/box decoupling, span recalculation and boundary
+        clamping, per-track reset, and the filter->transpose->map playback
+        pipeline."
+      truncated: false
+    completed_at: 2026-09-04T17:28:02.025Z
+history_overflow:
+  dropped_entries: 0
+  first_dropped_at: null
+  last_dropped_at: null
+  outcome_counts:
+    pass: 0
+    fail: 0
+    blocked: 0
+    execution-error: 0
+    recovery: 0
+verification_result: pass
+verification_report: verification.md
+archived: true
+created_at: 2026-08-26T14:01:27.935Z

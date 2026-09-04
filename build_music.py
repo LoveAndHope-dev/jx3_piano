@@ -77,14 +77,29 @@ def ensure_directories_exist():
         # 即使创建文件夹失败，程序也应该继续运行
 
 
+# 一个八度内的黑键相对半音位置（以C为0），与 piano_roll.py 的 _is_black_key 口径一致
+_LADDER_BLACK_KEY_OFFSETS = {1, 3, 6, 8, 10}
+
+
 def get_natural_key_ladder() -> List[Tuple[int, str]]:
     """
-    返回游戏全部自然音键位映射（共28个），按 MIDI 音高升序排列。
-    单一数据来源为 MidiToKeysConverter.base_note_mapping，供乐器音域框
-    的下拉框/拖动吸附使用，避免与按键映射表出现第二份不一致的副本。
+    返回覆盖钢琴全部88键（MIDI 21~108）范围内全部自然音位置的键位映射，
+    按 MIDI 音高升序排列，供乐器音域框的下拉框/拖动吸附使用。
+    其中 MIDI 36~83 的 28 个位置为游戏实际可用按键，标签取自单一数据来源
+    MidiToKeysConverter.base_note_mapping（避免出现第二份不一致的副本）；
+    其余超出游戏 28 键映射范围的自然音位置只作为音域框可框选的边界，
+    标签使用标准音名（如 A0、C1），取自 get_note_name。
     """
     converter = MidiToKeysConverter()
-    return sorted(converter.base_note_mapping.items())
+    ladder = []
+    for pitch in range(21, 109):
+        if (pitch % 12) in _LADDER_BLACK_KEY_OFFSETS:
+            continue
+        label = converter.base_note_mapping.get(pitch)
+        if label is None:
+            label = converter.get_note_name(pitch)
+        ladder.append((pitch, label))
+    return ladder
 
 
 class MidiToKeysConverter:
@@ -956,16 +971,21 @@ class MidiToKeysConverter:
         self,
         notes: List[Dict[str, Any]],
         pitch_range: Optional[Tuple[int, int]] = None,
+        transpose: int = 0,
     ) -> Dict[str, Any]:
         """
         由（可能已被铺面编辑器修改的）结构化音符列表重新生成播放数据与统计信息。
         复用 midi_note_to_key_sequence 状态机，按音符起始时间排序后统一走一遍
         状态机，再按相同时间戳分组，逻辑上等价于 convert_to_playback_data。
 
-        pitch_range: 可选的 (最低映射音高, 最高映射音高) 闭区间（未扩展半音）。
-        传入时会在闭区间基础上向下/向上各扩展 1 个半音，只保留音高落在扩展
-        区间内的音符（乐器音域框功能使用）；为 None 时不做范围过滤，保持原有
-        （复用全部 28 个键位映射系统）行为不变。
+        pitch_range: 可选的 (框体当前低边界音高, 框体当前高边界音高) 闭区间
+        （未扩展半音，源端筛选窗口）。传入时会在闭区间基础上向下/向上各扩展
+        1 个半音，只保留原始音高落在扩展区间内的音符（乐器音域框功能使用）；
+        为 None 时不做范围过滤，保持原有（复用全部 28 个键位映射系统）行为不变。
+
+        transpose: 对筛选后音符统一施加的半音移调量（播放音高 = 原始音高 +
+        transpose），保持音符间原有音程关系不变，不做拉伸/压缩；为 0 时行为
+        与不移调完全一致。
 
         返回: {"playback_data", "note_statistics", "statistics"}
         """
@@ -986,7 +1006,7 @@ class MidiToKeysConverter:
                 continue
 
             key_sequence, current_state = self.midi_note_to_key_sequence(
-                pitch, current_state
+                pitch + transpose, current_state
             )
             if not key_sequence:
                 continue

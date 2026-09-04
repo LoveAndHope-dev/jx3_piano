@@ -75,6 +75,17 @@ except ImportError:
 
 from piano_roll import PianoRollWidget
 
+# 量化下拉框选项 -> 传统音符时值分母（1/4 恒等于一拍，只依赖 BPM，不依赖拍号）
+QUANTIZE_LABEL_TO_N = {
+    "1/2": 2,
+    "1/4": 4,
+    "1/8": 8,
+    "1/16": 16,
+    "1/32": 32,
+    "1/64": 64,
+    "1/128": 128,
+}
+
 
 class BatchConversionWorker(QThread):
     """批量MIDI导入工作线程（只校验+复制到 midi/，不再转换/生成 play_code json）"""
@@ -234,6 +245,9 @@ class MidiConverterGUI(QMainWindow):
         self.current_processed_tracks = []
         self.current_transpose = 0
         self.piano_roll_dirty = False
+        self.current_bpm = 120.0
+        self.current_time_signature = (4, 4)
+        self.quantize_choice = "关闭"
 
         # 乐器音域框相关变量
         self.key_ladder = get_natural_key_ladder()
@@ -617,6 +631,14 @@ class MidiConverterGUI(QMainWindow):
         self.range_high_combo.setEnabled(False)
         range_toolbar.addWidget(self.range_high_combo)
 
+        range_toolbar.addWidget(QLabel("量化:"))
+        self.quantize_combo = QComboBox()
+        self.quantize_combo.setEnabled(False)
+        for label in ("关闭", "1/2", "1/4", "1/8", "1/16", "1/32", "1/64", "1/128"):
+            self.quantize_combo.addItem(label)
+        self.quantize_combo.currentTextChanged.connect(self.on_quantize_combo_changed)
+        range_toolbar.addWidget(self.quantize_combo)
+
         range_toolbar.addStretch()
         piano_layout.addLayout(range_toolbar)
 
@@ -905,6 +927,12 @@ class MidiConverterGUI(QMainWindow):
         self.current_processed_tracks = track_filter
         self.current_transpose = transpose
 
+        bpm, numerator, denominator = converter.get_tempo_and_time_signature(midi_path)
+        self.current_bpm = bpm
+        self.current_time_signature = (numerator, denominator)
+        seconds_per_beat = 60.0 / bpm * (4.0 / denominator)
+        self.piano_roll.set_measure_grid(seconds_per_beat * numerator)
+
         # 新增音符必须落在实际会被处理/保存的音轨上，否则另存为 MIDI 时会被静默丢弃
         self.piano_roll.set_default_track(track_filter[0])
         self.piano_roll.set_notes(notes)
@@ -914,6 +942,7 @@ class MidiConverterGUI(QMainWindow):
 
         self._reset_instrument_range()
         self._set_range_controls_enabled(True)
+        self._apply_quantize_grid()
 
         self.piano_stack.setCurrentWidget(self.piano_roll)
         self.piano_roll_dirty = False
@@ -933,8 +962,25 @@ class MidiConverterGUI(QMainWindow):
         self.range_toggle_btn.setEnabled(enabled)
         self.range_low_combo.setEnabled(enabled)
         self.range_high_combo.setEnabled(enabled)
+        self.quantize_combo.setEnabled(enabled)
         if not enabled:
             self.range_toggle_btn.setChecked(False)
+
+    def on_quantize_combo_changed(self, text: str) -> None:
+        self.quantize_choice = text
+        self._apply_quantize_grid()
+
+    def _apply_quantize_grid(self) -> None:
+        """把当前量化下拉框选项按曲目实际 BPM 换算为网格秒数并下发给铺面；
+        「关闭」或分母缺失时传 None（自由拖动）。1/4 恒等于一拍，只依赖 BPM，
+        与拍号无关（拍号只用于小节线）。"""
+        n = QUANTIZE_LABEL_TO_N.get(self.quantize_choice)
+        if n is None:
+            self.piano_roll.set_quantize_grid(None)
+            return
+        seconds_per_beat = 60.0 / self.current_bpm
+        grid_seconds = seconds_per_beat * (4.0 / n)
+        self.piano_roll.set_quantize_grid(grid_seconds)
 
     def _reset_instrument_range(self):
         """每次切换选中曲目时，乐器音域框重置为默认范围（A~J）并隐藏"""

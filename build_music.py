@@ -759,6 +759,38 @@ class MidiToKeysConverter:
                     return msg.tempo
         return 500000
 
+    def get_tempo_and_time_signature(self, midi_file_path: str) -> Tuple[float, int, int]:
+        """
+        返回 (BPM, 拍号分子, 拍号分母)，供铺面编辑的量化网格 / 小节线换算使用。
+        BPM 复用与 `_scan_base_tempo` 相同的"整份文件第一个 set_tempo"口径；
+        拍号取整份文件第一个 time_signature 元事件，不存在或解析失败时回退 4/4。
+        """
+        try:
+            mid = mido.MidiFile(midi_file_path)
+        except Exception:
+            return 120.0, 4, 4
+
+        tempo = self._scan_base_tempo(mid)
+        bpm = 60000000.0 / tempo if tempo else 120.0
+
+        numerator, denominator = 4, 4
+        try:
+            for track in mid.tracks:
+                for msg in track:
+                    if msg.type == "time_signature":
+                        numerator = int(msg.numerator)
+                        denominator = int(msg.denominator)
+                        raise StopIteration
+        except StopIteration:
+            pass
+        except Exception:
+            numerator, denominator = 4, 4
+
+        if numerator <= 0 or denominator <= 0:
+            numerator, denominator = 4, 4
+
+        return bpm, numerator, denominator
+
     def auto_select_tracks_and_transpose(
         self, midi_file_path: str
     ) -> Tuple[List[int], int]:

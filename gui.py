@@ -36,6 +36,7 @@ from PyQt5.QtWidgets import (
     QTabWidget,
     QStackedWidget,
     QComboBox,
+    QLineEdit,
 )
 from PyQt5.QtCore import (
     Qt,
@@ -610,37 +611,46 @@ class MidiConverterGUI(QMainWindow):
         self.piano_save_btn.clicked.connect(self.save_piano_roll)
         toolbar.addWidget(self.piano_save_btn)
 
-        piano_layout.addLayout(toolbar)
-
-        # 乐器音域框工具栏
-        range_toolbar = QHBoxLayout()
-
+        # 乐器音域框控件：与上方标题/播放/保存共用同一行工具栏
         self.range_toggle_btn = QPushButton("🟨 显示映射")
         self.range_toggle_btn.setCheckable(True)
         self.range_toggle_btn.setEnabled(False)
         self.range_toggle_btn.clicked.connect(self.on_range_toggle_clicked)
-        range_toolbar.addWidget(self.range_toggle_btn)
+        toolbar.addWidget(self.range_toggle_btn)
 
-        range_toolbar.addWidget(QLabel("最低映射:"))
+        toolbar.addWidget(QLabel("最低映射:"))
         self.range_low_combo = QComboBox()
         self.range_low_combo.setEnabled(False)
-        range_toolbar.addWidget(self.range_low_combo)
+        toolbar.addWidget(self.range_low_combo)
 
-        range_toolbar.addWidget(QLabel("最高映射:"))
+        toolbar.addWidget(QLabel("最高映射:"))
         self.range_high_combo = QComboBox()
         self.range_high_combo.setEnabled(False)
-        range_toolbar.addWidget(self.range_high_combo)
+        toolbar.addWidget(self.range_high_combo)
 
-        range_toolbar.addWidget(QLabel("量化:"))
+        toolbar.addWidget(QLabel("当前最低键:"))
+        self.range_bottom_display = QLineEdit()
+        self.range_bottom_display.setReadOnly(True)
+        self.range_bottom_display.setFixedWidth(40)
+        self.range_bottom_display.setAlignment(Qt.AlignCenter)
+        toolbar.addWidget(self.range_bottom_display)
+
+        toolbar.addWidget(QLabel("当前最高键:"))
+        self.range_top_display = QLineEdit()
+        self.range_top_display.setReadOnly(True)
+        self.range_top_display.setFixedWidth(40)
+        self.range_top_display.setAlignment(Qt.AlignCenter)
+        toolbar.addWidget(self.range_top_display)
+
+        toolbar.addWidget(QLabel("量化:"))
         self.quantize_combo = QComboBox()
         self.quantize_combo.setEnabled(False)
         for label in ("关闭", "1/2", "1/4", "1/8", "1/16", "1/32", "1/64", "1/128"):
             self.quantize_combo.addItem(label)
         self.quantize_combo.currentTextChanged.connect(self.on_quantize_combo_changed)
-        range_toolbar.addWidget(self.quantize_combo)
+        toolbar.addWidget(self.quantize_combo)
 
-        range_toolbar.addStretch()
-        piano_layout.addLayout(range_toolbar)
+        piano_layout.addLayout(toolbar)
 
         self._populate_range_combos()
         self.range_low_combo.currentIndexChanged.connect(self.on_range_low_combo_changed)
@@ -662,7 +672,9 @@ class MidiConverterGUI(QMainWindow):
         self.mapped_pitches = self._build_mapped_pitch_set()
         self.piano_roll = PianoRollWidget(self.mapped_pitches)
         self.piano_roll.notesChanged.connect(self.on_piano_roll_notes_changed)
+        self.piano_roll.instrumentRangeChanged.connect(lambda *_: self._refresh_range_display())
         self.piano_stack.addWidget(self.piano_roll)  # index 2
+        self._refresh_range_display()
 
         self.piano_stack.setCurrentWidget(self.piano_placeholder)
         piano_layout.addWidget(self.piano_stack)
@@ -689,6 +701,10 @@ class MidiConverterGUI(QMainWindow):
                 return pitch
         return self.key_ladder[0][0]
 
+    def _note_name_for_pitch(self, pitch: int) -> str:
+        """返回标准钢琴音名（如 C4），与下拉框使用的游戏按键字母标签无关"""
+        return MidiToKeysConverter().get_note_name(pitch)
+
     def _select_combo_by_pitch(self, combo: QComboBox, pitch: int):
         for i in range(combo.count()):
             if combo.itemData(i) == pitch:
@@ -696,6 +712,12 @@ class MidiConverterGUI(QMainWindow):
                 combo.setCurrentIndex(i)
                 combo.blockSignals(False)
                 return
+
+    def _refresh_range_display(self):
+        """用黄色乐器音域框当前实际生效的低/高边界刷新只读字段，不依赖下拉框选中值"""
+        low_pitch, high_pitch = self.piano_roll.get_instrument_range()
+        self.range_bottom_display.setText(self._note_name_for_pitch(low_pitch))
+        self.range_top_display.setText(self._note_name_for_pitch(high_pitch))
 
     def _setup_log_tab(self):
         """构建「操作日志」标签页"""
@@ -995,6 +1017,7 @@ class MidiConverterGUI(QMainWindow):
 
         self.piano_roll.set_instrument_range(default_low_pitch, default_high_pitch)
         self.piano_roll.set_instrument_range_visible(False)
+        self._refresh_range_display()
 
     def on_range_toggle_clicked(self):
         """切换乐器音域框在铺面中的可见性（纯视觉开关，不影响播放使用的范围）"""
@@ -1013,6 +1036,7 @@ class MidiConverterGUI(QMainWindow):
             high_pitch = low_pitch
         span_idx = self._ladder_index_for_pitch(high_pitch) - self._ladder_index_for_pitch(low_pitch)
         self.piano_roll.set_instrument_span(span_idx)
+        self._refresh_range_display()
 
     def on_range_high_combo_changed(self, index: int):
         """最高映射变化：只重新计算框体跨度（保持框体当前低边界不变），不移动框体位置"""
@@ -1025,6 +1049,7 @@ class MidiConverterGUI(QMainWindow):
             low_pitch = high_pitch
         span_idx = self._ladder_index_for_pitch(high_pitch) - self._ladder_index_for_pitch(low_pitch)
         self.piano_roll.set_instrument_span(span_idx)
+        self._refresh_range_display()
 
     def _ladder_index_for_pitch(self, pitch: int) -> int:
         for i, (p, _label) in enumerate(self.key_ladder):

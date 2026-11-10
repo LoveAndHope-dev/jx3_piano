@@ -421,7 +421,7 @@ class _PianoRollCanvas(QGraphicsView):
         y_top, y_bottom = self._range_band_y_bounds()
         return y_top <= y <= y_bottom
 
-    def _nearest_ladder_index_for_pitch(self, pitch: int) -> int:
+    def _nearest_ladder_index_for_pitch(self, pitch: float) -> int:
         best_idx = 0
         best_dist = None
         for i, (p, _label) in enumerate(self._ladder):
@@ -591,11 +591,17 @@ class _PianoRollCanvas(QGraphicsView):
         if self._drag_mode == "range" and not self._read_only:
             scene_pos = self.mapToScene(event.pos())
             dy = scene_pos.y() - self._drag_start_scene.y()
-            # 按键位序列的位置步长（而非原始 MIDI 半音距离）换算拖动增量：
-            # B-C、E-F 之间相邻自然键只差 1 个半音，若按半音距离取最近键，
-            # 这两个位置的可命中像素区间只有其余键位的一半，正常速度拖动就会被跳过。
-            idx_delta = round(dy / ROW_HEIGHT)
-            new_low_idx = self._drag_range_start_low_idx - idx_delta
+            # 目标音高必须按渲染网格的像素/半音比例（ROW_HEIGHT 像素 = 1 个半音）换算，
+            # 与框体的实际渲染位置（_pitch_to_y）保持 1:1，再吸附到距离最近的键位序列
+            # 位置。这里刻意保留连续（未取整的）目标音高，不对 dy/ROW_HEIGHT 提前取整：
+            # 提前取整会和随后按最近音高吸附时的平局裁决叠加，使 B、E 两个键的可命中像
+            # 素窗口显著窄于其余键位（实测约 10px vs 20px），正常速度拖动时更容易被跳
+            # 过；改为连续目标音高后，每个自然键的命中窗口只由其左右真实半音间隔决定
+            # （多数键 20px，B-C/E-F 相关的 4 个键各 15px），不再因为浮点/整数取整顺序
+            # 产生额外的不对称收窄。
+            drag_start_low_pitch = self._ladder[self._drag_range_start_low_idx][0]
+            target_low_pitch = drag_start_low_pitch - dy / ROW_HEIGHT
+            new_low_idx = self._nearest_ladder_index_for_pitch(target_low_pitch)
             max_low_idx = len(self._ladder) - 1 - self._drag_range_span_idx
             new_low_idx = max(0, min(new_low_idx, max_low_idx))
             new_high_idx = new_low_idx + self._drag_range_span_idx

@@ -84,7 +84,8 @@ _LADDER_BLACK_KEY_OFFSETS = {1, 3, 6, 8, 10}
 def get_natural_key_ladder() -> List[Tuple[int, str]]:
     """
     返回覆盖钢琴全部88键（MIDI 21~108）范围内全部自然音位置的键位映射，
-    按 MIDI 音高升序排列，供乐器音域框的下拉框/拖动吸附使用。
+    按 MIDI 音高升序排列，供「最低映射/最高映射」下拉框使用（代表 28 个
+    游戏实际按键身份，黑键没有对应的实体按键，因此不枚举在这里）。
     其中 MIDI 36~83 的 28 个位置为游戏实际可用按键，标签取自单一数据来源
     MidiToKeysConverter.base_note_mapping（避免出现第二份不一致的副本）；
     其余超出游戏 28 键映射范围的自然音位置只作为音域框可框选的边界，
@@ -100,6 +101,19 @@ def get_natural_key_ladder() -> List[Tuple[int, str]]:
             label = converter.get_note_name(pitch)
         ladder.append((pitch, label))
     return ladder
+
+
+def get_chromatic_key_ladder() -> List[Tuple[int, str]]:
+    """
+    返回钢琴全部 88 键（MIDI 21~108）范围内每一个半音（含黑键）的键位映射，
+    按 MIDI 音高升序排列，供乐器音域框本身的拖动吸附/渲染使用——音域框代表
+    歌曲实际音高内容，不受限于 28 个游戏实体按键，需要精确到任意半音。
+    标签统一使用标准音名（如 C4、C#4），取自 get_note_name，与
+    get_natural_key_ladder（供下拉框使用的 52 个自然音、游戏按键标签）是
+    两套不同用途的阶梯，互不影响。
+    """
+    converter = MidiToKeysConverter()
+    return [(pitch, converter.get_note_name(pitch)) for pitch in range(21, 109)]
 
 
 class MidiToKeysConverter:

@@ -28,7 +28,7 @@ from PyQt5.QtWidgets import (
     QWidget,
 )
 
-from build_music import get_natural_key_ladder
+from build_music import get_chromatic_key_ladder
 
 MIN_PITCH = 21  # A0
 MAX_PITCH = 108  # C8
@@ -145,7 +145,7 @@ class _PianoRollCanvas(QGraphicsView):
         self._measure_seconds: Optional[float] = None
 
         # 乐器音域框状态
-        self._ladder: List[Tuple[int, str]] = get_natural_key_ladder()
+        self._ladder: List[Tuple[int, str]] = get_chromatic_key_ladder()
         default_low = self._ladder[0][0]
         default_high = self._ladder[-1][0]
         self._range_low_pitch = default_low

@@ -1011,8 +1011,8 @@ class MidiConverterGUI(QMainWindow):
         if low_pitch > high_pitch:
             self._select_combo_by_pitch(self.range_high_combo, low_pitch)
             high_pitch = low_pitch
-        span_idx = self._ladder_index_for_pitch(high_pitch) - self._ladder_index_for_pitch(low_pitch)
-        self.piano_roll.set_instrument_span(span_idx)
+        span = high_pitch - low_pitch
+        self.piano_roll.set_instrument_span(span)
 
     def on_range_high_combo_changed(self, index: int):
         """最高映射变化：只重新计算框体跨度（保持框体当前低边界不变），不移动框体位置"""
@@ -1023,14 +1023,8 @@ class MidiConverterGUI(QMainWindow):
         if high_pitch < low_pitch:
             self._select_combo_by_pitch(self.range_low_combo, high_pitch)
             low_pitch = high_pitch
-        span_idx = self._ladder_index_for_pitch(high_pitch) - self._ladder_index_for_pitch(low_pitch)
-        self.piano_roll.set_instrument_span(span_idx)
-
-    def _ladder_index_for_pitch(self, pitch: int) -> int:
-        for i, (p, _label) in enumerate(self.key_ladder):
-            if p == pitch:
-                return i
-        return 0
+        span = high_pitch - low_pitch
+        self.piano_roll.set_instrument_span(span)
 
     def save_piano_roll(self):
         """把铺面编辑结果另存为一个新的 MIDI 文件（不覆盖原始导入文件）"""

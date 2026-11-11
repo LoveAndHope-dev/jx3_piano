@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>变更说明 · 铺面编辑器新增 BPM 显示与编辑：导入时回填源速度，改 BPM 后按「拍位不变」重算音符时间，播放速度、量化网格、顶部标尺与背景小节线同步更新；另存 MIDI 写入当前 BPM 且音符 tick 不变。</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --page: #fafbfc;
+  --ink: #202a35;
+  --muted: #566575;
+  --line: #dbe2e8;
+  --accent: #245b85;
+  --highlight: #edf3f7;
+  --hover: #e9eef3;
+  --code-bg: #edf0f4;
+  --code-ink: #263443;
+  --success: #236d4f;
+  --failure: #a83131;
+  --text: 15px;
+  --small: 13px;
+  --label: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #181d23;
+    --ink: #e4eaf0;
+    --muted: #a4b1be;
+    --line: #35404b;
+    --accent: #94c6ec;
+    --highlight: #222e39;
+    --hover: #27323d;
+    --code-bg: #10161d;
+    --code-ink: #e0e8f0;
+    --success: #8ed8b5;
+    --failure: #ffb0a8;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: var(--text)/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { max-width: 1040px; margin: auto; padding: 32px 32px 48px; }
+.eyebrow { color: var(--accent); font-size: var(--label); font-weight: 500; letter-spacing: .08em; }
+h1 { margin: 8px 0 12px; max-width: 32em; font-size: 28px; font-weight: 500; line-height: 1.4; letter-spacing: -.02em; overflow-wrap: anywhere; }
+h2 { margin: 0; font-size: 18px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+h3 { margin: 0 0 4px; color: var(--muted); font-size: var(--label); font-weight: 500; }
+p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+strong { font-weight: 500; }
+.meta { margin-bottom: 24px; color: var(--muted); font-size: var(--small); overflow-wrap: anywhere; }
+.meta p + p { margin-top: 2px; }
+article { padding: 20px 0 12px; border-top: 1px solid var(--line); }
+article header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.number { color: var(--muted); font: var(--label)/1.5 ui-monospace, Consolas, monospace; font-variant-numeric: tabular-nums; }
+.comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.comparison section { min-width: 0; padding: 12px; }
+.after { background: var(--highlight); border-radius: 4px; }
+.after h3 { color: var(--accent); }
+.reason { margin-top: 12px; font-size: var(--small); color: var(--muted); }
+.reason strong { margin-right: 8px; color: var(--ink); }
+summary { min-height: 44px; padding: 10px 4px; cursor: pointer; font-size: var(--small); font-weight: 500; border-radius: 4px; }
+summary:hover { background: var(--hover); }
+summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.count, .tag { color: var(--muted); font-size: var(--label); font-weight: 400; }
+.count { margin-left: 4px; font-variant-numeric: tabular-nums; }
+.file { min-width: 0; padding: 0 0 16px; scroll-margin-top: 20px; }
+.file:target { outline: 2px solid var(--accent); outline-offset: 4px; }
+.file-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.file-heading code { min-width: 0; font-size: var(--small); overflow-wrap: anywhere; }
+.tag { white-space: nowrap; }
+pre { margin: 8px 0 0; padding: 12px 16px; overflow: auto; background: var(--code-bg); color: var(--code-ink); border-radius: 4px; font: var(--small)/1.65 ui-monospace, Consolas, monospace; tab-size: 2; }
+footer { margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--line); }
+footer h2 { margin-bottom: 8px; }
+.check { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.status { padding-top: 2px; font-size: var(--label); font-weight: 500; }
+.passed { color: var(--success); }
+.failed { color: var(--failure); }
+.not-run, .unknown { color: var(--muted); }
+.check p { margin-top: 2px; color: var(--muted); font-size: var(--small); }
+.more { border-top: 1px solid var(--line); }
+.more > summary { padding-block: 12px; }
+.diagram { margin: 0; padding: 20px 0; border-top: 1px solid var(--line); }
+.diagram figcaption { margin-bottom: 12px; font-size: 18px; font-weight: 500; overflow-wrap: anywhere; }
+.diagram-svg { display: block; max-width: 100%; height: auto; margin: auto; overflow: visible; font: 13px system-ui, -apple-system, "Segoe UI", sans-serif; }
+.diagram-svg text { fill: var(--ink); }
+.diagram-edge { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+.diagram-svg marker path { fill: var(--muted); }
+.diagram-edge-label { fill: var(--page); }
+.diagram-svg .diagram-edge-text { fill: var(--muted); font-size: 12px; }
+.diagram-node rect { fill: var(--page); stroke: var(--line); stroke-width: 1.5; }
+.diagram-node.modified rect { fill: var(--highlight); stroke: var(--accent); }
+.diagram-node.added rect { stroke: var(--success); }
+.diagram-node.deleted rect { stroke: var(--failure); stroke-dasharray: 4 3; }
+.diagram-svg .diagram-kind { fill: var(--muted); font-size: 11px; }
+.diagram-node[href] { cursor: pointer; }
+.diagram-node[href]:hover rect, .diagram-node[href]:focus-visible rect { stroke: var(--accent); stroke-width: 2.5; }
+.diagram-node[href]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.diagram-hint { margin-top: 12px; color: var(--muted); font-size: var(--small); text-align: center; }
+.diagram-comparison { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; }
+.diagram-comparison > section { min-width: 0; padding: 12px; border: 1px solid var(--line); border-radius: 4px; }
+.diagram-comparison > section > h3 { margin-bottom: 12px; }
+.diagram-compact { display: none; }
+@media (max-width: 999px) {
+  .diagram-wide { display: none; }
+  .diagram-compact { display: block; }
+}
+@media (max-width: 640px) {
+  main { padding: 24px 16px 32px; }
+  h1 { font-size: 24px; }
+  .meta { margin-bottom: 20px; }
+  article { padding-top: 16px; }
+  article header { gap: 8px; }
+  .comparison { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .check { grid-template-columns: 60px minmax(0, 1fr); gap: 8px; }
+  pre { padding: 12px; }
+  .diagram-comparison { grid-template-columns: minmax(0,1fr); }
+  .diagram-comparison > section { padding: 12px 0; border: 0; }
+}
+</style></head><body><main><div class="eyebrow">COMET / 变更说明</div><h1>铺面编辑器新增 BPM 显示与编辑：导入时回填源速度，改 BPM 后按「拍位不变」重算音符时间，播放速度、量化网格、顶部标尺与背景小节线同步更新；另存 MIDI 写入当前 BPM 且音符 tick 不变。</h1><div class="meta"><p>比较范围 · 比较范围：4f33e1c..e1796d7（本次 change 的全部实现提交）。工作区仍有 25 个与本 change 无关的未提交改动，未计入本次成果。</p><p>生成时间 · 2026-11-11T14:46:13.830Z</p></div><figure class="diagram"><figcaption>改 BPM 的联动路径</figcaption><div class="diagram-wide"><svg class="diagram-svg" width="846" height="208" viewBox="0 0 846 208" role="group" aria-labelledby="walkthrough-diagram-0-wide-title walkthrough-diagram-0-wide-description"><title id="walkthrough-diagram-0-wide-title">改 BPM 的联动路径</title><desc id="walkthrough-diagram-0-wide-description">BPM 数值框 → 算出缩放因子 (提交新值); 算出缩放因子 → 音符时间与辅助线缩放 (factor = 旧/新); 音符时间与辅助线缩放 → 小节线/标尺/量化; 音符时间与辅助线缩放 → 播放速度随之变化 (音符秒数变短/变长)</desc><defs><marker id="walkthrough-diagram-0-wide-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z"/></marker></defs><path class="diagram-edge" d="M 132 104 C 189 104, 189 104, 243 104" marker-end="url(#walkthrough-diagram-0-wide-arrow)"/><rect class="diagram-edge-label" x="159" y="93" width="60" height="22"/><text class="diagram-edge-text" x="189" y="108" text-anchor="middle"><tspan x="189" dy="0">提交新值</tspan></text><path class="diagram-edge" d="M 366 104 C 423 104, 423 104, 477 104" marker-end="url(#walkthrough-diagram-0-wide-arrow)"/><rect class="diagram-edge-label" x="371" y="93" width="104" height="22"/><text class="diagram-edge-text" x="423" y="108" text-anchor="middle"><tspan x="423" dy="0">factor = 旧/新</tspan></text><path class="diagram-edge" d="M 600 104 C 657 104, 657 50, 711 50" marker-end="url(#walkthrough-diagram-0-wide-arrow)"/><path class="diagram-edge" d="M 600 104 C 657 104, 657 158, 711 158" marker-end="url(#walkthrough-diagram-0-wide-arrow)"/><rect class="diagram-edge-label" x="604" y="111" width="106" height="40"/><text class="diagram-edge-text" x="657" y="126" text-anchor="middle"><tspan x="657" dy="0">音符秒数变短/变</tspan><tspan x="657" dy="18">长</tspan></text><a class="diagram-node modified" href="#walkthrough-file-0-0" aria-label="BPM 数值框 · gui.py:658"><rect x="12" y="66" width="120" height="76" rx="5"/><text class="diagram-kind" x="72" y="83" text-anchor="middle"><tspan x="72" dy="0">修改</tspan></text><text class="" x="72" y="101" text-anchor="middle"><tspan x="72" dy="0">BPM 数值框</tspan></text></a><a class="diagram-node added" href="#walkthrough-file-1-1" aria-label="算出缩放因子 · gui.py:1032"><rect x="246" y="66" width="120" height="76" rx="5"/><text class="diagram-kind" x="306" y="83" text-anchor="middle"><tspan x="306" dy="0">新增</tspan></text><text class="" x="306" y="101" text-anchor="middle"><tspan x="306" dy="0">算出缩放因子</tspan></text></a><a class="diagram-node added" href="#walkthrough-file-1-0" aria-label="音符时间与辅助线缩放 · piano_roll.py:558"><rect x="480" y="66" width="120" height="76" rx="5"/><text class="diagram-kind" x="540" y="83" text-anchor="middle"><tspan x="540" dy="0">新增</tspan></text><text class="" x="540" y="101" text-anchor="middle"><tspan x="540" dy="0">音符时间与辅助</tspan><tspan x="540" dy="18">线缩放</tspan></text></a><a class="diagram-node modified" href="#walkthrough-file-2-0" aria-label="小节线/标尺/量化 · gui.py:1040"><rect x="714" y="12" width="120" height="76" rx="5"/><text class="diagram-kind" x="774" y="29" text-anchor="middle"><tspan x="774" dy="0">修改</tspan></text><text class="" x="774" y="47" text-anchor="middle"><tspan x="774" dy="0">小节线/标尺/量</tspan><tspan x="774" dy="18">化</tspan></text></a><g class="diagram-node "><rect x="714" y="120" width="120" height="76" rx="5"/><text class="" x="774" y="153" text-anchor="middle"><tspan x="774" dy="0">播放速度随之变</tspan><tspan x="774" dy="18">化</tspan></text></g></svg></div><div class="diagram-compact"><svg class="diagram-svg" width="272" height="484" viewBox="0 0 272 484" role="group" aria-labelledby="walkthrough-diagram-0-compact-title walkthrough-diagram-0-compact-description"><title id="walkthrough-diagram-0-compact-title">改 BPM 的联动路径</title><desc id="walkthrough-diagram-0-compact-description">BPM 数值框 → 算出缩放因子 (提交新值); 算出缩放因子 → 音符时间与辅助线缩放 (factor = 旧/新); 音符时间与辅助线缩放 → 小节线/标尺/量化; 音符时间与辅助线缩放 → 播放速度随之变化 (音符秒数变短/变长)</desc><defs><marker id="walkthrough-diagram-0-compact-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z"/></marker></defs><path class="diagram-edge" d="M 136 88 C 136 114, 136 114, 136 137" marker-end="url(#walkthrough-diagram-0-compact-arrow)"/><rect class="diagram-edge-label" x="106" y="103" width="60" height="22"/><text class="diagram-edge-text" x="136" y="118" text-anchor="middle"><tspan x="136" dy="0">提交新值</tspan></text><path class="diagram-edge" d="M 136 216 C 136 242, 136 242, 136 265" marker-end="url(#walkthrough-diagram-0-compact-arrow)"/><rect class="diagram-edge-label" x="84" y="231" width="104" height="22"/><text class="diagram-edge-text" x="136" y="246" text-anchor="middle"><tspan x="136" dy="0">factor = 旧/新</tspan></text><path class="diagram-edge" d="M 136 344 C 136 370, 68 370, 68 393" marker-end="url(#walkthrough-diagram-0-compact-arrow)"/><path class="diagram-edge" d="M 136 344 C 136 370, 204 370, 204 393" marker-end="url(#walkthrough-diagram-0-compact-arrow)"/><rect class="diagram-edge-label" x="123.5" y="350" width="93" height="40"/><text class="diagram-edge-text" x="170" y="365" text-anchor="middle"><tspan x="170" dy="0">音符秒数变短/</tspan><tspan x="170" dy="18">变长</tspan></text><a class="diagram-node modified" href="#walkthrough-file-0-0" aria-label="BPM 数值框 · gui.py:658"><rect x="80" y="12" width="112" height="76" rx="5"/><text class="diagram-kind" x="136" y="29" text-anchor="middle"><tspan x="136" dy="0">修改</tspan></text><text class="" x="136" y="47" text-anchor="middle"><tspan x="136" dy="0">BPM 数值框</tspan></text></a><a class="diagram-node added" href="#walkthrough-file-1-1" aria-label="算出缩放因子 · gui.py:1032"><rect x="80" y="140" width="112" height="76" rx="5"/><text class="diagram-kind" x="136" y="157" text-anchor="middle"><tspan x="136" dy="0">新增</tspan></text><text class="" x="136" y="175" text-anchor="middle"><tspan x="136" dy="0">算出缩放因子</tspan></text></a><a class="diagram-node added" href="#walkthrough-file-1-0" aria-label="音符时间与辅助线缩放 · piano_roll.py:558"><rect x="80" y="268" width="112" height="76" rx="5"/><text class="diagram-kind" x="136" y="285" text-anchor="middle"><tspan x="136" dy="0">新增</tspan></text><text class="" x="136" y="303" text-anchor="middle"><tspan x="136" dy="0">音符时间与辅</tspan><tspan x="136" dy="18">助线缩放</tspan></text></a><a class="diagram-node modified" href="#walkthrough-file-2-0" aria-label="小节线/标尺/量化 · gui.py:1040"><rect x="12" y="396" width="112" height="76" rx="5"/><text class="diagram-kind" x="68" y="413" text-anchor="middle"><tspan x="68" dy="0">修改</tspan></text><text class="" x="68" y="431" text-anchor="middle"><tspan x="68" dy="0">小节线/标尺/</tspan><tspan x="68" dy="18">量化</tspan></text></a><g class="diagram-node "><rect x="148" y="396" width="112" height="76" rx="5"/><text class="" x="204" y="429" text-anchor="middle"><tspan x="204" dy="0">播放速度随之</tspan><tspan x="204" dy="18">变化</tspan></text></g></svg></div><p class="diagram-hint">点击带链接的节点查看相关代码。</p></figure><article><header><span class="number">01</span><h2>工具栏 BPM 数值框</h2></header><div class="comparison"><section><h3>原来</h3><p>界面上看不到当前速度，也无法在工具内调整</p></section><section class="after"><h3>现在</h3><p>「量化」旁显示 BPM（20.0～300.0，一位小数），无曲目与播放中禁用；导入曲目时自动填入源速度</p></section></div><p class="reason"><strong>原因</strong> 让速度成为可见、可改的参数</p><details><summary>查看文件和关键代码 <span class="count">2</span></summary><div class="file" id="walkthrough-file-0-0"><div class="file-heading"><span class="tag">修改</span><code>gui.py:658</code></div><pre><code>self.bpm_spin = QDoubleSpinBox()
+self.bpm_spin.setRange(20.0, 300.0)
+self.bpm_spin.setKeyboardTracking(False)</code></pre></div><div class="file" id="walkthrough-file-0-1"><div class="file-heading"><span class="tag">修改</span><code>gui.py:972</code></div><pre><code>self._updating_bpm = True
+self.bpm_spin.setValue(float(bpm))
+self._updating_bpm = False</code></pre></div></details></article><article><header><span class="number">02</span><h2>改 BPM 按拍位不变重算</h2></header><div class="comparison"><section><h3>原来</h3><p>BPM 只影响小节线画法，改速度需要回源文件</p></section><section class="after"><h3>现在</h3><p>音符起始/时长与播放辅助线按 旧BPM/新BPM 缩放；播放变快或变慢，铺面标记未保存</p></section></div><p class="reason"><strong>原因</strong> 同一乐句可在不同速度下试听与编辑</p><details><summary>查看文件和关键代码 <span class="count">2</span></summary><div class="file" id="walkthrough-file-1-0"><div class="file-heading"><span class="tag">新增</span><code>piano_roll.py:558</code></div><pre><code>def rescale_times(self, factor: float) -&gt; None:
+    self._notes = scaled_note_times(self._notes, factor)</code></pre></div><div class="file" id="walkthrough-file-1-1"><div class="file-heading"><span class="tag">新增</span><code>gui.py:1032</code></div><pre><code>factor = bpm_scale_factor(self.current_bpm, new_bpm)
+self.piano_roll.rescale_times(factor)</code></pre></div></details></article><article><header><span class="number">03</span><h2>标尺、小节线与量化同步</h2></header><div class="comparison"><section><h3>原来</h3><p>网格只在导入时计算一次</p></section><section class="after"><h3>现在</h3><p>BPM 变更后小节线、标尺拍刻度与量化吸附统一按新拍长重算，三者保持对齐</p></section></div><p class="reason"><strong>原因</strong> 标尺与音符必须使用同一时间基准</p><details><summary>查看文件和关键代码 <span class="count">1</span></summary><div class="file" id="walkthrough-file-2-0"><div class="file-heading"><span class="tag">修改</span><code>gui.py:1040</code></div><pre><code>beat_seconds = (60.0 / new_bpm) * (4.0 / denominator)
+self.piano_roll.set_measure_grid(beat_seconds * numerator)
+self.piano_roll.set_beat_grid(beat_seconds, numerator)</code></pre></div></details></article><details class="more"><summary>其余变化 (1)</summary><div><article><header><span class="number">04</span><h2>另存 MIDI 写入当前 BPM</h2></header><div class="comparison"><section><h3>原来</h3><p>导出沿用源文件 tempo，改速度后导出仍按原速播放</p></section><section class="after"><h3>现在</h3><p>导出统一写入当前 BPM，并按新 tempo 换算 tick，音符拍位保持不变</p></section></div><p class="reason"><strong>原因</strong> 导出文件与铺面里的速度一致</p><details><summary>查看文件和关键代码 <span class="count">2</span></summary><div class="file" id="walkthrough-file-3-0"><div class="file-heading"><span class="tag">修改</span><code>build_music.py:833</code></div><pre><code>def write_notes_to_midi(..., tempo_bpm: Optional[float] = None)</code></pre></div><div class="file" id="walkthrough-file-3-1"><div class="file-heading"><span class="tag">修改</span><code>gui.py:1078</code></div><pre><code>tempo_bpm=self.current_bpm,</code></pre></div></details></article></div></details><footer><h2>实际验证</h2><div class="check"><span class="status passed">通过</span><div><strong>Builder 自检</strong><p>.venv\Scripts\python.exe -m unittest discover -s tests -v → Ran 78 tests, OK（上一轮 51 项 + 本轮 27 项）</p></div></div><div class="check"><span class="status passed">通过</span><div><strong>Runtime 检查</strong><p>comet guard piano-roll-tempo-control build --apply -- .venv\Scripts\python.exe -m unittest discover -s tests -v → ALL CHECKS PASSED（修复后重跑）</p></div></div><div class="check"><span class="status passed">通过</span><div><strong>独立验收</strong><p>独立审查覆盖 4f33e1c..e1796d7，无 Critical；2 个 Important（播放中未禁用 BPM、越界输入被截断）与 4 个 Minor 已修复并有回归测试</p></div></div><div class="check"><span class="status not-run">未执行</span><div><strong>人工视觉 / 音频验收</strong><p>BPM 回填、改速度后的听感与标尺观感、播放中禁用、导出后再导入仍需人工过一遍</p></div></div></footer></main><template id="walkthrough-data">eyJzdW1tYXJ5Ijoi6ZO66Z2i57yW6L6R5Zmo5paw5aKeIEJQTSDmmL7npLrkuI7nvJbovpHvvJrlr7zlhaXml7blm57loavmupDpgJ/luqbvvIzmlLkgQlBNIOWQjuaMieOAjOaLjeS9jeS4jeWPmOOAjemHjeeul+mfs+espuaXtumXtO+8jOaSreaUvumAn+W6puOAgemHj+WMlue9keagvOOAgemhtumDqOagh+WwuuS4juiDjOaZr+Wwj+iKgue6v+WQjOatpeabtOaWsO+8m+WPpuWtmCBNSURJIOWGmeWFpeW9k+WJjSBCUE0g5LiU6Z+z56ymIHRpY2sg5LiN5Y+Y44CCIiwic2NvcGUiOiLmr5TovoPojIPlm7TvvJo0ZjMzZTFjLi5lMTc5NmQ377yI5pys5qyhIGNoYW5nZSDnmoTlhajpg6jlrp7njrDmj5DkuqTvvInjgILlt6XkvZzljLrku43mnIkgMjUg5Liq5LiO5pysIGNoYW5nZSDml6DlhbPnmoTmnKrmj5DkuqTmlLnliqjvvIzmnKrorqHlhaXmnKzmrKHmiJDmnpzjgIIiLCJjaGFuZ2VzIjpbeyJ0aXRsZSI6IuW3peWFt+agjyBCUE0g5pWw5YC85qGGIiwiYmVmb3JlIjoi55WM6Z2i5LiK55yL5LiN5Yiw5b2T5YmN6YCf5bqm77yM5Lmf5peg5rOV5Zyo5bel5YW35YaF6LCD5pW0IiwiYWZ0ZXIiOiLjgIzph4/ljJbjgI3ml4HmmL7npLogQlBN77yIMjAuMO+9njMwMC4w77yM5LiA5L2N5bCP5pWw77yJ77yM5peg5puy55uu5LiO5pKt5pS+5Lit56aB55So77yb5a+85YWl5puy55uu5pe26Ieq5Yqo5aGr5YWl5rqQ6YCf5bqmIiwicmVhc29uIjoi6K6p6YCf5bqm5oiQ5Li65Y+v6KeB44CB5Y+v5pS555qE5Y+C5pWwIiwiZmlsZXMiOlt7InBhdGgiOiJndWkucHk6NjU4Iiwia2luZCI6Im1vZGlmaWVkIiwiY29kZSI6InNlbGYuYnBtX3NwaW4gPSBRRG91YmxlU3BpbkJveCgpXG5zZWxmLmJwbV9zcGluLnNldFJhbmdlKDIwLjAsIDMwMC4wKVxuc2VsZi5icG1fc3Bpbi5zZXRLZXlib2FyZFRyYWNraW5nKEZhbHNlKSJ9LHsicGF0aCI6Imd1aS5weTo5NzIiLCJraW5kIjoibW9kaWZpZWQiLCJjb2RlIjoic2VsZi5fdXBkYXRpbmdfYnBtID0gVHJ1ZVxuc2VsZi5icG1fc3Bpbi5zZXRWYWx1ZShmbG9hdChicG0pKVxuc2VsZi5fdXBkYXRpbmdfYnBtID0gRmFsc2UifV19LHsidGl0bGUiOiLmlLkgQlBNIOaMieaLjeS9jeS4jeWPmOmHjeeulyIsImJlZm9yZSI6IkJQTSDlj6rlvbHlk43lsI/oioLnur/nlLvms5XvvIzmlLnpgJ/luqbpnIDopoHlm57mupDmlofku7YiLCJhZnRlciI6Iumfs+espui1t+Wniy/ml7bplb/kuI7mkq3mlL7ovoXliqnnur/mjIkg5penQlBNL+aWsEJQTSDnvKnmlL7vvJvmkq3mlL7lj5jlv6vmiJblj5jmhaLvvIzpk7rpnaLmoIforrDmnKrkv53lrZgiLCJyZWFzb24iOiLlkIzkuIDkuZDlj6Xlj6/lnKjkuI3lkIzpgJ/luqbkuIvor5XlkKzkuI7nvJbovpEiLCJmaWxlcyI6W3sicGF0aCI6InBpYW5vX3JvbGwucHk6NTU4Iiwia2luZCI6ImFkZGVkIiwiY29kZSI6ImRlZiByZXNjYWxlX3RpbWVzKHNlbGYsIGZhY3RvcjogZmxvYXQpIC0+IE5vbmU6XG4gICAgc2VsZi5fbm90ZXMgPSBzY2FsZWRfbm90ZV90aW1lcyhzZWxmLl9ub3RlcywgZmFjdG9yKSJ9LHsicGF0aCI6Imd1aS5weToxMDMyIiwia2luZCI6ImFkZGVkIiwiY29kZSI6ImZhY3RvciA9IGJwbV9zY2FsZV9mYWN0b3Ioc2VsZi5jdXJyZW50X2JwbSwgbmV3X2JwbSlcbnNlbGYucGlhbm9fcm9sbC5yZXNjYWxlX3RpbWVzKGZhY3RvcikifV19LHsidGl0bGUiOiLmoIflsLrjgIHlsI/oioLnur/kuI7ph4/ljJblkIzmraUiLCJiZWZvcmUiOiLnvZHmoLzlj6rlnKjlr7zlhaXml7borqHnrpfkuIDmrKEiLCJhZnRlciI6IkJQTSDlj5jmm7TlkI7lsI/oioLnur/jgIHmoIflsLrmi43liLvluqbkuI7ph4/ljJblkLjpmYTnu5/kuIDmjInmlrDmi43plb/ph43nrpfvvIzkuInogIXkv53mjIHlr7npvZAiLCJyZWFzb24iOiLmoIflsLrkuI7pn7PnrKblv4Xpobvkvb/nlKjlkIzkuIDml7bpl7Tln7rlh4YiLCJmaWxlcyI6W3sicGF0aCI6Imd1aS5weToxMDQwIiwia2luZCI6Im1vZGlmaWVkIiwiY29kZSI6ImJlYXRfc2Vjb25kcyA9ICg2MC4wIC8gbmV3X2JwbSkgKiAoNC4wIC8gZGVub21pbmF0b3IpXG5zZWxmLnBpYW5vX3JvbGwuc2V0X21lYXN1cmVfZ3JpZChiZWF0X3NlY29uZHMgKiBudW1lcmF0b3IpXG5zZWxmLnBpYW5vX3JvbGwuc2V0X2JlYXRfZ3JpZChiZWF0X3NlY29uZHMsIG51bWVyYXRvcikifV19LHsidGl0bGUiOiLlj6blrZggTUlESSDlhpnlhaXlvZPliY0gQlBNIiwiYmVmb3JlIjoi5a+85Ye65rK/55So5rqQ5paH5Lu2IHRlbXBv77yM5pS56YCf5bqm5ZCO5a+85Ye65LuN5oyJ5Y6f6YCf5pKt5pS+IiwiYWZ0ZXIiOiLlr7zlh7rnu5/kuIDlhpnlhaXlvZPliY0gQlBN77yM5bm25oyJ5pawIHRlbXBvIOaNoueulyB0aWNr77yM6Z+z56ym5ouN5L2N5L+d5oyB5LiN5Y+YIiwicmVhc29uIjoi5a+85Ye65paH5Lu25LiO6ZO66Z2i6YeM55qE6YCf5bqm5LiA6Ie0IiwiZmlsZXMiOlt7InBhdGgiOiJidWlsZF9tdXNpYy5weTo4MzMiLCJraW5kIjoibW9kaWZpZWQiLCJjb2RlIjoiZGVmIHdyaXRlX25vdGVzX3RvX21pZGkoLi4uLCB0ZW1wb19icG06IE9wdGlvbmFsW2Zsb2F0XSA9IE5vbmUpIn0seyJwYXRoIjoiZ3VpLnB5OjEwNzgiLCJraW5kIjoibW9kaWZpZWQiLCJjb2RlIjoidGVtcG9fYnBtPXNlbGYuY3VycmVudF9icG0sIn1dfV0sInZlcmlmaWNhdGlvbiI6W3sibGFiZWwiOiJCdWlsZGVyIOiHquajgCIsInN0YXR1cyI6InBhc3NlZCIsImRldGFpbCI6Ii52ZW52XFxTY3JpcHRzXFxweXRob24uZXhlIC1tIHVuaXR0ZXN0IGRpc2NvdmVyIC1zIHRlc3RzIC12IOKGkiBSYW4gNzggdGVzdHMsIE9L77yI5LiK5LiA6L2uIDUxIOmhuSArIOacrOi9riAyNyDpobnvvIkifSx7ImxhYmVsIjoiUnVudGltZSDmo4Dmn6UiLCJzdGF0dXMiOiJwYXNzZWQiLCJkZXRhaWwiOiJjb21ldCBndWFyZCBwaWFuby1yb2xsLXRlbXBvLWNvbnRyb2wgYnVpbGQgLS1hcHBseSAtLSAudmVudlxcU2NyaXB0c1xccHl0aG9uLmV4ZSAtbSB1bml0dGVzdCBkaXNjb3ZlciAtcyB0ZXN0cyAtdiDihpIgQUxMIENIRUNLUyBQQVNTRUTvvIjkv67lpI3lkI7ph43ot5HvvIkifSx7ImxhYmVsIjoi54us56uL6aqM5pS2Iiwic3RhdHVzIjoicGFzc2VkIiwiZGV0YWlsIjoi54us56uL5a6h5p+l6KaG55uWIDRmMzNlMWMuLmUxNzk2ZDfvvIzml6AgQ3JpdGljYWzvvJsyIOS4qiBJbXBvcnRhbnTvvIjmkq3mlL7kuK3mnKrnpoHnlKggQlBN44CB6LaK55WM6L6T5YWl6KKr5oiq5pat77yJ5LiOIDQg5LiqIE1pbm9yIOW3suS/ruWkjeW5tuacieWbnuW9kua1i+ivlSJ9LHsibGFiZWwiOiLkurrlt6Xop4bop4kgLyDpn7PpopHpqozmlLYiLCJzdGF0dXMiOiJub3QtcnVuIiwiZGV0YWlsIjoiQlBNIOWbnuWhq+OAgeaUuemAn+W6puWQjueahOWQrOaEn+S4juagh+WwuuinguaEn+OAgeaSreaUvuS4reemgeeUqOOAgeWvvOWHuuWQjuWGjeWvvOWFpeS7jemcgOS6uuW3pei/h+S4gOmBjSJ9XSwiZGlhZ3JhbXMiOlt7InR5cGUiOiJmbG93IiwidGl0bGUiOiLmlLkgQlBNIOeahOiBlOWKqOi3r+W+hCIsIm5vZGVzIjpbeyJpZCI6InNwaW4iLCJsYWJlbCI6IkJQTSDmlbDlgLzmoYYiLCJmaWxlIjoiZ3VpLnB5OjY1OCIsImtpbmQiOiJtb2RpZmllZCJ9LHsiaWQiOiJoYW5kbGVyIiwibGFiZWwiOiLnrpflh7rnvKnmlL7lm6DlrZAiLCJmaWxlIjoiZ3VpLnB5OjEwMzIiLCJraW5kIjoiYWRkZWQifSx7ImlkIjoibm90ZXMiLCJsYWJlbCI6Iumfs+espuaXtumXtOS4jui+heWKqee6v+e8qeaUviIsImZpbGUiOiJwaWFub19yb2xsLnB5OjU1OCIsImtpbmQiOiJhZGRlZCJ9LHsiaWQiOiJncmlkIiwibGFiZWwiOiLlsI/oioLnur8v5qCH5bC6L+mHj+WMliIsImZpbGUiOiJndWkucHk6MTA0MCIsImtpbmQiOiJtb2RpZmllZCJ9LHsiaWQiOiJwbGF5IiwibGFiZWwiOiLmkq3mlL7pgJ/luqbpmo/kuYvlj5jljJYifV0sImVkZ2VzIjpbeyJmcm9tIjoic3BpbiIsInRvIjoiaGFuZGxlciIsImxhYmVsIjoi5o+Q5Lqk5paw5YC8In0seyJmcm9tIjoiaGFuZGxlciIsInRvIjoibm90ZXMiLCJsYWJlbCI6ImZhY3RvciA9IOaXpy/mlrAifSx7ImZyb20iOiJub3RlcyIsInRvIjoiZ3JpZCJ9LHsiZnJvbSI6Im5vdGVzIiwidG8iOiJwbGF5IiwibGFiZWwiOiLpn7PnrKbnp5LmlbDlj5jnn60v5Y+Y6ZW/In1dfV19</template></body></html>

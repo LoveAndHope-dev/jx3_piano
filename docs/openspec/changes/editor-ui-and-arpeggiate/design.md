@@ -31,7 +31,7 @@ def arpeggiate_notes(notes, selected_ids, seconds_per_beat):
 - `window = step = seconds_per_beat / 32`。
 - 选中音符按 `start` 排序；以组内第一个为锚点，`start < anchor + window` 归入同组；级联规则与脚本一致（`start < anchor + (count)*step`）。
 - 组内按 `pitch` 升序，第 k 个音符 `start = anchor + k*step`。
-- 结束时间保持不变；若 `end - start < MIN_NOTE_DURATION`，把 `start` 钳制到 `end - MIN_NOTE_DURATION`（保证时长而非移动结束时间）。
+- 时长保持不变：只修改起始时间，结束时间随之后移；不改音高。极短音符（<0.05s）同样只后移，不做时长补足。
 - 未选中音符原样返回副本；不修改输入。
 
 ### 2. 画布接口与按钮

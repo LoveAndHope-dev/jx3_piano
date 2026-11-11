@@ -1,13 +1,12 @@
 """曲谱优化：把选中的和弦/音簇按 1/32 拍展开成琶音。
 
-内存版（不落盘），供铺面「曲谱优化」按钮调用；算法与
-release/谱子/arpeggiate.py 一致：窗口与步长均为 1/32 拍，
-组内按音高从低到高展开，结束时间保持不变。
+内存版（不落盘），供铺面「曲谱优化」按钮调用：窗口与步长均为
+1/32 拍，组内按音高从低到高依次把起始时间后移 k×步长，
+音符时长保持不变（结束时间随之后移）。
 """
 
 from typing import Iterable, List
 
-MIN_NOTE_DURATION = 0.05
 STEP_DIVISION = 32.0
 
 
@@ -45,17 +44,8 @@ def arpeggiate_notes(
         group = sorted(selected[index:end_index], key=lambda n: int(n["pitch"]))
         if len(group) > 1:
             for order, note in enumerate(group):
-                original_end = float(note["start"]) + float(note["duration"])
-                wanted_start = anchor + order * step
-                # 起点不得早于组锚点，也不得把时长压到最小时长以下；
-                # 极短音符无法保持结束时间时，按时长下限向后延长
-                start = min(wanted_start, original_end - MIN_NOTE_DURATION)
-                start = max(anchor, start, 0.0)
-                duration = original_end - start
-                if duration < MIN_NOTE_DURATION:
-                    duration = MIN_NOTE_DURATION
-                note["start"] = round(start, 6)
-                note["duration"] = round(duration, 6)
+                # 只把音符往后错开：时长保持不变，结束时间随之后移
+                note["start"] = round(anchor + order * step, 6)
         index = end_index
 
     return result

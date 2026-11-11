@@ -35,6 +35,7 @@ from PyQt5.QtWidgets import (
     QWidget,
 )
 
+from arpeggiate import arpeggiate_notes
 from build_music import get_chromatic_key_ladder, tempo_us_from_bpm
 
 MIN_PITCH = 21  # A0
@@ -929,6 +930,21 @@ class _PianoRollCanvas(QGraphicsView):
             self._update_item_geometry(note)
         self.notesChanged.emit()
 
+    def arpeggiate_selected(self, seconds_per_beat: float) -> int:
+        """对选中音符执行 1/32 拍琶音展开；返回被处理的音符数。"""
+        selected = set(self._selected_ids)
+        if not selected:
+            return 0
+        self._notes = arpeggiate_notes(self._notes, selected, seconds_per_beat)
+        for note in self._notes:
+            self._update_item_geometry(note)
+        total = max(
+            (n["start"] + n["duration"] for n in self._notes), default=MIN_SCENE_SECONDS
+        )
+        self._ensure_scene_width(total)
+        self.notesChanged.emit()
+        return len(selected)
+
     # ------------------------------------------------------------------
     # 鼠标 / 键盘交互
     # ------------------------------------------------------------------
@@ -1354,6 +1370,10 @@ class PianoRollWidget(QWidget):
     def rescale_times(self, factor: float) -> None:
         """按 factor 缩放全部音符时间与播放辅助线（BPM 变更使用）"""
         self._canvas.rescale_times(factor)
+
+    def arpeggiate_selected(self, seconds_per_beat: float) -> int:
+        """对选中音符执行 1/32 拍琶音展开；返回被处理的音符数"""
+        return self._canvas.arpeggiate_selected(seconds_per_beat)
 
     def set_instrument_range(self, low_pitch: int, high_pitch: int) -> None:
         self._canvas.set_instrument_range(low_pitch, high_pitch)

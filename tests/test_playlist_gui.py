@@ -27,7 +27,12 @@ class PlaylistGuiTest(unittest.TestCase):
         gui.get_midi_dir_path = lambda: self.tmp.name
         self.addCleanup(self._restore_midi_dir)
         self.window = gui.MidiConverterGUI()
-        self.addCleanup(self.window.close)
+        self.addCleanup(self._close_window)
+
+    def _close_window(self):
+        # 关闭前清未保存标记，避免 offscreen 下弹出确认框
+        self.window.piano_roll_dirty = False
+        self.window.close()
 
     def _restore_midi_dir(self):
         gui.get_midi_dir_path = self._original_midi_dir
@@ -93,14 +98,33 @@ class PlaylistGuiTest(unittest.TestCase):
 
     def test_mode_toggle_locks_roll(self):
         canvas = self.window.piano_roll._canvas
+        self.assertFalse(self.window.play_btn.isEnabled())
         self.window.range_toggle_btn.setChecked(True)
         self.window.on_range_toggle_clicked()
         self.assertTrue(canvas.is_read_only())
+        self.assertTrue(self.window.play_btn.isEnabled())
         self.assertEqual(self.window.range_toggle_btn.text(), "✏️ 编辑模式")
         self.window.range_toggle_btn.setChecked(False)
         self.window.on_range_toggle_clicked()
         self.assertFalse(canvas.is_read_only())
+        self.assertFalse(self.window.play_btn.isEnabled())
         self.assertEqual(self.window.range_toggle_btn.text(), "🎹 演奏模式")
+
+    def test_default_mapping_and_range_box(self):
+        self.window.on_new_play_item()
+        self.assertEqual(self.window.range_low_combo.currentData(), 36)
+        self.assertEqual(self.window.range_high_combo.currentData(), 83)
+        self.assertEqual(self.window.piano_roll.get_instrument_range(), (36, 47))
+
+    def test_arpeggiate_selected_notes(self):
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},
+            {"id": 1, "pitch": 64, "start": 1.0, "duration": 0.5, "track": 0},
+        ])
+        self.window.piano_roll._canvas._set_selection({0, 1})
+        self.window.on_arpeggiate_clicked()
+        starts = sorted(n["start"] for n in self.window.piano_roll.get_notes())
+        self.assertGreater(starts[1], starts[0])
 
     def test_stop_playback_keeps_play_mode_locked(self):
         canvas = self.window.piano_roll._canvas

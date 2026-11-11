@@ -530,6 +530,27 @@ class MidiConverterGUI(QMainWindow):
                 border: 1px solid #34495E;
             }
 
+            QDoubleSpinBox {
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                    stop:0 rgba(52, 73, 94, 0.8), stop:1 rgba(44, 62, 80, 0.8));
+                border: 2px solid #34495E;
+                border-radius: 6px;
+                padding: 4px 8px;
+                color: #ECF0F1;
+                font-size: 13px;
+                min-width: 50px;
+            }
+
+            QDoubleSpinBox:hover {
+                border: 2px solid #3498DB;
+            }
+
+            QDoubleSpinBox::up-button, QDoubleSpinBox::down-button {
+                width: 14px;
+                background: #34495E;
+                border: none;
+            }
+
         """
         )
 
@@ -613,14 +634,7 @@ class MidiConverterGUI(QMainWindow):
         self.play_listbox.setContextMenuPolicy(Qt.CustomContextMenu)
         self.play_listbox.customContextMenuRequested.connect(self.on_playlist_context_menu)
 
-        self.play_delete_btn = QPushButton("🗑")
-        self.play_delete_btn.setToolTip("从列表移除（保留磁盘文件）")
-        self.play_delete_btn.setFixedWidth(36)
-        self.play_delete_btn.setEnabled(False)
-        self.play_delete_btn.clicked.connect(self.on_delete_play_item)
-
         list_row.addWidget(self.play_listbox, 1)
-        list_row.addWidget(self.play_delete_btn)
         list_layout.addLayout(list_row)
 
         # 右侧面板
@@ -646,6 +660,15 @@ class MidiConverterGUI(QMainWindow):
         piano_layout = QVBoxLayout(piano_tab)
         piano_layout.setContentsMargins(0, 0, 0, 0)
 
+        action_row = QHBoxLayout()
+        self.arpeggiate_btn = QPushButton("🪄 曲谱优化")
+        self.arpeggiate_btn.setToolTip("对选中音符做琶音整理（1/32 拍展开）")
+        self.arpeggiate_btn.setEnabled(False)
+        self.arpeggiate_btn.clicked.connect(self.on_arpeggiate_clicked)
+        action_row.addWidget(self.arpeggiate_btn)
+        action_row.addStretch()
+        piano_layout.addLayout(action_row)
+
         toolbar = QHBoxLayout()
         title_label = QLabel("🎼 铺面编辑")
         title_label.setFont(QFont("Microsoft YaHei UI", 14, QFont.Bold))
@@ -665,46 +688,49 @@ class MidiConverterGUI(QMainWindow):
         self.piano_save_btn.clicked.connect(self.save_piano_roll)
         toolbar.addWidget(self.piano_save_btn)
 
-        # 乐器音域框控件：与上方标题/播放/保存共用同一行工具栏
+        # 演奏/编辑模式与键位映射：第一行到「演奏最高键位映射」结束
         self.range_toggle_btn = QPushButton("🎹 演奏模式")
         self.range_toggle_btn.setCheckable(True)
         self.range_toggle_btn.setEnabled(False)
         self.range_toggle_btn.clicked.connect(self.on_range_toggle_clicked)
         toolbar.addWidget(self.range_toggle_btn)
 
-        toolbar.addWidget(QLabel("最低映射:"))
+        toolbar.addWidget(QLabel("演奏最低键位映射:"))
         self.range_low_combo = QComboBox()
         self.range_low_combo.setEnabled(False)
         toolbar.addWidget(self.range_low_combo)
 
-        toolbar.addWidget(QLabel("最高映射:"))
+        toolbar.addWidget(QLabel("演奏最高键位映射:"))
         self.range_high_combo = QComboBox()
         self.range_high_combo.setEnabled(False)
         toolbar.addWidget(self.range_high_combo)
 
-        toolbar.addWidget(QLabel("当前最低键:"))
+        piano_layout.addLayout(toolbar)
+
+        toolbar_row2 = QHBoxLayout()
+        toolbar_row2.addWidget(QLabel("钢琴音域绝对最低键:"))
         self.range_bottom_display = QLineEdit()
         self.range_bottom_display.setReadOnly(True)
-        self.range_bottom_display.setFixedWidth(40)
+        self.range_bottom_display.setFixedWidth(48)
         self.range_bottom_display.setAlignment(Qt.AlignCenter)
-        toolbar.addWidget(self.range_bottom_display)
+        toolbar_row2.addWidget(self.range_bottom_display)
 
-        toolbar.addWidget(QLabel("当前最高键:"))
+        toolbar_row2.addWidget(QLabel("钢琴音域绝对最高键:"))
         self.range_top_display = QLineEdit()
         self.range_top_display.setReadOnly(True)
-        self.range_top_display.setFixedWidth(40)
+        self.range_top_display.setFixedWidth(48)
         self.range_top_display.setAlignment(Qt.AlignCenter)
-        toolbar.addWidget(self.range_top_display)
+        toolbar_row2.addWidget(self.range_top_display)
 
-        toolbar.addWidget(QLabel("量化:"))
+        toolbar_row2.addWidget(QLabel("量化:"))
         self.quantize_combo = QComboBox()
         self.quantize_combo.setEnabled(False)
         for label in ("关闭", "1/2", "1/4", "1/8", "1/16", "1/32", "1/64", "1/128"):
             self.quantize_combo.addItem(label)
         self.quantize_combo.currentTextChanged.connect(self.on_quantize_combo_changed)
-        toolbar.addWidget(self.quantize_combo)
+        toolbar_row2.addWidget(self.quantize_combo)
 
-        toolbar.addWidget(QLabel("BPM:"))
+        toolbar_row2.addWidget(QLabel("BPM:"))
         self.bpm_spin = QDoubleSpinBox()
         self.bpm_spin.setRange(0.0, 10000.0)
         self.bpm_spin.setDecimals(1)
@@ -713,9 +739,10 @@ class MidiConverterGUI(QMainWindow):
         self.bpm_spin.setValue(120.0)
         self.bpm_spin.setEnabled(False)
         self.bpm_spin.valueChanged.connect(self.on_bpm_changed)
-        toolbar.addWidget(self.bpm_spin)
+        toolbar_row2.addWidget(self.bpm_spin)
+        toolbar_row2.addStretch()
 
-        piano_layout.addLayout(toolbar)
+        piano_layout.addLayout(toolbar_row2)
 
         self._populate_range_combos()
         self.range_low_combo.currentIndexChanged.connect(self.on_range_low_combo_changed)
@@ -740,6 +767,7 @@ class MidiConverterGUI(QMainWindow):
         self.piano_roll.instrumentRangeChanged.connect(lambda *_: self._refresh_range_display())
         self.piano_stack.addWidget(self.piano_roll)  # index 2
         self._refresh_range_display()
+        self._sync_roll_mode()
 
         self.piano_stack.setCurrentWidget(self.piano_placeholder)
         piano_layout.addWidget(self.piano_stack)
@@ -755,8 +783,8 @@ class MidiConverterGUI(QMainWindow):
                 combo.addItem(label, pitch)
             combo.blockSignals(False)
 
-        default_low_pitch = self._pitch_for_label("A")
-        default_high_pitch = self._pitch_for_label("J")
+        default_low_pitch = self._pitch_for_label("Z")
+        default_high_pitch = self._pitch_for_label("7")
         self._select_combo_by_pitch(self.range_low_combo, default_low_pitch)
         self._select_combo_by_pitch(self.range_high_combo, default_high_pitch)
 
@@ -921,19 +949,40 @@ class MidiConverterGUI(QMainWindow):
                 item.setData(Qt.UserRole, path)
                 item.setData(Qt.UserRole + 1, name)
                 self.play_listbox.addItem(item)
+                self.play_listbox.setItemWidget(item, self._make_play_row(item, name, display_name))
                 if path == current_path:
                     self.play_listbox.setCurrentItem(item)
             self.play_listbox.blockSignals(False)
-            self.play_delete_btn.setEnabled(self.play_listbox.currentItem() is not None)
 
             if not entries and not self.play_search.text().strip():
                 self.log("📝 midi/ 目录下没有可显示的 MIDI 文件")
         except Exception as e:
             self.log(f"❌ 刷新列表失败: {str(e)}")
 
+    def _make_play_row(self, item, name: str, display_name: str) -> QWidget:
+        """生成播放列表的行控件：名称 + 行末删除按钮。"""
+        row = QWidget()
+        layout = QHBoxLayout(row)
+        layout.setContentsMargins(4, 0, 2, 0)
+        layout.setSpacing(4)
+
+        label = QLabel(display_name)
+        layout.addWidget(label, 1)
+
+        delete_btn = QPushButton("🗑")
+        delete_btn.setFixedWidth(30)
+        delete_btn.setToolTip(f"从列表移除「{name}」（保留磁盘文件）")
+        delete_btn.clicked.connect(
+            lambda _checked=False, p=item.data(Qt.UserRole), n=name: self.on_delete_play_item(p, n)
+        )
+        layout.addWidget(delete_btn)
+
+        row.mousePressEvent = lambda _event, it=item: self.play_listbox.setCurrentItem(it)
+        label.setAttribute(Qt.WA_TransparentForMouseEvents, True)
+        return row
+
     def on_select_play_file(self):
         """选择播放文件时的处理"""
-        self.play_delete_btn.setEnabled(self.play_listbox.currentItem() is not None)
         current_item = self.play_listbox.currentItem()
         if not current_item:
             return
@@ -1112,6 +1161,18 @@ class MidiConverterGUI(QMainWindow):
         self.current_bpm = new_bpm
         self._apply_quantize_grid()
 
+    def on_arpeggiate_clicked(self):
+        """对选中音符执行曲谱优化（1/32 拍琶音展开）。"""
+        if self.is_playing or self.range_toggle_btn.isChecked():
+            return
+        denominator = self.current_time_signature[1]
+        beat_seconds = (60.0 / self.current_bpm) * (4.0 / denominator)
+        count = self.piano_roll.arpeggiate_selected(beat_seconds)
+        if count == 0:
+            self.log("🪄 请先选中要优化的音符")
+            return
+        self.log(f"🪄 已对 {count} 个音符执行曲谱优化")
+
     def _apply_quantize_grid(self) -> None:
         """把当前量化下拉框选项按曲目实际 BPM 换算为网格秒数并下发给铺面；
         「关闭」或分母缺失时传 None（自由拖动）。1/4 恒等于一拍，只依赖 BPM，
@@ -1125,9 +1186,9 @@ class MidiConverterGUI(QMainWindow):
         self.piano_roll.set_quantize_grid(grid_seconds)
 
     def _reset_instrument_range(self):
-        """每次切换选中曲目时，乐器音域框重置为默认范围（A~J）并隐藏"""
-        default_low_pitch = self._pitch_for_label("A")
-        default_high_pitch = self._pitch_for_label("J")
+        """切换曲目时：映射下拉重置为 Z~7，黄色框默认覆盖 C2~B2。"""
+        default_low_pitch = self._pitch_for_label("Z")
+        default_high_pitch = self._pitch_for_label("7")
 
         self._select_combo_by_pitch(self.range_low_combo, default_low_pitch)
         self._select_combo_by_pitch(self.range_high_combo, default_high_pitch)
@@ -1135,7 +1196,8 @@ class MidiConverterGUI(QMainWindow):
         self.range_toggle_btn.setChecked(False)
         self.range_toggle_btn.setText("🎹 演奏模式")
 
-        self.piano_roll.set_instrument_range(default_low_pitch, default_high_pitch)
+        # 黄色映射框默认覆盖 C2(36)~B2(47)，与映射下拉框解耦
+        self.piano_roll.set_instrument_range(36, 47)
         self.piano_roll.set_instrument_range_visible(False)
         self._refresh_range_display()
 
@@ -1145,6 +1207,8 @@ class MidiConverterGUI(QMainWindow):
         self.piano_roll.set_instrument_range_visible(play_mode)
         self.piano_roll.set_read_only(play_mode or self.is_playing)
         self.range_toggle_btn.setText("✏️ 编辑模式" if play_mode else "🎹 演奏模式")
+        self.play_btn.setEnabled(play_mode or self.is_playing)
+        self.arpeggiate_btn.setEnabled(not play_mode and not self.is_playing)
 
     def on_range_toggle_clicked(self):
         """切换演奏/编辑模式：演奏模式显示映射框并锁定铺面编辑。"""
@@ -1247,16 +1311,17 @@ class MidiConverterGUI(QMainWindow):
         self._select_play_list_item_by_path(path)
         self.log(f"➕ 已新建空曲目: {name}")
 
-    def on_delete_play_item(self):
-        """把选中曲目从列表移除（保留磁盘文件），必要时清空铺面缓存。"""
-        item = self.play_listbox.currentItem()
-        if item is None:
-            return
-        name = item.data(Qt.UserRole + 1)
+    def on_delete_play_item(self, path=None, name=None):
+        """把指定曲目（默认当前选中项）从列表移除，保留磁盘文件并按需清缓存。"""
+        if path is None:
+            item = self.play_listbox.currentItem()
+            if item is None:
+                return
+            path = item.data(Qt.UserRole)
+            name = item.data(Qt.UserRole + 1)
         if not name:
             self.log("❌ 移除失败：列表项缺少文件名")
             return
-        path = item.data(Qt.UserRole)
         extra = (
             "\n（该曲目有未保存修改，移除会丢失这些修改）"
             if (path == self.current_midi_path and self.piano_roll_dirty)

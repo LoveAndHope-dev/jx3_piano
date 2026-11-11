@@ -27,6 +27,7 @@ from PyQt5.QtWidgets import (
     QHBoxLayout,
     QMenu,
     QSizePolicy,
+    QVBoxLayout,
     QWidget,
 )
 
@@ -54,6 +55,9 @@ ZOOM_STEP_FACTOR = 1.25
 
 # 播放起点过滤的浮点比较容差
 PLAYHEAD_EPSILON = 1e-6
+
+# 顶部拍数标尺高度（像素）
+RULER_HEIGHT = 28
 
 RANGE_FILL_COLOR = QColor(255, 196, 0, 110)
 RANGE_BORDER_COLOR = QColor(255, 214, 10, 235)
@@ -166,11 +170,107 @@ class _PianoKeyboardWidget(QWidget):
         painter.end()
 
 
+class _TimeRulerWidget(QWidget):
+    """钢琴窗顶部的固定拍数标尺：显示小节/拍刻度，点击或拖动定位播放辅助线。"""
+
+    playheadRequested = pyqtSignal(float)
+
+    def __init__(self, canvas: "_PianoRollCanvas", parent=None):
+        super().__init__(parent)
+        self._canvas = canvas
+        self._seconds_per_beat: Optional[float] = None
+        self._beats_per_measure = 4
+        self.setFixedHeight(RULER_HEIGHT)
+        self.setMouseTracking(True)
+        canvas.zoomChanged.connect(self._on_canvas_changed)
+        canvas.horizontalScrollBar().valueChanged.connect(self._on_canvas_changed)
+        canvas.horizontalScrollBar().rangeChanged.connect(self._on_canvas_changed)
+
+    def _on_canvas_changed(self, *_args) -> None:
+        self.update()
+
+    def set_beat_grid(
+        self, seconds_per_beat: Optional[float], beats_per_measure: int
+    ) -> None:
+        """设置每拍秒数与每小节拍数；缺少节拍信息时标尺退化为按秒标注。"""
+        self._seconds_per_beat = (
+            seconds_per_beat if (seconds_per_beat and seconds_per_beat > 0) else None
+        )
+        self._beats_per_measure = max(1, int(beats_per_measure))
+        self.update()
+
+    def paintEvent(self, event) -> None:  # noqa: N802 (Qt override)
+        painter = QPainter(self)
+        painter.fillRect(self.rect(), QColor("#1B2631"))
+        pps = self._canvas.pixels_per_second()
+        if pps <= 0 or self.width() <= 0:
+            painter.end()
+            return
+
+        start_time = self._canvas.time_at_viewport_x(0.0)
+        end_time = self._canvas.time_at_viewport_x(float(self.width()))
+        seconds_per_measure = (
+            self._seconds_per_beat * self._beats_per_measure
+            if self._seconds_per_beat
+            else None
+        )
+
+        if seconds_per_measure:
+            measure = int(start_time // seconds_per_measure)
+            # 安全上限：避免异常 BPM/拍号画出海量刻度
+            count = 0
+            while measure * seconds_per_measure <= end_time and count < 5000:
+                self._draw_tick(
+                    painter, measure * seconds_per_measure, str(measure + 1), tall=True
+                )
+                if self._seconds_per_beat:
+                    base = measure * seconds_per_measure
+                    for beat in range(1, self._beats_per_measure):
+                        self._draw_tick(
+                            painter, base + beat * self._seconds_per_beat, "", tall=False
+                        )
+                measure += 1
+                count += 1
+        else:
+            second = int(start_time)
+            while second <= end_time and second - int(start_time) < 5000:
+                self._draw_tick(painter, float(second), f"{second}s", tall=True)
+                second += 1
+
+        painter.end()
+
+    def _draw_tick(self, painter: QPainter, seconds: float, text: str, tall: bool) -> None:
+        x = self._canvas.viewport_x_for_time(seconds)
+        if x < -40 or x > self.width() + 40:
+            return
+        top = 0 if tall else RULER_HEIGHT - 8
+        painter.setPen(QPen(QColor("#85929E" if tall else "#4D5656"), 1))
+        painter.drawLine(int(x), top, int(x), RULER_HEIGHT - 1)
+        if text:
+            painter.setPen(QPen(QColor("#D5D8DC"), 1))
+            painter.drawText(int(x) + 3, 12, text)
+
+    def _should_ignore_mouse(self) -> bool:
+        # 播放中（只读）禁用标尺定位，避免与播放进度争夺辅助线
+        return self._canvas.is_read_only()
+
+    def mousePressEvent(self, event):
+        if event.button() != Qt.LeftButton or self._should_ignore_mouse():
+            return
+        self.playheadRequested.emit(self._canvas.time_at_viewport_x(float(event.pos().x())))
+
+    def mouseMoveEvent(self, event):
+        if not (event.buttons() & Qt.LeftButton) or self._should_ignore_mouse():
+            return
+        self.playheadRequested.emit(self._canvas.time_at_viewport_x(float(event.pos().x())))
+
+
 class _PianoRollCanvas(QGraphicsView):
     """钢琴卷帘铺面编辑视图的实际画布（音符/音域框/背景网格/鼠标交互）"""
 
     notesChanged = pyqtSignal()
     instrumentRangeChanged = pyqtSignal(int, int)  # 仅在拖动黄色音域框改变范围时发出
+    zoomChanged = pyqtSignal()  # 横向缩放比例变化（顶部标尺据此重绘）
 
     def __init__(self, mapped_pitches: Set[int], parent=None):
         super().__init__(parent)
@@ -199,6 +299,9 @@ class _PianoRollCanvas(QGraphicsView):
         self._playhead_anchor_seconds = 0.0
         self._playhead_display_seconds = 0.0
 
+        # 横向缩放：像素/秒（实例级，默认沿用模块常量）
+        self._pixels_per_second = float(PIXELS_PER_SECOND)
+
         # 量化 / 小节网格
         self._quantize_seconds: Optional[float] = None
         self._measure_seconds: Optional[float] = None
@@ -226,10 +329,10 @@ class _PianoRollCanvas(QGraphicsView):
     # 坐标换算
     # ------------------------------------------------------------------
     def _time_to_x(self, t: float) -> float:
-        return t * PIXELS_PER_SECOND
+        return t * self._pixels_per_second
 
     def _x_to_time(self, x: float) -> float:
-        return max(0.0, x / PIXELS_PER_SECOND)
+        return max(0.0, x / self._pixels_per_second)
 
     def _pitch_to_y(self, pitch: int) -> float:
         pitch = max(MIN_PITCH, min(MAX_PITCH, pitch))
@@ -295,6 +398,11 @@ class _PianoRollCanvas(QGraphicsView):
 
         self._update_range_item_geometry()
 
+        # 切换曲目后播放辅助线回到 0 秒并保持可见
+        self._playhead_anchor_seconds = 0.0
+        self._playhead_display_seconds = 0.0
+        self._draw_playhead()
+
     def get_notes(self) -> List[Dict]:
         """返回当前铺面上的音符列表（副本）"""
         return [dict(n) for n in self._notes]
@@ -311,16 +419,32 @@ class _PianoRollCanvas(QGraphicsView):
         if read_only:
             self._drag_mode = None
 
+    def is_read_only(self) -> bool:
+        return self._read_only
+
+    def set_playhead_anchor(self, seconds: float) -> None:
+        """设置用户定位的播放辅助线位置（粘贴与播放起点都以此为基准）。"""
+        self._playhead_anchor_seconds = max(0.0, float(seconds))
+        self.set_playhead(self._playhead_anchor_seconds)
+
+    def get_playhead_position(self) -> float:
+        """返回播放辅助线的锚点时间（秒）。"""
+        return self._playhead_anchor_seconds
+
     def set_playhead(self, seconds: Optional[float]) -> None:
-        """设置/清除播放线位置；传 None 表示隐藏播放线"""
+        """更新播放线显示位置；传 None 表示播放结束，回落到用户定位的锚点并保持可见。"""
+        if seconds is None:
+            self._playhead_display_seconds = self._playhead_anchor_seconds
+        else:
+            self._playhead_display_seconds = max(0.0, float(seconds))
+        self._draw_playhead()
+
+    def _draw_playhead(self, focus: bool = True) -> None:
         if self._playhead_item is not None:
             self._scene.removeItem(self._playhead_item)
             self._playhead_item = None
 
-        if seconds is None:
-            return
-
-        x = self._time_to_x(max(0.0, seconds))
+        x = self._time_to_x(self._playhead_display_seconds)
         height = PITCH_COUNT * ROW_HEIGHT
         line = QGraphicsLineItem(x, 0, x, height)
         line.setPen(QPen(QColor("#F1C40F"), 2))
@@ -328,7 +452,63 @@ class _PianoRollCanvas(QGraphicsView):
         line.setAcceptedMouseButtons(Qt.NoButton)
         self._scene.addItem(line)
         self._playhead_item = line
-        self.ensureVisible(QRectF(x - 5, 0, 10, height), 60, 0)
+        if focus:
+            self.ensureVisible(QRectF(x - 5, 0, 10, height), 60, 0)
+
+    def pixels_per_second(self) -> float:
+        return self._pixels_per_second
+
+    def set_pixels_per_second(self, value: float) -> None:
+        """设置横向像素/秒比例（自动夹紧），并重绘全部依赖该比例的内容。"""
+        new_value = clamp_pixels_per_second(value)
+        if abs(new_value - self._pixels_per_second) < 1e-9:
+            return
+        self._pixels_per_second = new_value
+        self._rebuild_after_zoom()
+
+    def viewport_x_for_time(self, seconds: float) -> float:
+        """时间（秒）→ 当前视口横坐标（像素，不含视图边框）。"""
+        return self._time_to_x(seconds) - self.horizontalScrollBar().value()
+
+    def time_at_viewport_x(self, x: float) -> float:
+        """当前视口横坐标（像素）→ 时间（秒），结果不小于 0。"""
+        return max(
+            0.0, (float(x) + self.horizontalScrollBar().value()) / self._pixels_per_second
+        )
+
+    def wheelEvent(self, event):
+        """Shift+滚轮横向缩放（以鼠标所在时间为锚点）；否则保持原有纵向滚动。"""
+        if not (event.modifiers() & Qt.ShiftModifier):
+            super().wheelEvent(event)
+            return
+
+        viewport_x = float(event.pos().x())
+        anchor_time = self.time_at_viewport_x(viewport_x)
+        up = event.angleDelta().y() > 0
+        factor = ZOOM_STEP_FACTOR if up else 1.0 / ZOOM_STEP_FACTOR
+        new_pps = clamp_pixels_per_second(self._pixels_per_second * factor)
+        if abs(new_pps - self._pixels_per_second) < 1e-9:
+            event.accept()
+            return
+
+        self._pixels_per_second = new_pps
+        self.horizontalScrollBar().setValue(
+            int(round(anchored_scroll_value(anchor_time, viewport_x, new_pps)))
+        )
+        self._rebuild_after_zoom()
+        event.accept()
+
+    def _rebuild_after_zoom(self) -> None:
+        """缩放后重建背景、重排全部音符与音域框、重绘播放线，并通知标尺刷新。"""
+        self._build_background(self._current_total_seconds)
+        for note in self._notes:
+            self._update_item_geometry(note)
+        self._update_range_item_geometry()
+        self._draw_playhead(focus=False)
+        rect = self._scene.sceneRect()
+        self._scene.setSceneRect(0, 0, max(rect.width(), 400.0), rect.height())
+        self.zoomChanged.emit()
+        self.viewport().update()
 
     def set_instrument_range(self, low_pitch: int, high_pitch: int) -> None:
         """整体设置框体的低/高边界音高（用于切换曲目时的完整重置）"""
@@ -513,7 +693,7 @@ class _PianoRollCanvas(QGraphicsView):
             return
         x = self._time_to_x(note["start"])
         y = self._pitch_to_y(note["pitch"])
-        w = max(4.0, note["duration"] * PIXELS_PER_SECOND)
+        w = max(4.0, note["duration"] * self._pixels_per_second)
         item.setRect(x, y, w, ROW_HEIGHT - 1)
         selected = note["id"] in self._selected_ids
         item.setBrush(self._note_brush(note, selected))
@@ -753,7 +933,9 @@ class _PianoRollCanvas(QGraphicsView):
                 if dx or dy:
                     self._drag_moved = True
 
-                raw_anchor_start = max(0.0, self._drag_note_start["start"] + dx / PIXELS_PER_SECOND)
+                raw_anchor_start = max(
+                    0.0, self._drag_note_start["start"] + dx / self._pixels_per_second
+                )
                 snapped_anchor_start = self._snap_time(raw_anchor_start)
                 time_delta = snapped_anchor_start - self._drag_note_start["start"]
 
@@ -777,7 +959,9 @@ class _PianoRollCanvas(QGraphicsView):
                 if dx:
                     self._drag_moved = True
                 raw_end = (
-                    self._drag_note_start["start"] + self._drag_note_start["duration"] + dx / PIXELS_PER_SECOND
+                    self._drag_note_start["start"]
+                    + self._drag_note_start["duration"]
+                    + dx / self._pixels_per_second
                 )
                 min_end = self._drag_note_start["start"] + MIN_NOTE_DURATION
                 new_end = self._snap_end_time(raw_end, min_end)
@@ -903,16 +1087,33 @@ class PianoRollWidget(QWidget):
         super().__init__(parent)
         self._canvas = _PianoRollCanvas(mapped_pitches, parent=self)
         self._keyboard = _PianoKeyboardWidget(self._canvas, mapped_pitches, parent=self)
+        self._ruler = _TimeRulerWidget(self._canvas, parent=self)
 
-        layout = QHBoxLayout(self)
+        content = QHBoxLayout()
+        content.setContentsMargins(0, 0, 0, 0)
+        content.setSpacing(0)
+        content.addWidget(self._keyboard)
+        content.addWidget(self._canvas)
+
+        ruler_row = QHBoxLayout()
+        ruler_row.setContentsMargins(0, 0, 0, 0)
+        ruler_row.setSpacing(0)
+        ruler_row.addSpacing(KEYBOARD_WIDTH)
+        ruler_row.addWidget(self._ruler)
+
+        layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(0)
-        layout.addWidget(self._keyboard)
-        layout.addWidget(self._canvas)
+        layout.addLayout(ruler_row)
+        layout.addLayout(content, 1)
+
+        # 标尺定位请求 → 播放辅助线锚点
+        self._ruler.playheadRequested.connect(self._canvas.set_playhead_anchor)
 
         # 透传信号：直接引用内部画布的已绑定信号对象，外部 connect/emit 行为不变
         self.notesChanged = self._canvas.notesChanged
         self.instrumentRangeChanged = self._canvas.instrumentRangeChanged
+        self.zoomChanged = self._canvas.zoomChanged
 
     def set_notes(self, notes: List[Dict]) -> None:
         self._canvas.set_notes(notes)
@@ -928,6 +1129,20 @@ class PianoRollWidget(QWidget):
 
     def set_playhead(self, seconds: Optional[float]) -> None:
         self._canvas.set_playhead(seconds)
+
+    def set_playhead_anchor(self, seconds: float) -> None:
+        """把播放辅助线定位到指定秒数（粘贴与播放起点以此为基准）"""
+        self._canvas.set_playhead_anchor(seconds)
+
+    def get_playhead_position(self) -> float:
+        """返回播放辅助线的锚点时间（秒）"""
+        return self._canvas.get_playhead_position()
+
+    def set_beat_grid(
+        self, seconds_per_beat: Optional[float], beats_per_measure: int
+    ) -> None:
+        """把每拍秒数与每小节拍数传给顶部标尺"""
+        self._ruler.set_beat_grid(seconds_per_beat, beats_per_measure)
 
     def set_instrument_range(self, low_pitch: int, high_pitch: int) -> None:
         self._canvas.set_instrument_range(low_pitch, high_pitch)

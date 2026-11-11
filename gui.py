@@ -1037,13 +1037,13 @@ class MidiConverterGUI(QMainWindow):
         # 新增音符必须落在实际会被处理/保存的音轨上，否则另存为 MIDI 时会被静默丢弃
         self.piano_roll.set_default_track(track_filter[0])
         self.piano_roll.set_notes(notes)
-        self.piano_roll.set_read_only(self.is_playing or self.range_toggle_btn.isChecked())
         self.piano_roll.set_playhead_locked(self.is_playing)
         # set_notes 内部已把播放辅助线锚点归零；这里显式再设一次，保证
         # 「切换曲目 ⇒ 辅助线回到 0 秒」是唯一可依赖的规则
         self.piano_roll.set_playhead_anchor(0.0)
 
         self._reset_instrument_range()
+        self._sync_roll_mode()
         self._set_range_controls_enabled(True)
         self._apply_quantize_grid()
 
@@ -1139,13 +1139,16 @@ class MidiConverterGUI(QMainWindow):
         self.piano_roll.set_instrument_range_visible(False)
         self._refresh_range_display()
 
+    def _sync_roll_mode(self) -> None:
+        """统一同步演奏/编辑模式的四处状态：勾选、文案、映射框、铺面只读。"""
+        play_mode = self.range_toggle_btn.isChecked()
+        self.piano_roll.set_instrument_range_visible(play_mode)
+        self.piano_roll.set_read_only(play_mode or self.is_playing)
+        self.range_toggle_btn.setText("✏️ 编辑模式" if play_mode else "🎹 演奏模式")
+
     def on_range_toggle_clicked(self):
         """切换演奏/编辑模式：演奏模式显示映射框并锁定铺面编辑。"""
-        playing_mode = self.range_toggle_btn.isChecked()
-        self.range_toggle_btn.setText("✏️ 编辑模式" if playing_mode else "🎹 演奏模式")
-        self.piano_roll.set_instrument_range_visible(playing_mode)
-        # 播放期间无论如何都保持只读
-        self.piano_roll.set_read_only(playing_mode or self.is_playing)
+        self._sync_roll_mode()
 
     def on_range_low_combo_changed(self, index: int):
         """最低映射变化：只重新计算框体跨度（保持框体当前低边界不变），不移动框体位置"""
@@ -1305,8 +1308,8 @@ class MidiConverterGUI(QMainWindow):
         if self.is_playing:
             self.stop_playing()
 
-        self.piano_roll.set_read_only(False)
-        self.piano_roll.set_instrument_range_visible(False)
+        self.range_toggle_btn.setChecked(False)
+        self._sync_roll_mode()
         self.piano_roll.set_notes([])
         self.piano_roll.set_playhead_anchor(0.0)
 
@@ -1406,7 +1409,7 @@ class MidiConverterGUI(QMainWindow):
 
             self.is_playing = True
             self.currently_playing_midi_path = self.current_midi_path
-            self.piano_roll.set_read_only(True)
+            self._sync_roll_mode()
             self.piano_roll.set_playhead_locked(True)
             self._sync_bpm_enabled()
 
@@ -1435,7 +1438,7 @@ class MidiConverterGUI(QMainWindow):
 
         self.is_playing = False
         self.currently_playing_midi_path = None
-        self.piano_roll.set_read_only(False)
+        self._sync_roll_mode()
         self.piano_roll.set_playhead_locked(False)
         self.piano_roll.set_playhead(None)
         self._sync_bpm_enabled()
@@ -1463,7 +1466,7 @@ class MidiConverterGUI(QMainWindow):
             self.is_playing = False
             self.currently_playing_midi_path = None
             self.play_thread = None
-            self.piano_roll.set_read_only(False)
+            self._sync_roll_mode()
             self.piano_roll.set_playhead_locked(False)
             self.piano_roll.set_playhead(None)
             self._sync_bpm_enabled()

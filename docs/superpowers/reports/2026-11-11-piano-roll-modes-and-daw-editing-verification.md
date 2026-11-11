@@ -4,7 +4,18 @@
 
 - Windows + Python 3.14 + PyQt5
 - 测试命令：`.venv\Scripts\python.exe -m unittest discover -s tests -v`
-- 最近一次结果：`Ran 107 tests ... OK`（上一轮 99 项 + 本轮 8 项）
+- 最近一次结果：`Ran 114 tests ... OK`（上一轮 99 项 + 本轮 15 项）
+
+## 独立审查后的修复
+
+最终集成审查（review_mode: standard）覆盖 `515d96f..7b7fba4`，结论「With fixes」。已修复项：
+
+1. **Critical：停止播放/播放结束后演奏模式被解锁。** 新增 `_sync_roll_mode()`（勾选、文案、映射框、只读四处原子同步），停止、播放结束、开始播放、切换曲目、删除当前曲目全部走同一入口。
+2. **Critical：演奏模式下切换曲目会卡在只读。** `_load_piano_roll` 在 `_reset_instrument_range()` 之后统一调用 `_sync_roll_mode()`，模式重置与只读状态一致。
+3. **Important：演奏模式下黄色映射框无法拖动。** 只读时若按在可见音域框内，仍允许 `range` 拖动；音符编辑依旧全部拒绝。
+4. **Important：边界移调破坏音程。** `_transpose_selected` 改为整组判断：任一音符会越界则整组不动；八度移动按既有需求保持逐音符跳过。
+5. **Important：测试缺口。** 只读测试改为先选中音符并断言 Delete/Ctrl+V 无效；新增 Shift+滚轮不缩放、左边缘拖过结尾保留最小时长、无选中方向键无信号、整组平移保持间距、边界移调整组不动；GUI 集成测试覆盖「停止后仍锁定」与「切换曲目恢复编辑模式」。
+6. **Minor：** 更新模块文档说明；`_clear_piano_roll_cache` 先取消勾选再同步模式。
 
 ## 自动化覆盖
 

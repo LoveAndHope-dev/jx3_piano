@@ -4,7 +4,11 @@
 以钢琴卷帘（piano roll）形式展示与编辑一首曲目的结构化音符列表：
 - 纵轴覆盖钢琴全部88键（MIDI 21 A0 ~ 108 C8），左侧带一条纯视觉的钢琴键盘参照
 - 横轴为绝对时间（秒），背景叠加逐秒参考线与（可选的）小节线
-- 支持新增 / 删除 / 拖动（音高+起始时间）/ 拖动右边缘调整时长，可选量化吸附
+- 支持新增 / 删除 / 拖动（音高+起始时间）/ 拖动左右边缘调整起止时间，可选量化吸附
+- 支持单击空白取消选择、双击空白新建、拖动空白矩形框选
+- 支持方向键按量化步长移动、上下键半音移调（Shift+上下为八度）
+- 支持 Ctrl+滚轮横向缩放时间轴
+- 支持演奏模式（只读，可拖动黄色映射框）与编辑模式
 - 支持 Ctrl+A / 矩形框选 / Ctrl·Shift+单击 的多选，多选后可整体拖动、整体删除
 - 支持 Ctrl+C / Ctrl+X / Ctrl+V 在播放辅助线处复制、剪切与粘贴选中音符
 - 支持 Shift+↑ / Shift+↓ 把选中音符整体上移 / 下移一个八度（越界音符保持原音高）
@@ -909,30 +913,43 @@ class _PianoRollCanvas(QGraphicsView):
         self.notesChanged.emit()
 
     def _transpose_selected(self, semitones: int) -> None:
-        """把选中音符移调 semitones 个半音；越界音符保持原音高。"""
+        """把选中音符整体移调 semitones 个半音；任一音符会越界时整组不动。"""
         if not self._selected_ids:
             return
-        targets = octave_shift_pitches(self._notes, self._selected_ids, semitones)
-        changed = False
-        for note in self._notes:
-            target = targets.get(note["id"])
-            if target is None or target == note["pitch"]:
-                continue
-            note["pitch"] = target
-            note["mapped"] = target in self._mapped_pitches
+        selected = [n for n in self._notes if n["id"] in self._selected_ids]
+        if not selected:
+            return
+        if any(
+            not (MIN_PITCH <= n["pitch"] + semitones <= MAX_PITCH) for n in selected
+        ):
+            return
+        for note in selected:
+            note["pitch"] = int(note["pitch"]) + semitones
+            note["mapped"] = note["pitch"] in self._mapped_pitches
             self._update_item_geometry(note)
-            changed = True
-        if changed:
-            self.notesChanged.emit()
+        self.notesChanged.emit()
 
     # ------------------------------------------------------------------
     # 鼠标 / 键盘交互
     # ------------------------------------------------------------------
     def mousePressEvent(self, event):
-        if self._read_only:
-            return
-
         scene_pos = self.mapToScene(event.pos())
+        if self._read_only:
+            # 演奏模式：只允许拖动可见的音域框，音符编辑一律拒绝
+            if (
+                event.button() == Qt.LeftButton
+                and self._range_visible
+                and self._is_within_range_band(scene_pos.y())
+            ):
+                self._select_note(None)
+                self._drag_mode = "range"
+                self._drag_start_scene = scene_pos
+                low_idx = self._nearest_ladder_index_for_pitch(self._range_low_pitch)
+                high_idx = self._nearest_ladder_index_for_pitch(self._range_high_pitch)
+                self._drag_range_start_low_idx = low_idx
+                self._drag_range_span_idx = high_idx - low_idx
+                event.accept()
+            return
 
         if event.button() == Qt.RightButton:
             note_id = self._hit_test(scene_pos)
@@ -1017,7 +1034,7 @@ class _PianoRollCanvas(QGraphicsView):
         event.accept()
 
     def mouseMoveEvent(self, event):
-        if self._drag_mode == "range" and not self._read_only:
+        if self._drag_mode == "range":
             scene_pos = self.mapToScene(event.pos())
             dy = scene_pos.y() - self._drag_start_scene.y()
             # 目标音高必须按渲染网格的像素/半音比例（ROW_HEIGHT 像素 = 1 个半音）换算，

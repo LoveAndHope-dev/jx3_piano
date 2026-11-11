@@ -102,6 +102,26 @@ class PlaylistGuiTest(unittest.TestCase):
         self.assertFalse(canvas.is_read_only())
         self.assertEqual(self.window.range_toggle_btn.text(), "🎹 演奏模式")
 
+    def test_stop_playback_keeps_play_mode_locked(self):
+        canvas = self.window.piano_roll._canvas
+        self.window.range_toggle_btn.setChecked(True)
+        self.window.on_range_toggle_clicked()
+        self.window.is_playing = True
+        self.window.stop_playing()
+        self.assertTrue(canvas.is_read_only())
+        self.assertEqual(self.window.range_toggle_btn.text(), "✏️ 编辑模式")
+
+    def test_loading_another_track_resets_to_edit_mode(self):
+        canvas = self.window.piano_roll._canvas
+        self.window.on_new_play_item()
+        self.window.range_toggle_btn.setChecked(True)
+        self.window.on_range_toggle_clicked()
+        self.assertTrue(canvas.is_read_only())
+        self.window.on_new_play_item()
+        self.assertFalse(self.window.range_toggle_btn.isChecked())
+        self.assertFalse(canvas.is_read_only())
+        self.assertEqual(self.window.range_toggle_btn.text(), "🎹 演奏模式")
+
 
 if __name__ == "__main__":
     unittest.main()

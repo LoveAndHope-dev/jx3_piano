@@ -42,6 +42,7 @@ PIXELS_PER_SECOND = 70
 DEFAULT_NOTE_DURATION = 0.4
 MIN_NOTE_DURATION = 0.05
 RESIZE_MARGIN = 6.0
+DEFAULT_NUDGE_SECONDS = 0.1
 MIN_SCENE_SECONDS = 10.0
 TRAILING_PADDING_SECONDS = 5.0
 CLICK_DRAG_THRESHOLD = 4.0
@@ -316,8 +317,8 @@ class _TimeRulerWidget(QWidget):
             painter.drawText(int(x) + 3, 12, text)
 
     def _should_ignore_mouse(self) -> bool:
-        # 播放中（只读）禁用标尺定位，避免与播放进度争夺辅助线
-        return self._canvas.is_read_only()
+        # 只在播放期间锁定标尺定位；演奏模式（只读）仍允许定位播放辅助线
+        return self._canvas.is_playhead_locked()
 
     def mousePressEvent(self, event):
         if event.button() != Qt.LeftButton or self._should_ignore_mouse():
@@ -363,6 +364,7 @@ class _PianoRollCanvas(QGraphicsView):
         self._clipboard: List[Dict] = []
         self._playhead_anchor_seconds = 0.0
         self._playhead_display_seconds = 0.0
+        self._playhead_locked = False
 
         # 横向缩放：像素/秒（实例级，默认沿用模块常量）
         self._pixels_per_second = float(PIXELS_PER_SECOND)
@@ -490,6 +492,13 @@ class _PianoRollCanvas(QGraphicsView):
     def is_read_only(self) -> bool:
         return self._read_only
 
+    def set_playhead_locked(self, locked: bool) -> None:
+        """锁定/解锁标尺定位（播放期间锁定；演奏模式不锁定）。"""
+        self._playhead_locked = bool(locked)
+
+    def is_playhead_locked(self) -> bool:
+        return self._playhead_locked
+
     def set_playhead_anchor(self, seconds: float) -> None:
         """设置用户定位的播放辅助线位置（粘贴与播放起点都以此为基准）。"""
         self._playhead_anchor_seconds = max(0.0, float(seconds))
@@ -544,8 +553,8 @@ class _PianoRollCanvas(QGraphicsView):
         return max(0.0, scene_x / self._pixels_per_second)
 
     def wheelEvent(self, event):
-        """Shift+滚轮横向缩放（以鼠标所在时间为锚点）；否则保持原有纵向滚动。"""
-        if not (event.modifiers() & Qt.ShiftModifier):
+        """Ctrl+滚轮横向缩放（以鼠标所在时间为锚点）；否则保持原有纵向滚动。"""
+        if not (event.modifiers() & Qt.ControlModifier):
             super().wheelEvent(event)
             return
 
@@ -884,6 +893,38 @@ class _PianoRollCanvas(QGraphicsView):
         if changed:
             self.notesChanged.emit()
 
+    def _nudge_selected(self, step: float) -> None:
+        """按 step 秒平移选中音符；起点不允许小于 0。"""
+        selected = [n for n in self._notes if n["id"] in self._selected_ids]
+        if not selected:
+            return
+        delta = step
+        if delta < 0:
+            delta = max(delta, -min(n["start"] for n in selected))
+        if abs(delta) < 1e-9:
+            return
+        for note in selected:
+            note["start"] = round(max(0.0, note["start"] + delta), 3)
+            self._update_item_geometry(note)
+        self.notesChanged.emit()
+
+    def _transpose_selected(self, semitones: int) -> None:
+        """把选中音符移调 semitones 个半音；越界音符保持原音高。"""
+        if not self._selected_ids:
+            return
+        targets = octave_shift_pitches(self._notes, self._selected_ids, semitones)
+        changed = False
+        for note in self._notes:
+            target = targets.get(note["id"])
+            if target is None or target == note["pitch"]:
+                continue
+            note["pitch"] = target
+            note["mapped"] = target in self._mapped_pitches
+            self._update_item_geometry(note)
+            changed = True
+        if changed:
+            self.notesChanged.emit()
+
     # ------------------------------------------------------------------
     # 鼠标 / 键盘交互
     # ------------------------------------------------------------------
@@ -914,6 +955,9 @@ class _PianoRollCanvas(QGraphicsView):
             item = self._note_items[note_id]
             rect = item.rect()
             near_right_edge = (rect.right() - scene_pos.x()) <= RESIZE_MARGIN
+            near_left_edge = (
+                not near_right_edge and (scene_pos.x() - rect.left()) <= RESIZE_MARGIN
+            )
 
             if toggle:
                 new_ids = set(self._selected_ids)
@@ -937,6 +981,13 @@ class _PianoRollCanvas(QGraphicsView):
                 self._drag_group_ids = {note_id}
                 self._drag_group_start = {note_id: dict(note)}
                 self._drag_pending_collapse = False
+            elif near_left_edge:
+                # 左边缘调整起始时间，结束时间保持不变
+                self._set_selection({note_id})
+                self._drag_mode = "resize-start"
+                self._drag_group_ids = {note_id}
+                self._drag_group_start = {note_id: dict(note)}
+                self._drag_pending_collapse = False
             else:
                 already_in_group = note_id in self._selected_ids and len(self._selected_ids) > 1
                 if not already_in_group:
@@ -957,8 +1008,8 @@ class _PianoRollCanvas(QGraphicsView):
             self._drag_range_span_idx = high_idx - low_idx
         else:
             pitch = self._y_to_pitch(scene_pos.y())
-            start = max(0.0, self._x_to_time(scene_pos.x()))
-            self._pending_create_note = {"pitch": pitch, "start": round(start, 3)}
+            # 空白处只记录起点：单击（未拖动）取消选择，拖动则框选，均不新建音符
+            self._pending_create_note = None
             self._drag_mode = "select-rect-or-create"
             self._drag_start_scene = scene_pos
             self._select_rect_item = None
@@ -1013,7 +1064,7 @@ class _PianoRollCanvas(QGraphicsView):
             self._select_rect_item.setRect(rect)
             return
 
-        if self._drag_mode in ("move", "resize") and not self._read_only and self._drag_note_start is not None:
+        if self._drag_mode in ("move", "resize", "resize-start") and not self._read_only and self._drag_note_start is not None:
             scene_pos = self.mapToScene(event.pos())
             anchor_note = self._note_by_id(self._drag_note_start["id"])
             if anchor_note is None:
@@ -1059,6 +1110,18 @@ class _PianoRollCanvas(QGraphicsView):
                 new_end = self._snap_end_time(raw_end, min_end)
                 anchor_note["duration"] = round(new_end - self._drag_note_start["start"], 3)
                 self._update_item_geometry(anchor_note)
+            elif self._drag_mode == "resize-start":
+                dx = scene_pos.x() - self._drag_start_scene.x()
+                if dx:
+                    self._drag_moved = True
+                end = self._drag_note_start["start"] + self._drag_note_start["duration"]
+                raw_start = self._drag_note_start["start"] + dx / self._pixels_per_second
+                snapped_start = self._snap_time(raw_start)
+                max_start = end - MIN_NOTE_DURATION
+                new_start = min(max(0.0, snapped_start), max_start)
+                anchor_note["start"] = round(new_start, 3)
+                anchor_note["duration"] = round(end - new_start, 3)
+                self._update_item_geometry(anchor_note)
             return
 
         super().mouseMoveEvent(event)
@@ -1075,30 +1138,14 @@ class _PianoRollCanvas(QGraphicsView):
                 self._select_rect_item = None
                 hit_ids = {nid for nid, item in self._note_items.items() if item.rect().intersects(rect)}
                 self._set_selection(hit_ids)
-            elif self._pending_create_note is not None and not self._read_only:
-                pitch = self._pending_create_note["pitch"]
-                start = self._pending_create_note["start"]
-                note = {
-                    "id": self._next_id,
-                    "track": self._default_track,
-                    "channel": 0,
-                    "pitch": pitch,
-                    "start": start,
-                    "duration": DEFAULT_NOTE_DURATION,
-                    "velocity": 100,
-                    "mapped": pitch in self._mapped_pitches,
-                }
-                self._next_id += 1
-                self._notes.append(note)
-                self._add_note_item(note)
-                self._select_note(note["id"])
-                self._ensure_scene_width(start + DEFAULT_NOTE_DURATION)
-                self.notesChanged.emit()
+            else:
+                # 单击空白：取消当前选择，且不新建音符
+                self._set_selection(set())
             self._pending_create_note = None
             self._drag_mode = None
             return
 
-        if self._drag_mode in ("move", "resize"):
+        if self._drag_mode in ("move", "resize", "resize-start"):
             if self._drag_mode == "move" and not self._drag_moved and self._drag_pending_collapse:
                 # 未发生实际拖动的普通单击：即使点在原多选集合内，也收窄为只选中这一个
                 if self._drag_note_start is not None:
@@ -1124,6 +1171,38 @@ class _PianoRollCanvas(QGraphicsView):
             return
 
         super().mouseReleaseEvent(event)
+
+    def mouseDoubleClickEvent(self, event):
+        """双击空白新建音符（DAW 习惯）；双击已有音符走默认处理。"""
+        if self._read_only or event.button() != Qt.LeftButton:
+            super().mouseDoubleClickEvent(event)
+            return
+
+        scene_pos = self.mapToScene(event.pos())
+        if self._hit_test(scene_pos) is not None:
+            super().mouseDoubleClickEvent(event)
+            return
+
+        pitch = self._y_to_pitch(scene_pos.y())
+        start = self._snap_time(max(0.0, self._x_to_time(scene_pos.x())))
+        duration = self._quantize_seconds or DEFAULT_NOTE_DURATION
+        note = {
+            "id": self._next_id,
+            "track": self._default_track,
+            "channel": 0,
+            "pitch": pitch,
+            "start": round(start, 3),
+            "duration": round(duration, 3),
+            "velocity": 100,
+            "mapped": pitch in self._mapped_pitches,
+        }
+        self._next_id += 1
+        self._notes.append(note)
+        self._add_note_item(note)
+        self._select_note(note["id"])
+        self._ensure_scene_width(start + duration)
+        self.notesChanged.emit()
+        event.accept()
 
     def keyPressEvent(self, event):
         if self._read_only:
@@ -1155,6 +1234,21 @@ class _PianoRollCanvas(QGraphicsView):
             self._shift_selected_octave(12 if event.key() == Qt.Key_Up else -12)
             event.accept()
             return
+
+        if event.key() in (Qt.Key_Left, Qt.Key_Right, Qt.Key_Up, Qt.Key_Down) and self._selected_ids:
+            modifiers = event.modifiers()
+            if not (modifiers & (Qt.ControlModifier | Qt.AltModifier)):
+                step = self._quantize_seconds or DEFAULT_NUDGE_SECONDS
+                if event.key() == Qt.Key_Left:
+                    self._nudge_selected(-step)
+                elif event.key() == Qt.Key_Right:
+                    self._nudge_selected(step)
+                elif event.key() == Qt.Key_Up:
+                    self._transpose_selected(1)
+                else:
+                    self._transpose_selected(-1)
+                event.accept()
+                return
 
         if event.key() in (Qt.Key_Delete, Qt.Key_Backspace) and self._selected_ids:
             self._delete_selected()
@@ -1229,6 +1323,10 @@ class PianoRollWidget(QWidget):
     def get_playhead_position(self) -> float:
         """返回播放辅助线的锚点时间（秒）"""
         return self._canvas.get_playhead_position()
+
+    def set_playhead_locked(self, locked: bool) -> None:
+        """播放期间锁定标尺定位"""
+        self._canvas.set_playhead_locked(locked)
 
     def set_beat_grid(
         self, seconds_per_beat: Optional[float], beats_per_measure: int

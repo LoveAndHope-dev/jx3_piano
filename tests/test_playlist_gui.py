@@ -91,6 +91,17 @@ class PlaylistGuiTest(unittest.TestCase):
         self.assertEqual(self.window.current_midi_path, path)
         self.assertIsNotNone(self.window.piano_roll.get_notes() is not None)
 
+    def test_mode_toggle_locks_roll(self):
+        canvas = self.window.piano_roll._canvas
+        self.window.range_toggle_btn.setChecked(True)
+        self.window.on_range_toggle_clicked()
+        self.assertTrue(canvas.is_read_only())
+        self.assertEqual(self.window.range_toggle_btn.text(), "✏️ 编辑模式")
+        self.window.range_toggle_btn.setChecked(False)
+        self.window.on_range_toggle_clicked()
+        self.assertFalse(canvas.is_read_only())
+        self.assertEqual(self.window.range_toggle_btn.text(), "🎹 演奏模式")
+
 
 if __name__ == "__main__":
     unittest.main()

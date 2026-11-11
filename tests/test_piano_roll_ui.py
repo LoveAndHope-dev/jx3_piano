@@ -3,8 +3,8 @@ import unittest
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
-from PyQt5.QtCore import QPoint, QPointF, Qt
-from PyQt5.QtGui import QWheelEvent
+from PyQt5.QtCore import QEvent, QPoint, QPointF, Qt
+from PyQt5.QtGui import QMouseEvent, QWheelEvent
 from PyQt5.QtTest import QTest
 from PyQt5.QtWidgets import QApplication
 
@@ -20,8 +20,8 @@ def _application():
     return _app
 
 
-def _wheel(canvas, x: float, delta: int = 120, shift: bool = True):
-    modifiers = Qt.ShiftModifier if shift else Qt.NoModifier
+def _wheel(canvas, x: float, delta: int = 120, ctrl: bool = True):
+    modifiers = Qt.ControlModifier if ctrl else Qt.NoModifier
     return QWheelEvent(
         QPointF(x, 5.0),
         QPointF(x, 5.0),
@@ -108,10 +108,10 @@ class PianoRollWidgetTest(unittest.TestCase):
         self.widget.set_playhead_anchor(2.0)
         self.canvas.set_pixels_per_second(70.0)
         self.canvas.horizontalScrollBar().setValue(0)
-        self.widget.set_read_only(True)
+        self.canvas.set_playhead_locked(True)
         QTest.mouseClick(self.widget._ruler, Qt.LeftButton, pos=QPoint(350, 10))
         self.assertAlmostEqual(self.widget.get_playhead_position(), 2.0, places=3)
-        self.widget.set_read_only(False)
+        self.canvas.set_playhead_locked(False)
 
     def test_stopping_playback_falls_back_to_anchor(self):
         self.widget.set_playhead_anchor(4.0)
@@ -271,6 +271,92 @@ class PianoRollWidgetTest(unittest.TestCase):
         self.canvas._paste_clipboard()
         pasted = self.widget.get_notes()[-1]
         self.assertEqual(pasted["duration"], 1.0)
+
+    def _click_at(self, seconds: float, pitch: int, double: bool = False):
+        pos = self.canvas.mapFromScene(
+            QPointF(self.canvas._time_to_x(seconds), self.canvas._pitch_to_y(pitch) + 5)
+        )
+        if double:
+            QTest.mouseDClick(self.canvas.viewport(), Qt.LeftButton, pos=pos)
+        else:
+            QTest.mouseClick(self.canvas.viewport(), Qt.LeftButton, pos=pos)
+
+    def test_click_empty_clears_selection_without_creating(self):
+        self.canvas._set_selection({0})
+        self._click_at(6.0, 70)
+        self.assertEqual(self.canvas._selected_ids, set())
+        self.assertEqual(len(self.widget.get_notes()), 2)
+
+    def test_double_click_empty_creates_note(self):
+        self._click_at(6.0, 70, double=True)
+        notes = self.widget.get_notes()
+        self.assertEqual(len(notes), 3)
+        created = [n for n in notes if abs(n["start"] - 6.0) < 0.01 and n["pitch"] == 70]
+        self.assertEqual(len(created), 1)
+        self.assertEqual(self.canvas._selected_ids, {created[0]["id"]})
+
+    def _drag_empty(self, start_pos, end_pos):
+        QTest.mousePress(self.canvas.viewport(), Qt.LeftButton, pos=start_pos)
+        move = QMouseEvent(
+            QEvent.MouseMove, QPointF(end_pos), Qt.NoButton, Qt.LeftButton, Qt.NoModifier
+        )
+        QApplication.sendEvent(self.canvas.viewport(), move)
+        QTest.mouseRelease(self.canvas.viewport(), Qt.LeftButton, pos=end_pos)
+
+    def test_drag_empty_marquee_selects_without_creating(self):
+        start = self.canvas.mapFromScene(QPointF(20.0, self.canvas._pitch_to_y(66) + 5))
+        end = self.canvas.mapFromScene(QPointF(140.0, self.canvas._pitch_to_y(54) + 5))
+        self._drag_empty(start, end)
+        self.assertEqual(len(self.widget.get_notes()), 2)
+        self.assertIn(0, self.canvas._selected_ids)
+
+    def test_drag_left_edge_trims_start_and_keeps_end(self):
+        note = [n for n in self.widget.get_notes() if n["id"] == 0][0]
+        end = note["start"] + note["duration"]
+        self.canvas.verticalScrollBar().setValue(int(self.canvas._pitch_to_y(note["pitch"])) - 60)
+        start_pos = self.canvas.mapFromScene(
+            QPointF(self.canvas._time_to_x(note["start"]) + 2.0, self.canvas._pitch_to_y(note["pitch"]) + 5)
+        )
+        end_pos = self.canvas.mapFromScene(
+            QPointF(self.canvas._time_to_x(note["start"]) + 14.0, self.canvas._pitch_to_y(note["pitch"]) + 5)
+        )
+        self._drag_empty(start_pos, end_pos)
+        edited = [n for n in self.widget.get_notes() if n["id"] == 0][0]
+        self.assertGreater(edited["start"], note["start"])
+        self.assertAlmostEqual(edited["start"] + edited["duration"], end, delta=0.01)
+
+    def test_arrow_keys_nudge_and_transpose(self):
+        self.canvas.set_quantize_grid(0.25)
+        self.canvas._set_selection({0})
+        QTest.keyClick(self.canvas, Qt.Key_Right)
+        note = [n for n in self.widget.get_notes() if n["id"] == 0][0]
+        self.assertAlmostEqual(note["start"], 1.25, delta=1e-6)
+        QTest.keyClick(self.canvas, Qt.Key_Up)
+        note = [n for n in self.widget.get_notes() if n["id"] == 0][0]
+        self.assertEqual(note["pitch"], 61)
+        QTest.keyClick(self.canvas, Qt.Key_Down, Qt.ShiftModifier)
+        note = [n for n in self.widget.get_notes() if n["id"] == 0][0]
+        self.assertEqual(note["pitch"], 49)
+
+    def test_read_only_blocks_editing_but_ruler_still_seeks(self):
+        self.canvas.set_read_only(True)
+        self.canvas.set_playhead_locked(False)
+        self._click_at(6.0, 70, double=True)
+        self.assertEqual(len(self.widget.get_notes()), 2)
+        QTest.keyClick(self.canvas, Qt.Key_Right)
+        self.assertEqual(len(self.widget.get_notes()), 2)
+        ruler = self.widget._ruler
+        QTest.mouseClick(ruler, Qt.LeftButton, pos=QPoint(int(round(ruler._tick_x(2.0))), 10))
+        self.assertAlmostEqual(self.widget.get_playhead_position(), 2.0, places=2)
+        self.canvas.set_read_only(False)
+
+    def test_playhead_lock_ignores_ruler(self):
+        self.widget.set_playhead_anchor(1.0)
+        self.canvas.set_playhead_locked(True)
+        ruler = self.widget._ruler
+        QTest.mouseClick(ruler, Qt.LeftButton, pos=QPoint(int(round(ruler._tick_x(2.0))), 10))
+        self.assertAlmostEqual(self.widget.get_playhead_position(), 1.0, places=2)
+        self.canvas.set_playhead_locked(False)
 
 
 if __name__ == "__main__":

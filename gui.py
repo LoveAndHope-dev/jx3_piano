@@ -312,8 +312,9 @@ class MidiConverterGUI(QMainWindow):
                 color: white;
                 font-weight: bold;
                 font-size: 14px;
-                padding: 12px 18px;
-                min-height: 25px;
+                padding: 2px 12px;
+                min-height: 22px;
+                max-height: 26px;
             }
             
             QPushButton:hover {
@@ -582,7 +583,7 @@ class MidiConverterGUI(QMainWindow):
         control_layout.addLayout(btn_row1)
 
         # 添加作者信息
-        credit_label = QLabel("by 66maer")
+        credit_label = QLabel("created by 66maer updated by Loveanope_Dev")
         credit_label.setObjectName("creditLabel")
         credit_label.setAlignment(Qt.AlignCenter)
         control_layout.addWidget(credit_label)
@@ -665,7 +666,7 @@ class MidiConverterGUI(QMainWindow):
         toolbar.addWidget(self.piano_save_btn)
 
         # 乐器音域框控件：与上方标题/播放/保存共用同一行工具栏
-        self.range_toggle_btn = QPushButton("🟨 显示映射")
+        self.range_toggle_btn = QPushButton("🎹 演奏模式")
         self.range_toggle_btn.setCheckable(True)
         self.range_toggle_btn.setEnabled(False)
         self.range_toggle_btn.clicked.connect(self.on_range_toggle_clicked)
@@ -1036,7 +1037,8 @@ class MidiConverterGUI(QMainWindow):
         # 新增音符必须落在实际会被处理/保存的音轨上，否则另存为 MIDI 时会被静默丢弃
         self.piano_roll.set_default_track(track_filter[0])
         self.piano_roll.set_notes(notes)
-        self.piano_roll.set_read_only(self.is_playing)
+        self.piano_roll.set_read_only(self.is_playing or self.range_toggle_btn.isChecked())
+        self.piano_roll.set_playhead_locked(self.is_playing)
         # set_notes 内部已把播放辅助线锚点归零；这里显式再设一次，保证
         # 「切换曲目 ⇒ 辅助线回到 0 秒」是唯一可依赖的规则
         self.piano_roll.set_playhead_anchor(0.0)
@@ -1131,17 +1133,19 @@ class MidiConverterGUI(QMainWindow):
         self._select_combo_by_pitch(self.range_high_combo, default_high_pitch)
 
         self.range_toggle_btn.setChecked(False)
-        self.range_toggle_btn.setText("🟨 显示映射")
+        self.range_toggle_btn.setText("🎹 演奏模式")
 
         self.piano_roll.set_instrument_range(default_low_pitch, default_high_pitch)
         self.piano_roll.set_instrument_range_visible(False)
         self._refresh_range_display()
 
     def on_range_toggle_clicked(self):
-        """切换乐器音域框在铺面中的可见性（纯视觉开关，不影响播放使用的范围）"""
-        visible = self.range_toggle_btn.isChecked()
-        self.range_toggle_btn.setText("🟨 隐藏映射" if visible else "🟨 显示映射")
-        self.piano_roll.set_instrument_range_visible(visible)
+        """切换演奏/编辑模式：演奏模式显示映射框并锁定铺面编辑。"""
+        playing_mode = self.range_toggle_btn.isChecked()
+        self.range_toggle_btn.setText("✏️ 编辑模式" if playing_mode else "🎹 演奏模式")
+        self.piano_roll.set_instrument_range_visible(playing_mode)
+        # 播放期间无论如何都保持只读
+        self.piano_roll.set_read_only(playing_mode or self.is_playing)
 
     def on_range_low_combo_changed(self, index: int):
         """最低映射变化：只重新计算框体跨度（保持框体当前低边界不变），不移动框体位置"""
@@ -1403,6 +1407,7 @@ class MidiConverterGUI(QMainWindow):
             self.is_playing = True
             self.currently_playing_midi_path = self.current_midi_path
             self.piano_roll.set_read_only(True)
+            self.piano_roll.set_playhead_locked(True)
             self._sync_bpm_enabled()
 
             # 更新按钮
@@ -1431,6 +1436,7 @@ class MidiConverterGUI(QMainWindow):
         self.is_playing = False
         self.currently_playing_midi_path = None
         self.piano_roll.set_read_only(False)
+        self.piano_roll.set_playhead_locked(False)
         self.piano_roll.set_playhead(None)
         self._sync_bpm_enabled()
 
@@ -1458,6 +1464,7 @@ class MidiConverterGUI(QMainWindow):
             self.currently_playing_midi_path = None
             self.play_thread = None
             self.piano_roll.set_read_only(False)
+            self.piano_roll.set_playhead_locked(False)
             self.piano_roll.set_playhead(None)
             self._sync_bpm_enabled()
 

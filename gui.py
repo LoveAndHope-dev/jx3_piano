@@ -37,6 +37,7 @@ from PyQt5.QtWidgets import (
     QStackedWidget,
     QComboBox,
     QLineEdit,
+    QDoubleSpinBox,
 )
 from PyQt5.QtCore import (
     Qt,
@@ -74,7 +75,12 @@ except ImportError:
     print("错误: 无法导入主程序模块，请确保主程序文件在同一目录下")
     sys.exit(1)
 
-from piano_roll import PianoRollWidget, first_playable_start, playback_notes_from_position
+from piano_roll import (
+    PianoRollWidget,
+    bpm_scale_factor,
+    first_playable_start,
+    playback_notes_from_position,
+)
 
 # 量化下拉框选项 -> 传统音符时值分母（1/4 恒等于一拍，只依赖 BPM，不依赖拍号）
 QUANTIZE_LABEL_TO_N = {
@@ -250,6 +256,7 @@ class MidiConverterGUI(QMainWindow):
         self.current_bpm = 120.0
         self.current_time_signature = (4, 4)
         self.quantize_choice = "关闭"
+        self._updating_bpm = False
 
         # 乐器音域框相关变量
         self.key_ladder = get_natural_key_ladder()
@@ -651,6 +658,17 @@ class MidiConverterGUI(QMainWindow):
         self.quantize_combo.currentTextChanged.connect(self.on_quantize_combo_changed)
         toolbar.addWidget(self.quantize_combo)
 
+        toolbar.addWidget(QLabel("BPM:"))
+        self.bpm_spin = QDoubleSpinBox()
+        self.bpm_spin.setRange(20.0, 300.0)
+        self.bpm_spin.setDecimals(1)
+        self.bpm_spin.setSingleStep(1.0)
+        self.bpm_spin.setKeyboardTracking(False)
+        self.bpm_spin.setValue(120.0)
+        self.bpm_spin.setEnabled(False)
+        self.bpm_spin.valueChanged.connect(self.on_bpm_changed)
+        toolbar.addWidget(self.bpm_spin)
+
         piano_layout.addLayout(toolbar)
 
         self._populate_range_combos()
@@ -953,6 +971,9 @@ class MidiConverterGUI(QMainWindow):
         bpm, numerator, denominator = converter.get_tempo_and_time_signature(midi_path)
         self.current_bpm = bpm
         self.current_time_signature = (numerator, denominator)
+        self._updating_bpm = True
+        self.bpm_spin.setValue(float(bpm))
+        self._updating_bpm = False
         seconds_per_beat = 60.0 / bpm * (4.0 / denominator)
         self.piano_roll.set_measure_grid(seconds_per_beat * numerator)
         self.piano_roll.set_beat_grid(seconds_per_beat, numerator)
@@ -988,11 +1009,39 @@ class MidiConverterGUI(QMainWindow):
         self.range_low_combo.setEnabled(enabled)
         self.range_high_combo.setEnabled(enabled)
         self.quantize_combo.setEnabled(enabled)
+        self.bpm_spin.setEnabled(enabled)
         if not enabled:
             self.range_toggle_btn.setChecked(False)
 
     def on_quantize_combo_changed(self, text: str) -> None:
         self.quantize_choice = text
+        self._apply_quantize_grid()
+
+    def on_bpm_changed(self, value: float) -> None:
+        """BPM 数值框提交后：按拍位不变重算音符时间，并同步网格、量化与未保存状态。"""
+        if self._updating_bpm or not self.current_midi_path:
+            return
+        if self.is_playing:
+            # 播放中不允许改速度；把显示复位回当前值
+            self._updating_bpm = True
+            self.bpm_spin.setValue(float(self.current_bpm))
+            self._updating_bpm = False
+            return
+
+        new_bpm = float(value)
+        if abs(new_bpm - self.current_bpm) < 1e-9:
+            return
+
+        factor = bpm_scale_factor(self.current_bpm, new_bpm)
+        self.piano_roll.rescale_times(factor)
+
+        numerator = self.current_time_signature[0]
+        denominator = self.current_time_signature[1]
+        beat_seconds = (60.0 / new_bpm) * (4.0 / denominator)
+        self.piano_roll.set_measure_grid(beat_seconds * numerator)
+        self.piano_roll.set_beat_grid(beat_seconds, numerator)
+
+        self.current_bpm = new_bpm
         self._apply_quantize_grid()
 
     def _apply_quantize_grid(self) -> None:

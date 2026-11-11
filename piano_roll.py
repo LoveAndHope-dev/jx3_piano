@@ -103,6 +103,15 @@ def playback_notes_from_position(notes: List[Dict], playhead: float) -> List[Dic
     return result
 
 
+def clamp_pixels_per_second(value: float) -> float:
+    return max(MIN_PIXELS_PER_SECOND, min(MAX_PIXELS_PER_SECOND, float(value)))
+
+
+def anchored_scroll_value(anchor_time: float, screen_x: float, pixels_per_second: float) -> float:
+    """缩放后应设置的横向滚动值（像素），使 anchor_time 仍落在屏幕 screen_x 处。"""
+    return max(0.0, float(anchor_time) * float(pixels_per_second) - float(screen_x))
+
+
 class _PianoKeyboardWidget(QWidget):
     """铺面左侧的竖直钢琴键盘：纯视觉参照，固定贴在视图左边缘，随铺面纵向滚动
     一起滚动，不随铺面横向（时间轴）滚动移动；不接受任何鼠标事件。"""

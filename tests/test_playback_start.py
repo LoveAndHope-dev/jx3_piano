@@ -1,6 +1,6 @@
 import unittest
 
-from piano_roll import playback_notes_from_position
+from piano_roll import first_playable_start, playback_notes_from_position
 
 
 class PlaybackNotesFromPositionTest(unittest.TestCase):
@@ -32,6 +32,19 @@ class PlaybackNotesFromPositionTest(unittest.TestCase):
         notes = [{"start": 10.0, "pitch": 60}]
         playback_notes_from_position(notes, 4.0)
         self.assertEqual(notes, [{"start": 10.0, "pitch": 60}])
+
+
+class FirstPlayableStartTest(unittest.TestCase):
+    def test_returns_first_relative_start(self):
+        notes = [{"start": 3.0, "pitch": 62}, {"start": 5.0, "pitch": 64}]
+        self.assertEqual(first_playable_start(notes), 3.0)
+
+    def test_ignores_notes_outside_pitch_range(self):
+        notes = [{"start": 1.0, "pitch": 20}, {"start": 2.0, "pitch": 60}]
+        self.assertEqual(first_playable_start(notes, (48, 72)), 2.0)
+
+    def test_empty_returns_zero(self):
+        self.assertEqual(first_playable_start([]), 0.0)
 
 
 if __name__ == "__main__":

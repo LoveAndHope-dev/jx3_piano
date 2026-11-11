@@ -3,7 +3,8 @@ import unittest
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
-from PyQt5.QtCore import QPoint, Qt
+from PyQt5.QtCore import QPoint, QPointF, Qt
+from PyQt5.QtGui import QWheelEvent
 from PyQt5.QtTest import QTest
 from PyQt5.QtWidgets import QApplication
 
@@ -19,11 +20,27 @@ def _application():
     return _app
 
 
+def _wheel(canvas, x: float, delta: int = 120, shift: bool = True):
+    modifiers = Qt.ShiftModifier if shift else Qt.NoModifier
+    return QWheelEvent(
+        QPointF(x, 5.0),
+        QPointF(x, 5.0),
+        QPoint(0, 0),
+        QPoint(0, delta),
+        Qt.NoButton,
+        modifiers,
+        Qt.NoScrollPhase,
+        False,
+    )
+
+
 class PianoRollWidgetTest(unittest.TestCase):
     def setUp(self):
-        _application()
+        app = _application()
         self.widget = PianoRollWidget(set(range(21, 109)))
         self.widget.resize(900, 420)
+        self.widget.show()
+        app.processEvents()
         self.widget.set_notes(
             [
                 {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0, "mapped": True},
@@ -74,16 +91,6 @@ class PianoRollWidgetTest(unittest.TestCase):
         self.canvas._shift_selected_octave(12)
         self.assertEqual([n["pitch"] for n in self.widget.get_notes()], [100])
 
-    def test_zoom_keeps_anchor_time_under_cursor(self):
-        self.canvas.set_pixels_per_second(70.0)
-        self.canvas.horizontalScrollBar().setValue(0)
-        anchor_time = self.canvas.time_at_viewport_x(140.0)
-        new_pps = 140.0
-        value = int(round(anchor_time * new_pps - 140.0))
-        self.canvas.horizontalScrollBar().setValue(value)
-        self.canvas.set_pixels_per_second(new_pps)
-        self.assertAlmostEqual(self.canvas.time_at_viewport_x(140.0), anchor_time, places=3)
-
     def test_zoom_is_clamped(self):
         self.canvas.set_pixels_per_second(1.0)
         self.assertEqual(self.canvas.pixels_per_second(), 10.0)
@@ -93,8 +100,9 @@ class PianoRollWidgetTest(unittest.TestCase):
     def test_ruler_click_sets_playhead_anchor(self):
         self.canvas.set_pixels_per_second(70.0)
         self.canvas.horizontalScrollBar().setValue(0)
-        QTest.mouseClick(self.widget._ruler, Qt.LeftButton, pos=QPoint(70, 10))
-        self.assertAlmostEqual(self.widget.get_playhead_position(), 1.0, places=3)
+        ruler = self.widget._ruler
+        QTest.mouseClick(ruler, Qt.LeftButton, pos=QPoint(int(round(ruler._tick_x(1.0))), 10))
+        self.assertAlmostEqual(self.widget.get_playhead_position(), 1.0, places=2)
 
     def test_ruler_ignored_while_playing(self):
         self.widget.set_playhead_anchor(2.0)
@@ -117,6 +125,100 @@ class PianoRollWidgetTest(unittest.TestCase):
         self.widget.set_notes([{"id": 0, "pitch": 60, "start": 0.0, "duration": 0.5}])
         self.assertEqual(self.widget.get_playhead_position(), 0.0)
         self.assertEqual(self.canvas._playhead_display_seconds, 0.0)
+
+    def test_viewport_mapping_matches_scene_when_zoomed_out(self):
+        self.widget.set_notes([{"id": 0, "pitch": 60, "start": 4.0, "duration": 0.5}])
+        self.canvas.set_pixels_per_second(10.0)
+        _application().processEvents()
+        expected = self.canvas.mapFromScene(QPointF(0.0, 0.0)).x()
+        self.assertAlmostEqual(self.canvas.viewport_x_for_time(0.0), expected, delta=0.5)
+        self.assertAlmostEqual(
+            self.canvas.time_at_viewport_x(float(expected)), 0.0, delta=1e-6
+        )
+
+    def test_wheel_zoom_keeps_anchor_at_end_of_timeline(self):
+        self.widget.set_notes(
+            [{"id": 0, "pitch": 60, "start": 50.0, "duration": 1.0, "track": 0, "mapped": True}]
+        )
+        self.canvas.set_pixels_per_second(70.0)
+        bar = self.canvas.horizontalScrollBar()
+        bar.setValue(bar.maximum())
+        x = float(self.canvas.viewport().width()) - 25.0
+        before = self.canvas.time_at_viewport_x(x)
+        self.canvas.wheelEvent(_wheel(self.canvas, x))
+        after = self.canvas.time_at_viewport_x(x)
+        self.assertAlmostEqual(before, after, delta=0.05)
+
+    def test_wheel_zoom_keeps_anchor_in_middle(self):
+        self.widget.set_notes(
+            [{"id": 0, "pitch": 60, "start": 50.0, "duration": 1.0, "track": 0, "mapped": True}]
+        )
+        self.canvas.set_pixels_per_second(70.0)
+        bar = self.canvas.horizontalScrollBar()
+        bar.setValue(bar.maximum() // 2)
+        x = float(self.canvas.viewport().width()) / 2.0
+        before = self.canvas.time_at_viewport_x(x)
+        self.canvas.wheelEvent(_wheel(self.canvas, x))
+        after = self.canvas.time_at_viewport_x(x)
+        self.assertAlmostEqual(before, after, delta=0.05)
+
+    def test_horizontal_wheel_with_shift_does_not_zoom_out(self):
+        self.canvas.set_pixels_per_second(70.0)
+        before = self.canvas.pixels_per_second()
+        self.canvas.wheelEvent(_wheel(self.canvas, 100.0, delta=0))
+        self.assertEqual(self.canvas.pixels_per_second(), before)
+
+    def test_ruler_tick_stays_aligned_when_scene_is_narrow(self):
+        self.widget.set_notes([{"id": 0, "pitch": 60, "start": 2.0, "duration": 0.5}])
+        self.widget.set_beat_grid(0.5, 4)
+        self.canvas.set_pixels_per_second(10.0)
+        _application().processEvents()
+        ruler = self.widget._ruler
+        scaled = ruler.grab().toImage()
+        self.assertFalse(scaled.isNull())
+        expected = self.canvas.viewport_x_for_time(0.0) + ruler._viewport_origin()
+        self.assertAlmostEqual(ruler._tick_x(0.0), expected, delta=0.5)
+
+    def test_keyboard_copy_and_paste_emit_notes_changed(self):
+        signals = []
+        self.widget.notesChanged.connect(lambda: signals.append(1))
+        self.canvas.setFocus()
+        self.canvas._set_selection({0})
+        QTest.keyClick(self.canvas, Qt.Key_C, Qt.ControlModifier)
+        self.assertEqual(signals, [])
+        QTest.keyClick(self.canvas, Qt.Key_V, Qt.ControlModifier)
+        self.assertEqual(len(signals), 1)
+        self.assertEqual(len(self.widget.get_notes()), 3)
+
+    def test_keyboard_cut_removes_selection(self):
+        self.canvas._set_selection({0, 1})
+        QTest.keyClick(self.canvas, Qt.Key_X, Qt.ControlModifier)
+        self.assertEqual(self.widget.get_notes(), [])
+        self.assertEqual(len(self.canvas._clipboard), 2)
+
+    def test_keyboard_shift_up_moves_octave(self):
+        signals = []
+        self.widget.notesChanged.connect(lambda: signals.append(1))
+        self.canvas._set_selection({0})
+        QTest.keyClick(self.canvas, Qt.Key_Up, Qt.ShiftModifier)
+        self.assertEqual([n["pitch"] for n in self.widget.get_notes() if n["id"] == 0], [72])
+        self.assertEqual(len(signals), 1)
+
+    def test_read_only_canvas_ignores_paste_and_octave(self):
+        self.canvas._set_selection({0})
+        QTest.keyClick(self.canvas, Qt.Key_C, Qt.ControlModifier)
+        self.widget.set_read_only(True)
+        QTest.keyClick(self.canvas, Qt.Key_V, Qt.ControlModifier)
+        QTest.keyClick(self.canvas, Qt.Key_Up, Qt.ShiftModifier)
+        self.assertEqual(len(self.widget.get_notes()), 2)
+        self.assertEqual([n["pitch"] for n in self.widget.get_notes() if n["id"] == 0], [60])
+        self.widget.set_read_only(False)
+
+    def test_octave_shift_with_empty_selection_does_nothing(self):
+        before = self.widget.get_notes()
+        self.canvas._set_selection(set())
+        self.canvas._shift_selected_octave(12)
+        self.assertEqual(self.widget.get_notes(), before)
 
 
 if __name__ == "__main__":

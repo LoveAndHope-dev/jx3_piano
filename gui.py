@@ -74,7 +74,7 @@ except ImportError:
     print("错误: 无法导入主程序模块，请确保主程序文件在同一目录下")
     sys.exit(1)
 
-from piano_roll import PianoRollWidget, playback_notes_from_position
+from piano_roll import PianoRollWidget, first_playable_start, playback_notes_from_position
 
 # 量化下拉框选项 -> 传统音符时值分母（1/4 恒等于一拍，只依赖 BPM，不依赖拍号）
 QUANTIZE_LABEL_TO_N = {
@@ -961,8 +961,9 @@ class MidiConverterGUI(QMainWindow):
         self.piano_roll.set_default_track(track_filter[0])
         self.piano_roll.set_notes(notes)
         self.piano_roll.set_read_only(self.is_playing)
-        if not (self.is_playing and midi_path == self.currently_playing_midi_path):
-            self.piano_roll.set_playhead_anchor(0.0)
+        # set_notes 内部已把播放辅助线锚点归零；这里显式再设一次，保证
+        # 「切换曲目 ⇒ 辅助线回到 0 秒」是唯一可依赖的规则
+        self.piano_roll.set_playhead_anchor(0.0)
 
         self._reset_instrument_range()
         self._set_range_controls_enabled(True)
@@ -1151,7 +1152,12 @@ class MidiConverterGUI(QMainWindow):
                 QMessageBox.warning(self, "警告", "当前乐器音域范围内没有可播放的音符")
                 return
 
-            self._playback_start_seconds = playhead
+            # 播放数据会省略起点之后的静音空档（第一个音立即发声），因此辅助线
+            # 的显示起点要加上「第一个可发声音符的相对时间」，否则整段播放中
+            # 辅助线都会落后于实际发声。
+            self._playback_start_seconds = playhead + first_playable_start(
+                notes, (low_pitch, high_pitch)
+            )
 
             data = {
                 "type": "jx3_piano_complete",

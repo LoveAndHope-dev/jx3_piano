@@ -15,7 +15,7 @@
 import math
 from typing import Dict, List, Optional, Set, Tuple
 
-from PyQt5.QtCore import QPoint, QRectF, Qt, pyqtSignal
+from PyQt5.QtCore import QPoint, QPointF, QRectF, Qt, pyqtSignal
 from PyQt5.QtGui import QBrush, QColor, QPainter, QPen
 from PyQt5.QtWidgets import (
     QAction,
@@ -109,6 +109,20 @@ def playback_notes_from_position(notes: List[Dict], playhead: float) -> List[Dic
     return result
 
 
+def first_playable_start(
+    notes: List[Dict], pitch_range: Optional[Tuple[int, int]] = None
+) -> float:
+    """返回参与播放的第一个音符的相对起始时间；无音符时返回 0。"""
+    low = pitch_range[0] - 1 if pitch_range else None
+    high = pitch_range[1] + 1 if pitch_range else None
+    starts = [
+        float(n.get("start", 0.0))
+        for n in notes
+        if low is None or low <= int(n["pitch"]) <= high
+    ]
+    return min(starts, default=0.0)
+
+
 def clamp_pixels_per_second(value: float) -> float:
     return max(MIN_PIXELS_PER_SECOND, min(MAX_PIXELS_PER_SECOND, float(value)))
 
@@ -189,6 +203,29 @@ class _TimeRulerWidget(QWidget):
     def _on_canvas_changed(self, *_args) -> None:
         self.update()
 
+    def resizeEvent(self, event) -> None:  # noqa: N802 (Qt override)
+        self.update()
+        super().resizeEvent(event)
+
+    def _viewport_origin(self) -> float:
+        """画布视口左边缘在本标尺坐标系中的 x。
+
+        标尺与画布在 `PianoRollWidget` 中左边缘对齐（同一 KEYBOARD_WIDTH 缩进），
+        因此这里只需补上画布自身的边框宽度；调用 QWidget.mapTo 在绘制期间
+        会导致 PyQt 崩溃，不能用它做实时换算。
+        """
+        return float(self._canvas.frameWidth())
+
+    def _viewport_width(self) -> float:
+        return float(self._canvas.viewport().width())
+
+    def _tick_x(self, seconds: float) -> float:
+        return self._viewport_origin() + self._canvas.viewport_x_for_time(seconds)
+
+    def _time_at_x(self, x: float) -> float:
+        local = max(0.0, min(float(x) - self._viewport_origin(), self._viewport_width()))
+        return self._canvas.time_at_viewport_x(local)
+
     def set_beat_grid(
         self, seconds_per_beat: Optional[float], beats_per_measure: int
     ) -> None:
@@ -203,12 +240,12 @@ class _TimeRulerWidget(QWidget):
         painter = QPainter(self)
         painter.fillRect(self.rect(), QColor("#1B2631"))
         pps = self._canvas.pixels_per_second()
-        if pps <= 0 or self.width() <= 0:
+        if pps <= 0 or self.width() <= 0 or self._viewport_width() <= 0:
             painter.end()
             return
 
         start_time = self._canvas.time_at_viewport_x(0.0)
-        end_time = self._canvas.time_at_viewport_x(float(self.width()))
+        end_time = self._canvas.time_at_viewport_x(self._viewport_width())
         seconds_per_measure = (
             self._seconds_per_beat * self._beats_per_measure
             if self._seconds_per_beat
@@ -240,8 +277,10 @@ class _TimeRulerWidget(QWidget):
         painter.end()
 
     def _draw_tick(self, painter: QPainter, seconds: float, text: str, tall: bool) -> None:
-        x = self._canvas.viewport_x_for_time(seconds)
-        if x < -40 or x > self.width() + 40:
+        origin = self._viewport_origin()
+        right = origin + self._viewport_width()
+        x = self._tick_x(seconds)
+        if x < origin - 40 or x > right + 40:
             return
         top = 0 if tall else RULER_HEIGHT - 8
         painter.setPen(QPen(QColor("#85929E" if tall else "#4D5656"), 1))
@@ -257,12 +296,12 @@ class _TimeRulerWidget(QWidget):
     def mousePressEvent(self, event):
         if event.button() != Qt.LeftButton or self._should_ignore_mouse():
             return
-        self.playheadRequested.emit(self._canvas.time_at_viewport_x(float(event.pos().x())))
+        self.playheadRequested.emit(self._time_at_x(float(event.pos().x())))
 
     def mouseMoveEvent(self, event):
         if not (event.buttons() & Qt.LeftButton) or self._should_ignore_mouse():
             return
-        self.playheadRequested.emit(self._canvas.time_at_viewport_x(float(event.pos().x())))
+        self.playheadRequested.emit(self._time_at_x(float(event.pos().x())))
 
 
 class _PianoRollCanvas(QGraphicsView):
@@ -322,6 +361,9 @@ class _PianoRollCanvas(QGraphicsView):
         self.setBackgroundBrush(QBrush(QColor("#1B2631")))
         self.setMouseTracking(True)
         self.setFocusPolicy(Qt.StrongFocus)
+        # 左/上对齐：场景比视口窄时不会自动居中，视口坐标与场景坐标始终满足
+        # 「视口 x = 场景 x - 横向滚动值」，标尺、点击定位与缩放锚点才能对齐
+        self.setAlignment(Qt.AlignLeft | Qt.AlignTop)
 
         self._build_background(MIN_SCENE_SECONDS)
 
@@ -459,7 +501,7 @@ class _PianoRollCanvas(QGraphicsView):
         return self._pixels_per_second
 
     def set_pixels_per_second(self, value: float) -> None:
-        """设置横向像素/秒比例（自动夹紧），并重绘全部依赖该比例的内容。"""
+        """直接设置横向像素/秒比例（自动夹紧，不做视图锚定）；滚轮缩放走 wheelEvent。"""
         new_value = clamp_pixels_per_second(value)
         if abs(new_value - self._pixels_per_second) < 1e-9:
             return
@@ -467,14 +509,13 @@ class _PianoRollCanvas(QGraphicsView):
         self._rebuild_after_zoom()
 
     def viewport_x_for_time(self, seconds: float) -> float:
-        """时间（秒）→ 当前视口横坐标（像素，不含视图边框）。"""
-        return self._time_to_x(seconds) - self.horizontalScrollBar().value()
+        """时间（秒）→ 当前视口横坐标（像素），使用场景映射而非算术近似。"""
+        return float(self.mapFromScene(QPointF(self._time_to_x(seconds), 0.0)).x())
 
     def time_at_viewport_x(self, x: float) -> float:
         """当前视口横坐标（像素）→ 时间（秒），结果不小于 0。"""
-        return max(
-            0.0, (float(x) + self.horizontalScrollBar().value()) / self._pixels_per_second
-        )
+        scene_x = float(self.mapToScene(QPoint(int(round(float(x))), 0)).x())
+        return max(0.0, scene_x / self._pixels_per_second)
 
     def wheelEvent(self, event):
         """Shift+滚轮横向缩放（以鼠标所在时间为锚点）；否则保持原有纵向滚动。"""
@@ -482,20 +523,27 @@ class _PianoRollCanvas(QGraphicsView):
             super().wheelEvent(event)
             return
 
+        delta_y = event.angleDelta().y()
+        if delta_y == 0:
+            # 纯横向滚轮（触控板常见）：不当作缩放，交回默认处理
+            super().wheelEvent(event)
+            return
+
         viewport_x = float(event.pos().x())
         anchor_time = self.time_at_viewport_x(viewport_x)
-        up = event.angleDelta().y() > 0
-        factor = ZOOM_STEP_FACTOR if up else 1.0 / ZOOM_STEP_FACTOR
+        factor = ZOOM_STEP_FACTOR if delta_y > 0 else 1.0 / ZOOM_STEP_FACTOR
         new_pps = clamp_pixels_per_second(self._pixels_per_second * factor)
         if abs(new_pps - self._pixels_per_second) < 1e-9:
             event.accept()
             return
 
         self._pixels_per_second = new_pps
+        # 先重建场景（滚动条范围随之更新），再设置滚动值，否则旧上限会把
+        # 锚点滚动值夹紧，缩放后视口偏移（时间轴末段尤其明显）
+        self._rebuild_after_zoom()
         self.horizontalScrollBar().setValue(
             int(round(anchored_scroll_value(anchor_time, viewport_x, new_pps)))
         )
-        self._rebuild_after_zoom()
         event.accept()
 
     def _rebuild_after_zoom(self) -> None:

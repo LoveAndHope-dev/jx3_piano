@@ -132,6 +132,31 @@ def anchored_scroll_value(anchor_time: float, screen_x: float, pixels_per_second
     return max(0.0, float(anchor_time) * float(pixels_per_second) - float(screen_x))
 
 
+def bpm_scale_factor(old_bpm: float, new_bpm: float) -> float:
+    """旧/新 BPM 的时间缩放因子；任一 BPM 非正时抛 ValueError。"""
+    if old_bpm <= 0 or new_bpm <= 0:
+        raise ValueError("BPM 必须大于 0")
+    return float(old_bpm) / float(new_bpm)
+
+
+def tempo_us_from_bpm(bpm: float) -> int:
+    """BPM → MIDI tempo（微秒/拍），四舍五入到整数。"""
+    if bpm <= 0:
+        raise ValueError("BPM 必须大于 0")
+    return int(round(60_000_000 / float(bpm)))
+
+
+def scaled_note_times(notes: List[Dict], factor: float) -> List[Dict]:
+    """返回音符深拷贝，start 与 duration 乘以 factor；不修改输入。"""
+    result: List[Dict] = []
+    for note in notes:
+        cloned = dict(note)
+        cloned["start"] = float(note.get("start", 0.0)) * factor
+        cloned["duration"] = float(note.get("duration", 0.0)) * factor
+        result.append(cloned)
+    return result
+
+
 class _PianoKeyboardWidget(QWidget):
     """铺面左侧的竖直钢琴键盘：纯视觉参照，固定贴在视图左边缘，随铺面纵向滚动
     一起滚动，不随铺面横向（时间轴）滚动移动；不接受任何鼠标事件。"""

@@ -120,6 +120,15 @@ class PlaylistGuiTest(unittest.TestCase):
         self.assertEqual(self.window.range_high_combo.currentData(), 83)
         self.assertEqual(self.window.piano_roll.get_instrument_range(), (36, 47))
 
+    def test_absolute_key_fields_show_full_piano_range(self):
+        self.window.on_new_play_item()
+        self.assertEqual(self.window.range_bottom_display.text(), "A0")
+        self.assertEqual(self.window.range_top_display.text(), "C8")
+        self.window.piano_roll.set_instrument_range(60, 72)
+        self.window._refresh_range_display()
+        self.assertEqual(self.window.range_bottom_display.text(), "A0")
+        self.assertEqual(self.window.range_top_display.text(), "C8")
+
     def test_row_items_have_room_for_delete_button(self):
         self.window.on_new_play_item()
         item = self.window.play_listbox.item(0)

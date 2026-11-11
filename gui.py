@@ -83,6 +83,8 @@ from playlist_store import (
     unique_midi_name,
 )
 from piano_roll import (
+    MAX_PITCH,
+    MIN_PITCH,
     PianoRollWidget,
     bpm_scale_factor,
     first_playable_start,
@@ -807,10 +809,9 @@ class MidiConverterGUI(QMainWindow):
                 return
 
     def _refresh_range_display(self):
-        """用黄色乐器音域框当前实际生效的低/高边界刷新只读字段，不依赖下拉框选中值"""
-        low_pitch, high_pitch = self.piano_roll.get_instrument_range()
-        self.range_bottom_display.setText(self._note_name_for_pitch(low_pitch))
-        self.range_top_display.setText(self._note_name_for_pitch(high_pitch))
+        """刷新「钢琴音域绝对最低/最高键」：固定为 88 键的绝对范围 A0～C8，不随黄框变化。"""
+        self.range_bottom_display.setText(self._note_name_for_pitch(MIN_PITCH))
+        self.range_top_display.setText(self._note_name_for_pitch(MAX_PITCH))
 
     def _setup_log_tab(self):
         """构建「操作日志」标签页"""

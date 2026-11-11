@@ -5,7 +5,6 @@ import threading
 import subprocess
 import json
 import time
-import glob
 from datetime import datetime
 from typing import Optional
 import ctypes
@@ -163,6 +162,9 @@ class BatchConversionWorker(QThread):
                             if os.path.exists(target_path):
                                 os.remove(target_path)
                             shutil.copy2(file_path, target_path)
+                            # copy2 会保留源文件的修改时间，导致「导入时间」排序按源文件算；
+                            # 这里把目标文件时间刷成导入时刻
+                            os.utime(target_path, None)
                             self.log_signal.emit(
                                 f"📋 [{i}/{total_files}] 已复制文件到工作目录"
                             )
@@ -612,6 +614,7 @@ class MidiConverterGUI(QMainWindow):
 
         self.play_delete_btn = QPushButton("🗑")
         self.play_delete_btn.setToolTip("从列表移除（保留磁盘文件）")
+        self.play_delete_btn.setFixedWidth(36)
         self.play_delete_btn.setEnabled(False)
         self.play_delete_btn.clicked.connect(self.on_delete_play_item)
 
@@ -922,10 +925,8 @@ class MidiConverterGUI(QMainWindow):
             self.play_listbox.blockSignals(False)
             self.play_delete_btn.setEnabled(self.play_listbox.currentItem() is not None)
 
-            if entries:
-                self.log(f"🔄 已刷新列表，显示 {len(entries)} 个曲目")
-            else:
-                self.log("📝 当前列表没有可显示的 MIDI 文件")
+            if not entries and not self.play_search.text().strip():
+                self.log("📝 midi/ 目录下没有可显示的 MIDI 文件")
         except Exception as e:
             self.log(f"❌ 刷新列表失败: {str(e)}")
 
@@ -1000,8 +1001,14 @@ class MidiConverterGUI(QMainWindow):
             converter = MidiToKeysConverter()
             track_filter, transpose = converter.auto_select_tracks_and_transpose(midi_path)
             if not track_filter:
-                raise ValueError("未找到足够的音符以自动选择音轨")
-            notes = converter.extract_notes(midi_path, track_filter=track_filter, transpose=transpose)
+                # 解析成功但音符不足以自动选轨（例如「➕ 新建」生成的空白 MIDI）：
+                # 退化为第一个音轨上的空铺面，而不是报错，否则空曲目永远无法编辑。
+                track_filter = [0]
+                notes = []
+            else:
+                notes = converter.extract_notes(
+                    midi_path, track_filter=track_filter, transpose=transpose
+                )
         except Exception as e:
             # 解析失败：不把 current_midi_path 指向一个从未成功加载音符的文件，
             # 避免播放/保存误用铺面上残留的上一首曲目的音符
@@ -1225,6 +1232,10 @@ class MidiConverterGUI(QMainWindow):
             QMessageBox.critical(self, "新建失败", f"新建空 MIDI 失败：{exc}")
             return
 
+        # 清空搜索过滤，确保新曲目一定出现在列表里并被选中加载
+        self.play_search.blockSignals(True)
+        self.play_search.clear()
+        self.play_search.blockSignals(False)
         self.refresh_play_list()
         self._select_play_list_item_by_path(path)
         self.log(f"➕ 已新建空曲目: {name}")
@@ -1234,7 +1245,10 @@ class MidiConverterGUI(QMainWindow):
         item = self.play_listbox.currentItem()
         if item is None:
             return
-        name = item.data(Qt.UserRole + 1) or item.text()
+        name = item.data(Qt.UserRole + 1)
+        if not name:
+            self.log("❌ 移除失败：列表项缺少文件名")
+            return
         path = item.data(Qt.UserRole)
         extra = (
             "\n（该曲目有未保存修改，移除会丢失这些修改）"
@@ -1296,6 +1310,8 @@ class MidiConverterGUI(QMainWindow):
         self.current_processed_tracks = []
         self.current_transpose = 0
         self.current_bpm = 120.0
+        self.current_time_signature = (4, 4)
+        self._playback_start_seconds = 0.0
         self._updating_bpm = True
         self.bpm_spin.setValue(120.0)
         self._updating_bpm = False
@@ -1322,13 +1338,13 @@ class MidiConverterGUI(QMainWindow):
             self.start_playing()
 
     def start_playing(self):
-        """开始播放"""
+        """开始播放（搜索过滤导致列表无选中时，仍按当前铺面曲目播放）"""
         current_item = self.play_listbox.currentItem()
-        if not current_item:
+        if not self.current_midi_path:
             QMessageBox.warning(self, "警告", "请先选择一个播放文件")
             return
 
-        if not self.current_midi_path or current_item.data(Qt.UserRole) != self.current_midi_path:
+        if current_item is not None and current_item.data(Qt.UserRole) != self.current_midi_path:
             QMessageBox.warning(self, "警告", "请先在铺面中打开要播放的曲目")
             return
 

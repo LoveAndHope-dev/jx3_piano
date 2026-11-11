@@ -31,11 +31,13 @@ def load_hidden(midi_dir: str) -> Set[str]:
 
 
 def save_hidden(midi_dir: str, names: Set[str]) -> None:
-    """保存被移除曲目的文件名集合。"""
+    """保存被移除曲目的文件名集合（先写临时文件再替换，避免半截 JSON）。"""
     os.makedirs(midi_dir, exist_ok=True)
     path = os.path.join(midi_dir, HIDDEN_FILENAME)
-    with open(path, "w", encoding="utf-8") as fh:
+    tmp_path = path + ".tmp"
+    with open(tmp_path, "w", encoding="utf-8") as fh:
         json.dump(sorted(names), fh, ensure_ascii=False, indent=2)
+    os.replace(tmp_path, path)
 
 
 def list_entries(midi_dir: str) -> List[Entry]:

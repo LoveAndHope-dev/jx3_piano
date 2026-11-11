@@ -38,6 +38,12 @@ class HiddenStoreTest(unittest.TestCase):
         with open(path, "r", encoding="utf-8") as fh:
             self.assertEqual(fh.read(), "not-json")
 
+    def test_non_list_json_returns_empty(self):
+        path = os.path.join(self.dir, HIDDEN_FILENAME)
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write('{"a": 1}')
+        self.assertEqual(load_hidden(self.dir), set())
+
     def test_save_creates_directory(self):
         target = os.path.join(self.dir, "sub")
         save_hidden(target, {"x.mid"})
@@ -66,6 +72,7 @@ class EntriesTest(unittest.TestCase):
         self.assertEqual(len(filter_entries(entries, "QING")), 2)
         self.assertEqual(len(filter_entries(entries, "2")), 1)
         self.assertEqual(len(filter_entries(entries, "")), 2)
+        self.assertEqual(len(filter_entries(entries, "   ")), 2)
 
     def test_sort_by_name(self):
         names = [e[0] for e in sort_entries(list_entries(self.dir), "name")]
@@ -92,8 +99,14 @@ class BlankMidiTest(unittest.TestCase):
 
     def test_unique_name(self):
         self.assertEqual(unique_midi_name(self.dir), "新建曲目.mid")
-        open(os.path.join(self.dir, "新建曲目.mid"), "wb").close()
+        with open(os.path.join(self.dir, "新建曲目.mid"), "wb"):
+            pass
         self.assertEqual(unique_midi_name(self.dir), "新建曲目_2.mid")
+
+    def test_create_blank_midi_rejects_invalid_bpm(self):
+        path = os.path.join(self.dir, "bad.mid")
+        with self.assertRaises(ValueError):
+            create_blank_midi(path, bpm=0.0)
 
     def test_create_blank_midi_contents(self):
         path = os.path.join(self.dir, unique_midi_name(self.dir))

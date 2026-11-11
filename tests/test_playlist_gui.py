@@ -1,0 +1,96 @@
+import os
+import tempfile
+import unittest
+from unittest.mock import patch
+
+os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+
+import gui
+from PyQt5.QtWidgets import QApplication, QMessageBox
+
+_app = None
+
+
+def _application():
+    global _app
+    if _app is None:
+        _app = QApplication.instance() or QApplication([])
+    return _app
+
+
+class PlaylistGuiTest(unittest.TestCase):
+    def setUp(self):
+        _application()
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self._original_midi_dir = gui.get_midi_dir_path
+        gui.get_midi_dir_path = lambda: self.tmp.name
+        self.addCleanup(self._restore_midi_dir)
+        self.window = gui.MidiConverterGUI()
+        self.addCleanup(self.window.close)
+
+    def _restore_midi_dir(self):
+        gui.get_midi_dir_path = self._original_midi_dir
+
+    def test_new_blank_midi_loads_empty_roll(self):
+        self.window.on_new_play_item()
+        self.assertTrue(self.window.current_midi_path)
+        self.assertEqual(self.window.play_listbox.count(), 1)
+        self.assertEqual(self.window.play_listbox.currentRow(), 0)
+        self.assertEqual(self.window.bpm_spin.value(), 120.0)
+        self.assertEqual(self.window.piano_roll.get_notes(), [])
+        self.assertIs(self.window.piano_stack.currentWidget(), self.window.piano_roll)
+        self.assertFalse(self.window.piano_roll_dirty)
+
+    def test_new_clears_active_search(self):
+        self.window.play_search.setText("zzz")
+        self.window.on_new_play_item()
+        self.assertEqual(self.window.play_search.text(), "")
+        self.assertEqual(self.window.play_listbox.count(), 1)
+        self.assertEqual(self.window.play_listbox.currentRow(), 0)
+
+    def test_delete_current_track_clears_cache(self):
+        self.window.on_new_play_item()
+        path = self.window.current_midi_path
+        with patch.object(gui.QMessageBox, "question", return_value=QMessageBox.Yes):
+            self.window.on_delete_play_item()
+        self.assertEqual(self.window.play_listbox.count(), 0)
+        self.assertIsNone(self.window.current_midi_path)
+        self.assertEqual(self.window.piano_roll.get_notes(), [])
+        self.assertEqual(self.window.bpm_spin.value(), 120.0)
+        self.assertFalse(self.window.piano_roll_dirty)
+        self.assertIs(self.window.piano_stack.currentWidget(), self.window.piano_placeholder)
+        self.assertTrue(os.path.exists(path))
+
+    def test_cancel_delete_keeps_everything(self):
+        self.window.on_new_play_item()
+        with patch.object(gui.QMessageBox, "question", return_value=QMessageBox.No):
+            self.window.on_delete_play_item()
+        self.assertEqual(self.window.play_listbox.count(), 1)
+        self.assertTrue(self.window.current_midi_path)
+
+    def test_hidden_track_stays_hidden_after_refresh(self):
+        self.window.on_new_play_item()
+        with patch.object(gui.QMessageBox, "question", return_value=QMessageBox.Yes):
+            self.window.on_delete_play_item()
+        self.window.refresh_play_list()
+        self.assertEqual(self.window.play_listbox.count(), 0)
+
+    def test_restore_hidden_tracks(self):
+        self.window.on_new_play_item()
+        with patch.object(gui.QMessageBox, "question", return_value=QMessageBox.Yes):
+            self.window.on_delete_play_item()
+        self.window.on_restore_hidden_items()
+        self.assertEqual(self.window.play_listbox.count(), 1)
+
+    def test_search_does_not_break_loaded_track(self):
+        self.window.on_new_play_item()
+        path = self.window.current_midi_path
+        self.window.play_search.setText("no-such-track")
+        self.assertEqual(self.window.play_listbox.count(), 0)
+        self.assertEqual(self.window.current_midi_path, path)
+        self.assertIsNotNone(self.window.piano_roll.get_notes() is not None)
+
+
+if __name__ == "__main__":
+    unittest.main()

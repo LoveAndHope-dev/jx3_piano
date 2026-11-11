@@ -1,0 +1,19 @@
+{
+  "change": "editor-ui-and-arpeggiate",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "task_hash_policy": "task-content-v1",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "f72953c0b1ae83e4211ed7154dfd4be40e0ed1abeef22e24c68db4b366953595",
+  "files": [
+    { "path": "docs/openspec/changes/editor-ui-and-arpeggiate/proposal.md", "sha256": "4e6f265b019fce04e3a64e5fa0ff7b96e47267ed7107abd65afeb6c3075b14b7" },
+    { "path": "docs/openspec/changes/editor-ui-and-arpeggiate/design.md", "sha256": "b2c7d92aa848e035ebbafef42d0088a14a7067fc6f0ffaf795f3b6caba0d5cd7" },
+    { "path": "docs/openspec/changes/editor-ui-and-arpeggiate/tasks.md", "sha256": "fe38c6ae977cced39c792186adbdcaedddd251f89bb88308c157848eef9350a6" },
+    { "path": "docs/openspec/changes/editor-ui-and-arpeggiate/.openspec.yaml", "sha256": "b8f20def63a86ae4075c5499ff9ed413265d8704692a8493712424dc3f28d8e3" },
+    { "path": "docs/openspec/changes/editor-ui-and-arpeggiate/specs/piano-roll-arpeggiate/spec.md", "sha256": "5217af2eba5a5370c59d82c6f494170b7a7fc380ef5de9a739ec40aa61b01d58" },
+    { "path": "docs/openspec/changes/editor-ui-and-arpeggiate/specs/piano-roll-editing-modes/spec.md", "sha256": "308a32ed2a0591a515bc45e68ca9823cb3cf39e98c423403b6a51178bc271ac8" },
+    { "path": "docs/openspec/changes/editor-ui-and-arpeggiate/specs/piano-roll-toolbar-layout/spec.md", "sha256": "edbd8a595f2aafedf2c83b66096bce7bb095758ee0bd898c213bac2880ae5632" },
+    { "path": "docs/openspec/changes/editor-ui-and-arpeggiate/specs/playlist-management/spec.md", "sha256": "07e043a7131df3486640074867834f39ed95d36dd9938a1c4798ff68cddd2099" }
+  ]
+}

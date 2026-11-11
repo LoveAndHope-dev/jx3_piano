@@ -2,6 +2,8 @@
 comet_change: editor-ui-and-arpeggiate
 role: technical-design
 canonical_spec: openspec
+archived-with: 2026-11-11-editor-ui-and-arpeggiate
+status: final
 ---
 
 # Design

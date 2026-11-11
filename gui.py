@@ -75,6 +75,15 @@ except ImportError:
     print("错误: 无法导入主程序模块，请确保主程序文件在同一目录下")
     sys.exit(1)
 
+from playlist_store import (
+    create_blank_midi,
+    filter_entries,
+    list_entries,
+    load_hidden,
+    save_hidden,
+    sort_entries,
+    unique_midi_name,
+)
 from piano_roll import (
     PianoRollWidget,
     bpm_scale_factor,
@@ -557,6 +566,11 @@ class MidiConverterGUI(QMainWindow):
         self.import_btn.clicked.connect(self.import_midi_file)
         btn_row1.addWidget(self.import_btn)
 
+        self.new_play_btn = QPushButton("➕ 新建")
+        self.new_play_btn.setToolTip("新建一个空白 MIDI 并加入列表")
+        self.new_play_btn.clicked.connect(self.on_new_play_item)
+        btn_row1.addWidget(self.new_play_btn)
+
         self.refresh_btn = QPushButton("🔄")
         self.refresh_btn.setObjectName("refreshBtn")
         self.refresh_btn.setToolTip("刷新列表")
@@ -577,10 +591,33 @@ class MidiConverterGUI(QMainWindow):
 
         list_layout = QVBoxLayout(list_group)
 
+        search_row = QHBoxLayout()
+        self.play_search = QLineEdit()
+        self.play_search.setPlaceholderText("搜索曲目…")
+        self.play_search.textChanged.connect(self.refresh_play_list)
+        self.play_sort_combo = QComboBox()
+        self.play_sort_combo.addItem("名称", "name")
+        self.play_sort_combo.addItem("导入时间", "mtime")
+        self.play_sort_combo.currentIndexChanged.connect(self.refresh_play_list)
+        search_row.addWidget(self.play_search, 1)
+        search_row.addWidget(self.play_sort_combo)
+        list_layout.addLayout(search_row)
+
+        list_row = QHBoxLayout()
         self.play_listbox = QListWidget()
         self.play_listbox.itemSelectionChanged.connect(self.on_select_play_file)
         self.play_listbox.currentItemChanged.connect(self.on_piano_roll_selection_changed)
-        list_layout.addWidget(self.play_listbox)
+        self.play_listbox.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.play_listbox.customContextMenuRequested.connect(self.on_playlist_context_menu)
+
+        self.play_delete_btn = QPushButton("🗑")
+        self.play_delete_btn.setToolTip("从列表移除（保留磁盘文件）")
+        self.play_delete_btn.setEnabled(False)
+        self.play_delete_btn.clicked.connect(self.on_delete_play_item)
+
+        list_row.addWidget(self.play_listbox, 1)
+        list_row.addWidget(self.play_delete_btn)
+        list_layout.addLayout(list_row)
 
         # 右侧面板
         right_frame = QFrame()
@@ -863,32 +900,38 @@ class MidiConverterGUI(QMainWindow):
             QMessageBox.critical(self, "批量导入失败", f"批量导入失败：{result}")
 
     def refresh_play_list(self):
-        """刷新播放文件列表（直接列出 midi/ 目录下已导入的 MIDI 文件）"""
-        self.play_listbox.clear()
-
+        """按「隐藏记录 → 过滤 → 搜索 → 排序」重建播放列表，并尽量恢复选中项。"""
         try:
-            midi_files = glob.glob(
-                os.path.join(get_midi_dir_path(), "*.mid")
-            ) + glob.glob(os.path.join(get_midi_dir_path(), "*.midi"))
+            midi_dir = get_midi_dir_path()
+            hidden = load_hidden(midi_dir)
+            entries = [e for e in list_entries(midi_dir) if e[0] not in hidden]
+            entries = filter_entries(entries, self.play_search.text())
+            entries = sort_entries(entries, self.play_sort_combo.currentData())
 
-            for file_path in sorted(midi_files):
-                filename = os.path.basename(file_path)
-                display_name = f"🎵 {os.path.splitext(filename)[0]}"
-
+            current_path = self.current_midi_path
+            self.play_listbox.blockSignals(True)
+            self.play_listbox.clear()
+            for name, path, _mtime in entries:
+                display_name = f"🎵 {os.path.splitext(name)[0]}"
                 item = QListWidgetItem(display_name)
-                item.setData(Qt.UserRole, file_path)
+                item.setData(Qt.UserRole, path)
+                item.setData(Qt.UserRole + 1, name)
                 self.play_listbox.addItem(item)
+                if path == current_path:
+                    self.play_listbox.setCurrentItem(item)
+            self.play_listbox.blockSignals(False)
+            self.play_delete_btn.setEnabled(self.play_listbox.currentItem() is not None)
 
-            if midi_files:
-                self.log(f"🔄 已刷新列表，找到 {len(midi_files)} 个已导入的 MIDI 文件")
+            if entries:
+                self.log(f"🔄 已刷新列表，显示 {len(entries)} 个曲目")
             else:
-                self.log("📝 暂无已导入的 MIDI 文件，请导入MIDI文件")
-
+                self.log("📝 当前列表没有可显示的 MIDI 文件")
         except Exception as e:
             self.log(f"❌ 刷新列表失败: {str(e)}")
 
     def on_select_play_file(self):
         """选择播放文件时的处理"""
+        self.play_delete_btn.setEnabled(self.play_listbox.currentItem() is not None)
         current_item = self.play_listbox.currentItem()
         if not current_item:
             return
@@ -1169,6 +1212,99 @@ class MidiConverterGUI(QMainWindow):
             if item.data(Qt.UserRole) == path:
                 self.play_listbox.setCurrentRow(i)
                 return
+
+    def on_new_play_item(self):
+        """新建一个空白 MIDI 并加入播放列表，随后自动加载。"""
+        midi_dir = get_midi_dir_path()
+        try:
+            os.makedirs(midi_dir, exist_ok=True)
+            name = unique_midi_name(midi_dir)
+            path = os.path.join(midi_dir, name)
+            create_blank_midi(path)
+        except Exception as exc:
+            QMessageBox.critical(self, "新建失败", f"新建空 MIDI 失败：{exc}")
+            return
+
+        self.refresh_play_list()
+        self._select_play_list_item_by_path(path)
+        self.log(f"➕ 已新建空曲目: {name}")
+
+    def on_delete_play_item(self):
+        """把选中曲目从列表移除（保留磁盘文件），必要时清空铺面缓存。"""
+        item = self.play_listbox.currentItem()
+        if item is None:
+            return
+        name = item.data(Qt.UserRole + 1) or item.text()
+        path = item.data(Qt.UserRole)
+        extra = (
+            "\n（该曲目有未保存修改，移除会丢失这些修改）"
+            if (path == self.current_midi_path and self.piano_roll_dirty)
+            else ""
+        )
+        reply = QMessageBox.question(
+            self,
+            "移除曲目",
+            f"从列表移除「{name}」？{extra}\n磁盘上的 MIDI 文件会保留。",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No,
+        )
+        if reply != QMessageBox.Yes:
+            return
+
+        try:
+            midi_dir = get_midi_dir_path()
+            hidden = load_hidden(midi_dir)
+            hidden.add(name)
+            save_hidden(midi_dir, hidden)
+        except Exception as exc:
+            QMessageBox.critical(self, "移除失败", f"写入移除记录失败：{exc}")
+            return
+
+        if path == self.current_midi_path:
+            self._clear_piano_roll_cache()
+        self.refresh_play_list()
+        self.log(f"🗑 已从列表移除: {name}")
+
+    def on_playlist_context_menu(self, pos):
+        menu = QMenu(self)
+        restore_action = QAction("恢复所有已移除曲目", self)
+        restore_action.triggered.connect(self.on_restore_hidden_items)
+        menu.addAction(restore_action)
+        menu.exec_(self.play_listbox.mapToGlobal(pos))
+
+    def on_restore_hidden_items(self):
+        """清空隐藏记录，让磁盘上仍存在的曲目重新出现。"""
+        try:
+            save_hidden(get_midi_dir_path(), set())
+        except Exception as exc:
+            QMessageBox.critical(self, "恢复失败", f"清理移除记录失败：{exc}")
+            return
+        self.refresh_play_list()
+        self.log("♻️ 已恢复所有被移除的曲目")
+
+    def _clear_piano_roll_cache(self):
+        """删除当前曲目后清空铺面、播放与 BPM 等工具内缓存。"""
+        if self.is_playing:
+            self.stop_playing()
+
+        self.piano_roll.set_read_only(False)
+        self.piano_roll.set_instrument_range_visible(False)
+        self.piano_roll.set_notes([])
+        self.piano_roll.set_playhead_anchor(0.0)
+
+        self.current_midi_path = None
+        self.current_processed_tracks = []
+        self.current_transpose = 0
+        self.current_bpm = 120.0
+        self._updating_bpm = True
+        self.bpm_spin.setValue(120.0)
+        self._updating_bpm = False
+
+        self.piano_roll_dirty = False
+        self.piano_save_btn.setEnabled(False)
+        self._update_piano_dirty_indicator()
+        self._set_range_controls_enabled(False)
+        self.piano_stack.setCurrentWidget(self.piano_placeholder)
 
     def on_play_progress(self, elapsed: float):
         """播放线程上报的实时播放进度，驱动铺面播放线"""

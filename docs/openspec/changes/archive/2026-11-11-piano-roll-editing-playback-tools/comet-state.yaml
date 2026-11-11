@@ -1,0 +1,3319 @@
+# comet-execution: managed-run
+change_id: 5ba1f91e-2b57-4763-b95a-afdac27f18db
+workflow: full
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: executing-plans
+build_pause: null
+subagent_dispatch: null
+tdd_mode: tdd
+review_mode: standard
+isolation: current
+verify_mode: null
+auto_transition: true
+base_ref: 5c2774d2a0cd80c5dc9a34b5ff65eea5f19a6de8
+design_doc: docs/openspec/changes/archive/2026-11-11-piano-roll-editing-playback-tools/design.md
+plan: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-11-piano-roll-editing-playback-tools-verification.md
+branch_status: pending
+created_at: 2026-11-11
+verified_at: 2026-11-11
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: false
+handoff_context: docs/openspec/changes/archive/2026-11-11-piano-roll-editing-playback-tools/.comet/handoff/design-context.json
+handoff_hash: e63a1d81277d3af1b6f43d9cf2b0b52c6f2bd89a7e774e6b51aebd76ea80dfb1
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v2
+  hash: debd0807dd36282472ffb1a2a9d611dffb288d6038b1754ed6662ed0027211f3
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: piano-roll-editing-playback-tools
+    revision: 1
+    workflow:
+      id: comet-classic-full
+      version: "1"
+      hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    definitionHashes:
+      '["comet-classic-full","1"]': ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    initialStateHash: 8c390806a293fa344e3189ed47d0eba7e7000e09e7a2172be6b2f5528cbf41ca
+    input:
+      change: piano-roll-editing-playback-tools
+      changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+      workspaceBaseline:
+        ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 5c2774d2a0cd80c5dc9a34b5ff65eea5f19a6de8
+      boundBranch: main
+      branchStatus: pending
+      buildMode: executing-plans
+      buildPause: null
+      checkEpoch: 8
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-11
+      designDoc: docs/openspec/changes/archive/2026-11-11-piano-roll-editing-playback-tools/design.md
+      directOverride: false
+      handoffContext: docs/openspec/changes/archive/2026-11-11-piano-roll-editing-playback-tools/.comet/handoff/design-context.json
+      handoffHash: e63a1d81277d3af1b6f43d9cf2b0b52c6f2bd89a7e774e6b51aebd76ea80dfb1
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+      reviewMode: standard
+      subagentDispatch: null
+      tddMode: tdd
+      verificationReport: docs/superpowers/reports/2026-11-11-piano-roll-editing-playback-tools-verification.md
+      verifiedAt: 2026-11-11
+      verifyFailures: 0
+      verifyMode: null
+      verifyResult: pass
+      workflow: full
+    status: running
+    sequence: 30
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-bbdea62dd6f67c578c320627de8c30cc098c88913038e97ce8fe737415a06bc5
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:1
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: f5afc33fd16aca5f5b04f8b4c7ec9d74c9a9d12993b5a5e266bc63b38ae7b20c
+        outcome:
+          actionId: piano-roll-editing-playback-tools:1
+          attempt: 1
+          claimToken: portable-bbdea62dd6f67c578c320627de8c30cc098c88913038e97ce8fe737415a06bc5
+          inputHash: f5afc33fd16aca5f5b04f8b4c7ec9d74c9a9d12993b5a5e266bc63b38ae7b20c
+          outcomeId: 9b0d783e-1f15-46c9-b71c-07411a02b37e
+          output:
+            event: open-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 9de1be240208b4c14e4e08aac088968548bb1ba369c15d7ea7c3e2c7264ee5df
+            outcomeId: 9b0d783e-1f15-46c9-b71c-07411a02b37e
+        reconciliations: []
+        ref: comet-open
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-open-revalidate
+          token: portable-9e7781685925aad2020c4296d5f155cfdf20f7ad9d1f8ee5d66fb0e9f168f9bc
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:4
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: 325360a037ec492106d45cf8a94f42ece23bd6301f1382c2e46ab3c50b3e24e2
+        outcome:
+          actionId: piano-roll-editing-playback-tools:4
+          attempt: 1
+          claimToken: portable-9e7781685925aad2020c4296d5f155cfdf20f7ad9d1f8ee5d66fb0e9f168f9bc
+          inputHash: 325360a037ec492106d45cf8a94f42ece23bd6301f1382c2e46ab3c50b3e24e2
+          outcomeId: piano-roll-editing-playback-tools:4:1:executor-result
+          output:
+            contentHash: d4350b23b4cc3ab0258f2afe24022de61a5d785709a9ede65e9b5b907d2bb873
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: b25cb798db09ffbead060f06783d6087f83299731a77d9f3c9a0e12b299cfe25
+            outcomeId: piano-roll-editing-playback-tools:4:1:executor-result
+        reconciliations: []
+        ref: classic-open-revalidate
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.open.revalidate
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-8dbb2beae100b77947411f594feea7395b68cc6fd99a8ef15fddb57e6e0680b8
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:5
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: 5185a8c76c4c4a522adb1a24bfe1ba88a8e7441a832aa2375928324e258668f8
+        outcome:
+          actionId: piano-roll-editing-playback-tools:5
+          attempt: 1
+          claimToken: portable-8dbb2beae100b77947411f594feea7395b68cc6fd99a8ef15fddb57e6e0680b8
+          inputHash: 5185a8c76c4c4a522adb1a24bfe1ba88a8e7441a832aa2375928324e258668f8
+          outcomeId: f1f2428a-cd4f-403d-9f4e-4c685639cc2b
+          output:
+            handoffContext: docs/openspec/changes/piano-roll-editing-playback-tools/.comet/handoff/design-context.json
+            handoffHash: e63a1d81277d3af1b6f43d9cf2b0b52c6f2bd89a7e774e6b51aebd76ea80dfb1
+            proposal: 方案（8 项决策）：1) 横向缩放把模块级 PIXELS_PER_SECOND 改为画布实例值 _pixels_per_second（默认
+              70，夹紧 10～600），坐标换算统一走 _time_to_x 与 _x_to_time；Shift+滚轮以鼠标时间点为锚，调整
+              horizontalScrollBar 使锚点时间停留在同一屏幕位置，缩放后重建背景、重排音符/音域框/播放线并刷新标尺。2)
+              顶部新增独立 _TimeRulerWidget（约 28px），与小节线共用同一时间换算，订阅横向滚动、缩放与 resize
+              重绘；小节序号从 1 起，小节内按拍画短刻度，缺少 BPM/拍号时退化为秒标注；点击或拖动发出
+              playheadRequested(seconds) 信号。3) 播放辅助线拆为锚点
+              _playhead_anchor_seconds（默认 0，切曲归零）与显示位置
+              _playhead_display_seconds；set_playhead(None)
+              回落到锚点而不再隐藏；只读（播放中）时标尺忽略鼠标事件。4) 剪贴板为画布内部深拷贝列表：Ctrl+C 快照，Ctrl+X 复用
+              _delete_selected 删除，Ctrl+V 以剪贴板最早 start 对齐锚点、生成新 id、重算
+              mapped、选中新音符并发出 notesChanged。5) Shift+上/下逐音符移动 ±12
+              半音，越界音符跳过，起始时间与时长不变。6) 播放起点在 gui.start_playing 过滤起始时间不早于 playhead
+              的音符（1e-6 容差）并平移为相对时间，复用 regenerate_playback_from_notes；进度回调为
+              playhead+elapsed；过滤后为空则提示且不播放；不改 player.py 与播放数据格式。7) 空闲状态播放按钮文案 3
+              处改为「▶️ 弹奏」，播放中「⏹️ 停止(ESC)」与 objectName 不变。8) 新增
+              set_beat_grid(seconds_per_beat, beats_per_measure)，由
+              gui._load_piano_roll 传入标尺所需的拍长与每小节拍数。关键取舍：不用
+              QGraphicsView.scale（会同时缩放行高与文字，破坏 1 行=1 半音）；不用 drawForeground
+              画标尺（属场景坐标，会随纵向滚动移动）；不用 QHeaderView（本视图非表格模型）；不用系统剪贴板（Clipboard
+              只需编辑器内使用）；不在 player.py 内 seek（播放数据无时间戳）。风险：缩放全量重排的性能；标尺与滚动条对齐依赖
+              valueChanged/rangeChanged/resize 三个事件；浮点边界用 1e-6 容差；无 GUI
+              自动化测试，故把粘贴偏移、八度越界、播放起点过滤、缩放锚点抽为纯函数用 unittest 覆盖，交互手动验收；播放中
+              ensureVisible 与手动滚动冲突保留现状。Spec Patch：无，现有 3 份 delta spec
+              已覆盖全部已确认行为。
+            requirementsEvidence:
+              contentHash: a5c6d271570fed57be9999f1eb157c22aed769a2809f6e8a27fc0ac4b43b3c31
+              ref: docs/openspec/changes/piano-roll-editing-playback-tools
+            sourceEvidence:
+              contentHash: 61f0897a06731b0c599dd32b36d0ef362d45272b598675c7306f7cf3cc86f90c
+              ref: docs/openspec/changes/piano-roll-editing-playback-tools
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: a5ddd5bef1e1fa383dccfc8e9f0a169242b484b7421c453f8834754c014b91b1
+            outcomeId: f1f2428a-cd4f-403d-9f4e-4c685639cc2b
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.design.handoff
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-d78f37fe40cfab86c9404002354517b5d0b808b59096f592685d09f4a1a21daa
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:7
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: 98ca7119abaa08a5ec92e786a572c9772c197d49758a5a1ac3abf96d6ca4d374
+        outcome:
+          actionId: piano-roll-editing-playback-tools:7
+          attempt: 1
+          claimToken: portable-d78f37fe40cfab86c9404002354517b5d0b808b59096f592685d09f4a1a21daa
+          inputHash: 98ca7119abaa08a5ec92e786a572c9772c197d49758a5a1ac3abf96d6ca4d374
+          outcomeId: d91bcfc3-3469-4d81-a55c-f94ff1b33bfa
+          output:
+            designDoc: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 4925ed73bab43f3c8476dd39018e99166bbf722a26fc5f57099547ccabdb50ad
+            outcomeId: d91bcfc3-3469-4d81-a55c-f94ff1b33bfa
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.design.document
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-43fda8b359e86b074502f29f9a2d2dc223bbcd4fd1aaf7e83db67ae2fa3926e2
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:9
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: f7d01d701c52d1746faf1edb7c56c2d9d9be4c0c651f6356701e5843879340f9
+        outcome:
+          actionId: piano-roll-editing-playback-tools:9
+          attempt: 1
+          claimToken: portable-43fda8b359e86b074502f29f9a2d2dc223bbcd4fd1aaf7e83db67ae2fa3926e2
+          inputHash: f7d01d701c52d1746faf1edb7c56c2d9d9be4c0c651f6356701e5843879340f9
+          outcomeId: 79ece0a9-b8d8-476c-b522-fa6d8ef57ea6
+          output:
+            boundBranch: main
+            buildMode: executing-plans
+            directOverride: false
+            isolation: current
+            reviewMode: standard
+            subagentDispatch: null
+            tddMode: tdd
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 230e90382bb25e497ad559c2b923cbebf96a5cfda25eeb2d41c53f57c57f8660
+            outcomeId: 79ece0a9-b8d8-476c-b522-fa6d8ef57ea6
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.build.configure
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-0315aba14bcee8ee6a689a5438766154924243cc2008291d7457c1e4964fc6d0
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:11
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: bb70ba7da356d88d6d70e19d7c63dce28a00fff90b9eddcbacfd39aabc1009ad
+        outcome:
+          actionId: piano-roll-editing-playback-tools:11
+          attempt: 1
+          claimToken: portable-0315aba14bcee8ee6a689a5438766154924243cc2008291d7457c1e4964fc6d0
+          inputHash: bb70ba7da356d88d6d70e19d7c63dce28a00fff90b9eddcbacfd39aabc1009ad
+          outcomeId: c3eea3a0-2eb3-4cb0-bbec-f1a16f629d86
+          output:
+            designEvidence:
+              contentHash: 10260aa74c49d20bd8779edfd7fb4240f85c1ef91dc41eca9f8f45004160291a
+              ref: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+            plan: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+            planEvidence:
+              contentHash: f93940f7b4698aafefb9d6400b0c33e8cdf5227289c38f87abb48ea224aa5036
+              ref: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+            taskRevision: 2aea88c6093262d5ca9db4e8f590548d6b720849c48d0f029e54e5df0d983a70
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 4c82d587c3cc15008fc3efc79689409a999562ec2de10767c73817f6a53eb9b2
+            outcomeId: c3eea3a0-2eb3-4cb0-bbec-f1a16f629d86
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.build.plan
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/piano-roll-editing-playback-tools:13/1
+          token: portable-5e228503ba87f1914f327d5ad0a6fa23ecd0ebda19f4f8ce83457d1c1f03a474
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:13
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: ff8ab38b8a5989d2d70aac4161ac3bfff7d676a44f4700b316ffc6002e0ffe91
+        outcome:
+          actionId: piano-roll-editing-playback-tools:13
+          attempt: 1
+          claimToken: portable-5e228503ba87f1914f327d5ad0a6fa23ecd0ebda19f4f8ce83457d1c1f03a474
+          inputHash: ff8ab38b8a5989d2d70aac4161ac3bfff7d676a44f4700b316ffc6002e0ffe91
+          outcomeId: 342ba26c-1493-4540-baff-d21da85fcb7a
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: a38fa0d2978ba5312f63d2f96c36f87cb0046c5c18e3515a369b06edb9bf29ff
+            outcomeId: 342ba26c-1493-4540-baff-d21da85fcb7a
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-c0fb8871b51ee4dfd841316506b03e06eadf18f7e2e8cf023388ae3db7198b11
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:14
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: ff898687b2642645ad9919e51d704b3a256a4ed8356730d3ec726caa1d50a421
+        outcome:
+          actionId: piano-roll-editing-playback-tools:14
+          attempt: 1
+          claimToken: portable-c0fb8871b51ee4dfd841316506b03e06eadf18f7e2e8cf023388ae3db7198b11
+          inputHash: ff898687b2642645ad9919e51d704b3a256a4ed8356730d3ec726caa1d50a421
+          outcomeId: 86b3ce9b-d915-4973-bb47-57e13bd5467c
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 61dd710576059d9941845524883256327f5edffb69e2ef85dbbd5ff361472885
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: b742098597edbd1cdcafb6cd2c6dc7d35d2097f37a4c68c3cf80f5a33c95f7ac
+            inputBefore: b742098597edbd1cdcafb6cd2c6dc7d35d2097f37a4c68c3cf80f5a33c95f7ac
+            manifestHash: c32144b7098f6c0ec83864a1dc4733e08528522e5767b8b8dc9d10950b76443f
+            manifestRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/16e7afea-e6f1-4c0b-950e-837d18e252ac.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/c5739271-4c7c-4bef-b0c2-069505128cdb.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 1338bfb2076ba75eb1dda2ffe632ac48a69a1381d967faa1d093027c0eea414e
+            outcomeId: 86b3ce9b-d915-4973-bb47-57e13bd5467c
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-28ce3e21f2114cfde452efc92b38a393f08b95ca03583ab3ccec7e8549f279de
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:16
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: b1c19b3787fad070c335ee0c8bcb8a35213a6aa7fe065020fbc59e43c88695c2
+        outcome:
+          actionId: piano-roll-editing-playback-tools:16
+          attempt: 1
+          claimToken: portable-28ce3e21f2114cfde452efc92b38a393f08b95ca03583ab3ccec7e8549f279de
+          inputHash: b1c19b3787fad070c335ee0c8bcb8a35213a6aa7fe065020fbc59e43c88695c2
+          outcomeId: fe79095c-810f-4ef3-acdc-746bba227f78
+          output:
+            event: verify-fail
+            reason: 独立审查发现 2 个 Critical 与 2 个
+              Important：视口映射在场景窄于视口时错位、缩放锚点在时间轴末段被旧上限夹紧、起点落在休止符时辅助线落后、缩放与键盘接线缺少真实事件测试；已修复并补充回归测试，需重新执行
+              Build 检查
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 991f8a90e477a63f35ff9ea5d3aac1fb06ba3b1192809dde4d30f8efd0ff980a
+            outcomeId: fe79095c-810f-4ef3-acdc-746bba227f78
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-0468b40b8583b5379bc34939a7359e7fba02954c9c432c6397fa84abc394fb18
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:17
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: 8c712621cb4a91adbd50c50347dad78e0c669565e816bb383ea1a2a98ec84ab0
+        outcome:
+          actionId: piano-roll-editing-playback-tools:17
+          attempt: 1
+          claimToken: portable-0468b40b8583b5379bc34939a7359e7fba02954c9c432c6397fa84abc394fb18
+          inputHash: 8c712621cb4a91adbd50c50347dad78e0c669565e816bb383ea1a2a98ec84ab0
+          outcomeId: c153ca29-6d52-440e-baac-16ddd7cb6f43
+          output:
+            designEvidence:
+              contentHash: 8a5169c29c54e966ff1fe74d0ed0e09185150b0f856be8d0576acd2070579635
+              ref: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+            plan: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+            planEvidence:
+              contentHash: f93940f7b4698aafefb9d6400b0c33e8cdf5227289c38f87abb48ea224aa5036
+              ref: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+            taskRevision: 2aea88c6093262d5ca9db4e8f590548d6b720849c48d0f029e54e5df0d983a70
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 6565c10f017887e6c4c4b09f233b54099c1010e45274b2d68b48fe5bef7c21dc
+            outcomeId: c153ca29-6d52-440e-baac-16ddd7cb6f43
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.build.plan
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/piano-roll-editing-playback-tools:19/1
+          token: portable-a8fb161677b2532f8105eb855502cd6ccb4947a88f632b8544652de802636a65
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:19
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: f0b88d8a7e0f533e6c6358804d4c43e31f31e3d67fdf646818745723cf72821b
+        outcome:
+          actionId: piano-roll-editing-playback-tools:19
+          attempt: 1
+          claimToken: portable-a8fb161677b2532f8105eb855502cd6ccb4947a88f632b8544652de802636a65
+          inputHash: f0b88d8a7e0f533e6c6358804d4c43e31f31e3d67fdf646818745723cf72821b
+          outcomeId: 13925e11-8df3-4190-bf89-613fa3f7bf16
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 458a245f6c3752c94a7947a5fc548f8393b1f1d5dbe66b7c17a8d27365a3701c
+            outcomeId: 13925e11-8df3-4190-bf89-613fa3f7bf16
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-63c4a0133d19274d7047bcef96fdcbf970b8886ac27d0869a36d0436249b96f4
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:20
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: f0b88d8a7e0f533e6c6358804d4c43e31f31e3d67fdf646818745723cf72821b
+        outcome:
+          actionId: piano-roll-editing-playback-tools:20
+          attempt: 1
+          claimToken: portable-63c4a0133d19274d7047bcef96fdcbf970b8886ac27d0869a36d0436249b96f4
+          inputHash: f0b88d8a7e0f533e6c6358804d4c43e31f31e3d67fdf646818745723cf72821b
+          outcomeId: e4f5db75-2404-4cda-a4f3-1abff3108f3b
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 4
+            contentHash: f9f3e5ce8fb21536077ad46b91e5a3e3087e4c442bfa8cc3672d06d1ad514fe9
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 54a2148428102ff1f76a0c15ce1e323ebf2fb0abf7bb3e55f756a1db51dcba7a
+            inputBefore: 54a2148428102ff1f76a0c15ce1e323ebf2fb0abf7bb3e55f756a1db51dcba7a
+            manifestHash: ce19a15befffdb9ed971c6f99d34d1427e41baf2faabc2c7bd1a1d24d1b47890
+            manifestRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/44177bc4-662a-4807-b469-4290b542472e.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/561d93d7-dbd6-4120-a3e7-32a842be13a6.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 99dcdcb4343792a377327af162da1257f5aa4d7a3fdac32d3b73066315f2049b
+            outcomeId: e4f5db75-2404-4cda-a4f3-1abff3108f3b
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-7599f1c05f1ee25fcbba48edbce8acba281a613da413152e6d2e62a881a8ccbe
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:22
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: dea391b787bce62bd26ff70ba147ea9a7318346aedf586d02852d3e5e3951dc9
+        outcome:
+          actionId: piano-roll-editing-playback-tools:22
+          attempt: 1
+          claimToken: portable-7599f1c05f1ee25fcbba48edbce8acba281a613da413152e6d2e62a881a8ccbe
+          inputHash: dea391b787bce62bd26ff70ba147ea9a7318346aedf586d02852d3e5e3951dc9
+          outcomeId: 68e0ef59-fed8-493b-8737-7a8404214150
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-11-piano-roll-editing-playback-tools-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 8ff59b7ba319f40688085d5f55826486de7dae9711d95aa3306aff883b599921
+            outcomeId: 68e0ef59-fed8-493b-8737-7a8404214150
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-7cdc61ff98a66846a7d5b4d39696aa67a58c36a54c62bf4de8c7bc30ab2b1e9e
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:24
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: 76c8fb2b66a7d8dfc253a011804d8ca5c14b1523b87db5ee40eb9c0566c8675d
+        outcome:
+          actionId: piano-roll-editing-playback-tools:24
+          attempt: 1
+          claimToken: portable-7cdc61ff98a66846a7d5b4d39696aa67a58c36a54c62bf4de8c7bc30ab2b1e9e
+          inputHash: 76c8fb2b66a7d8dfc253a011804d8ca5c14b1523b87db5ee40eb9c0566c8675d
+          outcomeId: ce29e74a-e20d-402f-baca-69a2c7954c10
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 5
+            contentHash: 873af8781c10815c21fc600442becca3bf18e029a03f0a2873a4cbfe95c2e57d
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 2e1c029281989bd1d7aa990fd614370c53fa0a92b11b866025080b00021e1267
+            inputBefore: 2e1c029281989bd1d7aa990fd614370c53fa0a92b11b866025080b00021e1267
+            manifestHash: b1547ac9fe79f535670528aa685bc972f3eb82b23dfcf906ea9297e5552ea8e8
+            manifestRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/5dd3e229-7c09-45ed-a4c3-c301bbca66f2.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/71f28532-6018-4051-9477-4578aafeabe6.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: a16e697cb2b5575d2ed43624ed219ad1034031c57d58a05916fe5f24d0c0313a
+            outcomeId: ce29e74a-e20d-402f-baca-69a2c7954c10
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-eacc0be5565e9e1dc483174b5da3d2ba8327d455961d036e4853528a07e83fb5
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:26
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: df322774740194049facb70ea8251f9957bd9883bbc09408796fa0dc8063242f
+        outcome:
+          actionId: piano-roll-editing-playback-tools:26
+          attempt: 1
+          claimToken: portable-eacc0be5565e9e1dc483174b5da3d2ba8327d455961d036e4853528a07e83fb5
+          inputHash: df322774740194049facb70ea8251f9957bd9883bbc09408796fa0dc8063242f
+          outcomeId: 6b2a7f39-936f-45bd-945a-d81a54245820
+          output:
+            summary: 铺面编辑与播放控制：剪贴板、八度移动、顶部拍数标尺、常驻播放辅助线、Shift+滚轮横向缩放、从播放辅助线开始播放、「弹奏」按钮文案。实现 6
+              个提交（77dd96f..5fcd103），独立审查的 2 Critical / 2 Important 已修复，51 项测试与
+              Build/Verify 检查通过，验证报告在 docs/superpowers/reports/。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 0bda23c9b684540d32142f1b203cced483727912edf9ebe3c8394603fe7c032b
+            outcomeId: 6b2a7f39-936f-45bd-945a-d81a54245820
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-45c1022fe0cc01a1d8b378f88d08252776756ae06cbdf59ea38561ad9b767110
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:28
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: 2b08c009b67e32077e27594e2859a4847ce4739213d54396649695a32589c62a
+        outcome:
+          actionId: piano-roll-editing-playback-tools:28
+          attempt: 1
+          claimToken: portable-45c1022fe0cc01a1d8b378f88d08252776756ae06cbdf59ea38561ad9b767110
+          inputHash: 2b08c009b67e32077e27594e2859a4847ce4739213d54396649695a32589c62a
+          outcomeId: 2d0904f7-9bff-40f4-9c9d-d3b394871186
+          output:
+            baseCommit: 9b5dc599d85a05e4c295f3d65cd80a1920466373
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 733644e1eb37dd8748d0c1ec6491d6854f253d2725065aee4eb65b872028cc80
+            outcomeId: 2d0904f7-9bff-40f4-9c9d-d3b394871186
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-19ef267a4adfb2609f6a3648a0693a8184e7fa822c8226746758aea586b23f0e
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-editing-playback-tools:29
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: fa913f8dea945b22ed27c7586676e75f065eb3da31c398bb075ee46213e6fb72
+        outcome:
+          actionId: piano-roll-editing-playback-tools:29
+          artifacts:
+            - sha256: c16e51f4ab9a8455c2752626512e3595db24111586e4c72b59514990f56e00e1
+              uri: docs/openspec/changes/archive/2026-11-11-piano-roll-editing-playback-tools/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-19ef267a4adfb2609f6a3648a0693a8184e7fa822c8226746758aea586b23f0e
+          inputHash: fa913f8dea945b22ed27c7586676e75f065eb3da31c398bb075ee46213e6fb72
+          outcomeId: 12fbdafa-37bb-494b-8ba5-88b82787e300
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-11-piano-roll-editing-playback-tools
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 6950fdeebf2e6a9bfb235573b9b110d42d658a151b7e316c2241bd27818568ac
+            outcomeId: 12fbdafa-37bb-494b-8ba5-88b82787e300
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: succeeded
+        stepId: full.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: piano-roll-editing-playback-tools:30
+        input:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs: {}
+        inputHash: 79b862a5fd28357df5001fba791f8731a54739b7c82a3d108a6e4c65ade3111d
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-editing-playback-tools
+        status: pending
+        stepId: full.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      piano-roll-editing-playback-tools:1:
+        results: {}
+        sequence: 1
+      piano-roll-editing-playback-tools:11:
+        results: {}
+        sequence: 11
+      piano-roll-editing-playback-tools:13:
+        results: {}
+        sequence: 13
+      piano-roll-editing-playback-tools:14:
+        results: {}
+        sequence: 14
+      piano-roll-editing-playback-tools:16:
+        results: {}
+        sequence: 16
+      piano-roll-editing-playback-tools:17:
+        results: {}
+        sequence: 17
+      piano-roll-editing-playback-tools:19:
+        results: {}
+        sequence: 19
+      piano-roll-editing-playback-tools:20:
+        results: {}
+        sequence: 20
+      piano-roll-editing-playback-tools:22:
+        results: {}
+        sequence: 22
+      piano-roll-editing-playback-tools:24:
+        results: {}
+        sequence: 24
+      piano-roll-editing-playback-tools:26:
+        results: {}
+        sequence: 26
+      piano-roll-editing-playback-tools:28:
+        results: {}
+        sequence: 28
+      piano-roll-editing-playback-tools:29:
+        results: {}
+        sequence: 29
+      piano-roll-editing-playback-tools:30:
+        results: {}
+        sequence: 30
+      piano-roll-editing-playback-tools:4:
+        results: {}
+        sequence: 4
+      piano-roll-editing-playback-tools:5:
+        results: {}
+        sequence: 5
+      piano-roll-editing-playback-tools:7:
+        results: {}
+        sequence: 7
+      piano-roll-editing-playback-tools:9:
+        results: {}
+        sequence: 9
+    waits:
+      - id: piano-roll-editing-playback-tools:3
+        stepId: full.open.confirm
+        sequence: 3
+        status: resolved
+        proposal:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: d4350b23b4cc3ab0258f2afe24022de61a5d785709a9ede65e9b5b907d2bb873
+              ref: docs/openspec/changes/piano-roll-editing-playback-tools
+        proposalHash: abb4cbcae884c1d3ff1751ec12b0769d22480783fb74220e5cbfdf84872e3a82
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-open-d4350b23b4cc3ab0258f2afe24022de61a5d785709a9ede65e9b5b907d2bb873
+          choice: approved
+          proposalHash: abb4cbcae884c1d3ff1751ec12b0769d22480783fb74220e5cbfdf84872e3a82
+      - id: piano-roll-editing-playback-tools:6
+        stepId: full.design.confirm
+        sequence: 6
+        status: resolved
+        proposal:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/piano-roll-editing-playback-tools/.comet/handoff/design-context.json
+              handoffHash: e63a1d81277d3af1b6f43d9cf2b0b52c6f2bd89a7e774e6b51aebd76ea80dfb1
+              proposal: 方案（8 项决策）：1) 横向缩放把模块级 PIXELS_PER_SECOND 改为画布实例值 _pixels_per_second（默认
+                70，夹紧 10～600），坐标换算统一走 _time_to_x 与
+                _x_to_time；Shift+滚轮以鼠标时间点为锚，调整 horizontalScrollBar
+                使锚点时间停留在同一屏幕位置，缩放后重建背景、重排音符/音域框/播放线并刷新标尺。2) 顶部新增独立
+                _TimeRulerWidget（约 28px），与小节线共用同一时间换算，订阅横向滚动、缩放与 resize 重绘；小节序号从
+                1 起，小节内按拍画短刻度，缺少 BPM/拍号时退化为秒标注；点击或拖动发出
+                playheadRequested(seconds) 信号。3) 播放辅助线拆为锚点
+                _playhead_anchor_seconds（默认 0，切曲归零）与显示位置
+                _playhead_display_seconds；set_playhead(None)
+                回落到锚点而不再隐藏；只读（播放中）时标尺忽略鼠标事件。4) 剪贴板为画布内部深拷贝列表：Ctrl+C 快照，Ctrl+X 复用
+                _delete_selected 删除，Ctrl+V 以剪贴板最早 start 对齐锚点、生成新 id、重算
+                mapped、选中新音符并发出 notesChanged。5) Shift+上/下逐音符移动 ±12
+                半音，越界音符跳过，起始时间与时长不变。6) 播放起点在 gui.start_playing 过滤起始时间不早于
+                playhead 的音符（1e-6 容差）并平移为相对时间，复用
+                regenerate_playback_from_notes；进度回调为
+                playhead+elapsed；过滤后为空则提示且不播放；不改 player.py 与播放数据格式。7) 空闲状态播放按钮文案
+                3 处改为「▶️ 弹奏」，播放中「⏹️ 停止(ESC)」与 objectName 不变。8) 新增
+                set_beat_grid(seconds_per_beat, beats_per_measure)，由
+                gui._load_piano_roll 传入标尺所需的拍长与每小节拍数。关键取舍：不用
+                QGraphicsView.scale（会同时缩放行高与文字，破坏 1 行=1 半音）；不用 drawForeground
+                画标尺（属场景坐标，会随纵向滚动移动）；不用 QHeaderView（本视图非表格模型）；不用系统剪贴板（Clipboard
+                只需编辑器内使用）；不在 player.py 内 seek（播放数据无时间戳）。风险：缩放全量重排的性能；标尺与滚动条对齐依赖
+                valueChanged/rangeChanged/resize 三个事件；浮点边界用 1e-6 容差；无 GUI
+                自动化测试，故把粘贴偏移、八度越界、播放起点过滤、缩放锚点抽为纯函数用 unittest 覆盖，交互手动验收；播放中
+                ensureVisible 与手动滚动冲突保留现状。Spec Patch：无，现有 3 份 delta spec
+                已覆盖全部已确认行为。
+              requirementsEvidence:
+                contentHash: a5c6d271570fed57be9999f1eb157c22aed769a2809f6e8a27fc0ac4b43b3c31
+                ref: docs/openspec/changes/piano-roll-editing-playback-tools
+              sourceEvidence:
+                contentHash: 61f0897a06731b0c599dd32b36d0ef362d45272b598675c7306f7cf3cc86f90c
+                ref: docs/openspec/changes/piano-roll-editing-playback-tools
+        proposalHash: 975795b0eb9e4ea7e9600b0252b7f25ecc9aa56219ebb1e29107fbe0118e8b74
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-design-975795b0eb9e4ea7e9600b0252b7f25ecc9aa56219ebb1e29107fbe0118e8b74-approved
+          choice: approved
+          proposalHash: 975795b0eb9e4ea7e9600b0252b7f25ecc9aa56219ebb1e29107fbe0118e8b74
+      - id: piano-roll-editing-playback-tools:10
+        stepId: full.build.confirm
+        sequence: 10
+        status: resolved
+        proposal:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+        proposalHash: ce253d6ed28ec170f9eb135e1b28d1298cc81c2af45bbac91e120e5ad7b88da6
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: 0ae2924c-c3be-4feb-883a-78902d37d778
+          choice: approved
+          proposalHash: ce253d6ed28ec170f9eb135e1b28d1298cc81c2af45bbac91e120e5ad7b88da6
+      - id: piano-roll-editing-playback-tools:27
+        stepId: full.archive.confirm
+        sequence: 27
+        status: resolved
+        proposal:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs:
+            full.archive.prepare:
+              summary: 铺面编辑与播放控制：剪贴板、八度移动、顶部拍数标尺、常驻播放辅助线、Shift+滚轮横向缩放、从播放辅助线开始播放、「弹奏」按钮文案。实现 6
+                个提交（77dd96f..5fcd103），独立审查的 2 Critical / 2 Important 已修复，51 项测试与
+                Build/Verify 检查通过，验证报告在 docs/superpowers/reports/。
+              targetBranch: main
+        proposalHash: d0cf042baa650bd09e09813a377ec9abc77aa23b801cc70de5d7b34f99411693
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results: {}
+        decision:
+          id: classic-archive-d0cf042baa650bd09e09813a377ec9abc77aa23b801cc70de5d7b34f99411693-local
+          choice: local
+          proposalHash: d0cf042baa650bd09e09813a377ec9abc77aa23b801cc70de5d7b34f99411693
+    evidenceWaits:
+      - id: piano-roll-editing-playback-tools:2
+        stepId: full.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/piano-roll-editing-playback-tools
+          contentHash: d4350b23b4cc3ab0258f2afe24022de61a5d785709a9ede65e9b5b907d2bb873
+          submissionId: 9d59c462-4a4a-4d42-9b30-c40587af72a7
+      - id: piano-roll-editing-playback-tools:8
+        stepId: full.design.evidence
+        sequence: 8
+        kind: classic-design-document
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+          contentHash: 10260aa74c49d20bd8779edfd7fb4240f85c1ef91dc41eca9f8f45004160291a
+          submissionId: 29c1bb1d-73aa-4fa9-9302-544ea7d99d84
+      - id: piano-roll-editing-playback-tools:12
+        stepId: full.build.plan.evidence
+        sequence: 12
+        kind: classic-build-plan
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+          contentHash: f93940f7b4698aafefb9d6400b0c33e8cdf5227289c38f87abb48ea224aa5036
+          submissionId: 7dc6e781-02fa-42bd-8e31-3ce040ab114c
+      - id: piano-roll-editing-playback-tools:15
+        stepId: full.build.check.evidence
+        sequence: 15
+        kind: classic-build-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/c5739271-4c7c-4bef-b0c2-069505128cdb.log
+          contentHash: 61dd710576059d9941845524883256327f5edffb69e2ef85dbbd5ff361472885
+          submissionId: 7bb56d93-26a5-4951-a454-8428a4151c75
+      - id: piano-roll-editing-playback-tools:18
+        stepId: full.build.plan.evidence
+        sequence: 18
+        kind: classic-build-plan
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+          contentHash: f93940f7b4698aafefb9d6400b0c33e8cdf5227289c38f87abb48ea224aa5036
+          submissionId: cb898ba4-51c1-4865-936b-8a9201d36bde
+      - id: piano-roll-editing-playback-tools:21
+        stepId: full.build.check.evidence
+        sequence: 21
+        kind: classic-build-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/561d93d7-dbd6-4120-a3e7-32a842be13a6.log
+          contentHash: f9f3e5ce8fb21536077ad46b91e5a3e3087e4c442bfa8cc3672d06d1ad514fe9
+          submissionId: a60433b9-766b-48d3-800e-290195a53a7b
+      - id: piano-roll-editing-playback-tools:23
+        stepId: full.verify.report.evidence
+        sequence: 23
+        kind: classic-verification-report
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/reports/2026-11-11-piano-roll-editing-playback-tools-verification.md
+          contentHash: a7e7326f9b2c6041d26e7cc0c7273dc89ecfd892b233d2e466fb2520a60b0864
+          submissionId: 9a140eeb-1364-4c23-947d-f4f82ff053ef
+      - id: piano-roll-editing-playback-tools:25
+        stepId: full.verify.check.evidence
+        sequence: 25
+        kind: classic-verify-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/71f28532-6018-4051-9477-4578aafeabe6.log
+          contentHash: 873af8781c10815c21fc600442becca3bf18e029a03f0a2873a4cbfe95c2e57d
+          submissionId: 840a958f-f881-4b39-b892-66017cc375f0
+    ready: []
+    joins: {}
+    outputs: {}
+    children: []
+    lineage: []
+  sourceRevision: 47
+  sourceHash: 80f83486902ce4f608f98f3fd8d292c75e2111852ce49ff0b951c7309c0ab991
+  pool:
+    version: 3
+    values:
+      - event: open-complete
+      - choice: approved
+        proposal:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: d4350b23b4cc3ab0258f2afe24022de61a5d785709a9ede65e9b5b907d2bb873
+              ref: docs/openspec/changes/piano-roll-editing-playback-tools
+      - contentHash: d4350b23b4cc3ab0258f2afe24022de61a5d785709a9ede65e9b5b907d2bb873
+        ref: docs/openspec/changes/piano-roll-editing-playback-tools
+      - contentHash: d4350b23b4cc3ab0258f2afe24022de61a5d785709a9ede65e9b5b907d2bb873
+      - choice: approved
+        proposal:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/piano-roll-editing-playback-tools/.comet/handoff/design-context.json
+              handoffHash: e63a1d81277d3af1b6f43d9cf2b0b52c6f2bd89a7e774e6b51aebd76ea80dfb1
+              proposal: 方案（8 项决策）：1) 横向缩放把模块级 PIXELS_PER_SECOND 改为画布实例值 _pixels_per_second（默认
+                70，夹紧 10～600），坐标换算统一走 _time_to_x 与
+                _x_to_time；Shift+滚轮以鼠标时间点为锚，调整 horizontalScrollBar
+                使锚点时间停留在同一屏幕位置，缩放后重建背景、重排音符/音域框/播放线并刷新标尺。2) 顶部新增独立
+                _TimeRulerWidget（约 28px），与小节线共用同一时间换算，订阅横向滚动、缩放与 resize 重绘；小节序号从
+                1 起，小节内按拍画短刻度，缺少 BPM/拍号时退化为秒标注；点击或拖动发出
+                playheadRequested(seconds) 信号。3) 播放辅助线拆为锚点
+                _playhead_anchor_seconds（默认 0，切曲归零）与显示位置
+                _playhead_display_seconds；set_playhead(None)
+                回落到锚点而不再隐藏；只读（播放中）时标尺忽略鼠标事件。4) 剪贴板为画布内部深拷贝列表：Ctrl+C 快照，Ctrl+X 复用
+                _delete_selected 删除，Ctrl+V 以剪贴板最早 start 对齐锚点、生成新 id、重算
+                mapped、选中新音符并发出 notesChanged。5) Shift+上/下逐音符移动 ±12
+                半音，越界音符跳过，起始时间与时长不变。6) 播放起点在 gui.start_playing 过滤起始时间不早于
+                playhead 的音符（1e-6 容差）并平移为相对时间，复用
+                regenerate_playback_from_notes；进度回调为
+                playhead+elapsed；过滤后为空则提示且不播放；不改 player.py 与播放数据格式。7) 空闲状态播放按钮文案
+                3 处改为「▶️ 弹奏」，播放中「⏹️ 停止(ESC)」与 objectName 不变。8) 新增
+                set_beat_grid(seconds_per_beat, beats_per_measure)，由
+                gui._load_piano_roll 传入标尺所需的拍长与每小节拍数。关键取舍：不用
+                QGraphicsView.scale（会同时缩放行高与文字，破坏 1 行=1 半音）；不用 drawForeground
+                画标尺（属场景坐标，会随纵向滚动移动）；不用 QHeaderView（本视图非表格模型）；不用系统剪贴板（Clipboard
+                只需编辑器内使用）；不在 player.py 内 seek（播放数据无时间戳）。风险：缩放全量重排的性能；标尺与滚动条对齐依赖
+                valueChanged/rangeChanged/resize 三个事件；浮点边界用 1e-6 容差；无 GUI
+                自动化测试，故把粘贴偏移、八度越界、播放起点过滤、缩放锚点抽为纯函数用 unittest 覆盖，交互手动验收；播放中
+                ensureVisible 与手动滚动冲突保留现状。Spec Patch：无，现有 3 份 delta spec
+                已覆盖全部已确认行为。
+              requirementsEvidence:
+                contentHash: a5c6d271570fed57be9999f1eb157c22aed769a2809f6e8a27fc0ac4b43b3c31
+                ref: docs/openspec/changes/piano-roll-editing-playback-tools
+              sourceEvidence:
+                contentHash: 61f0897a06731b0c599dd32b36d0ef362d45272b598675c7306f7cf3cc86f90c
+                ref: docs/openspec/changes/piano-roll-editing-playback-tools
+      - handoffContext: docs/openspec/changes/piano-roll-editing-playback-tools/.comet/handoff/design-context.json
+        handoffHash: e63a1d81277d3af1b6f43d9cf2b0b52c6f2bd89a7e774e6b51aebd76ea80dfb1
+        proposal: 方案（8 项决策）：1) 横向缩放把模块级 PIXELS_PER_SECOND 改为画布实例值 _pixels_per_second（默认
+          70，夹紧 10～600），坐标换算统一走 _time_to_x 与 _x_to_time；Shift+滚轮以鼠标时间点为锚，调整
+          horizontalScrollBar 使锚点时间停留在同一屏幕位置，缩放后重建背景、重排音符/音域框/播放线并刷新标尺。2) 顶部新增独立
+          _TimeRulerWidget（约 28px），与小节线共用同一时间换算，订阅横向滚动、缩放与 resize 重绘；小节序号从 1
+          起，小节内按拍画短刻度，缺少 BPM/拍号时退化为秒标注；点击或拖动发出 playheadRequested(seconds) 信号。3)
+          播放辅助线拆为锚点 _playhead_anchor_seconds（默认 0，切曲归零）与显示位置
+          _playhead_display_seconds；set_playhead(None)
+          回落到锚点而不再隐藏；只读（播放中）时标尺忽略鼠标事件。4) 剪贴板为画布内部深拷贝列表：Ctrl+C 快照，Ctrl+X 复用
+          _delete_selected 删除，Ctrl+V 以剪贴板最早 start 对齐锚点、生成新 id、重算 mapped、选中新音符并发出
+          notesChanged。5) Shift+上/下逐音符移动 ±12 半音，越界音符跳过，起始时间与时长不变。6) 播放起点在
+          gui.start_playing 过滤起始时间不早于 playhead 的音符（1e-6 容差）并平移为相对时间，复用
+          regenerate_playback_from_notes；进度回调为 playhead+elapsed；过滤后为空则提示且不播放；不改
+          player.py 与播放数据格式。7) 空闲状态播放按钮文案 3 处改为「▶️ 弹奏」，播放中「⏹️ 停止(ESC)」与
+          objectName 不变。8) 新增 set_beat_grid(seconds_per_beat,
+          beats_per_measure)，由 gui._load_piano_roll 传入标尺所需的拍长与每小节拍数。关键取舍：不用
+          QGraphicsView.scale（会同时缩放行高与文字，破坏 1 行=1 半音）；不用 drawForeground
+          画标尺（属场景坐标，会随纵向滚动移动）；不用 QHeaderView（本视图非表格模型）；不用系统剪贴板（Clipboard
+          只需编辑器内使用）；不在 player.py 内 seek（播放数据无时间戳）。风险：缩放全量重排的性能；标尺与滚动条对齐依赖
+          valueChanged/rangeChanged/resize 三个事件；浮点边界用 1e-6 容差；无 GUI
+          自动化测试，故把粘贴偏移、八度越界、播放起点过滤、缩放锚点抽为纯函数用 unittest 覆盖，交互手动验收；播放中
+          ensureVisible 与手动滚动冲突保留现状。Spec Patch：无，现有 3 份 delta spec 已覆盖全部已确认行为。
+        requirementsEvidence:
+          contentHash: a5c6d271570fed57be9999f1eb157c22aed769a2809f6e8a27fc0ac4b43b3c31
+          ref: docs/openspec/changes/piano-roll-editing-playback-tools
+        sourceEvidence:
+          contentHash: 61f0897a06731b0c599dd32b36d0ef362d45272b598675c7306f7cf3cc86f90c
+          ref: docs/openspec/changes/piano-roll-editing-playback-tools
+      - designDoc: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+      - contentHash: 10260aa74c49d20bd8779edfd7fb4240f85c1ef91dc41eca9f8f45004160291a
+        ref: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+      - boundBranch: main
+        buildMode: executing-plans
+        directOverride: false
+        isolation: current
+        reviewMode: standard
+        subagentDispatch: null
+        tddMode: tdd
+      - choice: approved
+        proposal:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+      - designEvidence:
+          contentHash: 10260aa74c49d20bd8779edfd7fb4240f85c1ef91dc41eca9f8f45004160291a
+          ref: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+        plan: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+        planEvidence:
+          contentHash: f93940f7b4698aafefb9d6400b0c33e8cdf5227289c38f87abb48ea224aa5036
+          ref: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+        taskRevision: 2aea88c6093262d5ca9db4e8f590548d6b720849c48d0f029e54e5df0d983a70
+      - contentHash: f93940f7b4698aafefb9d6400b0c33e8cdf5227289c38f87abb48ea224aa5036
+        ref: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+      - event: build-complete
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 2
+        contentHash: 61dd710576059d9941845524883256327f5edffb69e2ef85dbbd5ff361472885
+        cwd: .
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: b742098597edbd1cdcafb6cd2c6dc7d35d2097f37a4c68c3cf80f5a33c95f7ac
+        inputBefore: b742098597edbd1cdcafb6cd2c6dc7d35d2097f37a4c68c3cf80f5a33c95f7ac
+        manifestHash: c32144b7098f6c0ec83864a1dc4733e08528522e5767b8b8dc9d10950b76443f
+        manifestRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/16e7afea-e6f1-4c0b-950e-837d18e252ac.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/c5739271-4c7c-4bef-b0c2-069505128cdb.log
+        reusable: false
+        reused: false
+        scope: build
+        tier: full
+        timeoutMs: 300000
+      - contentHash: 61dd710576059d9941845524883256327f5edffb69e2ef85dbbd5ff361472885
+        ref: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/c5739271-4c7c-4bef-b0c2-069505128cdb.log
+      - event: verify-fail
+        reason: 独立审查发现 2 个 Critical 与 2 个
+          Important：视口映射在场景窄于视口时错位、缩放锚点在时间轴末段被旧上限夹紧、起点落在休止符时辅助线落后、缩放与键盘接线缺少真实事件测试；已修复并补充回归测试，需重新执行
+          Build 检查
+      - designEvidence:
+          contentHash: 8a5169c29c54e966ff1fe74d0ed0e09185150b0f856be8d0576acd2070579635
+          ref: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+        plan: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+        planEvidence:
+          contentHash: f93940f7b4698aafefb9d6400b0c33e8cdf5227289c38f87abb48ea224aa5036
+          ref: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+        taskRevision: 2aea88c6093262d5ca9db4e8f590548d6b720849c48d0f029e54e5df0d983a70
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 4
+        contentHash: f9f3e5ce8fb21536077ad46b91e5a3e3087e4c442bfa8cc3672d06d1ad514fe9
+        cwd: .
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 54a2148428102ff1f76a0c15ce1e323ebf2fb0abf7bb3e55f756a1db51dcba7a
+        inputBefore: 54a2148428102ff1f76a0c15ce1e323ebf2fb0abf7bb3e55f756a1db51dcba7a
+        manifestHash: ce19a15befffdb9ed971c6f99d34d1427e41baf2faabc2c7bd1a1d24d1b47890
+        manifestRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/44177bc4-662a-4807-b469-4290b542472e.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/561d93d7-dbd6-4120-a3e7-32a842be13a6.log
+        reusable: false
+        reused: false
+        scope: build
+        tier: full
+        timeoutMs: 300000
+      - contentHash: f9f3e5ce8fb21536077ad46b91e5a3e3087e4c442bfa8cc3672d06d1ad514fe9
+        ref: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/561d93d7-dbd6-4120-a3e7-32a842be13a6.log
+      - contentHash: a7e7326f9b2c6041d26e7cc0c7273dc89ecfd892b233d2e466fb2520a60b0864
+        ref: docs/superpowers/reports/2026-11-11-piano-roll-editing-playback-tools-verification.md
+      - event: verification-ready
+        verificationReport: docs/superpowers/reports/2026-11-11-piano-roll-editing-playback-tools-verification.md
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 5
+        contentHash: 873af8781c10815c21fc600442becca3bf18e029a03f0a2873a4cbfe95c2e57d
+        cwd: .
+        deliveryInputs: {}
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 2e1c029281989bd1d7aa990fd614370c53fa0a92b11b866025080b00021e1267
+        inputBefore: 2e1c029281989bd1d7aa990fd614370c53fa0a92b11b866025080b00021e1267
+        manifestHash: b1547ac9fe79f535670528aa685bc972f3eb82b23dfcf906ea9297e5552ea8e8
+        manifestRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/5dd3e229-7c09-45ed-a4c3-c301bbca66f2.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/71f28532-6018-4051-9477-4578aafeabe6.log
+        reusable: false
+        reused: false
+        scope: verify
+        tier: full
+        timeoutMs: 300000
+      - contentHash: 873af8781c10815c21fc600442becca3bf18e029a03f0a2873a4cbfe95c2e57d
+        ref: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/71f28532-6018-4051-9477-4578aafeabe6.log
+      - choice: local
+        proposal:
+          input:
+            change: piano-roll-editing-playback-tools
+            changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+            workspaceBaseline:
+              ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+          outputs:
+            full.archive.prepare:
+              summary: 铺面编辑与播放控制：剪贴板、八度移动、顶部拍数标尺、常驻播放辅助线、Shift+滚轮横向缩放、从播放辅助线开始播放、「弹奏」按钮文案。实现 6
+                个提交（77dd96f..5fcd103），独立审查的 2 Critical / 2 Important 已修复，51 项测试与
+                Build/Verify 检查通过，验证报告在 docs/superpowers/reports/。
+              targetBranch: main
+      - summary: 铺面编辑与播放控制：剪贴板、八度移动、顶部拍数标尺、常驻播放辅助线、Shift+滚轮横向缩放、从播放辅助线开始播放、「弹奏」按钮文案。实现 6
+          个提交（77dd96f..5fcd103），独立审查的 2 Critical / 2 Important 已修复，51 项测试与
+          Build/Verify 检查通过，验证报告在 docs/superpowers/reports/。
+        targetBranch: main
+      - baseCommit: 9b5dc599d85a05e4c295f3d65cd80a1920466373
+        deliveryAction: local
+        targetBranch: main
+        verifiedBranch: main
+      - archiveDirectory: docs/openspec/changes/archive/2026-11-11-piano-roll-editing-playback-tools
+      - sequence: 9
+        value:
+          boundBranch: main
+          buildMode: executing-plans
+          directOverride: false
+          isolation: current
+          reviewMode: standard
+          subagentDispatch: null
+          tddMode: tdd
+      - sequence: 10
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: piano-roll-editing-playback-tools
+              changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+              workspaceBaseline:
+                ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+            outputs:
+              full.build.configure:
+                boundBranch: main
+                buildMode: executing-plans
+                directOverride: false
+                isolation: current
+                reviewMode: standard
+                subagentDispatch: null
+                tddMode: tdd
+      - sequence: 6
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: piano-roll-editing-playback-tools
+              changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+              workspaceBaseline:
+                ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+            outputs:
+              full.design.handoff:
+                handoffContext: docs/openspec/changes/piano-roll-editing-playback-tools/.comet/handoff/design-context.json
+                handoffHash: e63a1d81277d3af1b6f43d9cf2b0b52c6f2bd89a7e774e6b51aebd76ea80dfb1
+                proposal: 方案（8 项决策）：1) 横向缩放把模块级 PIXELS_PER_SECOND 改为画布实例值 _pixels_per_second（默认
+                  70，夹紧 10～600），坐标换算统一走 _time_to_x 与
+                  _x_to_time；Shift+滚轮以鼠标时间点为锚，调整 horizontalScrollBar
+                  使锚点时间停留在同一屏幕位置，缩放后重建背景、重排音符/音域框/播放线并刷新标尺。2) 顶部新增独立
+                  _TimeRulerWidget（约 28px），与小节线共用同一时间换算，订阅横向滚动、缩放与 resize
+                  重绘；小节序号从 1 起，小节内按拍画短刻度，缺少 BPM/拍号时退化为秒标注；点击或拖动发出
+                  playheadRequested(seconds) 信号。3) 播放辅助线拆为锚点
+                  _playhead_anchor_seconds（默认 0，切曲归零）与显示位置
+                  _playhead_display_seconds；set_playhead(None)
+                  回落到锚点而不再隐藏；只读（播放中）时标尺忽略鼠标事件。4) 剪贴板为画布内部深拷贝列表：Ctrl+C 快照，Ctrl+X
+                  复用 _delete_selected 删除，Ctrl+V 以剪贴板最早 start 对齐锚点、生成新 id、重算
+                  mapped、选中新音符并发出 notesChanged。5) Shift+上/下逐音符移动 ±12
+                  半音，越界音符跳过，起始时间与时长不变。6) 播放起点在 gui.start_playing 过滤起始时间不早于
+                  playhead 的音符（1e-6 容差）并平移为相对时间，复用
+                  regenerate_playback_from_notes；进度回调为
+                  playhead+elapsed；过滤后为空则提示且不播放；不改 player.py 与播放数据格式。7)
+                  空闲状态播放按钮文案 3 处改为「▶️ 弹奏」，播放中「⏹️ 停止(ESC)」与 objectName 不变。8) 新增
+                  set_beat_grid(seconds_per_beat, beats_per_measure)，由
+                  gui._load_piano_roll 传入标尺所需的拍长与每小节拍数。关键取舍：不用
+                  QGraphicsView.scale（会同时缩放行高与文字，破坏 1 行=1 半音）；不用 drawForeground
+                  画标尺（属场景坐标，会随纵向滚动移动）；不用 QHeaderView（本视图非表格模型）；不用系统剪贴板（Clipboard
+                  只需编辑器内使用）；不在 player.py 内
+                  seek（播放数据无时间戳）。风险：缩放全量重排的性能；标尺与滚动条对齐依赖
+                  valueChanged/rangeChanged/resize 三个事件；浮点边界用 1e-6 容差；无 GUI
+                  自动化测试，故把粘贴偏移、八度越界、播放起点过滤、缩放锚点抽为纯函数用 unittest 覆盖，交互手动验收；播放中
+                  ensureVisible 与手动滚动冲突保留现状。Spec Patch：无，现有 3 份 delta spec
+                  已覆盖全部已确认行为。
+                requirementsEvidence:
+                  contentHash: a5c6d271570fed57be9999f1eb157c22aed769a2809f6e8a27fc0ac4b43b3c31
+                  ref: docs/openspec/changes/piano-roll-editing-playback-tools
+                sourceEvidence:
+                  contentHash: 61f0897a06731b0c599dd32b36d0ef362d45272b598675c7306f7cf3cc86f90c
+                  ref: docs/openspec/changes/piano-roll-editing-playback-tools
+      - sequence: 7
+        value:
+          designDoc: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+      - sequence: 8
+        value:
+          contentHash: 10260aa74c49d20bd8779edfd7fb4240f85c1ef91dc41eca9f8f45004160291a
+          ref: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+      - sequence: 5
+        value:
+          handoffContext: docs/openspec/changes/piano-roll-editing-playback-tools/.comet/handoff/design-context.json
+          handoffHash: e63a1d81277d3af1b6f43d9cf2b0b52c6f2bd89a7e774e6b51aebd76ea80dfb1
+          proposal: 方案（8 项决策）：1) 横向缩放把模块级 PIXELS_PER_SECOND 改为画布实例值 _pixels_per_second（默认
+            70，夹紧 10～600），坐标换算统一走 _time_to_x 与 _x_to_time；Shift+滚轮以鼠标时间点为锚，调整
+            horizontalScrollBar 使锚点时间停留在同一屏幕位置，缩放后重建背景、重排音符/音域框/播放线并刷新标尺。2)
+            顶部新增独立 _TimeRulerWidget（约 28px），与小节线共用同一时间换算，订阅横向滚动、缩放与 resize
+            重绘；小节序号从 1 起，小节内按拍画短刻度，缺少 BPM/拍号时退化为秒标注；点击或拖动发出
+            playheadRequested(seconds) 信号。3) 播放辅助线拆为锚点
+            _playhead_anchor_seconds（默认 0，切曲归零）与显示位置
+            _playhead_display_seconds；set_playhead(None)
+            回落到锚点而不再隐藏；只读（播放中）时标尺忽略鼠标事件。4) 剪贴板为画布内部深拷贝列表：Ctrl+C 快照，Ctrl+X 复用
+            _delete_selected 删除，Ctrl+V 以剪贴板最早 start 对齐锚点、生成新 id、重算
+            mapped、选中新音符并发出 notesChanged。5) Shift+上/下逐音符移动 ±12
+            半音，越界音符跳过，起始时间与时长不变。6) 播放起点在 gui.start_playing 过滤起始时间不早于 playhead
+            的音符（1e-6 容差）并平移为相对时间，复用 regenerate_playback_from_notes；进度回调为
+            playhead+elapsed；过滤后为空则提示且不播放；不改 player.py 与播放数据格式。7) 空闲状态播放按钮文案 3
+            处改为「▶️ 弹奏」，播放中「⏹️ 停止(ESC)」与 objectName 不变。8) 新增
+            set_beat_grid(seconds_per_beat, beats_per_measure)，由
+            gui._load_piano_roll 传入标尺所需的拍长与每小节拍数。关键取舍：不用
+            QGraphicsView.scale（会同时缩放行高与文字，破坏 1 行=1 半音）；不用 drawForeground
+            画标尺（属场景坐标，会随纵向滚动移动）；不用 QHeaderView（本视图非表格模型）；不用系统剪贴板（Clipboard
+            只需编辑器内使用）；不在 player.py 内 seek（播放数据无时间戳）。风险：缩放全量重排的性能；标尺与滚动条对齐依赖
+            valueChanged/rangeChanged/resize 三个事件；浮点边界用 1e-6 容差；无 GUI
+            自动化测试，故把粘贴偏移、八度越界、播放起点过滤、缩放锚点抽为纯函数用 unittest 覆盖，交互手动验收；播放中
+            ensureVisible 与手动滚动冲突保留现状。Spec Patch：无，现有 3 份 delta spec 已覆盖全部已确认行为。
+          requirementsEvidence:
+            contentHash: a5c6d271570fed57be9999f1eb157c22aed769a2809f6e8a27fc0ac4b43b3c31
+            ref: docs/openspec/changes/piano-roll-editing-playback-tools
+          sourceEvidence:
+            contentHash: 61f0897a06731b0c599dd32b36d0ef362d45272b598675c7306f7cf3cc86f90c
+            ref: docs/openspec/changes/piano-roll-editing-playback-tools
+      - sequence: 1
+        value:
+          event: open-complete
+      - sequence: 3
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: piano-roll-editing-playback-tools
+              changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+              workspaceBaseline:
+                ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+            outputs:
+              full.open:
+                event: open-complete
+              full.open.evidence:
+                contentHash: d4350b23b4cc3ab0258f2afe24022de61a5d785709a9ede65e9b5b907d2bb873
+                ref: docs/openspec/changes/piano-roll-editing-playback-tools
+      - sequence: 2
+        value:
+          contentHash: d4350b23b4cc3ab0258f2afe24022de61a5d785709a9ede65e9b5b907d2bb873
+          ref: docs/openspec/changes/piano-roll-editing-playback-tools
+      - sequence: 4
+        value:
+          contentHash: d4350b23b4cc3ab0258f2afe24022de61a5d785709a9ede65e9b5b907d2bb873
+      - sequence: 11
+        value:
+          designEvidence:
+            contentHash: 10260aa74c49d20bd8779edfd7fb4240f85c1ef91dc41eca9f8f45004160291a
+            ref: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+          plan: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+          planEvidence:
+            contentHash: f93940f7b4698aafefb9d6400b0c33e8cdf5227289c38f87abb48ea224aa5036
+            ref: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+          taskRevision: 2aea88c6093262d5ca9db4e8f590548d6b720849c48d0f029e54e5df0d983a70
+      - sequence: 12
+        value:
+          contentHash: f93940f7b4698aafefb9d6400b0c33e8cdf5227289c38f87abb48ea224aa5036
+          ref: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+      - sequence: 13
+        value:
+          event: build-complete
+      - sequence: 14
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: 61dd710576059d9941845524883256327f5edffb69e2ef85dbbd5ff361472885
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: b742098597edbd1cdcafb6cd2c6dc7d35d2097f37a4c68c3cf80f5a33c95f7ac
+          inputBefore: b742098597edbd1cdcafb6cd2c6dc7d35d2097f37a4c68c3cf80f5a33c95f7ac
+          manifestHash: c32144b7098f6c0ec83864a1dc4733e08528522e5767b8b8dc9d10950b76443f
+          manifestRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/16e7afea-e6f1-4c0b-950e-837d18e252ac.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/c5739271-4c7c-4bef-b0c2-069505128cdb.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      - sequence: 15
+        value:
+          contentHash: 61dd710576059d9941845524883256327f5edffb69e2ef85dbbd5ff361472885
+          ref: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/c5739271-4c7c-4bef-b0c2-069505128cdb.log
+      - sequence: 16
+        value:
+          event: verify-fail
+          reason: 独立审查发现 2 个 Critical 与 2 个
+            Important：视口映射在场景窄于视口时错位、缩放锚点在时间轴末段被旧上限夹紧、起点落在休止符时辅助线落后、缩放与键盘接线缺少真实事件测试；已修复并补充回归测试，需重新执行
+            Build 检查
+      - sequence: 17
+        value:
+          designEvidence:
+            contentHash: 8a5169c29c54e966ff1fe74d0ed0e09185150b0f856be8d0576acd2070579635
+            ref: docs/openspec/changes/piano-roll-editing-playback-tools/design.md
+          plan: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+          planEvidence:
+            contentHash: f93940f7b4698aafefb9d6400b0c33e8cdf5227289c38f87abb48ea224aa5036
+            ref: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+          taskRevision: 2aea88c6093262d5ca9db4e8f590548d6b720849c48d0f029e54e5df0d983a70
+      - sequence: 18
+        value:
+          contentHash: f93940f7b4698aafefb9d6400b0c33e8cdf5227289c38f87abb48ea224aa5036
+          ref: docs/superpowers/plans/2026-11-11-piano-roll-editing-playback-tools.md
+      - sequence: 19
+        value:
+          event: build-complete
+      - sequence: 20
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 4
+          contentHash: f9f3e5ce8fb21536077ad46b91e5a3e3087e4c442bfa8cc3672d06d1ad514fe9
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 54a2148428102ff1f76a0c15ce1e323ebf2fb0abf7bb3e55f756a1db51dcba7a
+          inputBefore: 54a2148428102ff1f76a0c15ce1e323ebf2fb0abf7bb3e55f756a1db51dcba7a
+          manifestHash: ce19a15befffdb9ed971c6f99d34d1427e41baf2faabc2c7bd1a1d24d1b47890
+          manifestRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/44177bc4-662a-4807-b469-4290b542472e.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/561d93d7-dbd6-4120-a3e7-32a842be13a6.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      - sequence: 21
+        value:
+          contentHash: f9f3e5ce8fb21536077ad46b91e5a3e3087e4c442bfa8cc3672d06d1ad514fe9
+          ref: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/561d93d7-dbd6-4120-a3e7-32a842be13a6.log
+      - sequence: 23
+        value:
+          contentHash: a7e7326f9b2c6041d26e7cc0c7273dc89ecfd892b233d2e466fb2520a60b0864
+          ref: docs/superpowers/reports/2026-11-11-piano-roll-editing-playback-tools-verification.md
+      - sequence: 22
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-11-piano-roll-editing-playback-tools-verification.md
+      - sequence: 24
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 5
+          contentHash: 873af8781c10815c21fc600442becca3bf18e029a03f0a2873a4cbfe95c2e57d
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 2e1c029281989bd1d7aa990fd614370c53fa0a92b11b866025080b00021e1267
+          inputBefore: 2e1c029281989bd1d7aa990fd614370c53fa0a92b11b866025080b00021e1267
+          manifestHash: b1547ac9fe79f535670528aa685bc972f3eb82b23dfcf906ea9297e5552ea8e8
+          manifestRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/5dd3e229-7c09-45ed-a4c3-c301bbca66f2.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/71f28532-6018-4051-9477-4578aafeabe6.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      - sequence: 25
+        value:
+          contentHash: 873af8781c10815c21fc600442becca3bf18e029a03f0a2873a4cbfe95c2e57d
+          ref: .comet/runtime/classic-sdk-checks/04df06c9127615daf999e35ed5932c0ac7a1ce006ad559c61257decd9b35f6d6/71f28532-6018-4051-9477-4578aafeabe6.log
+      - sequence: 27
+        value:
+          choice: local
+          proposal:
+            input:
+              change: piano-roll-editing-playback-tools
+              changeDir: docs/openspec/changes/piano-roll-editing-playback-tools
+              workspaceBaseline:
+                ref: a177a8ad-4ef3-4fa3-ba58-055ec03bc87e
+            outputs:
+              full.archive.prepare:
+                summary: 铺面编辑与播放控制：剪贴板、八度移动、顶部拍数标尺、常驻播放辅助线、Shift+滚轮横向缩放、从播放辅助线开始播放、「弹奏」按钮文案。实现 6
+                  个提交（77dd96f..5fcd103），独立审查的 2 Critical / 2 Important 已修复，51
+                  项测试与 Build/Verify 检查通过，验证报告在 docs/superpowers/reports/。
+                targetBranch: main
+      - sequence: 26
+        value:
+          summary: 铺面编辑与播放控制：剪贴板、八度移动、顶部拍数标尺、常驻播放辅助线、Shift+滚轮横向缩放、从播放辅助线开始播放、「弹奏」按钮文案。实现 6
+            个提交（77dd96f..5fcd103），独立审查的 2 Critical / 2 Important 已修复，51 项测试与
+            Build/Verify 检查通过，验证报告在 docs/superpowers/reports/。
+          targetBranch: main
+      - sequence: 28
+        value:
+          baseCommit: 9b5dc599d85a05e4c295f3d65cd80a1920466373
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      - sequence: 29
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-11-piano-roll-editing-playback-tools
+    nodes:
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 1
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: 3
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 5
+        left: 6
+        right: 7
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 8
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 7
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 6
+        left: 10
+        right: 11
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 12
+        right: 7
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 13
+        right: 4
+        height: 4
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 16
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 11
+        right: 7
+        height: 2
+      - key: full.design.document
+        value: 6
+        left: 17
+        right: 18
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 19
+        right: 4
+        height: 4
+      - key: full.build.plan
+        value: 10
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 11
+        left: 21
+        right: 22
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 23
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 4
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 24
+        right: 25
+        height: 4
+      - key: full.build.execute
+        value: 12
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 27
+        height: 2
+      - key: full.build.plan.evidence
+        value: 11
+        left: null
+        right: 22
+        height: 2
+      - key: full.build.plan
+        value: 10
+        left: 28
+        right: 29
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 30
+        right: 25
+        height: 4
+      - key: full.build.check
+        value: 13
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 14
+        left: 32
+        right: 33
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 34
+        right: 27
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 35
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 25
+        height: 5
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 15
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: 39
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 40
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 41
+        height: 5
+      - key: full.build.plan
+        value: 16
+        left: 35
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 43
+        right: 41
+        height: 5
+      - key: full.build.check
+        value: 17
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 18
+        left: 45
+        right: 33
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 46
+        right: 27
+        height: 3
+      - key: full.build.plan
+        value: 16
+        left: 47
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 48
+        right: 41
+        height: 5
+      - key: full.verify.report.evidence
+        value: 19
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 20
+        left: 50
+        right: null
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: 51
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 52
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 48
+        right: 53
+        height: 5
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 22
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 20
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 19
+        left: 56
+        right: 57
+        height: 2
+      - key: full.verify.check
+        value: 21
+        left: 55
+        right: 58
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 59
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 48
+        right: 60
+        height: 5
+      - key: full.archive.confirm
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 17
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 24
+        left: 62
+        right: 63
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 33
+        right: 27
+        height: 2
+      - key: full.build.check.evidence
+        value: 18
+        left: 64
+        right: 65
+        height: 3
+      - key: full.build.plan
+        value: 16
+        left: 66
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 67
+        right: 60
+        height: 5
+      - key: full.archive.preflight
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 23
+        left: null
+        right: 69
+        height: 2
+      - key: full.archive.prepare
+        value: 24
+        left: 70
+        right: 63
+        height: 3
+      - key: full.build.plan
+        value: 16
+        left: 65
+        right: 29
+        height: 3
+      - key: full.build.check.evidence
+        value: 18
+        left: 71
+        right: 72
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 73
+        right: 60
+        height: 5
+      - key: full.archive.confirm
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 26
+        left: 75
+        right: 76
+        height: 2
+      - key: full.archive.prepare
+        value: 24
+        left: 77
+        right: 63
+        height: 3
+      - key: full.build.check.evidence
+        value: 18
+        left: 78
+        right: 72
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 79
+        right: 60
+        height: 5
+      - key: full.build.configure
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 28
+        left: 81
+        right: 82
+        height: 2
+      - key: full.design.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 32
+        left: 84
+        right: 85
+        height: 2
+      - key: full.open.revalidate
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 35
+        left: null
+        right: 87
+        height: 2
+      - key: full.open.confirm
+        value: 34
+        left: 86
+        right: 88
+        height: 3
+      - key: full.design.document
+        value: 30
+        left: 83
+        right: 89
+        height: 4
+      - key: full.build.plan
+        value: 37
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 38
+        left: 91
+        right: 92
+        height: 2
+      - key: full.build.confirm
+        value: 28
+        left: 81
+        right: 93
+        height: 3
+      - key: full.design.document
+        value: 30
+        left: 94
+        right: 89
+        height: 4
+      - key: full.build.execute
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 28
+        left: 81
+        right: 96
+        height: 2
+      - key: full.build.plan.evidence
+        value: 38
+        left: null
+        right: 92
+        height: 2
+      - key: full.build.plan
+        value: 37
+        left: 97
+        right: 98
+        height: 3
+      - key: full.design.document
+        value: 30
+        left: 99
+        right: 89
+        height: 4
+      - key: full.build.check
+        value: 40
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 41
+        left: 101
+        right: 102
+        height: 2
+      - key: full.build.confirm
+        value: 28
+        left: 103
+        right: 96
+        height: 3
+      - key: full.build.plan
+        value: 37
+        left: 104
+        right: 98
+        height: 4
+      - key: full.design.document
+        value: 30
+        left: 105
+        right: 89
+        height: 5
+      - key: full.open.evidence
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 42
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 36
+        left: 107
+        right: 108
+        height: 2
+      - key: full.open.confirm
+        value: 34
+        left: 86
+        right: 109
+        height: 3
+      - key: full.design.document
+        value: 30
+        left: 105
+        right: 110
+        height: 5
+      - key: full.build.plan.evidence
+        value: 44
+        left: null
+        right: 92
+        height: 2
+      - key: full.build.plan
+        value: 43
+        left: 104
+        right: 112
+        height: 4
+      - key: full.design.document
+        value: 30
+        left: 113
+        right: 110
+        height: 5
+      - key: full.build.execute
+        value: 45
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 28
+        left: 103
+        right: 115
+        height: 3
+      - key: full.build.plan
+        value: 43
+        left: 116
+        right: 112
+        height: 4
+      - key: full.design.document
+        value: 30
+        left: 117
+        right: 110
+        height: 5
+      - key: full.build.check
+        value: 46
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 47
+        left: 119
+        right: 102
+        height: 2
+      - key: full.build.confirm
+        value: 28
+        left: 120
+        right: 115
+        height: 3
+      - key: full.build.plan
+        value: 43
+        left: 121
+        right: 112
+        height: 4
+      - key: full.design.document
+        value: 30
+        left: 122
+        right: 110
+        height: 5
+      - key: full.verify.report.evidence
+        value: 48
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 49
+        left: 124
+        right: null
+        height: 2
+      - key: full.open.revalidate
+        value: 36
+        left: 107
+        right: 125
+        height: 3
+      - key: full.open.confirm
+        value: 34
+        left: 86
+        right: 126
+        height: 4
+      - key: full.design.document
+        value: 30
+        left: 122
+        right: 127
+        height: 5
+      - key: full.open.revalidate
+        value: 36
+        left: 107
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 51
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 49
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 48
+        left: 130
+        right: 131
+        height: 2
+      - key: full.verify.check
+        value: 50
+        left: 129
+        right: 132
+        height: 3
+      - key: full.open.confirm
+        value: 34
+        left: 86
+        right: 133
+        height: 4
+      - key: full.design.document
+        value: 30
+        left: 122
+        right: 134
+        height: 5
+      - key: full.archive.confirm
+        value: 52
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 46
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 53
+        left: 136
+        right: 137
+        height: 2
+      - key: full.build.confirm
+        value: 28
+        left: 102
+        right: 115
+        height: 2
+      - key: full.build.check.evidence
+        value: 47
+        left: 138
+        right: 139
+        height: 3
+      - key: full.build.plan
+        value: 43
+        left: 140
+        right: 112
+        height: 4
+      - key: full.design.document
+        value: 30
+        left: 141
+        right: 134
+        height: 5
+      - key: full.archive.preflight
+        value: 54
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 52
+        left: null
+        right: 143
+        height: 2
+      - key: full.archive.prepare
+        value: 53
+        left: 144
+        right: 137
+        height: 3
+      - key: full.build.plan
+        value: 43
+        left: 139
+        right: 112
+        height: 3
+      - key: full.build.check.evidence
+        value: 47
+        left: 145
+        right: 146
+        height: 4
+      - key: full.design.document
+        value: 30
+        left: 147
+        right: 134
+        height: 5
+      - key: full.archive.confirm
+        value: 52
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 54
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 55
+        left: 149
+        right: 150
+        height: 2
+      - key: full.archive.prepare
+        value: 53
+        left: 151
+        right: 137
+        height: 3
+      - key: full.build.check.evidence
+        value: 47
+        left: 152
+        right: 146
+        height: 4
+      - key: full.design.document
+        value: 30
+        left: 153
+        right: 134
+        height: 5
+      - key: full.open
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 34
+        left: 155
+        right: 156
+        height: 2
+      - key: full.open.revalidate
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 35
+        left: null
+        right: 158
+        height: 2
+      - key: full.open.confirm
+        value: 34
+        left: 155
+        right: 159
+        height: 3
+      - key: full.design.confirm
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 32
+        left: 161
+        right: 162
+        height: 2
+      - key: full.open.confirm
+        value: 34
+        left: 163
+        right: 159
+        height: 3
+      - key: full.design.confirm
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 30
+        left: 165
+        right: 166
+        height: 2
+      - key: full.design.handoff
+        value: 32
+        left: 167
+        right: 162
+        height: 3
+      - key: full.open.confirm
+        value: 34
+        left: 168
+        right: 159
+        height: 4
+      - key: full.open.evidence
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 33
+        left: null
+        right: 170
+        height: 2
+      - key: full.design.handoff
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 35
+        left: 173
+        right: 174
+        height: 2
+      - key: full.open
+        value: 33
+        left: 172
+        right: 175
+        height: 3
+      - key: full.build.configure
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 31
+        left: 178
+        right: 179
+        height: 2
+      - key: full.design.confirm
+        value: 29
+        left: 177
+        right: 180
+        height: 3
+      - key: full.open
+        value: 33
+        left: 181
+        right: 175
+        height: 4
+      - key: full.archive.prepare
+        value: 53
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 47
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 46
+        left: 183
+        right: 184
+        height: 2
+      - key: full.build.confirm
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 43
+        left: null
+        right: 187
+        height: 2
+      - key: full.build.execute
+        value: 45
+        left: 186
+        right: 188
+        height: 3
+      - key: full.build.configure
+        value: 27
+        left: 185
+        right: 189
+        height: 4
+      - key: full.open.revalidate
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 35
+        left: 173
+        right: 191
+        height: 2
+      - key: full.verify.check.evidence
+        value: 51
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 49
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 48
+        left: 193
+        right: 194
+        height: 2
+      - key: full.verify.check
+        value: 50
+        left: 192
+        right: 195
+        height: 3
+      - key: full.open
+        value: 33
+        left: 180
+        right: 196
+        height: 4
+      - key: full.design.confirm
+        value: 29
+        left: 190
+        right: 197
+        height: 5
+      - key: full.open
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 30
+        left: 200
+        right: 201
+        height: 2
+      - key: full.open.confirm
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 35
+        left: 203
+        right: 204
+        height: 2
+      - key: full.open
+        value: 33
+        left: 202
+        right: 205
+        height: 3
+      - key: full.build.configure
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 37
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 28
+        left: 207
+        right: 208
+        height: 2
+      - key: full.design.document
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 31
+        left: 210
+        right: 211
+        height: 2
+      - key: full.design.confirm
+        value: 29
+        left: 209
+        right: 212
+        height: 3
+      - key: full.open
+        value: 33
+        left: 213
+        right: 205
+        height: 4
+      - key: full.build.check
+        value: 40
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 27
+        left: 215
+        right: null
+        height: 2
+      - key: full.build.execute
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 37
+        left: 217
+        right: 218
+        height: 2
+      - key: full.build.confirm
+        value: 28
+        left: 216
+        right: 219
+        height: 3
+      - key: full.open
+        value: 33
+        left: 212
+        right: 205
+        height: 3
+      - key: full.design.confirm
+        value: 29
+        left: 220
+        right: 221
+        height: 4
+      - key: full.build.check
+        value: 40
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 41
+        left: 223
+        right: 224
+        height: 2
+      - key: full.build.plan
+        value: 43
+        left: 217
+        right: 218
+        height: 2
+      - key: full.build.confirm
+        value: 28
+        left: 225
+        right: 226
+        height: 3
+      - key: full.verify.run
+        value: 42
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 36
+        left: null
+        right: 228
+        height: 2
+      - key: full.open.evidence
+        value: 35
+        left: 203
+        right: 229
+        height: 3
+      - key: full.open
+        value: 33
+        left: 212
+        right: 230
+        height: 4
+      - key: full.design.confirm
+        value: 29
+        left: 227
+        right: 231
+        height: 5
+      - key: full.build.check
+        value: 46
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 41
+        left: 233
+        right: 224
+        height: 2
+      - key: full.build.execute
+        value: 45
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 43
+        left: 235
+        right: 236
+        height: 2
+      - key: full.build.confirm
+        value: 28
+        left: 234
+        right: 237
+        height: 3
+      - key: full.design.confirm
+        value: 29
+        left: 238
+        right: 231
+        height: 5
+      - key: full.build.check.evidence
+        value: 47
+        left: 233
+        right: 224
+        height: 2
+      - key: full.build.confirm
+        value: 28
+        left: 240
+        right: 237
+        height: 3
+      - key: full.verify.run
+        value: 49
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 36
+        left: null
+        right: 242
+        height: 2
+      - key: full.open.evidence
+        value: 35
+        left: 203
+        right: 243
+        height: 3
+      - key: full.open
+        value: 33
+        left: 212
+        right: 244
+        height: 4
+      - key: full.design.confirm
+        value: 29
+        left: 241
+        right: 245
+        height: 5
+      - key: full.open.revalidate
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 35
+        left: 203
+        right: 247
+        height: 2
+      - key: full.verify.report.evidence
+        value: 48
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 49
+        left: 249
+        right: null
+        height: 2
+      - key: full.verify.check
+        value: 50
+        left: 248
+        right: 250
+        height: 3
+      - key: full.open
+        value: 33
+        left: 212
+        right: 251
+        height: 4
+      - key: full.design.confirm
+        value: 29
+        left: 241
+        right: 252
+        height: 5
+    maps:
+      - null
+      - 2
+      - 5
+      - 9
+      - 14
+      - 20
+      - 26
+      - 31
+      - 37
+      - 42
+      - 44
+      - 49
+      - 54
+      - 61
+      - 68
+      - 74
+      - 80
+      - 90
+      - 95
+      - 100
+      - 106
+      - 111
+      - 114
+      - 118
+      - 123
+      - 128
+      - 135
+      - 142
+      - 148
+      - 154
+      - 157
+      - 160
+      - 164
+      - 169
+      - 171
+      - 176
+      - 182
+      - 198
+      - 199
+      - 206
+      - 214
+      - 222
+      - 232
+      - 239
+      - 246
+      - 253
+    bindings:
+      - path:
+          - actions
+          - "0"
+          - input
+          - outputs
+        map: 0
+      - path:
+          - actions
+          - "1"
+          - input
+          - outputs
+        map: 1
+      - path:
+          - actions
+          - "2"
+          - input
+          - outputs
+        map: 2
+      - path:
+          - actions
+          - "3"
+          - input
+          - outputs
+        map: 3
+      - path:
+          - actions
+          - "4"
+          - input
+          - outputs
+        map: 4
+      - path:
+          - actions
+          - "5"
+          - input
+          - outputs
+        map: 5
+      - path:
+          - actions
+          - "6"
+          - input
+          - outputs
+        map: 6
+      - path:
+          - actions
+          - "7"
+          - input
+          - outputs
+        map: 7
+      - path:
+          - actions
+          - "8"
+          - input
+          - outputs
+        map: 8
+      - path:
+          - actions
+          - "9"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "10"
+          - input
+          - outputs
+        map: 10
+      - path:
+          - actions
+          - "11"
+          - input
+          - outputs
+        map: 10
+      - path:
+          - actions
+          - "12"
+          - input
+          - outputs
+        map: 11
+      - path:
+          - actions
+          - "13"
+          - input
+          - outputs
+        map: 12
+      - path:
+          - actions
+          - "14"
+          - input
+          - outputs
+        map: 13
+      - path:
+          - actions
+          - "15"
+          - input
+          - outputs
+        map: 14
+      - path:
+          - actions
+          - "16"
+          - input
+          - outputs
+        map: 15
+      - path:
+          - actions
+          - "17"
+          - input
+          - outputs
+        map: 16
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:1
+          - results
+        map: 0
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:11
+          - results
+        map: 17
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:13
+          - results
+        map: 18
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:14
+          - results
+        map: 19
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:16
+          - results
+        map: 20
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:17
+          - results
+        map: 21
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:19
+          - results
+        map: 22
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:20
+          - results
+        map: 23
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:22
+          - results
+        map: 24
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:24
+          - results
+        map: 25
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:26
+          - results
+        map: 26
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:28
+          - results
+        map: 27
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:29
+          - results
+        map: 28
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:30
+          - results
+        map: 29
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:4
+          - results
+        map: 30
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:5
+          - results
+        map: 31
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:7
+          - results
+        map: 32
+      - path:
+          - actionContexts
+          - piano-roll-editing-playback-tools:9
+          - results
+        map: 33
+      - path:
+          - outputs
+        map: 29
+      - path:
+          - waits
+          - "0"
+          - results
+        map: 34
+      - path:
+          - waits
+          - "1"
+          - results
+        map: 35
+      - path:
+          - waits
+          - "2"
+          - results
+        map: 36
+      - path:
+          - waits
+          - "3"
+          - results
+        map: 37
+      - path:
+          - evidenceWaits
+          - "0"
+          - results
+        map: 38
+      - path:
+          - evidenceWaits
+          - "1"
+          - results
+        map: 39
+      - path:
+          - evidenceWaits
+          - "2"
+          - results
+        map: 40
+      - path:
+          - evidenceWaits
+          - "3"
+          - results
+        map: 41
+      - path:
+          - evidenceWaits
+          - "4"
+          - results
+        map: 42
+      - path:
+          - evidenceWaits
+          - "5"
+          - results
+        map: 43
+      - path:
+          - evidenceWaits
+          - "6"
+          - results
+        map: 44
+      - path:
+          - evidenceWaits
+          - "7"
+          - results
+        map: 45
+  storageHash: e73a6b70d5801c51806036410748c39451976bca21739ab12c85e8b87c52fddd
+check_epoch: 8

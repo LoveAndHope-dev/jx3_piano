@@ -2,6 +2,8 @@
 comet_change: piano-roll-editing-playback-tools
 role: technical-design
 canonical_spec: openspec
+archived-with: 2026-11-11-piano-roll-editing-playback-tools
+status: final
 ---
 
 # Design

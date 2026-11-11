@@ -245,6 +245,24 @@ class PianoRollWidgetTest(unittest.TestCase):
             self.assertAlmostEqual(s0, s1, delta=1e-6)
             self.assertAlmostEqual(d0, d1, delta=1e-6)
 
+    def test_measure_lines_follow_new_tempo(self):
+        from PyQt5.QtWidgets import QGraphicsLineItem
+
+        self.canvas.set_pixels_per_second(70.0)
+        self.widget.set_measure_grid(4.0)
+        self.widget.set_beat_grid(1.0, 4)
+        xs = [
+            round(item.line().x1(), 3)
+            for item in self.canvas._background_items
+            if isinstance(item, QGraphicsLineItem)
+        ]
+        for expected in (0.0, 280.0, 560.0):
+            self.assertIn(expected, xs)
+        ruler = self.widget._ruler
+        self.assertAlmostEqual(
+            ruler._tick_x(4.0) - ruler._tick_x(0.0), 280.0, delta=0.5
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

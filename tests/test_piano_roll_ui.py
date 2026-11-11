@@ -220,6 +220,31 @@ class PianoRollWidgetTest(unittest.TestCase):
         self.canvas._shift_selected_octave(12)
         self.assertEqual(self.widget.get_notes(), before)
 
+    def test_rescale_times_scales_notes_and_playhead(self):
+        self.widget.set_playhead_anchor(2.0)
+        self.widget.rescale_times(2.0)
+        starts = sorted(n["start"] for n in self.widget.get_notes())
+        self.assertEqual(starts, [2.0, 6.0])
+        durations = sorted(n["duration"] for n in self.widget.get_notes())
+        self.assertEqual(durations, [1.0, 1.0])
+        self.assertEqual(self.widget.get_playhead_position(), 4.0)
+        self.assertEqual(self.canvas._playhead_display_seconds, 4.0)
+
+    def test_rescale_times_emits_notes_changed(self):
+        signals = []
+        self.widget.notesChanged.connect(lambda: signals.append(1))
+        self.widget.rescale_times(0.5)
+        self.assertEqual(len(signals), 1)
+
+    def test_rescale_times_round_trip(self):
+        before = sorted((n["start"], n["duration"]) for n in self.widget.get_notes())
+        self.widget.rescale_times(0.75)
+        self.widget.rescale_times(1.0 / 0.75)
+        after = sorted((n["start"], n["duration"]) for n in self.widget.get_notes())
+        for (s0, d0), (s1, d1) in zip(before, after):
+            self.assertAlmostEqual(s0, s1, delta=1e-6)
+            self.assertAlmostEqual(d0, d1, delta=1e-6)
+
 
 if __name__ == "__main__":
     unittest.main()

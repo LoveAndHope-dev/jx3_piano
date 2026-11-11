@@ -583,6 +583,22 @@ class _PianoRollCanvas(QGraphicsView):
         self.zoomChanged.emit()
         self.viewport().update()
 
+    def rescale_times(self, factor: float) -> None:
+        """按 factor 缩放全部音符时间与播放辅助线（BPM 变更使用）。"""
+        if abs(factor - 1.0) < 1e-9:
+            return
+        self._notes = scaled_note_times(self._notes, factor)
+        self._playhead_anchor_seconds = max(0.0, self._playhead_anchor_seconds * factor)
+        self._playhead_display_seconds = max(0.0, self._playhead_display_seconds * factor)
+        for note in self._notes:
+            self._update_item_geometry(note)
+        total = max(
+            (n["start"] + n["duration"] for n in self._notes), default=MIN_SCENE_SECONDS
+        )
+        self._ensure_scene_width(total)
+        self._draw_playhead(focus=False)
+        self.notesChanged.emit()
+
     def set_instrument_range(self, low_pitch: int, high_pitch: int) -> None:
         """整体设置框体的低/高边界音高（用于切换曲目时的完整重置）"""
         self._range_low_pitch = low_pitch
@@ -1216,6 +1232,10 @@ class PianoRollWidget(QWidget):
     ) -> None:
         """把每拍秒数与每小节拍数传给顶部标尺"""
         self._ruler.set_beat_grid(seconds_per_beat, beats_per_measure)
+
+    def rescale_times(self, factor: float) -> None:
+        """按 factor 缩放全部音符时间与播放辅助线（BPM 变更使用）"""
+        self._canvas.rescale_times(factor)
 
     def set_instrument_range(self, low_pitch: int, high_pitch: int) -> None:
         self._canvas.set_instrument_range(low_pitch, high_pitch)

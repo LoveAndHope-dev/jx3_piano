@@ -6,6 +6,8 @@
 - 横轴为绝对时间（秒），背景叠加逐秒参考线与（可选的）小节线
 - 支持新增 / 删除 / 拖动（音高+起始时间）/ 拖动右边缘调整时长，可选量化吸附
 - 支持 Ctrl+A / 矩形框选 / Ctrl·Shift+单击 的多选，多选后可整体拖动、整体删除
+- 支持 Ctrl+C / Ctrl+X / Ctrl+V 在播放辅助线处复制、剪切与粘贴选中音符
+- 支持 Shift+↑ / Shift+↓ 把选中音符整体上移 / 下移一个八度（越界音符保持原音高）
 - 支持展示随实际播放进度移动的播放线，并可在播放期间禁用编辑
 - 支持展示/拖动一个黄色半透明的「乐器音域框」，用于框定乐器实际可用的键位区间
 """
@@ -191,6 +193,11 @@ class _PianoRollCanvas(QGraphicsView):
         self._background_items: List = []
         self._default_track = 0  # 新增音符使用的音轨号，由外部通过 set_default_track 设置
         self._current_total_seconds = MIN_SCENE_SECONDS
+
+        # 内部剪贴板（Ctrl+C / Ctrl+X 的快照）与播放辅助线锚点
+        self._clipboard: List[Dict] = []
+        self._playhead_anchor_seconds = 0.0
+        self._playhead_display_seconds = 0.0
 
         # 量化 / 小节网格
         self._quantize_seconds: Optional[float] = None
@@ -559,6 +566,53 @@ class _PianoRollCanvas(QGraphicsView):
         self.notesChanged.emit()
 
     # ------------------------------------------------------------------
+    # 剪贴板
+    # ------------------------------------------------------------------
+    def _copy_selected(self) -> None:
+        """把当前选中音符深拷贝进内部剪贴板；无选中时保持原剪贴板。"""
+        if not self._selected_ids:
+            return
+        self._clipboard = [dict(n) for n in self._notes if n["id"] in self._selected_ids]
+
+    def _paste_clipboard(self) -> None:
+        """把剪贴板全部音符粘贴到播放辅助线锚点处，并选中新音符。"""
+        if not self._clipboard:
+            return
+        anchor = float(self._playhead_anchor_seconds)
+        starts = pasted_starts(self._clipboard, anchor)
+        pasted: List[Dict] = []
+        for source, start in zip(self._clipboard, starts):
+            note = dict(source)
+            note["id"] = self._next_id
+            self._next_id += 1
+            note["start"] = start
+            note["mapped"] = int(note["pitch"]) in self._mapped_pitches
+            self._notes.append(note)
+            self._add_note_item(note)
+            pasted.append(note)
+        self._set_selection({n["id"] for n in pasted})
+        max_end = max(n["start"] + n["duration"] for n in pasted)
+        self._ensure_scene_width(max_end)
+        self.notesChanged.emit()
+
+    def _shift_selected_octave(self, delta: int) -> None:
+        """把选中音符整体移动 delta 个半音；会越界的音符保持原音高。"""
+        if not self._selected_ids:
+            return
+        targets = octave_shift_pitches(self._notes, self._selected_ids, delta)
+        changed = False
+        for note in self._notes:
+            target = targets.get(note["id"])
+            if target is None or target == note["pitch"]:
+                continue
+            note["pitch"] = target
+            note["mapped"] = target in self._mapped_pitches
+            self._update_item_geometry(note)
+            changed = True
+        if changed:
+            self.notesChanged.emit()
+
+    # ------------------------------------------------------------------
     # 鼠标 / 键盘交互
     # ------------------------------------------------------------------
     def mousePressEvent(self, event):
@@ -802,6 +856,27 @@ class _PianoRollCanvas(QGraphicsView):
 
         if event.key() == Qt.Key_A and bool(event.modifiers() & Qt.ControlModifier):
             self._set_selection(set(self._note_items.keys()))
+            event.accept()
+            return
+
+        if event.key() == Qt.Key_C and bool(event.modifiers() & Qt.ControlModifier):
+            self._copy_selected()
+            event.accept()
+            return
+
+        if event.key() == Qt.Key_X and bool(event.modifiers() & Qt.ControlModifier):
+            self._copy_selected()
+            self._delete_selected()
+            event.accept()
+            return
+
+        if event.key() == Qt.Key_V and bool(event.modifiers() & Qt.ControlModifier):
+            self._paste_clipboard()
+            event.accept()
+            return
+
+        if event.modifiers() & Qt.ShiftModifier and event.key() in (Qt.Key_Up, Qt.Key_Down):
+            self._shift_selected_octave(12 if event.key() == Qt.Key_Up else -12)
             event.accept()
             return
 

@@ -31,7 +31,7 @@ from PyQt5.QtWidgets import (
     QWidget,
 )
 
-from build_music import get_chromatic_key_ladder
+from build_music import get_chromatic_key_ladder, tempo_us_from_bpm
 
 MIN_PITCH = 21  # A0
 MAX_PITCH = 108  # C8
@@ -139,15 +139,16 @@ def bpm_scale_factor(old_bpm: float, new_bpm: float) -> float:
     return float(old_bpm) / float(new_bpm)
 
 
-def tempo_us_from_bpm(bpm: float) -> int:
-    """BPM → MIDI tempo（微秒/拍），四舍五入到整数。"""
+def grid_seconds_for_bpm(bpm: float, numerator: int, denominator: int) -> Tuple[float, float]:
+    """返回 (每小节秒数, 每拍秒数)；拍长 = 60/BPM * 4/分母。"""
     if bpm <= 0:
         raise ValueError("BPM 必须大于 0")
-    return int(round(60_000_000 / float(bpm)))
+    beat_seconds = (60.0 / float(bpm)) * (4.0 / float(denominator))
+    return beat_seconds * int(numerator), beat_seconds
 
 
 def scaled_note_times(notes: List[Dict], factor: float) -> List[Dict]:
-    """返回音符深拷贝，start 与 duration 乘以 factor；不修改输入。"""
+    """返回音符浅拷贝（音符为扁平字典），start 与 duration 乘以 factor；不修改输入。"""
     result: List[Dict] = []
     for note in notes:
         cloned = dict(note)
@@ -588,6 +589,8 @@ class _PianoRollCanvas(QGraphicsView):
         if abs(factor - 1.0) < 1e-9:
             return
         self._notes = scaled_note_times(self._notes, factor)
+        if self._clipboard:
+            self._clipboard = scaled_note_times(self._clipboard, factor)
         self._playhead_anchor_seconds = max(0.0, self._playhead_anchor_seconds * factor)
         self._playhead_display_seconds = max(0.0, self._playhead_display_seconds * factor)
         for note in self._notes:

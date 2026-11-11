@@ -70,12 +70,80 @@ class MidiTempoExportTest(unittest.TestCase):
         before = _absolute_ticks(mido.MidiFile(self.src).tracks[0])
         after = _absolute_ticks(mido.MidiFile(self.out).tracks[0])
         self.assertEqual([(t, m.type) for t, m in before], [(t, m.type) for t, m in after])
+        # 全局速度改写：未处理音轨的事件结构不变，但 tempo 值更新为新 BPM
+        after_tempos = [m.tempo for _, m in after if m.type == "set_tempo"]
+        self.assertEqual(after_tempos, [666667])
 
     def test_without_tempo_bpm_keeps_source_tempo(self):
         self.converter.write_notes_to_midi(self.src, self.notes, [1], self.out)
         mid = mido.MidiFile(self.out)
         tempos = [msg.tempo for track in mid.tracks for msg in track if msg.type == "set_tempo"]
         self.assertEqual(tempos, [500000])
+
+    def test_inserts_tempo_when_source_has_none(self):
+        src = os.path.join(self.tmp.name, "no_tempo.mid")
+        mid = mido.MidiFile(ticks_per_beat=480)
+        track = mido.MidiTrack()
+        track.append(mido.Message("note_on", note=60, velocity=100, time=0))
+        track.append(mido.Message("note_off", note=60, velocity=0, time=480))
+        track.append(mido.MetaMessage("end_of_track", time=0))
+        mid.tracks.append(track)
+        mid.save(src)
+
+        notes = [{"pitch": 60, "start": 0.0, "duration": 0.5, "track": 0,
+                  "channel": 0, "velocity": 100}]
+        out = os.path.join(self.tmp.name, "inserted.mid")
+        self.converter.write_notes_to_midi(src, notes, [0], out, tempo_bpm=100.0)
+        tempos = [
+            msg.tempo
+            for track in mido.MidiFile(out).tracks
+            for msg in track
+            if msg.type == "set_tempo"
+        ]
+        self.assertEqual(tempos, [600000])
+
+    def test_rewrites_every_tempo_event(self):
+        src = os.path.join(self.tmp.name, "multi_tempo.mid")
+        mid = mido.MidiFile(ticks_per_beat=480)
+        track = mido.MidiTrack()
+        track.append(mido.MetaMessage("set_tempo", tempo=500000, time=0))
+        track.append(mido.MetaMessage("set_tempo", tempo=400000, time=480))
+        track.append(mido.Message("note_on", note=60, velocity=100, time=0))
+        track.append(mido.Message("note_off", note=60, velocity=0, time=480))
+        track.append(mido.MetaMessage("end_of_track", time=0))
+        mid.tracks.append(track)
+        mid.save(src)
+
+        notes = [{"pitch": 60, "start": 0.0, "duration": 0.5, "track": 0,
+                  "channel": 0, "velocity": 100}]
+        out = os.path.join(self.tmp.name, "multi_out.mid")
+        self.converter.write_notes_to_midi(src, notes, [0], out, tempo_bpm=120.0)
+        tempos = [
+            msg.tempo
+            for track in mido.MidiFile(out).tracks
+            for msg in track
+            if msg.type == "set_tempo"
+        ]
+        self.assertEqual(tempos, [500000, 500000])
+
+    def test_tick_parity_holds_for_long_songs(self):
+        # 600 拍 ≈ 300 秒 @120 BPM；改到 90 BPM 后秒数变长，tick 必须一致
+        beats = 600
+        ticks_per_beat = 480
+        factor = 120.0 / 90.0
+        notes = [
+            {"pitch": 60, "start": 0.5 * factor, "duration": 0.25 * factor, "track": 1,
+             "channel": 0, "velocity": 100},
+            {"pitch": 62, "start": (beats * 0.5) * factor, "duration": 0.25 * factor,
+             "track": 1, "channel": 0, "velocity": 100},
+        ]
+        self.converter.write_notes_to_midi(self.src, notes, [1], self.out, tempo_bpm=90.0)
+        ticks = [
+            tick
+            for tick, msg in _absolute_ticks(mido.MidiFile(self.out).tracks[1])
+            if msg.type == "note_on" and msg.velocity > 0
+        ]
+        self.assertEqual(ticks, [ticks_per_beat, beats * ticks_per_beat])
 
 
 if __name__ == "__main__":

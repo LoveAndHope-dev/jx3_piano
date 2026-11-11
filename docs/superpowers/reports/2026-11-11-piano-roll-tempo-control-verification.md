@@ -4,7 +4,20 @@
 
 - Windows + Python 3.14 + PyQt5 + mido
 - 测试命令：`.venv\Scripts\python.exe -m unittest discover -s tests -v`
-- 最近一次结果：`Ran 70 tests ... OK`（上一轮 51 项 + 本轮 19 项）
+- 最近一次结果：`Ran 78 tests ... OK`（上一轮 51 项 + 本轮 27 项）
+
+## 独立审查后的修复
+
+最终集成审查（review_mode: standard）覆盖 `4f33e1c..e1796d7`，结论「With fixes」，无 Critical。已修复项：
+
+1. **Important：播放中 BPM 框没有真正禁用。** 新增 `_sync_bpm_enabled()`，在加载、开始播放、停止、播放结束四处同步「有曲目且未播放」状态。
+2. **Important：越界输入被静默改成另一个合法值（500 → 50）。** 数值框输入范围放宽到 0～10000，提交时显式钳制到 20～300 并回写显示；15 BPM 的源曲目也能如实显示。
+3. **Minor：改 BPM 后剪贴板仍用旧速度。** `rescale_times` 现在同步缩放 `_clipboard`。
+4. **Minor：tempo 换算重复实现。** `tempo_us_from_bpm` 移到 `build_music`，`piano_roll` 直接导入并复用，删除内联副本。
+5. **Minor：测试缺口。** 新增 `grid_seconds_for_bpm` 单测、剪贴板缩放测试、导出时「无 tempo 事件插入」「多 tempo 事件统一改写」「长曲 tick 一致」测试，并让未处理音轨测试同时断言 tempo 值被改写。
+6. **Minor：`scaled_note_times` 注释写成「深拷贝」。** 已改为「浅拷贝（音符为扁平字典）」。
+
+未处理（Minor，记录为已知限制）：导出时 `duration_seconds = max(duration, 0.02)` 的既有下限在极高速（如 300 BPM 且原音符 <0.05 秒）时可能把音符尾延长到 20 ms，属于改动前就存在的保护逻辑。
 
 ## 自动化覆盖
 

@@ -263,6 +263,15 @@ class PianoRollWidgetTest(unittest.TestCase):
             ruler._tick_x(4.0) - ruler._tick_x(0.0), 280.0, delta=0.5
         )
 
+    def test_clipboard_is_rescaled_with_tempo(self):
+        self.canvas._set_selection({0})
+        self.canvas._copy_selected()
+        self.widget.rescale_times(2.0)
+        self.widget.set_playhead_anchor(10.0)
+        self.canvas._paste_clipboard()
+        pasted = self.widget.get_notes()[-1]
+        self.assertEqual(pasted["duration"], 1.0)
+
 
 if __name__ == "__main__":
     unittest.main()

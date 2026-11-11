@@ -116,6 +116,13 @@ def get_chromatic_key_ladder() -> List[Tuple[int, str]]:
     return [(pitch, converter.get_note_name(pitch)) for pitch in range(21, 109)]
 
 
+def tempo_us_from_bpm(bpm: float) -> int:
+    """BPM → MIDI tempo（微秒/拍），四舍五入到整数。"""
+    if bpm <= 0:
+        raise ValueError("BPM 必须大于 0")
+    return int(round(60_000_000 / float(bpm)))
+
+
 class MidiToKeysConverter:
     def __init__(self, log_callback=None):
         """
@@ -854,9 +861,7 @@ class MidiToKeysConverter:
         mid = mido.MidiFile(source_midi_path)
 
         if tempo_bpm is not None:
-            if tempo_bpm <= 0:
-                raise ValueError("BPM 必须大于 0")
-            tempo = int(round(60_000_000 / float(tempo_bpm)))
+            tempo = tempo_us_from_bpm(tempo_bpm)
             replaced = False
             for track in mid.tracks:
                 for msg in track:

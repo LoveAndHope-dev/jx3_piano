@@ -79,8 +79,13 @@ from piano_roll import (
     PianoRollWidget,
     bpm_scale_factor,
     first_playable_start,
+    grid_seconds_for_bpm,
     playback_notes_from_position,
 )
+
+# 铺面 BPM 的可编辑范围（控件本身允许更宽的输入，提交时再钳制）
+MIN_PIANO_BPM = 20.0
+MAX_PIANO_BPM = 300.0
 
 # 量化下拉框选项 -> 传统音符时值分母（1/4 恒等于一拍，只依赖 BPM，不依赖拍号）
 QUANTIZE_LABEL_TO_N = {
@@ -660,7 +665,7 @@ class MidiConverterGUI(QMainWindow):
 
         toolbar.addWidget(QLabel("BPM:"))
         self.bpm_spin = QDoubleSpinBox()
-        self.bpm_spin.setRange(20.0, 300.0)
+        self.bpm_spin.setRange(0.0, 10000.0)
         self.bpm_spin.setDecimals(1)
         self.bpm_spin.setSingleStep(1.0)
         self.bpm_spin.setKeyboardTracking(False)
@@ -1009,9 +1014,13 @@ class MidiConverterGUI(QMainWindow):
         self.range_low_combo.setEnabled(enabled)
         self.range_high_combo.setEnabled(enabled)
         self.quantize_combo.setEnabled(enabled)
-        self.bpm_spin.setEnabled(enabled)
+        self._sync_bpm_enabled()
         if not enabled:
             self.range_toggle_btn.setChecked(False)
+
+    def _sync_bpm_enabled(self) -> None:
+        """BPM 只在有曲目且未播放时可编辑。"""
+        self.bpm_spin.setEnabled(bool(self.current_midi_path) and not self.is_playing)
 
     def on_quantize_combo_changed(self, text: str) -> None:
         self.quantize_choice = text
@@ -1028,7 +1037,12 @@ class MidiConverterGUI(QMainWindow):
             self._updating_bpm = False
             return
 
-        new_bpm = float(value)
+        new_bpm = min(MAX_PIANO_BPM, max(MIN_PIANO_BPM, float(value)))
+        if abs(new_bpm - float(value)) > 1e-9:
+            # 输入越界时先回写钳制后的值，再按它更新铺面
+            self._updating_bpm = True
+            self.bpm_spin.setValue(new_bpm)
+            self._updating_bpm = False
         if abs(new_bpm - self.current_bpm) < 1e-9:
             return
 
@@ -1037,8 +1051,10 @@ class MidiConverterGUI(QMainWindow):
 
         numerator = self.current_time_signature[0]
         denominator = self.current_time_signature[1]
-        beat_seconds = (60.0 / new_bpm) * (4.0 / denominator)
-        self.piano_roll.set_measure_grid(beat_seconds * numerator)
+        measure_seconds, beat_seconds = grid_seconds_for_bpm(
+            new_bpm, numerator, denominator
+        )
+        self.piano_roll.set_measure_grid(measure_seconds)
         self.piano_roll.set_beat_grid(beat_seconds, numerator)
 
         self.current_bpm = new_bpm
@@ -1235,6 +1251,7 @@ class MidiConverterGUI(QMainWindow):
             self.is_playing = True
             self.currently_playing_midi_path = self.current_midi_path
             self.piano_roll.set_read_only(True)
+            self._sync_bpm_enabled()
 
             # 更新按钮
             self.play_btn.setText("⏹️ 停止(ESC)")
@@ -1263,6 +1280,7 @@ class MidiConverterGUI(QMainWindow):
         self.currently_playing_midi_path = None
         self.piano_roll.set_read_only(False)
         self.piano_roll.set_playhead(None)
+        self._sync_bpm_enabled()
 
         # 更新按钮
         self.play_btn.setText("▶️ 弹奏")
@@ -1289,6 +1307,7 @@ class MidiConverterGUI(QMainWindow):
             self.play_thread = None
             self.piano_roll.set_read_only(False)
             self.piano_roll.set_playhead(None)
+            self._sync_bpm_enabled()
 
             # 更新按钮
             self.play_btn.setText("▶️ 弹奏")

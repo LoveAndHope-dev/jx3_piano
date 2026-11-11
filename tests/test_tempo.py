@@ -1,6 +1,11 @@
 import unittest
 
-from piano_roll import bpm_scale_factor, scaled_note_times, tempo_us_from_bpm
+from piano_roll import (
+    bpm_scale_factor,
+    grid_seconds_for_bpm,
+    scaled_note_times,
+    tempo_us_from_bpm,
+)
 
 
 class BpmFactorTest(unittest.TestCase):
@@ -55,6 +60,27 @@ class ScaledNoteTimesTest(unittest.TestCase):
         notes = [{"start": 1.0, "duration": 0.5}]
         scaled_note_times(notes, 2.0)
         self.assertEqual(notes, [{"start": 1.0, "duration": 0.5}])
+
+
+class GridSecondsTest(unittest.TestCase):
+    def test_four_four_120(self):
+        measure, beat = grid_seconds_for_bpm(120.0, 4, 4)
+        self.assertAlmostEqual(beat, 0.5)
+        self.assertAlmostEqual(measure, 2.0)
+
+    def test_four_four_60(self):
+        measure, beat = grid_seconds_for_bpm(60.0, 4, 4)
+        self.assertAlmostEqual(beat, 1.0)
+        self.assertAlmostEqual(measure, 4.0)
+
+    def test_three_four_90(self):
+        measure, beat = grid_seconds_for_bpm(90.0, 3, 4)
+        self.assertAlmostEqual(beat, 2.0 / 3.0)
+        self.assertAlmostEqual(measure, 2.0)
+
+    def test_invalid_bpm_raises(self):
+        with self.assertRaises(ValueError):
+            grid_seconds_for_bpm(0.0, 4, 4)
 
 
 if __name__ == "__main__":

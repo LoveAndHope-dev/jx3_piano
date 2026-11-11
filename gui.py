@@ -74,7 +74,7 @@ except ImportError:
     print("错误: 无法导入主程序模块，请确保主程序文件在同一目录下")
     sys.exit(1)
 
-from piano_roll import PianoRollWidget
+from piano_roll import PianoRollWidget, playback_notes_from_position
 
 # 量化下拉框选项 -> 传统音符时值分母（1/4 恒等于一拍，只依赖 BPM，不依赖拍号）
 QUANTIZE_LABEL_TO_N = {
@@ -240,6 +240,7 @@ class MidiConverterGUI(QMainWindow):
         self.play_thread = None
         self.is_playing = False
         self.currently_playing_midi_path = None
+        self._playback_start_seconds = 0.0  # 本次播放的起点（播放辅助线位置）
 
         # 铺面编辑相关变量
         self.current_midi_path = None
@@ -601,7 +602,7 @@ class MidiConverterGUI(QMainWindow):
         self.piano_dirty_label = QLabel("")
         toolbar.addWidget(self.piano_dirty_label)
 
-        self.play_btn = QPushButton("▶️ 播放")
+        self.play_btn = QPushButton("▶️ 弹奏")
         self.play_btn.setObjectName("playBtn")
         self.play_btn.clicked.connect(self.toggle_play)
         toolbar.addWidget(self.play_btn)
@@ -954,13 +955,14 @@ class MidiConverterGUI(QMainWindow):
         self.current_time_signature = (numerator, denominator)
         seconds_per_beat = 60.0 / bpm * (4.0 / denominator)
         self.piano_roll.set_measure_grid(seconds_per_beat * numerator)
+        self.piano_roll.set_beat_grid(seconds_per_beat, numerator)
 
         # 新增音符必须落在实际会被处理/保存的音轨上，否则另存为 MIDI 时会被静默丢弃
         self.piano_roll.set_default_track(track_filter[0])
         self.piano_roll.set_notes(notes)
         self.piano_roll.set_read_only(self.is_playing)
         if not (self.is_playing and midi_path == self.currently_playing_midi_path):
-            self.piano_roll.set_playhead(None)
+            self.piano_roll.set_playhead_anchor(0.0)
 
         self._reset_instrument_range()
         self._set_range_controls_enabled(True)
@@ -1104,7 +1106,7 @@ class MidiConverterGUI(QMainWindow):
             self.currently_playing_midi_path
             and self.current_midi_path == self.currently_playing_midi_path
         ):
-            self.piano_roll.set_playhead(elapsed)
+            self.piano_roll.set_playhead(self._playback_start_seconds + elapsed)
 
     def toggle_play(self):
         """切换播放状态"""
@@ -1129,6 +1131,11 @@ class MidiConverterGUI(QMainWindow):
 
             # 基于铺面当前状态（含编辑）与乐器音域框范围，在内存中生成播放数据
             notes = self.piano_roll.get_notes()
+            playhead = self.piano_roll.get_playhead_position()
+            notes = playback_notes_from_position(notes, playhead)
+            if not notes:
+                QMessageBox.warning(self, "提示", "当前位置之后没有可播放的音符")
+                return
             low_pitch, high_pitch = self.piano_roll.get_instrument_range()
             # 移调量：只用「最低映射」作锚点，把框体范围内的音符整体移调到目标按键范围
             target_low_pitch = self.range_low_combo.itemData(self.range_low_combo.currentIndex())
@@ -1143,6 +1150,8 @@ class MidiConverterGUI(QMainWindow):
             if not playback_data:
                 QMessageBox.warning(self, "警告", "当前乐器音域范围内没有可播放的音符")
                 return
+
+            self._playback_start_seconds = playhead
 
             data = {
                 "type": "jx3_piano_complete",
@@ -1197,7 +1206,7 @@ class MidiConverterGUI(QMainWindow):
         self.piano_roll.set_playhead(None)
 
         # 更新按钮
-        self.play_btn.setText("▶️ 播放")
+        self.play_btn.setText("▶️ 弹奏")
         self.play_btn.setObjectName("playBtn")
         self.play_btn.setStyleSheet("")  # 重新应用样式
 
@@ -1223,7 +1232,7 @@ class MidiConverterGUI(QMainWindow):
             self.piano_roll.set_playhead(None)
 
             # 更新按钮
-            self.play_btn.setText("▶️ 播放")
+            self.play_btn.setText("▶️ 弹奏")
             self.play_btn.setObjectName("playBtn")
             self.play_btn.setStyleSheet("")  # 重新应用样式
 

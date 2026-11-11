@@ -5,7 +5,7 @@ release/谱子/arpeggiate.py 一致：窗口与步长均为 1/32 拍，
 组内按音高从低到高展开，结束时间保持不变。
 """
 
-from typing import Dict, Iterable, List
+from typing import Iterable, List
 
 MIN_NOTE_DURATION = 0.05
 STEP_DIVISION = 32.0
@@ -47,12 +47,15 @@ def arpeggiate_notes(
             for order, note in enumerate(group):
                 original_end = float(note["start"]) + float(note["duration"])
                 wanted_start = anchor + order * step
+                # 起点不得早于组锚点，也不得把时长压到最小时长以下；
+                # 极短音符无法保持结束时间时，按时长下限向后延长
                 start = min(wanted_start, original_end - MIN_NOTE_DURATION)
-                start = max(0.0, start)
+                start = max(anchor, start, 0.0)
+                duration = original_end - start
+                if duration < MIN_NOTE_DURATION:
+                    duration = MIN_NOTE_DURATION
                 note["start"] = round(start, 6)
-                note["duration"] = round(
-                    max(MIN_NOTE_DURATION, original_end - start), 6
-                )
+                note["duration"] = round(duration, 6)
         index = end_index
 
     return result

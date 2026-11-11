@@ -46,6 +46,7 @@ from PyQt5.QtCore import (
     QPropertyAnimation,
     QEasingCurve,
     QRect,
+    QSize,
 )
 from PyQt5.QtGui import (
     QFont,
@@ -545,9 +546,12 @@ class MidiConverterGUI(QMainWindow):
                 border: 2px solid #3498DB;
             }
 
+            QDoubleSpinBox:focus {
+                border: 2px solid #3498DB;
+            }
+
             QDoubleSpinBox::up-button, QDoubleSpinBox::down-button {
-                width: 14px;
-                background: #34495E;
+                width: 0px;
                 border: none;
             }
 
@@ -942,17 +946,22 @@ class MidiConverterGUI(QMainWindow):
 
             current_path = self.current_midi_path
             self.play_listbox.blockSignals(True)
-            self.play_listbox.clear()
-            for name, path, _mtime in entries:
-                display_name = f"🎵 {os.path.splitext(name)[0]}"
-                item = QListWidgetItem(display_name)
-                item.setData(Qt.UserRole, path)
-                item.setData(Qt.UserRole + 1, name)
-                self.play_listbox.addItem(item)
-                self.play_listbox.setItemWidget(item, self._make_play_row(item, name, display_name))
-                if path == current_path:
-                    self.play_listbox.setCurrentItem(item)
-            self.play_listbox.blockSignals(False)
+            try:
+                self.play_listbox.clear()
+                for name, path, _mtime in entries:
+                    display_name = f"🎵 {os.path.splitext(name)[0]}"
+                    item = QListWidgetItem(display_name)
+                    item.setData(Qt.UserRole, path)
+                    item.setData(Qt.UserRole + 1, name)
+                    item.setSizeHint(QSize(0, 48))
+                    self.play_listbox.addItem(item)
+                    self.play_listbox.setItemWidget(
+                        item, self._make_play_row(item, name, display_name)
+                    )
+                    if path == current_path:
+                        self.play_listbox.setCurrentItem(item)
+            finally:
+                self.play_listbox.blockSignals(False)
 
             if not entries and not self.play_search.text().strip():
                 self.log("📝 midi/ 目录下没有可显示的 MIDI 文件")
@@ -970,7 +979,8 @@ class MidiConverterGUI(QMainWindow):
         layout.addWidget(label, 1)
 
         delete_btn = QPushButton("🗑")
-        delete_btn.setFixedWidth(30)
+        delete_btn.setFixedSize(34, 26)
+        delete_btn.setStyleSheet("padding: 0px 2px;")
         delete_btn.setToolTip(f"从列表移除「{name}」（保留磁盘文件）")
         delete_btn.clicked.connect(
             lambda _checked=False, p=item.data(Qt.UserRole), n=name: self.on_delete_play_item(p, n)
@@ -1118,6 +1128,7 @@ class MidiConverterGUI(QMainWindow):
         self._sync_bpm_enabled()
         if not enabled:
             self.range_toggle_btn.setChecked(False)
+        self._sync_roll_mode()
 
     def _sync_bpm_enabled(self) -> None:
         """BPM 只在有曲目且未播放时可编辑。"""
@@ -1165,11 +1176,14 @@ class MidiConverterGUI(QMainWindow):
         """对选中音符执行曲谱优化（1/32 拍琶音展开）。"""
         if self.is_playing or self.range_toggle_btn.isChecked():
             return
+        if not self.piano_roll._canvas._selected_ids:
+            self.log("🪄 请先选中要优化的音符")
+            return
         denominator = self.current_time_signature[1]
         beat_seconds = (60.0 / self.current_bpm) * (4.0 / denominator)
         count = self.piano_roll.arpeggiate_selected(beat_seconds)
         if count == 0:
-            self.log("🪄 请先选中要优化的音符")
+            self.log("🪄 当前选中音符无需优化")
             return
         self.log(f"🪄 已对 {count} 个音符执行曲谱优化")
 
@@ -1208,7 +1222,9 @@ class MidiConverterGUI(QMainWindow):
         self.piano_roll.set_read_only(play_mode or self.is_playing)
         self.range_toggle_btn.setText("✏️ 编辑模式" if play_mode else "🎹 演奏模式")
         self.play_btn.setEnabled(play_mode or self.is_playing)
-        self.arpeggiate_btn.setEnabled(not play_mode and not self.is_playing)
+        self.arpeggiate_btn.setEnabled(
+            bool(self.current_midi_path) and not play_mode and not self.is_playing
+        )
 
     def on_range_toggle_clicked(self):
         """切换演奏/编辑模式：演奏模式显示映射框并锁定铺面编辑。"""

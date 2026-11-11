@@ -116,6 +116,32 @@ class PlaylistGuiTest(unittest.TestCase):
         self.assertEqual(self.window.range_high_combo.currentData(), 83)
         self.assertEqual(self.window.piano_roll.get_instrument_range(), (36, 47))
 
+    def test_row_items_have_room_for_delete_button(self):
+        self.window.on_new_play_item()
+        item = self.window.play_listbox.item(0)
+        self.assertGreaterEqual(item.sizeHint().height(), 40)
+
+    def test_disabling_controls_resyncs_mode(self):
+        self.window.on_new_play_item()
+        self.window.range_toggle_btn.setChecked(True)
+        self.window.on_range_toggle_clicked()
+        self.window.current_midi_path = None
+        self.window._set_range_controls_enabled(False)
+        self.assertFalse(self.window.piano_roll._canvas.is_read_only())
+        self.assertFalse(self.window.play_btn.isEnabled())
+        self.assertFalse(self.window.arpeggiate_btn.isEnabled())
+        self.assertEqual(self.window.range_toggle_btn.text(), "🎹 演奏模式")
+
+    def test_arpeggiate_single_note_does_not_dirty(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},
+        ])
+        self.window.piano_roll._canvas._set_selection({0})
+        self.window.piano_roll_dirty = False
+        self.window.on_arpeggiate_clicked()
+        self.assertFalse(self.window.piano_roll_dirty)
+
     def test_arpeggiate_selected_notes(self):
         self.window.piano_roll.set_notes([
             {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},

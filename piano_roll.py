@@ -931,19 +931,30 @@ class _PianoRollCanvas(QGraphicsView):
         self.notesChanged.emit()
 
     def arpeggiate_selected(self, seconds_per_beat: float) -> int:
-        """对选中音符执行 1/32 拍琶音展开；返回被处理的音符数。"""
+        """对选中音符执行 1/32 拍琶音展开；返回实际发生变化的音符数。"""
+        if self._read_only:
+            return 0
         selected = set(self._selected_ids)
         if not selected:
             return 0
+        before = {n["id"]: (n["start"], n["duration"]) for n in self._notes if n["id"] in selected}
         self._notes = arpeggiate_notes(self._notes, selected, seconds_per_beat)
+        changed = 0
         for note in self._notes:
+            if note.get("id") in before and before[note["id"]] != (
+                note["start"],
+                note["duration"],
+            ):
+                changed += 1
             self._update_item_geometry(note)
+        if changed == 0:
+            return 0
         total = max(
             (n["start"] + n["duration"] for n in self._notes), default=MIN_SCENE_SECONDS
         )
         self._ensure_scene_width(total)
         self.notesChanged.emit()
-        return len(selected)
+        return changed
 
     # ------------------------------------------------------------------
     # 鼠标 / 键盘交互

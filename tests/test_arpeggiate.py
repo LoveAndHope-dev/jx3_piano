@@ -78,5 +78,25 @@ class ArpeggiateTest(unittest.TestCase):
         self.assertIsNot(result[0], notes[0])
 
 
+    def test_start_never_precedes_anchor(self):
+        notes = [
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.03},
+            {"id": 1, "pitch": 64, "start": 1.0, "duration": 0.03},
+        ]
+        result = arpeggiate_notes(notes, {0, 1}, 1.0)
+        for note in result:
+            self.assertGreaterEqual(note["start"], 1.0 - 1e-9)
+            self.assertGreaterEqual(note["duration"], MIN_NOTE_DURATION - 1e-9)
+
+    def test_anchor_at_zero_stays_non_negative(self):
+        notes = [
+            {"id": 0, "pitch": 60, "start": 0.0, "duration": 0.05},
+            {"id": 1, "pitch": 64, "start": 0.0, "duration": 0.05},
+        ]
+        result = arpeggiate_notes(notes, {0, 1}, 1.0)
+        for note in result:
+            self.assertGreaterEqual(note["start"], 0.0)
+
+
 if __name__ == "__main__":
     unittest.main()

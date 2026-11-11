@@ -79,8 +79,6 @@ from playlist_store import (
     create_blank_midi,
     filter_entries,
     list_entries,
-    load_hidden,
-    save_hidden,
     sort_entries,
     unique_midi_name,
 )
@@ -635,8 +633,6 @@ class MidiConverterGUI(QMainWindow):
         self.play_listbox = QListWidget()
         self.play_listbox.itemSelectionChanged.connect(self.on_select_play_file)
         self.play_listbox.currentItemChanged.connect(self.on_piano_roll_selection_changed)
-        self.play_listbox.setContextMenuPolicy(Qt.CustomContextMenu)
-        self.play_listbox.customContextMenuRequested.connect(self.on_playlist_context_menu)
 
         list_row.addWidget(self.play_listbox, 1)
         list_layout.addLayout(list_row)
@@ -665,27 +661,27 @@ class MidiConverterGUI(QMainWindow):
         piano_layout.setContentsMargins(0, 0, 0, 0)
 
         action_row = QHBoxLayout()
-        self.arpeggiate_btn = QPushButton("🪄 曲谱优化")
-        self.arpeggiate_btn.setToolTip("对选中音符做琶音整理（1/32 拍展开）")
-        self.arpeggiate_btn.setEnabled(False)
-        self.arpeggiate_btn.clicked.connect(self.on_arpeggiate_clicked)
-        action_row.addWidget(self.arpeggiate_btn)
+        title_label = QLabel("🎼 铺面编辑")
+        title_label.setFont(QFont("Microsoft YaHei UI", 14, QFont.Bold))
+        action_row.addWidget(title_label)
         action_row.addStretch()
         piano_layout.addLayout(action_row)
 
         toolbar = QHBoxLayout()
-        title_label = QLabel("🎼 铺面编辑")
-        title_label.setFont(QFont("Microsoft YaHei UI", 14, QFont.Bold))
-        toolbar.addWidget(title_label)
-        toolbar.addStretch()
-
-        self.piano_dirty_label = QLabel("")
-        toolbar.addWidget(self.piano_dirty_label)
-
         self.play_btn = QPushButton("▶️ 弹奏")
         self.play_btn.setObjectName("playBtn")
         self.play_btn.clicked.connect(self.toggle_play)
         toolbar.addWidget(self.play_btn)
+
+        self.arpeggiate_btn = QPushButton("🪄 曲谱优化")
+        self.arpeggiate_btn.setToolTip("对选中音符做琶音整理（1/32 拍展开）")
+        self.arpeggiate_btn.setEnabled(False)
+        self.arpeggiate_btn.clicked.connect(self.on_arpeggiate_clicked)
+        toolbar.addWidget(self.arpeggiate_btn)
+        toolbar.addStretch()
+
+        self.piano_dirty_label = QLabel("")
+        toolbar.addWidget(self.piano_dirty_label)
 
         self.piano_save_btn = QPushButton("💾 保存")
         self.piano_save_btn.setEnabled(False)
@@ -939,8 +935,7 @@ class MidiConverterGUI(QMainWindow):
         """按「隐藏记录 → 过滤 → 搜索 → 排序」重建播放列表，并尽量恢复选中项。"""
         try:
             midi_dir = get_midi_dir_path()
-            hidden = load_hidden(midi_dir)
-            entries = [e for e in list_entries(midi_dir) if e[0] not in hidden]
+            entries = list_entries(midi_dir)
             entries = filter_entries(entries, self.play_search.text())
             entries = sort_entries(entries, self.play_sort_combo.currentData())
 
@@ -950,7 +945,7 @@ class MidiConverterGUI(QMainWindow):
                 self.play_listbox.clear()
                 for name, path, _mtime in entries:
                     display_name = f"🎵 {os.path.splitext(name)[0]}"
-                    item = QListWidgetItem(display_name)
+                    item = QListWidgetItem("")
                     item.setData(Qt.UserRole, path)
                     item.setData(Qt.UserRole + 1, name)
                     item.setSizeHint(QSize(0, 48))
@@ -1328,25 +1323,25 @@ class MidiConverterGUI(QMainWindow):
         self.log(f"➕ 已新建空曲目: {name}")
 
     def on_delete_play_item(self, path=None, name=None):
-        """把指定曲目（默认当前选中项）从列表移除，保留磁盘文件并按需清缓存。"""
+        """删除指定曲目（默认当前选中项）：删除 midi/ 里的副本并按需清缓存。"""
         if path is None:
             item = self.play_listbox.currentItem()
             if item is None:
                 return
             path = item.data(Qt.UserRole)
             name = item.data(Qt.UserRole + 1)
-        if not name:
-            self.log("❌ 移除失败：列表项缺少文件名")
+        if not path or not name:
+            self.log("❌ 删除失败：列表项缺少文件名")
             return
         extra = (
-            "\n（该曲目有未保存修改，移除会丢失这些修改）"
+            "\n（该曲目有未保存修改，删除会丢失这些修改）"
             if (path == self.current_midi_path and self.piano_roll_dirty)
             else ""
         )
         reply = QMessageBox.question(
             self,
-            "移除曲目",
-            f"从列表移除「{name}」？{extra}\n磁盘上的 MIDI 文件会保留。",
+            "删除曲目",
+            f"删除「{name}」？{extra}\n会删除 midi 文件夹中的副本，导入的原始文件不受影响。",
             QMessageBox.Yes | QMessageBox.No,
             QMessageBox.No,
         )
@@ -1354,35 +1349,17 @@ class MidiConverterGUI(QMainWindow):
             return
 
         try:
-            midi_dir = get_midi_dir_path()
-            hidden = load_hidden(midi_dir)
-            hidden.add(name)
-            save_hidden(midi_dir, hidden)
-        except Exception as exc:
-            QMessageBox.critical(self, "移除失败", f"写入移除记录失败：{exc}")
+            os.remove(path)
+        except FileNotFoundError:
+            pass
+        except OSError as exc:
+            QMessageBox.critical(self, "删除失败", f"删除 MIDI 文件失败：{exc}")
             return
 
         if path == self.current_midi_path:
             self._clear_piano_roll_cache()
         self.refresh_play_list()
-        self.log(f"🗑 已从列表移除: {name}")
-
-    def on_playlist_context_menu(self, pos):
-        menu = QMenu(self)
-        restore_action = QAction("恢复所有已移除曲目", self)
-        restore_action.triggered.connect(self.on_restore_hidden_items)
-        menu.addAction(restore_action)
-        menu.exec_(self.play_listbox.mapToGlobal(pos))
-
-    def on_restore_hidden_items(self):
-        """清空隐藏记录，让磁盘上仍存在的曲目重新出现。"""
-        try:
-            save_hidden(get_midi_dir_path(), set())
-        except Exception as exc:
-            QMessageBox.critical(self, "恢复失败", f"清理移除记录失败：{exc}")
-            return
-        self.refresh_play_list()
-        self.log("♻️ 已恢复所有被移除的曲目")
+        self.log(f"🗑 已删除曲目: {name}")
 
     def _clear_piano_roll_cache(self):
         """删除当前曲目后清空铺面、播放与 BPM 等工具内缓存。"""

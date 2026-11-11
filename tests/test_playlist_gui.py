@@ -65,28 +65,32 @@ class PlaylistGuiTest(unittest.TestCase):
         self.assertEqual(self.window.bpm_spin.value(), 120.0)
         self.assertFalse(self.window.piano_roll_dirty)
         self.assertIs(self.window.piano_stack.currentWidget(), self.window.piano_placeholder)
-        self.assertTrue(os.path.exists(path))
+        self.assertFalse(os.path.exists(path))
 
     def test_cancel_delete_keeps_everything(self):
         self.window.on_new_play_item()
+        path = self.window.current_midi_path
         with patch.object(gui.QMessageBox, "question", return_value=QMessageBox.No):
             self.window.on_delete_play_item()
         self.assertEqual(self.window.play_listbox.count(), 1)
         self.assertTrue(self.window.current_midi_path)
+        self.assertTrue(os.path.exists(path))
 
-    def test_hidden_track_stays_hidden_after_refresh(self):
+    def test_deleted_track_not_listed_after_refresh(self):
         self.window.on_new_play_item()
         with patch.object(gui.QMessageBox, "question", return_value=QMessageBox.Yes):
             self.window.on_delete_play_item()
         self.window.refresh_play_list()
         self.assertEqual(self.window.play_listbox.count(), 0)
 
-    def test_restore_hidden_tracks(self):
+    def test_list_row_shows_name_once(self):
         self.window.on_new_play_item()
-        with patch.object(gui.QMessageBox, "question", return_value=QMessageBox.Yes):
-            self.window.on_delete_play_item()
-        self.window.on_restore_hidden_items()
-        self.assertEqual(self.window.play_listbox.count(), 1)
+        item = self.window.play_listbox.item(0)
+        self.assertEqual(item.text(), "")
+        row = self.window.play_listbox.itemWidget(item)
+        self.assertIsNotNone(row)
+        labels = [w.text() for w in row.findChildren(gui.QLabel)]
+        self.assertTrue(any("🎵" in text for text in labels))
 
     def test_search_does_not_break_loaded_track(self):
         self.window.on_new_play_item()

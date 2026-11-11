@@ -1115,7 +1115,11 @@ class MidiConverterGUI(QMainWindow):
 
             converter = MidiToKeysConverter()
             converter.write_notes_to_midi(
-                self.current_midi_path, notes, self.current_processed_tracks, output_path
+                self.current_midi_path,
+                notes,
+                self.current_processed_tracks,
+                output_path,
+                tempo_bpm=self.current_bpm,
             )
 
             self.piano_roll_dirty = False

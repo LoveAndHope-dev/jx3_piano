@@ -836,15 +836,39 @@ class MidiToKeysConverter:
         notes: List[Dict[str, Any]],
         processed_tracks: List[int],
         output_path: str,
+        tempo_bpm: Optional[float] = None,
     ) -> None:
         """
         把（可能已被铺面编辑器修改的）音符列表另存为一个新的 MIDI 文件。
         只重写 processed_tracks 涉及的音轨的音符内容，该音轨内原有的非
         note_on/note_off 事件（音轨名、乐器、原有 tempo 等）原样保留在新
         音轨开头；未被处理的其他音轨与文件级 ticks_per_beat 完全不变。
+
+        tempo_bpm: 传入时把文件中所有 tempo 事件统一改为该 BPM（缺失则在 0 号
+        音轨插入），并用新 tempo 把音符秒数换算成 tick，使音符拍位保持不变；
+        为 None 时沿用源文件的基础 tempo。
+
+        注：这里直接按 BPM 换算 tempo 微秒，而没有复用 piano_roll 的同名函数，
+        因为 piano_roll 已导入本模块，反向导入会形成循环依赖。
         """
         mid = mido.MidiFile(source_midi_path)
-        tempo = self._scan_base_tempo(mid)
+
+        if tempo_bpm is not None:
+            if tempo_bpm <= 0:
+                raise ValueError("BPM 必须大于 0")
+            tempo = int(round(60_000_000 / float(tempo_bpm)))
+            replaced = False
+            for track in mid.tracks:
+                for msg in track:
+                    if msg.type == "set_tempo":
+                        msg.tempo = tempo
+                        replaced = True
+            if not replaced:
+                mid.tracks[0].insert(
+                    0, mido.MetaMessage("set_tempo", tempo=tempo, time=0)
+                )
+        else:
+            tempo = self._scan_base_tempo(mid)
 
         processed_set = set(processed_tracks)
         fallback_track = processed_tracks[0] if processed_tracks else 0

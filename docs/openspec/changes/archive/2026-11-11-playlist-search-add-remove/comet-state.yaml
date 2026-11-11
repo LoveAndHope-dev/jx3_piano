@@ -1,0 +1,3285 @@
+# comet-execution: managed-run
+change_id: 31c31642-ba15-4c1d-a62e-3c14f4d6294c
+workflow: full
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: executing-plans
+build_pause: null
+subagent_dispatch: null
+tdd_mode: tdd
+review_mode: standard
+isolation: current
+verify_mode: null
+auto_transition: true
+base_ref: da782af7d646a6175d53439016e604be2e3ebda4
+design_doc: docs/openspec/changes/archive/2026-11-11-playlist-search-add-remove/design.md
+plan: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-11-playlist-search-add-remove-verification.md
+branch_status: pending
+created_at: 2026-11-11
+verified_at: 2026-11-11
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: false
+handoff_context: docs/openspec/changes/archive/2026-11-11-playlist-search-add-remove/.comet/handoff/design-context.json
+handoff_hash: 55f81a00da15b6cbde727baff644b10019830ef96b7afd97512560800b43fe2a
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v2
+  hash: f0a73f806610590daba6ef09d36d4748248b75151bfacccc67067167723cbd86
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: playlist-search-add-remove
+    revision: 1
+    workflow:
+      id: comet-classic-full
+      version: "1"
+      hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    definitionHashes:
+      '["comet-classic-full","1"]': ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    initialStateHash: 67d0f9ccfe026ac3c781d2f0f3445d003c76d196a39715e1d4a920d9df9ff70e
+    input:
+      change: playlist-search-add-remove
+      changeDir: docs/openspec/changes/playlist-search-add-remove
+      workspaceBaseline:
+        ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: da782af7d646a6175d53439016e604be2e3ebda4
+      boundBranch: main
+      branchStatus: pending
+      buildMode: executing-plans
+      buildPause: null
+      checkEpoch: 8
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-11
+      designDoc: docs/openspec/changes/archive/2026-11-11-playlist-search-add-remove/design.md
+      directOverride: false
+      handoffContext: docs/openspec/changes/archive/2026-11-11-playlist-search-add-remove/.comet/handoff/design-context.json
+      handoffHash: 55f81a00da15b6cbde727baff644b10019830ef96b7afd97512560800b43fe2a
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+      reviewMode: standard
+      subagentDispatch: null
+      tddMode: tdd
+      verificationReport: docs/superpowers/reports/2026-11-11-playlist-search-add-remove-verification.md
+      verifiedAt: 2026-11-11
+      verifyFailures: 0
+      verifyMode: null
+      verifyResult: pass
+      workflow: full
+    status: running
+    sequence: 30
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-bd80f148a168409277831ac70cfb52ff351ab5154f4a64e141728ca0ce76d368
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:1
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: 1e7b47f7a459d29b6dbc298913ca1425fab3bf3dad5fc11f521c13470b9031d1
+        outcome:
+          actionId: playlist-search-add-remove:1
+          attempt: 1
+          claimToken: portable-bd80f148a168409277831ac70cfb52ff351ab5154f4a64e141728ca0ce76d368
+          inputHash: 1e7b47f7a459d29b6dbc298913ca1425fab3bf3dad5fc11f521c13470b9031d1
+          outcomeId: bdbe1ba2-4ccd-4945-9a7a-c23b3c759bde
+          output:
+            event: open-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: bd900ee63dd09e8bbfc3e5cc09befcfcd2997e517e358319526b4465045231f0
+            outcomeId: bdbe1ba2-4ccd-4945-9a7a-c23b3c759bde
+        reconciliations: []
+        ref: comet-open
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-open-revalidate
+          token: portable-5093ecab2919de148033f5115bdbb38f3d70671a87ccf317ae4ee093db7e3723
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:4
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: b51efd94c784e58ada8da37e9018baf0d828d31e8787b5bbc4b40ad1f365b310
+        outcome:
+          actionId: playlist-search-add-remove:4
+          attempt: 1
+          claimToken: portable-5093ecab2919de148033f5115bdbb38f3d70671a87ccf317ae4ee093db7e3723
+          inputHash: b51efd94c784e58ada8da37e9018baf0d828d31e8787b5bbc4b40ad1f365b310
+          outcomeId: playlist-search-add-remove:4:1:executor-result
+          output:
+            contentHash: 5f019ad92842e40f54e820344c03e277adba43b4072f8e75c4d49e9f5c655451
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 5a91cea30788fcdab208c4ac01883854747ce45d784d7d06c98a1834ddfa83b3
+            outcomeId: playlist-search-add-remove:4:1:executor-result
+        reconciliations: []
+        ref: classic-open-revalidate
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.open.revalidate
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-f4d5d4f1b7db2eee7e439f7c057fd781d0eeefc2dbd58b006f7881a4beb1caab
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:5
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: 742802efcfe955566ba4bb6e41895e9d6b8ebd2bdf66fc2df22e268b3a2ed852
+        outcome:
+          actionId: playlist-search-add-remove:5
+          attempt: 1
+          claimToken: portable-f4d5d4f1b7db2eee7e439f7c057fd781d0eeefc2dbd58b006f7881a4beb1caab
+          inputHash: 742802efcfe955566ba4bb6e41895e9d6b8ebd2bdf66fc2df22e268b3a2ed852
+          outcomeId: d4733097-2752-4412-8201-657c3024dd50
+          output:
+            handoffContext: docs/openspec/changes/playlist-search-add-remove/.comet/handoff/design-context.json
+            handoffHash: 55f81a00da15b6cbde727baff644b10019830ef96b7afd97512560800b43fe2a
+            proposal: 方案：1) 新增 playlist_store.py 数据层，提供
+              load_hidden/save_hidden（midi/.hidden_playlist.json，损坏按空集合并保留原文件）、list_entries（只收
+              .mid/.midi，返回
+              name/path/mtime）、filter_entries（文件名子串且大小写不敏感）、sort_entries（name
+              升序；mtime 从新到旧，同秒用 name
+              作第二键）、unique_midi_name（新建曲目.mid、新建曲目_2.mid…）、create_blank_midi（mido
+              写 set_tempo 120、time_signature 4/4 与空音轨）。2) UI：列表上方搜索 QLineEdit
+              与排序 QComboBox（名称/导入时间），列表改为 QListWidget 加右侧竖排删除按钮；控制面板按钮行改为 导入MIDI
+              / 新建 / 刷新。3) refresh_play_list
+              统一管线：读隐藏集合→过滤隐藏→应用搜索→应用排序→重建列表→按路径恢复选中；搜索或排序变化直接调用它，避免两份过滤逻辑。4)
+              删除：无选中时按钮禁用；QMessageBox 二次确认，取消不改状态；确认后写隐藏记录并刷新；若删除的是
+              current_midi_path，调用新增 _clear_piano_roll_cache()（正在播放先
+              stop_playing，清空铺面音符与辅助线，重置
+              current_midi_path/processed_tracks/current_bpm 与 BPM
+              框，清未保存标记与保存按钮，切回占位页）。5) 新建：生成文件后刷新列表，按路径选中并复用 _load_piano_roll
+              加载，从而 BPM 回填与铺面重置沿用现有逻辑；失败只提示。6)
+              恢复：列表右键菜单「恢复所有已移除曲目」清空隐藏记录并刷新。关键取舍：不直接删磁盘文件（破坏用户数据且刷新后无法保持移除）、隐藏记录按文件名而非绝对路径（移动目录仍有效）、不引入独立
+              playlist.json
+              维护列表（需迁移现有目录数据）。风险：同名文件仍隐藏（提供恢复入口并声明限制）、删除当前曲目丢失未保存编辑（确认框合并提示）、mtime
+              同秒排序不稳定（名称作第二键）、搜索与排序不持久化（本次范围外）。测试策略：playlist_store
+              单测覆盖隐藏记录读写与损坏容错、过滤大小写与中文、排序含同秒稳定性、连续新建不重名、空 MIDI 读回 tempo/拍号/音轨；UI
+              交互手动验收；既有 78 项测试回归。Spec Patch：无。
+            requirementsEvidence:
+              contentHash: 0891c8b4334b704655e26a814800db5b829e168323ab3e75b5670532c7742241
+              ref: docs/openspec/changes/playlist-search-add-remove
+            sourceEvidence:
+              contentHash: 361c9e42d9507b0c4383b500172a5fb2e2b8985134e753c32b0a4b5d31847e17
+              ref: docs/openspec/changes/playlist-search-add-remove
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f3fc32c2686f2f2199e37d0853c72af39653d38997f5590b4f8fbf5b39c300fe
+            outcomeId: d4733097-2752-4412-8201-657c3024dd50
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.design.handoff
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-947d6634c87845934a8c0de323ebf5ed42e03389f542b90693307cfebff83c1e
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:7
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: 589830a492589204f46f6088b04fd4febd483393d1fe1ae1e06cbb6edf4202c5
+        outcome:
+          actionId: playlist-search-add-remove:7
+          attempt: 1
+          claimToken: portable-947d6634c87845934a8c0de323ebf5ed42e03389f542b90693307cfebff83c1e
+          inputHash: 589830a492589204f46f6088b04fd4febd483393d1fe1ae1e06cbb6edf4202c5
+          outcomeId: 8ac9e1ed-18ee-4d32-ae14-380c78d17b60
+          output:
+            designDoc: docs/openspec/changes/playlist-search-add-remove/design.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: b474f19038f02fce1bc01210012e47b693f53fa8cad27b4a8104ea515fb6aa0c
+            outcomeId: 8ac9e1ed-18ee-4d32-ae14-380c78d17b60
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.design.document
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-e4c8326e159e760aa073bc0430ddd89198d94ffba1abd08fe167b663b45ca5a6
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:9
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: ceb1b604faf7c5d6ceb562e983316f9b427ef30ddfce2cf3af1fdef14d72b626
+        outcome:
+          actionId: playlist-search-add-remove:9
+          attempt: 1
+          claimToken: portable-e4c8326e159e760aa073bc0430ddd89198d94ffba1abd08fe167b663b45ca5a6
+          inputHash: ceb1b604faf7c5d6ceb562e983316f9b427ef30ddfce2cf3af1fdef14d72b626
+          outcomeId: c531dcc1-59dd-4d79-a8a1-a0fcfc9532f2
+          output:
+            boundBranch: main
+            buildMode: executing-plans
+            directOverride: false
+            isolation: current
+            reviewMode: standard
+            subagentDispatch: null
+            tddMode: tdd
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: ae6016f61aafee6153259692d05b6113915c8b717c81683ff088fee7c0ca0042
+            outcomeId: c531dcc1-59dd-4d79-a8a1-a0fcfc9532f2
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.build.configure
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-1fff978cd5829cc08f347f8ac8029a35c2bdfe360a7c22670d8215a009fb7203
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:11
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: 9fbbb55df3aeb4623512456a7ac649c958a1560ecea5e97910c29a1da234951c
+        outcome:
+          actionId: playlist-search-add-remove:11
+          attempt: 1
+          claimToken: portable-1fff978cd5829cc08f347f8ac8029a35c2bdfe360a7c22670d8215a009fb7203
+          inputHash: 9fbbb55df3aeb4623512456a7ac649c958a1560ecea5e97910c29a1da234951c
+          outcomeId: 2d241881-6d85-46da-a890-47337a3946c5
+          output:
+            designEvidence:
+              contentHash: 0fcd8b11b82c67f233d5d5d942f2015dc164cab78735fba90d0db1e6945a5b31
+              ref: docs/openspec/changes/playlist-search-add-remove/design.md
+            plan: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+            planEvidence:
+              contentHash: be9e20202f321f961eb7df213061f63488e85f3ae12112a0caf053a0271b2280
+              ref: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+            taskRevision: 2502bd231cea2dea45c72e002809aac3b70421b03186ac3fe5422998a69714f5
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: dc17ddda7b4810f6a95d464036f0d04ae71a25a490a3aa398316df0bfe568ceb
+            outcomeId: 2d241881-6d85-46da-a890-47337a3946c5
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.build.plan
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/playlist-search-add-remove:13/1
+          token: portable-311f08c1bef73f6e9599ff44983c26779496910f7c640473431c708845d27108
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:13
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: 6ab2dba601d455a7b354cd13868662ee1efad6c4c409f8a5f699755a3b7a0dc7
+        outcome:
+          actionId: playlist-search-add-remove:13
+          attempt: 1
+          claimToken: portable-311f08c1bef73f6e9599ff44983c26779496910f7c640473431c708845d27108
+          inputHash: 6ab2dba601d455a7b354cd13868662ee1efad6c4c409f8a5f699755a3b7a0dc7
+          outcomeId: acc0b829-35a6-4dd0-b519-ec76108eb67f
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 861ccc5a62f884b92c1a4660e792e757edb264176fd758e284a2c97b6d97b0cf
+            outcomeId: acc0b829-35a6-4dd0-b519-ec76108eb67f
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-ea052cdb206f9b1ee9cdf5eef410b937b0aeae2ea1cd5902ca579e297453a1ec
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:14
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: 36c0e98d9d26b7f7a4d723d270df3a92c70dc43074e423f26f565a0e37f7cd98
+        outcome:
+          actionId: playlist-search-add-remove:14
+          attempt: 1
+          claimToken: portable-ea052cdb206f9b1ee9cdf5eef410b937b0aeae2ea1cd5902ca579e297453a1ec
+          inputHash: 36c0e98d9d26b7f7a4d723d270df3a92c70dc43074e423f26f565a0e37f7cd98
+          outcomeId: 29e8404d-a62d-4a27-8426-4bae18e86d60
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 21675ee509eda8e7effce27c8c53212ce1eba1c5bcca8f6785dce0428b78b1d6
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 1a9613b34b9b43eca4fa296f2c635cff42ef4842b54302d2fb33d0f2bbe4219f
+            inputBefore: 1a9613b34b9b43eca4fa296f2c635cff42ef4842b54302d2fb33d0f2bbe4219f
+            manifestHash: 81e3ff50780b304c99ed94faa7375505827e25ad7a33cd0dbe7b13ba617bc71e
+            manifestRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/c64ccbed-7b20-4860-8e9c-bc1281705749.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/5958fef4-b706-48ec-b889-2bd726008ed1.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 28ecee6a01047f45185a4e2eb029a4fe3a8c803b661ba3c50fb020503b53bec3
+            outcomeId: 29e8404d-a62d-4a27-8426-4bae18e86d60
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-7843fd01a37d924ee9a8f410adc313bef1ed12d06a52ecb08ee9872949786481
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:16
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: d9b2217ff6b53fd09519d900e7693d13bce33c3b76a7a987dc81fa3eae99c99c
+        outcome:
+          actionId: playlist-search-add-remove:16
+          attempt: 1
+          claimToken: portable-7843fd01a37d924ee9a8f410adc313bef1ed12d06a52ecb08ee9872949786481
+          inputHash: d9b2217ff6b53fd09519d900e7693d13bce33c3b76a7a987dc81fa3eae99c99c
+          outcomeId: 24176516-4984-470b-8d4e-32150aa5bba5
+          output:
+            event: verify-fail
+            reason: 独立审查发现 Critical（新建空白 MIDI 无法加载）与 4 个
+              Important（搜索时新建被隐藏、搜索隐藏当前曲目后无法播放、导入时间按源 mtime、验收记录不实）；已修复并新增 7 项
+              GUI 测试（99 项通过），需重新执行 Build 检查
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: e4003375311e25514e71e3f6a610400265e2aae6bb49d713d064ed2f55d824d7
+            outcomeId: 24176516-4984-470b-8d4e-32150aa5bba5
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-caf4443caa291547d9d28eb161cd9bf60d203807b99122f82df5787b52d91fde
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:17
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: abca4bb71f74e581bf9a8f42aa05242b3721659e4366e265c84ead0dd68bd3d6
+        outcome:
+          actionId: playlist-search-add-remove:17
+          attempt: 1
+          claimToken: portable-caf4443caa291547d9d28eb161cd9bf60d203807b99122f82df5787b52d91fde
+          inputHash: abca4bb71f74e581bf9a8f42aa05242b3721659e4366e265c84ead0dd68bd3d6
+          outcomeId: b7b0b702-61fa-495f-90ca-daa6f83f70a5
+          output:
+            designEvidence:
+              contentHash: 0fcd8b11b82c67f233d5d5d942f2015dc164cab78735fba90d0db1e6945a5b31
+              ref: docs/openspec/changes/playlist-search-add-remove/design.md
+            plan: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+            planEvidence:
+              contentHash: be9e20202f321f961eb7df213061f63488e85f3ae12112a0caf053a0271b2280
+              ref: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+            taskRevision: 2502bd231cea2dea45c72e002809aac3b70421b03186ac3fe5422998a69714f5
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 76031b16fb6a5fb7e8192d9a5db756ad2d9785548b41ab8cbd4b9c036f7eac3d
+            outcomeId: b7b0b702-61fa-495f-90ca-daa6f83f70a5
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.build.plan
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/playlist-search-add-remove:19/1
+          token: portable-3cb10e063ed2b7953a7f874a5f7175179844b8092000ad952ba972361b0f23cc
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:19
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: abca4bb71f74e581bf9a8f42aa05242b3721659e4366e265c84ead0dd68bd3d6
+        outcome:
+          actionId: playlist-search-add-remove:19
+          attempt: 1
+          claimToken: portable-3cb10e063ed2b7953a7f874a5f7175179844b8092000ad952ba972361b0f23cc
+          inputHash: abca4bb71f74e581bf9a8f42aa05242b3721659e4366e265c84ead0dd68bd3d6
+          outcomeId: f0a186dd-e078-43a4-9547-bb2f8b2ae2c4
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 5a04401d0faf44ed0cdfe0ef9bc51c8b4fe0baf9a1c335a9ba07e6a94736326e
+            outcomeId: f0a186dd-e078-43a4-9547-bb2f8b2ae2c4
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-06daf7664bf262eda9a8b4d31ef6932c0f6b771b39165c0269f67a3027c462ef
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:20
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: abca4bb71f74e581bf9a8f42aa05242b3721659e4366e265c84ead0dd68bd3d6
+        outcome:
+          actionId: playlist-search-add-remove:20
+          attempt: 1
+          claimToken: portable-06daf7664bf262eda9a8b4d31ef6932c0f6b771b39165c0269f67a3027c462ef
+          inputHash: abca4bb71f74e581bf9a8f42aa05242b3721659e4366e265c84ead0dd68bd3d6
+          outcomeId: c89bbc30-9dd4-4c86-bf93-1261f58b14f5
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 4
+            contentHash: dd40ac316ff052a0c611b5ee5032acadea23f7dc6f22753484af34495307b73f
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 9ff78b76f6d7c3b6c7704e3243fe9bfa40ab9b3e57d363f34522e128ebbd42f7
+            inputBefore: 9ff78b76f6d7c3b6c7704e3243fe9bfa40ab9b3e57d363f34522e128ebbd42f7
+            manifestHash: fe91040161defc172d6f0f7c72e83539cdacfffce3db6fb08d07d7d0eb6330ac
+            manifestRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/ab6658ac-a5fa-499a-9409-1c4b87f4f115.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/f2d40b9e-2b5c-448d-a77f-244ab293b738.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 2d5e00c21c3382454bc9c6af7be7b7a008ccf0c58b736aaaf4cf7b52870bd472
+            outcomeId: c89bbc30-9dd4-4c86-bf93-1261f58b14f5
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-db75a32408513e23e60eaa1a4391b7eb184cb2f18f99339986316f0aeb9fe39c
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:22
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: 2802fb1c2319ffb9b7102ed7d7e96a6ae449f203df2d7dcd3460e181f242cfb8
+        outcome:
+          actionId: playlist-search-add-remove:22
+          attempt: 1
+          claimToken: portable-db75a32408513e23e60eaa1a4391b7eb184cb2f18f99339986316f0aeb9fe39c
+          inputHash: 2802fb1c2319ffb9b7102ed7d7e96a6ae449f203df2d7dcd3460e181f242cfb8
+          outcomeId: 695898f4-4a8b-4403-926a-7083ea4000b0
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-11-playlist-search-add-remove-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: ee89f62f6a06547867468ba5653ccccb02ae7943256ea1f4c9ff931f7aee24a4
+            outcomeId: 695898f4-4a8b-4403-926a-7083ea4000b0
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-4692ec8219a20c9f0ba81a9ecbada455df35bd995da9ce85108f587f7857f468
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:24
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: 8fdd46747b2911f2e124f2a1cd07b77312c1e3d12e90356233ba1f9e56a50d35
+        outcome:
+          actionId: playlist-search-add-remove:24
+          attempt: 1
+          claimToken: portable-4692ec8219a20c9f0ba81a9ecbada455df35bd995da9ce85108f587f7857f468
+          inputHash: 8fdd46747b2911f2e124f2a1cd07b77312c1e3d12e90356233ba1f9e56a50d35
+          outcomeId: 9b14aa8b-5456-4c79-8166-6145e19c8f1a
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 5
+            contentHash: 8c1eaac7c9046a9b38df19afc974472420040d22297d339d14432e519a0d8243
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 8e9dab77b53b3de3a41050f3c9a5d1b7df690c5f3c9f9462633620956846e0af
+            inputBefore: 8e9dab77b53b3de3a41050f3c9a5d1b7df690c5f3c9f9462633620956846e0af
+            manifestHash: 2d07e2745d35d5849f39c72859e9182175de07c9d182f70b0d04d19e928653ce
+            manifestRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/ec2e4431-b5ef-4593-ae6c-d2a636b01644.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/dd8c546d-5449-4c7b-a07a-b4dcd3b4f60f.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f258ad6df03c89bcf752b19c6cd4473a85e5687433a1e137d50a2a25336df226
+            outcomeId: 9b14aa8b-5456-4c79-8166-6145e19c8f1a
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-575734bc36b6803189a16bc7ec3e4b4dab29959d389b57fb6e160d31fd76f1aa
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:26
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: 99fbbf9ae7b0845588ae583147b416e3f94bd1b2dc2c5ed6e0d0562e3fecfc65
+        outcome:
+          actionId: playlist-search-add-remove:26
+          attempt: 1
+          claimToken: portable-575734bc36b6803189a16bc7ec3e4b4dab29959d389b57fb6e160d31fd76f1aa
+          inputHash: 99fbbf9ae7b0845588ae583147b416e3f94bd1b2dc2c5ed6e0d0562e3fecfc65
+          outcomeId: 6f6f42ed-5b5f-4b58-b86b-4fb8de3c963d
+          output:
+            summary: 播放列表搜索/排序/新建/删除：按文件名模糊搜索、名称/导入时间排序、新建空白 MIDI
+              并自动加载、从列表隐藏（保留文件、清缓存）与一键恢复。实现提交 8eae1df..4c4fadc，独立审查的 1
+              Critical/4 Important 已修复，99 项测试与 Build/Verify 检查通过。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: e6a53e5ec0b5fb5098d6edff3cd9b740f6167021665f65659da10721d0cdd1cc
+            outcomeId: 6f6f42ed-5b5f-4b58-b86b-4fb8de3c963d
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-27d2bff4e747129afe8e7e26c3cf1a04557f0a8458b8d3f00049edfb8b0327f2
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:28
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: 0a86d708bcc49152b7c635ecb4e9ada55d936f9da4d329ece7a7e6eee994bbc4
+        outcome:
+          actionId: playlist-search-add-remove:28
+          attempt: 1
+          claimToken: portable-27d2bff4e747129afe8e7e26c3cf1a04557f0a8458b8d3f00049edfb8b0327f2
+          inputHash: 0a86d708bcc49152b7c635ecb4e9ada55d936f9da4d329ece7a7e6eee994bbc4
+          outcomeId: 7d63279f-f443-4b8e-8814-c43089b04996
+          output:
+            baseCommit: 4c4fadcb603b85242b6443f75a34fa29ea5169c0
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: c74b499c34d169e6a713712e4e97eeddafc031d99432ad6c19f3b220b7c26446
+            outcomeId: 7d63279f-f443-4b8e-8814-c43089b04996
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-1c0dab2510b38b69d68a48bce3e1751c65b2d8497350aa9e6dc0f8726a2559b1
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: playlist-search-add-remove:29
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: e721be6f0c318875787e4e65f46fc4529e118806e1ea293d18600730457a0530
+        outcome:
+          actionId: playlist-search-add-remove:29
+          artifacts:
+            - sha256: 7626959d3e9f72aa36549c56d365bc61fc39f379307ab429c1586bb04130a52f
+              uri: docs/openspec/changes/archive/2026-11-11-playlist-search-add-remove/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-1c0dab2510b38b69d68a48bce3e1751c65b2d8497350aa9e6dc0f8726a2559b1
+          inputHash: e721be6f0c318875787e4e65f46fc4529e118806e1ea293d18600730457a0530
+          outcomeId: 44c51e1f-50e7-4907-8cfa-8f7939bd80f9
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-11-playlist-search-add-remove
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 2c0d038e931f53dc941416a3739a7725d8e924a5d48791aeb278d3096f845529
+            outcomeId: 44c51e1f-50e7-4907-8cfa-8f7939bd80f9
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: succeeded
+        stepId: full.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: playlist-search-add-remove:30
+        input:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs: {}
+        inputHash: 0157c163f8f3aef6dfaf7cbd0b284ea05daa96f0f1a4177470283e80663176c6
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-search-add-remove
+        status: pending
+        stepId: full.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      playlist-search-add-remove:1:
+        results: {}
+        sequence: 1
+      playlist-search-add-remove:11:
+        results: {}
+        sequence: 11
+      playlist-search-add-remove:13:
+        results: {}
+        sequence: 13
+      playlist-search-add-remove:14:
+        results: {}
+        sequence: 14
+      playlist-search-add-remove:16:
+        results: {}
+        sequence: 16
+      playlist-search-add-remove:17:
+        results: {}
+        sequence: 17
+      playlist-search-add-remove:19:
+        results: {}
+        sequence: 19
+      playlist-search-add-remove:20:
+        results: {}
+        sequence: 20
+      playlist-search-add-remove:22:
+        results: {}
+        sequence: 22
+      playlist-search-add-remove:24:
+        results: {}
+        sequence: 24
+      playlist-search-add-remove:26:
+        results: {}
+        sequence: 26
+      playlist-search-add-remove:28:
+        results: {}
+        sequence: 28
+      playlist-search-add-remove:29:
+        results: {}
+        sequence: 29
+      playlist-search-add-remove:30:
+        results: {}
+        sequence: 30
+      playlist-search-add-remove:4:
+        results: {}
+        sequence: 4
+      playlist-search-add-remove:5:
+        results: {}
+        sequence: 5
+      playlist-search-add-remove:7:
+        results: {}
+        sequence: 7
+      playlist-search-add-remove:9:
+        results: {}
+        sequence: 9
+    waits:
+      - id: playlist-search-add-remove:3
+        stepId: full.open.confirm
+        sequence: 3
+        status: resolved
+        proposal:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 5f019ad92842e40f54e820344c03e277adba43b4072f8e75c4d49e9f5c655451
+              ref: docs/openspec/changes/playlist-search-add-remove
+        proposalHash: 473b5a540093ac6aa76faa6aa48e7a84fbb9804b104710b64182f0bc5d5fe23b
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-open-5f019ad92842e40f54e820344c03e277adba43b4072f8e75c4d49e9f5c655451
+          choice: approved
+          proposalHash: 473b5a540093ac6aa76faa6aa48e7a84fbb9804b104710b64182f0bc5d5fe23b
+      - id: playlist-search-add-remove:6
+        stepId: full.design.confirm
+        sequence: 6
+        status: resolved
+        proposal:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/playlist-search-add-remove/.comet/handoff/design-context.json
+              handoffHash: 55f81a00da15b6cbde727baff644b10019830ef96b7afd97512560800b43fe2a
+              proposal: 方案：1) 新增 playlist_store.py 数据层，提供
+                load_hidden/save_hidden（midi/.hidden_playlist.json，损坏按空集合并保留原文件）、list_entries（只收
+                .mid/.midi，返回
+                name/path/mtime）、filter_entries（文件名子串且大小写不敏感）、sort_entries（name
+                升序；mtime 从新到旧，同秒用 name
+                作第二键）、unique_midi_name（新建曲目.mid、新建曲目_2.mid…）、create_blank_midi（mido
+                写 set_tempo 120、time_signature 4/4 与空音轨）。2) UI：列表上方搜索 QLineEdit
+                与排序 QComboBox（名称/导入时间），列表改为 QListWidget 加右侧竖排删除按钮；控制面板按钮行改为
+                导入MIDI / 新建 / 刷新。3) refresh_play_list
+                统一管线：读隐藏集合→过滤隐藏→应用搜索→应用排序→重建列表→按路径恢复选中；搜索或排序变化直接调用它，避免两份过滤逻辑。4)
+                删除：无选中时按钮禁用；QMessageBox 二次确认，取消不改状态；确认后写隐藏记录并刷新；若删除的是
+                current_midi_path，调用新增 _clear_piano_roll_cache()（正在播放先
+                stop_playing，清空铺面音符与辅助线，重置
+                current_midi_path/processed_tracks/current_bpm 与 BPM
+                框，清未保存标记与保存按钮，切回占位页）。5) 新建：生成文件后刷新列表，按路径选中并复用 _load_piano_roll
+                加载，从而 BPM 回填与铺面重置沿用现有逻辑；失败只提示。6)
+                恢复：列表右键菜单「恢复所有已移除曲目」清空隐藏记录并刷新。关键取舍：不直接删磁盘文件（破坏用户数据且刷新后无法保持移除）、隐藏记录按文件名而非绝对路径（移动目录仍有效）、不引入独立
+                playlist.json
+                维护列表（需迁移现有目录数据）。风险：同名文件仍隐藏（提供恢复入口并声明限制）、删除当前曲目丢失未保存编辑（确认框合并提示）、mtime
+                同秒排序不稳定（名称作第二键）、搜索与排序不持久化（本次范围外）。测试策略：playlist_store
+                单测覆盖隐藏记录读写与损坏容错、过滤大小写与中文、排序含同秒稳定性、连续新建不重名、空 MIDI 读回
+                tempo/拍号/音轨；UI 交互手动验收；既有 78 项测试回归。Spec Patch：无。
+              requirementsEvidence:
+                contentHash: 0891c8b4334b704655e26a814800db5b829e168323ab3e75b5670532c7742241
+                ref: docs/openspec/changes/playlist-search-add-remove
+              sourceEvidence:
+                contentHash: 361c9e42d9507b0c4383b500172a5fb2e2b8985134e753c32b0a4b5d31847e17
+                ref: docs/openspec/changes/playlist-search-add-remove
+        proposalHash: 032fab4add77e888bbfcfde301b9aeac3d686dd4cef0e4421fe4432fc8f70768
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-design-032fab4add77e888bbfcfde301b9aeac3d686dd4cef0e4421fe4432fc8f70768-approved
+          choice: approved
+          proposalHash: 032fab4add77e888bbfcfde301b9aeac3d686dd4cef0e4421fe4432fc8f70768
+      - id: playlist-search-add-remove:10
+        stepId: full.build.confirm
+        sequence: 10
+        status: resolved
+        proposal:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+        proposalHash: d0c72a965c3e0c25bec5b28a6c3547bbbd5138d57266da4cc3d9d7240f063e30
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: 7570b2da-d7da-4cba-8e85-e835c64e18f5
+          choice: approved
+          proposalHash: d0c72a965c3e0c25bec5b28a6c3547bbbd5138d57266da4cc3d9d7240f063e30
+      - id: playlist-search-add-remove:27
+        stepId: full.archive.confirm
+        sequence: 27
+        status: resolved
+        proposal:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs:
+            full.archive.prepare:
+              summary: 播放列表搜索/排序/新建/删除：按文件名模糊搜索、名称/导入时间排序、新建空白 MIDI
+                并自动加载、从列表隐藏（保留文件、清缓存）与一键恢复。实现提交 8eae1df..4c4fadc，独立审查的 1
+                Critical/4 Important 已修复，99 项测试与 Build/Verify 检查通过。
+              targetBranch: main
+        proposalHash: 3895fceb70dc5a4962bfa98e4aa4aa0b92b8422a93247eb04a886f4180f46a7d
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results: {}
+        decision:
+          id: classic-archive-3895fceb70dc5a4962bfa98e4aa4aa0b92b8422a93247eb04a886f4180f46a7d-local
+          choice: local
+          proposalHash: 3895fceb70dc5a4962bfa98e4aa4aa0b92b8422a93247eb04a886f4180f46a7d
+    evidenceWaits:
+      - id: playlist-search-add-remove:2
+        stepId: full.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/playlist-search-add-remove
+          contentHash: 5f019ad92842e40f54e820344c03e277adba43b4072f8e75c4d49e9f5c655451
+          submissionId: 200e1fed-578d-4ab4-8daa-160a06ffd050
+      - id: playlist-search-add-remove:8
+        stepId: full.design.evidence
+        sequence: 8
+        kind: classic-design-document
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/playlist-search-add-remove/design.md
+          contentHash: 0fcd8b11b82c67f233d5d5d942f2015dc164cab78735fba90d0db1e6945a5b31
+          submissionId: 135c91a6-d1fb-4378-836c-433cf6ec5237
+      - id: playlist-search-add-remove:12
+        stepId: full.build.plan.evidence
+        sequence: 12
+        kind: classic-build-plan
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+          contentHash: be9e20202f321f961eb7df213061f63488e85f3ae12112a0caf053a0271b2280
+          submissionId: 8becdc3a-0a49-4ec8-b028-5b2c7c993343
+      - id: playlist-search-add-remove:15
+        stepId: full.build.check.evidence
+        sequence: 15
+        kind: classic-build-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/5958fef4-b706-48ec-b889-2bd726008ed1.log
+          contentHash: 21675ee509eda8e7effce27c8c53212ce1eba1c5bcca8f6785dce0428b78b1d6
+          submissionId: 594ecb53-3ec2-4c63-80b0-e0b45872f59a
+      - id: playlist-search-add-remove:18
+        stepId: full.build.plan.evidence
+        sequence: 18
+        kind: classic-build-plan
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+          contentHash: be9e20202f321f961eb7df213061f63488e85f3ae12112a0caf053a0271b2280
+          submissionId: 3bd34bbc-0b00-43ce-8441-eb1585cd9210
+      - id: playlist-search-add-remove:21
+        stepId: full.build.check.evidence
+        sequence: 21
+        kind: classic-build-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/f2d40b9e-2b5c-448d-a77f-244ab293b738.log
+          contentHash: dd40ac316ff052a0c611b5ee5032acadea23f7dc6f22753484af34495307b73f
+          submissionId: 580028f2-7070-4d39-a8ba-0f89ec64e701
+      - id: playlist-search-add-remove:23
+        stepId: full.verify.report.evidence
+        sequence: 23
+        kind: classic-verification-report
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/reports/2026-11-11-playlist-search-add-remove-verification.md
+          contentHash: 4924b695b10edf260d6ed0288b758fef023d20605e794b4d349159e7bb16fd45
+          submissionId: 599f5cf7-99f0-4fa5-8dfa-c422db3ec3e7
+      - id: playlist-search-add-remove:25
+        stepId: full.verify.check.evidence
+        sequence: 25
+        kind: classic-verify-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/dd8c546d-5449-4c7b-a07a-b4dcd3b4f60f.log
+          contentHash: 8c1eaac7c9046a9b38df19afc974472420040d22297d339d14432e519a0d8243
+          submissionId: a548bae8-e7e3-4826-9077-275eacd4aae7
+    ready: []
+    joins: {}
+    outputs: {}
+    children: []
+    lineage: []
+  sourceRevision: 47
+  sourceHash: 4e6fcf6f7f4031545fab140184ff848fd23f9204e604a0251cdd0b95f1082ebf
+  pool:
+    version: 3
+    values:
+      - event: open-complete
+      - choice: approved
+        proposal:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 5f019ad92842e40f54e820344c03e277adba43b4072f8e75c4d49e9f5c655451
+              ref: docs/openspec/changes/playlist-search-add-remove
+      - contentHash: 5f019ad92842e40f54e820344c03e277adba43b4072f8e75c4d49e9f5c655451
+        ref: docs/openspec/changes/playlist-search-add-remove
+      - contentHash: 5f019ad92842e40f54e820344c03e277adba43b4072f8e75c4d49e9f5c655451
+      - choice: approved
+        proposal:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/playlist-search-add-remove/.comet/handoff/design-context.json
+              handoffHash: 55f81a00da15b6cbde727baff644b10019830ef96b7afd97512560800b43fe2a
+              proposal: 方案：1) 新增 playlist_store.py 数据层，提供
+                load_hidden/save_hidden（midi/.hidden_playlist.json，损坏按空集合并保留原文件）、list_entries（只收
+                .mid/.midi，返回
+                name/path/mtime）、filter_entries（文件名子串且大小写不敏感）、sort_entries（name
+                升序；mtime 从新到旧，同秒用 name
+                作第二键）、unique_midi_name（新建曲目.mid、新建曲目_2.mid…）、create_blank_midi（mido
+                写 set_tempo 120、time_signature 4/4 与空音轨）。2) UI：列表上方搜索 QLineEdit
+                与排序 QComboBox（名称/导入时间），列表改为 QListWidget 加右侧竖排删除按钮；控制面板按钮行改为
+                导入MIDI / 新建 / 刷新。3) refresh_play_list
+                统一管线：读隐藏集合→过滤隐藏→应用搜索→应用排序→重建列表→按路径恢复选中；搜索或排序变化直接调用它，避免两份过滤逻辑。4)
+                删除：无选中时按钮禁用；QMessageBox 二次确认，取消不改状态；确认后写隐藏记录并刷新；若删除的是
+                current_midi_path，调用新增 _clear_piano_roll_cache()（正在播放先
+                stop_playing，清空铺面音符与辅助线，重置
+                current_midi_path/processed_tracks/current_bpm 与 BPM
+                框，清未保存标记与保存按钮，切回占位页）。5) 新建：生成文件后刷新列表，按路径选中并复用 _load_piano_roll
+                加载，从而 BPM 回填与铺面重置沿用现有逻辑；失败只提示。6)
+                恢复：列表右键菜单「恢复所有已移除曲目」清空隐藏记录并刷新。关键取舍：不直接删磁盘文件（破坏用户数据且刷新后无法保持移除）、隐藏记录按文件名而非绝对路径（移动目录仍有效）、不引入独立
+                playlist.json
+                维护列表（需迁移现有目录数据）。风险：同名文件仍隐藏（提供恢复入口并声明限制）、删除当前曲目丢失未保存编辑（确认框合并提示）、mtime
+                同秒排序不稳定（名称作第二键）、搜索与排序不持久化（本次范围外）。测试策略：playlist_store
+                单测覆盖隐藏记录读写与损坏容错、过滤大小写与中文、排序含同秒稳定性、连续新建不重名、空 MIDI 读回
+                tempo/拍号/音轨；UI 交互手动验收；既有 78 项测试回归。Spec Patch：无。
+              requirementsEvidence:
+                contentHash: 0891c8b4334b704655e26a814800db5b829e168323ab3e75b5670532c7742241
+                ref: docs/openspec/changes/playlist-search-add-remove
+              sourceEvidence:
+                contentHash: 361c9e42d9507b0c4383b500172a5fb2e2b8985134e753c32b0a4b5d31847e17
+                ref: docs/openspec/changes/playlist-search-add-remove
+      - handoffContext: docs/openspec/changes/playlist-search-add-remove/.comet/handoff/design-context.json
+        handoffHash: 55f81a00da15b6cbde727baff644b10019830ef96b7afd97512560800b43fe2a
+        proposal: 方案：1) 新增 playlist_store.py 数据层，提供
+          load_hidden/save_hidden（midi/.hidden_playlist.json，损坏按空集合并保留原文件）、list_entries（只收
+          .mid/.midi，返回
+          name/path/mtime）、filter_entries（文件名子串且大小写不敏感）、sort_entries（name
+          升序；mtime 从新到旧，同秒用 name
+          作第二键）、unique_midi_name（新建曲目.mid、新建曲目_2.mid…）、create_blank_midi（mido 写
+          set_tempo 120、time_signature 4/4 与空音轨）。2) UI：列表上方搜索 QLineEdit 与排序
+          QComboBox（名称/导入时间），列表改为 QListWidget 加右侧竖排删除按钮；控制面板按钮行改为 导入MIDI / 新建 /
+          刷新。3) refresh_play_list
+          统一管线：读隐藏集合→过滤隐藏→应用搜索→应用排序→重建列表→按路径恢复选中；搜索或排序变化直接调用它，避免两份过滤逻辑。4)
+          删除：无选中时按钮禁用；QMessageBox 二次确认，取消不改状态；确认后写隐藏记录并刷新；若删除的是
+          current_midi_path，调用新增 _clear_piano_roll_cache()（正在播放先
+          stop_playing，清空铺面音符与辅助线，重置
+          current_midi_path/processed_tracks/current_bpm 与 BPM
+          框，清未保存标记与保存按钮，切回占位页）。5) 新建：生成文件后刷新列表，按路径选中并复用 _load_piano_roll 加载，从而
+          BPM 回填与铺面重置沿用现有逻辑；失败只提示。6)
+          恢复：列表右键菜单「恢复所有已移除曲目」清空隐藏记录并刷新。关键取舍：不直接删磁盘文件（破坏用户数据且刷新后无法保持移除）、隐藏记录按文件名而非绝对路径（移动目录仍有效）、不引入独立
+          playlist.json
+          维护列表（需迁移现有目录数据）。风险：同名文件仍隐藏（提供恢复入口并声明限制）、删除当前曲目丢失未保存编辑（确认框合并提示）、mtime
+          同秒排序不稳定（名称作第二键）、搜索与排序不持久化（本次范围外）。测试策略：playlist_store
+          单测覆盖隐藏记录读写与损坏容错、过滤大小写与中文、排序含同秒稳定性、连续新建不重名、空 MIDI 读回 tempo/拍号/音轨；UI
+          交互手动验收；既有 78 项测试回归。Spec Patch：无。
+        requirementsEvidence:
+          contentHash: 0891c8b4334b704655e26a814800db5b829e168323ab3e75b5670532c7742241
+          ref: docs/openspec/changes/playlist-search-add-remove
+        sourceEvidence:
+          contentHash: 361c9e42d9507b0c4383b500172a5fb2e2b8985134e753c32b0a4b5d31847e17
+          ref: docs/openspec/changes/playlist-search-add-remove
+      - designDoc: docs/openspec/changes/playlist-search-add-remove/design.md
+      - contentHash: 0fcd8b11b82c67f233d5d5d942f2015dc164cab78735fba90d0db1e6945a5b31
+        ref: docs/openspec/changes/playlist-search-add-remove/design.md
+      - boundBranch: main
+        buildMode: executing-plans
+        directOverride: false
+        isolation: current
+        reviewMode: standard
+        subagentDispatch: null
+        tddMode: tdd
+      - choice: approved
+        proposal:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+      - designEvidence:
+          contentHash: 0fcd8b11b82c67f233d5d5d942f2015dc164cab78735fba90d0db1e6945a5b31
+          ref: docs/openspec/changes/playlist-search-add-remove/design.md
+        plan: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+        planEvidence:
+          contentHash: be9e20202f321f961eb7df213061f63488e85f3ae12112a0caf053a0271b2280
+          ref: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+        taskRevision: 2502bd231cea2dea45c72e002809aac3b70421b03186ac3fe5422998a69714f5
+      - contentHash: be9e20202f321f961eb7df213061f63488e85f3ae12112a0caf053a0271b2280
+        ref: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+      - event: build-complete
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 2
+        contentHash: 21675ee509eda8e7effce27c8c53212ce1eba1c5bcca8f6785dce0428b78b1d6
+        cwd: .
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 1a9613b34b9b43eca4fa296f2c635cff42ef4842b54302d2fb33d0f2bbe4219f
+        inputBefore: 1a9613b34b9b43eca4fa296f2c635cff42ef4842b54302d2fb33d0f2bbe4219f
+        manifestHash: 81e3ff50780b304c99ed94faa7375505827e25ad7a33cd0dbe7b13ba617bc71e
+        manifestRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/c64ccbed-7b20-4860-8e9c-bc1281705749.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/5958fef4-b706-48ec-b889-2bd726008ed1.log
+        reusable: false
+        reused: false
+        scope: build
+        tier: full
+        timeoutMs: 300000
+      - contentHash: 21675ee509eda8e7effce27c8c53212ce1eba1c5bcca8f6785dce0428b78b1d6
+        ref: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/5958fef4-b706-48ec-b889-2bd726008ed1.log
+      - event: verify-fail
+        reason: 独立审查发现 Critical（新建空白 MIDI 无法加载）与 4 个
+          Important（搜索时新建被隐藏、搜索隐藏当前曲目后无法播放、导入时间按源 mtime、验收记录不实）；已修复并新增 7 项 GUI
+          测试（99 项通过），需重新执行 Build 检查
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 4
+        contentHash: dd40ac316ff052a0c611b5ee5032acadea23f7dc6f22753484af34495307b73f
+        cwd: .
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 9ff78b76f6d7c3b6c7704e3243fe9bfa40ab9b3e57d363f34522e128ebbd42f7
+        inputBefore: 9ff78b76f6d7c3b6c7704e3243fe9bfa40ab9b3e57d363f34522e128ebbd42f7
+        manifestHash: fe91040161defc172d6f0f7c72e83539cdacfffce3db6fb08d07d7d0eb6330ac
+        manifestRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/ab6658ac-a5fa-499a-9409-1c4b87f4f115.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/f2d40b9e-2b5c-448d-a77f-244ab293b738.log
+        reusable: false
+        reused: false
+        scope: build
+        tier: full
+        timeoutMs: 300000
+      - contentHash: dd40ac316ff052a0c611b5ee5032acadea23f7dc6f22753484af34495307b73f
+        ref: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/f2d40b9e-2b5c-448d-a77f-244ab293b738.log
+      - contentHash: 4924b695b10edf260d6ed0288b758fef023d20605e794b4d349159e7bb16fd45
+        ref: docs/superpowers/reports/2026-11-11-playlist-search-add-remove-verification.md
+      - event: verification-ready
+        verificationReport: docs/superpowers/reports/2026-11-11-playlist-search-add-remove-verification.md
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 5
+        contentHash: 8c1eaac7c9046a9b38df19afc974472420040d22297d339d14432e519a0d8243
+        cwd: .
+        deliveryInputs: {}
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 8e9dab77b53b3de3a41050f3c9a5d1b7df690c5f3c9f9462633620956846e0af
+        inputBefore: 8e9dab77b53b3de3a41050f3c9a5d1b7df690c5f3c9f9462633620956846e0af
+        manifestHash: 2d07e2745d35d5849f39c72859e9182175de07c9d182f70b0d04d19e928653ce
+        manifestRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/ec2e4431-b5ef-4593-ae6c-d2a636b01644.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/dd8c546d-5449-4c7b-a07a-b4dcd3b4f60f.log
+        reusable: false
+        reused: false
+        scope: verify
+        tier: full
+        timeoutMs: 300000
+      - contentHash: 8c1eaac7c9046a9b38df19afc974472420040d22297d339d14432e519a0d8243
+        ref: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/dd8c546d-5449-4c7b-a07a-b4dcd3b4f60f.log
+      - choice: local
+        proposal:
+          input:
+            change: playlist-search-add-remove
+            changeDir: docs/openspec/changes/playlist-search-add-remove
+            workspaceBaseline:
+              ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+          outputs:
+            full.archive.prepare:
+              summary: 播放列表搜索/排序/新建/删除：按文件名模糊搜索、名称/导入时间排序、新建空白 MIDI
+                并自动加载、从列表隐藏（保留文件、清缓存）与一键恢复。实现提交 8eae1df..4c4fadc，独立审查的 1
+                Critical/4 Important 已修复，99 项测试与 Build/Verify 检查通过。
+              targetBranch: main
+      - summary: 播放列表搜索/排序/新建/删除：按文件名模糊搜索、名称/导入时间排序、新建空白 MIDI
+          并自动加载、从列表隐藏（保留文件、清缓存）与一键恢复。实现提交 8eae1df..4c4fadc，独立审查的 1 Critical/4
+          Important 已修复，99 项测试与 Build/Verify 检查通过。
+        targetBranch: main
+      - baseCommit: 4c4fadcb603b85242b6443f75a34fa29ea5169c0
+        deliveryAction: local
+        targetBranch: main
+        verifiedBranch: main
+      - archiveDirectory: docs/openspec/changes/archive/2026-11-11-playlist-search-add-remove
+      - sequence: 9
+        value:
+          boundBranch: main
+          buildMode: executing-plans
+          directOverride: false
+          isolation: current
+          reviewMode: standard
+          subagentDispatch: null
+          tddMode: tdd
+      - sequence: 10
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: playlist-search-add-remove
+              changeDir: docs/openspec/changes/playlist-search-add-remove
+              workspaceBaseline:
+                ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+            outputs:
+              full.build.configure:
+                boundBranch: main
+                buildMode: executing-plans
+                directOverride: false
+                isolation: current
+                reviewMode: standard
+                subagentDispatch: null
+                tddMode: tdd
+      - sequence: 6
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: playlist-search-add-remove
+              changeDir: docs/openspec/changes/playlist-search-add-remove
+              workspaceBaseline:
+                ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+            outputs:
+              full.design.handoff:
+                handoffContext: docs/openspec/changes/playlist-search-add-remove/.comet/handoff/design-context.json
+                handoffHash: 55f81a00da15b6cbde727baff644b10019830ef96b7afd97512560800b43fe2a
+                proposal: 方案：1) 新增 playlist_store.py 数据层，提供
+                  load_hidden/save_hidden（midi/.hidden_playlist.json，损坏按空集合并保留原文件）、list_entries（只收
+                  .mid/.midi，返回
+                  name/path/mtime）、filter_entries（文件名子串且大小写不敏感）、sort_entries（name
+                  升序；mtime 从新到旧，同秒用 name
+                  作第二键）、unique_midi_name（新建曲目.mid、新建曲目_2.mid…）、create_blank_midi（mido
+                  写 set_tempo 120、time_signature 4/4 与空音轨）。2) UI：列表上方搜索
+                  QLineEdit 与排序 QComboBox（名称/导入时间），列表改为 QListWidget
+                  加右侧竖排删除按钮；控制面板按钮行改为 导入MIDI / 新建 / 刷新。3) refresh_play_list
+                  统一管线：读隐藏集合→过滤隐藏→应用搜索→应用排序→重建列表→按路径恢复选中；搜索或排序变化直接调用它，避免两份过滤逻辑。4)
+                  删除：无选中时按钮禁用；QMessageBox 二次确认，取消不改状态；确认后写隐藏记录并刷新；若删除的是
+                  current_midi_path，调用新增 _clear_piano_roll_cache()（正在播放先
+                  stop_playing，清空铺面音符与辅助线，重置
+                  current_midi_path/processed_tracks/current_bpm 与 BPM
+                  框，清未保存标记与保存按钮，切回占位页）。5) 新建：生成文件后刷新列表，按路径选中并复用 _load_piano_roll
+                  加载，从而 BPM 回填与铺面重置沿用现有逻辑；失败只提示。6)
+                  恢复：列表右键菜单「恢复所有已移除曲目」清空隐藏记录并刷新。关键取舍：不直接删磁盘文件（破坏用户数据且刷新后无法保持移除）、隐藏记录按文件名而非绝对路径（移动目录仍有效）、不引入独立
+                  playlist.json
+                  维护列表（需迁移现有目录数据）。风险：同名文件仍隐藏（提供恢复入口并声明限制）、删除当前曲目丢失未保存编辑（确认框合并提示）、mtime
+                  同秒排序不稳定（名称作第二键）、搜索与排序不持久化（本次范围外）。测试策略：playlist_store
+                  单测覆盖隐藏记录读写与损坏容错、过滤大小写与中文、排序含同秒稳定性、连续新建不重名、空 MIDI 读回
+                  tempo/拍号/音轨；UI 交互手动验收；既有 78 项测试回归。Spec Patch：无。
+                requirementsEvidence:
+                  contentHash: 0891c8b4334b704655e26a814800db5b829e168323ab3e75b5670532c7742241
+                  ref: docs/openspec/changes/playlist-search-add-remove
+                sourceEvidence:
+                  contentHash: 361c9e42d9507b0c4383b500172a5fb2e2b8985134e753c32b0a4b5d31847e17
+                  ref: docs/openspec/changes/playlist-search-add-remove
+      - sequence: 7
+        value:
+          designDoc: docs/openspec/changes/playlist-search-add-remove/design.md
+      - sequence: 8
+        value:
+          contentHash: 0fcd8b11b82c67f233d5d5d942f2015dc164cab78735fba90d0db1e6945a5b31
+          ref: docs/openspec/changes/playlist-search-add-remove/design.md
+      - sequence: 5
+        value:
+          handoffContext: docs/openspec/changes/playlist-search-add-remove/.comet/handoff/design-context.json
+          handoffHash: 55f81a00da15b6cbde727baff644b10019830ef96b7afd97512560800b43fe2a
+          proposal: 方案：1) 新增 playlist_store.py 数据层，提供
+            load_hidden/save_hidden（midi/.hidden_playlist.json，损坏按空集合并保留原文件）、list_entries（只收
+            .mid/.midi，返回
+            name/path/mtime）、filter_entries（文件名子串且大小写不敏感）、sort_entries（name
+            升序；mtime 从新到旧，同秒用 name
+            作第二键）、unique_midi_name（新建曲目.mid、新建曲目_2.mid…）、create_blank_midi（mido
+            写 set_tempo 120、time_signature 4/4 与空音轨）。2) UI：列表上方搜索 QLineEdit 与排序
+            QComboBox（名称/导入时间），列表改为 QListWidget 加右侧竖排删除按钮；控制面板按钮行改为 导入MIDI / 新建
+            / 刷新。3) refresh_play_list
+            统一管线：读隐藏集合→过滤隐藏→应用搜索→应用排序→重建列表→按路径恢复选中；搜索或排序变化直接调用它，避免两份过滤逻辑。4)
+            删除：无选中时按钮禁用；QMessageBox 二次确认，取消不改状态；确认后写隐藏记录并刷新；若删除的是
+            current_midi_path，调用新增 _clear_piano_roll_cache()（正在播放先
+            stop_playing，清空铺面音符与辅助线，重置
+            current_midi_path/processed_tracks/current_bpm 与 BPM
+            框，清未保存标记与保存按钮，切回占位页）。5) 新建：生成文件后刷新列表，按路径选中并复用 _load_piano_roll 加载，从而
+            BPM 回填与铺面重置沿用现有逻辑；失败只提示。6)
+            恢复：列表右键菜单「恢复所有已移除曲目」清空隐藏记录并刷新。关键取舍：不直接删磁盘文件（破坏用户数据且刷新后无法保持移除）、隐藏记录按文件名而非绝对路径（移动目录仍有效）、不引入独立
+            playlist.json
+            维护列表（需迁移现有目录数据）。风险：同名文件仍隐藏（提供恢复入口并声明限制）、删除当前曲目丢失未保存编辑（确认框合并提示）、mtime
+            同秒排序不稳定（名称作第二键）、搜索与排序不持久化（本次范围外）。测试策略：playlist_store
+            单测覆盖隐藏记录读写与损坏容错、过滤大小写与中文、排序含同秒稳定性、连续新建不重名、空 MIDI 读回 tempo/拍号/音轨；UI
+            交互手动验收；既有 78 项测试回归。Spec Patch：无。
+          requirementsEvidence:
+            contentHash: 0891c8b4334b704655e26a814800db5b829e168323ab3e75b5670532c7742241
+            ref: docs/openspec/changes/playlist-search-add-remove
+          sourceEvidence:
+            contentHash: 361c9e42d9507b0c4383b500172a5fb2e2b8985134e753c32b0a4b5d31847e17
+            ref: docs/openspec/changes/playlist-search-add-remove
+      - sequence: 1
+        value:
+          event: open-complete
+      - sequence: 3
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: playlist-search-add-remove
+              changeDir: docs/openspec/changes/playlist-search-add-remove
+              workspaceBaseline:
+                ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+            outputs:
+              full.open:
+                event: open-complete
+              full.open.evidence:
+                contentHash: 5f019ad92842e40f54e820344c03e277adba43b4072f8e75c4d49e9f5c655451
+                ref: docs/openspec/changes/playlist-search-add-remove
+      - sequence: 2
+        value:
+          contentHash: 5f019ad92842e40f54e820344c03e277adba43b4072f8e75c4d49e9f5c655451
+          ref: docs/openspec/changes/playlist-search-add-remove
+      - sequence: 4
+        value:
+          contentHash: 5f019ad92842e40f54e820344c03e277adba43b4072f8e75c4d49e9f5c655451
+      - sequence: 11
+        value:
+          designEvidence:
+            contentHash: 0fcd8b11b82c67f233d5d5d942f2015dc164cab78735fba90d0db1e6945a5b31
+            ref: docs/openspec/changes/playlist-search-add-remove/design.md
+          plan: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+          planEvidence:
+            contentHash: be9e20202f321f961eb7df213061f63488e85f3ae12112a0caf053a0271b2280
+            ref: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+          taskRevision: 2502bd231cea2dea45c72e002809aac3b70421b03186ac3fe5422998a69714f5
+      - sequence: 12
+        value:
+          contentHash: be9e20202f321f961eb7df213061f63488e85f3ae12112a0caf053a0271b2280
+          ref: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+      - sequence: 13
+        value:
+          event: build-complete
+      - sequence: 14
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: 21675ee509eda8e7effce27c8c53212ce1eba1c5bcca8f6785dce0428b78b1d6
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 1a9613b34b9b43eca4fa296f2c635cff42ef4842b54302d2fb33d0f2bbe4219f
+          inputBefore: 1a9613b34b9b43eca4fa296f2c635cff42ef4842b54302d2fb33d0f2bbe4219f
+          manifestHash: 81e3ff50780b304c99ed94faa7375505827e25ad7a33cd0dbe7b13ba617bc71e
+          manifestRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/c64ccbed-7b20-4860-8e9c-bc1281705749.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/5958fef4-b706-48ec-b889-2bd726008ed1.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      - sequence: 15
+        value:
+          contentHash: 21675ee509eda8e7effce27c8c53212ce1eba1c5bcca8f6785dce0428b78b1d6
+          ref: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/5958fef4-b706-48ec-b889-2bd726008ed1.log
+      - sequence: 16
+        value:
+          event: verify-fail
+          reason: 独立审查发现 Critical（新建空白 MIDI 无法加载）与 4 个
+            Important（搜索时新建被隐藏、搜索隐藏当前曲目后无法播放、导入时间按源 mtime、验收记录不实）；已修复并新增 7 项 GUI
+            测试（99 项通过），需重新执行 Build 检查
+      - sequence: 17
+        value:
+          designEvidence:
+            contentHash: 0fcd8b11b82c67f233d5d5d942f2015dc164cab78735fba90d0db1e6945a5b31
+            ref: docs/openspec/changes/playlist-search-add-remove/design.md
+          plan: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+          planEvidence:
+            contentHash: be9e20202f321f961eb7df213061f63488e85f3ae12112a0caf053a0271b2280
+            ref: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+          taskRevision: 2502bd231cea2dea45c72e002809aac3b70421b03186ac3fe5422998a69714f5
+      - sequence: 18
+        value:
+          contentHash: be9e20202f321f961eb7df213061f63488e85f3ae12112a0caf053a0271b2280
+          ref: docs/superpowers/plans/2026-11-11-playlist-search-add-remove.md
+      - sequence: 19
+        value:
+          event: build-complete
+      - sequence: 20
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 4
+          contentHash: dd40ac316ff052a0c611b5ee5032acadea23f7dc6f22753484af34495307b73f
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 9ff78b76f6d7c3b6c7704e3243fe9bfa40ab9b3e57d363f34522e128ebbd42f7
+          inputBefore: 9ff78b76f6d7c3b6c7704e3243fe9bfa40ab9b3e57d363f34522e128ebbd42f7
+          manifestHash: fe91040161defc172d6f0f7c72e83539cdacfffce3db6fb08d07d7d0eb6330ac
+          manifestRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/ab6658ac-a5fa-499a-9409-1c4b87f4f115.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/f2d40b9e-2b5c-448d-a77f-244ab293b738.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      - sequence: 21
+        value:
+          contentHash: dd40ac316ff052a0c611b5ee5032acadea23f7dc6f22753484af34495307b73f
+          ref: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/f2d40b9e-2b5c-448d-a77f-244ab293b738.log
+      - sequence: 23
+        value:
+          contentHash: 4924b695b10edf260d6ed0288b758fef023d20605e794b4d349159e7bb16fd45
+          ref: docs/superpowers/reports/2026-11-11-playlist-search-add-remove-verification.md
+      - sequence: 22
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-11-playlist-search-add-remove-verification.md
+      - sequence: 24
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 5
+          contentHash: 8c1eaac7c9046a9b38df19afc974472420040d22297d339d14432e519a0d8243
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 8e9dab77b53b3de3a41050f3c9a5d1b7df690c5f3c9f9462633620956846e0af
+          inputBefore: 8e9dab77b53b3de3a41050f3c9a5d1b7df690c5f3c9f9462633620956846e0af
+          manifestHash: 2d07e2745d35d5849f39c72859e9182175de07c9d182f70b0d04d19e928653ce
+          manifestRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/ec2e4431-b5ef-4593-ae6c-d2a636b01644.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/dd8c546d-5449-4c7b-a07a-b4dcd3b4f60f.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      - sequence: 25
+        value:
+          contentHash: 8c1eaac7c9046a9b38df19afc974472420040d22297d339d14432e519a0d8243
+          ref: .comet/runtime/classic-sdk-checks/c36cbb55099532963b63d376bbb1d36a3715d91578ad82ba2a6853509b9c3c1a/dd8c546d-5449-4c7b-a07a-b4dcd3b4f60f.log
+      - sequence: 27
+        value:
+          choice: local
+          proposal:
+            input:
+              change: playlist-search-add-remove
+              changeDir: docs/openspec/changes/playlist-search-add-remove
+              workspaceBaseline:
+                ref: 9c7fba1a-59cc-4896-8475-85f58736c697
+            outputs:
+              full.archive.prepare:
+                summary: 播放列表搜索/排序/新建/删除：按文件名模糊搜索、名称/导入时间排序、新建空白 MIDI
+                  并自动加载、从列表隐藏（保留文件、清缓存）与一键恢复。实现提交 8eae1df..4c4fadc，独立审查的 1
+                  Critical/4 Important 已修复，99 项测试与 Build/Verify 检查通过。
+                targetBranch: main
+      - sequence: 26
+        value:
+          summary: 播放列表搜索/排序/新建/删除：按文件名模糊搜索、名称/导入时间排序、新建空白 MIDI
+            并自动加载、从列表隐藏（保留文件、清缓存）与一键恢复。实现提交 8eae1df..4c4fadc，独立审查的 1 Critical/4
+            Important 已修复，99 项测试与 Build/Verify 检查通过。
+          targetBranch: main
+      - sequence: 28
+        value:
+          baseCommit: 4c4fadcb603b85242b6443f75a34fa29ea5169c0
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      - sequence: 29
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-11-playlist-search-add-remove
+    nodes:
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 1
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: 3
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 5
+        left: 6
+        right: 7
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 8
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 7
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 6
+        left: 10
+        right: 11
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 12
+        right: 7
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 13
+        right: 4
+        height: 4
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 16
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 11
+        right: 7
+        height: 2
+      - key: full.design.document
+        value: 6
+        left: 17
+        right: 18
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 19
+        right: 4
+        height: 4
+      - key: full.build.plan
+        value: 10
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 11
+        left: 21
+        right: 22
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 23
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 4
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 24
+        right: 25
+        height: 4
+      - key: full.build.execute
+        value: 12
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 27
+        height: 2
+      - key: full.build.plan.evidence
+        value: 11
+        left: null
+        right: 22
+        height: 2
+      - key: full.build.plan
+        value: 10
+        left: 28
+        right: 29
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 30
+        right: 25
+        height: 4
+      - key: full.build.check
+        value: 13
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 14
+        left: 32
+        right: 33
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 34
+        right: 27
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 35
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 25
+        height: 5
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 15
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: 39
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 40
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 41
+        height: 5
+      - key: full.build.check
+        value: 16
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 17
+        left: 43
+        right: 33
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 44
+        right: 27
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 45
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 46
+        right: 41
+        height: 5
+      - key: full.verify.report.evidence
+        value: 18
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 19
+        left: 48
+        right: null
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: 49
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 50
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 46
+        right: 51
+        height: 5
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 19
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 18
+        left: 54
+        right: 55
+        height: 2
+      - key: full.verify.check
+        value: 20
+        left: 53
+        right: 56
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 57
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 46
+        right: 58
+        height: 5
+      - key: full.archive.confirm
+        value: 22
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 16
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 23
+        left: 60
+        right: 61
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 33
+        right: 27
+        height: 2
+      - key: full.build.check.evidence
+        value: 17
+        left: 62
+        right: 63
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 64
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 65
+        right: 58
+        height: 5
+      - key: full.archive.preflight
+        value: 24
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 22
+        left: null
+        right: 67
+        height: 2
+      - key: full.archive.prepare
+        value: 23
+        left: 68
+        right: 61
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 63
+        right: 29
+        height: 3
+      - key: full.build.check.evidence
+        value: 17
+        left: 69
+        right: 70
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 71
+        right: 58
+        height: 5
+      - key: full.archive.confirm
+        value: 22
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 24
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 25
+        left: 73
+        right: 74
+        height: 2
+      - key: full.archive.prepare
+        value: 23
+        left: 75
+        right: 61
+        height: 3
+      - key: full.build.check.evidence
+        value: 17
+        left: 76
+        right: 70
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 77
+        right: 58
+        height: 5
+      - key: full.build.configure
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 27
+        left: 79
+        right: 80
+        height: 2
+      - key: full.design.evidence
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 31
+        left: 82
+        right: 83
+        height: 2
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: null
+        right: 85
+        height: 2
+      - key: full.open.confirm
+        value: 33
+        left: 84
+        right: 86
+        height: 3
+      - key: full.design.document
+        value: 29
+        left: 81
+        right: 87
+        height: 4
+      - key: full.build.plan
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 37
+        left: 89
+        right: 90
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 79
+        right: 91
+        height: 3
+      - key: full.design.document
+        value: 29
+        left: 92
+        right: 87
+        height: 4
+      - key: full.build.execute
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 27
+        left: 79
+        right: 94
+        height: 2
+      - key: full.build.plan.evidence
+        value: 37
+        left: null
+        right: 90
+        height: 2
+      - key: full.build.plan
+        value: 36
+        left: 95
+        right: 96
+        height: 3
+      - key: full.design.document
+        value: 29
+        left: 97
+        right: 87
+        height: 4
+      - key: full.build.check
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 40
+        left: 99
+        right: 100
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 101
+        right: 94
+        height: 3
+      - key: full.build.plan
+        value: 36
+        left: 102
+        right: 96
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 103
+        right: 87
+        height: 5
+      - key: full.open.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 35
+        left: 105
+        right: 106
+        height: 2
+      - key: full.open.confirm
+        value: 33
+        left: 84
+        right: 107
+        height: 3
+      - key: full.design.document
+        value: 29
+        left: 103
+        right: 108
+        height: 5
+      - key: full.build.plan.evidence
+        value: 43
+        left: null
+        right: 90
+        height: 2
+      - key: full.build.plan
+        value: 42
+        left: 102
+        right: 110
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 111
+        right: 108
+        height: 5
+      - key: full.build.execute
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 27
+        left: 101
+        right: 113
+        height: 3
+      - key: full.build.plan
+        value: 42
+        left: 114
+        right: 110
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 115
+        right: 108
+        height: 5
+      - key: full.build.check
+        value: 45
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 46
+        left: 117
+        right: 100
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 118
+        right: 113
+        height: 3
+      - key: full.build.plan
+        value: 42
+        left: 119
+        right: 110
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 120
+        right: 108
+        height: 5
+      - key: full.verify.report.evidence
+        value: 47
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 48
+        left: 122
+        right: null
+        height: 2
+      - key: full.open.revalidate
+        value: 35
+        left: 105
+        right: 123
+        height: 3
+      - key: full.open.confirm
+        value: 33
+        left: 84
+        right: 124
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 120
+        right: 125
+        height: 5
+      - key: full.open.revalidate
+        value: 35
+        left: 105
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 50
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 48
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 47
+        left: 128
+        right: 129
+        height: 2
+      - key: full.verify.check
+        value: 49
+        left: 127
+        right: 130
+        height: 3
+      - key: full.open.confirm
+        value: 33
+        left: 84
+        right: 131
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 120
+        right: 132
+        height: 5
+      - key: full.archive.confirm
+        value: 51
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 45
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 52
+        left: 134
+        right: 135
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 100
+        right: 113
+        height: 2
+      - key: full.build.check.evidence
+        value: 46
+        left: 136
+        right: 137
+        height: 3
+      - key: full.build.plan
+        value: 42
+        left: 138
+        right: 110
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 139
+        right: 132
+        height: 5
+      - key: full.archive.preflight
+        value: 53
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 51
+        left: null
+        right: 141
+        height: 2
+      - key: full.archive.prepare
+        value: 52
+        left: 142
+        right: 135
+        height: 3
+      - key: full.build.plan
+        value: 42
+        left: 137
+        right: 110
+        height: 3
+      - key: full.build.check.evidence
+        value: 46
+        left: 143
+        right: 144
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 145
+        right: 132
+        height: 5
+      - key: full.archive.confirm
+        value: 51
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 53
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 54
+        left: 147
+        right: 148
+        height: 2
+      - key: full.archive.prepare
+        value: 52
+        left: 149
+        right: 135
+        height: 3
+      - key: full.build.check.evidence
+        value: 46
+        left: 150
+        right: 144
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 151
+        right: 132
+        height: 5
+      - key: full.open
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 33
+        left: 153
+        right: 154
+        height: 2
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: null
+        right: 156
+        height: 2
+      - key: full.open.confirm
+        value: 33
+        left: 153
+        right: 157
+        height: 3
+      - key: full.design.confirm
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 31
+        left: 159
+        right: 160
+        height: 2
+      - key: full.open.confirm
+        value: 33
+        left: 161
+        right: 157
+        height: 3
+      - key: full.design.confirm
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 29
+        left: 163
+        right: 164
+        height: 2
+      - key: full.design.handoff
+        value: 31
+        left: 165
+        right: 160
+        height: 3
+      - key: full.open.confirm
+        value: 33
+        left: 166
+        right: 157
+        height: 4
+      - key: full.open.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 32
+        left: null
+        right: 168
+        height: 2
+      - key: full.design.handoff
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: 171
+        right: 172
+        height: 2
+      - key: full.open
+        value: 32
+        left: 170
+        right: 173
+        height: 3
+      - key: full.build.configure
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 30
+        left: 176
+        right: 177
+        height: 2
+      - key: full.design.confirm
+        value: 28
+        left: 175
+        right: 178
+        height: 3
+      - key: full.open
+        value: 32
+        left: 179
+        right: 173
+        height: 4
+      - key: full.archive.prepare
+        value: 52
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 46
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 45
+        left: 181
+        right: 182
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 43
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 42
+        left: null
+        right: 185
+        height: 2
+      - key: full.build.execute
+        value: 44
+        left: 184
+        right: 186
+        height: 3
+      - key: full.build.configure
+        value: 26
+        left: 183
+        right: 187
+        height: 4
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: 171
+        right: 189
+        height: 2
+      - key: full.verify.check.evidence
+        value: 50
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 48
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 47
+        left: 191
+        right: 192
+        height: 2
+      - key: full.verify.check
+        value: 49
+        left: 190
+        right: 193
+        height: 3
+      - key: full.open
+        value: 32
+        left: 178
+        right: 194
+        height: 4
+      - key: full.design.confirm
+        value: 28
+        left: 188
+        right: 195
+        height: 5
+      - key: full.open
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 29
+        left: 198
+        right: 199
+        height: 2
+      - key: full.open.confirm
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: 201
+        right: 202
+        height: 2
+      - key: full.open
+        value: 32
+        left: 200
+        right: 203
+        height: 3
+      - key: full.build.configure
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 27
+        left: 205
+        right: 206
+        height: 2
+      - key: full.design.document
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 30
+        left: 208
+        right: 209
+        height: 2
+      - key: full.design.confirm
+        value: 28
+        left: 207
+        right: 210
+        height: 3
+      - key: full.open
+        value: 32
+        left: 211
+        right: 203
+        height: 4
+      - key: full.build.check
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 26
+        left: 213
+        right: null
+        height: 2
+      - key: full.build.execute
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 37
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 36
+        left: 215
+        right: 216
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 214
+        right: 217
+        height: 3
+      - key: full.open
+        value: 32
+        left: 210
+        right: 203
+        height: 3
+      - key: full.design.confirm
+        value: 28
+        left: 218
+        right: 219
+        height: 4
+      - key: full.build.check
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 40
+        left: 221
+        right: 222
+        height: 2
+      - key: full.build.plan
+        value: 42
+        left: 215
+        right: 216
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 223
+        right: 224
+        height: 3
+      - key: full.verify.run
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: 226
+        height: 2
+      - key: full.open.evidence
+        value: 34
+        left: 201
+        right: 227
+        height: 3
+      - key: full.open
+        value: 32
+        left: 210
+        right: 228
+        height: 4
+      - key: full.design.confirm
+        value: 28
+        left: 225
+        right: 229
+        height: 5
+      - key: full.build.check
+        value: 45
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 40
+        left: 231
+        right: 222
+        height: 2
+      - key: full.build.execute
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 43
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 42
+        left: 233
+        right: 234
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 232
+        right: 235
+        height: 3
+      - key: full.design.confirm
+        value: 28
+        left: 236
+        right: 229
+        height: 5
+      - key: full.build.check.evidence
+        value: 46
+        left: 231
+        right: 222
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 238
+        right: 235
+        height: 3
+      - key: full.verify.run
+        value: 48
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: 240
+        height: 2
+      - key: full.open.evidence
+        value: 34
+        left: 201
+        right: 241
+        height: 3
+      - key: full.open
+        value: 32
+        left: 210
+        right: 242
+        height: 4
+      - key: full.design.confirm
+        value: 28
+        left: 239
+        right: 243
+        height: 5
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: 201
+        right: 245
+        height: 2
+      - key: full.verify.report.evidence
+        value: 47
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 48
+        left: 247
+        right: null
+        height: 2
+      - key: full.verify.check
+        value: 49
+        left: 246
+        right: 248
+        height: 3
+      - key: full.open
+        value: 32
+        left: 210
+        right: 249
+        height: 4
+      - key: full.design.confirm
+        value: 28
+        left: 239
+        right: 250
+        height: 5
+    maps:
+      - null
+      - 2
+      - 5
+      - 9
+      - 14
+      - 20
+      - 26
+      - 31
+      - 37
+      - 42
+      - 47
+      - 52
+      - 59
+      - 66
+      - 72
+      - 78
+      - 88
+      - 93
+      - 98
+      - 104
+      - 109
+      - 112
+      - 116
+      - 121
+      - 126
+      - 133
+      - 140
+      - 146
+      - 152
+      - 155
+      - 158
+      - 162
+      - 167
+      - 169
+      - 174
+      - 180
+      - 196
+      - 197
+      - 204
+      - 212
+      - 220
+      - 230
+      - 237
+      - 244
+      - 251
+    bindings:
+      - path:
+          - actions
+          - "0"
+          - input
+          - outputs
+        map: 0
+      - path:
+          - actions
+          - "1"
+          - input
+          - outputs
+        map: 1
+      - path:
+          - actions
+          - "2"
+          - input
+          - outputs
+        map: 2
+      - path:
+          - actions
+          - "3"
+          - input
+          - outputs
+        map: 3
+      - path:
+          - actions
+          - "4"
+          - input
+          - outputs
+        map: 4
+      - path:
+          - actions
+          - "5"
+          - input
+          - outputs
+        map: 5
+      - path:
+          - actions
+          - "6"
+          - input
+          - outputs
+        map: 6
+      - path:
+          - actions
+          - "7"
+          - input
+          - outputs
+        map: 7
+      - path:
+          - actions
+          - "8"
+          - input
+          - outputs
+        map: 8
+      - path:
+          - actions
+          - "9"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "10"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "11"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "12"
+          - input
+          - outputs
+        map: 10
+      - path:
+          - actions
+          - "13"
+          - input
+          - outputs
+        map: 11
+      - path:
+          - actions
+          - "14"
+          - input
+          - outputs
+        map: 12
+      - path:
+          - actions
+          - "15"
+          - input
+          - outputs
+        map: 13
+      - path:
+          - actions
+          - "16"
+          - input
+          - outputs
+        map: 14
+      - path:
+          - actions
+          - "17"
+          - input
+          - outputs
+        map: 15
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:1
+          - results
+        map: 0
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:11
+          - results
+        map: 16
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:13
+          - results
+        map: 17
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:14
+          - results
+        map: 18
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:16
+          - results
+        map: 19
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:17
+          - results
+        map: 20
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:19
+          - results
+        map: 21
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:20
+          - results
+        map: 22
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:22
+          - results
+        map: 23
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:24
+          - results
+        map: 24
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:26
+          - results
+        map: 25
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:28
+          - results
+        map: 26
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:29
+          - results
+        map: 27
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:30
+          - results
+        map: 28
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:4
+          - results
+        map: 29
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:5
+          - results
+        map: 30
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:7
+          - results
+        map: 31
+      - path:
+          - actionContexts
+          - playlist-search-add-remove:9
+          - results
+        map: 32
+      - path:
+          - outputs
+        map: 28
+      - path:
+          - waits
+          - "0"
+          - results
+        map: 33
+      - path:
+          - waits
+          - "1"
+          - results
+        map: 34
+      - path:
+          - waits
+          - "2"
+          - results
+        map: 35
+      - path:
+          - waits
+          - "3"
+          - results
+        map: 36
+      - path:
+          - evidenceWaits
+          - "0"
+          - results
+        map: 37
+      - path:
+          - evidenceWaits
+          - "1"
+          - results
+        map: 38
+      - path:
+          - evidenceWaits
+          - "2"
+          - results
+        map: 39
+      - path:
+          - evidenceWaits
+          - "3"
+          - results
+        map: 40
+      - path:
+          - evidenceWaits
+          - "4"
+          - results
+        map: 41
+      - path:
+          - evidenceWaits
+          - "5"
+          - results
+        map: 42
+      - path:
+          - evidenceWaits
+          - "6"
+          - results
+        map: 43
+      - path:
+          - evidenceWaits
+          - "7"
+          - results
+        map: 44
+  storageHash: 47eddfcdb28bbc79e56181c67adec8ecdccc3367645f3b4022859b9df5ac45bb
+check_epoch: 8

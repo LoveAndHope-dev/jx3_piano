@@ -91,6 +91,18 @@ def octave_shift_pitches(
     return targets
 
 
+def playback_notes_from_position(notes: List[Dict], playhead: float) -> List[Dict]:
+    """只保留起始时间不早于 playhead 的音符，并把 start 平移到相对时间。"""
+    result: List[Dict] = []
+    for note in notes:
+        start = float(note.get("start", 0.0))
+        if start >= playhead - PLAYHEAD_EPSILON:
+            cloned = dict(note)
+            cloned["start"] = max(0.0, start - playhead)
+            result.append(cloned)
+    return result
+
+
 class _PianoKeyboardWidget(QWidget):
     """铺面左侧的竖直钢琴键盘：纯视觉参照，固定贴在视图左边缘，随铺面纵向滚动
     一起滚动，不随铺面横向（时间轴）滚动移动；不接受任何鼠标事件。"""

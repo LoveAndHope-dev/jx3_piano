@@ -45,6 +45,14 @@ CLICK_DRAG_THRESHOLD = 4.0
 KEYBOARD_WIDTH = 30
 MIN_MEASURE_SECONDS = 0.05  # 拍号/BPM 异常导致小节过短时的安全下限，避免画出海量小节线
 
+# 横向缩放
+MIN_PIXELS_PER_SECOND = 10.0
+MAX_PIXELS_PER_SECOND = 600.0
+ZOOM_STEP_FACTOR = 1.25
+
+# 播放起点过滤的浮点比较容差
+PLAYHEAD_EPSILON = 1e-6
+
 RANGE_FILL_COLOR = QColor(255, 196, 0, 110)
 RANGE_BORDER_COLOR = QColor(255, 214, 10, 235)
 SELECT_RECT_FILL_COLOR = QColor(244, 208, 63, 40)
@@ -58,6 +66,14 @@ _BLACK_KEY_OFFSETS = {1, 3, 6, 8, 10}
 
 def _is_black_key(pitch: int) -> bool:
     return (pitch % 12) in _BLACK_KEY_OFFSETS
+
+
+def pasted_starts(clipboard: List[Dict], anchor: float) -> List[float]:
+    """剪贴板音符按最早 start 对齐 anchor（秒）后的起始时间列表；不修改输入。"""
+    if not clipboard:
+        return []
+    base = min(float(n.get("start", 0.0)) for n in clipboard)
+    return [max(0.0, float(anchor) + float(n.get("start", 0.0)) - base) for n in clipboard]
 
 
 class _PianoKeyboardWidget(QWidget):

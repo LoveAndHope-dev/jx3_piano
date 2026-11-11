@@ -1,6 +1,6 @@
 import unittest
 
-from piano_roll import pasted_starts
+from piano_roll import octave_shift_pitches, pasted_starts
 
 
 class PastedStartsTest(unittest.TestCase):
@@ -21,6 +21,28 @@ class PastedStartsTest(unittest.TestCase):
 
     def test_empty_clipboard(self):
         self.assertEqual(pasted_starts([], 10.0), [])
+
+
+class OctaveShiftTest(unittest.TestCase):
+    def test_shift_up_all_notes(self):
+        notes = [{"id": 1, "pitch": 60}, {"id": 2, "pitch": 64}]
+        self.assertEqual(octave_shift_pitches(notes, {1, 2}, 12), {1: 72, 2: 76})
+
+    def test_shift_down_all_notes(self):
+        notes = [{"id": 1, "pitch": 60}]
+        self.assertEqual(octave_shift_pitches(notes, {1}, -12), {1: 48})
+
+    def test_out_of_range_note_keeps_pitch(self):
+        notes = [{"id": 1, "pitch": 100}, {"id": 2, "pitch": 60}]
+        self.assertEqual(octave_shift_pitches(notes, {1, 2}, 12), {1: 100, 2: 72})
+
+    def test_all_out_of_range_returns_original_pitches(self):
+        notes = [{"id": 1, "pitch": 21}]
+        self.assertEqual(octave_shift_pitches(notes, {1}, -12), {1: 21})
+
+    def test_unselected_notes_are_ignored(self):
+        notes = [{"id": 1, "pitch": 60}, {"id": 2, "pitch": 64}]
+        self.assertEqual(octave_shift_pitches(notes, {2}, 12), {2: 76})
 
 
 if __name__ == "__main__":

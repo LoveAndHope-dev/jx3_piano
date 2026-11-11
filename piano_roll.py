@@ -76,6 +76,21 @@ def pasted_starts(clipboard: List[Dict], anchor: float) -> List[float]:
     return [max(0.0, float(anchor) + float(n.get("start", 0.0)) - base) for n in clipboard]
 
 
+def octave_shift_pitches(
+    notes: List[Dict], selected_ids: Set[int], delta: int
+) -> Dict[int, int]:
+    """按 delta 半音整体移动选中音符；新音高超出 A0～C8 的音符保持原音高。"""
+    targets: Dict[int, int] = {}
+    for note in notes:
+        note_id = note.get("id")
+        if note_id not in selected_ids:
+            continue
+        pitch = int(note["pitch"])
+        target = pitch + delta
+        targets[note_id] = target if MIN_PITCH <= target <= MAX_PITCH else pitch
+    return targets
+
+
 class _PianoKeyboardWidget(QWidget):
     """铺面左侧的竖直钢琴键盘：纯视觉参照，固定贴在视图左边缘，随铺面纵向滚动
     一起滚动，不随铺面横向（时间轴）滚动移动；不接受任何鼠标事件。"""

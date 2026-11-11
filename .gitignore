@@ -213,7 +213,11 @@ midi/
 midi copy/
 play_code/
 release/
-# >>> Comet managed project state >>>
+# AI-generated documentation (not committed)
+docs/
+AGENTS.md
+
+# >>> Comet managed project state >>>>
 !/.comet/
 /.comet/*
 !/.comet/config.yaml

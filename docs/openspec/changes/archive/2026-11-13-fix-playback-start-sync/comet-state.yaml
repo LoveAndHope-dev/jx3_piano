@@ -1,0 +1,3204 @@
+# comet-execution: managed-run
+change_id: 218a3553-1d61-43e9-b1f3-c70f60229aa8
+workflow: hotfix
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: 49eb874f0d98dbebda2fc95f5fbf13035d2b11b2
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+branch_status: pending
+created_at: 2026-11-12
+verified_at: 2026-11-12
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: 008de4e821b6e50cfabc6248c7ba62ccb15df1e0ae5ea2bd398a1ac6014e4788
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: fix-playback-start-sync
+    revision: 1
+    workflow:
+      id: comet-classic-hotfix
+      version: "1"
+      hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+    definitionHashes:
+      '["comet-classic-hotfix","1"]': 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+    initialStateHash: 8c915657cfed517018afcfdd9e984373b5cdea6d84691f28778bac8033b036a5
+    input:
+      change: fix-playback-start-sync
+      changeDir: docs/openspec/changes/fix-playback-start-sync
+      workspaceBaseline:
+        ref: 5203317c-b034-49a4-be5e-febea30279cb
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 49eb874f0d98dbebda2fc95f5fbf13035d2b11b2
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 7
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-12
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+      verifiedAt: 2026-11-12
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: hotfix
+    status: running
+    sequence: 20
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-4c0fd6e7cbbc847dc6e0cf1ad47e4ac6a295c882c4315a745803eb32f30996b4
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-start-sync:1
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs: {}
+        inputHash: f97790e977d86433ddc26505c6039f0a9b19b8371bdc31cbd32e06cec7c10f5c
+        outcome:
+          actionId: fix-playback-start-sync:1
+          attempt: 1
+          claimToken: portable-4c0fd6e7cbbc847dc6e0cf1ad47e4ac6a295c882c4315a745803eb32f30996b4
+          inputHash: f97790e977d86433ddc26505c6039f0a9b19b8371bdc31cbd32e06cec7c10f5c
+          outcomeId: 2f4809f7-a537-4f46-990d-6b49fdf8af7b
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: bc2d9663d6fa0160caa709b7f5366e9ca7db3d1f235ccee55313a78997429ab6
+            outcomeId: 2f4809f7-a537-4f46-990d-6b49fdf8af7b
+        reconciliations: []
+        ref: comet-hotfix
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: succeeded
+        stepId: hotfix.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/fix-playback-start-sync:3/1
+          token: portable-cddba8089180bc84c9c8e36a5a406fc96d1ca4a0ba609a340cb9510dbae8b6df
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-start-sync:3
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.open.evidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+        inputHash: c933b6e9ab098d1725c2ab576ee22fe0aeb69dc067889f42dec6d07e4c3aeaeb
+        outcome:
+          actionId: fix-playback-start-sync:3
+          attempt: 1
+          claimToken: portable-cddba8089180bc84c9c8e36a5a406fc96d1ca4a0ba609a340cb9510dbae8b6df
+          inputHash: c933b6e9ab098d1725c2ab576ee22fe0aeb69dc067889f42dec6d07e4c3aeaeb
+          outcomeId: 88627cf8-1a49-4640-89c9-17f6dc8ba48f
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 797c54de6971d8e2625929807644daab872836607738348196f524a800402bd0
+            outcomeId: 88627cf8-1a49-4640-89c9-17f6dc8ba48f
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: succeeded
+        stepId: hotfix.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-478ac98c79eb15d41bd3216a4287b3783e96c8dd05254372c96ac98dfc3c7281
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-start-sync:4
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.open.evidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+        inputHash: b4e0c670382b23ec3425189292182e6d2a9d100f34f5e3d9a847ecb3688ad199
+        outcome:
+          actionId: fix-playback-start-sync:4
+          attempt: 1
+          claimToken: portable-478ac98c79eb15d41bd3216a4287b3783e96c8dd05254372c96ac98dfc3c7281
+          inputHash: b4e0c670382b23ec3425189292182e6d2a9d100f34f5e3d9a847ecb3688ad199
+          outcomeId: 7a569f09-0e9d-48d1-b496-89acc3b98576
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+            inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+            manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+            manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 171e4e89c4ffe624d9d602673f30cb5134c4d7eab2e6ead4e2a78f62e79de795
+            outcomeId: 7a569f09-0e9d-48d1-b496-89acc3b98576
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: succeeded
+        stepId: hotfix.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-2b6e49da1144dfe7dada8988dffcdab8330dee9a3cf50acffcc2d4969922e146
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-start-sync:6
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.open.evidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+        inputHash: f59d4f2e4e0f11bf52c4bda05225c839038ed2d159f503b28b4e8a25b417ccfb
+        outcome:
+          actionId: fix-playback-start-sync:6
+          attempt: 1
+          claimToken: portable-2b6e49da1144dfe7dada8988dffcdab8330dee9a3cf50acffcc2d4969922e146
+          inputHash: f59d4f2e4e0f11bf52c4bda05225c839038ed2d159f503b28b4e8a25b417ccfb
+          outcomeId: c3129cb1-a0f7-4e0a-bf1d-17b47c6fe76e
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: e0a5d0121afc4e007a90d8fc2cd0bc6c641adfb49e3b15eaf94ebe53c5b47cad
+            outcomeId: c3129cb1-a0f7-4e0a-bf1d-17b47c6fe76e
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: succeeded
+        stepId: hotfix.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-445206861ffd00e9244a066722bd1b5e8a003089df40698214d02d2987b06ebe
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-start-sync:8
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.open.evidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.verify.report.evidence:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        inputHash: 21c2d0b6cafdcd313b081b0b496fd16b0cc90307ccc9c98df14c7ad00679d4b6
+        outcome:
+          actionId: fix-playback-start-sync:8
+          attempt: 1
+          claimToken: portable-445206861ffd00e9244a066722bd1b5e8a003089df40698214d02d2987b06ebe
+          inputHash: 21c2d0b6cafdcd313b081b0b496fd16b0cc90307ccc9c98df14c7ad00679d4b6
+          outcomeId: 6dadb8b8-eb93-42e2-a46b-a47865c530ac
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+            inputBefore: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+            manifestHash: 3bcdb91499c110a1cd98d816925804290ed2ec70cbd6b99cbe191743e5aa7eed
+            manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/1731180c-75f9-45fa-9b2d-570ea170a16e.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: ba104a16b31bb5f5a62208f69f45e93fb3100b6017b2ae1c70ccccff678dad82
+            outcomeId: 6dadb8b8-eb93-42e2-a46b-a47865c530ac
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: succeeded
+        stepId: hotfix.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-015cc5ad99fb975aa4aa2efcca80c142dd663fdc3f726b8d75d62ad4353ca3d3
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-start-sync:10
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.open.evidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              inputBefore: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              manifestHash: 3bcdb91499c110a1cd98d816925804290ed2ec70cbd6b99cbe191743e5aa7eed
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/1731180c-75f9-45fa-9b2d-570ea170a16e.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+            hotfix.verify.report.evidence:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        inputHash: d5a1b92e72e654e28bc70972eaa82da408af6b83c45361fad9542b0c78f37c52
+        outcome:
+          actionId: fix-playback-start-sync:10
+          attempt: 1
+          claimToken: portable-015cc5ad99fb975aa4aa2efcca80c142dd663fdc3f726b8d75d62ad4353ca3d3
+          inputHash: d5a1b92e72e654e28bc70972eaa82da408af6b83c45361fad9542b0c78f37c52
+          outcomeId: 4e5e0564-7d46-470c-a13a-ba324f6da24d
+          output:
+            summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+              1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+              已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: c0e26fdde56b6d409eb334731a93ccf37bd0ad0ec4f203948a6381dacb86e833
+            outcomeId: 4e5e0564-7d46-470c-a13a-ba324f6da24d
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: succeeded
+        stepId: hotfix.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-d4ea436cad904a299e135df11994e618c9af203f08839fdec248724c58747b0f
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-start-sync:12
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.archive.confirm:
+              choice: reverify
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.prepare:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.open.evidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              inputBefore: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              manifestHash: 3bcdb91499c110a1cd98d816925804290ed2ec70cbd6b99cbe191743e5aa7eed
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/1731180c-75f9-45fa-9b2d-570ea170a16e.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+            hotfix.verify.report.evidence:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        inputHash: 2ab1bddb3f69037ce99ce133d8d0653a0d5f656819f14474e0278c72617b2b6c
+        outcome:
+          actionId: fix-playback-start-sync:12
+          attempt: 1
+          claimToken: portable-d4ea436cad904a299e135df11994e618c9af203f08839fdec248724c58747b0f
+          inputHash: 2ab1bddb3f69037ce99ce133d8d0653a0d5f656819f14474e0278c72617b2b6c
+          outcomeId: a2bb538f-f656-4d3b-ae86-1e44936e09a9
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 472ca634b5ae329ae182c7ec7c5c79be9272a35bcc93ac0d2e243f43c994611c
+            outcomeId: a2bb538f-f656-4d3b-ae86-1e44936e09a9
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: succeeded
+        stepId: hotfix.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-24611a2ce5b04f1560429eee613ce9b247ee2b1d4cf73d8137f321afa13dc050
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-start-sync:14
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.archive.confirm:
+              choice: reverify
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.prepare:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.open.evidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              inputBefore: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              manifestHash: 3bcdb91499c110a1cd98d816925804290ed2ec70cbd6b99cbe191743e5aa7eed
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/1731180c-75f9-45fa-9b2d-570ea170a16e.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+            hotfix.verify.report.evidence:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        inputHash: 2ab1bddb3f69037ce99ce133d8d0653a0d5f656819f14474e0278c72617b2b6c
+        outcome:
+          actionId: fix-playback-start-sync:14
+          attempt: 1
+          claimToken: portable-24611a2ce5b04f1560429eee613ce9b247ee2b1d4cf73d8137f321afa13dc050
+          inputHash: 2ab1bddb3f69037ce99ce133d8d0653a0d5f656819f14474e0278c72617b2b6c
+          outcomeId: 8f6c02ce-e465-4b8e-bd1c-220ace722771
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 4
+            contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+            inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+            manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+            manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: a7eceb2e467a2b51486414bd4b85cfe6237e41e62d58787b2461cb85d8245997
+            outcomeId: 8f6c02ce-e465-4b8e-bd1c-220ace722771
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: succeeded
+        stepId: hotfix.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-3076c2b8400e777e86a71fdaaebcbb2e35d829c0b8fee6edcc214a097f4ebf2b
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-start-sync:16
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.archive.confirm:
+              choice: reverify
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.prepare:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.open.evidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+            hotfix.verify.report.evidence:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        inputHash: b83e3e9e663953636769587f13152bf419f813b6443172324b0a1e6540931948
+        outcome:
+          actionId: fix-playback-start-sync:16
+          attempt: 1
+          claimToken: portable-3076c2b8400e777e86a71fdaaebcbb2e35d829c0b8fee6edcc214a097f4ebf2b
+          inputHash: b83e3e9e663953636769587f13152bf419f813b6443172324b0a1e6540931948
+          outcomeId: c145b3c9-393d-4215-bbe1-7710e746aaf3
+          output:
+            summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+              1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+              已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 3144806218b9241b64c158fe7eaac4b7278d58b1e930fc50d6e8d8a04d3f5beb
+            outcomeId: c145b3c9-393d-4215-bbe1-7710e746aaf3
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: succeeded
+        stepId: hotfix.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-86771423821a765eac31206ddb29a633c9ef346dd7966c777b14b6993cb41721
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-start-sync:18
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.prepare:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.open.evidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+            hotfix.verify.report.evidence:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        inputHash: 66346d846527a325bf94bb702fd6fa14125fd34f1c85b15bda2d0d7323f08a1e
+        outcome:
+          actionId: fix-playback-start-sync:18
+          attempt: 1
+          claimToken: portable-86771423821a765eac31206ddb29a633c9ef346dd7966c777b14b6993cb41721
+          inputHash: 66346d846527a325bf94bb702fd6fa14125fd34f1c85b15bda2d0d7323f08a1e
+          outcomeId: 49c0dc79-7339-4852-86bb-1909c5ba6680
+          output:
+            baseCommit: 145096b141f932a9fad67a082d3a546777df0cd5
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 707a7eff82f715e6a6565a5d736ae1de81457f223b4016942cfef0101e9f2180
+            outcomeId: 49c0dc79-7339-4852-86bb-1909c5ba6680
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: succeeded
+        stepId: hotfix.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-fd153786ffd8dc6fe09584e5602dc144e5e81237b1e3a72f6fab177898dd5828
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-start-sync:19
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.preflight:
+              baseCommit: 145096b141f932a9fad67a082d3a546777df0cd5
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            hotfix.archive.prepare:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.open.evidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+            hotfix.verify.report.evidence:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        inputHash: aa12e1404e4f2f3650e06198ce3915e1f4ca205c1d0469a13909b97a0a336e09
+        outcome:
+          actionId: fix-playback-start-sync:19
+          artifacts:
+            - sha256: 30b58283df471fb9d2ec2db1b1d68040bc2fb442a501b11fd4f3da5695ff5e6a
+              uri: docs/openspec/changes/archive/2026-11-13-fix-playback-start-sync/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-fd153786ffd8dc6fe09584e5602dc144e5e81237b1e3a72f6fab177898dd5828
+          inputHash: aa12e1404e4f2f3650e06198ce3915e1f4ca205c1d0469a13909b97a0a336e09
+          outcomeId: 6c020781-5953-4626-b034-1faf5bde5a2f
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-13-fix-playback-start-sync
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 363a12dbc9c32b4633c355d4a9ed12f3990498050401429874ede9fa46ec2145
+            outcomeId: 6c020781-5953-4626-b034-1faf5bde5a2f
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: succeeded
+        stepId: hotfix.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: fix-playback-start-sync:20
+        input:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-13-fix-playback-start-sync
+            hotfix.archive.preflight:
+              baseCommit: 145096b141f932a9fad67a082d3a546777df0cd5
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            hotfix.archive.prepare:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.open.evidence:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+            hotfix.verify.report.evidence:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        inputHash: ea1423a4e688df7a75713385df4ed4a16dcf59f7b38e9de947b42ece68227599
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-start-sync
+        status: pending
+        stepId: hotfix.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      fix-playback-start-sync:1:
+        results: {}
+        sequence: 1
+      fix-playback-start-sync:10:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              inputBefore: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              manifestHash: 3bcdb91499c110a1cd98d816925804290ed2ec70cbd6b99cbe191743e5aa7eed
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/1731180c-75f9-45fa-9b2d-570ea170a16e.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        sequence: 10
+      fix-playback-start-sync:12:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              inputBefore: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              manifestHash: 3bcdb91499c110a1cd98d816925804290ed2ec70cbd6b99cbe191743e5aa7eed
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/1731180c-75f9-45fa-9b2d-570ea170a16e.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        sequence: 12
+      fix-playback-start-sync:14:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              inputBefore: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              manifestHash: 3bcdb91499c110a1cd98d816925804290ed2ec70cbd6b99cbe191743e5aa7eed
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/1731180c-75f9-45fa-9b2d-570ea170a16e.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        sequence: 14
+      fix-playback-start-sync:16:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        sequence: 16
+      fix-playback-start-sync:18:
+        results:
+          hotfix.archive.confirm:
+            sequence: 17
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.prepare:
+            sequence: 16
+            value:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        sequence: 18
+      fix-playback-start-sync:19:
+        results:
+          hotfix.archive.confirm:
+            sequence: 17
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.preflight:
+            sequence: 18
+            value:
+              baseCommit: 145096b141f932a9fad67a082d3a546777df0cd5
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          hotfix.archive.prepare:
+            sequence: 16
+            value:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        sequence: 19
+      fix-playback-start-sync:20:
+        results:
+          hotfix.archive.confirm:
+            sequence: 17
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.execute:
+            sequence: 19
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-13-fix-playback-start-sync
+          hotfix.archive.preflight:
+            sequence: 18
+            value:
+              baseCommit: 145096b141f932a9fad67a082d3a546777df0cd5
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          hotfix.archive.prepare:
+            sequence: 16
+            value:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        sequence: 20
+      fix-playback-start-sync:3:
+        results:
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+        sequence: 3
+      fix-playback-start-sync:4:
+        results:
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+        sequence: 4
+      fix-playback-start-sync:6:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+        sequence: 6
+      fix-playback-start-sync:8:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        sequence: 8
+    waits:
+      - id: fix-playback-start-sync:11
+        stepId: hotfix.archive.confirm
+        sequence: 11
+        status: resolved
+        proposal:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.archive.prepare:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+        proposalHash: 3b8fea328040337ca425a74e7180b510528f456908837eb3c9f0a100c4e3170f
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              inputBefore: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              manifestHash: 3bcdb91499c110a1cd98d816925804290ed2ec70cbd6b99cbe191743e5aa7eed
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/1731180c-75f9-45fa-9b2d-570ea170a16e.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        decision:
+          id: classic-archive-3b8fea328040337ca425a74e7180b510528f456908837eb3c9f0a100c4e3170f-reverify
+          choice: reverify
+          proposalHash: 3b8fea328040337ca425a74e7180b510528f456908837eb3c9f0a100c4e3170f
+      - id: fix-playback-start-sync:17
+        stepId: hotfix.archive.confirm
+        sequence: 17
+        status: resolved
+        proposal:
+          input:
+            change: fix-playback-start-sync
+            changeDir: docs/openspec/changes/fix-playback-start-sync
+            workspaceBaseline:
+              ref: 5203317c-b034-49a4-be5e-febea30279cb
+          outputs:
+            hotfix.archive.prepare:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+        proposalHash: 3b8fea328040337ca425a74e7180b510528f456908837eb3c9f0a100c4e3170f
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.prepare:
+            sequence: 16
+            value:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        decision:
+          id: classic-archive-3b8fea328040337ca425a74e7180b510528f456908837eb3c9f0a100c4e3170f-local
+          choice: local
+          proposalHash: 3b8fea328040337ca425a74e7180b510528f456908837eb3c9f0a100c4e3170f
+    evidenceWaits:
+      - id: fix-playback-start-sync:2
+        stepId: hotfix.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+        receipt:
+          ref: docs/openspec/changes/fix-playback-start-sync
+          contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+          submissionId: f667db6c-f950-4a8e-948e-201acee4ae49
+      - id: fix-playback-start-sync:5
+        stepId: hotfix.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+          submissionId: 133e7698-1f71-4137-b9b4-0cadc698381a
+      - id: fix-playback-start-sync:7
+        stepId: hotfix.verify.report.evidence
+        sequence: 7
+        kind: classic-verification-report
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+          submissionId: b77d9967-af27-489b-a26a-d452b7bd8418
+      - id: fix-playback-start-sync:9
+        stepId: hotfix.verify.check.evidence
+        sequence: 9
+        kind: classic-verify-check
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              inputBefore: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              manifestHash: 3bcdb91499c110a1cd98d816925804290ed2ec70cbd6b99cbe191743e5aa7eed
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/1731180c-75f9-45fa-9b2d-570ea170a16e.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+          contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+          submissionId: ca392d7c-b727-4f50-b733-987c083ed648
+      - id: fix-playback-start-sync:13
+        stepId: hotfix.verify.report.evidence
+        sequence: 13
+        kind: classic-verification-report
+        status: resolved
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              inputBefore: 67bbaffeeb54df1934a44be471d85518b01b95f64c4d8f21fabf35a33ed11126
+              manifestHash: 3bcdb91499c110a1cd98d816925804290ed2ec70cbd6b99cbe191743e5aa7eed
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/1731180c-75f9-45fa-9b2d-570ea170a16e.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+          submissionId: cfae5f4b-1320-4eb9-94d5-eefb37a8385b
+      - id: fix-playback-start-sync:15
+        stepId: hotfix.verify.check.evidence
+        sequence: 15
+        kind: classic-verify-check
+        status: resolved
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: fix-playback-start-sync
+                  changeDir: docs/openspec/changes/fix-playback-start-sync
+                  workspaceBaseline:
+                    ref: 5203317c-b034-49a4-be5e-febea30279cb
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                      1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release
+                      exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+              manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+                ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+              ref: docs/openspec/changes/fix-playback-start-sync
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+              manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+              manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 490814714e790e46a4f1da74da788239f37e39ce40657f37879bbd49962e9559
+              ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/fc4a9906-8eed-4155-a6aa-01d5fd557985.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+              ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+          contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+          submissionId: d0f8a73a-9e04-40b8-b59d-f7b0280239c4
+    ready: []
+    joins: {}
+    outputs:
+      hotfix.archive.confirm:
+        sequence: 17
+        value:
+          choice: local
+          proposal:
+            input:
+              change: fix-playback-start-sync
+              changeDir: docs/openspec/changes/fix-playback-start-sync
+              workspaceBaseline:
+                ref: 5203317c-b034-49a4-be5e-febea30279cb
+            outputs:
+              hotfix.archive.prepare:
+                summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+                  1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+                  已重新打包。
+                targetBranch: main
+      hotfix.archive.execute:
+        sequence: 19
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-13-fix-playback-start-sync
+      hotfix.archive.preflight:
+        sequence: 18
+        value:
+          baseCommit: 145096b141f932a9fad67a082d3a546777df0cd5
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      hotfix.archive.prepare:
+        sequence: 16
+        value:
+          summary: 修复从曲中起播时 DD 按键抢在辅助线之前的缺陷：split_playback_at 在起点落在延时内部时保留未走完的剩余延时，并加入
+            1e-6 容差避免浮点累加丢弃边界按键；只剩尾段延时时返回空。173 项测试通过，独立审查问题已修复，release exe
+            已重新打包。
+          targetBranch: main
+      hotfix.build.check:
+        sequence: 4
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 1
+          contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+          inputBefore: 0e40267b712a06b0c2a641339197e715c8e1fadedd468eaa695665f6f07a8c6b
+          manifestHash: 07e8e9561b6fe85576064cff680498b99bd1155052104e88a7d85be9dba5cff0
+          manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/b88a87e4-6cb6-46fc-9ccd-3680e34f1c1f.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      hotfix.build.check.evidence:
+        sequence: 5
+        value:
+          contentHash: a4e13a7f9d0633a040a672b4b75af62ea0daf73c453f8b41d48e8897050ce5c2
+          ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/63d5b938-b96c-455a-99a7-f03d0aa4fb6a.log
+      hotfix.build.execute:
+        sequence: 3
+        value:
+          event: build-complete
+      hotfix.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+            ref: docs/openspec/changes/fix-playback-start-sync
+      hotfix.open.evidence:
+        sequence: 2
+        value:
+          contentHash: 51a8c32551d25cbbcbde6b29c18e8a1975c4aa4044fe6a19c5777775b8a3a252
+          ref: docs/openspec/changes/fix-playback-start-sync
+      hotfix.verify.check:
+        sequence: 14
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 4
+          contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+          inputBefore: d82a076bb6c75c7ae1eca0658b3cbf88a749390126cf609705653cc4e625b18e
+          manifestHash: 6be92559eacd6bd2daa7bf5fb59eb545bb808fe0679916cd52bb978d0a8d9099
+          manifestRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/80b76fbc-4e42-4f90-8373-6e07ef4a488d.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      hotfix.verify.check.evidence:
+        sequence: 15
+        value:
+          contentHash: eda99585da25be0116cf9f9d40a54659884ae01f101f8fb4dffd679366fb5a7d
+          ref: .comet/runtime/classic-sdk-checks/deae52e51bf1f009a02133f16b0115068b4ef647a7911c7e802207e16ae58c0b/aff950fa-bd0a-4139-9032-971b9863c5f7.log
+      hotfix.verify.report.evidence:
+        sequence: 13
+        value:
+          contentHash: 6caa7dc0613cf1965bf87ce12be78af0a2725818290c7dc07ca6c82a99b99b60
+          ref: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+      hotfix.verify.run:
+        sequence: 12
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-12-fix-playback-start-sync-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 31
+  sourceHash: 54fdc23f00b2d2b1d74f26396d6c2f1c617d8055b2deec5f72272afac232d451
+check_epoch: 7

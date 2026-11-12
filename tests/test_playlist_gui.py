@@ -1,3 +1,4 @@
+import json
 import os
 import tempfile
 import unittest
@@ -25,7 +26,9 @@ class PlaylistGuiTest(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self._original_midi_dir = gui.get_midi_dir_path
         gui.get_midi_dir_path = lambda: self.tmp.name
-        self.addCleanup(self._restore_midi_dir)
+        self._original_play_code_dir = gui.get_play_code_dir_path
+        gui.get_play_code_dir_path = lambda: os.path.join(self.tmp.name, "play_code")
+        self.addCleanup(self._restore_dirs)
         self.window = gui.MidiConverterGUI()
         self.addCleanup(self._close_window)
 
@@ -34,8 +37,9 @@ class PlaylistGuiTest(unittest.TestCase):
         self.window.piano_roll_dirty = False
         self.window.close()
 
-    def _restore_midi_dir(self):
+    def _restore_dirs(self):
         gui.get_midi_dir_path = self._original_midi_dir
+        gui.get_play_code_dir_path = self._original_play_code_dir
 
     def test_new_blank_midi_loads_empty_roll(self):
         self.window.on_new_play_item()
@@ -91,6 +95,40 @@ class PlaylistGuiTest(unittest.TestCase):
         self.assertIsNotNone(row)
         labels = [w.text() for w in row.findChildren(gui.QLabel)]
         self.assertTrue(any("🎵" in text for text in labels))
+
+    def test_entering_play_mode_saves_midi_and_play_code(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 0.0, "duration": 0.5, "track": 0},
+            {"id": 1, "pitch": 64, "start": 0.0, "duration": 0.5, "track": 0},
+        ])
+        self.window.range_toggle_btn.setChecked(True)
+        self.window.on_range_toggle_clicked()
+        name = os.path.splitext(os.path.basename(self.window.current_midi_path))[0]
+        edited = os.path.join(self.tmp.name, "edited", name + ".mid")
+        code = os.path.join(self.tmp.name, "play_code", name + ".json")
+        self.assertTrue(os.path.exists(edited))
+        self.assertTrue(os.path.exists(code))
+        with open(code, "r", encoding="utf-8") as fh:
+            data = json.load(fh)
+        self.assertTrue(data["playback_data"])
+
+    def test_delete_removes_saved_assets(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 0.0, "duration": 0.5, "track": 0},
+        ])
+        self.window.range_toggle_btn.setChecked(True)
+        self.window.on_range_toggle_clicked()
+        path = self.window.current_midi_path
+        name = os.path.splitext(os.path.basename(path))[0]
+        edited = os.path.join(self.tmp.name, "edited", name + ".mid")
+        code = os.path.join(self.tmp.name, "play_code", name + ".json")
+        self.assertTrue(os.path.exists(edited))
+        with patch.object(gui.QMessageBox, "question", return_value=QMessageBox.Yes):
+            self.window.on_delete_play_item(path, name + ".mid")
+        self.assertFalse(os.path.exists(edited))
+        self.assertFalse(os.path.exists(code))
 
     def test_search_does_not_break_loaded_track(self):
         self.window.on_new_play_item()

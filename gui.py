@@ -75,6 +75,14 @@ except ImportError:
     print("错误: 无法导入主程序模块，请确保主程序文件在同一目录下")
     sys.exit(1)
 
+from play_assets import (
+    base_name,
+    build_play_code_data,
+    edited_midi_path,
+    play_code_path,
+    read_play_code,
+    write_play_code,
+)
 from playlist_store import (
     create_blank_midi,
     filter_entries,
@@ -228,7 +236,9 @@ class PlayThread(QThread):
             )
 
             # 开始播放（直接使用内存数据，不读取文件）
-            success = self.player.play_from_data(self.data)
+            success = self.player.play_from_data(
+                self.data, start_at=float(self.data.get("start_at", 0.0))
+            )
 
             self.finished_signal.emit(success)
 
@@ -1105,6 +1115,7 @@ class MidiConverterGUI(QMainWindow):
         self.piano_roll_dirty = False
         self.piano_save_btn.setEnabled(False)
         self._update_piano_dirty_indicator()
+        self._save_current_play_assets()
 
     def on_piano_roll_notes_changed(self):
         """铺面上任意一次编辑（新增/删除/移动/调整时长）完成后触发"""
@@ -1222,7 +1233,9 @@ class MidiConverterGUI(QMainWindow):
         )
 
     def on_range_toggle_clicked(self):
-        """切换演奏/编辑模式：演奏模式显示映射框并锁定铺面编辑。"""
+        """切换演奏/编辑模式：进入演奏模式前自动保存 MIDI 与 play_code。"""
+        if self.range_toggle_btn.isChecked():
+            self._save_current_play_assets()
         self._sync_roll_mode()
 
     def on_range_low_combo_changed(self, index: int):
@@ -1250,6 +1263,49 @@ class MidiConverterGUI(QMainWindow):
         span = high_pitch - low_pitch
         self.piano_roll.set_instrument_span(span)
         self._refresh_range_display()
+
+    def _save_current_play_assets(self) -> None:
+        """保存当前铺面的工作 MIDI 副本与 play_code JSON（导入/进入演奏模式时调用）。"""
+        if not self.current_midi_path:
+            return
+        try:
+            converter = MidiToKeysConverter()
+            notes = self.piano_roll.get_notes()
+            name = base_name(self.current_midi_path)
+            midi_target = edited_midi_path(get_midi_dir_path(), name)
+            os.makedirs(os.path.dirname(midi_target), exist_ok=True)
+            converter.write_notes_to_midi(
+                self.current_midi_path,
+                notes,
+                self.current_processed_tracks,
+                midi_target,
+                tempo_bpm=self.current_bpm,
+            )
+
+            low_pitch, high_pitch = self.piano_roll.get_instrument_range()
+            target_low_pitch = self.range_low_combo.itemData(
+                self.range_low_combo.currentIndex()
+            )
+            data = build_play_code_data(
+                converter,
+                notes,
+                self.current_bpm,
+                name,
+                pitch_range=(low_pitch, high_pitch),
+                transpose=target_low_pitch - low_pitch,
+            )
+            write_play_code(play_code_path(get_play_code_dir_path(), name), data)
+            excluded = sum(
+                1 for n in notes if not (low_pitch - 1 <= n["pitch"] <= high_pitch + 1)
+            )
+            if excluded:
+                self.log(
+                    f"⚠️ {excluded} 个音符在黄色映射框外，演奏时会被跳过"
+                    "（可拖动黄框或改映射范围）"
+                )
+            self.log(f"💾 已保存铺面 MIDI 与 play_code: {name}")
+        except Exception as exc:
+            self.log(f"❌ 保存铺面资源失败: {exc}")
 
     def save_piano_roll(self):
         """把铺面编辑结果另存为一个新的 MIDI 文件（不覆盖原始导入文件）"""
@@ -1356,10 +1412,27 @@ class MidiConverterGUI(QMainWindow):
             QMessageBox.critical(self, "删除失败", f"删除 MIDI 文件失败：{exc}")
             return
 
+        self._remove_play_assets(path)
+
         if path == self.current_midi_path:
             self._clear_piano_roll_cache()
         self.refresh_play_list()
         self.log(f"🗑 已删除曲目: {name}")
+
+    def _remove_play_assets(self, midi_path: str) -> None:
+        """删除曲目时一并清理它的工作 MIDI 与 play_code JSON。"""
+        name = base_name(midi_path)
+        targets = (
+            edited_midi_path(get_midi_dir_path(), name),
+            play_code_path(get_play_code_dir_path(), name),
+        )
+        for target in targets:
+            try:
+                os.remove(target)
+            except FileNotFoundError:
+                continue
+            except OSError as exc:
+                self.log(f"⚠️ 清理缓存失败 {os.path.basename(target)}: {exc}")
 
     def _clear_piano_roll_cache(self):
         """删除当前曲目后清空铺面、播放与 BPM 等工具内缓存。"""
@@ -1416,44 +1489,44 @@ class MidiConverterGUI(QMainWindow):
         try:
             filename = os.path.basename(self.current_midi_path)
 
-            # 基于铺面当前状态（含编辑）与乐器音域框范围，在内存中生成播放数据
-            notes = self.piano_roll.get_notes()
+            # 播放数据来自 play_code JSON（进入演奏模式或导入时已自动保存），
+            # 不在每次点击「弹奏」时重新做音符→按键映射。
             playhead = self.piano_roll.get_playhead_position()
-            notes = playback_notes_from_position(notes, playhead)
-            if not notes:
-                QMessageBox.warning(self, "提示", "当前位置之后没有可播放的音符")
+            notes = self.piano_roll.get_notes()
+            name = base_name(self.current_midi_path)
+            code_path = play_code_path(get_play_code_dir_path(), name)
+            play_data = read_play_code(code_path)
+            if play_data is None:
+                # 兜底：现场生成并写回，保证首次播放可用
+                self._save_current_play_assets()
+                play_data = read_play_code(code_path)
+            if play_data is None:
+                QMessageBox.warning(
+                    self, "提示", "未找到可播放数据，请切换一次演奏模式后重试"
+                )
                 return
-            low_pitch, high_pitch = self.piano_roll.get_instrument_range()
-            # 移调量：只用「最低映射」作锚点，把框体范围内的音符整体移调到目标按键范围
-            target_low_pitch = self.range_low_combo.itemData(self.range_low_combo.currentIndex())
-            transpose = target_low_pitch - low_pitch
 
-            converter = MidiToKeysConverter()
-            result = converter.regenerate_playback_from_notes(
-                notes, pitch_range=(low_pitch, high_pitch), transpose=transpose
-            )
-            playback_data = result["playback_data"]
-
+            playback_data = play_data.get("playback_data", [])
             if not playback_data:
                 QMessageBox.warning(self, "警告", "当前乐器音域范围内没有可播放的音符")
                 return
 
-            # 播放数据会省略起点之后的静音空档（第一个音立即发声），因此辅助线
-            # 的显示起点要加上「第一个可发声音符的相对时间」，否则整段播放中
-            # 辅助线都会落后于实际发声。
+            source_notes = play_data.get("notes") or notes
+            relative_notes = playback_notes_from_position(source_notes, playhead)
+            if not relative_notes:
+                QMessageBox.warning(self, "提示", "当前位置之后没有可播放的音符")
+                return
+
+            low_pitch, high_pitch = self.piano_roll.get_instrument_range()
+            # 播放数据会省略起点之后的静音空档，辅助线起点需要补上第一个可发声音符
             self._playback_start_seconds = playhead + first_playable_start(
-                notes, (low_pitch, high_pitch)
+                relative_notes, (low_pitch, high_pitch)
             )
 
-            data = {
-                "type": "jx3_piano_complete",
-                "version": "2.0",
-                "filename": os.path.splitext(filename)[0],
-                "transpose": self.current_transpose,
-                "processed_tracks": self.current_processed_tracks,
-                "playback_data": playback_data,
-                "statistics": result["statistics"],
-            }
+            data = dict(play_data)
+            data["start_at"] = playhead
+            data["transpose"] = self.current_transpose
+            data["processed_tracks"] = self.current_processed_tracks
 
             self.log("")
             self.log(f"▶️ 开始播放: {filename}")

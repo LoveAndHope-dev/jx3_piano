@@ -281,7 +281,7 @@ class JX3Player:
 
         return self.play_from_data(data)
 
-    def play_from_data(self, data: dict) -> bool:
+    def play_from_data(self, data: dict, start_at: float = 0.0) -> bool:
         """
         直接从内存中的完整数据字典开始播放，不经过任何文件读取。
         供铺面根据当前音符与乐器音域框实时生成的播放数据使用。
@@ -289,6 +289,7 @@ class JX3Player:
         Args:
             data: 与 play_from_json 读取的 JSON 结构相同的字典，
                   至少需要 "type"/"version"/"playback_data" 字段。
+            start_at: 从第几秒开始播放（跳过之前的按键与延时）。
 
         Returns:
             bool: True表示播放完成，False表示被中断或出错
@@ -304,6 +305,14 @@ class JX3Player:
             if not playback_data:
                 self._log("❌ 播放数据为空")
                 return False
+
+            if start_at > 0:
+                from play_assets import split_playback_at
+
+                playback_data = split_playback_at(playback_data, start_at)
+                if not playback_data:
+                    self._log("❌ 起点之后没有可播放的按键")
+                    return False
 
             # 显示曲目信息
             filename = data.get("filename", "未知")

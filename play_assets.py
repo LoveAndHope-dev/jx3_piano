@@ -95,17 +95,26 @@ def read_play_code(path: str) -> Optional[Dict]:
 def split_playback_at(playback_data: List, start_at: float) -> List:
     """裁掉 start_at 之前的按键与延时，返回从该位置播放的剩余序列。
 
-    播放数据是没有时间戳的 [按键/延时, ...]；这里只做一次线性扫描，
-    在到达起点后返回剩余部分，避免播放前重建整首数据。
+    播放数据是没有时间戳的 [按键/延时, ...]；若起播点落在某个延时内部，
+    把该延时未走完的剩余部分放回序列开头，避免后续按键提前于辅助线触发。
     """
     if start_at <= 0:
         return list(playback_data)
     elapsed = 0.0
     index = 0
     length = len(playback_data)
-    while index < length and elapsed < start_at:
+    while index < length:
         item = playback_data[index]
         if isinstance(item, (int, float)):
-            elapsed += float(item)
+            duration = float(item)
+            if elapsed >= start_at:
+                break  # 该延时完整保留
+            if elapsed + duration > start_at:
+                remaining = round(elapsed + duration - start_at, 6)
+                rest = list(playback_data[index + 1 :])
+                return ([remaining] if remaining > 0 else []) + rest
+            elapsed += duration
+        elif elapsed >= start_at:
+            break  # 按键正好落在起点或之后
         index += 1
     return list(playback_data[index:])

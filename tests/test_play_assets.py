@@ -23,8 +23,19 @@ class SplitPlaybackTest(unittest.TestCase):
 
     def test_skips_keys_before_start(self):
         data = ["Q", 0.5, "W", 0.5, "E"]
-        self.assertEqual(split_playback_at(data, 0.6), ["E"])
+        self.assertEqual(split_playback_at(data, 0.6), [0.4, "E"])
         self.assertEqual(split_playback_at(data, 0.5), ["W", 0.5, "E"])
+
+    def test_keeps_remaining_delay_inside_a_gap(self):
+        data = [1.0, "Q", 1.0, "W", 2.0, "E"]
+        self.assertEqual(split_playback_at(data, 2.6), [1.4, "E"])
+        self.assertEqual(split_playback_at(data, 1.5), [0.5, "W", 2.0, "E"])
+
+    def test_key_exactly_at_start_is_kept(self):
+        data = [1.0, "Q", 1.0, "W", 2.0, "E"]
+        self.assertEqual(split_playback_at(data, 2.0), ["W", 2.0, "E"])
+        self.assertEqual(split_playback_at(data, 1.0), ["Q", 1.0, "W", 2.0, "E"])
+        self.assertEqual(split_playback_at(data, 4.0), ["E"])
 
     def test_start_after_end_returns_empty(self):
         self.assertEqual(split_playback_at(["Q", 0.2], 5.0), [])

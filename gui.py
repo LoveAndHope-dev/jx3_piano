@@ -1090,6 +1090,9 @@ class MidiConverterGUI(QMainWindow):
             self.piano_stack.setCurrentWidget(self.piano_error_label)
             self.piano_save_btn.setEnabled(False)
             self._set_range_controls_enabled(False)
+            self._undo_stack = []
+            self._redo_stack = []
+            self._history_baseline = None
             return
 
         self.current_midi_path = midi_path
@@ -1144,6 +1147,7 @@ class MidiConverterGUI(QMainWindow):
             "bpm": float(self.current_bpm),
             "signature": tuple(self.current_time_signature),
             "playhead": float(self.piano_roll.get_playhead_position()),
+            "clipboard": self.piano_roll.clipboard_notes(),
         }
 
     @staticmethod
@@ -1166,6 +1170,7 @@ class MidiConverterGUI(QMainWindow):
         if self._undo_stack and self._states_equal(snapshot, self._undo_stack[-1]):
             return
         self._undo_stack.append(snapshot)
+        # +1 是基线快照；保证最多保留 50 个可撤销步骤
         if len(self._undo_stack) > self._history_limit + 1:
             del self._undo_stack[0]
         self._redo_stack.clear()
@@ -1185,6 +1190,7 @@ class MidiConverterGUI(QMainWindow):
             self.bpm_spin.setValue(self.current_bpm)
             self._updating_bpm = False
             self.piano_roll.set_notes(state["notes"])
+            self.piano_roll.restore_clipboard(state.get("clipboard", []))
             self.piano_roll.set_playhead_anchor(state["playhead"])
             self._apply_quantize_grid()
             is_dirty = not self._states_equal(state, self._history_baseline)
@@ -1201,7 +1207,10 @@ class MidiConverterGUI(QMainWindow):
             return
         current = self._undo_stack.pop()
         self._redo_stack.append(current)
-        self._apply_history_state(self._undo_stack[-1])
+        target = dict(self._undo_stack[-1])
+        # 撤销恢复的是「执行该编辑时」的辅助线位置，而不是上一步的旧位置
+        target["playhead"] = current["playhead"]
+        self._apply_history_state(target)
         self.log("↩️ 已撤销上一步编辑")
 
     def redo_last_edit(self) -> None:
@@ -1256,6 +1265,9 @@ class MidiConverterGUI(QMainWindow):
             return
 
         factor = bpm_scale_factor(self.current_bpm, new_bpm)
+        # 先更新 BPM，再缩放音符：rescale_times 会同步触发 notesChanged 记录历史，
+        # 快照必须包含变更后的 BPM，否则撤销/前进会把新旧速度与音符错配
+        self.current_bpm = new_bpm
         self.piano_roll.rescale_times(factor)
 
         numerator = self.current_time_signature[0]
@@ -1266,7 +1278,6 @@ class MidiConverterGUI(QMainWindow):
         self.piano_roll.set_measure_grid(measure_seconds)
         self.piano_roll.set_beat_grid(beat_seconds, numerator)
 
-        self.current_bpm = new_bpm
         self._apply_quantize_grid()
 
     def on_arpeggiate_clicked(self):

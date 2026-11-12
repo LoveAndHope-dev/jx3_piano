@@ -522,7 +522,7 @@ class _PianoRollCanvas(QGraphicsView):
         else:
             self._playhead_display_seconds = max(0.0, float(seconds))
         self._draw_playhead()
-        if self._read_only:
+        if self._read_only and self._playhead_locked:
             self.follow_playhead()
 
     def follow_playhead(self) -> None:
@@ -871,6 +871,14 @@ class _PianoRollCanvas(QGraphicsView):
     # ------------------------------------------------------------------
     # 剪贴板
     # ------------------------------------------------------------------
+    def clipboard_notes(self) -> List[Dict]:
+        """返回内部剪贴板的副本（用于撤销快照）。"""
+        return [dict(n) for n in self._clipboard]
+
+    def restore_clipboard(self, notes: List[Dict]) -> None:
+        """恢复内部剪贴板（撤销/前进时使用）。"""
+        self._clipboard = [dict(n) for n in notes]
+
     def _copy_selected(self) -> None:
         """把当前选中音符深拷贝进内部剪贴板；无选中时保持原剪贴板。"""
         if not self._selected_ids:
@@ -1412,6 +1420,14 @@ class PianoRollWidget(QWidget):
     def arpeggiate_selected(self, seconds_per_beat: float) -> int:
         """对选中音符执行 1/32 拍琶音展开；返回被处理的音符数"""
         return self._canvas.arpeggiate_selected(seconds_per_beat)
+
+    def clipboard_notes(self) -> List[Dict]:
+        """返回内部剪贴板副本"""
+        return self._canvas.clipboard_notes()
+
+    def restore_clipboard(self, notes: List[Dict]) -> None:
+        """恢复内部剪贴板"""
+        self._canvas.restore_clipboard(notes)
 
     def set_instrument_range(self, low_pitch: int, high_pitch: int) -> None:
         self._canvas.set_instrument_range(low_pitch, high_pitch)

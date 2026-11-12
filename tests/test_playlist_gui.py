@@ -130,6 +130,75 @@ class PlaylistGuiTest(unittest.TestCase):
         self.assertEqual(self.window.piano_roll.get_notes(), [])
         self.assertFalse(self.window.piano_roll_dirty)
 
+    def test_bpm_change_then_redo_keeps_new_tempo(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},
+        ])
+        self.window._record_history()
+        self.window.on_bpm_changed(60.0)
+        self.window.undo_last_edit()
+        self.window.redo_last_edit()
+        self.assertAlmostEqual(self.window.current_bpm, 60.0)
+        self.assertAlmostEqual(self.window.piano_roll.get_notes()[0]["start"], 2.0, delta=1e-6)
+
+    def test_bpm_change_then_edit_then_undo(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},
+        ])
+        self.window._record_history()
+        self.window.on_bpm_changed(60.0)
+        self.window.piano_roll._canvas._set_selection({0})
+        self.window.piano_roll._canvas._nudge_selected(0.1)
+        self.window.undo_last_edit()
+        self.assertAlmostEqual(self.window.current_bpm, 60.0)
+        self.assertAlmostEqual(self.window.piano_roll.get_notes()[0]["start"], 2.0, delta=1e-6)
+
+    def test_new_edit_clears_redo(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 0.0, "duration": 0.5, "track": 0},
+        ])
+        self.window._record_history()
+        self.window.piano_roll._canvas._set_selection({0})
+        self.window.piano_roll._canvas._delete_selected()
+        self.window.undo_last_edit()
+        self.window.piano_roll._canvas._set_selection({0})
+        self.window.piano_roll._canvas._nudge_selected(0.1)
+        self.window.redo_last_edit()
+        self.assertEqual(len(self.window.piano_roll.get_notes()), 1)
+        self.assertAlmostEqual(
+            self.window.piano_roll.get_notes()[0]["start"], 0.1, delta=1e-6
+        )
+
+    def test_undo_restores_playhead(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 0.0, "duration": 0.5, "track": 0},
+        ])
+        self.window._record_history()
+        self.window.piano_roll.set_playhead_anchor(10.0)
+        self.window._record_history()
+        self.window.piano_roll._canvas._set_selection({0})
+        self.window.piano_roll._canvas._delete_selected()
+        self.window.piano_roll.set_playhead_anchor(20.0)
+        self.window.undo_last_edit()
+        self.assertAlmostEqual(self.window.piano_roll.get_playhead_position(), 10.0)
+
+    def test_undo_is_not_recorded_as_edit(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 0.0, "duration": 0.5, "track": 0},
+        ])
+        self.window._record_history()
+        self.window.piano_roll._canvas._set_selection({0})
+        self.window.piano_roll._canvas._delete_selected()
+        before = len(self.window._undo_stack)
+        self.window.undo_last_edit()
+        self.assertEqual(len(self.window._undo_stack), before - 1)
+        self.assertEqual(len(self.window._redo_stack), 1)
+
     def test_undo_to_initial_state_clears_dirty(self):
         self.window.on_new_play_item()
         self.window.piano_roll.set_notes([

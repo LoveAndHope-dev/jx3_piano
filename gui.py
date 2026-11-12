@@ -93,7 +93,6 @@ from playlist_store import (
 from piano_roll import (
     PianoRollWidget,
     bpm_scale_factor,
-    first_playable_start,
     grid_seconds_for_bpm,
     playback_notes_from_position,
 )
@@ -1518,10 +1517,8 @@ class MidiConverterGUI(QMainWindow):
                 return
 
             low_pitch, high_pitch = self.piano_roll.get_instrument_range()
-            # 播放数据会省略起点之后的静音空档，辅助线起点需要补上第一个可发声音符
-            self._playback_start_seconds = playhead + first_playable_start(
-                relative_notes, (low_pitch, high_pitch)
-            )
+            # JSON 时间轴已对齐到 0 秒，辅助线直接从辅助线位置起算
+            self._playback_start_seconds = playhead
 
             data = dict(play_data)
             data["start_at"] = playhead

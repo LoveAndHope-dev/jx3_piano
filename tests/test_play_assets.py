@@ -43,6 +43,14 @@ class PlayCodeDataTest(unittest.TestCase):
         self.assertEqual(data["filename"], "demo")
         self.assertEqual(data["bpm"], 120.0)
 
+    def test_first_note_keeps_absolute_time_axis(self):
+        notes = [{"pitch": 60, "start": 5.0, "duration": 0.5, "track": 0}]
+        data = build_play_code_data(
+            self.converter, notes, 120.0, "demo", pitch_range=(36, 83), transpose=0
+        )
+        self.assertEqual(data["playback_data"][0], 5.0)
+        self.assertEqual(data["timeline_offset"], 0.0)
+
     def test_notes_outside_box_are_filtered(self):
         notes = [{"pitch": 90, "start": 0.0, "duration": 0.2, "track": 0}]
         data = build_play_code_data(

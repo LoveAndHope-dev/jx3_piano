@@ -342,6 +342,8 @@ class _PianoRollCanvas(QGraphicsView):
     notesChanged = pyqtSignal()
     instrumentRangeChanged = pyqtSignal(int, int)  # 仅在拖动黄色音域框改变范围时发出
     zoomChanged = pyqtSignal()  # 横向缩放比例变化（顶部标尺据此重绘）
+    undoRequested = pyqtSignal()  # 编辑模式下按 Ctrl+Z
+    redoRequested = pyqtSignal()  # 编辑模式下按 Ctrl+Shift+Z
 
     def __init__(self, mapped_pitches: Set[int], parent=None):
         super().__init__(parent)
@@ -520,6 +522,21 @@ class _PianoRollCanvas(QGraphicsView):
         else:
             self._playhead_display_seconds = max(0.0, float(seconds))
         self._draw_playhead()
+        if self._read_only:
+            self.follow_playhead()
+
+    def follow_playhead(self) -> None:
+        """播放期翻页跟随：辅助线超过视口 80% 时滚到视口左侧 20%。"""
+        width = float(self.viewport().width())
+        if width <= 0:
+            return
+        x = self.viewport_x_for_time(self._playhead_display_seconds)
+        if x <= width * 0.8:
+            return
+        scene_x = self._time_to_x(self._playhead_display_seconds)
+        bar = self.horizontalScrollBar()
+        target = int(round(scene_x - width * 0.2))
+        bar.setValue(max(bar.minimum(), min(bar.maximum(), target)))
 
     def _draw_playhead(self, focus: bool = True) -> None:
         if self._playhead_item is not None:
@@ -1258,6 +1275,14 @@ class _PianoRollCanvas(QGraphicsView):
             event.accept()
             return
 
+        if event.key() == Qt.Key_Z and bool(event.modifiers() & Qt.ControlModifier):
+            if event.modifiers() & Qt.ShiftModifier:
+                self.redoRequested.emit()
+            else:
+                self.undoRequested.emit()
+            event.accept()
+            return
+
         if event.key() == Qt.Key_C and bool(event.modifiers() & Qt.ControlModifier):
             self._copy_selected()
             event.accept()
@@ -1344,6 +1369,8 @@ class PianoRollWidget(QWidget):
         self.notesChanged = self._canvas.notesChanged
         self.instrumentRangeChanged = self._canvas.instrumentRangeChanged
         self.zoomChanged = self._canvas.zoomChanged
+        self.undoRequested = self._canvas.undoRequested
+        self.redoRequested = self._canvas.redoRequested
 
     def set_notes(self, notes: List[Dict]) -> None:
         self._canvas.set_notes(notes)

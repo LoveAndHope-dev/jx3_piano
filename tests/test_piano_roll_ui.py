@@ -414,6 +414,44 @@ class PianoRollWidgetTest(unittest.TestCase):
         self.assertAlmostEqual(self.widget.get_playhead_position(), 1.0, places=2)
         self.canvas.set_playhead_locked(False)
 
+    def test_follow_scrolls_page_when_playhead_passes_threshold(self):
+        self.widget.set_notes([
+            {"id": 0, "pitch": 60, "start": 20.0, "duration": 0.5, "track": 0}
+        ])
+        self.canvas.set_pixels_per_second(70.0)
+        self.canvas.horizontalScrollBar().setValue(0)
+        self.canvas.set_read_only(True)
+        self.canvas.set_playhead(15.0)
+        self.assertGreater(self.canvas.horizontalScrollBar().value(), 0)
+        self.canvas.set_read_only(False)
+
+    def test_follow_keeps_scroll_inside_threshold(self):
+        self.widget.set_notes([
+            {"id": 0, "pitch": 60, "start": 20.0, "duration": 0.5, "track": 0}
+        ])
+        self.canvas.set_pixels_per_second(70.0)
+        self.canvas.horizontalScrollBar().setValue(0)
+        self.canvas.set_read_only(True)
+        self.canvas.set_playhead(2.0)
+        self.assertEqual(self.canvas.horizontalScrollBar().value(), 0)
+        self.canvas.set_read_only(False)
+
+    def test_no_follow_when_not_playing(self):
+        self.widget.set_notes([
+            {"id": 0, "pitch": 60, "start": 20.0, "duration": 0.5, "track": 0}
+        ])
+        self.canvas.set_pixels_per_second(70.0)
+        self.canvas.horizontalScrollBar().setValue(0)
+        self.canvas.set_read_only(False)
+        calls = []
+        original = self.canvas.follow_playhead
+        self.canvas.follow_playhead = lambda: calls.append(1)
+        try:
+            self.canvas.set_playhead(15.0)
+        finally:
+            self.canvas.follow_playhead = original
+        self.assertEqual(calls, [])
+
 
 if __name__ == "__main__":
     unittest.main()

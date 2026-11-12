@@ -282,6 +282,13 @@ class MidiConverterGUI(QMainWindow):
         self.quantize_choice = "关闭"
         self._updating_bpm = False
 
+        # 撤销 / 前进历史
+        self._undo_stack = []
+        self._redo_stack = []
+        self._history_applying = False
+        self._history_limit = 50
+        self._history_baseline = None
+
         # 乐器音域框相关变量
         self.key_ladder = get_natural_key_ladder()
 
@@ -774,6 +781,8 @@ class MidiConverterGUI(QMainWindow):
         self.piano_roll = PianoRollWidget(self.mapped_pitches)
         self.piano_roll.notesChanged.connect(self.on_piano_roll_notes_changed)
         self.piano_roll.instrumentRangeChanged.connect(lambda *_: self._refresh_range_display())
+        self.piano_roll.undoRequested.connect(self.undo_last_edit)
+        self.piano_roll.redoRequested.connect(self.redo_last_edit)
         self.piano_stack.addWidget(self.piano_roll)  # index 2
         self._refresh_range_display()
         self._sync_roll_mode()
@@ -1116,11 +1125,94 @@ class MidiConverterGUI(QMainWindow):
         self._update_piano_dirty_indicator()
         self._save_current_play_assets()
 
+        # 载入完成后记录撤销基线
+        baseline = self._snapshot_state()
+        self._undo_stack = [baseline]
+        self._redo_stack = []
+        self._history_baseline = baseline
+
     def on_piano_roll_notes_changed(self):
         """铺面上任意一次编辑（新增/删除/移动/调整时长）完成后触发"""
         self.piano_roll_dirty = True
         self.piano_save_btn.setEnabled(True)
         self._update_piano_dirty_indicator()
+        self._record_history()
+
+    def _snapshot_state(self) -> dict:
+        return {
+            "notes": self.piano_roll.get_notes(),
+            "bpm": float(self.current_bpm),
+            "signature": tuple(self.current_time_signature),
+            "playhead": float(self.piano_roll.get_playhead_position()),
+        }
+
+    @staticmethod
+    def _states_equal(a: dict, b: dict) -> bool:
+        if a is None or b is None:
+            return False
+        return (
+            a["notes"] == b["notes"]
+            and abs(float(a["bpm"]) - float(b["bpm"])) < 1e-9
+            and tuple(a["signature"]) == tuple(b["signature"])
+        )
+
+    def _current_track_loaded(self) -> bool:
+        return bool(self.current_midi_path) and self._history_baseline is not None
+
+    def _record_history(self) -> None:
+        if self._history_applying or not self._current_track_loaded():
+            return
+        snapshot = self._snapshot_state()
+        if self._undo_stack and self._states_equal(snapshot, self._undo_stack[-1]):
+            return
+        self._undo_stack.append(snapshot)
+        if len(self._undo_stack) > self._history_limit + 1:
+            del self._undo_stack[0]
+        self._redo_stack.clear()
+
+    def _apply_history_state(self, state: dict) -> None:
+        self._history_applying = True
+        try:
+            self.current_bpm = float(state["bpm"])
+            self.current_time_signature = tuple(state["signature"])
+            numerator, denominator = self.current_time_signature
+            measure_seconds, beat_seconds = grid_seconds_for_bpm(
+                self.current_bpm, numerator, denominator
+            )
+            self.piano_roll.set_measure_grid(measure_seconds)
+            self.piano_roll.set_beat_grid(beat_seconds, numerator)
+            self._updating_bpm = True
+            self.bpm_spin.setValue(self.current_bpm)
+            self._updating_bpm = False
+            self.piano_roll.set_notes(state["notes"])
+            self.piano_roll.set_playhead_anchor(state["playhead"])
+            self._apply_quantize_grid()
+            is_dirty = not self._states_equal(state, self._history_baseline)
+            self.piano_roll_dirty = is_dirty
+            self.piano_save_btn.setEnabled(is_dirty)
+            self._update_piano_dirty_indicator()
+        finally:
+            self._history_applying = False
+
+    def undo_last_edit(self) -> None:
+        if self.is_playing or self.range_toggle_btn.isChecked():
+            return
+        if len(self._undo_stack) <= 1:
+            return
+        current = self._undo_stack.pop()
+        self._redo_stack.append(current)
+        self._apply_history_state(self._undo_stack[-1])
+        self.log("↩️ 已撤销上一步编辑")
+
+    def redo_last_edit(self) -> None:
+        if self.is_playing or self.range_toggle_btn.isChecked():
+            return
+        if not self._redo_stack:
+            return
+        state = self._redo_stack.pop()
+        self._undo_stack.append(state)
+        self._apply_history_state(state)
+        self.log("↪️ 已前进到下一步编辑")
 
     def _update_piano_dirty_indicator(self):
         self.piano_dirty_label.setText("● 未保存" if self.piano_roll_dirty else "")
@@ -1458,6 +1550,9 @@ class MidiConverterGUI(QMainWindow):
         self._update_piano_dirty_indicator()
         self._set_range_controls_enabled(False)
         self.piano_stack.setCurrentWidget(self.piano_placeholder)
+        self._undo_stack = []
+        self._redo_stack = []
+        self._history_baseline = None
 
     def on_play_progress(self, elapsed: float):
         """播放线程上报的实时播放进度，驱动铺面播放线"""

@@ -50,6 +50,7 @@ def arpeggiate_notes(
         processed = _read_output_midi(dst, selected, seconds_per_beat)
 
     updated: List[Dict] = []
+    half_tick = 0.5 / TICKS_PER_BEAT * seconds_per_beat
     for note in result:
         if note.get("id") not in selected_set:
             updated.append(note)
@@ -57,7 +58,14 @@ def arpeggiate_notes(
         replacement = processed.get(note["id"])
         if replacement is None:
             continue  # 被脚本去重移除
-        note["start"], note["duration"] = replacement
+        start, duration = replacement
+        # 低于半个 tick 的差异来自秒->tick 取整，保留原值避免单音符被无意义地挪动
+        if abs(start - note["start"]) < half_tick and abs(
+            duration - note["duration"]
+        ) < half_tick:
+            updated.append(note)
+            continue
+        note["start"], note["duration"] = start, duration
         updated.append(note)
     return updated
 
@@ -99,7 +107,13 @@ def _read_output_midi(
         parsed, _events = arpeggiate.extract_notes(track)
         if not parsed:
             continue
+        if len(parsed) != 1:
+            raise ValueError(f"脚本输出音轨包含 {len(parsed)} 个音符，预期 1 个")
         first = parsed[0]
+        if int(first["note"]) != int(note["pitch"]):
+            raise ValueError(
+                f"脚本输出音高不匹配：{first['note']} != {note['pitch']}"
+            )
         start = first["on"] / TICKS_PER_BEAT * seconds_per_beat
         duration = (first["off"] - first["on"]) / TICKS_PER_BEAT * seconds_per_beat
         processed[note["id"]] = (round(start, 6), round(max(duration, 0.0), 6))

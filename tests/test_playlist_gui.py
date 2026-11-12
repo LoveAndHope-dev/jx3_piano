@@ -7,6 +7,8 @@ from unittest.mock import patch
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
 import gui
+import arpeggiate
+from PyQt5.QtCore import QPoint
 from PyQt5.QtWidgets import QApplication, QMessageBox
 
 _app = None
@@ -358,19 +360,56 @@ class PlaylistGuiTest(unittest.TestCase):
         starts = [n["start"] for n in self.window.piano_roll.get_notes()]
         self.assertEqual(starts, [1.0, 1.0])
 
-    def test_arpeggiate_failure_keeps_notes(self):
+    def test_arpeggiate_script_failure_keeps_roll(self):
         self.window.piano_roll.set_notes([
             {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},
             {"id": 1, "pitch": 64, "start": 1.0, "duration": 0.5, "track": 0},
         ])
-        self.window.piano_roll._canvas._set_selection({0, 1})
-        with patch.object(
-            self.window.piano_roll, "arpeggiate_selected", side_effect=RuntimeError("boom")
-        ):
+        canvas = self.window.piano_roll._canvas
+        canvas._set_selection({0, 1})
+        notes_before = [dict(n) for n in self.window.piano_roll.get_notes()]
+        items_before = set(canvas._note_items)
+        undo_before = len(self.window._undo_stack)
+        dirty_before = self.window.piano_roll_dirty
+        with patch.object(arpeggiate, "main", side_effect=RuntimeError("boom")):
             self.window.on_arpeggiate_clicked()
-        starts = [n["start"] for n in self.window.piano_roll.get_notes()]
-        self.assertEqual(starts, [1.0, 1.0])
+        self.assertEqual(self.window.piano_roll.get_notes(), notes_before)
+        self.assertEqual(set(canvas._note_items), items_before)
+        self.assertEqual(canvas._selected_ids, {0, 1})
+        self.assertEqual(len(self.window._undo_stack), undo_before)
+        self.assertEqual(self.window.piano_roll_dirty, dirty_before)
         self.assertIn("曲谱优化失败", self.window.log_text.toPlainText())
+
+    def test_arpeggiate_dedupe_removes_note_item_and_is_undoable(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},
+            {"id": 1, "pitch": 60, "start": 1.0, "duration": 0.25, "track": 0},
+        ])
+        self.window._record_history()
+        canvas = self.window.piano_roll._canvas
+        canvas._set_selection({0, 1})
+        undo_before = len(self.window._undo_stack)
+        self.window.piano_roll_dirty = False
+        self.window.on_arpeggiate_clicked()
+        self.assertEqual([n["id"] for n in self.window.piano_roll.get_notes()], [0])
+        self.assertEqual(set(canvas._note_items), {0})
+        self.assertEqual(canvas._selected_ids, {0})
+        self.assertTrue(self.window.piano_roll_dirty)
+        self.assertEqual(len(self.window._undo_stack), undo_before + 1)
+        self.window.undo_last_edit()
+        self.assertEqual(
+            sorted(n["id"] for n in self.window.piano_roll.get_notes()), [0, 1]
+        )
+
+    def test_topmost_toggle_updates_text_and_log(self):
+        self.window.topmost_btn.setChecked(True)
+        self.window.toggle_topmost()
+        self.assertEqual(self.window.topmost_btn.text(), "📌 取消置顶")
+        self.assertIn("窗口已置顶", self.window.log_text.toPlainText())
+        self.window.topmost_btn.setChecked(False)
+        self.window.toggle_topmost()
+        self.assertEqual(self.window.topmost_btn.text(), "📌 置顶")
 
     def _find_layout_containing(self, layout, widget):
         for index in range(layout.count()):
@@ -418,6 +457,26 @@ class PlaylistGuiTest(unittest.TestCase):
             if second_row.itemAt(index).spacerItem() is not None
         ]
         self.assertEqual(second_spacers, [second_row.count() - 1])
+
+    def test_piano_toolbar_positions_stable_when_window_grows(self):
+        widgets = [
+            self.window.play_btn,
+            self.window.range_low_combo,
+            self.window.range_high_combo,
+            self.window.bpm_spin,
+        ]
+
+        def sample():
+            _application().processEvents()
+            return [
+                (w.mapTo(self.window, QPoint(0, 0)).x(), w.width()) for w in widgets
+            ]
+
+        self.window.resize(1400, 900)
+        wide = sample()
+        self.window.resize(2200, 900)
+        wider = sample()
+        self.assertEqual(wide, wider)
 
     def test_stop_playback_keeps_play_mode_locked(self):
         canvas = self.window.piano_roll._canvas

@@ -1314,8 +1314,10 @@ class MidiConverterGUI(QMainWindow):
             self.log("🪄 请先选中要优化的音符")
             return
         # 脚本以四分音符为单位计算 1/32 拍窗口与步长
-        seconds_per_beat = 60.0 / self.current_bpm
         try:
+            if self.current_bpm <= 0:
+                raise ValueError("当前 BPM 无效")
+            seconds_per_beat = 60.0 / self.current_bpm
             count = self.piano_roll.arpeggiate_selected(seconds_per_beat)
         except Exception as exc:  # 脚本失败时铺面保持不变
             self.log(f"❌ 曲谱优化失败：{exc}")

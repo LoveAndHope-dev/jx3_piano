@@ -964,7 +964,14 @@ class _PianoRollCanvas(QGraphicsView):
             return 0
         before = {n["id"]: (n["start"], n["duration"]) for n in self._notes if n["id"] in selected}
         self._notes = arpeggiate_notes(self._notes, selected, seconds_per_beat)
-        changed = 0
+        remaining = {n["id"] for n in self._notes}
+        removed = set(before) - remaining
+        for note_id in removed:
+            item = self._note_items.pop(note_id, None)
+            if item is not None:
+                self._scene.removeItem(item)
+            self._selected_ids.discard(note_id)
+        changed = len(removed)
         for note in self._notes:
             if note.get("id") in before and before[note["id"]] != (
                 note["start"],

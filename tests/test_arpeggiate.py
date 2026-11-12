@@ -42,8 +42,15 @@ class ArpeggiateRunnerTest(unittest.TestCase):
 
     def test_single_note_unchanged(self):
         result = arpeggiate_notes(_notes(), {3}, 1.0)
-        self.assertAlmostEqual(result[3]["start"], 3.0, delta=1e-4)
-        self.assertAlmostEqual(result[3]["duration"], 0.5, delta=1e-4)
+        by_id = {n["id"]: n for n in result}
+        self.assertAlmostEqual(by_id[3]["start"], 3.0, delta=1e-4)
+        self.assertAlmostEqual(by_id[3]["duration"], 0.5, delta=1e-4)
+
+    def test_off_grid_single_note_is_not_nudged(self):
+        notes = [{"id": 0, "pitch": 60, "start": 1.0001, "duration": 0.5}]
+        result = arpeggiate_notes(notes, {0}, 1.0)
+        self.assertEqual(result[0]["start"], 1.0001)
+        self.assertEqual(result[0]["duration"], 0.5)
 
     def test_unselected_untouched(self):
         result = arpeggiate_notes(_notes(), {0, 1}, 1.0)
@@ -73,6 +80,8 @@ class ArpeggiateRunnerTest(unittest.TestCase):
         self.assertNotIn(1, ids)
         self.assertIn(0, ids)
         self.assertIn(2, ids)
+        survivor = next(n for n in result if n["id"] == 0)
+        self.assertAlmostEqual(survivor["duration"], 0.5, delta=1e-4)
 
     def test_input_is_not_mutated(self):
         notes = _notes()

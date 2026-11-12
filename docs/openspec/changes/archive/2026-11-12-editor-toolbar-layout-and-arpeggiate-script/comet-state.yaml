@@ -1,0 +1,3063 @@
+# comet-execution: managed-run
+change_id: 1185a587-7650-4ec6-be82-7aacc4bf7618
+workflow: full
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: executing-plans
+build_pause: null
+subagent_dispatch: null
+tdd_mode: tdd
+review_mode: standard
+isolation: current
+verify_mode: null
+auto_transition: true
+base_ref: 9a115484d16f1773d16fb1a196e176c1c4fbc930
+design_doc: docs/openspec/changes/archive/2026-11-12-editor-toolbar-layout-and-arpeggiate-script/design.md
+plan: docs/superpowers/plans/2026-11-12-editor-toolbar-layout-and-arpeggiate-script.md
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-12-editor-toolbar-layout-and-arpeggiate-script-verification.md
+branch_status: pending
+created_at: 2026-11-12
+verified_at: 2026-11-12
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: false
+handoff_context: docs/openspec/changes/archive/2026-11-12-editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+handoff_hash: 3d828c32365e28aa82f16c4934a7bca3688b449ef39435a4ca8a6ed6870a7597
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v2
+  hash: 23e85c16ffe5ef9008c42da6241f821f258256f89ba703f417ed0925a11c3fb2
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: editor-toolbar-layout-and-arpeggiate-script
+    revision: 1
+    workflow:
+      id: comet-classic-full
+      version: "1"
+      hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    definitionHashes:
+      '["comet-classic-full","1"]': ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    initialStateHash: 82f6f52fcb5d4aacf518d0f26102d9525fcbda650b80ead348f68595e3ee449c
+    input:
+      change: editor-toolbar-layout-and-arpeggiate-script
+      changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      workspaceBaseline:
+        ref: 99872946-10b6-4080-b25c-311435e09e6e
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 9a115484d16f1773d16fb1a196e176c1c4fbc930
+      boundBranch: main
+      branchStatus: pending
+      buildMode: executing-plans
+      buildPause: null
+      checkEpoch: 6
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-12
+      designDoc: docs/openspec/changes/archive/2026-11-12-editor-toolbar-layout-and-arpeggiate-script/design.md
+      directOverride: false
+      handoffContext: docs/openspec/changes/archive/2026-11-12-editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+      handoffHash: 3d828c32365e28aa82f16c4934a7bca3688b449ef39435a4ca8a6ed6870a7597
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: docs/superpowers/plans/2026-11-12-editor-toolbar-layout-and-arpeggiate-script.md
+      reviewMode: standard
+      subagentDispatch: null
+      tddMode: tdd
+      verificationReport: docs/superpowers/reports/2026-11-12-editor-toolbar-layout-and-arpeggiate-script-verification.md
+      verifiedAt: 2026-11-12
+      verifyFailures: 0
+      verifyMode: null
+      verifyResult: pass
+      workflow: full
+    status: running
+    sequence: 26
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-db7e1c859006c512883ee14c0754a7baa054867df98630c511562e801902ee20
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:1
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: 60f855f04d1e26898769b2df946b0333b56c941399dbdb8f297b121b1c915dfd
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:1
+          attempt: 1
+          claimToken: portable-db7e1c859006c512883ee14c0754a7baa054867df98630c511562e801902ee20
+          inputHash: 60f855f04d1e26898769b2df946b0333b56c941399dbdb8f297b121b1c915dfd
+          outcomeId: a7d21cd2-a249-48f0-8084-bfa6bb1e4858
+          output:
+            event: open-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 8f7ab086491f3d4e5c8526829c588ca25094a2c395212775de0395f9f4f37070
+            outcomeId: a7d21cd2-a249-48f0-8084-bfa6bb1e4858
+        reconciliations: []
+        ref: comet-open
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-open-revalidate
+          token: portable-eb64d6f06969a02ee4e20d46cfadd8ad9f679fde98b7b9f76599024e2b86d346
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:4
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: 91f0c1f524d6a4f918a4b4784e4172b85878b07b7f4c3210da327f3a101f42dc
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:4
+          attempt: 1
+          claimToken: portable-eb64d6f06969a02ee4e20d46cfadd8ad9f679fde98b7b9f76599024e2b86d346
+          inputHash: 91f0c1f524d6a4f918a4b4784e4172b85878b07b7f4c3210da327f3a101f42dc
+          outcomeId: editor-toolbar-layout-and-arpeggiate-script:4:1:executor-result
+          output:
+            contentHash: 6e46ddabf173b540b4d5cc11a491d462c3ca911082fb0990aedeb18f389ceae1
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 7d6b0785596a681b25c0849872566f9b867e3fc7b47753a9be920ed163045746
+            outcomeId: editor-toolbar-layout-and-arpeggiate-script:4:1:executor-result
+        reconciliations: []
+        ref: classic-open-revalidate
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.open.revalidate
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-7decd53a3c03fcc3779ca8e3de09d236842580db7a95d7c76720c4c446e24b42
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:5
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: fb533c99edeed6e3948be508d39926fabd802c35c40f6a9a43333936366d913a
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:5
+          attempt: 1
+          claimToken: portable-7decd53a3c03fcc3779ca8e3de09d236842580db7a95d7c76720c4c446e24b42
+          inputHash: fb533c99edeed6e3948be508d39926fabd802c35c40f6a9a43333936366d913a
+          outcomeId: dc368b8a-cf06-4df1-b971-4db805fb0e42
+          output:
+            handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+            handoffHash: 209679ef638a1a56e31d43fd1c419bfd2288065ffebe95ec6fd5cbcfaf776880
+            proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+              从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry
+              写死坐标（避免 DPI 变化重叠）。2) 控制面板由 QGroupBox 改为 QFrame（objectName
+              controlPanel），内部依次为标题行（QLabel panelTitle + stretch +
+              置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+              复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 将
+              release/谱子/arpeggiate.py 以二进制方式复制为项目根
+              arpeggiate.py（替换旧重写实现），删除原件，用哈希核对逐字节一致。4) 新增
+              arpeggiate_runner.py，公开 arpeggiate_notes(notes, selected_ids,
+              seconds_per_beat)：在临时目录生成 ticks_per_beat=480 的
+              MIDI，每个选中音符一条独立音轨（起点/时值按秒换算 tick），用
+              contextlib.redirect_stdout/redirect_stderr 包住
+              arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+              extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+              换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected
+              改为调用 runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+              60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；不调用脚本内部函数而直接跑
+              main（脚本零改动最直接）；不保留 release 副本（避免两份权威版本）。风险：tick 量化约
+              1ms；结束时间不变导致后移音符变短、同音高同起点被去重（均为脚本既定语义，旧测试需重写）；打包需确认 mido
+              与脚本被收集。测试策略：runner
+              单测覆盖和弦展开、结束时间不变、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原脚本标志内容且不含旧实现；GUI
+              测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有 157
+              项回归。Spec Patch：无。
+            requirementsEvidence:
+              contentHash: e36f7b9d0289777343aae28890c065100392eaca22217ada47b080c1f489a009
+              ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            sourceEvidence:
+              contentHash: 9bebf8ebbcf468c83fd9081ac42a4212c8de932de8c7cdb4c6500fd487d2f7d3
+              ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f7325ec88d8ada2eba4fcbd49929b4f6617669512a71bde9f4fce731072726a6
+            outcomeId: dc368b8a-cf06-4df1-b971-4db805fb0e42
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.design.handoff
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-3b8356b3128ae16c09869c433394f877238307c7f901777b4cf20af3646e0ae6
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:7
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: 910854ad05d6a8b15f6339ebff7c62d0fae0d82103f60490affb8cb91d6d054f
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:7
+          attempt: 1
+          claimToken: portable-3b8356b3128ae16c09869c433394f877238307c7f901777b4cf20af3646e0ae6
+          inputHash: 910854ad05d6a8b15f6339ebff7c62d0fae0d82103f60490affb8cb91d6d054f
+          outcomeId: 7678c53f-11c0-4423-983b-75a60e3bf85b
+          output:
+            handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+            handoffHash: 3d828c32365e28aa82f16c4934a7bca3688b449ef39435a4ca8a6ed6870a7597
+            proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+              从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry
+              写死坐标。2) 控制面板由 QGroupBox 改为 QFrame（objectName
+              controlPanel），内部依次为标题行（QLabel panelTitle + stretch +
+              置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+              复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 把
+              release/谱子/arpeggiate.py 移入项目根 arpeggiate.py（替换旧重写实现）并删除原件；保留
+              shebang、模块文档、五个参数常量、extract_notes/dedupe/arpeggiate/rebuild/main 与
+              __main__；唯一算法修正是展开时保持时长不变——起点后移 delta 时结束时间同步后移 delta，并保留
+              MIN_DUR_TICKS 兜底。4) 新增 arpeggiate_runner.py，公开
+              arpeggiate_notes(notes, selected_ids, seconds_per_beat)：在临时目录生成
+              ticks_per_beat=384（沿用脚本注释的 1/32 拍=12 tick 约定）的
+              MIDI，每个选中音符一条独立音轨，起点/时值按秒换算 tick；用
+              contextlib.redirect_stdout/redirect_stderr 包住
+              arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+              extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+              换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected
+              改为调用 runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+              60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；直接跑脚本
+              main 而非重写算法（逻辑原样复用）；不保留 release 副本（避免两份权威版本）；去重保留脚本 DEDUPE=True
+              行为。风险：tick 量化约 1/384 拍（120 BPM 约
+              2.6ms）；脚本被修改一处，需在测试中固定结构与时长语义；同音高同起点会被去重删除；打包需确认 mido
+              与脚本被收集。测试策略：runner
+              单测覆盖和弦展开、时长不变（结束时间随起点后移）、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原结构与常量且不含旧实现；GUI
+              测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有 157
+              项回归。Spec Patch：已按用户回复更新 arpeggiate-script
+              spec（原「逐字节一致/结束时间不变」改为「结构保留+时长不变」）。
+            requirementsEvidence:
+              contentHash: 9eb3267482fc4c3a1dfebe3fbbd103c118e7195ea694716f14eecf09a126d236
+              ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            sourceEvidence:
+              contentHash: 7f1f6a0de8a3d57b6b920d2170e5a28df8ef914bfe1e51d31e40e0b4b6d0266c
+              ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f1a292cbebfe9bcd318eeca45074d706f66913ab5a073d775b0c9d295b13710b
+            outcomeId: 7678c53f-11c0-4423-983b-75a60e3bf85b
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.design.handoff
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-7901dae19ea4d026e268c916000f613a6d5b5207438bd6582be726a32f9a241f
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:9
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: 80dbfd91a6818f0b00c6bd49c130f4d98a40facac99f956f02eb5d3e2c5564e9
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:9
+          attempt: 1
+          claimToken: portable-7901dae19ea4d026e268c916000f613a6d5b5207438bd6582be726a32f9a241f
+          inputHash: 80dbfd91a6818f0b00c6bd49c130f4d98a40facac99f956f02eb5d3e2c5564e9
+          outcomeId: e9717eb7-4467-4629-b408-6f5e19b110f2
+          output:
+            designDoc: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/design.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: ed9021ee59247b936b439275fccadcd5ab2a16f264a8193754fd0c415b6189f0
+            outcomeId: e9717eb7-4467-4629-b408-6f5e19b110f2
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.design.document
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-147d97e1e785fabfd1ceae7987b6887aa5cb52129e89bfc08b7d878fb4620caa
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:11
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: 0993489b290a9fda0c51208b22dce139548b20cf0ede0baf5f74bef0e8a5f92f
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:11
+          attempt: 1
+          claimToken: portable-147d97e1e785fabfd1ceae7987b6887aa5cb52129e89bfc08b7d878fb4620caa
+          inputHash: 0993489b290a9fda0c51208b22dce139548b20cf0ede0baf5f74bef0e8a5f92f
+          outcomeId: b4be92b7-032b-4ee0-a9ea-b28ca783d776
+          output:
+            boundBranch: main
+            buildMode: executing-plans
+            directOverride: false
+            isolation: current
+            reviewMode: standard
+            subagentDispatch: null
+            tddMode: tdd
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: cae31bb26724a1428be44df2c5f1abdaa5cac6dec2e01712140dcb9dac7ff304
+            outcomeId: b4be92b7-032b-4ee0-a9ea-b28ca783d776
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.build.configure
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-a6a0e0670007f0ec882520af7800a453ea093008001555473b76af9d17f52c1f
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:13
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: 5850371e18759a4c29ae7620e417b63452c3a75f18d278c5c00638e0bb14a179
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:13
+          attempt: 1
+          claimToken: portable-a6a0e0670007f0ec882520af7800a453ea093008001555473b76af9d17f52c1f
+          inputHash: 5850371e18759a4c29ae7620e417b63452c3a75f18d278c5c00638e0bb14a179
+          outcomeId: 4df9ebe5-74cd-46b6-808c-263540bacc2b
+          output:
+            designEvidence:
+              contentHash: ba3a2df7645d1690c196b9546d405a678151851042d628880ad09250ee166852
+              ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/design.md
+            plan: docs/superpowers/plans/2026-11-12-editor-toolbar-layout-and-arpeggiate-script.md
+            planEvidence:
+              contentHash: 5efa7e4ad01d25fc3caf45e432e85447f9b9ff34750698d64bf80e698759ed2b
+              ref: docs/superpowers/plans/2026-11-12-editor-toolbar-layout-and-arpeggiate-script.md
+            taskRevision: 2e8ec7a009f2fbe0dcfa8d83abbbe5520c71be922bd0618d5d4a13c9bbfb3cee
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 2242e5c7851e357b2ee95cc7b1622915147b005fb9a1f3c515581993bfe9683a
+            outcomeId: 4df9ebe5-74cd-46b6-808c-263540bacc2b
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.build.plan
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/editor-toolbar-layout-and-arpeggiate-script:15/1
+          token: portable-005497b48638faddfa48b0586884fe4981318b542ab16923f4b8a37722234836
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:15
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: 0c1e19dceee7431f85474221b33a02e33a268aba4437bd027ede189d22a75771
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:15
+          attempt: 1
+          claimToken: portable-005497b48638faddfa48b0586884fe4981318b542ab16923f4b8a37722234836
+          inputHash: 0c1e19dceee7431f85474221b33a02e33a268aba4437bd027ede189d22a75771
+          outcomeId: 231cacdd-5751-472a-a38d-6a1c3904ef6c
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 5b9c28e745ffee2e94847c97c73071cc9255ea08616140aa4bca763f0c7f486d
+            outcomeId: 231cacdd-5751-472a-a38d-6a1c3904ef6c
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-48e6c07c2d520536645b51fbfdeb3a1de0996f08662af51c0c2ee37fb93fc12c
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:16
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: 91867cec35666f1bb11a0552cb0db9d672d6e9f37e89f80e292c78279d7e9c01
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:16
+          attempt: 1
+          claimToken: portable-48e6c07c2d520536645b51fbfdeb3a1de0996f08662af51c0c2ee37fb93fc12c
+          inputHash: 91867cec35666f1bb11a0552cb0db9d672d6e9f37e89f80e292c78279d7e9c01
+          outcomeId: 89f37f35-8d61-435b-854e-0d218d6aca71
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 6f9ca2dbdbf7a6d141a08d7d5747af04107fdfa682956b39ebebd66251db4ecb
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 92f9329e718ebef9f9f8b4199fdef3b2ae1b6e0d7b24c7fec1f64648f1a82a8e
+            inputBefore: 92f9329e718ebef9f9f8b4199fdef3b2ae1b6e0d7b24c7fec1f64648f1a82a8e
+            manifestHash: 6cccba065e3ec8235aad5b8ce3d54f54b6be8a1997970656de8399b6a5d15c0a
+            manifestRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/b5c81c43-5f45-4840-8158-e6f532f03584.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/60a0f6aa-a5b7-405d-9ad0-e09cd896c20f.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 4b53e745efd567fddcbfef478f9cc3dd67ed7572b19b7e5a4e5c15e4a865f025
+            outcomeId: 89f37f35-8d61-435b-854e-0d218d6aca71
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-ac59e804813d14230d816e863fd182a83025a8774aa49a8249a2b81da8b253ea
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:18
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: c7531fbc10cc5e87b13f204c55ed6d4d4eaeeeb2aa3d8d0f8f0d898d2e3c7736
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:18
+          attempt: 1
+          claimToken: portable-ac59e804813d14230d816e863fd182a83025a8774aa49a8249a2b81da8b253ea
+          inputHash: c7531fbc10cc5e87b13f204c55ed6d4d4eaeeeb2aa3d8d0f8f0d898d2e3c7736
+          outcomeId: 69212781-e518-463a-a2f2-013c3b8d2ca2
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-12-editor-toolbar-layout-and-arpeggiate-script-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f3e90c4b2efd5a86d1016acd32ff89ab71cdb1decc1b09d1d19c256d20abc4f7
+            outcomeId: 69212781-e518-463a-a2f2-013c3b8d2ca2
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-e163129da751145b1254c9549ea9312c71de067fd760653f74cfe4a0799bc812
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:20
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: a86e9f253a7daabd883c8acea99855d879c4e523067d8576a719cda1af74290e
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:20
+          attempt: 1
+          claimToken: portable-e163129da751145b1254c9549ea9312c71de067fd760653f74cfe4a0799bc812
+          inputHash: a86e9f253a7daabd883c8acea99855d879c4e523067d8576a719cda1af74290e
+          outcomeId: 69d5060b-7f51-40d1-833f-09da012ca954
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 3
+            contentHash: 2f81558db25d07f3630a36d96682ad8f66879362beee78cb08c7b9ca88cb2445
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 0444ca7b7f9e270625232b9264f116adae0ce80fd8136239f43a4219b66999ca
+            inputBefore: 0444ca7b7f9e270625232b9264f116adae0ce80fd8136239f43a4219b66999ca
+            manifestHash: c6374b29d9e56c688751737038e9a8fd4f2c3a1cc323a7b3be9d2380c0960a44
+            manifestRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/98a1ab84-9f2d-4512-9131-b6f2f6e73b50.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/f7d25838-cc2b-4ce3-8efb-2b4cc3a622b6.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 42329e4dce90feb89bc64391081c258dcfd198d505eae87ddafc1a24fb71d2a9
+            outcomeId: 69d5060b-7f51-40d1-833f-09da012ca954
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-cfc8207ced8e052f9577068eebf8c92ec26600a5adfb4a8f7accad8b4b98215e
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:22
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: 97c5d42beeda450fdf77a4282e627b4023b578aa30a8e6352da86aa450db78c5
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:22
+          attempt: 1
+          claimToken: portable-cfc8207ced8e052f9577068eebf8c92ec26600a5adfb4a8f7accad8b4b98215e
+          inputHash: 97c5d42beeda450fdf77a4282e627b4023b578aa30a8e6352da86aa450db78c5
+          outcomeId: f6d42a84-abb1-48af-b8ac-07645227b5f2
+          output:
+            summary: 铺面编辑两行工具栏全部贴左（行尾弹性空白，窗口拉宽不漂移）；置顶按钮移到控制面板标题行，日志页不再保留；曲谱优化改为执行项目内
+              arpeggiate.py（自 release/谱子 移入，仅修正为时长不变），通过临时 MIDI 往返调用脚本
+              main()，去重删除会同步清理图形/选择并进入撤销历史，脚本失败不改动铺面。168 项测试通过，独立审查问题已修复，release
+              exe 已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: d734076e6f7d6c501c468939a6d44b7eff039cc03360e00d9ebef09ae13107d5
+            outcomeId: f6d42a84-abb1-48af-b8ac-07645227b5f2
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-b034c54bfe6fffe9a712310a2a3f5a5540dcb28e80dbe3ea101fadbff90aa316
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:24
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: 930dba37af6d181e37781923fdbea2926a24993c3e1dfd7ccbd19dd0fd671897
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:24
+          attempt: 1
+          claimToken: portable-b034c54bfe6fffe9a712310a2a3f5a5540dcb28e80dbe3ea101fadbff90aa316
+          inputHash: 930dba37af6d181e37781923fdbea2926a24993c3e1dfd7ccbd19dd0fd671897
+          outcomeId: 9ecdfa72-e1bc-4987-b756-1a1c1fa9df0a
+          output:
+            baseCommit: 019c707f3c59aea463bbc733ee0a326b3c436aca
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: a0cfd7f6ee4f97a41dfbdaabcbf293c597084cf65c9a0d8d0f120dc6c9d8588a
+            outcomeId: 9ecdfa72-e1bc-4987-b756-1a1c1fa9df0a
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-3c829bb43736075546c280b315168003c7b3669b8c9a50cc6fd0af35018825ad
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: editor-toolbar-layout-and-arpeggiate-script:25
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: 06d01f91c3cc0e76a41f342c36f35fe00039552d24f72ca510c6166b3c9d3d47
+        outcome:
+          actionId: editor-toolbar-layout-and-arpeggiate-script:25
+          artifacts:
+            - sha256: eb8aa04ef8aa31ad20d8f7671f2ec0e05b1754b8ae5689d099c7c49c2c7582bc
+              uri: docs/openspec/changes/archive/2026-11-12-editor-toolbar-layout-and-arpeggiate-script/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-3c829bb43736075546c280b315168003c7b3669b8c9a50cc6fd0af35018825ad
+          inputHash: 06d01f91c3cc0e76a41f342c36f35fe00039552d24f72ca510c6166b3c9d3d47
+          outcomeId: a6f1ae4f-ba97-4f94-9e86-fee0c05da5ba
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-12-editor-toolbar-layout-and-arpeggiate-script
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 9cbaaaa92105a6ac51dfc68271fda5016dfb119d41b2057446b9b841ec6f1a9b
+            outcomeId: a6f1ae4f-ba97-4f94-9e86-fee0c05da5ba
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: succeeded
+        stepId: full.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: editor-toolbar-layout-and-arpeggiate-script:26
+        input:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs: {}
+        inputHash: d9f66d4c1cccf71385f0cbfab5f5841e7fbe2a2cd8fa34c3e346b779468b1ab3
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: editor-toolbar-layout-and-arpeggiate-script
+        status: pending
+        stepId: full.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      editor-toolbar-layout-and-arpeggiate-script:1:
+        results: {}
+        sequence: 1
+      editor-toolbar-layout-and-arpeggiate-script:11:
+        results: {}
+        sequence: 11
+      editor-toolbar-layout-and-arpeggiate-script:13:
+        results: {}
+        sequence: 13
+      editor-toolbar-layout-and-arpeggiate-script:15:
+        results: {}
+        sequence: 15
+      editor-toolbar-layout-and-arpeggiate-script:16:
+        results: {}
+        sequence: 16
+      editor-toolbar-layout-and-arpeggiate-script:18:
+        results: {}
+        sequence: 18
+      editor-toolbar-layout-and-arpeggiate-script:20:
+        results: {}
+        sequence: 20
+      editor-toolbar-layout-and-arpeggiate-script:22:
+        results: {}
+        sequence: 22
+      editor-toolbar-layout-and-arpeggiate-script:24:
+        results: {}
+        sequence: 24
+      editor-toolbar-layout-and-arpeggiate-script:25:
+        results: {}
+        sequence: 25
+      editor-toolbar-layout-and-arpeggiate-script:26:
+        results: {}
+        sequence: 26
+      editor-toolbar-layout-and-arpeggiate-script:4:
+        results: {}
+        sequence: 4
+      editor-toolbar-layout-and-arpeggiate-script:5:
+        results: {}
+        sequence: 5
+      editor-toolbar-layout-and-arpeggiate-script:7:
+        results: {}
+        sequence: 7
+      editor-toolbar-layout-and-arpeggiate-script:9:
+        results: {}
+        sequence: 9
+    waits:
+      - id: editor-toolbar-layout-and-arpeggiate-script:3
+        stepId: full.open.confirm
+        sequence: 3
+        status: resolved
+        proposal:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 6e46ddabf173b540b4d5cc11a491d462c3ca911082fb0990aedeb18f389ceae1
+              ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+        proposalHash: 6f87a7f73216b0cd42ae3dc6a24709f9eb86c83a0439768c4559f286c758ab0f
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-open-6e46ddabf173b540b4d5cc11a491d462c3ca911082fb0990aedeb18f389ceae1
+          choice: approved
+          proposalHash: 6f87a7f73216b0cd42ae3dc6a24709f9eb86c83a0439768c4559f286c758ab0f
+      - id: editor-toolbar-layout-and-arpeggiate-script:6
+        stepId: full.design.confirm
+        sequence: 6
+        status: resolved
+        proposal:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+              handoffHash: 209679ef638a1a56e31d43fd1c419bfd2288065ffebe95ec6fd5cbcfaf776880
+              proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+                从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry
+                写死坐标（避免 DPI 变化重叠）。2) 控制面板由 QGroupBox 改为 QFrame（objectName
+                controlPanel），内部依次为标题行（QLabel panelTitle + stretch +
+                置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+                复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 将
+                release/谱子/arpeggiate.py 以二进制方式复制为项目根
+                arpeggiate.py（替换旧重写实现），删除原件，用哈希核对逐字节一致。4) 新增
+                arpeggiate_runner.py，公开 arpeggiate_notes(notes, selected_ids,
+                seconds_per_beat)：在临时目录生成 ticks_per_beat=480 的
+                MIDI，每个选中音符一条独立音轨（起点/时值按秒换算 tick），用
+                contextlib.redirect_stdout/redirect_stderr 包住
+                arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+                extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+                换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected
+                改为调用 runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+                60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；不调用脚本内部函数而直接跑
+                main（脚本零改动最直接）；不保留 release 副本（避免两份权威版本）。风险：tick 量化约
+                1ms；结束时间不变导致后移音符变短、同音高同起点被去重（均为脚本既定语义，旧测试需重写）；打包需确认 mido
+                与脚本被收集。测试策略：runner
+                单测覆盖和弦展开、结束时间不变、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原脚本标志内容且不含旧实现；GUI
+                测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有
+                157 项回归。Spec Patch：无。
+              requirementsEvidence:
+                contentHash: e36f7b9d0289777343aae28890c065100392eaca22217ada47b080c1f489a009
+                ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+              sourceEvidence:
+                contentHash: 9bebf8ebbcf468c83fd9081ac42a4212c8de932de8c7cdb4c6500fd487d2f7d3
+                ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+        proposalHash: fdd2f0fcf7d421e07a14e4d1cbb3564fdceb63112dbb63c703c12ac1ab3c073d
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-design-fdd2f0fcf7d421e07a14e4d1cbb3564fdceb63112dbb63c703c12ac1ab3c073d-rejected
+          choice: rejected
+          proposalHash: fdd2f0fcf7d421e07a14e4d1cbb3564fdceb63112dbb63c703c12ac1ab3c073d
+      - id: editor-toolbar-layout-and-arpeggiate-script:8
+        stepId: full.design.confirm
+        sequence: 8
+        status: resolved
+        proposal:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+              handoffHash: 3d828c32365e28aa82f16c4934a7bca3688b449ef39435a4ca8a6ed6870a7597
+              proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+                从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry
+                写死坐标。2) 控制面板由 QGroupBox 改为 QFrame（objectName
+                controlPanel），内部依次为标题行（QLabel panelTitle + stretch +
+                置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+                复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 把
+                release/谱子/arpeggiate.py 移入项目根 arpeggiate.py（替换旧重写实现）并删除原件；保留
+                shebang、模块文档、五个参数常量、extract_notes/dedupe/arpeggiate/rebuild/main
+                与 __main__；唯一算法修正是展开时保持时长不变——起点后移 delta 时结束时间同步后移 delta，并保留
+                MIN_DUR_TICKS 兜底。4) 新增 arpeggiate_runner.py，公开
+                arpeggiate_notes(notes, selected_ids, seconds_per_beat)：在临时目录生成
+                ticks_per_beat=384（沿用脚本注释的 1/32 拍=12 tick 约定）的
+                MIDI，每个选中音符一条独立音轨，起点/时值按秒换算 tick；用
+                contextlib.redirect_stdout/redirect_stderr 包住
+                arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+                extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+                换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected
+                改为调用 runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+                60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；直接跑脚本
+                main 而非重写算法（逻辑原样复用）；不保留 release 副本（避免两份权威版本）；去重保留脚本 DEDUPE=True
+                行为。风险：tick 量化约 1/384 拍（120 BPM 约
+                2.6ms）；脚本被修改一处，需在测试中固定结构与时长语义；同音高同起点会被去重删除；打包需确认 mido
+                与脚本被收集。测试策略：runner
+                单测覆盖和弦展开、时长不变（结束时间随起点后移）、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原结构与常量且不含旧实现；GUI
+                测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有
+                157 项回归。Spec Patch：已按用户回复更新 arpeggiate-script
+                spec（原「逐字节一致/结束时间不变」改为「结构保留+时长不变」）。
+              requirementsEvidence:
+                contentHash: 9eb3267482fc4c3a1dfebe3fbbd103c118e7195ea694716f14eecf09a126d236
+                ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+              sourceEvidence:
+                contentHash: 7f1f6a0de8a3d57b6b920d2170e5a28df8ef914bfe1e51d31e40e0b4b6d0266c
+                ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+        proposalHash: 6b93064c74d0e5e854122866c5639131081123869ec7d743d0debdf3467634fb
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-design-6b93064c74d0e5e854122866c5639131081123869ec7d743d0debdf3467634fb-approved
+          choice: approved
+          proposalHash: 6b93064c74d0e5e854122866c5639131081123869ec7d743d0debdf3467634fb
+      - id: editor-toolbar-layout-and-arpeggiate-script:12
+        stepId: full.build.confirm
+        sequence: 12
+        status: resolved
+        proposal:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+        proposalHash: 815291a19637798e03a3b5387b7b24f16a47c9eb556f1bf51719d423fa59836e
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: 9a66a84f-b834-4177-b714-394a2075a5a2
+          choice: approved
+          proposalHash: 815291a19637798e03a3b5387b7b24f16a47c9eb556f1bf51719d423fa59836e
+      - id: editor-toolbar-layout-and-arpeggiate-script:23
+        stepId: full.archive.confirm
+        sequence: 23
+        status: resolved
+        proposal:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs:
+            full.archive.prepare:
+              summary: 铺面编辑两行工具栏全部贴左（行尾弹性空白，窗口拉宽不漂移）；置顶按钮移到控制面板标题行，日志页不再保留；曲谱优化改为执行项目内
+                arpeggiate.py（自 release/谱子 移入，仅修正为时长不变），通过临时 MIDI 往返调用脚本
+                main()，去重删除会同步清理图形/选择并进入撤销历史，脚本失败不改动铺面。168
+                项测试通过，独立审查问题已修复，release exe 已重新打包。
+              targetBranch: main
+        proposalHash: e108ea4a366fbd33d91eff245a682161088ba546ec88c90216817eda055655da
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results: {}
+        decision:
+          id: classic-archive-e108ea4a366fbd33d91eff245a682161088ba546ec88c90216817eda055655da-local
+          choice: local
+          proposalHash: e108ea4a366fbd33d91eff245a682161088ba546ec88c90216817eda055655da
+    evidenceWaits:
+      - id: editor-toolbar-layout-and-arpeggiate-script:2
+        stepId: full.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+          contentHash: 6e46ddabf173b540b4d5cc11a491d462c3ca911082fb0990aedeb18f389ceae1
+          submissionId: f7362f97-bd0a-4172-9ffe-b5642d055bc0
+      - id: editor-toolbar-layout-and-arpeggiate-script:10
+        stepId: full.design.evidence
+        sequence: 10
+        kind: classic-design-document
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/design.md
+          contentHash: ba3a2df7645d1690c196b9546d405a678151851042d628880ad09250ee166852
+          submissionId: 547c1fb7-0e14-4885-a96e-26e10847e1e5
+      - id: editor-toolbar-layout-and-arpeggiate-script:14
+        stepId: full.build.plan.evidence
+        sequence: 14
+        kind: classic-build-plan
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/plans/2026-11-12-editor-toolbar-layout-and-arpeggiate-script.md
+          contentHash: 5efa7e4ad01d25fc3caf45e432e85447f9b9ff34750698d64bf80e698759ed2b
+          submissionId: b16c13b5-2314-4293-8bbe-bca9ec5fb7b9
+      - id: editor-toolbar-layout-and-arpeggiate-script:17
+        stepId: full.build.check.evidence
+        sequence: 17
+        kind: classic-build-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/60a0f6aa-a5b7-405d-9ad0-e09cd896c20f.log
+          contentHash: 6f9ca2dbdbf7a6d141a08d7d5747af04107fdfa682956b39ebebd66251db4ecb
+          submissionId: 66a133c9-35d7-4a22-81a1-0f50b19427e2
+      - id: editor-toolbar-layout-and-arpeggiate-script:19
+        stepId: full.verify.report.evidence
+        sequence: 19
+        kind: classic-verification-report
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/reports/2026-11-12-editor-toolbar-layout-and-arpeggiate-script-verification.md
+          contentHash: 45eade11939e246388ad131a9dd75380937074f816b6f43b48736e6e1ef7db50
+          submissionId: d26bf32e-4da2-44c8-ad11-d8e3c708108a
+      - id: editor-toolbar-layout-and-arpeggiate-script:21
+        stepId: full.verify.check.evidence
+        sequence: 21
+        kind: classic-verify-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/f7d25838-cc2b-4ce3-8efb-2b4cc3a622b6.log
+          contentHash: 2f81558db25d07f3630a36d96682ad8f66879362beee78cb08c7b9ca88cb2445
+          submissionId: 67bfc492-3cdb-4ba8-9d5d-3c9eeefd17a7
+    ready: []
+    joins: {}
+    outputs: {}
+    children: []
+    lineage: []
+  sourceRevision: 40
+  sourceHash: c8bf75c15e49d93769a7a08f4c762952edc0f47e98c3e56f7107289b6c53f210
+  pool:
+    version: 3
+    values:
+      - event: open-complete
+      - choice: approved
+        proposal:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 6e46ddabf173b540b4d5cc11a491d462c3ca911082fb0990aedeb18f389ceae1
+              ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      - contentHash: 6e46ddabf173b540b4d5cc11a491d462c3ca911082fb0990aedeb18f389ceae1
+        ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      - contentHash: 6e46ddabf173b540b4d5cc11a491d462c3ca911082fb0990aedeb18f389ceae1
+      - choice: rejected
+        proposal:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+              handoffHash: 209679ef638a1a56e31d43fd1c419bfd2288065ffebe95ec6fd5cbcfaf776880
+              proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+                从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry
+                写死坐标（避免 DPI 变化重叠）。2) 控制面板由 QGroupBox 改为 QFrame（objectName
+                controlPanel），内部依次为标题行（QLabel panelTitle + stretch +
+                置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+                复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 将
+                release/谱子/arpeggiate.py 以二进制方式复制为项目根
+                arpeggiate.py（替换旧重写实现），删除原件，用哈希核对逐字节一致。4) 新增
+                arpeggiate_runner.py，公开 arpeggiate_notes(notes, selected_ids,
+                seconds_per_beat)：在临时目录生成 ticks_per_beat=480 的
+                MIDI，每个选中音符一条独立音轨（起点/时值按秒换算 tick），用
+                contextlib.redirect_stdout/redirect_stderr 包住
+                arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+                extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+                换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected
+                改为调用 runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+                60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；不调用脚本内部函数而直接跑
+                main（脚本零改动最直接）；不保留 release 副本（避免两份权威版本）。风险：tick 量化约
+                1ms；结束时间不变导致后移音符变短、同音高同起点被去重（均为脚本既定语义，旧测试需重写）；打包需确认 mido
+                与脚本被收集。测试策略：runner
+                单测覆盖和弦展开、结束时间不变、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原脚本标志内容且不含旧实现；GUI
+                测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有
+                157 项回归。Spec Patch：无。
+              requirementsEvidence:
+                contentHash: e36f7b9d0289777343aae28890c065100392eaca22217ada47b080c1f489a009
+                ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+              sourceEvidence:
+                contentHash: 9bebf8ebbcf468c83fd9081ac42a4212c8de932de8c7cdb4c6500fd487d2f7d3
+                ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      - handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+        handoffHash: 209679ef638a1a56e31d43fd1c419bfd2288065ffebe95ec6fd5cbcfaf776880
+        proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+          从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry 写死坐标（避免
+          DPI 变化重叠）。2) 控制面板由 QGroupBox 改为 QFrame（objectName
+          controlPanel），内部依次为标题行（QLabel panelTitle + stretch +
+          置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+          复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 将
+          release/谱子/arpeggiate.py 以二进制方式复制为项目根
+          arpeggiate.py（替换旧重写实现），删除原件，用哈希核对逐字节一致。4) 新增 arpeggiate_runner.py，公开
+          arpeggiate_notes(notes, selected_ids, seconds_per_beat)：在临时目录生成
+          ticks_per_beat=480 的 MIDI，每个选中音符一条独立音轨（起点/时值按秒换算 tick），用
+          contextlib.redirect_stdout/redirect_stderr 包住
+          arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+          extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+          换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected 改为调用
+          runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+          60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；不调用脚本内部函数而直接跑
+          main（脚本零改动最直接）；不保留 release 副本（避免两份权威版本）。风险：tick 量化约
+          1ms；结束时间不变导致后移音符变短、同音高同起点被去重（均为脚本既定语义，旧测试需重写）；打包需确认 mido
+          与脚本被收集。测试策略：runner
+          单测覆盖和弦展开、结束时间不变、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原脚本标志内容且不含旧实现；GUI
+          测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有 157
+          项回归。Spec Patch：无。
+        requirementsEvidence:
+          contentHash: e36f7b9d0289777343aae28890c065100392eaca22217ada47b080c1f489a009
+          ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+        sourceEvidence:
+          contentHash: 9bebf8ebbcf468c83fd9081ac42a4212c8de932de8c7cdb4c6500fd487d2f7d3
+          ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      - choice: approved
+        proposal:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+              handoffHash: 3d828c32365e28aa82f16c4934a7bca3688b449ef39435a4ca8a6ed6870a7597
+              proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+                从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry
+                写死坐标。2) 控制面板由 QGroupBox 改为 QFrame（objectName
+                controlPanel），内部依次为标题行（QLabel panelTitle + stretch +
+                置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+                复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 把
+                release/谱子/arpeggiate.py 移入项目根 arpeggiate.py（替换旧重写实现）并删除原件；保留
+                shebang、模块文档、五个参数常量、extract_notes/dedupe/arpeggiate/rebuild/main
+                与 __main__；唯一算法修正是展开时保持时长不变——起点后移 delta 时结束时间同步后移 delta，并保留
+                MIN_DUR_TICKS 兜底。4) 新增 arpeggiate_runner.py，公开
+                arpeggiate_notes(notes, selected_ids, seconds_per_beat)：在临时目录生成
+                ticks_per_beat=384（沿用脚本注释的 1/32 拍=12 tick 约定）的
+                MIDI，每个选中音符一条独立音轨，起点/时值按秒换算 tick；用
+                contextlib.redirect_stdout/redirect_stderr 包住
+                arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+                extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+                换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected
+                改为调用 runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+                60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；直接跑脚本
+                main 而非重写算法（逻辑原样复用）；不保留 release 副本（避免两份权威版本）；去重保留脚本 DEDUPE=True
+                行为。风险：tick 量化约 1/384 拍（120 BPM 约
+                2.6ms）；脚本被修改一处，需在测试中固定结构与时长语义；同音高同起点会被去重删除；打包需确认 mido
+                与脚本被收集。测试策略：runner
+                单测覆盖和弦展开、时长不变（结束时间随起点后移）、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原结构与常量且不含旧实现；GUI
+                测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有
+                157 项回归。Spec Patch：已按用户回复更新 arpeggiate-script
+                spec（原「逐字节一致/结束时间不变」改为「结构保留+时长不变」）。
+              requirementsEvidence:
+                contentHash: 9eb3267482fc4c3a1dfebe3fbbd103c118e7195ea694716f14eecf09a126d236
+                ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+              sourceEvidence:
+                contentHash: 7f1f6a0de8a3d57b6b920d2170e5a28df8ef914bfe1e51d31e40e0b4b6d0266c
+                ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      - handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+        handoffHash: 3d828c32365e28aa82f16c4934a7bca3688b449ef39435a4ca8a6ed6870a7597
+        proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+          从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry 写死坐标。2)
+          控制面板由 QGroupBox 改为 QFrame（objectName controlPanel），内部依次为标题行（QLabel
+          panelTitle + stretch + 置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+          复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 把
+          release/谱子/arpeggiate.py 移入项目根 arpeggiate.py（替换旧重写实现）并删除原件；保留
+          shebang、模块文档、五个参数常量、extract_notes/dedupe/arpeggiate/rebuild/main 与
+          __main__；唯一算法修正是展开时保持时长不变——起点后移 delta 时结束时间同步后移 delta，并保留
+          MIN_DUR_TICKS 兜底。4) 新增 arpeggiate_runner.py，公开 arpeggiate_notes(notes,
+          selected_ids, seconds_per_beat)：在临时目录生成 ticks_per_beat=384（沿用脚本注释的
+          1/32 拍=12 tick 约定）的 MIDI，每个选中音符一条独立音轨，起点/时值按秒换算 tick；用
+          contextlib.redirect_stdout/redirect_stderr 包住
+          arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+          extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+          换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected 改为调用
+          runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+          60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；直接跑脚本
+          main 而非重写算法（逻辑原样复用）；不保留 release 副本（避免两份权威版本）；去重保留脚本 DEDUPE=True
+          行为。风险：tick 量化约 1/384 拍（120 BPM 约
+          2.6ms）；脚本被修改一处，需在测试中固定结构与时长语义；同音高同起点会被去重删除；打包需确认 mido
+          与脚本被收集。测试策略：runner
+          单测覆盖和弦展开、时长不变（结束时间随起点后移）、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原结构与常量且不含旧实现；GUI
+          测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有 157
+          项回归。Spec Patch：已按用户回复更新 arpeggiate-script
+          spec（原「逐字节一致/结束时间不变」改为「结构保留+时长不变」）。
+        requirementsEvidence:
+          contentHash: 9eb3267482fc4c3a1dfebe3fbbd103c118e7195ea694716f14eecf09a126d236
+          ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+        sourceEvidence:
+          contentHash: 7f1f6a0de8a3d57b6b920d2170e5a28df8ef914bfe1e51d31e40e0b4b6d0266c
+          ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      - designDoc: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/design.md
+      - contentHash: ba3a2df7645d1690c196b9546d405a678151851042d628880ad09250ee166852
+        ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/design.md
+      - boundBranch: main
+        buildMode: executing-plans
+        directOverride: false
+        isolation: current
+        reviewMode: standard
+        subagentDispatch: null
+        tddMode: tdd
+      - choice: approved
+        proposal:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+      - designEvidence:
+          contentHash: ba3a2df7645d1690c196b9546d405a678151851042d628880ad09250ee166852
+          ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/design.md
+        plan: docs/superpowers/plans/2026-11-12-editor-toolbar-layout-and-arpeggiate-script.md
+        planEvidence:
+          contentHash: 5efa7e4ad01d25fc3caf45e432e85447f9b9ff34750698d64bf80e698759ed2b
+          ref: docs/superpowers/plans/2026-11-12-editor-toolbar-layout-and-arpeggiate-script.md
+        taskRevision: 2e8ec7a009f2fbe0dcfa8d83abbbe5520c71be922bd0618d5d4a13c9bbfb3cee
+      - contentHash: 5efa7e4ad01d25fc3caf45e432e85447f9b9ff34750698d64bf80e698759ed2b
+        ref: docs/superpowers/plans/2026-11-12-editor-toolbar-layout-and-arpeggiate-script.md
+      - event: build-complete
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 2
+        contentHash: 6f9ca2dbdbf7a6d141a08d7d5747af04107fdfa682956b39ebebd66251db4ecb
+        cwd: .
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 92f9329e718ebef9f9f8b4199fdef3b2ae1b6e0d7b24c7fec1f64648f1a82a8e
+        inputBefore: 92f9329e718ebef9f9f8b4199fdef3b2ae1b6e0d7b24c7fec1f64648f1a82a8e
+        manifestHash: 6cccba065e3ec8235aad5b8ce3d54f54b6be8a1997970656de8399b6a5d15c0a
+        manifestRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/b5c81c43-5f45-4840-8158-e6f532f03584.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/60a0f6aa-a5b7-405d-9ad0-e09cd896c20f.log
+        reusable: false
+        reused: false
+        scope: build
+        tier: full
+        timeoutMs: 300000
+      - contentHash: 6f9ca2dbdbf7a6d141a08d7d5747af04107fdfa682956b39ebebd66251db4ecb
+        ref: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/60a0f6aa-a5b7-405d-9ad0-e09cd896c20f.log
+      - contentHash: 45eade11939e246388ad131a9dd75380937074f816b6f43b48736e6e1ef7db50
+        ref: docs/superpowers/reports/2026-11-12-editor-toolbar-layout-and-arpeggiate-script-verification.md
+      - event: verification-ready
+        verificationReport: docs/superpowers/reports/2026-11-12-editor-toolbar-layout-and-arpeggiate-script-verification.md
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 3
+        contentHash: 2f81558db25d07f3630a36d96682ad8f66879362beee78cb08c7b9ca88cb2445
+        cwd: .
+        deliveryInputs: {}
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 0444ca7b7f9e270625232b9264f116adae0ce80fd8136239f43a4219b66999ca
+        inputBefore: 0444ca7b7f9e270625232b9264f116adae0ce80fd8136239f43a4219b66999ca
+        manifestHash: c6374b29d9e56c688751737038e9a8fd4f2c3a1cc323a7b3be9d2380c0960a44
+        manifestRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/98a1ab84-9f2d-4512-9131-b6f2f6e73b50.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/f7d25838-cc2b-4ce3-8efb-2b4cc3a622b6.log
+        reusable: false
+        reused: false
+        scope: verify
+        tier: full
+        timeoutMs: 300000
+      - contentHash: 2f81558db25d07f3630a36d96682ad8f66879362beee78cb08c7b9ca88cb2445
+        ref: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/f7d25838-cc2b-4ce3-8efb-2b4cc3a622b6.log
+      - choice: local
+        proposal:
+          input:
+            change: editor-toolbar-layout-and-arpeggiate-script
+            changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+            workspaceBaseline:
+              ref: 99872946-10b6-4080-b25c-311435e09e6e
+          outputs:
+            full.archive.prepare:
+              summary: 铺面编辑两行工具栏全部贴左（行尾弹性空白，窗口拉宽不漂移）；置顶按钮移到控制面板标题行，日志页不再保留；曲谱优化改为执行项目内
+                arpeggiate.py（自 release/谱子 移入，仅修正为时长不变），通过临时 MIDI 往返调用脚本
+                main()，去重删除会同步清理图形/选择并进入撤销历史，脚本失败不改动铺面。168
+                项测试通过，独立审查问题已修复，release exe 已重新打包。
+              targetBranch: main
+      - summary: 铺面编辑两行工具栏全部贴左（行尾弹性空白，窗口拉宽不漂移）；置顶按钮移到控制面板标题行，日志页不再保留；曲谱优化改为执行项目内
+          arpeggiate.py（自 release/谱子 移入，仅修正为时长不变），通过临时 MIDI 往返调用脚本
+          main()，去重删除会同步清理图形/选择并进入撤销历史，脚本失败不改动铺面。168 项测试通过，独立审查问题已修复，release exe
+          已重新打包。
+        targetBranch: main
+      - baseCommit: 019c707f3c59aea463bbc733ee0a326b3c436aca
+        deliveryAction: local
+        targetBranch: main
+        verifiedBranch: main
+      - archiveDirectory: docs/openspec/changes/archive/2026-11-12-editor-toolbar-layout-and-arpeggiate-script
+      - sequence: 8
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: editor-toolbar-layout-and-arpeggiate-script
+              changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+              workspaceBaseline:
+                ref: 99872946-10b6-4080-b25c-311435e09e6e
+            outputs:
+              full.design.handoff:
+                handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+                handoffHash: 3d828c32365e28aa82f16c4934a7bca3688b449ef39435a4ca8a6ed6870a7597
+                proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+                  从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry
+                  写死坐标。2) 控制面板由 QGroupBox 改为 QFrame（objectName
+                  controlPanel），内部依次为标题行（QLabel panelTitle + stretch +
+                  置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+                  复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 把
+                  release/谱子/arpeggiate.py 移入项目根 arpeggiate.py（替换旧重写实现）并删除原件；保留
+                  shebang、模块文档、五个参数常量、extract_notes/dedupe/arpeggiate/rebuild/main
+                  与 __main__；唯一算法修正是展开时保持时长不变——起点后移 delta 时结束时间同步后移 delta，并保留
+                  MIN_DUR_TICKS 兜底。4) 新增 arpeggiate_runner.py，公开
+                  arpeggiate_notes(notes, selected_ids,
+                  seconds_per_beat)：在临时目录生成 ticks_per_beat=384（沿用脚本注释的 1/32 拍=12
+                  tick 约定）的 MIDI，每个选中音符一条独立音轨，起点/时值按秒换算 tick；用
+                  contextlib.redirect_stdout/redirect_stderr 包住
+                  arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+                  extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+                  换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected
+                  改为调用 runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+                  60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；直接跑脚本
+                  main 而非重写算法（逻辑原样复用）；不保留 release 副本（避免两份权威版本）；去重保留脚本
+                  DEDUPE=True 行为。风险：tick 量化约 1/384 拍（120 BPM 约
+                  2.6ms）；脚本被修改一处，需在测试中固定结构与时长语义；同音高同起点会被去重删除；打包需确认 mido
+                  与脚本被收集。测试策略：runner
+                  单测覆盖和弦展开、时长不变（结束时间随起点后移）、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原结构与常量且不含旧实现；GUI
+                  测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有
+                  157 项回归。Spec Patch：已按用户回复更新 arpeggiate-script
+                  spec（原「逐字节一致/结束时间不变」改为「结构保留+时长不变」）。
+                requirementsEvidence:
+                  contentHash: 9eb3267482fc4c3a1dfebe3fbbd103c118e7195ea694716f14eecf09a126d236
+                  ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+                sourceEvidence:
+                  contentHash: 7f1f6a0de8a3d57b6b920d2170e5a28df8ef914bfe1e51d31e40e0b4b6d0266c
+                  ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      - sequence: 9
+        value:
+          designDoc: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/design.md
+      - sequence: 10
+        value:
+          contentHash: ba3a2df7645d1690c196b9546d405a678151851042d628880ad09250ee166852
+          ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/design.md
+      - sequence: 7
+        value:
+          handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+          handoffHash: 3d828c32365e28aa82f16c4934a7bca3688b449ef39435a4ca8a6ed6870a7597
+          proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+            从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry 写死坐标。2)
+            控制面板由 QGroupBox 改为 QFrame（objectName controlPanel），内部依次为标题行（QLabel
+            panelTitle + stretch + 置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+            复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 把
+            release/谱子/arpeggiate.py 移入项目根 arpeggiate.py（替换旧重写实现）并删除原件；保留
+            shebang、模块文档、五个参数常量、extract_notes/dedupe/arpeggiate/rebuild/main 与
+            __main__；唯一算法修正是展开时保持时长不变——起点后移 delta 时结束时间同步后移 delta，并保留
+            MIN_DUR_TICKS 兜底。4) 新增 arpeggiate_runner.py，公开
+            arpeggiate_notes(notes, selected_ids, seconds_per_beat)：在临时目录生成
+            ticks_per_beat=384（沿用脚本注释的 1/32 拍=12 tick 约定）的
+            MIDI，每个选中音符一条独立音轨，起点/时值按秒换算 tick；用
+            contextlib.redirect_stdout/redirect_stderr 包住
+            arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+            extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+            换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected 改为调用
+            runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+            60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；直接跑脚本
+            main 而非重写算法（逻辑原样复用）；不保留 release 副本（避免两份权威版本）；去重保留脚本 DEDUPE=True
+            行为。风险：tick 量化约 1/384 拍（120 BPM 约
+            2.6ms）；脚本被修改一处，需在测试中固定结构与时长语义；同音高同起点会被去重删除；打包需确认 mido
+            与脚本被收集。测试策略：runner
+            单测覆盖和弦展开、时长不变（结束时间随起点后移）、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原结构与常量且不含旧实现；GUI
+            测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有 157
+            项回归。Spec Patch：已按用户回复更新 arpeggiate-script
+            spec（原「逐字节一致/结束时间不变」改为「结构保留+时长不变」）。
+          requirementsEvidence:
+            contentHash: 9eb3267482fc4c3a1dfebe3fbbd103c118e7195ea694716f14eecf09a126d236
+            ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+          sourceEvidence:
+            contentHash: 7f1f6a0de8a3d57b6b920d2170e5a28df8ef914bfe1e51d31e40e0b4b6d0266c
+            ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      - sequence: 1
+        value:
+          event: open-complete
+      - sequence: 3
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: editor-toolbar-layout-and-arpeggiate-script
+              changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+              workspaceBaseline:
+                ref: 99872946-10b6-4080-b25c-311435e09e6e
+            outputs:
+              full.open:
+                event: open-complete
+              full.open.evidence:
+                contentHash: 6e46ddabf173b540b4d5cc11a491d462c3ca911082fb0990aedeb18f389ceae1
+                ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      - sequence: 2
+        value:
+          contentHash: 6e46ddabf173b540b4d5cc11a491d462c3ca911082fb0990aedeb18f389ceae1
+          ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      - sequence: 4
+        value:
+          contentHash: 6e46ddabf173b540b4d5cc11a491d462c3ca911082fb0990aedeb18f389ceae1
+      - sequence: 11
+        value:
+          boundBranch: main
+          buildMode: executing-plans
+          directOverride: false
+          isolation: current
+          reviewMode: standard
+          subagentDispatch: null
+          tddMode: tdd
+      - sequence: 12
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: editor-toolbar-layout-and-arpeggiate-script
+              changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+              workspaceBaseline:
+                ref: 99872946-10b6-4080-b25c-311435e09e6e
+            outputs:
+              full.build.configure:
+                boundBranch: main
+                buildMode: executing-plans
+                directOverride: false
+                isolation: current
+                reviewMode: standard
+                subagentDispatch: null
+                tddMode: tdd
+      - sequence: 13
+        value:
+          designEvidence:
+            contentHash: ba3a2df7645d1690c196b9546d405a678151851042d628880ad09250ee166852
+            ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/design.md
+          plan: docs/superpowers/plans/2026-11-12-editor-toolbar-layout-and-arpeggiate-script.md
+          planEvidence:
+            contentHash: 5efa7e4ad01d25fc3caf45e432e85447f9b9ff34750698d64bf80e698759ed2b
+            ref: docs/superpowers/plans/2026-11-12-editor-toolbar-layout-and-arpeggiate-script.md
+          taskRevision: 2e8ec7a009f2fbe0dcfa8d83abbbe5520c71be922bd0618d5d4a13c9bbfb3cee
+      - sequence: 14
+        value:
+          contentHash: 5efa7e4ad01d25fc3caf45e432e85447f9b9ff34750698d64bf80e698759ed2b
+          ref: docs/superpowers/plans/2026-11-12-editor-toolbar-layout-and-arpeggiate-script.md
+      - sequence: 15
+        value:
+          event: build-complete
+      - sequence: 16
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: 6f9ca2dbdbf7a6d141a08d7d5747af04107fdfa682956b39ebebd66251db4ecb
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 92f9329e718ebef9f9f8b4199fdef3b2ae1b6e0d7b24c7fec1f64648f1a82a8e
+          inputBefore: 92f9329e718ebef9f9f8b4199fdef3b2ae1b6e0d7b24c7fec1f64648f1a82a8e
+          manifestHash: 6cccba065e3ec8235aad5b8ce3d54f54b6be8a1997970656de8399b6a5d15c0a
+          manifestRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/b5c81c43-5f45-4840-8158-e6f532f03584.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/60a0f6aa-a5b7-405d-9ad0-e09cd896c20f.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      - sequence: 17
+        value:
+          contentHash: 6f9ca2dbdbf7a6d141a08d7d5747af04107fdfa682956b39ebebd66251db4ecb
+          ref: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/60a0f6aa-a5b7-405d-9ad0-e09cd896c20f.log
+      - sequence: 19
+        value:
+          contentHash: 45eade11939e246388ad131a9dd75380937074f816b6f43b48736e6e1ef7db50
+          ref: docs/superpowers/reports/2026-11-12-editor-toolbar-layout-and-arpeggiate-script-verification.md
+      - sequence: 18
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-12-editor-toolbar-layout-and-arpeggiate-script-verification.md
+      - sequence: 20
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 3
+          contentHash: 2f81558db25d07f3630a36d96682ad8f66879362beee78cb08c7b9ca88cb2445
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 0444ca7b7f9e270625232b9264f116adae0ce80fd8136239f43a4219b66999ca
+          inputBefore: 0444ca7b7f9e270625232b9264f116adae0ce80fd8136239f43a4219b66999ca
+          manifestHash: c6374b29d9e56c688751737038e9a8fd4f2c3a1cc323a7b3be9d2380c0960a44
+          manifestRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/98a1ab84-9f2d-4512-9131-b6f2f6e73b50.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/f7d25838-cc2b-4ce3-8efb-2b4cc3a622b6.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      - sequence: 21
+        value:
+          contentHash: 2f81558db25d07f3630a36d96682ad8f66879362beee78cb08c7b9ca88cb2445
+          ref: .comet/runtime/classic-sdk-checks/5fdff1b31db355d8af57701a58f36e509dee64651aeb67f6a1f3623520788233/f7d25838-cc2b-4ce3-8efb-2b4cc3a622b6.log
+      - sequence: 23
+        value:
+          choice: local
+          proposal:
+            input:
+              change: editor-toolbar-layout-and-arpeggiate-script
+              changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+              workspaceBaseline:
+                ref: 99872946-10b6-4080-b25c-311435e09e6e
+            outputs:
+              full.archive.prepare:
+                summary: 铺面编辑两行工具栏全部贴左（行尾弹性空白，窗口拉宽不漂移）；置顶按钮移到控制面板标题行，日志页不再保留；曲谱优化改为执行项目内
+                  arpeggiate.py（自 release/谱子 移入，仅修正为时长不变），通过临时 MIDI 往返调用脚本
+                  main()，去重删除会同步清理图形/选择并进入撤销历史，脚本失败不改动铺面。168
+                  项测试通过，独立审查问题已修复，release exe 已重新打包。
+                targetBranch: main
+      - sequence: 22
+        value:
+          summary: 铺面编辑两行工具栏全部贴左（行尾弹性空白，窗口拉宽不漂移）；置顶按钮移到控制面板标题行，日志页不再保留；曲谱优化改为执行项目内
+            arpeggiate.py（自 release/谱子 移入，仅修正为时长不变），通过临时 MIDI 往返调用脚本
+            main()，去重删除会同步清理图形/选择并进入撤销历史，脚本失败不改动铺面。168 项测试通过，独立审查问题已修复，release
+            exe 已重新打包。
+          targetBranch: main
+      - sequence: 24
+        value:
+          baseCommit: 019c707f3c59aea463bbc733ee0a326b3c436aca
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      - sequence: 25
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-12-editor-toolbar-layout-and-arpeggiate-script
+      - sequence: 6
+        value:
+          choice: rejected
+          proposal:
+            input:
+              change: editor-toolbar-layout-and-arpeggiate-script
+              changeDir: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+              workspaceBaseline:
+                ref: 99872946-10b6-4080-b25c-311435e09e6e
+            outputs:
+              full.design.handoff:
+                handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+                handoffHash: 209679ef638a1a56e31d43fd1c419bfd2288065ffebe95ec6fd5cbcfaf776880
+                proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+                  从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry
+                  写死坐标（避免 DPI 变化重叠）。2) 控制面板由 QGroupBox 改为 QFrame（objectName
+                  controlPanel），内部依次为标题行（QLabel panelTitle + stretch +
+                  置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+                  复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 将
+                  release/谱子/arpeggiate.py 以二进制方式复制为项目根
+                  arpeggiate.py（替换旧重写实现），删除原件，用哈希核对逐字节一致。4) 新增
+                  arpeggiate_runner.py，公开 arpeggiate_notes(notes, selected_ids,
+                  seconds_per_beat)：在临时目录生成 ticks_per_beat=480 的
+                  MIDI，每个选中音符一条独立音轨（起点/时值按秒换算 tick），用
+                  contextlib.redirect_stdout/redirect_stderr 包住
+                  arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+                  extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+                  换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected
+                  改为调用 runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+                  60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；不调用脚本内部函数而直接跑
+                  main（脚本零改动最直接）；不保留 release 副本（避免两份权威版本）。风险：tick 量化约
+                  1ms；结束时间不变导致后移音符变短、同音高同起点被去重（均为脚本既定语义，旧测试需重写）；打包需确认 mido
+                  与脚本被收集。测试策略：runner
+                  单测覆盖和弦展开、结束时间不变、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原脚本标志内容且不含旧实现；GUI
+                  测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有
+                  157 项回归。Spec Patch：无。
+                requirementsEvidence:
+                  contentHash: e36f7b9d0289777343aae28890c065100392eaca22217ada47b080c1f489a009
+                  ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+                sourceEvidence:
+                  contentHash: 9bebf8ebbcf468c83fd9081ac42a4212c8de932de8c7cdb4c6500fd487d2f7d3
+                  ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+      - sequence: 5
+        value:
+          handoffContext: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.comet/handoff/design-context.json
+          handoffHash: 209679ef638a1a56e31d43fd1c419bfd2288065ffebe95ec6fd5cbcfaf776880
+          proposal: 方案：1) 工具栏保留两行，删除第一行中段 addStretch()，改在行尾追加 stretch：控件按 sizeHint
+            从容器左边缘依次排列，多余宽度由行尾空白吸收，窗口变宽不会把保存/演奏模式/键位映射推走，也不用 setGeometry 写死坐标（避免
+            DPI 变化重叠）。2) 控制面板由 QGroupBox 改为 QFrame（objectName
+            controlPanel），内部依次为标题行（QLabel panelTitle + stretch +
+            置顶按钮）、导入/新建/刷新按钮行、作者信息；QSS
+            复用原分组框边框与渐变标题底；从操作日志标题行移除置顶按钮，toggle_topmost 不变。3) 将
+            release/谱子/arpeggiate.py 以二进制方式复制为项目根
+            arpeggiate.py（替换旧重写实现），删除原件，用哈希核对逐字节一致。4) 新增 arpeggiate_runner.py，公开
+            arpeggiate_notes(notes, selected_ids, seconds_per_beat)：在临时目录生成
+            ticks_per_beat=480 的 MIDI，每个选中音符一条独立音轨（起点/时值按秒换算 tick），用
+            contextlib.redirect_stdout/redirect_stderr 包住
+            arpeggiate.main(src,dst)（windowed 打包下 stdout 为 None），再用脚本自带
+            extract_notes 逐轨回读：空轨表示该音符被去重移除，否则按 on/off
+            换算回秒；保持原顺序返回，临时目录自动清理，异常原样抛出。5) piano_roll.arpeggiate_selected 改为调用
+            runner，保留变化计数、图形重建、场景扩展与 notesChanged；GUI 传
+            60/current_bpm（四分音符拍长），捕获脚本异常写日志且不改铺面。关键取舍：不采用绝对坐标（DPI/字体变化会重叠）；不合并成一行（控件过多）；不调用脚本内部函数而直接跑
+            main（脚本零改动最直接）；不保留 release 副本（避免两份权威版本）。风险：tick 量化约
+            1ms；结束时间不变导致后移音符变短、同音高同起点被去重（均为脚本既定语义，旧测试需重写）；打包需确认 mido
+            与脚本被收集。测试策略：runner
+            单测覆盖和弦展开、结束时间不变、未选中不变、重复音符移除、无效拍长返回副本；断言根目录脚本保留原脚本标志内容且不含旧实现；GUI
+            测试覆盖无选中提示、异常不改铺面、撤销可恢复；布局测试覆盖两行贴左与末尾弹性、置顶按钮在控制面板标题行且日志页不存在；既有 157
+            项回归。Spec Patch：无。
+          requirementsEvidence:
+            contentHash: e36f7b9d0289777343aae28890c065100392eaca22217ada47b080c1f489a009
+            ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+          sourceEvidence:
+            contentHash: 9bebf8ebbcf468c83fd9081ac42a4212c8de932de8c7cdb4c6500fd487d2f7d3
+            ref: docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script
+    nodes:
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 1
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: 3
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 5
+        left: 6
+        right: 7
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 8
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 6
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 7
+        left: 10
+        right: 7
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 11
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 6
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 9
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 8
+        left: 13
+        right: 14
+        height: 2
+      - key: full.design.handoff
+        value: 7
+        left: 15
+        right: 7
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 16
+        right: 4
+        height: 4
+      - key: full.build.configure
+        value: 10
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 6
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 11
+        left: 18
+        right: 19
+        height: 2
+      - key: full.design.handoff
+        value: 7
+        left: 14
+        right: 7
+        height: 2
+      - key: full.design.document
+        value: 8
+        left: 20
+        right: 21
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 22
+        right: 4
+        height: 4
+      - key: full.build.plan
+        value: 12
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 6
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 13
+        left: 24
+        right: 25
+        height: 2
+      - key: full.build.confirm
+        value: 11
+        left: 18
+        right: 26
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 21
+        right: 4
+        height: 3
+      - key: full.design.document
+        value: 8
+        left: 27
+        right: 28
+        height: 4
+      - key: full.build.execute
+        value: 14
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 11
+        left: 18
+        right: 30
+        height: 2
+      - key: full.build.plan.evidence
+        value: 13
+        left: null
+        right: 25
+        height: 2
+      - key: full.build.plan
+        value: 12
+        left: 31
+        right: 32
+        height: 3
+      - key: full.design.document
+        value: 8
+        left: 33
+        right: 28
+        height: 4
+      - key: full.build.check
+        value: 15
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 10
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 16
+        left: 35
+        right: 36
+        height: 2
+      - key: full.build.confirm
+        value: 11
+        left: 37
+        right: 30
+        height: 3
+      - key: full.build.plan
+        value: 12
+        left: 38
+        right: 32
+        height: 4
+      - key: full.design.document
+        value: 8
+        left: 39
+        right: 28
+        height: 5
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 18
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 17
+        left: null
+        right: 42
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: 41
+        right: 43
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 21
+        right: 44
+        height: 4
+      - key: full.design.document
+        value: 8
+        left: 39
+        right: 45
+        height: 5
+      - key: full.open.revalidate
+        value: 3
+        left: 41
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 20
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 17
+        left: 48
+        right: 42
+        height: 2
+      - key: full.verify.check
+        value: 19
+        left: 47
+        right: 49
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 21
+        right: 50
+        height: 4
+      - key: full.design.document
+        value: 8
+        left: 39
+        right: 51
+        height: 5
+      - key: full.archive.confirm
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 15
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 22
+        left: 53
+        right: 54
+        height: 2
+      - key: full.build.confirm
+        value: 11
+        left: 36
+        right: 30
+        height: 2
+      - key: full.build.check.evidence
+        value: 16
+        left: 55
+        right: 56
+        height: 3
+      - key: full.build.plan
+        value: 12
+        left: 57
+        right: 32
+        height: 4
+      - key: full.design.document
+        value: 8
+        left: 58
+        right: 51
+        height: 5
+      - key: full.archive.preflight
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 21
+        left: null
+        right: 60
+        height: 2
+      - key: full.archive.prepare
+        value: 22
+        left: 61
+        right: 54
+        height: 3
+      - key: full.build.plan
+        value: 12
+        left: 56
+        right: 32
+        height: 3
+      - key: full.build.check.evidence
+        value: 16
+        left: 62
+        right: 63
+        height: 4
+      - key: full.design.document
+        value: 8
+        left: 64
+        right: 51
+        height: 5
+      - key: full.archive.confirm
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 24
+        left: 66
+        right: 67
+        height: 2
+      - key: full.archive.prepare
+        value: 22
+        left: 68
+        right: 54
+        height: 3
+      - key: full.build.check.evidence
+        value: 16
+        left: 69
+        right: 63
+        height: 4
+      - key: full.design.document
+        value: 8
+        left: 70
+        right: 51
+        height: 5
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: 72
+        right: 73
+        height: 2
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: 76
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 75
+        right: 77
+        height: 3
+      - key: full.design.handoff
+        value: 28
+        left: 74
+        right: 78
+        height: 4
+      - key: full.build.configure
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 34
+        left: 80
+        right: 81
+        height: 2
+      - key: full.design.document
+        value: 26
+        left: 82
+        right: 73
+        height: 3
+      - key: full.design.handoff
+        value: 28
+        left: 83
+        right: 78
+        height: 4
+      - key: full.build.plan.evidence
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 35
+        left: null
+        right: 85
+        height: 2
+      - key: full.build.confirm
+        value: 34
+        left: 80
+        right: 86
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: null
+        right: 73
+        height: 2
+      - key: full.design.confirm
+        value: 25
+        left: 87
+        right: 88
+        height: 4
+      - key: full.design.handoff
+        value: 28
+        left: 89
+        right: 78
+        height: 5
+      - key: full.build.execute
+        value: 37
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 35
+        left: 91
+        right: 85
+        height: 2
+      - key: full.build.confirm
+        value: 34
+        left: 80
+        right: 92
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: 93
+        right: 88
+        height: 4
+      - key: full.design.handoff
+        value: 28
+        left: 94
+        right: 78
+        height: 5
+      - key: full.build.check
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 39
+        left: 96
+        right: 97
+        height: 2
+      - key: full.build.confirm
+        value: 34
+        left: 98
+        right: 92
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: 99
+        right: 88
+        height: 4
+      - key: full.design.handoff
+        value: 28
+        left: 100
+        right: 78
+        height: 5
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 30
+        left: 75
+        right: 102
+        height: 2
+      - key: full.verify.run
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 40
+        left: null
+        right: 104
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: 103
+        right: 105
+        height: 3
+      - key: full.design.handoff
+        value: 28
+        left: 100
+        right: 106
+        height: 5
+      - key: full.verify.check.evidence
+        value: 43
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.check
+        value: 42
+        left: null
+        right: 108
+        height: 2
+      - key: full.verify.report.evidence
+        value: 40
+        left: 109
+        right: 104
+        height: 3
+      - key: full.open.revalidate
+        value: 32
+        left: 103
+        right: 110
+        height: 4
+      - key: full.design.handoff
+        value: 28
+        left: 100
+        right: 111
+        height: 5
+      - key: full.archive.confirm
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 45
+        left: 113
+        right: 114
+        height: 2
+      - key: full.build.check.evidence
+        value: 39
+        left: 115
+        right: 97
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: 92
+        right: 88
+        height: 3
+      - key: full.build.confirm
+        value: 34
+        left: 116
+        right: 117
+        height: 4
+      - key: full.design.handoff
+        value: 28
+        left: 118
+        right: 111
+        height: 5
+      - key: full.archive.preflight
+        value: 46
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 44
+        left: null
+        right: 120
+        height: 2
+      - key: full.build.check.evidence
+        value: 39
+        left: 114
+        right: 97
+        height: 2
+      - key: full.archive.prepare
+        value: 45
+        left: 121
+        right: 122
+        height: 3
+      - key: full.build.confirm
+        value: 34
+        left: 123
+        right: 117
+        height: 4
+      - key: full.design.handoff
+        value: 28
+        left: 124
+        right: 111
+        height: 5
+      - key: full.archive.confirm
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 46
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 47
+        left: 126
+        right: 127
+        height: 2
+      - key: full.archive.prepare
+        value: 45
+        left: 128
+        right: 122
+        height: 3
+      - key: full.build.confirm
+        value: 34
+        left: 129
+        right: 117
+        height: 4
+      - key: full.design.handoff
+        value: 28
+        left: 130
+        right: 111
+        height: 5
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 30
+        left: 132
+        right: 133
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: 135
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 132
+        right: 136
+        height: 3
+      - key: full.design.confirm
+        value: 48
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 49
+        left: 138
+        right: 139
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 140
+        right: 136
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: 142
+        right: 139
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 143
+        right: 136
+        height: 3
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: 145
+        height: 2
+      - key: full.design.handoff
+        value: 49
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 148
+        right: 149
+        height: 2
+      - key: full.open
+        value: 29
+        left: 147
+        right: 150
+        height: 3
+      - key: full.design.confirm
+        value: 48
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: 152
+        right: null
+        height: 2
+      - key: full.open
+        value: 29
+        left: 153
+        right: 150
+        height: 3
+      - key: full.build.configure
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: 156
+        right: 157
+        height: 2
+      - key: full.design.confirm
+        value: 25
+        left: 155
+        right: 158
+        height: 3
+      - key: full.open
+        value: 29
+        left: 159
+        right: 150
+        height: 4
+      - key: full.archive.prepare
+        value: 45
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 38
+        left: 161
+        right: 162
+        height: 2
+      - key: full.build.confirm
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 35
+        left: null
+        right: 165
+        height: 2
+      - key: full.build.execute
+        value: 37
+        left: 164
+        right: 166
+        height: 3
+      - key: full.build.configure
+        value: 33
+        left: 163
+        right: 167
+        height: 4
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 148
+        right: 169
+        height: 2
+      - key: full.verify.check.evidence
+        value: 43
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 40
+        left: 171
+        right: 172
+        height: 2
+      - key: full.verify.check
+        value: 42
+        left: 170
+        right: 173
+        height: 3
+      - key: full.open
+        value: 29
+        left: 158
+        right: 174
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 168
+        right: 175
+        height: 5
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: 178
+        right: 179
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 181
+        right: 182
+        height: 2
+      - key: full.open
+        value: 29
+        left: 180
+        right: 183
+        height: 3
+      - key: full.build.configure
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 34
+        left: 185
+        right: 186
+        height: 2
+      - key: full.design.document
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: 188
+        right: 189
+        height: 2
+      - key: full.design.confirm
+        value: 25
+        left: 187
+        right: 190
+        height: 3
+      - key: full.open
+        value: 29
+        left: 191
+        right: 183
+        height: 4
+      - key: full.build.check
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 33
+        left: 193
+        right: null
+        height: 2
+      - key: full.build.execute
+        value: 37
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 35
+        left: 195
+        right: 196
+        height: 2
+      - key: full.build.confirm
+        value: 34
+        left: 194
+        right: 197
+        height: 3
+      - key: full.open
+        value: 29
+        left: 190
+        right: 183
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: 198
+        right: 199
+        height: 4
+      - key: full.build.check
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 39
+        left: 201
+        right: 202
+        height: 2
+      - key: full.build.confirm
+        value: 34
+        left: 203
+        right: 197
+        height: 3
+      - key: full.verify.run
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: 205
+        height: 2
+      - key: full.open.evidence
+        value: 31
+        left: 181
+        right: 206
+        height: 3
+      - key: full.open
+        value: 29
+        left: 190
+        right: 207
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 204
+        right: 208
+        height: 5
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 181
+        right: 210
+        height: 2
+      - key: full.verify.report.evidence
+        value: 40
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 41
+        left: 212
+        right: null
+        height: 2
+      - key: full.verify.check
+        value: 42
+        left: 211
+        right: 213
+        height: 3
+      - key: full.open
+        value: 29
+        left: 190
+        right: 214
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 204
+        right: 215
+        height: 5
+    maps:
+      - null
+      - 2
+      - 5
+      - 9
+      - 12
+      - 17
+      - 23
+      - 29
+      - 34
+      - 40
+      - 46
+      - 52
+      - 59
+      - 65
+      - 71
+      - 79
+      - 84
+      - 90
+      - 95
+      - 101
+      - 107
+      - 112
+      - 119
+      - 125
+      - 131
+      - 134
+      - 137
+      - 141
+      - 144
+      - 146
+      - 151
+      - 154
+      - 160
+      - 176
+      - 177
+      - 184
+      - 192
+      - 200
+      - 209
+      - 216
+    bindings:
+      - path:
+          - actions
+          - "0"
+          - input
+          - outputs
+        map: 0
+      - path:
+          - actions
+          - "1"
+          - input
+          - outputs
+        map: 1
+      - path:
+          - actions
+          - "2"
+          - input
+          - outputs
+        map: 2
+      - path:
+          - actions
+          - "3"
+          - input
+          - outputs
+        map: 3
+      - path:
+          - actions
+          - "4"
+          - input
+          - outputs
+        map: 4
+      - path:
+          - actions
+          - "5"
+          - input
+          - outputs
+        map: 5
+      - path:
+          - actions
+          - "6"
+          - input
+          - outputs
+        map: 6
+      - path:
+          - actions
+          - "7"
+          - input
+          - outputs
+        map: 7
+      - path:
+          - actions
+          - "8"
+          - input
+          - outputs
+        map: 8
+      - path:
+          - actions
+          - "9"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "10"
+          - input
+          - outputs
+        map: 10
+      - path:
+          - actions
+          - "11"
+          - input
+          - outputs
+        map: 11
+      - path:
+          - actions
+          - "12"
+          - input
+          - outputs
+        map: 12
+      - path:
+          - actions
+          - "13"
+          - input
+          - outputs
+        map: 13
+      - path:
+          - actions
+          - "14"
+          - input
+          - outputs
+        map: 14
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:1
+          - results
+        map: 0
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:11
+          - results
+        map: 15
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:13
+          - results
+        map: 16
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:15
+          - results
+        map: 17
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:16
+          - results
+        map: 18
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:18
+          - results
+        map: 19
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:20
+          - results
+        map: 20
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:22
+          - results
+        map: 21
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:24
+          - results
+        map: 22
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:25
+          - results
+        map: 23
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:26
+          - results
+        map: 24
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:4
+          - results
+        map: 25
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:5
+          - results
+        map: 26
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:7
+          - results
+        map: 27
+      - path:
+          - actionContexts
+          - editor-toolbar-layout-and-arpeggiate-script:9
+          - results
+        map: 28
+      - path:
+          - outputs
+        map: 24
+      - path:
+          - waits
+          - "0"
+          - results
+        map: 29
+      - path:
+          - waits
+          - "1"
+          - results
+        map: 30
+      - path:
+          - waits
+          - "2"
+          - results
+        map: 31
+      - path:
+          - waits
+          - "3"
+          - results
+        map: 32
+      - path:
+          - waits
+          - "4"
+          - results
+        map: 33
+      - path:
+          - evidenceWaits
+          - "0"
+          - results
+        map: 34
+      - path:
+          - evidenceWaits
+          - "1"
+          - results
+        map: 35
+      - path:
+          - evidenceWaits
+          - "2"
+          - results
+        map: 36
+      - path:
+          - evidenceWaits
+          - "3"
+          - results
+        map: 37
+      - path:
+          - evidenceWaits
+          - "4"
+          - results
+        map: 38
+      - path:
+          - evidenceWaits
+          - "5"
+          - results
+        map: 39
+  storageHash: 602d2b99feb83248141549912eefd71537f0b19f6d49f46d9b2dcea98c2a54e1
+check_epoch: 6

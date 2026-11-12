@@ -1,0 +1,17 @@
+{
+  "change": "editor-toolbar-layout-and-arpeggiate-script",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "task_hash_policy": "task-content-v1",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "3d828c32365e28aa82f16c4934a7bca3688b449ef39435a4ca8a6ed6870a7597",
+  "files": [
+    { "path": "docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/proposal.md", "sha256": "1730b45ef35daed2d7a6727a3cbd06fca4dd7645c26a3fde0689f1ddbc6cc608" },
+    { "path": "docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/design.md", "sha256": "f55b8d4e3d82b8f063f5f37b32300b6b66a05d3e42bee4fc3dca0f97910c5e2c" },
+    { "path": "docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/tasks.md", "sha256": "2e8ec7a009f2fbe0dcfa8d83abbbe5520c71be922bd0618d5d4a13c9bbfb3cee" },
+    { "path": "docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/.openspec.yaml", "sha256": "81efc95b309487579cc63ceff200744cbd9fab2401597cbbdcf38d0cb54bace8" },
+    { "path": "docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/specs/arpeggiate-script/spec.md", "sha256": "ff2845f2bacbb1a13f024891b01e4cf7772495045c50de07e3fc19526ea4f85b" },
+    { "path": "docs/openspec/changes/editor-toolbar-layout-and-arpeggiate-script/specs/editor-toolbar-layout/spec.md", "sha256": "bf0a63421d5401dec4640987aed2e71f9f44df12c0d84b9bd6dbf29ec7914b79" }
+  ]
+}

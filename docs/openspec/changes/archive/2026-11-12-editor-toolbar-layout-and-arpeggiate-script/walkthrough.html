@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>变更说明 · 铺面编辑工具栏改为全部贴左、置顶按钮移到控制面板标题旁，曲谱优化改用项目内的 arpeggiate.py 脚本</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --page: #fafbfc;
+  --ink: #202a35;
+  --muted: #566575;
+  --line: #dbe2e8;
+  --accent: #245b85;
+  --highlight: #edf3f7;
+  --hover: #e9eef3;
+  --code-bg: #edf0f4;
+  --code-ink: #263443;
+  --success: #236d4f;
+  --failure: #a83131;
+  --text: 15px;
+  --small: 13px;
+  --label: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #181d23;
+    --ink: #e4eaf0;
+    --muted: #a4b1be;
+    --line: #35404b;
+    --accent: #94c6ec;
+    --highlight: #222e39;
+    --hover: #27323d;
+    --code-bg: #10161d;
+    --code-ink: #e0e8f0;
+    --success: #8ed8b5;
+    --failure: #ffb0a8;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: var(--text)/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { max-width: 1040px; margin: auto; padding: 32px 32px 48px; }
+.eyebrow { color: var(--accent); font-size: var(--label); font-weight: 500; letter-spacing: .08em; }
+h1 { margin: 8px 0 12px; max-width: 32em; font-size: 28px; font-weight: 500; line-height: 1.4; letter-spacing: -.02em; overflow-wrap: anywhere; }
+h2 { margin: 0; font-size: 18px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+h3 { margin: 0 0 4px; color: var(--muted); font-size: var(--label); font-weight: 500; }
+p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+strong { font-weight: 500; }
+.meta { margin-bottom: 24px; color: var(--muted); font-size: var(--small); overflow-wrap: anywhere; }
+.meta p + p { margin-top: 2px; }
+article { padding: 20px 0 12px; border-top: 1px solid var(--line); }
+article header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.number { color: var(--muted); font: var(--label)/1.5 ui-monospace, Consolas, monospace; font-variant-numeric: tabular-nums; }
+.comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.comparison section { min-width: 0; padding: 12px; }
+.after { background: var(--highlight); border-radius: 4px; }
+.after h3 { color: var(--accent); }
+.reason { margin-top: 12px; font-size: var(--small); color: var(--muted); }
+.reason strong { margin-right: 8px; color: var(--ink); }
+summary { min-height: 44px; padding: 10px 4px; cursor: pointer; font-size: var(--small); font-weight: 500; border-radius: 4px; }
+summary:hover { background: var(--hover); }
+summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.count, .tag { color: var(--muted); font-size: var(--label); font-weight: 400; }
+.count { margin-left: 4px; font-variant-numeric: tabular-nums; }
+.file { min-width: 0; padding: 0 0 16px; scroll-margin-top: 20px; }
+.file:target { outline: 2px solid var(--accent); outline-offset: 4px; }
+.file-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.file-heading code { min-width: 0; font-size: var(--small); overflow-wrap: anywhere; }
+.tag { white-space: nowrap; }
+pre { margin: 8px 0 0; padding: 12px 16px; overflow: auto; background: var(--code-bg); color: var(--code-ink); border-radius: 4px; font: var(--small)/1.65 ui-monospace, Consolas, monospace; tab-size: 2; }
+footer { margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--line); }
+footer h2 { margin-bottom: 8px; }
+.check { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.status { padding-top: 2px; font-size: var(--label); font-weight: 500; }
+.passed { color: var(--success); }
+.failed { color: var(--failure); }
+.not-run, .unknown { color: var(--muted); }
+.check p { margin-top: 2px; color: var(--muted); font-size: var(--small); }
+.more { border-top: 1px solid var(--line); }
+.more > summary { padding-block: 12px; }
+.diagram { margin: 0; padding: 20px 0; border-top: 1px solid var(--line); }
+.diagram figcaption { margin-bottom: 12px; font-size: 18px; font-weight: 500; overflow-wrap: anywhere; }
+.diagram-svg { display: block; max-width: 100%; height: auto; margin: auto; overflow: visible; font: 13px system-ui, -apple-system, "Segoe UI", sans-serif; }
+.diagram-svg text { fill: var(--ink); }
+.diagram-edge { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+.diagram-svg marker path { fill: var(--muted); }
+.diagram-edge-label { fill: var(--page); }
+.diagram-svg .diagram-edge-text { fill: var(--muted); font-size: 12px; }
+.diagram-node rect { fill: var(--page); stroke: var(--line); stroke-width: 1.5; }
+.diagram-node.modified rect { fill: var(--highlight); stroke: var(--accent); }
+.diagram-node.added rect { stroke: var(--success); }
+.diagram-node.deleted rect { stroke: var(--failure); stroke-dasharray: 4 3; }
+.diagram-svg .diagram-kind { fill: var(--muted); font-size: 11px; }
+.diagram-node[href] { cursor: pointer; }
+.diagram-node[href]:hover rect, .diagram-node[href]:focus-visible rect { stroke: var(--accent); stroke-width: 2.5; }
+.diagram-node[href]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.diagram-hint { margin-top: 12px; color: var(--muted); font-size: var(--small); text-align: center; }
+.diagram-comparison { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; }
+.diagram-comparison > section { min-width: 0; padding: 12px; border: 1px solid var(--line); border-radius: 4px; }
+.diagram-comparison > section > h3 { margin-bottom: 12px; }
+.diagram-compact { display: none; }
+@media (max-width: 999px) {
+  .diagram-wide { display: none; }
+  .diagram-compact { display: block; }
+}
+@media (max-width: 640px) {
+  main { padding: 24px 16px 32px; }
+  h1 { font-size: 24px; }
+  .meta { margin-bottom: 20px; }
+  article { padding-top: 16px; }
+  article header { gap: 8px; }
+  .comparison { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .check { grid-template-columns: 60px minmax(0, 1fr); gap: 8px; }
+  pre { padding: 12px; }
+  .diagram-comparison { grid-template-columns: minmax(0,1fr); }
+  .diagram-comparison > section { padding: 12px 0; border: 0; }
+}
+</style></head><body><main><div class="eyebrow">COMET / 变更说明</div><h1>铺面编辑工具栏改为全部贴左、置顶按钮移到控制面板标题旁，曲谱优化改用项目内的 arpeggiate.py 脚本</h1><div class="meta"><p>比较范围 · 比较范围 9a11548..b8b24bc（未包含后续验收修复）</p><p>生成时间 · 2026-11-12T14:37:10.087Z</p></div><figure class="diagram"><figcaption>曲谱优化执行路径</figcaption><svg class="diagram-svg" width="272" height="672" viewBox="0 0 272 672" role="group" aria-labelledby="walkthrough-diagram-0-compact-title walkthrough-diagram-0-compact-description"><title id="walkthrough-diagram-0-compact-title">曲谱优化执行路径</title><desc id="walkthrough-diagram-0-compact-description">选中音符 → arpeggiate_runner; arpeggiate_runner → 临时 MIDI（每音符一轨）; 临时 MIDI（每音符一轨） → arpeggiate.main(); arpeggiate.main() → 逐轨回读并换算秒; 逐轨回读并换算秒 → 更新铺面 + 撤销历史</desc><defs><marker id="walkthrough-diagram-0-compact-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z"/></marker></defs><path class="diagram-edge" d="M 136 90 C 136 108, 136 108, 136 123" marker-end="url(#walkthrough-diagram-0-compact-arrow)"/><path class="diagram-edge" d="M 136 204 C 136 222, 136 222, 136 237" marker-end="url(#walkthrough-diagram-0-compact-arrow)"/><path class="diagram-edge" d="M 136 318 C 136 336, 136 336, 136 351" marker-end="url(#walkthrough-diagram-0-compact-arrow)"/><path class="diagram-edge" d="M 136 432 C 136 450, 136 450, 136 465" marker-end="url(#walkthrough-diagram-0-compact-arrow)"/><path class="diagram-edge" d="M 136 546 C 136 564, 136 564, 136 579" marker-end="url(#walkthrough-diagram-0-compact-arrow)"/><g class="diagram-node "><rect x="80" y="12" width="112" height="78" rx="5"/><text class="" x="136" y="55" text-anchor="middle"><tspan x="136" dy="0">选中音符</tspan></text></g><a class="diagram-node added" href="#walkthrough-file-2-1" aria-label="arpeggiate_runner · arpeggiate_runner.py:1"><rect x="80" y="126" width="112" height="78" rx="5"/><text class="diagram-kind" x="136" y="143" text-anchor="middle"><tspan x="136" dy="0">新增</tspan></text><text class="" x="136" y="161" text-anchor="middle"><tspan x="136" dy="0">arpeggiate_r</tspan><tspan x="136" dy="18">unner</tspan></text></a><g class="diagram-node "><rect x="80" y="240" width="112" height="78" rx="5"/><text class="" x="136" y="265" text-anchor="middle"><tspan x="136" dy="0">临时</tspan><tspan x="136" dy="18">MIDI（每音符</tspan><tspan x="136" dy="18">一轨）</tspan></text></g><a class="diagram-node modified" href="#walkthrough-file-2-0" aria-label="arpeggiate.main() · arpeggiate.py:90"><rect x="80" y="354" width="112" height="78" rx="5"/><text class="diagram-kind" x="136" y="371" text-anchor="middle"><tspan x="136" dy="0">修改</tspan></text><text class="" x="136" y="389" text-anchor="middle"><tspan x="136" dy="0">arpeggiate.m</tspan><tspan x="136" dy="18">ain()</tspan></text></a><g class="diagram-node "><rect x="80" y="468" width="112" height="78" rx="5"/><text class="" x="136" y="502" text-anchor="middle"><tspan x="136" dy="0">逐轨回读并换</tspan><tspan x="136" dy="18">算秒</tspan></text></g><g class="diagram-node "><rect x="80" y="582" width="112" height="78" rx="5"/><text class="" x="136" y="616" text-anchor="middle"><tspan x="136" dy="0">更新铺面 +</tspan><tspan x="136" dy="18">撤销历史</tspan></text></g></svg><p class="diagram-hint">点击带链接的节点查看相关代码。</p></figure><article><header><span class="number">01</span><h2>工具栏全部贴左</h2></header><div class="comparison"><section><h3>原来</h3><p>第一行中间有弹性空白，保存、演奏模式与键位映射被推到容器右侧，窗口变宽后位置还会漂移</p></section><section class="after"><h3>现在</h3><p>两行工具栏都从容器左边缘依次排列，多余宽度由行尾空白吸收</p></section></div><p class="reason"><strong>原因</strong> 让常用操作固定在左手边，缩短鼠标移动距离</p><details><summary>查看文件和关键代码 <span class="count">1</span></summary><div class="file" id="walkthrough-file-0-0"><div class="file-heading"><span class="tag">修改</span><code>gui.py:697</code></div><pre><code>删除中段 toolbar.addStretch()，在最后一个下拉框后追加行尾 stretch</code></pre></div></details></article><article><header><span class="number">02</span><h2>置顶按钮移位</h2></header><div class="comparison"><section><h3>原来</h3><p>📌 置顶按钮在「操作日志」页标题行右侧</p></section><section class="after"><h3>现在</h3><p>按钮位于左侧「🎛️ 控制面板」标题行右侧，日志页只保留清空</p></section></div><p class="reason"><strong>原因</strong> 置顶作用于整个窗口，应放在控制区而非日志页</p><details><summary>查看文件和关键代码 <span class="count">2</span></summary><div class="file" id="walkthrough-file-1-0"><div class="file-heading"><span class="tag">修改</span><code>gui.py:600</code></div><pre><code>QGroupBox 改为 QFrame#controlPanel + 标题行（panelTitle + stretch + topmost_btn）</code></pre></div><div class="file" id="walkthrough-file-1-1"><div class="file-heading"><span class="tag">修改</span><code>gui.py:870</code></div><pre><code>从 _setup_log_tab 移除置顶按钮创建</code></pre></div></details></article><article><header><span class="number">03</span><h2>曲谱优化调用项目内脚本</h2></header><div class="comparison"><section><h3>原来</h3><p>项目根 arpeggiate.py 是重写版算法，与用户脚本行为不一致</p></section><section class="after"><h3>现在</h3><p>原脚本从 release/谱子 移入项目根（仅修正：展开时起点与结束时间同步后移，时长不变），按钮通过临时 MIDI 往返调用脚本 main()</p></section></div><p class="reason"><strong>原因</strong> 保持用户脚本的算法与参数，避免两份实现继续分叉</p><details><summary>查看文件和关键代码 <span class="count">4</span></summary><div class="file" id="walkthrough-file-2-0"><div class="file-heading"><span class="tag">修改</span><code>arpeggiate.py:90</code></div><pre><code>delta = anchor + k * step - n[&#39;on&#39;]；n[&#39;on&#39;] += delta；n[&#39;off&#39;] += delta</code></pre></div><div class="file" id="walkthrough-file-2-1"><div class="file-heading"><span class="tag">新增</span><code>arpeggiate_runner.py:1</code></div><pre><code>临时 MIDI（384 tick/拍、每音符一条音轨）→ arpeggiate.main() → extract_notes 回读</code></pre></div><div class="file" id="walkthrough-file-2-2"><div class="file-heading"><span class="tag">修改</span><code>piano_roll.py:38</code></div><pre><code>from arpeggiate_runner import arpeggiate_notes</code></pre></div><div class="file" id="walkthrough-file-2-3"><div class="file-heading"><span class="tag">修改</span><code>gui.py:1283</code></div><pre><code>seconds_per_beat = 60.0 / current_bpm，并捕获脚本异常写日志</code></pre></div></details></article><footer><h2>实际验证</h2><div class="check"><span class="status passed">通过</span><div><strong>Builder 自检</strong><p>.venv\Scripts\python.exe -m unittest discover -s tests，168 项通过</p></div></div><div class="check"><span class="status passed">通过</span><div><strong>独立审查</strong><p>审查发现 1 个 Critical（去重删除未同步图形/选择/历史）与若干 Important，均已修复并补测试</p></div></div><div class="check"><span class="status passed">通过</span><div><strong>Runtime 检查</strong><p>comet guard build / verify 均 ALL CHECKS PASSED</p></div></div></footer></main><template id="walkthrough-data">eyJzdW1tYXJ5Ijoi6ZO66Z2i57yW6L6R5bel5YW35qCP5pS55Li65YWo6YOo6LS05bem44CB572u6aG25oyJ6ZKu56e75Yiw5o6n5Yi26Z2i5p2/5qCH6aKY5peB77yM5puy6LCx5LyY5YyW5pS555So6aG555uu5YaF55qEIGFycGVnZ2lhdGUucHkg6ISa5pysIiwic2NvcGUiOiLmr5TovoPojIPlm7QgOWExMTU0OC4uYjhiMjRiY++8iOacquWMheWQq+WQjue7remqjOaUtuS/ruWkje+8iSIsImNoYW5nZXMiOlt7InRpdGxlIjoi5bel5YW35qCP5YWo6YOo6LS05bemIiwiYmVmb3JlIjoi56ys5LiA6KGM5Lit6Ze05pyJ5by55oCn56m655m977yM5L+d5a2Y44CB5ryU5aWP5qih5byP5LiO6ZSu5L2N5pig5bCE6KKr5o6o5Yiw5a655Zmo5Y+z5L6n77yM56qX5Y+j5Y+Y5a695ZCO5L2N572u6L+Y5Lya5ryC56e7IiwiYWZ0ZXIiOiLkuKTooYzlt6XlhbfmoI/pg73ku47lrrnlmajlt6bovrnnvJjkvp3mrKHmjpLliJfvvIzlpJrkvZnlrr3luqbnlLHooYzlsL7nqbrnmb3lkLjmlLYiLCJyZWFzb24iOiLorqnluLjnlKjmk43kvZzlm7rlrprlnKjlt6bmiYvovrnvvIznvKnnn63pvKDmoIfnp7vliqjot53nprsiLCJmaWxlcyI6W3sicGF0aCI6Imd1aS5weTo2OTciLCJraW5kIjoibW9kaWZpZWQiLCJjb2RlIjoi5Yig6Zmk5Lit5q61IHRvb2xiYXIuYWRkU3RyZXRjaCgp77yM5Zyo5pyA5ZCO5LiA5Liq5LiL5ouJ5qGG5ZCO6L+95Yqg6KGM5bC+IHN0cmV0Y2gifV19LHsidGl0bGUiOiLnva7pobbmjInpkq7np7vkvY0iLCJiZWZvcmUiOiLwn5OMIOe9rumhtuaMiemSruWcqOOAjOaTjeS9nOaXpeW/l+OAjemhteagh+mimOihjOWPs+S+pyIsImFmdGVyIjoi5oyJ6ZKu5L2N5LqO5bem5L6n44CM8J+Om++4jyDmjqfliLbpnaLmnb/jgI3moIfpopjooYzlj7PkvqfvvIzml6Xlv5fpobXlj6rkv53nlZnmuIXnqboiLCJyZWFzb24iOiLnva7pobbkvZznlKjkuo7mlbTkuKrnqpflj6PvvIzlupTmlL7lnKjmjqfliLbljLrogIzpnZ7ml6Xlv5fpobUiLCJmaWxlcyI6W3sicGF0aCI6Imd1aS5weTo2MDAiLCJraW5kIjoibW9kaWZpZWQiLCJjb2RlIjoiUUdyb3VwQm94IOaUueS4uiBRRnJhbWUjY29udHJvbFBhbmVsICsg5qCH6aKY6KGM77yIcGFuZWxUaXRsZSArIHN0cmV0Y2ggKyB0b3Btb3N0X2J0bu+8iSJ9LHsicGF0aCI6Imd1aS5weTo4NzAiLCJraW5kIjoibW9kaWZpZWQiLCJjb2RlIjoi5LuOIF9zZXR1cF9sb2dfdGFiIOenu+mZpOe9rumhtuaMiemSruWIm+W7uiJ9XX0seyJ0aXRsZSI6IuabsuiwseS8mOWMluiwg+eUqOmhueebruWGheiEmuacrCIsImJlZm9yZSI6IumhueebruaguSBhcnBlZ2dpYXRlLnB5IOaYr+mHjeWGmeeJiOeul+azle+8jOS4jueUqOaIt+iEmuacrOihjOS4uuS4jeS4gOiHtCIsImFmdGVyIjoi5Y6f6ISa5pys5LuOIHJlbGVhc2Uv6LCx5a2QIOenu+WFpemhueebruague+8iOS7heS/ruato++8muWxleW8gOaXtui1t+eCueS4jue7k+adn+aXtumXtOWQjOatpeWQjuenu++8jOaXtumVv+S4jeWPmO+8ie+8jOaMiemSrumAmui/h+S4tOaXtiBNSURJIOW+gOi/lOiwg+eUqOiEmuacrCBtYWluKCkiLCJyZWFzb24iOiLkv53mjIHnlKjmiLfohJrmnKznmoTnrpfms5XkuI7lj4LmlbDvvIzpgb/lhY3kuKTku73lrp7njrDnu6fnu63liIblj4kiLCJmaWxlcyI6W3sicGF0aCI6ImFycGVnZ2lhdGUucHk6OTAiLCJraW5kIjoibW9kaWZpZWQiLCJjb2RlIjoiZGVsdGEgPSBhbmNob3IgKyBrICogc3RlcCAtIG5bJ29uJ13vvJtuWydvbiddICs9IGRlbHRh77ybblsnb2ZmJ10gKz0gZGVsdGEifSx7InBhdGgiOiJhcnBlZ2dpYXRlX3J1bm5lci5weToxIiwia2luZCI6ImFkZGVkIiwiY29kZSI6IuS4tOaXtiBNSURJ77yIMzg0IHRpY2sv5ouN44CB5q+P6Z+z56ym5LiA5p2h6Z+z6L2o77yJ4oaSIGFycGVnZ2lhdGUubWFpbigpIOKGkiBleHRyYWN0X25vdGVzIOWbnuivuyJ9LHsicGF0aCI6InBpYW5vX3JvbGwucHk6MzgiLCJraW5kIjoibW9kaWZpZWQiLCJjb2RlIjoiZnJvbSBhcnBlZ2dpYXRlX3J1bm5lciBpbXBvcnQgYXJwZWdnaWF0ZV9ub3RlcyJ9LHsicGF0aCI6Imd1aS5weToxMjgzIiwia2luZCI6Im1vZGlmaWVkIiwiY29kZSI6InNlY29uZHNfcGVyX2JlYXQgPSA2MC4wIC8gY3VycmVudF9icG3vvIzlubbmjZXojrfohJrmnKzlvILluLjlhpnml6Xlv5cifV19XSwidmVyaWZpY2F0aW9uIjpbeyJsYWJlbCI6IkJ1aWxkZXIg6Ieq5qOAIiwic3RhdHVzIjoicGFzc2VkIiwiZGV0YWlsIjoiLnZlbnZcXFNjcmlwdHNcXHB5dGhvbi5leGUgLW0gdW5pdHRlc3QgZGlzY292ZXIgLXMgdGVzdHPvvIwxNjgg6aG56YCa6L+HIn0seyJsYWJlbCI6IueLrOeri+WuoeafpSIsInN0YXR1cyI6InBhc3NlZCIsImRldGFpbCI6IuWuoeafpeWPkeeOsCAxIOS4qiBDcml0aWNhbO+8iOWOu+mHjeWIoOmZpOacquWQjOatpeWbvuW9oi/pgInmi6kv5Y6G5Y+y77yJ5LiO6Iul5bmyIEltcG9ydGFudO+8jOWdh+W3suS/ruWkjeW5tuihpea1i+ivlSJ9LHsibGFiZWwiOiJSdW50aW1lIOajgOafpSIsInN0YXR1cyI6InBhc3NlZCIsImRldGFpbCI6ImNvbWV0IGd1YXJkIGJ1aWxkIC8gdmVyaWZ5IOWdhyBBTEwgQ0hFQ0tTIFBBU1NFRCJ9XSwiZGlhZ3JhbXMiOlt7InR5cGUiOiJmbG93IiwidGl0bGUiOiLmm7LosLHkvJjljJbmiafooYzot6/lvoQiLCJub2RlcyI6W3siaWQiOiJzZWxlY3QiLCJsYWJlbCI6IumAieS4remfs+espiJ9LHsiaWQiOiJydW5uZXIiLCJsYWJlbCI6ImFycGVnZ2lhdGVfcnVubmVyIiwiZmlsZSI6ImFycGVnZ2lhdGVfcnVubmVyLnB5OjEiLCJraW5kIjoiYWRkZWQifSx7ImlkIjoidGVtcCIsImxhYmVsIjoi5Li05pe2IE1JREnvvIjmr4/pn7PnrKbkuIDovajvvIkifSx7ImlkIjoic2NyaXB0IiwibGFiZWwiOiJhcnBlZ2dpYXRlLm1haW4oKSIsImZpbGUiOiJhcnBlZ2dpYXRlLnB5OjkwIiwia2luZCI6Im1vZGlmaWVkIn0seyJpZCI6InJlYWRiYWNrIiwibGFiZWwiOiLpgJDovajlm57or7vlubbmjaLnrpfnp5IifSx7ImlkIjoicm9sbCIsImxhYmVsIjoi5pu05paw6ZO66Z2iICsg5pKk6ZSA5Y6G5Y+yIn1dLCJlZGdlcyI6W3siZnJvbSI6InNlbGVjdCIsInRvIjoicnVubmVyIn0seyJmcm9tIjoicnVubmVyIiwidG8iOiJ0ZW1wIn0seyJmcm9tIjoidGVtcCIsInRvIjoic2NyaXB0In0seyJmcm9tIjoic2NyaXB0IiwidG8iOiJyZWFkYmFjayJ9LHsiZnJvbSI6InJlYWRiYWNrIiwidG8iOiJyb2xsIn1dfV19</template></body></html>

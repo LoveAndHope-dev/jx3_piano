@@ -11,6 +11,9 @@ from typing import Dict, List, Optional
 
 PLAYBACK_TYPE = "jx3_piano_complete"
 
+# 播放数据时间戳为 3 位小数；浮点累加会引入 1e-16 级误差
+EPSILON = 1e-6
+
 
 def base_name(midi_path: str) -> str:
     return os.path.splitext(os.path.basename(midi_path))[0]
@@ -107,14 +110,16 @@ def split_playback_at(playback_data: List, start_at: float) -> List:
         item = playback_data[index]
         if isinstance(item, (int, float)):
             duration = float(item)
-            if elapsed >= start_at:
+            if elapsed >= start_at - EPSILON:
                 break  # 该延时完整保留
-            if elapsed + duration > start_at:
+            if elapsed + duration > start_at + EPSILON:
                 remaining = round(elapsed + duration - start_at, 6)
                 rest = list(playback_data[index + 1 :])
-                return ([remaining] if remaining > 0 else []) + rest
+                if not any(isinstance(entry, str) for entry in rest):
+                    return []  # 起点之后只剩尾段延时，没有可播放按键
+                return ([remaining] if remaining > EPSILON else []) + rest
             elapsed += duration
-        elif elapsed >= start_at:
+        elif elapsed >= start_at - EPSILON:
             break  # 按键正好落在起点或之后
         index += 1
     return list(playback_data[index:])

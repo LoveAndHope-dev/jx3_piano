@@ -37,6 +37,22 @@ class SplitPlaybackTest(unittest.TestCase):
         self.assertEqual(split_playback_at(data, 1.0), ["Q", 1.0, "W", 2.0, "E"])
         self.assertEqual(split_playback_at(data, 4.0), ["E"])
 
+    def test_float_accumulation_keeps_key_at_start(self):
+        data = ["K", 0.1] * 10 + ["K"]  # 按键位于 0.0 ~ 1.0 秒
+        self.assertEqual(
+            split_playback_at(data, 0.8), ["K", 0.1, "K", 0.1, "K"]
+        )
+        self.assertEqual(split_playback_at(data, 1.0), ["K"])
+
+    def test_trailing_delay_only_returns_empty(self):
+        self.assertEqual(split_playback_at(["Q", 2.0], 1.0), [])
+
+    def test_input_is_not_mutated(self):
+        data = ["Q", 0.5, "W"]
+        snapshot = list(data)
+        split_playback_at(data, 0.2)
+        self.assertEqual(data, snapshot)
+
     def test_start_after_end_returns_empty(self):
         self.assertEqual(split_playback_at(["Q", 0.2], 5.0), [])
 

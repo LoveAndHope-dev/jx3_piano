@@ -1,0 +1,3251 @@
+# comet-execution: managed-run
+change_id: 72158d0e-8fb4-4b7a-bc84-38f13c2d6ec1
+workflow: full
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: executing-plans
+build_pause: null
+subagent_dispatch: null
+tdd_mode: tdd
+review_mode: standard
+isolation: current
+verify_mode: null
+auto_transition: true
+base_ref: 1329635587e89680c1348382ba0108a377f788fe
+design_doc: docs/openspec/changes/archive/2026-11-12-piano-roll-follow-and-undo/design.md
+plan: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-12-piano-roll-follow-and-undo-verification.md
+branch_status: pending
+created_at: 2026-11-12
+verified_at: 2026-11-12
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: false
+handoff_context: docs/openspec/changes/archive/2026-11-12-piano-roll-follow-and-undo/.comet/handoff/design-context.json
+handoff_hash: 6dbcca9fd7141ae21b273932fe7c030b856f14f2922834cf0571b59b30f2fdbc
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v2
+  hash: c842a1c3680444cc211e375e465fb7f845dae4fa96a3c78feb67c548275cbc44
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: piano-roll-follow-and-undo
+    revision: 1
+    workflow:
+      id: comet-classic-full
+      version: "1"
+      hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    definitionHashes:
+      '["comet-classic-full","1"]': ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    initialStateHash: b145c8fec6e872cd8363d1a10922216fb0faf4f9f0f1cac5f28b9587e29f503b
+    input:
+      change: piano-roll-follow-and-undo
+      changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+      workspaceBaseline:
+        ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 1329635587e89680c1348382ba0108a377f788fe
+      boundBranch: main
+      branchStatus: pending
+      buildMode: executing-plans
+      buildPause: null
+      checkEpoch: 8
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-12
+      designDoc: docs/openspec/changes/archive/2026-11-12-piano-roll-follow-and-undo/design.md
+      directOverride: false
+      handoffContext: docs/openspec/changes/archive/2026-11-12-piano-roll-follow-and-undo/.comet/handoff/design-context.json
+      handoffHash: 6dbcca9fd7141ae21b273932fe7c030b856f14f2922834cf0571b59b30f2fdbc
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+      reviewMode: standard
+      subagentDispatch: null
+      tddMode: tdd
+      verificationReport: docs/superpowers/reports/2026-11-12-piano-roll-follow-and-undo-verification.md
+      verifiedAt: 2026-11-12
+      verifyFailures: 0
+      verifyMode: null
+      verifyResult: pass
+      workflow: full
+    status: running
+    sequence: 30
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-02f75e3d49d9efd3aa15b34ac5bbd0a691e443d5db9ca56b79fe012331ffda06
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:1
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 19c00afeb7730d5545a7691357cd71beaac02231e533469ea1547f6268da1c8c
+        outcome:
+          actionId: piano-roll-follow-and-undo:1
+          attempt: 1
+          claimToken: portable-02f75e3d49d9efd3aa15b34ac5bbd0a691e443d5db9ca56b79fe012331ffda06
+          inputHash: 19c00afeb7730d5545a7691357cd71beaac02231e533469ea1547f6268da1c8c
+          outcomeId: 6e5b1d0f-e639-4a4a-acb9-cb4e7940f3d5
+          output:
+            event: open-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 16ff38a2cfd6557a3e6908bd2191490dedc51e4b2e88d643a7ad205581f0232d
+            outcomeId: 6e5b1d0f-e639-4a4a-acb9-cb4e7940f3d5
+        reconciliations: []
+        ref: comet-open
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-open-revalidate
+          token: portable-8ba2a2154533c5b213e64c684476ccd087b34173be94dc5c9070898210538771
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:4
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 4061031ddb7b271f1a243f0f0c64b74807ce49ac2d02b2e4c70536742cfaf77b
+        outcome:
+          actionId: piano-roll-follow-and-undo:4
+          attempt: 1
+          claimToken: portable-8ba2a2154533c5b213e64c684476ccd087b34173be94dc5c9070898210538771
+          inputHash: 4061031ddb7b271f1a243f0f0c64b74807ce49ac2d02b2e4c70536742cfaf77b
+          outcomeId: piano-roll-follow-and-undo:4:1:executor-result
+          output:
+            contentHash: 49bb3c0bcfb007ba063e07eeb964a3ea2248dfe0fdf4d1806352dcb99fd18ab5
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 5ddacd73438dcd3eda60b9c28c3d1886c5d0c6f1fbf981a8998beb5d9d5408c0
+            outcomeId: piano-roll-follow-and-undo:4:1:executor-result
+        reconciliations: []
+        ref: classic-open-revalidate
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.open.revalidate
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-863509a4ad7ae368fc908c7c92cc1d2e3638020b995707b3c2e14ec8ba6f87ca
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:5
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 8202410f259635d27c86f42d425cdcce77202d4ecbdfe957d55409f43a258286
+        outcome:
+          actionId: piano-roll-follow-and-undo:5
+          attempt: 1
+          claimToken: portable-863509a4ad7ae368fc908c7c92cc1d2e3638020b995707b3c2e14ec8ba6f87ca
+          inputHash: 8202410f259635d27c86f42d425cdcce77202d4ecbdfe957d55409f43a258286
+          outcomeId: 95e50d5d-3f15-4e76-8e55-a63a3ae9db9a
+          output:
+            handoffContext: docs/openspec/changes/piano-roll-follow-and-undo/.comet/handoff/design-context.json
+            handoffHash: 6dbcca9fd7141ae21b273932fe7c030b856f14f2922834cf0571b59b30f2fdbc
+            proposal: 方案：1) 历史放在 GUI：维护 undo/redo 两个栈，每项快照包含 notes 深拷贝、current_bpm、拍号 (n,d)
+              与播放辅助线位置；上限 50 步。初始加载后记录基线快照，用于判断未保存标记。2)
+              记录时机：`on_piano_roll_notes_changed` 在非应用状态时把当前状态压入 undo、清空
+              redo；应用快照时设置 _history_applying 抑制记录，避免撤销自身入栈。BPM 变更会触发
+              notesChanged（rescale_times），因此自动入栈。3) 应用快照：set_notes、恢复
+              current_bpm/拍号、重建 set_measure_grid/set_beat_grid
+              与量化网格、恢复辅助线锚点，比较当前与基线更新未保存标记与保存按钮。4) 画布只发信号：Ctrl+Z 发
+              undoRequested，Ctrl+Shift+Z 发
+              redoRequested，_read_only（演奏模式/播放中）直接返回；PianoRollWidget 透传，GUI
+              连接处理，不注册全局快捷键。5) 播放跟随：画布新增 follow_playhead()，读取辅助线在视口的 x，超过视口宽度
+              80% 时把横向滚动值设为 辅助线像素 − 视口宽度*0.2 并夹紧；set_playhead
+              仅在播放（_read_only）时调用，停止后不滚动。关键取舍：不采用差量命令栈（实现面大，50
+              步快照足够）；历史不放画布（无法同步 BPM/网格）；不居中锁定（用户已选翻页式）。风险：快照内存随曲目大小增长（50
+              步上限，后续可换差量）；撤销不恢复选中集合（规格未要求）；播放中禁用撤销避免音画不同步；阈值 80/20
+              为经验值。测试策略：offscreen UI 测试覆盖撤销删除/移动、前进、演奏模式忽略、50 步上限、新操作清空
+              redo、撤销恢复 BPM 与辅助线与未保存标记、翻页阈值内不滚动/超过阈值滚动/停止不跟随；既有 141 项回归。Spec
+              Patch：无。
+            requirementsEvidence:
+              contentHash: 99ac804ea2187442e39b8ab9f524ba373607e2b88c428c0297b462925cdb464d
+              ref: docs/openspec/changes/piano-roll-follow-and-undo
+            sourceEvidence:
+              contentHash: 8f05fed94998c7fb12938e712f54ed6beda7753e6237664a1e38a086a2c3269c
+              ref: docs/openspec/changes/piano-roll-follow-and-undo
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 81f6a4bdd206fd31f2ff02d3ff87bf98c57983f9899b1e7e3de7f315075d4410
+            outcomeId: 95e50d5d-3f15-4e76-8e55-a63a3ae9db9a
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.design.handoff
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-30baff18c3d57efe9ae0664adcb66e435c2692857d6eaf76016d7f92c5d46289
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:7
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 7e1cbc17af33b702407b6d126961735226e9d1f69cd4979f0dd9aa3c7faf9eba
+        outcome:
+          actionId: piano-roll-follow-and-undo:7
+          attempt: 1
+          claimToken: portable-30baff18c3d57efe9ae0664adcb66e435c2692857d6eaf76016d7f92c5d46289
+          inputHash: 7e1cbc17af33b702407b6d126961735226e9d1f69cd4979f0dd9aa3c7faf9eba
+          outcomeId: 63ec7e16-d7c4-4601-a5af-21ee752b6678
+          output:
+            designDoc: docs/openspec/changes/piano-roll-follow-and-undo/design.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 71f23e25cc4e5748d23f9ea8f668458a2843400eaee218045df3aaef7d4e86c1
+            outcomeId: 63ec7e16-d7c4-4601-a5af-21ee752b6678
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.design.document
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-a337e09a3606c1f44d7ffcbf36fdb987e9f08dcd0ccb551c10bf560b89886bb2
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:9
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 9a95740dea0d288c49a19e6107a40885f421c56c6dd091524345822f8e79b718
+        outcome:
+          actionId: piano-roll-follow-and-undo:9
+          attempt: 1
+          claimToken: portable-a337e09a3606c1f44d7ffcbf36fdb987e9f08dcd0ccb551c10bf560b89886bb2
+          inputHash: 9a95740dea0d288c49a19e6107a40885f421c56c6dd091524345822f8e79b718
+          outcomeId: a6184a96-b703-43f3-b90e-1b0b3b8b7a89
+          output:
+            boundBranch: main
+            buildMode: executing-plans
+            directOverride: false
+            isolation: current
+            reviewMode: standard
+            subagentDispatch: null
+            tddMode: tdd
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 1bc0edb736b14d3094ca61f509b2ff89260997bedf7976b8b53e68c7ce44ad5a
+            outcomeId: a6184a96-b703-43f3-b90e-1b0b3b8b7a89
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.build.configure
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-38aa9d29820654c23f0bd27734d3ae1ed563c45e9798cd6fe282c3093bf71afe
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:11
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 6b4459d7fd6b9a685d1cb01ad662f6f8fa1931ea44bc32211f107e700c474a66
+        outcome:
+          actionId: piano-roll-follow-and-undo:11
+          attempt: 1
+          claimToken: portable-38aa9d29820654c23f0bd27734d3ae1ed563c45e9798cd6fe282c3093bf71afe
+          inputHash: 6b4459d7fd6b9a685d1cb01ad662f6f8fa1931ea44bc32211f107e700c474a66
+          outcomeId: 2e7d314e-9f58-4701-9866-937eb09e021b
+          output:
+            designEvidence:
+              contentHash: 6f12e8b647a88d422838e47ffdf30484bb2a6c064156d8695be7b48961d491bb
+              ref: docs/openspec/changes/piano-roll-follow-and-undo/design.md
+            plan: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+            planEvidence:
+              contentHash: 69e844adc4ca3974a8a65b6f271667d277ec2c5dca8cf66b54199f260324227c
+              ref: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+            taskRevision: 5815201905051fad923dc767f427c213bcd814dc398e5909e8e47f24b8025f6d
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 049f1d52fd32c1854610eb7cc8246d418988a77775d99189874f4f7335c54a77
+            outcomeId: 2e7d314e-9f58-4701-9866-937eb09e021b
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.build.plan
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/piano-roll-follow-and-undo:13/1
+          token: portable-7149cf9e38c01bd4e6d015c6f4f33336cc5698faa599a4291d7875d0f9b0c163
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:13
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 49bae049ed8a3eb77536af823f79baa1156aa47cd8494ab5a4f206442c9afa9d
+        outcome:
+          actionId: piano-roll-follow-and-undo:13
+          attempt: 1
+          claimToken: portable-7149cf9e38c01bd4e6d015c6f4f33336cc5698faa599a4291d7875d0f9b0c163
+          inputHash: 49bae049ed8a3eb77536af823f79baa1156aa47cd8494ab5a4f206442c9afa9d
+          outcomeId: 08235de4-4019-4656-af32-00f9e631fcfb
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 2d8263e4ef1e6062940908ed4277834ae4b401bea6600d6cab86da4475831c78
+            outcomeId: 08235de4-4019-4656-af32-00f9e631fcfb
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-d5a47ff8ac30bc7c2715eb81f5664f85a2e68730ff9fa79d5c09dee31b950740
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:14
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 813b57fc7a83cadee8c10dafab1df4800994eb4841adc867996212fdce816359
+        outcome:
+          actionId: piano-roll-follow-and-undo:14
+          attempt: 1
+          claimToken: portable-d5a47ff8ac30bc7c2715eb81f5664f85a2e68730ff9fa79d5c09dee31b950740
+          inputHash: 813b57fc7a83cadee8c10dafab1df4800994eb4841adc867996212fdce816359
+          outcomeId: 0453d940-a2ff-4dd4-8037-a20585114f75
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 1339d9c3743f943346d761bf7898e207a7651c45f4bf7456037124ec6f3f328f
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 6f13456e63df3f660f8b20d03dc69611819773c8c21bef1090c11513bcf1f0a1
+            inputBefore: 6f13456e63df3f660f8b20d03dc69611819773c8c21bef1090c11513bcf1f0a1
+            manifestHash: 8b6832c0bd23aebb65d7f9660c6e68a6c45e419034acf0f4f6fb0f698787c926
+            manifestRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/6788c142-8dcd-40a5-8c2b-22a3cef1f88e.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/195d68a2-d7ed-4461-898c-e3f1912f2c57.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: b91065cf9308e06b63d53830187efd0f017d8bdc61920717595ad52966db7850
+            outcomeId: 0453d940-a2ff-4dd4-8037-a20585114f75
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-1475fcebf143c17b978632dfe12262f49a878b4e3d767bd28fbbd37dcf90f29f
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:16
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 57ba41073914c0274339f9fb1d789224c59c9558589c0df24bb5a1cc14c95412
+        outcome:
+          actionId: piano-roll-follow-and-undo:16
+          attempt: 1
+          claimToken: portable-1475fcebf143c17b978632dfe12262f49a878b4e3d767bd28fbbd37dcf90f29f
+          inputHash: 57ba41073914c0274339f9fb1d789224c59c9558589c0df24bb5a1cc14c95412
+          outcomeId: 3a0df271-6861-45e8-a710-93554461cbb4
+          output:
+            event: verify-fail
+            reason: 独立审查发现 1 个 Critical（BPM 变更时快照记录旧 BPM，撤销/前进会错配速度与音符）及若干
+              Important/Minor（跟随误在演奏模式触发、剪贴板未随撤销恢复、测试缺口）；已修复并补充测试（157 项通过），需重新执行
+              Build 检查
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 98aff535b82e94cdf2b39b36c2437919d984bdd7542b0083545e38104a2d5f17
+            outcomeId: 3a0df271-6861-45e8-a710-93554461cbb4
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-a9f42f6bedab30bea9ef9aa8cf7f56dc948dbc305c465021a175f12e9956d9df
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:17
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: c903b5c4f756028f73252d532cc331343011b0ea31e63792d972d53ee7a6bfbd
+        outcome:
+          actionId: piano-roll-follow-and-undo:17
+          attempt: 1
+          claimToken: portable-a9f42f6bedab30bea9ef9aa8cf7f56dc948dbc305c465021a175f12e9956d9df
+          inputHash: c903b5c4f756028f73252d532cc331343011b0ea31e63792d972d53ee7a6bfbd
+          outcomeId: 733c08f8-110d-4d62-82bf-7f57c9df7469
+          output:
+            designEvidence:
+              contentHash: 6f12e8b647a88d422838e47ffdf30484bb2a6c064156d8695be7b48961d491bb
+              ref: docs/openspec/changes/piano-roll-follow-and-undo/design.md
+            plan: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+            planEvidence:
+              contentHash: 69e844adc4ca3974a8a65b6f271667d277ec2c5dca8cf66b54199f260324227c
+              ref: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+            taskRevision: 5815201905051fad923dc767f427c213bcd814dc398e5909e8e47f24b8025f6d
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 204eae073dd28e1bba802bd5ba04df80016981923d5e3384b4ef887797080c74
+            outcomeId: 733c08f8-110d-4d62-82bf-7f57c9df7469
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.build.plan
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/piano-roll-follow-and-undo:19/1
+          token: portable-3246285b09a4285e323dbf1b4e9e3e84d6254a1e3b49ddfeac775084a5fe817d
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:19
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: c903b5c4f756028f73252d532cc331343011b0ea31e63792d972d53ee7a6bfbd
+        outcome:
+          actionId: piano-roll-follow-and-undo:19
+          attempt: 1
+          claimToken: portable-3246285b09a4285e323dbf1b4e9e3e84d6254a1e3b49ddfeac775084a5fe817d
+          inputHash: c903b5c4f756028f73252d532cc331343011b0ea31e63792d972d53ee7a6bfbd
+          outcomeId: b1b50ddd-c04f-4550-a9b5-5e25eaacf106
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 4d30f3d963dd43727768d1bf3ec682358bad47e7b16780e596ef2e517f142e06
+            outcomeId: b1b50ddd-c04f-4550-a9b5-5e25eaacf106
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-086d461c988a79deb7d8ec0f238f6d2451eb1d4122a6136f052899c8919853af
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:20
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: c903b5c4f756028f73252d532cc331343011b0ea31e63792d972d53ee7a6bfbd
+        outcome:
+          actionId: piano-roll-follow-and-undo:20
+          attempt: 1
+          claimToken: portable-086d461c988a79deb7d8ec0f238f6d2451eb1d4122a6136f052899c8919853af
+          inputHash: c903b5c4f756028f73252d532cc331343011b0ea31e63792d972d53ee7a6bfbd
+          outcomeId: e947a9eb-a4ac-40a2-9196-50b9f843a310
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 4
+            contentHash: bfced32e859bc430f022cddde1f63383d83ad7677abb8061b006e8964c9015fb
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+            inputBefore: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+            manifestHash: a67e483e637af38802163ffba6a26edfa113d3651acb21713ffde1630da37aed
+            manifestRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/7a82f983-95c8-4740-815f-2c6a63939df9.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/4a60c84c-94f3-44b9-ae56-3065b884cba7.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 3f32882985a33edf0dadf4ab9ebdbed52a76a3723ce804ddffe0d5c4754af0f3
+            outcomeId: e947a9eb-a4ac-40a2-9196-50b9f843a310
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-f52cc21e83ae98c4799d44697fde2b05afb4d4c91bf224fe143214886222e587
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:22
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 03f75771a1fc2c5b7fda1314f10f9e8798fc88a43fd9cf131ccfc1a53d416830
+        outcome:
+          actionId: piano-roll-follow-and-undo:22
+          attempt: 1
+          claimToken: portable-f52cc21e83ae98c4799d44697fde2b05afb4d4c91bf224fe143214886222e587
+          inputHash: 03f75771a1fc2c5b7fda1314f10f9e8798fc88a43fd9cf131ccfc1a53d416830
+          outcomeId: 6816f0df-9978-4e5c-ab94-db9f70217d3f
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-12-piano-roll-follow-and-undo-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: a1696a1a9db96ebaf1fe871e3a4ecffd5b27ba5f01f12eeb93491a2f175bfd2a
+            outcomeId: 6816f0df-9978-4e5c-ab94-db9f70217d3f
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-73364b0bfee88f8deb78840ebbfd95c2a19bc1b980d3cc0f9b9af80003feb217
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:24
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 1b9582215b1474b8d6174cc11ce4814afc602c70c386cf914dbf395dc621e081
+        outcome:
+          actionId: piano-roll-follow-and-undo:24
+          attempt: 1
+          claimToken: portable-73364b0bfee88f8deb78840ebbfd95c2a19bc1b980d3cc0f9b9af80003feb217
+          inputHash: 1b9582215b1474b8d6174cc11ce4814afc602c70c386cf914dbf395dc621e081
+          outcomeId: db531f81-5ae3-49ea-87e4-a95ecc585762
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 5
+            contentHash: 781ae7e6600e0d614f67b28ff57ec2b4408e614bc6bf1a74fd7780c19223b1b7
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+            inputBefore: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+            manifestHash: a67e483e637af38802163ffba6a26edfa113d3651acb21713ffde1630da37aed
+            manifestRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/a4ce419d-17bb-4311-91b2-a6cbc9658998.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/71f6e5ba-3bdd-4270-bf3d-ac9a5b2eb4c0.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: bb536ff828a11a69eecbc64fbff49e236e15769160b619e082a7466118f21b4d
+            outcomeId: db531f81-5ae3-49ea-87e4-a95ecc585762
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-d92e44e190ae4ce713e3ad9108e4f5c9656c30b5b2314490c5c07f9a10b49fd7
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:26
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 9f662253fa3deb2760b8dbdbb8546e71be64790f60b76fd97c7b99779bc41b80
+        outcome:
+          actionId: piano-roll-follow-and-undo:26
+          attempt: 1
+          claimToken: portable-d92e44e190ae4ce713e3ad9108e4f5c9656c30b5b2314490c5c07f9a10b49fd7
+          inputHash: 9f662253fa3deb2760b8dbdbb8546e71be64790f60b76fd97c7b99779bc41b80
+          outcomeId: 4c02ebb2-4dcf-4388-8187-e08a8b93f043
+          output:
+            summary: 播放跟随与撤销/前进：播放时辅助线超过视口 80% 整页前滚到 20%；Ctrl+Z / Ctrl+Shift+Z 支持 50
+              步快照撤销（音符、BPM、拍号、辅助线、剪贴板），演奏模式与播放中禁用；BPM 快照时序问题与跟随门控已按审查修复。157
+              项测试通过。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: aa5551feaa6315820dc2a61b0e1b93f3cedb83ab392b36cb91744afd1c75fcda
+            outcomeId: 4c02ebb2-4dcf-4388-8187-e08a8b93f043
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-a0dc33c078be66c7822729ec8ff2fcd5ed21720f29b856802443f89f896c5ffa
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:28
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 65bb366e4fd4f831628a63bbe4ae337644df0549efbbd2b11023fe7100d739e1
+        outcome:
+          actionId: piano-roll-follow-and-undo:28
+          attempt: 1
+          claimToken: portable-a0dc33c078be66c7822729ec8ff2fcd5ed21720f29b856802443f89f896c5ffa
+          inputHash: 65bb366e4fd4f831628a63bbe4ae337644df0549efbbd2b11023fe7100d739e1
+          outcomeId: da47b539-656e-4bfa-a868-eac6470c4652
+          output:
+            baseCommit: 68d7810a8ecab53d1ac621f6ef2eae1d7d267a1e
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: c93866d8d0e1f67b3c571d2a0687e90dbe0cf76796e0fcc27cae4427956ae586
+            outcomeId: da47b539-656e-4bfa-a868-eac6470c4652
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-12b6af8685c830256d8b3711e26af30adbead87d574c60b1852bdb123bda43bb
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-roll-follow-and-undo:29
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: d1be1fce0c408e29bebd8f0a857fa7caef70a248e9a813d327abe184a777362c
+        outcome:
+          actionId: piano-roll-follow-and-undo:29
+          artifacts:
+            - sha256: ddfba19cfc20b20b461e4b0bf716918243884f7f7c519e370563a24a83ab1d1f
+              uri: docs/openspec/changes/archive/2026-11-12-piano-roll-follow-and-undo/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-12b6af8685c830256d8b3711e26af30adbead87d574c60b1852bdb123bda43bb
+          inputHash: d1be1fce0c408e29bebd8f0a857fa7caef70a248e9a813d327abe184a777362c
+          outcomeId: 17b239c0-f9e7-4ea3-acc2-b0de091a9e25
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-12-piano-roll-follow-and-undo
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 3cd2d3541dbe93eee668c63656fb44822d2122881e3ea1e7b96ebbd4da72a22f
+            outcomeId: 17b239c0-f9e7-4ea3-acc2-b0de091a9e25
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: succeeded
+        stepId: full.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: piano-roll-follow-and-undo:30
+        input:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs: {}
+        inputHash: 897c26632765e0e8e3d39ff0e189055a39e084026acb8abedb666346f702cfad
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-roll-follow-and-undo
+        status: pending
+        stepId: full.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      piano-roll-follow-and-undo:1:
+        results: {}
+        sequence: 1
+      piano-roll-follow-and-undo:11:
+        results: {}
+        sequence: 11
+      piano-roll-follow-and-undo:13:
+        results: {}
+        sequence: 13
+      piano-roll-follow-and-undo:14:
+        results: {}
+        sequence: 14
+      piano-roll-follow-and-undo:16:
+        results: {}
+        sequence: 16
+      piano-roll-follow-and-undo:17:
+        results: {}
+        sequence: 17
+      piano-roll-follow-and-undo:19:
+        results: {}
+        sequence: 19
+      piano-roll-follow-and-undo:20:
+        results: {}
+        sequence: 20
+      piano-roll-follow-and-undo:22:
+        results: {}
+        sequence: 22
+      piano-roll-follow-and-undo:24:
+        results: {}
+        sequence: 24
+      piano-roll-follow-and-undo:26:
+        results: {}
+        sequence: 26
+      piano-roll-follow-and-undo:28:
+        results: {}
+        sequence: 28
+      piano-roll-follow-and-undo:29:
+        results: {}
+        sequence: 29
+      piano-roll-follow-and-undo:30:
+        results: {}
+        sequence: 30
+      piano-roll-follow-and-undo:4:
+        results: {}
+        sequence: 4
+      piano-roll-follow-and-undo:5:
+        results: {}
+        sequence: 5
+      piano-roll-follow-and-undo:7:
+        results: {}
+        sequence: 7
+      piano-roll-follow-and-undo:9:
+        results: {}
+        sequence: 9
+    waits:
+      - id: piano-roll-follow-and-undo:3
+        stepId: full.open.confirm
+        sequence: 3
+        status: resolved
+        proposal:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 49bb3c0bcfb007ba063e07eeb964a3ea2248dfe0fdf4d1806352dcb99fd18ab5
+              ref: docs/openspec/changes/piano-roll-follow-and-undo
+        proposalHash: 746363e0fc249c3ef5668292c092724858875d961570cb6eedfe4151850f2855
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-open-49bb3c0bcfb007ba063e07eeb964a3ea2248dfe0fdf4d1806352dcb99fd18ab5
+          choice: approved
+          proposalHash: 746363e0fc249c3ef5668292c092724858875d961570cb6eedfe4151850f2855
+      - id: piano-roll-follow-and-undo:6
+        stepId: full.design.confirm
+        sequence: 6
+        status: resolved
+        proposal:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/piano-roll-follow-and-undo/.comet/handoff/design-context.json
+              handoffHash: 6dbcca9fd7141ae21b273932fe7c030b856f14f2922834cf0571b59b30f2fdbc
+              proposal: 方案：1) 历史放在 GUI：维护 undo/redo 两个栈，每项快照包含 notes 深拷贝、current_bpm、拍号 (n,d)
+                与播放辅助线位置；上限 50 步。初始加载后记录基线快照，用于判断未保存标记。2)
+                记录时机：`on_piano_roll_notes_changed` 在非应用状态时把当前状态压入 undo、清空
+                redo；应用快照时设置 _history_applying 抑制记录，避免撤销自身入栈。BPM 变更会触发
+                notesChanged（rescale_times），因此自动入栈。3) 应用快照：set_notes、恢复
+                current_bpm/拍号、重建 set_measure_grid/set_beat_grid
+                与量化网格、恢复辅助线锚点，比较当前与基线更新未保存标记与保存按钮。4) 画布只发信号：Ctrl+Z 发
+                undoRequested，Ctrl+Shift+Z 发
+                redoRequested，_read_only（演奏模式/播放中）直接返回；PianoRollWidget 透传，GUI
+                连接处理，不注册全局快捷键。5) 播放跟随：画布新增 follow_playhead()，读取辅助线在视口的 x，超过视口宽度
+                80% 时把横向滚动值设为 辅助线像素 − 视口宽度*0.2 并夹紧；set_playhead
+                仅在播放（_read_only）时调用，停止后不滚动。关键取舍：不采用差量命令栈（实现面大，50
+                步快照足够）；历史不放画布（无法同步 BPM/网格）；不居中锁定（用户已选翻页式）。风险：快照内存随曲目大小增长（50
+                步上限，后续可换差量）；撤销不恢复选中集合（规格未要求）；播放中禁用撤销避免音画不同步；阈值 80/20
+                为经验值。测试策略：offscreen UI 测试覆盖撤销删除/移动、前进、演奏模式忽略、50 步上限、新操作清空
+                redo、撤销恢复 BPM 与辅助线与未保存标记、翻页阈值内不滚动/超过阈值滚动/停止不跟随；既有 141 项回归。Spec
+                Patch：无。
+              requirementsEvidence:
+                contentHash: 99ac804ea2187442e39b8ab9f524ba373607e2b88c428c0297b462925cdb464d
+                ref: docs/openspec/changes/piano-roll-follow-and-undo
+              sourceEvidence:
+                contentHash: 8f05fed94998c7fb12938e712f54ed6beda7753e6237664a1e38a086a2c3269c
+                ref: docs/openspec/changes/piano-roll-follow-and-undo
+        proposalHash: e4a3cca934cd13242cf18724299b1e698cf8c93e40670d4ae8bdf7d374e6c8b1
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-design-e4a3cca934cd13242cf18724299b1e698cf8c93e40670d4ae8bdf7d374e6c8b1-approved
+          choice: approved
+          proposalHash: e4a3cca934cd13242cf18724299b1e698cf8c93e40670d4ae8bdf7d374e6c8b1
+      - id: piano-roll-follow-and-undo:10
+        stepId: full.build.confirm
+        sequence: 10
+        status: resolved
+        proposal:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+        proposalHash: 5e0a85ac05fd20dac05b1de8702c0c3f3c3922cb6c4e283a3a38e3a14fcca80e
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: ff430093-971a-4582-915f-cbf9c2ef6d2c
+          choice: approved
+          proposalHash: 5e0a85ac05fd20dac05b1de8702c0c3f3c3922cb6c4e283a3a38e3a14fcca80e
+      - id: piano-roll-follow-and-undo:27
+        stepId: full.archive.confirm
+        sequence: 27
+        status: resolved
+        proposal:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs:
+            full.archive.prepare:
+              summary: 播放跟随与撤销/前进：播放时辅助线超过视口 80% 整页前滚到 20%；Ctrl+Z / Ctrl+Shift+Z 支持 50
+                步快照撤销（音符、BPM、拍号、辅助线、剪贴板），演奏模式与播放中禁用；BPM 快照时序问题与跟随门控已按审查修复。157
+                项测试通过。
+              targetBranch: main
+        proposalHash: ab2564e51f6539510d3804813a04d5c915a89358e516c8fa2708d60130cdf054
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results: {}
+        decision:
+          id: classic-archive-ab2564e51f6539510d3804813a04d5c915a89358e516c8fa2708d60130cdf054-local
+          choice: local
+          proposalHash: ab2564e51f6539510d3804813a04d5c915a89358e516c8fa2708d60130cdf054
+    evidenceWaits:
+      - id: piano-roll-follow-and-undo:2
+        stepId: full.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/piano-roll-follow-and-undo
+          contentHash: 49bb3c0bcfb007ba063e07eeb964a3ea2248dfe0fdf4d1806352dcb99fd18ab5
+          submissionId: ebd0964c-8ee1-465d-940d-8205095638df
+      - id: piano-roll-follow-and-undo:8
+        stepId: full.design.evidence
+        sequence: 8
+        kind: classic-design-document
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/piano-roll-follow-and-undo/design.md
+          contentHash: 6f12e8b647a88d422838e47ffdf30484bb2a6c064156d8695be7b48961d491bb
+          submissionId: 932bf8f8-2486-44b5-bae4-b2b9a11cd081
+      - id: piano-roll-follow-and-undo:12
+        stepId: full.build.plan.evidence
+        sequence: 12
+        kind: classic-build-plan
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+          contentHash: 69e844adc4ca3974a8a65b6f271667d277ec2c5dca8cf66b54199f260324227c
+          submissionId: 99484c67-526e-4fbf-a6e7-f6037e0b3803
+      - id: piano-roll-follow-and-undo:15
+        stepId: full.build.check.evidence
+        sequence: 15
+        kind: classic-build-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/195d68a2-d7ed-4461-898c-e3f1912f2c57.log
+          contentHash: 1339d9c3743f943346d761bf7898e207a7651c45f4bf7456037124ec6f3f328f
+          submissionId: 9fa27b15-1ed5-453f-be4a-21b7c3f884b5
+      - id: piano-roll-follow-and-undo:18
+        stepId: full.build.plan.evidence
+        sequence: 18
+        kind: classic-build-plan
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+          contentHash: 69e844adc4ca3974a8a65b6f271667d277ec2c5dca8cf66b54199f260324227c
+          submissionId: 0a6ea821-e58f-4383-9031-01ef192410e6
+      - id: piano-roll-follow-and-undo:21
+        stepId: full.build.check.evidence
+        sequence: 21
+        kind: classic-build-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/4a60c84c-94f3-44b9-ae56-3065b884cba7.log
+          contentHash: bfced32e859bc430f022cddde1f63383d83ad7677abb8061b006e8964c9015fb
+          submissionId: d4f6443a-a348-43ba-add2-db4abbccc3e1
+      - id: piano-roll-follow-and-undo:23
+        stepId: full.verify.report.evidence
+        sequence: 23
+        kind: classic-verification-report
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/reports/2026-11-12-piano-roll-follow-and-undo-verification.md
+          contentHash: 5638ce193004ea0f1f1f650f5a460680f89bc1653b17403797da799b424926e0
+          submissionId: 12ad6b1b-c24d-408f-8f11-106f49b4906d
+      - id: piano-roll-follow-and-undo:25
+        stepId: full.verify.check.evidence
+        sequence: 25
+        kind: classic-verify-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/71f6e5ba-3bdd-4270-bf3d-ac9a5b2eb4c0.log
+          contentHash: 781ae7e6600e0d614f67b28ff57ec2b4408e614bc6bf1a74fd7780c19223b1b7
+          submissionId: 47a9c369-d5a3-423d-810d-e67b6887d62a
+    ready: []
+    joins: {}
+    outputs: {}
+    children: []
+    lineage: []
+  sourceRevision: 47
+  sourceHash: e106d994a14b44e6e54b713e0186a8b9fc0bb6944a0a515bb604ecd0ae8caef3
+  pool:
+    version: 3
+    values:
+      - event: open-complete
+      - choice: approved
+        proposal:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 49bb3c0bcfb007ba063e07eeb964a3ea2248dfe0fdf4d1806352dcb99fd18ab5
+              ref: docs/openspec/changes/piano-roll-follow-and-undo
+      - contentHash: 49bb3c0bcfb007ba063e07eeb964a3ea2248dfe0fdf4d1806352dcb99fd18ab5
+        ref: docs/openspec/changes/piano-roll-follow-and-undo
+      - contentHash: 49bb3c0bcfb007ba063e07eeb964a3ea2248dfe0fdf4d1806352dcb99fd18ab5
+      - choice: approved
+        proposal:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/piano-roll-follow-and-undo/.comet/handoff/design-context.json
+              handoffHash: 6dbcca9fd7141ae21b273932fe7c030b856f14f2922834cf0571b59b30f2fdbc
+              proposal: 方案：1) 历史放在 GUI：维护 undo/redo 两个栈，每项快照包含 notes 深拷贝、current_bpm、拍号 (n,d)
+                与播放辅助线位置；上限 50 步。初始加载后记录基线快照，用于判断未保存标记。2)
+                记录时机：`on_piano_roll_notes_changed` 在非应用状态时把当前状态压入 undo、清空
+                redo；应用快照时设置 _history_applying 抑制记录，避免撤销自身入栈。BPM 变更会触发
+                notesChanged（rescale_times），因此自动入栈。3) 应用快照：set_notes、恢复
+                current_bpm/拍号、重建 set_measure_grid/set_beat_grid
+                与量化网格、恢复辅助线锚点，比较当前与基线更新未保存标记与保存按钮。4) 画布只发信号：Ctrl+Z 发
+                undoRequested，Ctrl+Shift+Z 发
+                redoRequested，_read_only（演奏模式/播放中）直接返回；PianoRollWidget 透传，GUI
+                连接处理，不注册全局快捷键。5) 播放跟随：画布新增 follow_playhead()，读取辅助线在视口的 x，超过视口宽度
+                80% 时把横向滚动值设为 辅助线像素 − 视口宽度*0.2 并夹紧；set_playhead
+                仅在播放（_read_only）时调用，停止后不滚动。关键取舍：不采用差量命令栈（实现面大，50
+                步快照足够）；历史不放画布（无法同步 BPM/网格）；不居中锁定（用户已选翻页式）。风险：快照内存随曲目大小增长（50
+                步上限，后续可换差量）；撤销不恢复选中集合（规格未要求）；播放中禁用撤销避免音画不同步；阈值 80/20
+                为经验值。测试策略：offscreen UI 测试覆盖撤销删除/移动、前进、演奏模式忽略、50 步上限、新操作清空
+                redo、撤销恢复 BPM 与辅助线与未保存标记、翻页阈值内不滚动/超过阈值滚动/停止不跟随；既有 141 项回归。Spec
+                Patch：无。
+              requirementsEvidence:
+                contentHash: 99ac804ea2187442e39b8ab9f524ba373607e2b88c428c0297b462925cdb464d
+                ref: docs/openspec/changes/piano-roll-follow-and-undo
+              sourceEvidence:
+                contentHash: 8f05fed94998c7fb12938e712f54ed6beda7753e6237664a1e38a086a2c3269c
+                ref: docs/openspec/changes/piano-roll-follow-and-undo
+      - handoffContext: docs/openspec/changes/piano-roll-follow-and-undo/.comet/handoff/design-context.json
+        handoffHash: 6dbcca9fd7141ae21b273932fe7c030b856f14f2922834cf0571b59b30f2fdbc
+        proposal: 方案：1) 历史放在 GUI：维护 undo/redo 两个栈，每项快照包含 notes 深拷贝、current_bpm、拍号 (n,d)
+          与播放辅助线位置；上限 50 步。初始加载后记录基线快照，用于判断未保存标记。2)
+          记录时机：`on_piano_roll_notes_changed` 在非应用状态时把当前状态压入 undo、清空 redo；应用快照时设置
+          _history_applying 抑制记录，避免撤销自身入栈。BPM 变更会触发
+          notesChanged（rescale_times），因此自动入栈。3) 应用快照：set_notes、恢复
+          current_bpm/拍号、重建 set_measure_grid/set_beat_grid
+          与量化网格、恢复辅助线锚点，比较当前与基线更新未保存标记与保存按钮。4) 画布只发信号：Ctrl+Z 发
+          undoRequested，Ctrl+Shift+Z 发
+          redoRequested，_read_only（演奏模式/播放中）直接返回；PianoRollWidget 透传，GUI
+          连接处理，不注册全局快捷键。5) 播放跟随：画布新增 follow_playhead()，读取辅助线在视口的 x，超过视口宽度 80%
+          时把横向滚动值设为 辅助线像素 − 视口宽度*0.2 并夹紧；set_playhead
+          仅在播放（_read_only）时调用，停止后不滚动。关键取舍：不采用差量命令栈（实现面大，50 步快照足够）；历史不放画布（无法同步
+          BPM/网格）；不居中锁定（用户已选翻页式）。风险：快照内存随曲目大小增长（50
+          步上限，后续可换差量）；撤销不恢复选中集合（规格未要求）；播放中禁用撤销避免音画不同步；阈值 80/20
+          为经验值。测试策略：offscreen UI 测试覆盖撤销删除/移动、前进、演奏模式忽略、50 步上限、新操作清空 redo、撤销恢复
+          BPM 与辅助线与未保存标记、翻页阈值内不滚动/超过阈值滚动/停止不跟随；既有 141 项回归。Spec Patch：无。
+        requirementsEvidence:
+          contentHash: 99ac804ea2187442e39b8ab9f524ba373607e2b88c428c0297b462925cdb464d
+          ref: docs/openspec/changes/piano-roll-follow-and-undo
+        sourceEvidence:
+          contentHash: 8f05fed94998c7fb12938e712f54ed6beda7753e6237664a1e38a086a2c3269c
+          ref: docs/openspec/changes/piano-roll-follow-and-undo
+      - designDoc: docs/openspec/changes/piano-roll-follow-and-undo/design.md
+      - contentHash: 6f12e8b647a88d422838e47ffdf30484bb2a6c064156d8695be7b48961d491bb
+        ref: docs/openspec/changes/piano-roll-follow-and-undo/design.md
+      - boundBranch: main
+        buildMode: executing-plans
+        directOverride: false
+        isolation: current
+        reviewMode: standard
+        subagentDispatch: null
+        tddMode: tdd
+      - choice: approved
+        proposal:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+      - designEvidence:
+          contentHash: 6f12e8b647a88d422838e47ffdf30484bb2a6c064156d8695be7b48961d491bb
+          ref: docs/openspec/changes/piano-roll-follow-and-undo/design.md
+        plan: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+        planEvidence:
+          contentHash: 69e844adc4ca3974a8a65b6f271667d277ec2c5dca8cf66b54199f260324227c
+          ref: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+        taskRevision: 5815201905051fad923dc767f427c213bcd814dc398e5909e8e47f24b8025f6d
+      - contentHash: 69e844adc4ca3974a8a65b6f271667d277ec2c5dca8cf66b54199f260324227c
+        ref: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+      - event: build-complete
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 2
+        contentHash: 1339d9c3743f943346d761bf7898e207a7651c45f4bf7456037124ec6f3f328f
+        cwd: .
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 6f13456e63df3f660f8b20d03dc69611819773c8c21bef1090c11513bcf1f0a1
+        inputBefore: 6f13456e63df3f660f8b20d03dc69611819773c8c21bef1090c11513bcf1f0a1
+        manifestHash: 8b6832c0bd23aebb65d7f9660c6e68a6c45e419034acf0f4f6fb0f698787c926
+        manifestRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/6788c142-8dcd-40a5-8c2b-22a3cef1f88e.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/195d68a2-d7ed-4461-898c-e3f1912f2c57.log
+        reusable: false
+        reused: false
+        scope: build
+        tier: full
+        timeoutMs: 300000
+      - contentHash: 1339d9c3743f943346d761bf7898e207a7651c45f4bf7456037124ec6f3f328f
+        ref: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/195d68a2-d7ed-4461-898c-e3f1912f2c57.log
+      - event: verify-fail
+        reason: 独立审查发现 1 个 Critical（BPM 变更时快照记录旧 BPM，撤销/前进会错配速度与音符）及若干
+          Important/Minor（跟随误在演奏模式触发、剪贴板未随撤销恢复、测试缺口）；已修复并补充测试（157 项通过），需重新执行
+          Build 检查
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 4
+        contentHash: bfced32e859bc430f022cddde1f63383d83ad7677abb8061b006e8964c9015fb
+        cwd: .
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+        inputBefore: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+        manifestHash: a67e483e637af38802163ffba6a26edfa113d3651acb21713ffde1630da37aed
+        manifestRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/7a82f983-95c8-4740-815f-2c6a63939df9.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/4a60c84c-94f3-44b9-ae56-3065b884cba7.log
+        reusable: false
+        reused: false
+        scope: build
+        tier: full
+        timeoutMs: 300000
+      - contentHash: bfced32e859bc430f022cddde1f63383d83ad7677abb8061b006e8964c9015fb
+        ref: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/4a60c84c-94f3-44b9-ae56-3065b884cba7.log
+      - contentHash: 5638ce193004ea0f1f1f650f5a460680f89bc1653b17403797da799b424926e0
+        ref: docs/superpowers/reports/2026-11-12-piano-roll-follow-and-undo-verification.md
+      - event: verification-ready
+        verificationReport: docs/superpowers/reports/2026-11-12-piano-roll-follow-and-undo-verification.md
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 5
+        contentHash: 781ae7e6600e0d614f67b28ff57ec2b4408e614bc6bf1a74fd7780c19223b1b7
+        cwd: .
+        deliveryInputs: {}
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+        inputBefore: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+        manifestHash: a67e483e637af38802163ffba6a26edfa113d3651acb21713ffde1630da37aed
+        manifestRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/a4ce419d-17bb-4311-91b2-a6cbc9658998.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/71f6e5ba-3bdd-4270-bf3d-ac9a5b2eb4c0.log
+        reusable: false
+        reused: false
+        scope: verify
+        tier: full
+        timeoutMs: 300000
+      - contentHash: 781ae7e6600e0d614f67b28ff57ec2b4408e614bc6bf1a74fd7780c19223b1b7
+        ref: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/71f6e5ba-3bdd-4270-bf3d-ac9a5b2eb4c0.log
+      - choice: local
+        proposal:
+          input:
+            change: piano-roll-follow-and-undo
+            changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+            workspaceBaseline:
+              ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+          outputs:
+            full.archive.prepare:
+              summary: 播放跟随与撤销/前进：播放时辅助线超过视口 80% 整页前滚到 20%；Ctrl+Z / Ctrl+Shift+Z 支持 50
+                步快照撤销（音符、BPM、拍号、辅助线、剪贴板），演奏模式与播放中禁用；BPM 快照时序问题与跟随门控已按审查修复。157
+                项测试通过。
+              targetBranch: main
+      - summary: 播放跟随与撤销/前进：播放时辅助线超过视口 80% 整页前滚到 20%；Ctrl+Z / Ctrl+Shift+Z 支持 50
+          步快照撤销（音符、BPM、拍号、辅助线、剪贴板），演奏模式与播放中禁用；BPM 快照时序问题与跟随门控已按审查修复。157 项测试通过。
+        targetBranch: main
+      - baseCommit: 68d7810a8ecab53d1ac621f6ef2eae1d7d267a1e
+        deliveryAction: local
+        targetBranch: main
+        verifiedBranch: main
+      - archiveDirectory: docs/openspec/changes/archive/2026-11-12-piano-roll-follow-and-undo
+      - sequence: 9
+        value:
+          boundBranch: main
+          buildMode: executing-plans
+          directOverride: false
+          isolation: current
+          reviewMode: standard
+          subagentDispatch: null
+          tddMode: tdd
+      - sequence: 10
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: piano-roll-follow-and-undo
+              changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+              workspaceBaseline:
+                ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+            outputs:
+              full.build.configure:
+                boundBranch: main
+                buildMode: executing-plans
+                directOverride: false
+                isolation: current
+                reviewMode: standard
+                subagentDispatch: null
+                tddMode: tdd
+      - sequence: 6
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: piano-roll-follow-and-undo
+              changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+              workspaceBaseline:
+                ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+            outputs:
+              full.design.handoff:
+                handoffContext: docs/openspec/changes/piano-roll-follow-and-undo/.comet/handoff/design-context.json
+                handoffHash: 6dbcca9fd7141ae21b273932fe7c030b856f14f2922834cf0571b59b30f2fdbc
+                proposal: 方案：1) 历史放在 GUI：维护 undo/redo 两个栈，每项快照包含 notes 深拷贝、current_bpm、拍号 (n,d)
+                  与播放辅助线位置；上限 50 步。初始加载后记录基线快照，用于判断未保存标记。2)
+                  记录时机：`on_piano_roll_notes_changed` 在非应用状态时把当前状态压入 undo、清空
+                  redo；应用快照时设置 _history_applying 抑制记录，避免撤销自身入栈。BPM 变更会触发
+                  notesChanged（rescale_times），因此自动入栈。3) 应用快照：set_notes、恢复
+                  current_bpm/拍号、重建 set_measure_grid/set_beat_grid
+                  与量化网格、恢复辅助线锚点，比较当前与基线更新未保存标记与保存按钮。4) 画布只发信号：Ctrl+Z 发
+                  undoRequested，Ctrl+Shift+Z 发
+                  redoRequested，_read_only（演奏模式/播放中）直接返回；PianoRollWidget 透传，GUI
+                  连接处理，不注册全局快捷键。5) 播放跟随：画布新增 follow_playhead()，读取辅助线在视口的
+                  x，超过视口宽度 80% 时把横向滚动值设为 辅助线像素 − 视口宽度*0.2 并夹紧；set_playhead
+                  仅在播放（_read_only）时调用，停止后不滚动。关键取舍：不采用差量命令栈（实现面大，50
+                  步快照足够）；历史不放画布（无法同步 BPM/网格）；不居中锁定（用户已选翻页式）。风险：快照内存随曲目大小增长（50
+                  步上限，后续可换差量）；撤销不恢复选中集合（规格未要求）；播放中禁用撤销避免音画不同步；阈值 80/20
+                  为经验值。测试策略：offscreen UI 测试覆盖撤销删除/移动、前进、演奏模式忽略、50 步上限、新操作清空
+                  redo、撤销恢复 BPM 与辅助线与未保存标记、翻页阈值内不滚动/超过阈值滚动/停止不跟随；既有 141 项回归。Spec
+                  Patch：无。
+                requirementsEvidence:
+                  contentHash: 99ac804ea2187442e39b8ab9f524ba373607e2b88c428c0297b462925cdb464d
+                  ref: docs/openspec/changes/piano-roll-follow-and-undo
+                sourceEvidence:
+                  contentHash: 8f05fed94998c7fb12938e712f54ed6beda7753e6237664a1e38a086a2c3269c
+                  ref: docs/openspec/changes/piano-roll-follow-and-undo
+      - sequence: 7
+        value:
+          designDoc: docs/openspec/changes/piano-roll-follow-and-undo/design.md
+      - sequence: 8
+        value:
+          contentHash: 6f12e8b647a88d422838e47ffdf30484bb2a6c064156d8695be7b48961d491bb
+          ref: docs/openspec/changes/piano-roll-follow-and-undo/design.md
+      - sequence: 5
+        value:
+          handoffContext: docs/openspec/changes/piano-roll-follow-and-undo/.comet/handoff/design-context.json
+          handoffHash: 6dbcca9fd7141ae21b273932fe7c030b856f14f2922834cf0571b59b30f2fdbc
+          proposal: 方案：1) 历史放在 GUI：维护 undo/redo 两个栈，每项快照包含 notes 深拷贝、current_bpm、拍号 (n,d)
+            与播放辅助线位置；上限 50 步。初始加载后记录基线快照，用于判断未保存标记。2)
+            记录时机：`on_piano_roll_notes_changed` 在非应用状态时把当前状态压入 undo、清空
+            redo；应用快照时设置 _history_applying 抑制记录，避免撤销自身入栈。BPM 变更会触发
+            notesChanged（rescale_times），因此自动入栈。3) 应用快照：set_notes、恢复
+            current_bpm/拍号、重建 set_measure_grid/set_beat_grid
+            与量化网格、恢复辅助线锚点，比较当前与基线更新未保存标记与保存按钮。4) 画布只发信号：Ctrl+Z 发
+            undoRequested，Ctrl+Shift+Z 发
+            redoRequested，_read_only（演奏模式/播放中）直接返回；PianoRollWidget 透传，GUI
+            连接处理，不注册全局快捷键。5) 播放跟随：画布新增 follow_playhead()，读取辅助线在视口的 x，超过视口宽度 80%
+            时把横向滚动值设为 辅助线像素 − 视口宽度*0.2 并夹紧；set_playhead
+            仅在播放（_read_only）时调用，停止后不滚动。关键取舍：不采用差量命令栈（实现面大，50 步快照足够）；历史不放画布（无法同步
+            BPM/网格）；不居中锁定（用户已选翻页式）。风险：快照内存随曲目大小增长（50
+            步上限，后续可换差量）；撤销不恢复选中集合（规格未要求）；播放中禁用撤销避免音画不同步；阈值 80/20
+            为经验值。测试策略：offscreen UI 测试覆盖撤销删除/移动、前进、演奏模式忽略、50 步上限、新操作清空 redo、撤销恢复
+            BPM 与辅助线与未保存标记、翻页阈值内不滚动/超过阈值滚动/停止不跟随；既有 141 项回归。Spec Patch：无。
+          requirementsEvidence:
+            contentHash: 99ac804ea2187442e39b8ab9f524ba373607e2b88c428c0297b462925cdb464d
+            ref: docs/openspec/changes/piano-roll-follow-and-undo
+          sourceEvidence:
+            contentHash: 8f05fed94998c7fb12938e712f54ed6beda7753e6237664a1e38a086a2c3269c
+            ref: docs/openspec/changes/piano-roll-follow-and-undo
+      - sequence: 1
+        value:
+          event: open-complete
+      - sequence: 3
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: piano-roll-follow-and-undo
+              changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+              workspaceBaseline:
+                ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+            outputs:
+              full.open:
+                event: open-complete
+              full.open.evidence:
+                contentHash: 49bb3c0bcfb007ba063e07eeb964a3ea2248dfe0fdf4d1806352dcb99fd18ab5
+                ref: docs/openspec/changes/piano-roll-follow-and-undo
+      - sequence: 2
+        value:
+          contentHash: 49bb3c0bcfb007ba063e07eeb964a3ea2248dfe0fdf4d1806352dcb99fd18ab5
+          ref: docs/openspec/changes/piano-roll-follow-and-undo
+      - sequence: 4
+        value:
+          contentHash: 49bb3c0bcfb007ba063e07eeb964a3ea2248dfe0fdf4d1806352dcb99fd18ab5
+      - sequence: 11
+        value:
+          designEvidence:
+            contentHash: 6f12e8b647a88d422838e47ffdf30484bb2a6c064156d8695be7b48961d491bb
+            ref: docs/openspec/changes/piano-roll-follow-and-undo/design.md
+          plan: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+          planEvidence:
+            contentHash: 69e844adc4ca3974a8a65b6f271667d277ec2c5dca8cf66b54199f260324227c
+            ref: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+          taskRevision: 5815201905051fad923dc767f427c213bcd814dc398e5909e8e47f24b8025f6d
+      - sequence: 12
+        value:
+          contentHash: 69e844adc4ca3974a8a65b6f271667d277ec2c5dca8cf66b54199f260324227c
+          ref: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+      - sequence: 13
+        value:
+          event: build-complete
+      - sequence: 14
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: 1339d9c3743f943346d761bf7898e207a7651c45f4bf7456037124ec6f3f328f
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 6f13456e63df3f660f8b20d03dc69611819773c8c21bef1090c11513bcf1f0a1
+          inputBefore: 6f13456e63df3f660f8b20d03dc69611819773c8c21bef1090c11513bcf1f0a1
+          manifestHash: 8b6832c0bd23aebb65d7f9660c6e68a6c45e419034acf0f4f6fb0f698787c926
+          manifestRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/6788c142-8dcd-40a5-8c2b-22a3cef1f88e.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/195d68a2-d7ed-4461-898c-e3f1912f2c57.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      - sequence: 15
+        value:
+          contentHash: 1339d9c3743f943346d761bf7898e207a7651c45f4bf7456037124ec6f3f328f
+          ref: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/195d68a2-d7ed-4461-898c-e3f1912f2c57.log
+      - sequence: 16
+        value:
+          event: verify-fail
+          reason: 独立审查发现 1 个 Critical（BPM 变更时快照记录旧 BPM，撤销/前进会错配速度与音符）及若干
+            Important/Minor（跟随误在演奏模式触发、剪贴板未随撤销恢复、测试缺口）；已修复并补充测试（157 项通过），需重新执行
+            Build 检查
+      - sequence: 17
+        value:
+          designEvidence:
+            contentHash: 6f12e8b647a88d422838e47ffdf30484bb2a6c064156d8695be7b48961d491bb
+            ref: docs/openspec/changes/piano-roll-follow-and-undo/design.md
+          plan: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+          planEvidence:
+            contentHash: 69e844adc4ca3974a8a65b6f271667d277ec2c5dca8cf66b54199f260324227c
+            ref: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+          taskRevision: 5815201905051fad923dc767f427c213bcd814dc398e5909e8e47f24b8025f6d
+      - sequence: 18
+        value:
+          contentHash: 69e844adc4ca3974a8a65b6f271667d277ec2c5dca8cf66b54199f260324227c
+          ref: docs/superpowers/plans/2026-11-12-piano-roll-follow-and-undo.md
+      - sequence: 19
+        value:
+          event: build-complete
+      - sequence: 20
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 4
+          contentHash: bfced32e859bc430f022cddde1f63383d83ad7677abb8061b006e8964c9015fb
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+          inputBefore: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+          manifestHash: a67e483e637af38802163ffba6a26edfa113d3651acb21713ffde1630da37aed
+          manifestRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/7a82f983-95c8-4740-815f-2c6a63939df9.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/4a60c84c-94f3-44b9-ae56-3065b884cba7.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      - sequence: 21
+        value:
+          contentHash: bfced32e859bc430f022cddde1f63383d83ad7677abb8061b006e8964c9015fb
+          ref: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/4a60c84c-94f3-44b9-ae56-3065b884cba7.log
+      - sequence: 23
+        value:
+          contentHash: 5638ce193004ea0f1f1f650f5a460680f89bc1653b17403797da799b424926e0
+          ref: docs/superpowers/reports/2026-11-12-piano-roll-follow-and-undo-verification.md
+      - sequence: 22
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-12-piano-roll-follow-and-undo-verification.md
+      - sequence: 24
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 5
+          contentHash: 781ae7e6600e0d614f67b28ff57ec2b4408e614bc6bf1a74fd7780c19223b1b7
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+          inputBefore: 6a7d8e4a1e523c9555d23d55f96ea145f2d7476068345eb16fb25117ccc89d4d
+          manifestHash: a67e483e637af38802163ffba6a26edfa113d3651acb21713ffde1630da37aed
+          manifestRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/a4ce419d-17bb-4311-91b2-a6cbc9658998.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/71f6e5ba-3bdd-4270-bf3d-ac9a5b2eb4c0.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      - sequence: 25
+        value:
+          contentHash: 781ae7e6600e0d614f67b28ff57ec2b4408e614bc6bf1a74fd7780c19223b1b7
+          ref: .comet/runtime/classic-sdk-checks/589eb96e9253d573bd440bee302b28dc5f326e87bc3de7131aff481ce5b62729/71f6e5ba-3bdd-4270-bf3d-ac9a5b2eb4c0.log
+      - sequence: 27
+        value:
+          choice: local
+          proposal:
+            input:
+              change: piano-roll-follow-and-undo
+              changeDir: docs/openspec/changes/piano-roll-follow-and-undo
+              workspaceBaseline:
+                ref: 5065c098-e578-4c5e-9941-3b6f6406066a
+            outputs:
+              full.archive.prepare:
+                summary: 播放跟随与撤销/前进：播放时辅助线超过视口 80% 整页前滚到 20%；Ctrl+Z / Ctrl+Shift+Z 支持 50
+                  步快照撤销（音符、BPM、拍号、辅助线、剪贴板），演奏模式与播放中禁用；BPM 快照时序问题与跟随门控已按审查修复。157
+                  项测试通过。
+                targetBranch: main
+      - sequence: 26
+        value:
+          summary: 播放跟随与撤销/前进：播放时辅助线超过视口 80% 整页前滚到 20%；Ctrl+Z / Ctrl+Shift+Z 支持 50
+            步快照撤销（音符、BPM、拍号、辅助线、剪贴板），演奏模式与播放中禁用；BPM 快照时序问题与跟随门控已按审查修复。157 项测试通过。
+          targetBranch: main
+      - sequence: 28
+        value:
+          baseCommit: 68d7810a8ecab53d1ac621f6ef2eae1d7d267a1e
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      - sequence: 29
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-12-piano-roll-follow-and-undo
+    nodes:
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 1
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: 3
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 5
+        left: 6
+        right: 7
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 8
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 7
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 6
+        left: 10
+        right: 11
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 12
+        right: 7
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 13
+        right: 4
+        height: 4
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 16
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 11
+        right: 7
+        height: 2
+      - key: full.design.document
+        value: 6
+        left: 17
+        right: 18
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 19
+        right: 4
+        height: 4
+      - key: full.build.plan
+        value: 10
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 11
+        left: 21
+        right: 22
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 23
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 4
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 24
+        right: 25
+        height: 4
+      - key: full.build.execute
+        value: 12
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 27
+        height: 2
+      - key: full.build.plan.evidence
+        value: 11
+        left: null
+        right: 22
+        height: 2
+      - key: full.build.plan
+        value: 10
+        left: 28
+        right: 29
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 30
+        right: 25
+        height: 4
+      - key: full.build.check
+        value: 13
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 14
+        left: 32
+        right: 33
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 34
+        right: 27
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 35
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 25
+        height: 5
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 15
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: 39
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 40
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 41
+        height: 5
+      - key: full.build.check
+        value: 16
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 17
+        left: 43
+        right: 33
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 44
+        right: 27
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 45
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 46
+        right: 41
+        height: 5
+      - key: full.verify.report.evidence
+        value: 18
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 19
+        left: 48
+        right: null
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: 49
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 50
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 46
+        right: 51
+        height: 5
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 19
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 18
+        left: 54
+        right: 55
+        height: 2
+      - key: full.verify.check
+        value: 20
+        left: 53
+        right: 56
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 57
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 46
+        right: 58
+        height: 5
+      - key: full.archive.confirm
+        value: 22
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 16
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 23
+        left: 60
+        right: 61
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 33
+        right: 27
+        height: 2
+      - key: full.build.check.evidence
+        value: 17
+        left: 62
+        right: 63
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 64
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 65
+        right: 58
+        height: 5
+      - key: full.archive.preflight
+        value: 24
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 22
+        left: null
+        right: 67
+        height: 2
+      - key: full.archive.prepare
+        value: 23
+        left: 68
+        right: 61
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 63
+        right: 29
+        height: 3
+      - key: full.build.check.evidence
+        value: 17
+        left: 69
+        right: 70
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 71
+        right: 58
+        height: 5
+      - key: full.archive.confirm
+        value: 22
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 24
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 25
+        left: 73
+        right: 74
+        height: 2
+      - key: full.archive.prepare
+        value: 23
+        left: 75
+        right: 61
+        height: 3
+      - key: full.build.check.evidence
+        value: 17
+        left: 76
+        right: 70
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 77
+        right: 58
+        height: 5
+      - key: full.build.configure
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 27
+        left: 79
+        right: 80
+        height: 2
+      - key: full.design.evidence
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 31
+        left: 82
+        right: 83
+        height: 2
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: null
+        right: 85
+        height: 2
+      - key: full.open.confirm
+        value: 33
+        left: 84
+        right: 86
+        height: 3
+      - key: full.design.document
+        value: 29
+        left: 81
+        right: 87
+        height: 4
+      - key: full.build.plan
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 37
+        left: 89
+        right: 90
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 79
+        right: 91
+        height: 3
+      - key: full.design.document
+        value: 29
+        left: 92
+        right: 87
+        height: 4
+      - key: full.build.execute
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 27
+        left: 79
+        right: 94
+        height: 2
+      - key: full.build.plan.evidence
+        value: 37
+        left: null
+        right: 90
+        height: 2
+      - key: full.build.plan
+        value: 36
+        left: 95
+        right: 96
+        height: 3
+      - key: full.design.document
+        value: 29
+        left: 97
+        right: 87
+        height: 4
+      - key: full.build.check
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 40
+        left: 99
+        right: 100
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 101
+        right: 94
+        height: 3
+      - key: full.build.plan
+        value: 36
+        left: 102
+        right: 96
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 103
+        right: 87
+        height: 5
+      - key: full.open.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 35
+        left: 105
+        right: 106
+        height: 2
+      - key: full.open.confirm
+        value: 33
+        left: 84
+        right: 107
+        height: 3
+      - key: full.design.document
+        value: 29
+        left: 103
+        right: 108
+        height: 5
+      - key: full.build.plan.evidence
+        value: 43
+        left: null
+        right: 90
+        height: 2
+      - key: full.build.plan
+        value: 42
+        left: 102
+        right: 110
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 111
+        right: 108
+        height: 5
+      - key: full.build.execute
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 27
+        left: 101
+        right: 113
+        height: 3
+      - key: full.build.plan
+        value: 42
+        left: 114
+        right: 110
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 115
+        right: 108
+        height: 5
+      - key: full.build.check
+        value: 45
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 46
+        left: 117
+        right: 100
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 118
+        right: 113
+        height: 3
+      - key: full.build.plan
+        value: 42
+        left: 119
+        right: 110
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 120
+        right: 108
+        height: 5
+      - key: full.verify.report.evidence
+        value: 47
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 48
+        left: 122
+        right: null
+        height: 2
+      - key: full.open.revalidate
+        value: 35
+        left: 105
+        right: 123
+        height: 3
+      - key: full.open.confirm
+        value: 33
+        left: 84
+        right: 124
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 120
+        right: 125
+        height: 5
+      - key: full.open.revalidate
+        value: 35
+        left: 105
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 50
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 48
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 47
+        left: 128
+        right: 129
+        height: 2
+      - key: full.verify.check
+        value: 49
+        left: 127
+        right: 130
+        height: 3
+      - key: full.open.confirm
+        value: 33
+        left: 84
+        right: 131
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 120
+        right: 132
+        height: 5
+      - key: full.archive.confirm
+        value: 51
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 45
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 52
+        left: 134
+        right: 135
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 100
+        right: 113
+        height: 2
+      - key: full.build.check.evidence
+        value: 46
+        left: 136
+        right: 137
+        height: 3
+      - key: full.build.plan
+        value: 42
+        left: 138
+        right: 110
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 139
+        right: 132
+        height: 5
+      - key: full.archive.preflight
+        value: 53
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 51
+        left: null
+        right: 141
+        height: 2
+      - key: full.archive.prepare
+        value: 52
+        left: 142
+        right: 135
+        height: 3
+      - key: full.build.plan
+        value: 42
+        left: 137
+        right: 110
+        height: 3
+      - key: full.build.check.evidence
+        value: 46
+        left: 143
+        right: 144
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 145
+        right: 132
+        height: 5
+      - key: full.archive.confirm
+        value: 51
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 53
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 54
+        left: 147
+        right: 148
+        height: 2
+      - key: full.archive.prepare
+        value: 52
+        left: 149
+        right: 135
+        height: 3
+      - key: full.build.check.evidence
+        value: 46
+        left: 150
+        right: 144
+        height: 4
+      - key: full.design.document
+        value: 29
+        left: 151
+        right: 132
+        height: 5
+      - key: full.open
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 33
+        left: 153
+        right: 154
+        height: 2
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: null
+        right: 156
+        height: 2
+      - key: full.open.confirm
+        value: 33
+        left: 153
+        right: 157
+        height: 3
+      - key: full.design.confirm
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 31
+        left: 159
+        right: 160
+        height: 2
+      - key: full.open.confirm
+        value: 33
+        left: 161
+        right: 157
+        height: 3
+      - key: full.design.confirm
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 29
+        left: 163
+        right: 164
+        height: 2
+      - key: full.design.handoff
+        value: 31
+        left: 165
+        right: 160
+        height: 3
+      - key: full.open.confirm
+        value: 33
+        left: 166
+        right: 157
+        height: 4
+      - key: full.open.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 32
+        left: null
+        right: 168
+        height: 2
+      - key: full.design.handoff
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: 171
+        right: 172
+        height: 2
+      - key: full.open
+        value: 32
+        left: 170
+        right: 173
+        height: 3
+      - key: full.build.configure
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 30
+        left: 176
+        right: 177
+        height: 2
+      - key: full.design.confirm
+        value: 28
+        left: 175
+        right: 178
+        height: 3
+      - key: full.open
+        value: 32
+        left: 179
+        right: 173
+        height: 4
+      - key: full.archive.prepare
+        value: 52
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 46
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 45
+        left: 181
+        right: 182
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 43
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 42
+        left: null
+        right: 185
+        height: 2
+      - key: full.build.execute
+        value: 44
+        left: 184
+        right: 186
+        height: 3
+      - key: full.build.configure
+        value: 26
+        left: 183
+        right: 187
+        height: 4
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: 171
+        right: 189
+        height: 2
+      - key: full.verify.check.evidence
+        value: 50
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 48
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 47
+        left: 191
+        right: 192
+        height: 2
+      - key: full.verify.check
+        value: 49
+        left: 190
+        right: 193
+        height: 3
+      - key: full.open
+        value: 32
+        left: 178
+        right: 194
+        height: 4
+      - key: full.design.confirm
+        value: 28
+        left: 188
+        right: 195
+        height: 5
+      - key: full.open
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 29
+        left: 198
+        right: 199
+        height: 2
+      - key: full.open.confirm
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: 201
+        right: 202
+        height: 2
+      - key: full.open
+        value: 32
+        left: 200
+        right: 203
+        height: 3
+      - key: full.build.configure
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 27
+        left: 205
+        right: 206
+        height: 2
+      - key: full.design.document
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 30
+        left: 208
+        right: 209
+        height: 2
+      - key: full.design.confirm
+        value: 28
+        left: 207
+        right: 210
+        height: 3
+      - key: full.open
+        value: 32
+        left: 211
+        right: 203
+        height: 4
+      - key: full.build.check
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 26
+        left: 213
+        right: null
+        height: 2
+      - key: full.build.execute
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 37
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 36
+        left: 215
+        right: 216
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 214
+        right: 217
+        height: 3
+      - key: full.open
+        value: 32
+        left: 210
+        right: 203
+        height: 3
+      - key: full.design.confirm
+        value: 28
+        left: 218
+        right: 219
+        height: 4
+      - key: full.build.check
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 40
+        left: 221
+        right: 222
+        height: 2
+      - key: full.build.plan
+        value: 42
+        left: 215
+        right: 216
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 223
+        right: 224
+        height: 3
+      - key: full.verify.run
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: 226
+        height: 2
+      - key: full.open.evidence
+        value: 34
+        left: 201
+        right: 227
+        height: 3
+      - key: full.open
+        value: 32
+        left: 210
+        right: 228
+        height: 4
+      - key: full.design.confirm
+        value: 28
+        left: 225
+        right: 229
+        height: 5
+      - key: full.build.check
+        value: 45
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 40
+        left: 231
+        right: 222
+        height: 2
+      - key: full.build.execute
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 43
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 42
+        left: 233
+        right: 234
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 232
+        right: 235
+        height: 3
+      - key: full.design.confirm
+        value: 28
+        left: 236
+        right: 229
+        height: 5
+      - key: full.build.check.evidence
+        value: 46
+        left: 231
+        right: 222
+        height: 2
+      - key: full.build.confirm
+        value: 27
+        left: 238
+        right: 235
+        height: 3
+      - key: full.verify.run
+        value: 48
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: 240
+        height: 2
+      - key: full.open.evidence
+        value: 34
+        left: 201
+        right: 241
+        height: 3
+      - key: full.open
+        value: 32
+        left: 210
+        right: 242
+        height: 4
+      - key: full.design.confirm
+        value: 28
+        left: 239
+        right: 243
+        height: 5
+      - key: full.open.revalidate
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 34
+        left: 201
+        right: 245
+        height: 2
+      - key: full.verify.report.evidence
+        value: 47
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 48
+        left: 247
+        right: null
+        height: 2
+      - key: full.verify.check
+        value: 49
+        left: 246
+        right: 248
+        height: 3
+      - key: full.open
+        value: 32
+        left: 210
+        right: 249
+        height: 4
+      - key: full.design.confirm
+        value: 28
+        left: 239
+        right: 250
+        height: 5
+    maps:
+      - null
+      - 2
+      - 5
+      - 9
+      - 14
+      - 20
+      - 26
+      - 31
+      - 37
+      - 42
+      - 47
+      - 52
+      - 59
+      - 66
+      - 72
+      - 78
+      - 88
+      - 93
+      - 98
+      - 104
+      - 109
+      - 112
+      - 116
+      - 121
+      - 126
+      - 133
+      - 140
+      - 146
+      - 152
+      - 155
+      - 158
+      - 162
+      - 167
+      - 169
+      - 174
+      - 180
+      - 196
+      - 197
+      - 204
+      - 212
+      - 220
+      - 230
+      - 237
+      - 244
+      - 251
+    bindings:
+      - path:
+          - actions
+          - "0"
+          - input
+          - outputs
+        map: 0
+      - path:
+          - actions
+          - "1"
+          - input
+          - outputs
+        map: 1
+      - path:
+          - actions
+          - "2"
+          - input
+          - outputs
+        map: 2
+      - path:
+          - actions
+          - "3"
+          - input
+          - outputs
+        map: 3
+      - path:
+          - actions
+          - "4"
+          - input
+          - outputs
+        map: 4
+      - path:
+          - actions
+          - "5"
+          - input
+          - outputs
+        map: 5
+      - path:
+          - actions
+          - "6"
+          - input
+          - outputs
+        map: 6
+      - path:
+          - actions
+          - "7"
+          - input
+          - outputs
+        map: 7
+      - path:
+          - actions
+          - "8"
+          - input
+          - outputs
+        map: 8
+      - path:
+          - actions
+          - "9"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "10"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "11"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "12"
+          - input
+          - outputs
+        map: 10
+      - path:
+          - actions
+          - "13"
+          - input
+          - outputs
+        map: 11
+      - path:
+          - actions
+          - "14"
+          - input
+          - outputs
+        map: 12
+      - path:
+          - actions
+          - "15"
+          - input
+          - outputs
+        map: 13
+      - path:
+          - actions
+          - "16"
+          - input
+          - outputs
+        map: 14
+      - path:
+          - actions
+          - "17"
+          - input
+          - outputs
+        map: 15
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:1
+          - results
+        map: 0
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:11
+          - results
+        map: 16
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:13
+          - results
+        map: 17
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:14
+          - results
+        map: 18
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:16
+          - results
+        map: 19
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:17
+          - results
+        map: 20
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:19
+          - results
+        map: 21
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:20
+          - results
+        map: 22
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:22
+          - results
+        map: 23
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:24
+          - results
+        map: 24
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:26
+          - results
+        map: 25
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:28
+          - results
+        map: 26
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:29
+          - results
+        map: 27
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:30
+          - results
+        map: 28
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:4
+          - results
+        map: 29
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:5
+          - results
+        map: 30
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:7
+          - results
+        map: 31
+      - path:
+          - actionContexts
+          - piano-roll-follow-and-undo:9
+          - results
+        map: 32
+      - path:
+          - outputs
+        map: 28
+      - path:
+          - waits
+          - "0"
+          - results
+        map: 33
+      - path:
+          - waits
+          - "1"
+          - results
+        map: 34
+      - path:
+          - waits
+          - "2"
+          - results
+        map: 35
+      - path:
+          - waits
+          - "3"
+          - results
+        map: 36
+      - path:
+          - evidenceWaits
+          - "0"
+          - results
+        map: 37
+      - path:
+          - evidenceWaits
+          - "1"
+          - results
+        map: 38
+      - path:
+          - evidenceWaits
+          - "2"
+          - results
+        map: 39
+      - path:
+          - evidenceWaits
+          - "3"
+          - results
+        map: 40
+      - path:
+          - evidenceWaits
+          - "4"
+          - results
+        map: 41
+      - path:
+          - evidenceWaits
+          - "5"
+          - results
+        map: 42
+      - path:
+          - evidenceWaits
+          - "6"
+          - results
+        map: 43
+      - path:
+          - evidenceWaits
+          - "7"
+          - results
+        map: 44
+  storageHash: b85208c4dba9b15580cf15ba8e30efa6547554c59258a56db9a4773dbac24097
+check_epoch: 8

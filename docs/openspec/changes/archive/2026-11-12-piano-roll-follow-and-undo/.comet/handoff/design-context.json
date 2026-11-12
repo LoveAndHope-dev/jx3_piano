@@ -1,0 +1,16 @@
+{
+  "change": "piano-roll-follow-and-undo",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "task_hash_policy": "task-content-v1",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "6dbcca9fd7141ae21b273932fe7c030b856f14f2922834cf0571b59b30f2fdbc",
+  "files": [
+    { "path": "docs/openspec/changes/piano-roll-follow-and-undo/proposal.md", "sha256": "fc1793b2dba8edcb9764e40449f232f8924550c0b48b135ba9d8e2c290feb680" },
+    { "path": "docs/openspec/changes/piano-roll-follow-and-undo/design.md", "sha256": "6eedccc064cd5b7ce1bb02d13514f7d9688debf3b79e72e05b6f3e69ce806a2a" },
+    { "path": "docs/openspec/changes/piano-roll-follow-and-undo/tasks.md", "sha256": "5815201905051fad923dc767f427c213bcd814dc398e5909e8e47f24b8025f6d" },
+    { "path": "docs/openspec/changes/piano-roll-follow-and-undo/.openspec.yaml", "sha256": "81efc95b309487579cc63ceff200744cbd9fab2401597cbbdcf38d0cb54bace8" },
+    { "path": "docs/openspec/changes/piano-roll-follow-and-undo/specs/piano-roll-follow-and-undo/spec.md", "sha256": "78713375f76ab1d27e3e699dc7f55d2176960b3508bff5d2a70cfd0eb1cb5c18" }
+  ]
+}

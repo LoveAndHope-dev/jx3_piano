@@ -35,7 +35,7 @@ from PyQt5.QtWidgets import (
     QWidget,
 )
 
-from arpeggiate import arpeggiate_notes
+from arpeggiate_runner import arpeggiate_notes
 from build_music import get_chromatic_key_ladder, tempo_us_from_bpm
 
 MIN_PITCH = 21  # A0

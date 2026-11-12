@@ -465,6 +465,21 @@ class MidiConverterGUI(QMainWindow):
                 border-radius: 5px;
                 color: white;
             }
+
+            QFrame#controlPanel {
+                border: 2px solid #34495E;
+                border-radius: 10px;
+                margin-top: 0px;
+            }
+
+            QLabel#panelTitle {
+                padding: 2px 10px 2px 10px;
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                    stop:0 #3498DB, stop:1 #2980B9);
+                border-radius: 5px;
+                color: white;
+                font-weight: bold;
+            }
             
             QFrame#leftPanel {
                 background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
@@ -594,11 +609,27 @@ class MidiConverterGUI(QMainWindow):
         left_layout = QVBoxLayout(left_frame)
         left_layout.setContentsMargins(15, 15, 15, 15)
 
-        # 控制按钮组
-        control_group = QGroupBox("🎛️ 控制面板")
+        # 控制面板（标题行右侧放置窗口置顶按钮）
+        control_group = QFrame()
+        control_group.setObjectName("controlPanel")
         left_layout.addWidget(control_group)
 
         control_layout = QVBoxLayout(control_group)
+        control_layout.setContentsMargins(10, 8, 10, 10)
+
+        panel_header = QHBoxLayout()
+        panel_title = QLabel("🎛️ 控制面板")
+        panel_title.setObjectName("panelTitle")
+        panel_header.addWidget(panel_title)
+        panel_header.addStretch()
+
+        self.topmost_btn = QPushButton("📌 置顶")
+        self.topmost_btn.setObjectName("clearBtn")
+        self.topmost_btn.setCheckable(True)
+        self.topmost_btn.clicked.connect(self.toggle_topmost)
+        panel_header.addWidget(self.topmost_btn)
+
+        control_layout.addLayout(panel_header)
 
         # 按钮行1
         btn_row1 = QHBoxLayout()
@@ -694,7 +725,6 @@ class MidiConverterGUI(QMainWindow):
         self.arpeggiate_btn.setEnabled(False)
         self.arpeggiate_btn.clicked.connect(self.on_arpeggiate_clicked)
         toolbar.addWidget(self.arpeggiate_btn)
-        toolbar.addStretch()
 
         self.piano_dirty_label = QLabel("")
         toolbar.addWidget(self.piano_dirty_label)
@@ -720,6 +750,8 @@ class MidiConverterGUI(QMainWindow):
         self.range_high_combo = QComboBox()
         self.range_high_combo.setEnabled(False)
         toolbar.addWidget(self.range_high_combo)
+        # 行尾弹性空白吸收多余宽度，保证所有操作贴左且位置不随窗口宽度漂移
+        toolbar.addStretch()
 
         piano_layout.addLayout(toolbar)
 
@@ -844,12 +876,6 @@ class MidiConverterGUI(QMainWindow):
         log_header.addWidget(log_label)
 
         log_header.addStretch()
-
-        self.topmost_btn = QPushButton("📌 置顶")
-        self.topmost_btn.setObjectName("clearBtn")
-        self.topmost_btn.setCheckable(True)
-        self.topmost_btn.clicked.connect(self.toggle_topmost)
-        log_header.addWidget(self.topmost_btn)
 
         self.clear_btn = QPushButton("🗑️ 清空")
         self.clear_btn.setObjectName("clearBtn")
@@ -1281,15 +1307,19 @@ class MidiConverterGUI(QMainWindow):
         self._apply_quantize_grid()
 
     def on_arpeggiate_clicked(self):
-        """对选中音符执行曲谱优化（1/32 拍琶音展开）。"""
+        """对选中音符执行曲谱优化：调用项目内 arpeggiate.py 脚本展开琶音。"""
         if self.is_playing or self.range_toggle_btn.isChecked():
             return
         if not self.piano_roll._canvas._selected_ids:
             self.log("🪄 请先选中要优化的音符")
             return
-        denominator = self.current_time_signature[1]
-        beat_seconds = (60.0 / self.current_bpm) * (4.0 / denominator)
-        count = self.piano_roll.arpeggiate_selected(beat_seconds)
+        # 脚本以四分音符为单位计算 1/32 拍窗口与步长
+        seconds_per_beat = 60.0 / self.current_bpm
+        try:
+            count = self.piano_roll.arpeggiate_selected(seconds_per_beat)
+        except Exception as exc:  # 脚本失败时铺面保持不变
+            self.log(f"❌ 曲谱优化失败：{exc}")
+            return
         if count == 0:
             self.log("🪄 当前选中音符无需优化")
             return

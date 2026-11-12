@@ -344,6 +344,81 @@ class PlaylistGuiTest(unittest.TestCase):
         starts = sorted(n["start"] for n in self.window.piano_roll.get_notes())
         self.assertGreater(starts[1], starts[0])
 
+    def test_arpeggiate_is_undoable(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},
+            {"id": 1, "pitch": 64, "start": 1.0, "duration": 0.5, "track": 0},
+        ])
+        self.window._record_history()
+        self.window.piano_roll._canvas._set_selection({0, 1})
+        self.window.on_arpeggiate_clicked()
+        self.assertGreater(len(self.window._undo_stack), 1)
+        self.window.undo_last_edit()
+        starts = [n["start"] for n in self.window.piano_roll.get_notes()]
+        self.assertEqual(starts, [1.0, 1.0])
+
+    def test_arpeggiate_failure_keeps_notes(self):
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},
+            {"id": 1, "pitch": 64, "start": 1.0, "duration": 0.5, "track": 0},
+        ])
+        self.window.piano_roll._canvas._set_selection({0, 1})
+        with patch.object(
+            self.window.piano_roll, "arpeggiate_selected", side_effect=RuntimeError("boom")
+        ):
+            self.window.on_arpeggiate_clicked()
+        starts = [n["start"] for n in self.window.piano_roll.get_notes()]
+        self.assertEqual(starts, [1.0, 1.0])
+        self.assertIn("曲谱优化失败", self.window.log_text.toPlainText())
+
+    def _find_layout_containing(self, layout, widget):
+        for index in range(layout.count()):
+            item = layout.itemAt(index)
+            if item.widget() is widget:
+                return layout
+            child = item.layout()
+            if child is not None:
+                found = self._find_layout_containing(child, widget)
+                if found is not None:
+                    return found
+        return None
+
+    def test_topmost_button_lives_in_control_panel_header(self):
+        button = self.window.topmost_btn
+        self.assertEqual(button.parentWidget().objectName(), "controlPanel")
+        header = button.parentWidget().layout().itemAt(0).layout()
+        title = next(
+            header.itemAt(i).widget()
+            for i in range(header.count())
+            if header.itemAt(i).widget() is not None
+            and header.itemAt(i).widget().objectName() == "panelTitle"
+        )
+        self.assertLess(header.indexOf(title), header.indexOf(button))
+        log_tab = self.window.right_tabs.widget(1)
+        self.assertNotIn(button, log_tab.findChildren(gui.QPushButton))
+
+    def test_piano_toolbar_rows_hug_left(self):
+        piano_tab = self.window.right_tabs.widget(0)
+        first_row = self._find_layout_containing(piano_tab.layout(), self.window.play_btn)
+        self.assertIsNotNone(first_row)
+        self.assertIs(first_row.itemAt(0).widget(), self.window.play_btn)
+        first_spacers = [
+            index
+            for index in range(first_row.count())
+            if first_row.itemAt(index).spacerItem() is not None
+        ]
+        self.assertEqual(first_spacers, [first_row.count() - 1])
+
+        second_row = self._find_layout_containing(piano_tab.layout(), self.window.bpm_spin)
+        self.assertIsNotNone(second_row)
+        second_spacers = [
+            index
+            for index in range(second_row.count())
+            if second_row.itemAt(index).spacerItem() is not None
+        ]
+        self.assertEqual(second_spacers, [second_row.count() - 1])
+
     def test_stop_playback_keeps_play_mode_locked(self):
         canvas = self.window.piano_roll._canvas
         self.window.range_toggle_btn.setChecked(True)

@@ -22,6 +22,12 @@ class ThemeTokenTest(unittest.TestCase):
         self.assertNotIn("#3498DB", stylesheet)
         self.assertNotIn("#2C3E50", stylesheet)
 
+    def test_primary_token_drives_derived_colors(self):
+        stylesheet = build_stylesheet({**TOKENS, "colorPrimary": "#ff0000"})
+        self.assertIn("#ff0000", stylesheet)
+        self.assertIn("rgba(255, 0, 0, 0.22)", stylesheet)
+        self.assertNotIn("rgba(22, 119, 255, 0.22)", stylesheet)
+
     def test_stylesheet_keeps_core_selectors(self):
         stylesheet = build_stylesheet()
         for selector in (
@@ -34,6 +40,20 @@ class ThemeTokenTest(unittest.TestCase):
             "QFrame#controlPanel",
             "QLabel#panelTitle",
             "QScrollBar",
+            "QMenu::item:selected",
+            "QMessageBox",
+        ):
+            self.assertIn(selector, stylesheet)
+
+    def test_primary_buttons_have_state_selectors(self):
+        stylesheet = build_stylesheet()
+        for selector in (
+            "QPushButton#playBtn:pressed",
+            "QPushButton#playBtn:disabled",
+            "QPushButton#importBtn:pressed",
+            "QPushButton#importBtn:disabled",
+            "QPushButton#stopBtn:pressed",
+            "QPushButton#stopBtn:disabled",
         ):
             self.assertIn(selector, stylesheet)
 

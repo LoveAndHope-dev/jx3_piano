@@ -5,7 +5,7 @@
 
 from __future__ import annotations
 
-from typing import Dict
+from typing import Dict, Optional
 
 TOKENS: Dict[str, object] = {
     # 颜色
@@ -21,11 +21,18 @@ TOKENS: Dict[str, object] = {
     "colorTextSecondary": "rgba(255,255,255,0.65)",
     "colorTextTertiary": "rgba(255,255,255,0.45)",
     "colorTextDisabled": "rgba(255,255,255,0.25)",
+    "colorTextLightSolid": "#ffffff",
     "colorSuccess": "#49aa19",
+    "colorSuccessHover": "#5cb824",
+    "colorSuccessActive": "#3c8618",
     "colorWarning": "#d89614",
     "colorError": "#dc4446",
+    "colorErrorHover": "#e05a5c",
+    "colorErrorActive": "#b03a3c",
     "colorInfo": "#1677ff",
+    "colorScrollbarHover": "#595959",
     # 圆角与尺寸
+    "radiusXS": 2,
     "radiusSM": 4,
     "radius": 6,
     "radiusLG": 8,
@@ -57,9 +64,21 @@ REQUIRED_TOKEN_KEYS = (
 )
 
 
-def build_stylesheet(tokens: Dict[str, object] = TOKENS) -> str:
+def _rgba(hex_color: str, alpha: float) -> str:
+    """把 #rrggbb 转成 rgba()，用于派生选中态底色。"""
+    value = hex_color.lstrip("#")
+    if len(value) != 6:
+        return hex_color
+    red = int(value[0:2], 16)
+    green = int(value[2:4], 16)
+    blue = int(value[4:6], 16)
+    return f"rgba({red}, {green}, {blue}, {alpha})"
+
+
+def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
     """按令牌生成全局 QSS。"""
-    t = tokens
+    t = TOKENS if tokens is None else tokens
+    primary_bg = _rgba(str(t["colorPrimary"]), 0.22)
     return f"""
         QMainWindow {{
             background-color: {t['colorBgBase']};
@@ -103,20 +122,34 @@ def build_stylesheet(tokens: Dict[str, object] = TOKENS) -> str:
         QPushButton#importBtn {{
             background-color: {t['colorSuccess']};
             border-color: {t['colorSuccess']};
-            color: #ffffff;
+            color: {t['colorTextLightSolid']};
             font-weight: 600;
         }}
 
         QPushButton#importBtn:hover {{
-            background-color: #5cb824;
-            border-color: #5cb824;
-            color: #ffffff;
+            background-color: {t['colorSuccessHover']};
+            border-color: {t['colorSuccessHover']};
+            color: {t['colorTextLightSolid']};
+        }}
+
+        QPushButton#importBtn:pressed {{
+            background-color: {t['colorSuccessActive']};
+            border-color: {t['colorSuccessActive']};
+            color: {t['colorTextLightSolid']};
+        }}
+
+        QPushButton#importBtn:disabled,
+        QPushButton#playBtn:disabled,
+        QPushButton#stopBtn:disabled {{
+            background-color: {t['colorBgContainer']};
+            border-color: {t['colorBorderSecondary']};
+            color: {t['colorTextDisabled']};
         }}
 
         QPushButton#playBtn {{
             background-color: {t['colorPrimary']};
             border-color: {t['colorPrimary']};
-            color: #ffffff;
+            color: {t['colorTextLightSolid']};
             min-width: 56px;
             font-size: {t['fontSize']}px;
             font-weight: 600;
@@ -125,20 +158,32 @@ def build_stylesheet(tokens: Dict[str, object] = TOKENS) -> str:
         QPushButton#playBtn:hover {{
             background-color: {t['colorPrimaryHover']};
             border-color: {t['colorPrimaryHover']};
-            color: #ffffff;
+            color: {t['colorTextLightSolid']};
+        }}
+
+        QPushButton#playBtn:pressed {{
+            background-color: {t['colorPrimaryActive']};
+            border-color: {t['colorPrimaryActive']};
+            color: {t['colorTextLightSolid']};
         }}
 
         QPushButton#stopBtn {{
             background-color: {t['colorError']};
             border-color: {t['colorError']};
-            color: #ffffff;
+            color: {t['colorTextLightSolid']};
             font-weight: 600;
         }}
 
         QPushButton#stopBtn:hover {{
-            background-color: #e05a5c;
-            border-color: #e05a5c;
-            color: #ffffff;
+            background-color: {t['colorErrorHover']};
+            border-color: {t['colorErrorHover']};
+            color: {t['colorTextLightSolid']};
+        }}
+
+        QPushButton#stopBtn:pressed {{
+            background-color: {t['colorErrorActive']};
+            border-color: {t['colorErrorActive']};
+            color: {t['colorTextLightSolid']};
         }}
 
         QPushButton#refreshBtn {{
@@ -184,7 +229,7 @@ def build_stylesheet(tokens: Dict[str, object] = TOKENS) -> str:
         }}
 
         QListWidget::item:selected {{
-            background-color: rgba(22, 119, 255, 0.22);
+            background-color: {primary_bg};
             border: 1px solid {t['colorPrimary']};
             color: {t['colorText']};
         }}
@@ -208,7 +253,7 @@ def build_stylesheet(tokens: Dict[str, object] = TOKENS) -> str:
 
         QLabel#creditLabel {{
             color: {t['colorTextTertiary']};
-            font-size: {t['fontSizeSM'] - 2}px;
+            font-size: {t['fontSizeSM']}px;
             font-style: italic;
         }}
 
@@ -228,7 +273,7 @@ def build_stylesheet(tokens: Dict[str, object] = TOKENS) -> str:
             padding: 0 {t['spaceSM']}px;
             background-color: {t['colorPrimary']};
             border-radius: {t['radiusSM']}px;
-            color: #ffffff;
+            color: {t['colorTextLightSolid']};
         }}
 
         QFrame#controlPanel {{
@@ -241,7 +286,7 @@ def build_stylesheet(tokens: Dict[str, object] = TOKENS) -> str:
             padding: 2px {t['spaceSM']}px;
             background-color: {t['colorPrimary']};
             border-radius: {t['radiusSM']}px;
-            color: #ffffff;
+            color: {t['colorTextLightSolid']};
             font-weight: 600;
         }}
 
@@ -262,7 +307,7 @@ def build_stylesheet(tokens: Dict[str, object] = TOKENS) -> str:
         QSplitter::handle {{
             background-color: {t['colorBorderSecondary']};
             width: {t['spaceXS']}px;
-            border-radius: 2px;
+            border-radius: {t['radiusXS']}px;
         }}
 
         QSplitter::handle:hover {{
@@ -329,6 +374,32 @@ def build_stylesheet(tokens: Dict[str, object] = TOKENS) -> str:
             outline: none;
         }}
 
+        QMenu {{
+            background-color: {t['colorBgElevated']};
+            border: 1px solid {t['colorBorder']};
+            border-radius: {t['radius']}px;
+            padding: {t['spaceXS']}px;
+        }}
+
+        QMenu::item {{
+            padding: 6px {t['spaceXL']}px;
+            border-radius: {t['radiusSM']}px;
+            color: {t['colorText']};
+        }}
+
+        QMenu::item:selected {{
+            background-color: {primary_bg};
+            color: {t['colorText']};
+        }}
+
+        QMessageBox, QDialog {{
+            background-color: {t['colorBgElevated']};
+        }}
+
+        QMessageBox QLabel {{
+            color: {t['colorText']};
+        }}
+
         QDoubleSpinBox::up-button, QDoubleSpinBox::down-button,
         QSpinBox::up-button, QSpinBox::down-button {{
             width: 0px;
@@ -348,7 +419,7 @@ def build_stylesheet(tokens: Dict[str, object] = TOKENS) -> str:
         }}
 
         QScrollBar::handle:vertical:hover {{
-            background: #595959;
+            background: {t['colorScrollbarHover']};
         }}
 
         QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {{
@@ -368,7 +439,7 @@ def build_stylesheet(tokens: Dict[str, object] = TOKENS) -> str:
         }}
 
         QScrollBar::handle:horizontal:hover {{
-            background: #595959;
+            background: {t['colorScrollbarHover']};
         }}
 
         QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {{

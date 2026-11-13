@@ -1,0 +1,2042 @@
+# comet-execution: managed-run
+change_id: 77a82c69-dfc0-4f83-8544-6c9e4a8af164
+workflow: hotfix
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: b937572d341a632a1045fee83d876aa130f97eed
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+branch_status: pending
+created_at: 2026-11-13
+verified_at: 2026-11-13
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: f34823d5c56ce08ea8667ca49e961d1af8eec5f585341e24af5247ab84b0c417
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: fix-playback-finish-crash
+    revision: 1
+    workflow:
+      id: comet-classic-hotfix
+      version: "1"
+      hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+    definitionHashes:
+      '["comet-classic-hotfix","1"]': 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+    initialStateHash: 028521a47334fddec0c5543ac6c1047020262e7572a9520b09475cb8f025f91d
+    input:
+      change: fix-playback-finish-crash
+      changeDir: docs/openspec/changes/fix-playback-finish-crash
+      workspaceBaseline:
+        ref: 69957c07-ab4e-4375-b324-3992600d070b
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: b937572d341a632a1045fee83d876aa130f97eed
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 5
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-13
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+      verifiedAt: 2026-11-13
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: hotfix
+    status: running
+    sequence: 14
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-cc12e67dc8f22dcf1319efe221620dd07385baa40c662fe32cda61cbd044eb14
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-finish-crash:1
+        input:
+          input:
+            change: fix-playback-finish-crash
+            changeDir: docs/openspec/changes/fix-playback-finish-crash
+            workspaceBaseline:
+              ref: 69957c07-ab4e-4375-b324-3992600d070b
+          outputs: {}
+        inputHash: 8e8a16cd2855b727c7a1f4aa9de77631b5f7f83822e20fddd3d2359bbc57118d
+        outcome:
+          actionId: fix-playback-finish-crash:1
+          attempt: 1
+          claimToken: portable-cc12e67dc8f22dcf1319efe221620dd07385baa40c662fe32cda61cbd044eb14
+          inputHash: 8e8a16cd2855b727c7a1f4aa9de77631b5f7f83822e20fddd3d2359bbc57118d
+          outcomeId: baae37ac-555a-4145-952c-b7948ec09cdd
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 5c0ec7def7a75e59183fba88f02b4294583dcc0a55a3437877b591117c391cf0
+            outcomeId: baae37ac-555a-4145-952c-b7948ec09cdd
+        reconciliations: []
+        ref: comet-hotfix
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-finish-crash
+        status: succeeded
+        stepId: hotfix.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/fix-playback-finish-crash:3/1
+          token: portable-b59b4b925b991996b30482e332dbe964b16cfd89d4e05af5c7addf9d8bd017d9
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-finish-crash:3
+        input:
+          input:
+            change: fix-playback-finish-crash
+            changeDir: docs/openspec/changes/fix-playback-finish-crash
+            workspaceBaseline:
+              ref: 69957c07-ab4e-4375-b324-3992600d070b
+          outputs:
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.open.evidence:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+        inputHash: 519443759a478338eef5a018d93387615e388953f3a5cfb0e0a00974ad650610
+        outcome:
+          actionId: fix-playback-finish-crash:3
+          attempt: 1
+          claimToken: portable-b59b4b925b991996b30482e332dbe964b16cfd89d4e05af5c7addf9d8bd017d9
+          inputHash: 519443759a478338eef5a018d93387615e388953f3a5cfb0e0a00974ad650610
+          outcomeId: e432ff08-cb64-42cd-98e4-740361c594a3
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 3054cdbd808252f4c6e03724b8df70c0709434d3475933549e83bad04f3fd776
+            outcomeId: e432ff08-cb64-42cd-98e4-740361c594a3
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-finish-crash
+        status: succeeded
+        stepId: hotfix.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-9fac9ec9c1abbd5624288545caa19d404d19ad9a39e48a395d272d882ec75786
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-finish-crash:4
+        input:
+          input:
+            change: fix-playback-finish-crash
+            changeDir: docs/openspec/changes/fix-playback-finish-crash
+            workspaceBaseline:
+              ref: 69957c07-ab4e-4375-b324-3992600d070b
+          outputs:
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.open.evidence:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+        inputHash: c0901b4c1508f8456541bb5f4f7acf8cd3d88ed5d1a52317ccefda7569adf466
+        outcome:
+          actionId: fix-playback-finish-crash:4
+          attempt: 1
+          claimToken: portable-9fac9ec9c1abbd5624288545caa19d404d19ad9a39e48a395d272d882ec75786
+          inputHash: c0901b4c1508f8456541bb5f4f7acf8cd3d88ed5d1a52317ccefda7569adf466
+          outcomeId: 3f3152e2-d687-469b-9dab-5a69b3b25592
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+            inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+            manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+            manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 6cfd2832e70915e7c11ef23e273bc19ba686df9f34782144a7658f731eaa4968
+            outcomeId: 3f3152e2-d687-469b-9dab-5a69b3b25592
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-finish-crash
+        status: succeeded
+        stepId: hotfix.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-9a475887406e8d6ef48a934d511772d3a9ef970c91da2eeb01180397432ff455
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-finish-crash:6
+        input:
+          input:
+            change: fix-playback-finish-crash
+            changeDir: docs/openspec/changes/fix-playback-finish-crash
+            workspaceBaseline:
+              ref: 69957c07-ab4e-4375-b324-3992600d070b
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.open.evidence:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+        inputHash: bcad8813f2b3e6bca4a8e6db132ce77d0ee45012ddfe0f7d3617285621759a65
+        outcome:
+          actionId: fix-playback-finish-crash:6
+          attempt: 1
+          claimToken: portable-9a475887406e8d6ef48a934d511772d3a9ef970c91da2eeb01180397432ff455
+          inputHash: bcad8813f2b3e6bca4a8e6db132ce77d0ee45012ddfe0f7d3617285621759a65
+          outcomeId: ec35f98b-7190-4044-a23c-f7bb1a5e009f
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 6e94ecd42b72186dbe4d638e6fa6e4f4c7ce83a9b9777562742cdcfaca6687a9
+            outcomeId: ec35f98b-7190-4044-a23c-f7bb1a5e009f
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-finish-crash
+        status: succeeded
+        stepId: hotfix.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-8bf9b2ea4b86b156ba51518803b177f9c8eaa2e014bf8d0bde52c9a9f1556e27
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-finish-crash:8
+        input:
+          input:
+            change: fix-playback-finish-crash
+            changeDir: docs/openspec/changes/fix-playback-finish-crash
+            workspaceBaseline:
+              ref: 69957c07-ab4e-4375-b324-3992600d070b
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.open.evidence:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.verify.report.evidence:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        inputHash: 92bc0d5466f7cca594fcbd3b42cfd4eba7674a1ee4f57f93364bae02f7c2e86d
+        outcome:
+          actionId: fix-playback-finish-crash:8
+          attempt: 1
+          claimToken: portable-8bf9b2ea4b86b156ba51518803b177f9c8eaa2e014bf8d0bde52c9a9f1556e27
+          inputHash: 92bc0d5466f7cca594fcbd3b42cfd4eba7674a1ee4f57f93364bae02f7c2e86d
+          outcomeId: 742d451b-6f8e-4785-aab5-1f4e05b9630c
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+            inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+            manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+            manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: d0eada7f7b24d55e1167131fda126f726b3147c054dea8da4c8642d693f2578d
+            outcomeId: 742d451b-6f8e-4785-aab5-1f4e05b9630c
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-finish-crash
+        status: succeeded
+        stepId: hotfix.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-35d07874e8ddc6879b3fa7fbc9d1224bd4d1c87d1b04a6a48ee17d1396aec64c
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-finish-crash:10
+        input:
+          input:
+            change: fix-playback-finish-crash
+            changeDir: docs/openspec/changes/fix-playback-finish-crash
+            workspaceBaseline:
+              ref: 69957c07-ab4e-4375-b324-3992600d070b
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.open.evidence:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+            hotfix.verify.report.evidence:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        inputHash: f7a425152478919d24af5b0850aec9dd86a204fb4d89d78023d7c61e243a8fac
+        outcome:
+          actionId: fix-playback-finish-crash:10
+          attempt: 1
+          claimToken: portable-35d07874e8ddc6879b3fa7fbc9d1224bd4d1c87d1b04a6a48ee17d1396aec64c
+          inputHash: f7a425152478919d24af5b0850aec9dd86a204fb4d89d78023d7c61e243a8fac
+          outcomeId: 7aaee14a-3dbb-4a7f-a25b-e1f168ecd2d0
+          output:
+            summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+              deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+              项测试通过，release exe 已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 99af18fa7e22bddeb74cd3a9b77dc4d9ae47f5bfe510f842f517601a91ec3708
+            outcomeId: 7aaee14a-3dbb-4a7f-a25b-e1f168ecd2d0
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-finish-crash
+        status: succeeded
+        stepId: hotfix.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-a663ed993064124f8f1e2ef0184d26ee0d70a4124fff688211641af5ce15529f
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-finish-crash:12
+        input:
+          input:
+            change: fix-playback-finish-crash
+            changeDir: docs/openspec/changes/fix-playback-finish-crash
+            workspaceBaseline:
+              ref: 69957c07-ab4e-4375-b324-3992600d070b
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-finish-crash
+                  changeDir: docs/openspec/changes/fix-playback-finish-crash
+                  workspaceBaseline:
+                    ref: 69957c07-ab4e-4375-b324-3992600d070b
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                      deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.prepare:
+              summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                项测试通过，release exe 已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.open.evidence:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+            hotfix.verify.report.evidence:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        inputHash: 20c494a7a45643b69b6dd1e74975db10423cacbabbf1e404edc461af80daeb2d
+        outcome:
+          actionId: fix-playback-finish-crash:12
+          attempt: 1
+          claimToken: portable-a663ed993064124f8f1e2ef0184d26ee0d70a4124fff688211641af5ce15529f
+          inputHash: 20c494a7a45643b69b6dd1e74975db10423cacbabbf1e404edc461af80daeb2d
+          outcomeId: aa3edcd6-45d3-4144-85c9-e922cd5855d0
+          output:
+            baseCommit: 4c696a4e66a4ac2b85c785e78e232ad430d9b5b3
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: fd638c90dcf8042b322349326029d7de7db75df3fe19842250fc7cb96c2abaac
+            outcomeId: aa3edcd6-45d3-4144-85c9-e922cd5855d0
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-finish-crash
+        status: succeeded
+        stepId: hotfix.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-7923ab57cf2d5ccec2b3dc0d32cc054e49546c5882ce21b5b99f1bf4366119cc
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-finish-crash:13
+        input:
+          input:
+            change: fix-playback-finish-crash
+            changeDir: docs/openspec/changes/fix-playback-finish-crash
+            workspaceBaseline:
+              ref: 69957c07-ab4e-4375-b324-3992600d070b
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-finish-crash
+                  changeDir: docs/openspec/changes/fix-playback-finish-crash
+                  workspaceBaseline:
+                    ref: 69957c07-ab4e-4375-b324-3992600d070b
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                      deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.preflight:
+              baseCommit: 4c696a4e66a4ac2b85c785e78e232ad430d9b5b3
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            hotfix.archive.prepare:
+              summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                项测试通过，release exe 已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.open.evidence:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+            hotfix.verify.report.evidence:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        inputHash: 977eea665ce2fc7faee1f8e7b1221b29d48ec518347d46e2d3fcd6b8872825b8
+        outcome:
+          actionId: fix-playback-finish-crash:13
+          artifacts:
+            - sha256: 3de38fbd5eb456c65f44350fc95c4d82df8bcfc7396105e9562a9f02e80aa484
+              uri: docs/openspec/changes/archive/2026-11-14-fix-playback-finish-crash/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-7923ab57cf2d5ccec2b3dc0d32cc054e49546c5882ce21b5b99f1bf4366119cc
+          inputHash: 977eea665ce2fc7faee1f8e7b1221b29d48ec518347d46e2d3fcd6b8872825b8
+          outcomeId: 44b39628-520e-4e5e-9c63-279eccb834a8
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-14-fix-playback-finish-crash
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: e18f7dba3d8644c1a362f3b5dc346b6b7b13ff8d03373534eb06f384cbc0ed83
+            outcomeId: 44b39628-520e-4e5e-9c63-279eccb834a8
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-finish-crash
+        status: succeeded
+        stepId: hotfix.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: fix-playback-finish-crash:14
+        input:
+          input:
+            change: fix-playback-finish-crash
+            changeDir: docs/openspec/changes/fix-playback-finish-crash
+            workspaceBaseline:
+              ref: 69957c07-ab4e-4375-b324-3992600d070b
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-finish-crash
+                  changeDir: docs/openspec/changes/fix-playback-finish-crash
+                  workspaceBaseline:
+                    ref: 69957c07-ab4e-4375-b324-3992600d070b
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                      deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-14-fix-playback-finish-crash
+            hotfix.archive.preflight:
+              baseCommit: 4c696a4e66a4ac2b85c785e78e232ad430d9b5b3
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            hotfix.archive.prepare:
+              summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                项测试通过，release exe 已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.open.evidence:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+            hotfix.verify.report.evidence:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        inputHash: 35d1722ee653549b96bfc509f7ce2d17f316ce4836c45c50da980ef2b7a39f88
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-finish-crash
+        status: pending
+        stepId: hotfix.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      fix-playback-finish-crash:1:
+        results: {}
+        sequence: 1
+      fix-playback-finish-crash:10:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        sequence: 10
+      fix-playback-finish-crash:12:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-finish-crash
+                  changeDir: docs/openspec/changes/fix-playback-finish-crash
+                  workspaceBaseline:
+                    ref: 69957c07-ab4e-4375-b324-3992600d070b
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                      deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                项测试通过，release exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        sequence: 12
+      fix-playback-finish-crash:13:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-finish-crash
+                  changeDir: docs/openspec/changes/fix-playback-finish-crash
+                  workspaceBaseline:
+                    ref: 69957c07-ab4e-4375-b324-3992600d070b
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                      deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 4c696a4e66a4ac2b85c785e78e232ad430d9b5b3
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                项测试通过，release exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        sequence: 13
+      fix-playback-finish-crash:14:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-finish-crash
+                  changeDir: docs/openspec/changes/fix-playback-finish-crash
+                  workspaceBaseline:
+                    ref: 69957c07-ab4e-4375-b324-3992600d070b
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                      deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.execute:
+            sequence: 13
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-14-fix-playback-finish-crash
+          hotfix.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 4c696a4e66a4ac2b85c785e78e232ad430d9b5b3
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                项测试通过，release exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        sequence: 14
+      fix-playback-finish-crash:3:
+        results:
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+        sequence: 3
+      fix-playback-finish-crash:4:
+        results:
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+        sequence: 4
+      fix-playback-finish-crash:6:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+        sequence: 6
+      fix-playback-finish-crash:8:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        sequence: 8
+    waits:
+      - id: fix-playback-finish-crash:11
+        stepId: hotfix.archive.confirm
+        sequence: 11
+        status: resolved
+        proposal:
+          input:
+            change: fix-playback-finish-crash
+            changeDir: docs/openspec/changes/fix-playback-finish-crash
+            workspaceBaseline:
+              ref: 69957c07-ab4e-4375-b324-3992600d070b
+          outputs:
+            hotfix.archive.prepare:
+              summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                项测试通过，release exe 已重新打包。
+              targetBranch: main
+        proposalHash: 9532123ce6e7a483393b33e6ae853344cc4018647b85bad24355adbea5d24311
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                项测试通过，release exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        decision:
+          id: classic-archive-9532123ce6e7a483393b33e6ae853344cc4018647b85bad24355adbea5d24311-local
+          choice: local
+          proposalHash: 9532123ce6e7a483393b33e6ae853344cc4018647b85bad24355adbea5d24311
+    evidenceWaits:
+      - id: fix-playback-finish-crash:2
+        stepId: hotfix.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+        receipt:
+          ref: docs/openspec/changes/fix-playback-finish-crash
+          contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+          submissionId: 11180f14-b940-4192-a4a9-4fb73a3b7404
+      - id: fix-playback-finish-crash:5
+        stepId: hotfix.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+          contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+          submissionId: 8a40a065-245e-49b4-bc2a-a56b6ba52f43
+      - id: fix-playback-finish-crash:7
+        stepId: hotfix.verify.report.evidence
+        sequence: 7
+        kind: classic-verification-report
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+          contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+          submissionId: df186d04-fb59-4022-a5d4-853525cd67ea
+      - id: fix-playback-finish-crash:9
+        stepId: hotfix.verify.check.evidence
+        sequence: 9
+        kind: classic-verify-check
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+              manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+              ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+                ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+              ref: docs/openspec/changes/fix-playback-finish-crash
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+              manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+              manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+              ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+          contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+          submissionId: 2023610f-bf3b-4b2e-a5c1-c6b2adf848aa
+    ready: []
+    joins: {}
+    outputs:
+      hotfix.archive.confirm:
+        sequence: 11
+        value:
+          choice: local
+          proposal:
+            input:
+              change: fix-playback-finish-crash
+              changeDir: docs/openspec/changes/fix-playback-finish-crash
+              workspaceBaseline:
+                ref: 69957c07-ab4e-4375-b324-3992600d070b
+            outputs:
+              hotfix.archive.prepare:
+                summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+                  deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+                  项测试通过，release exe 已重新打包。
+                targetBranch: main
+      hotfix.archive.execute:
+        sequence: 13
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-14-fix-playback-finish-crash
+      hotfix.archive.preflight:
+        sequence: 12
+        value:
+          baseCommit: 4c696a4e66a4ac2b85c785e78e232ad430d9b5b3
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      hotfix.archive.prepare:
+        sequence: 10
+        value:
+          summary: 修复播放结束后闪退：QThread 在 run() 返回前被销毁触发 Qt 致命错误；现由 QThread.finished 清理并
+            deleteLater，清理/完成/进度按线程身份校验，旧线程运行中拒绝开始新播放，关闭窗口按线程状态停止。188
+            项测试通过，release exe 已重新打包。
+          targetBranch: main
+      hotfix.build.check:
+        sequence: 4
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 1
+          contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+          inputBefore: 468b2513c5b43bf23daf03184a247af6ca99c948006eb99b9b3d5e571ef0d9a8
+          manifestHash: 82eac26bfc9319de82a0df49d7c2ccb88754aa8f3197b3a12e5bb448c720d6ed
+          manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/64a8be24-4135-4e0c-9035-ae6968326ded.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      hotfix.build.check.evidence:
+        sequence: 5
+        value:
+          contentHash: 3f41152b6835bb7c7d9452e51e8a4488bf9fb9980262aa6df83e369f92fcaafe
+          ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/5756f77a-67a4-40d3-940a-a16b467ac44d.log
+      hotfix.build.execute:
+        sequence: 3
+        value:
+          event: build-complete
+      hotfix.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+            ref: docs/openspec/changes/fix-playback-finish-crash
+      hotfix.open.evidence:
+        sequence: 2
+        value:
+          contentHash: 1cf9c2ccb301fe0a803ae12f52f62ef6f09a578816bffd568c52550f103a5216
+          ref: docs/openspec/changes/fix-playback-finish-crash
+      hotfix.verify.check:
+        sequence: 8
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+          inputBefore: ae567f0116a38d418589f1b81a8ed77c634b95856c038aa9a76c21b3cfd876da
+          manifestHash: 5c28273822425ca0fe4d6c6a7c454bd09d98f778a7aa7fe3cdb605a59cd1794c
+          manifestRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/35969714-70bd-45aa-b8b8-0fcd683bb1bd.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      hotfix.verify.check.evidence:
+        sequence: 9
+        value:
+          contentHash: 804149804f8256a1cac955735e4d94ed84810cfbe8473336d30518aa3565daa4
+          ref: .comet/runtime/classic-sdk-checks/581e9b09a20c235de2f0f343e8f0f0c82204adecc72fef6e48b0c2e2dd44ebaf/71481f8a-2146-4f84-bfc3-1efd05bbebfa.log
+      hotfix.verify.report.evidence:
+        sequence: 7
+        value:
+          contentHash: 3106559a17f8ecd48c8f2989f2a727b6f92ffdb4034ef98fb8f708b6d3835aee
+          ref: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+      hotfix.verify.run:
+        sequence: 6
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-14-fix-playback-finish-crash-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 22
+  sourceHash: 4218247eb197671c5b7b30380f5c6270299b50a46a6c3c8bce0ea0d4d557c194
+check_epoch: 5

@@ -60,6 +60,8 @@ class _PianoRollCanvas(CanvasInputMixin, CanvasPaintMixin, QGraphicsView):
 
         # 横向缩放：像素/秒（实例级，默认沿用模块常量）
         self._pixels_per_second = float(PIXELS_PER_SECOND)
+        # 纵向行高（实例级，支持 Shift+滚轮缩放）
+        self._row_height = float(ROW_HEIGHT)
 
         # 量化 / 小节网格
         self._quantize_seconds: Optional[float] = None
@@ -98,11 +100,40 @@ class _PianoRollCanvas(CanvasInputMixin, CanvasPaintMixin, QGraphicsView):
 
     def _pitch_to_y(self, pitch: int) -> float:
         pitch = max(MIN_PITCH, min(MAX_PITCH, pitch))
-        return (MAX_PITCH - pitch) * ROW_HEIGHT
+        return (MAX_PITCH - pitch) * self._row_height
 
     def _y_to_pitch(self, y: float) -> int:
-        pitch = MAX_PITCH - int(y // ROW_HEIGHT)
+        pitch = MAX_PITCH - int(y // self._row_height)
         return max(MIN_PITCH, min(MAX_PITCH, pitch))
+
+    @property
+    def row_height(self) -> float:
+        return self._row_height
+
+    def set_row_height(
+        self, value: float, anchor_scene_y: Optional[float] = None, anchor_viewport_y: Optional[float] = None
+    ) -> None:
+        """纵向缩放行高；保持锚点音高在视口中的纵向位置不变。"""
+        new_height = max(MIN_ROW_HEIGHT, min(MAX_ROW_HEIGHT, float(value)))
+        old_height = self._row_height
+        if abs(new_height - old_height) < 1e-9:
+            return
+        if anchor_scene_y is None:
+            anchor_scene_y = self.mapToScene(self.viewport().rect().center()).y()
+        if anchor_viewport_y is None:
+            anchor_viewport_y = self.viewport().height() / 2.0
+        ratio = anchor_scene_y / old_height
+        self._row_height = new_height
+        self._build_background(self._current_total_seconds)
+        for note in self._notes:
+            self._update_item_geometry(note)
+        self._update_range_item_geometry()
+        self._draw_playhead(focus=False)
+        self.zoomChanged.emit()
+        new_scene_y = ratio * new_height
+        self.verticalScrollBar().setValue(
+            int(round(new_scene_y - anchor_viewport_y))
+        )
 
     # ------------------------------------------------------------------
     # 量化吸附
@@ -187,6 +218,18 @@ class _PianoRollCanvas(CanvasInputMixin, CanvasPaintMixin, QGraphicsView):
     def set_playhead_locked(self, locked: bool) -> None:
         """锁定/解锁标尺定位（播放期间锁定；演奏模式不锁定）。"""
         self._playhead_locked = bool(locked)
+        if self._playhead_locked:
+            self.focus_vertical_range_center()
+
+    def focus_vertical_range_center(self) -> None:
+        """把黄色音域框的纵向中心滚到视口中心（播放开始时调用一次）。"""
+        if not self._range_visible:
+            return
+        y_top, y_bottom = self._range_band_y_bounds()
+        center = (y_top + y_bottom) / 2.0
+        bar = self.verticalScrollBar()
+        target = int(round(center - self.viewport().height() / 2.0))
+        bar.setValue(max(bar.minimum(), min(bar.maximum(), target)))
 
     def is_playhead_locked(self) -> bool:
         return self._playhead_locked

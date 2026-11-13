@@ -12,15 +12,25 @@ class PianoPageMixin:
 
         action_row = QHBoxLayout()
         title_label = QLabel("🎼 铺面编辑")
-        title_label.setFont(QFont("Microsoft YaHei UI", 14, QFont.Bold))
+        title_label.setObjectName("pageTitle")
+        title_label.setFont(QFont("Microsoft YaHei UI", 16, QFont.Bold))
         action_row.addWidget(title_label)
         action_row.addStretch()
+
+        # 第一行右侧：演奏/编辑模式切换
+        self.range_toggle_btn = QPushButton("🎹 演奏模式")
+        self.range_toggle_btn.setCheckable(True)
+        self.range_toggle_btn.setEnabled(False)
+        self.range_toggle_btn.clicked.connect(self.on_range_toggle_clicked)
+        action_row.addWidget(self.range_toggle_btn)
         piano_layout.addLayout(action_row)
 
+        # 第二行：主按钮 + 曲谱优化靠左，量化/BPM 靠右
         toolbar = QHBoxLayout()
-        self.play_btn = QPushButton("▶️ 弹奏")
-        self.play_btn.setObjectName("playBtn")
-        self.play_btn.clicked.connect(self.toggle_play)
+        self.play_btn = QPushButton("💾 保存")
+        self.play_btn.setObjectName("primaryBtn")
+        self.play_btn.setEnabled(False)
+        self.play_btn.clicked.connect(self.on_primary_action)
         toolbar.addWidget(self.play_btn)
 
         self.arpeggiate_btn = QPushButton("🪄 曲谱优化")
@@ -32,33 +42,41 @@ class PianoPageMixin:
         self.piano_dirty_label = QLabel("")
         toolbar.addWidget(self.piano_dirty_label)
 
-        self.piano_save_btn = QPushButton("💾 保存")
-        self.piano_save_btn.setEnabled(False)
-        self.piano_save_btn.clicked.connect(self.save_piano_roll)
-        toolbar.addWidget(self.piano_save_btn)
-
-        # 演奏/编辑模式与键位映射：第一行到「演奏最高键位映射」结束
-        self.range_toggle_btn = QPushButton("🎹 演奏模式")
-        self.range_toggle_btn.setCheckable(True)
-        self.range_toggle_btn.setEnabled(False)
-        self.range_toggle_btn.clicked.connect(self.on_range_toggle_clicked)
-        toolbar.addWidget(self.range_toggle_btn)
-
-        toolbar.addWidget(QLabel("演奏最低键位映射:"))
-        self.range_low_combo = QComboBox()
-        self.range_low_combo.setEnabled(False)
-        toolbar.addWidget(self.range_low_combo)
-
-        toolbar.addWidget(QLabel("演奏最高键位映射:"))
-        self.range_high_combo = QComboBox()
-        self.range_high_combo.setEnabled(False)
-        toolbar.addWidget(self.range_high_combo)
-        # 行尾弹性空白吸收多余宽度，保证所有操作贴左且位置不随窗口宽度漂移
         toolbar.addStretch()
+
+        toolbar.addWidget(QLabel("量化:"))
+        self.quantize_combo = QComboBox()
+        self.quantize_combo.setEnabled(False)
+        for label in ("关闭", "1/2", "1/4", "1/8", "1/16", "1/32", "1/64", "1/128"):
+            self.quantize_combo.addItem(label)
+        self.quantize_combo.currentTextChanged.connect(self.on_quantize_combo_changed)
+        toolbar.addWidget(self.quantize_combo)
+
+        toolbar.addWidget(QLabel("BPM:"))
+        self.bpm_spin = QDoubleSpinBox()
+        self.bpm_spin.setRange(0.0, 10000.0)
+        self.bpm_spin.setDecimals(1)
+        self.bpm_spin.setSingleStep(1.0)
+        self.bpm_spin.setKeyboardTracking(False)
+        self.bpm_spin.setValue(120.0)
+        self.bpm_spin.setEnabled(False)
+        self.bpm_spin.valueChanged.connect(self.on_bpm_changed)
+        toolbar.addWidget(self.bpm_spin)
 
         piano_layout.addLayout(toolbar)
 
+        # 第三行：键位映射与钢琴绝对音域，全部靠左
         toolbar_row2 = QHBoxLayout()
+        toolbar_row2.addWidget(QLabel("演奏最低键位映射:"))
+        self.range_low_combo = QComboBox()
+        self.range_low_combo.setEnabled(False)
+        toolbar_row2.addWidget(self.range_low_combo)
+
+        toolbar_row2.addWidget(QLabel("演奏最高键位映射:"))
+        self.range_high_combo = QComboBox()
+        self.range_high_combo.setEnabled(False)
+        toolbar_row2.addWidget(self.range_high_combo)
+
         toolbar_row2.addWidget(QLabel("钢琴音域绝对最低键:"))
         self.range_bottom_display = QLineEdit()
         self.range_bottom_display.setReadOnly(True)
@@ -72,25 +90,6 @@ class PianoPageMixin:
         self.range_top_display.setFixedWidth(48)
         self.range_top_display.setAlignment(Qt.AlignCenter)
         toolbar_row2.addWidget(self.range_top_display)
-
-        toolbar_row2.addWidget(QLabel("量化:"))
-        self.quantize_combo = QComboBox()
-        self.quantize_combo.setEnabled(False)
-        for label in ("关闭", "1/2", "1/4", "1/8", "1/16", "1/32", "1/64", "1/128"):
-            self.quantize_combo.addItem(label)
-        self.quantize_combo.currentTextChanged.connect(self.on_quantize_combo_changed)
-        toolbar_row2.addWidget(self.quantize_combo)
-
-        toolbar_row2.addWidget(QLabel("BPM:"))
-        self.bpm_spin = QDoubleSpinBox()
-        self.bpm_spin.setRange(0.0, 10000.0)
-        self.bpm_spin.setDecimals(1)
-        self.bpm_spin.setSingleStep(1.0)
-        self.bpm_spin.setKeyboardTracking(False)
-        self.bpm_spin.setValue(120.0)
-        self.bpm_spin.setEnabled(False)
-        self.bpm_spin.valueChanged.connect(self.on_bpm_changed)
-        toolbar_row2.addWidget(self.bpm_spin)
         toolbar_row2.addStretch()
 
         piano_layout.addLayout(toolbar_row2)
@@ -197,7 +196,7 @@ class PianoPageMixin:
             self.current_midi_path = None
             self.log(f"❌ 解析 MIDI 失败: {e}")
             self.piano_stack.setCurrentWidget(self.piano_error_label)
-            self.piano_save_btn.setEnabled(False)
+            self._update_primary_btn()
             self._set_range_controls_enabled(False)
             self._undo_stack = []
             self._redo_stack = []
@@ -233,7 +232,7 @@ class PianoPageMixin:
 
         self.piano_stack.setCurrentWidget(self.piano_roll)
         self.piano_roll_dirty = False
-        self.piano_save_btn.setEnabled(False)
+        self._update_primary_btn()
         self._update_piano_dirty_indicator()
         self._save_current_play_assets()
 
@@ -246,7 +245,7 @@ class PianoPageMixin:
     def on_piano_roll_notes_changed(self):
         """铺面上任意一次编辑（新增/删除/移动/调整时长）完成后触发"""
         self.piano_roll_dirty = True
-        self.piano_save_btn.setEnabled(True)
+        self._update_primary_btn()
         self._update_piano_dirty_indicator()
         self._record_history()
 
@@ -359,10 +358,36 @@ class PianoPageMixin:
         self.piano_roll.set_instrument_range_visible(play_mode)
         self.piano_roll.set_read_only(play_mode or self.is_playing)
         self.range_toggle_btn.setText("✏️ 编辑模式" if play_mode else "🎹 演奏模式")
-        self.play_btn.setEnabled(play_mode or self.is_playing)
         self.arpeggiate_btn.setEnabled(
             bool(self.current_midi_path) and not play_mode and not self.is_playing
         )
+        self._update_primary_btn()
+
+    def _update_primary_btn(self) -> None:
+        """按模式与播放状态更新合并主按钮的文案、样式与可用状态。"""
+        play_mode = self.range_toggle_btn.isChecked()
+        if play_mode:
+            if self.is_playing:
+                text, object_name, enabled = "⏹️ 停止", "stopBtn", True
+            else:
+                text = "▶️ 演奏"
+                object_name = "primaryBtn"
+                enabled = bool(self.current_midi_path)
+        else:
+            text = "💾 保存"
+            object_name = "primaryBtn"
+            enabled = bool(self.current_midi_path) and bool(self.piano_roll_dirty)
+        self.play_btn.setText(text)
+        self.play_btn.setObjectName(object_name)
+        self.play_btn.setStyleSheet("")
+        self.play_btn.setEnabled(enabled)
+
+    def on_primary_action(self) -> None:
+        """主按钮：编辑模式保存，演奏模式播放 / 停止。"""
+        if self.range_toggle_btn.isChecked():
+            self.toggle_play()
+        else:
+            self.save_piano_roll()
 
     def on_range_toggle_clicked(self):
         """切换演奏/编辑模式：进入演奏模式前自动保存 MIDI 与 play_code。"""
@@ -459,7 +484,7 @@ class PianoPageMixin:
             )
 
             self.piano_roll_dirty = False
-            self.piano_save_btn.setEnabled(False)
+            self._update_primary_btn()
             self._update_piano_dirty_indicator()
             self.log(f"💾 已另存为新 MIDI 文件: {os.path.basename(output_path)}")
 
@@ -504,7 +529,7 @@ class PianoPageMixin:
         self._updating_bpm = False
 
         self.piano_roll_dirty = False
-        self.piano_save_btn.setEnabled(False)
+        self._update_primary_btn()
         self._update_piano_dirty_indicator()
         self._set_range_controls_enabled(False)
         self.piano_stack.setCurrentWidget(self.piano_placeholder)

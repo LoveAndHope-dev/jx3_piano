@@ -292,17 +292,21 @@ class PlaylistGuiTest(unittest.TestCase):
         self.assertIsNotNone(self.window.piano_roll.get_notes() is not None)
 
     def test_mode_toggle_locks_roll(self):
+        self.window.on_new_play_item()
         canvas = self.window.piano_roll._canvas
         self.assertFalse(self.window.play_btn.isEnabled())
+        self.assertEqual(self.window.play_btn.text(), "💾 保存")
         self.window.range_toggle_btn.setChecked(True)
         self.window.on_range_toggle_clicked()
         self.assertTrue(canvas.is_read_only())
         self.assertTrue(self.window.play_btn.isEnabled())
+        self.assertEqual(self.window.play_btn.text(), "▶️ 演奏")
         self.assertEqual(self.window.range_toggle_btn.text(), "✏️ 编辑模式")
         self.window.range_toggle_btn.setChecked(False)
         self.window.on_range_toggle_clicked()
         self.assertFalse(canvas.is_read_only())
         self.assertFalse(self.window.play_btn.isEnabled())
+        self.assertEqual(self.window.play_btn.text(), "💾 保存")
         self.assertEqual(self.window.range_toggle_btn.text(), "🎹 演奏模式")
 
     def test_default_mapping_and_range_box(self):
@@ -447,46 +451,101 @@ class PlaylistGuiTest(unittest.TestCase):
         log_tab = self.window.right_tabs.widget(1)
         self.assertNotIn(button, log_tab.findChildren(gui.QPushButton))
 
-    def test_piano_toolbar_rows_hug_left(self):
+    def test_piano_toolbar_three_rows(self):
         piano_tab = self.window.right_tabs.widget(0)
-        first_row = self._find_layout_containing(piano_tab.layout(), self.window.play_btn)
-        self.assertIsNotNone(first_row)
-        self.assertIs(first_row.itemAt(0).widget(), self.window.play_btn)
-        first_spacers = [
-            index
-            for index in range(first_row.count())
-            if first_row.itemAt(index).spacerItem() is not None
-        ]
-        self.assertEqual(first_spacers, [first_row.count() - 1])
+        root = piano_tab.layout()
 
-        second_row = self._find_layout_containing(piano_tab.layout(), self.window.bpm_spin)
-        self.assertIsNotNone(second_row)
+        header = self._find_layout_containing(root, self.window.range_toggle_btn)
+        self.assertIsNotNone(header)
+        self.assertEqual(header.itemAt(0).widget().objectName(), "pageTitle")
+        self.assertIs(header.itemAt(header.count() - 1).widget(), self.window.range_toggle_btn)
+        self.assertIsNotNone(header.itemAt(header.count() - 2).spacerItem())
+
+        second_row = self._find_layout_containing(root, self.window.play_btn)
+        self.assertIs(second_row.itemAt(0).widget(), self.window.play_btn)
+        self.assertIs(second_row.itemAt(second_row.count() - 1).widget(), self.window.bpm_spin)
         second_spacers = [
             index
             for index in range(second_row.count())
             if second_row.itemAt(index).spacerItem() is not None
         ]
-        self.assertEqual(second_spacers, [second_row.count() - 1])
+        self.assertEqual(second_spacers, [3])
+
+        third_row = self._find_layout_containing(root, self.window.range_low_combo)
+        self.assertIs(third_row.itemAt(1).widget(), self.window.range_low_combo)
+        self.assertIs(third_row.itemAt(3).widget(), self.window.range_high_combo)
+        self.assertIs(third_row.itemAt(5).widget(), self.window.range_bottom_display)
+        self.assertIs(third_row.itemAt(7).widget(), self.window.range_top_display)
+        self.assertIsNotNone(third_row.itemAt(third_row.count() - 1).spacerItem())
+
+    def test_primary_button_saves_in_edit_mode(self):
+        self.window.on_new_play_item()
+        saved = []
+        self.window.save_piano_roll = lambda: saved.append(1)
+        self.window.piano_roll_dirty = True
+        self.window._update_primary_btn()
+        self.window.play_btn.click()
+        self.assertEqual(saved, [1])
+
+    def test_primary_button_plays_in_play_mode(self):
+        self.window.on_new_play_item()
+        calls = []
+        self.window.toggle_play = lambda: calls.append(1)
+        self.window.range_toggle_btn.setChecked(True)
+        self.window.on_range_toggle_clicked()
+        self.window.play_btn.click()
+        self.assertEqual(calls, [1])
+
+    def test_primary_button_is_dirty_aware_in_edit_mode(self):
+        self.window.on_new_play_item()
+        self.assertFalse(self.window.play_btn.isEnabled())
+        self.window.piano_roll_dirty = True
+        self.window._update_primary_btn()
+        self.assertTrue(self.window.play_btn.isEnabled())
+
+    def test_primary_button_shows_stop_while_playing(self):
+        self.window.on_new_play_item()
+        self.window.range_toggle_btn.setChecked(True)
+        self.window.is_playing = True
+        self.window._update_primary_btn()
+        self.assertEqual(self.window.play_btn.text(), "⏹️ 停止")
+        self.window.is_playing = False
+
+    def test_theme_toggle_switches_stylesheet(self):
+        self.assertEqual(self.window.theme_mode, "dark")
+        self.assertEqual(self.window.theme_btn.text(), "☀️ 亮色")
+        self.window.toggle_theme()
+        self.assertEqual(self.window.theme_mode, "light")
+        self.assertEqual(self.window.theme_btn.text(), "🌙 深色")
+        self.assertIn("#f5f5f5", self.window.styleSheet())
+        self.window.toggle_theme()
+        self.assertEqual(self.window.theme_mode, "dark")
+        self.assertIn("#141414", self.window.styleSheet())
 
     def test_piano_toolbar_positions_stable_when_window_grows(self):
-        widgets = [
+        left_widgets = [
             self.window.play_btn,
             self.window.range_low_combo,
-            self.window.range_high_combo,
-            self.window.bpm_spin,
+            self.window.range_top_display,
         ]
 
         def sample():
             _application().processEvents()
-            return [
-                (w.mapTo(self.window, QPoint(0, 0)).x(), w.width()) for w in widgets
+            left = [
+                (w.mapTo(self.window, QPoint(0, 0)).x(), w.width()) for w in left_widgets
             ]
+            tab = self.window.right_tabs.widget(0)
+            tab_right = tab.mapTo(self.window, QPoint(0, 0)).x() + tab.width()
+            bpm = self.window.bpm_spin
+            gap = tab_right - (bpm.mapTo(self.window, QPoint(0, 0)).x() + bpm.width())
+            return left, gap
 
         self.window.resize(1400, 900)
-        wide = sample()
+        wide_left, wide_gap = sample()
         self.window.resize(2200, 900)
-        wider = sample()
-        self.assertEqual(wide, wider)
+        wider_left, wider_gap = sample()
+        self.assertEqual(wide_left, wider_left)
+        self.assertEqual(wide_gap, wider_gap)
 
     def test_play_finished_keeps_thread_reference(self):
         self.window.on_new_play_item()

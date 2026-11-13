@@ -1,6 +1,12 @@
 import unittest
 
-from app.ui.theme import REQUIRED_TOKEN_KEYS, TOKENS, build_stylesheet
+from app.ui.theme import (
+    DARK_TOKENS,
+    LIGHT_TOKENS,
+    REQUIRED_TOKEN_KEYS,
+    TOKENS,
+    build_stylesheet,
+)
 
 
 class ThemeTokenTest(unittest.TestCase):
@@ -14,6 +20,13 @@ class ThemeTokenTest(unittest.TestCase):
         self.assertEqual(TOKENS["colorBgBase"], "#141414")
         self.assertEqual(TOKENS["colorBgContainer"], "#1f1f1f")
         self.assertEqual(TOKENS["controlHeight"], 32)
+
+    def test_antd_light_palette(self):
+        self.assertEqual(LIGHT_TOKENS["colorBgBase"], "#f5f5f5")
+        self.assertEqual(LIGHT_TOKENS["colorBgContainer"], "#ffffff")
+        self.assertEqual(LIGHT_TOKENS["colorBorder"], "#d9d9d9")
+        self.assertEqual(LIGHT_TOKENS["colorText"], "rgba(0,0,0,0.88)")
+        self.assertEqual(LIGHT_TOKENS["colorPrimary"], DARK_TOKENS["colorPrimary"])
 
     def test_stylesheet_uses_tokens(self):
         stylesheet = build_stylesheet()
@@ -42,6 +55,8 @@ class ThemeTokenTest(unittest.TestCase):
             "QScrollBar",
             "QMenu::item:selected",
             "QMessageBox",
+            "QPushButton#primaryBtn",
+            "QLabel#pageTitle",
         ):
             self.assertIn(selector, stylesheet)
 

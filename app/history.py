@@ -58,7 +58,7 @@ class HistoryMixin:
             self._apply_quantize_grid()
             is_dirty = not self._states_equal(state, self._history_baseline)
             self.piano_roll_dirty = is_dirty
-            self.piano_save_btn.setEnabled(is_dirty)
+            self._update_primary_btn()
             self._update_piano_dirty_indicator()
         finally:
             self._history_applying = False

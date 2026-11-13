@@ -102,10 +102,8 @@ class PlaybackMixin:
             self.piano_roll.set_playhead_locked(True)
             self._sync_bpm_enabled()
 
-            # 更新按钮
-            self.play_btn.setText("⏹️ 停止(ESC)")
-            self.play_btn.setObjectName("stopBtn")
-            self.play_btn.setStyleSheet("")  # 重新应用样式
+            # 更新主按钮为「停止」
+            self._update_primary_btn()
 
         except Exception as e:
             self.log(f"❌ 播放失败: {str(e)}")
@@ -136,10 +134,8 @@ class PlaybackMixin:
         self.piano_roll.set_playhead(None)
         self._sync_bpm_enabled()
 
-        # 更新按钮
-        self.play_btn.setText("▶️ 弹奏")
-        self.play_btn.setObjectName("playBtn")
-        self.play_btn.setStyleSheet("")  # 重新应用样式
+        # 更新主按钮回「保存 / 演奏」
+        self._update_primary_btn()
 
         self.log("⏹️ 播放已停止")
 
@@ -184,10 +180,8 @@ class PlaybackMixin:
             self.piano_roll.set_playhead(None)
             self._sync_bpm_enabled()
 
-            # 更新按钮
-            self.play_btn.setText("▶️ 弹奏")
-            self.play_btn.setObjectName("playBtn")
-            self.play_btn.setStyleSheet("")  # 重新应用样式
+            # 更新主按钮
+            self._update_primary_btn()
 
             if success:
                 self.log("✅ 播放完成")

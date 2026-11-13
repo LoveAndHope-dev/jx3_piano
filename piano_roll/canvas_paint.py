@@ -24,18 +24,18 @@ class CanvasPaintMixin:
         self._current_total_seconds = total_seconds
 
         width = max(self._time_to_x(total_seconds), 400)
-        height = PITCH_COUNT * ROW_HEIGHT
+        height = PITCH_COUNT * self._row_height
         self._scene.setSceneRect(0, 0, width, height)
 
         for i in range(PITCH_COUNT):
             pitch = MAX_PITCH - i
-            y = i * ROW_HEIGHT
+            y = i * self._row_height
             is_black = _is_black_key(pitch)
             color = QColor("#2C3E50") if is_black else QColor("#3B4A5A")
             if pitch not in self._mapped_pitches:
                 color = color.darker(130)
 
-            row = QGraphicsRectItem(0, y, width, ROW_HEIGHT)
+            row = QGraphicsRectItem(0, y, width, self._row_height)
             row.setBrush(QBrush(color))
             row.setPen(QPen(Qt.NoPen))
             row.setZValue(-10)
@@ -100,7 +100,7 @@ class CanvasPaintMixin:
         ext_low = self._range_low_pitch - 1
         ext_high = self._range_high_pitch + 1
         y_top = self._pitch_to_y(ext_high)
-        y_bottom = self._pitch_to_y(ext_low) + ROW_HEIGHT
+        y_bottom = self._pitch_to_y(ext_low) + self._row_height
         width = self._scene.sceneRect().width()
 
         item = QGraphicsRectItem(0, y_top, width, y_bottom - y_top)
@@ -115,7 +115,7 @@ class CanvasPaintMixin:
         ext_low = self._range_low_pitch - 1
         ext_high = self._range_high_pitch + 1
         y_top = self._pitch_to_y(ext_high)
-        y_bottom = self._pitch_to_y(ext_low) + ROW_HEIGHT
+        y_bottom = self._pitch_to_y(ext_low) + self._row_height
         return y_top, y_bottom
 
     def _is_within_range_band(self, y: float) -> bool:
@@ -153,7 +153,7 @@ class CanvasPaintMixin:
         x = self._time_to_x(note["start"])
         y = self._pitch_to_y(note["pitch"])
         w = max(4.0, note["duration"] * self._pixels_per_second)
-        item.setRect(x, y, w, ROW_HEIGHT - 1)
+        item.setRect(x, y, w, self._row_height - 1)
         selected = note["id"] in self._selected_ids
         item.setBrush(self._note_brush(note, selected))
         item.setPen(QPen(QColor("#1B2631" if not selected else "#F4D03F"), 1 if not selected else 2))
@@ -164,7 +164,7 @@ class CanvasPaintMixin:
             self._playhead_item = None
 
         x = self._time_to_x(self._playhead_display_seconds)
-        height = PITCH_COUNT * ROW_HEIGHT
+        height = PITCH_COUNT * self._row_height
         line = QGraphicsLineItem(x, 0, x, height)
         line.setPen(QPen(QColor("#F1C40F"), 2))
         line.setZValue(10)

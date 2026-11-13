@@ -115,16 +115,16 @@ class CanvasInputMixin:
         if self._drag_mode == "range":
             scene_pos = self.mapToScene(event.pos())
             dy = scene_pos.y() - self._drag_start_scene.y()
-            # 目标音高必须按渲染网格的像素/半音比例（ROW_HEIGHT 像素 = 1 个半音）换算，
+            # 目标音高必须按渲染网格的像素/半音比例（self._row_height 像素 = 1 个半音）换算，
             # 与框体的实际渲染位置（_pitch_to_y）保持 1:1，再吸附到距离最近的键位序列
-            # 位置。这里刻意保留连续（未取整的）目标音高，不对 dy/ROW_HEIGHT 提前取整：
+            # 位置。这里刻意保留连续（未取整的）目标音高，不对 dy/self._row_height 提前取整：
             # 提前取整会和随后按最近音高吸附时的平局裁决叠加，使 B、E 两个键的可命中像
             # 素窗口显著窄于其余键位（实测约 10px vs 20px），正常速度拖动时更容易被跳
             # 过；改为连续目标音高后，每个自然键的命中窗口只由其左右真实半音间隔决定
             # （多数键 20px，B-C/E-F 相关的 4 个键各 15px），不再因为浮点/整数取整顺序
             # 产生额外的不对称收窄。
             drag_start_low_pitch = self._ladder[self._drag_range_start_low_idx][0]
-            target_low_pitch = drag_start_low_pitch - dy / ROW_HEIGHT
+            target_low_pitch = drag_start_low_pitch - dy / self._row_height
             new_low_idx = self._nearest_ladder_index_for_pitch(target_low_pitch)
             max_low_idx = len(self._ladder) - 1 - self._drag_range_span_idx
             new_low_idx = max(0, min(new_low_idx, max_low_idx))
@@ -177,7 +177,7 @@ class CanvasInputMixin:
                 snapped_anchor_start = self._snap_time(raw_anchor_start)
                 time_delta = snapped_anchor_start - self._drag_note_start["start"]
 
-                row_delta = round(dy / ROW_HEIGHT)
+                row_delta = round(dy / self._row_height)
                 pitch_delta = -row_delta
 
                 group_ids = self._drag_group_ids if self._drag_group_ids else {self._drag_note_start["id"]}
@@ -361,12 +361,29 @@ class CanvasInputMixin:
         super().keyPressEvent(event)
 
     def wheelEvent(self, event):
-        """Ctrl+滚轮横向缩放（以鼠标所在时间为锚点）；否则保持原有纵向滚动。"""
-        if not (event.modifiers() & Qt.ControlModifier):
+        """Shift+滚轮纵向缩放；Ctrl+滚轮横向缩放；否则保持原有纵向滚动。"""
+        modifiers = event.modifiers()
+        delta_y = event.angleDelta().y()
+
+        if (modifiers & Qt.ShiftModifier) and not (modifiers & Qt.ControlModifier):
+            if delta_y == 0:
+                super().wheelEvent(event)
+                return
+            factor = ROW_ZOOM_STEP_FACTOR if delta_y > 0 else 1.0 / ROW_ZOOM_STEP_FACTOR
+            viewport_pos = event.pos()
+            scene_pos = self.mapToScene(viewport_pos)
+            self.set_row_height(
+                self._row_height * factor,
+                anchor_scene_y=float(scene_pos.y()),
+                anchor_viewport_y=float(viewport_pos.y()),
+            )
+            event.accept()
+            return
+
+        if not (modifiers & Qt.ControlModifier):
             super().wheelEvent(event)
             return
 
-        delta_y = event.angleDelta().y()
         if delta_y == 0:
             # 纯横向滚轮（触控板常见）：不当作缩放，交回默认处理
             super().wheelEvent(event)

@@ -6,7 +6,7 @@ from app.playback import PlaybackMixin
 from app.ui.log_page import LogPageMixin
 from app.ui.piano_page import PianoPageMixin
 from app.ui.playlist_page import PlaylistPageMixin
-from app.ui.theme import build_stylesheet
+from app.ui.theme import DARK_TOKENS, LIGHT_TOKENS, build_stylesheet
 
 
 class MidiConverterGUI(
@@ -60,8 +60,24 @@ class MidiConverterGUI(
         self.log("💡 请导入MIDI文件开始使用")
 
     def setup_style(self):
-        """应用 Ant Design 深色主题（令牌集中在 app/ui/theme.py）。"""
-        self.setStyleSheet(build_stylesheet())
+        """应用 Ant Design 主题（令牌集中在 app/ui/theme.py）。"""
+        self.apply_theme(getattr(self, "theme_mode", "dark"))
+
+    def apply_theme(self, mode: str = "dark") -> None:
+        """切换深色/浅色主题（仅本次运行内记忆）。"""
+        self.theme_mode = mode
+        tokens = LIGHT_TOKENS if mode == "light" else DARK_TOKENS
+        self.setStyleSheet(build_stylesheet(tokens))
+        if hasattr(self, "theme_btn"):
+            if mode == "light":
+                self.theme_btn.setText("🌙 深色")
+                self.theme_btn.setToolTip("切换到深色模式")
+            else:
+                self.theme_btn.setText("☀️ 亮色")
+                self.theme_btn.setToolTip("切换到亮色模式")
+
+    def toggle_theme(self) -> None:
+        self.apply_theme("light" if self.theme_mode == "dark" else "dark")
 
     def setup_ui(self):
         """设置用户界面"""
@@ -98,6 +114,12 @@ class MidiConverterGUI(
         panel_title.setObjectName("panelTitle")
         panel_header.addWidget(panel_title)
         panel_header.addStretch()
+
+        self.theme_btn = QPushButton("☀️ 亮色")
+        self.theme_btn.setObjectName("clearBtn")
+        self.theme_btn.setToolTip("切换到亮色模式")
+        self.theme_btn.clicked.connect(self.toggle_theme)
+        panel_header.addWidget(self.theme_btn)
 
         self.topmost_btn = QPushButton("📌 置顶")
         self.topmost_btn.setObjectName("clearBtn")

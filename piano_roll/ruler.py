@@ -12,7 +12,6 @@ from .geometry import (
     MIN_MEASURE_SECONDS,
     MIN_PITCH,
     PITCH_COUNT,
-    ROW_HEIGHT,
     RULER_HEIGHT,
     _is_black_key,
 )
@@ -30,6 +29,7 @@ class _PianoKeyboardWidget(QWidget):
         self.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
         self.setAttribute(Qt.WA_TransparentForMouseEvents, True)
         canvas.verticalScrollBar().valueChanged.connect(self._on_canvas_scrolled)
+        canvas.zoomChanged.connect(self._on_canvas_scrolled)
 
     def _on_canvas_scrolled(self, _value=None) -> None:
         self.update()
@@ -41,14 +41,14 @@ class _PianoKeyboardWidget(QWidget):
         painter.fillRect(0, 0, width, height, QColor("#F5F2EA"))
 
         top_scene_y = self._canvas.mapToScene(QPoint(0, 0)).y()
-        first_index = max(0, int(top_scene_y // ROW_HEIGHT))
+        first_index = max(0, int(top_scene_y // self._canvas.row_height))
 
         i = first_index
         while True:
             pitch = MAX_PITCH - i
             if pitch < MIN_PITCH:
                 break
-            row_top_scene_y = i * ROW_HEIGHT
+            row_top_scene_y = i * self._canvas.row_height
             y = row_top_scene_y - top_scene_y
             if y > height:
                 break
@@ -60,7 +60,7 @@ class _PianoKeyboardWidget(QWidget):
                 bx = int(width * 0.42)
                 bw = width - bx
                 by = int(y) + 1
-                bh = max(1, ROW_HEIGHT - 2)
+                bh = max(1, int(self._canvas.row_height) - 2)
                 painter.fillRect(bx, by, bw, bh, color)
 
             i += 1

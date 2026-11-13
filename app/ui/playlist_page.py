@@ -144,7 +144,7 @@ class PlaylistPageMixin:
         if current is None:
             self.current_midi_path = None
             self.piano_stack.setCurrentWidget(self.piano_placeholder)
-            self.piano_save_btn.setEnabled(False)
+            self._update_primary_btn()
             self._set_range_controls_enabled(False)
             return
 

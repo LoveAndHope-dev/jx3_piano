@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from typing import Dict, Optional
 
-TOKENS: Dict[str, object] = {
+DARK_TOKENS: Dict[str, object] = {
     # 颜色
     "colorPrimary": "#1677ff",
     "colorPrimaryHover": "#4096ff",
@@ -47,6 +47,24 @@ TOKENS: Dict[str, object] = {
     "spaceLG": 16,
     "spaceXL": 24,
 }
+
+# 浅色主题：与深色共用主色、间距、圆角、字号与控件高度
+LIGHT_TOKENS: Dict[str, object] = {
+    **DARK_TOKENS,
+    "colorBgBase": "#f5f5f5",
+    "colorBgContainer": "#ffffff",
+    "colorBgElevated": "#ffffff",
+    "colorBorder": "#d9d9d9",
+    "colorBorderSecondary": "#f0f0f0",
+    "colorText": "rgba(0,0,0,0.88)",
+    "colorTextSecondary": "rgba(0,0,0,0.65)",
+    "colorTextTertiary": "rgba(0,0,0,0.45)",
+    "colorTextDisabled": "rgba(0,0,0,0.25)",
+    "colorScrollbarHover": "#bfbfbf",
+}
+
+# 兼容旧引用：默认主题为深色
+TOKENS = DARK_TOKENS
 
 REQUIRED_TOKEN_KEYS = (
     "colorPrimary",
@@ -141,6 +159,33 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
         QPushButton#importBtn:disabled,
         QPushButton#playBtn:disabled,
         QPushButton#stopBtn:disabled {{
+            background-color: {t['colorBgContainer']};
+            border-color: {t['colorBorderSecondary']};
+            color: {t['colorTextDisabled']};
+        }}
+
+        QPushButton#primaryBtn {{
+            background-color: {t['colorPrimary']};
+            border-color: {t['colorPrimary']};
+            color: {t['colorTextLightSolid']};
+            min-width: 84px;
+            font-size: {t['fontSize']}px;
+            font-weight: 600;
+        }}
+
+        QPushButton#primaryBtn:hover {{
+            background-color: {t['colorPrimaryHover']};
+            border-color: {t['colorPrimaryHover']};
+            color: {t['colorTextLightSolid']};
+        }}
+
+        QPushButton#primaryBtn:pressed {{
+            background-color: {t['colorPrimaryActive']};
+            border-color: {t['colorPrimaryActive']};
+            color: {t['colorTextLightSolid']};
+        }}
+
+        QPushButton#primaryBtn:disabled {{
             background-color: {t['colorBgContainer']};
             border-color: {t['colorBorderSecondary']};
             color: {t['colorTextDisabled']};
@@ -255,6 +300,12 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
             color: {t['colorTextTertiary']};
             font-size: {t['fontSizeSM']}px;
             font-style: italic;
+        }}
+
+        QLabel#pageTitle {{
+            color: {t['colorText']};
+            font-size: {t['fontSizeLG']}px;
+            font-weight: 600;
         }}
 
         QGroupBox {{

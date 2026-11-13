@@ -18,6 +18,8 @@ class JX3Player:
         self,
         log_callback: Optional[Callable] = None,
         progress_callback: Optional[Callable] = None,
+        clock: Optional[Callable[[], float]] = None,
+        sleep: Optional[Callable[[float], None]] = None,
     ):
         """
         初始化播放器
@@ -26,9 +28,13 @@ class JX3Player:
             log_callback: 日志回调函数，用于向GUI发送日志信息
             progress_callback: 播放进度回调函数，参数为距离实际开始播放的
                 已耗时秒数，用于GUI驱动铺面上的播放线
+            clock: 可选的时钟函数（默认 time.time），供测试注入
+            sleep: 可选的休眠函数（默认 time.sleep），供测试注入
         """
         self.log_callback = log_callback
         self.progress_callback = progress_callback
+        self._clock = clock or time.time
+        self._sleep = sleep or time.sleep
         self.should_stop = False
         self.dd = None
         self.keyboard = None
@@ -168,6 +174,10 @@ class JX3Player:
             self._log(f"❌ 播放数据文件失败: {e}")
             return False
 
+    def _press_key(self, key: str) -> None:
+        """按下一个键（供播放循环调用，测试可替换）。"""
+        self.dd.key_press(key)
+
     def _execute_playback_data(self, playback_data: List) -> bool:
         """
         执行播放数据
@@ -182,13 +192,24 @@ class JX3Player:
             self._log("⚠️ 播放数据为空")
             return False
 
-        start_time = time.time()
+        # 使用绝对时间轴：累计延时决定每组按键的应触发时刻，
+        # 按键调用耗时与 sleep 抖动由后续等待吸收，不会逐段累积。
+        start_time = self._clock()
         last_progress_emit = 0.0
         key_count = 0
         delay_count = 0
+        scheduled_offset = 0.0
 
-        if self.progress_callback:
-            self.progress_callback(0.0)
+        def emit_progress(force: bool = False) -> None:
+            nonlocal last_progress_emit
+            if not self.progress_callback:
+                return
+            now = self._clock()
+            if force or (now - last_progress_emit) >= 0.05:
+                self.progress_callback(now - start_time)
+                last_progress_emit = now
+
+        emit_progress(force=True)
 
         # 按键映射说明
         self._log("🎹 按键映射:")
@@ -213,24 +234,20 @@ class JX3Player:
                 self._log(f"⏳ 播放进度: {progress:.1f}% ({i}/{total_items})")
 
             if isinstance(item, (int, float)):
-                # 延迟操作
+                # 延迟操作：推进绝对时间轴并等待到目标时刻
                 if item > 0:
                     delay_count += 1
-                    # 使用小步长延迟，以便响应停止信号
-                    remaining_delay = float(item)
-                    while remaining_delay > 0 and not self.is_stop_requested():
-                        step = min(0.01, remaining_delay)  # 最多10ms一步
-                        time.sleep(step)
-                        remaining_delay -= step
-
-                        now = time.time()
-                        if self.progress_callback and (now - last_progress_emit) >= 0.05:
-                            self.progress_callback(now - start_time)
-                            last_progress_emit = now
-
-                    if self.is_stop_requested():
-                        self._log("🛑 播放被中断")
-                        return False
+                    scheduled_offset += float(item)
+                    target = start_time + scheduled_offset
+                    while True:
+                        if self.is_stop_requested():
+                            self._log("🛑 播放被中断")
+                            return False
+                        remaining = target - self._clock()
+                        if remaining <= 0:
+                            break
+                        self._sleep(min(0.01, remaining))
+                        emit_progress()
 
             elif isinstance(item, str):
                 # 按键操作
@@ -239,22 +256,18 @@ class JX3Player:
                     if len(item) > 1:
                         # 组合按键
                         for key in item:
-                            self.dd.key_press(key)
+                            self._press_key(key)
                     else:
                         # 普通按键
-                        self.dd.key_press(item)
+                        self._press_key(item)
                 except Exception as e:
                     self._log(f"⚠️ 按键 {item} 执行失败: {e}")
 
-            now = time.time()
-            if self.progress_callback and (now - last_progress_emit) >= 0.05:
-                self.progress_callback(now - start_time)
-                last_progress_emit = now
+            emit_progress()
 
         # 播放完成统计
-        elapsed = time.time() - start_time
-        if self.progress_callback:
-            self.progress_callback(elapsed)
+        elapsed = self._clock() - start_time
+        emit_progress(force=True)
         self._log("✅ 播放完成")
         self._log(f"⏱️ 总播放时长: {elapsed:.1f}秒")
         self._log(f"🎹 共执行 {key_count} 个按键操作")

@@ -294,12 +294,6 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
             font-style: italic;
         }}
 
-        QLabel#pageTitle {{
-            color: {t['colorText']};
-            font-size: {t['fontSizeLG']}px;
-            font-weight: 600;
-        }}
-
         QGroupBox {{
             border: 1px solid {t['colorBorderSecondary']};
             border-radius: {t['radiusLG']}px;

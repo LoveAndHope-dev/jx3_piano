@@ -56,7 +56,6 @@ class ThemeTokenTest(unittest.TestCase):
             "QMenu::item:selected",
             "QMessageBox",
             "QPushButton#primaryBtn",
-            "QLabel#pageTitle",
         ):
             self.assertIn(selector, stylesheet)
 

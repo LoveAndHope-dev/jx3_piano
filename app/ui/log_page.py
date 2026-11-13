@@ -10,12 +10,8 @@ class LogPageMixin:
         log_tab_layout = QVBoxLayout(log_tab)
         log_tab_layout.setContentsMargins(0, 0, 0, 0)
 
-        # 日志标题和功能按钮
+        # 日志功能按钮
         log_header = QHBoxLayout()
-
-        log_label = QLabel("📋 操作日志")
-        log_label.setFont(QFont("Microsoft YaHei UI", 14, QFont.Bold))
-        log_header.addWidget(log_label)
 
         log_header.addStretch()
 

@@ -11,10 +11,6 @@ class PianoPageMixin:
         piano_layout.setContentsMargins(0, 0, 0, 0)
 
         action_row = QHBoxLayout()
-        title_label = QLabel("🎼 铺面编辑")
-        title_label.setObjectName("pageTitle")
-        title_label.setFont(QFont("Microsoft YaHei UI", 16, QFont.Bold))
-        action_row.addWidget(title_label)
         action_row.addStretch()
 
         # 第一行右侧：演奏/编辑模式切换

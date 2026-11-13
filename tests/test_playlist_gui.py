@@ -457,9 +457,8 @@ class PlaylistGuiTest(unittest.TestCase):
 
         header = self._find_layout_containing(root, self.window.range_toggle_btn)
         self.assertIsNotNone(header)
-        self.assertEqual(header.itemAt(0).widget().objectName(), "pageTitle")
+        self.assertIsNotNone(header.itemAt(0).spacerItem())
         self.assertIs(header.itemAt(header.count() - 1).widget(), self.window.range_toggle_btn)
-        self.assertIsNotNone(header.itemAt(header.count() - 2).spacerItem())
 
         second_row = self._find_layout_containing(root, self.window.play_btn)
         self.assertIs(second_row.itemAt(0).widget(), self.window.play_btn)

@@ -1671,6 +1671,8 @@ class MidiConverterGUI(QMainWindow):
             self.play_thread.log_signal.connect(self.log)
             self.play_thread.progress_signal.connect(self.on_play_progress)
             self.play_thread.finished_signal.connect(self.on_play_finished)
+            # 线程真正退出后再清理引用，避免销毁运行中的 QThread
+            self.play_thread.finished.connect(self._cleanup_play_thread)
             self.play_thread.start()
 
             self.is_playing = True
@@ -1694,13 +1696,17 @@ class MidiConverterGUI(QMainWindow):
 
         # 停止新的播放线程
         if hasattr(self, "play_thread") and self.play_thread:
+            thread = self.play_thread
             try:
-                self.play_thread.stop()
-                if self.play_thread.isRunning():
-                    self.play_thread.wait(3000)  # 等待最多3秒
-                self.play_thread = None
-            except:
+                thread.stop()
+                if thread.isRunning():
+                    thread.wait(3000)  # 等待最多3秒
+            except Exception:
                 pass
+            # 线程未退出时保留引用，交给 finished 清理，避免销毁运行中的 QThread
+            if not thread.isRunning():
+                self.play_thread = None
+                thread.deleteLater()
 
         self.is_playing = False
         self.currently_playing_midi_path = None
@@ -1726,12 +1732,19 @@ class MidiConverterGUI(QMainWindow):
             self.stop_playing()
         event.accept()
 
+    def _cleanup_play_thread(self):
+        """QThread.finished：线程已退出，安全释放引用。"""
+        thread = self.play_thread
+        if thread is None:
+            return
+        self.play_thread = None
+        thread.deleteLater()
+
     def on_play_finished(self, success: bool):
-        """播放完成后的回调"""
+        """播放完成后的回调（只更新状态与界面，不销毁线程）"""
         if self.is_playing:  # 只在确实在播放时才更新状态
             self.is_playing = False
             self.currently_playing_midi_path = None
-            self.play_thread = None
             self._sync_roll_mode()
             self.piano_roll.set_playhead_locked(False)
             self.piano_roll.set_playhead(None)

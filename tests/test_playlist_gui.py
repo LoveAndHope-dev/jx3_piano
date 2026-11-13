@@ -8,7 +8,7 @@ os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
 import gui
 import arpeggiate
-from PyQt5.QtCore import QPoint
+from PyQt5.QtCore import QPoint, QThread
 from PyQt5.QtWidgets import QApplication, QMessageBox
 
 _app = None
@@ -477,6 +477,30 @@ class PlaylistGuiTest(unittest.TestCase):
         self.window.resize(2200, 900)
         wider = sample()
         self.assertEqual(wide, wider)
+
+    def test_play_finished_keeps_thread_reference(self):
+        self.window.on_new_play_item()
+        thread = QThread()
+        self.window.play_thread = thread
+        self.window.is_playing = True
+        try:
+            self.window.on_play_finished(True)
+            self.assertIs(self.window.play_thread, thread)
+            self.assertFalse(self.window.is_playing)
+        finally:
+            self.window.play_thread = None
+            thread.deleteLater()
+
+    def test_cleanup_play_thread_releases_reference(self):
+        thread = QThread()
+        self.window.play_thread = thread
+        self.window._cleanup_play_thread()
+        self.assertIsNone(self.window.play_thread)
+
+    def test_cleanup_play_thread_is_safe_without_thread(self):
+        self.window.play_thread = None
+        self.window._cleanup_play_thread()
+        self.assertIsNone(self.window.play_thread)
 
     def test_stop_playback_keeps_play_mode_locked(self):
         canvas = self.window.piano_roll._canvas

@@ -1597,8 +1597,16 @@ class MidiConverterGUI(QMainWindow):
         self._redo_stack = []
         self._history_baseline = None
 
-    def on_play_progress(self, elapsed: float):
+    def on_play_progress(self, elapsed: float, thread=None):
         """播放线程上报的实时播放进度，驱动铺面播放线"""
+        if thread is None:
+            thread = self.sender()
+        if (
+            self.play_thread is not None
+            and thread is not None
+            and thread is not self.play_thread
+        ):
+            return  # 过期的进度信号
         if (
             self.currently_playing_midi_path
             and self.current_midi_path == self.currently_playing_midi_path
@@ -1614,6 +1622,10 @@ class MidiConverterGUI(QMainWindow):
 
     def start_playing(self):
         """开始播放（搜索过滤导致列表无选中时，仍按当前铺面曲目播放）"""
+        # 上一次播放的线程可能仍在收尾；此时不能覆盖引用，否则会销毁运行中的 QThread
+        if not self._drain_previous_play_thread():
+            return
+
         current_item = self.play_listbox.currentItem()
         if not self.current_midi_path:
             QMessageBox.warning(self, "警告", "请先选择一个播放文件")
@@ -1667,13 +1679,14 @@ class MidiConverterGUI(QMainWindow):
             self.log(f"▶️ 开始播放: {filename}")
 
             # 使用新的播放线程（直接播放内存数据，不落盘）
-            self.play_thread = PlayThread(data)
-            self.play_thread.log_signal.connect(self.log)
-            self.play_thread.progress_signal.connect(self.on_play_progress)
-            self.play_thread.finished_signal.connect(self.on_play_finished)
+            thread = PlayThread(data)
+            self.play_thread = thread
+            thread.log_signal.connect(self.log)
+            thread.progress_signal.connect(self.on_play_progress)
+            thread.finished_signal.connect(self.on_play_finished)
             # 线程真正退出后再清理引用，避免销毁运行中的 QThread
-            self.play_thread.finished.connect(self._cleanup_play_thread)
-            self.play_thread.start()
+            thread.finished.connect(self._cleanup_play_thread)
+            thread.start()
 
             self.is_playing = True
             self.currently_playing_midi_path = self.current_midi_path
@@ -1728,20 +1741,46 @@ class MidiConverterGUI(QMainWindow):
             if not self._confirm_discard_piano_changes():
                 event.ignore()
                 return
-        if self.is_playing:
+        if self.play_thread is not None:
             self.stop_playing()
+            if self.play_thread is not None and self.play_thread.isRunning():
+                event.ignore()
+                return
         event.accept()
 
-    def _cleanup_play_thread(self):
-        """QThread.finished：线程已退出，安全释放引用。"""
+    def _drain_previous_play_thread(self) -> bool:
+        """确保没有仍在运行的旧播放线程；返回是否可以开始新播放。"""
         thread = self.play_thread
         if thread is None:
+            return True
+        if thread.isRunning():
+            self.log("⏳ 上一次播放仍在收尾，请稍后再试")
+            return False
+        self._cleanup_play_thread(thread)
+        return True
+
+    def _cleanup_play_thread(self, thread=None):
+        """QThread.finished：线程已退出，安全释放引用（仅当它仍是当前线程）。"""
+        if thread is None:
+            thread = self.sender()
+        if thread is None:
+            thread = self.play_thread
+        if thread is None:
             return
-        self.play_thread = None
+        if self.play_thread is thread:
+            self.play_thread = None
         thread.deleteLater()
 
-    def on_play_finished(self, success: bool):
+    def on_play_finished(self, success: bool, thread=None):
         """播放完成后的回调（只更新状态与界面，不销毁线程）"""
+        if thread is None:
+            thread = self.sender()
+        if (
+            self.play_thread is not None
+            and thread is not None
+            and thread is not self.play_thread
+        ):
+            return  # 过期线程的完成信号，不得打断当前播放
         if self.is_playing:  # 只在确实在播放时才更新状态
             self.is_playing = False
             self.currently_playing_midi_path = None

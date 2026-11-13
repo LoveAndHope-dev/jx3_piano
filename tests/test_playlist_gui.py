@@ -21,6 +21,13 @@ def _application():
     return _app
 
 
+class _LingerThread(QThread):
+    """短暂运行后自行结束的线程，用于验证播放线程占用保护。"""
+
+    def run(self):
+        self.msleep(300)
+
+
 class PlaylistGuiTest(unittest.TestCase):
     def setUp(self):
         _application()
@@ -501,6 +508,42 @@ class PlaylistGuiTest(unittest.TestCase):
         self.window.play_thread = None
         self.window._cleanup_play_thread()
         self.assertIsNone(self.window.play_thread)
+
+    def test_cleanup_ignores_newer_thread(self):
+        old = QThread()
+        new = QThread()
+        self.window.play_thread = new
+        try:
+            self.window._cleanup_play_thread(old)
+            self.assertIs(self.window.play_thread, new)
+        finally:
+            self.window.play_thread = None
+            old.deleteLater()
+            new.deleteLater()
+
+    def test_stale_finish_does_not_reset_current_playback(self):
+        self.window.on_new_play_item()
+        current = QThread()
+        stale = QThread()
+        self.window.play_thread = current
+        self.window.is_playing = True
+        try:
+            self.window.on_play_finished(True, stale)
+            self.assertTrue(self.window.is_playing)
+            self.assertIs(self.window.play_thread, current)
+        finally:
+            self.window.play_thread = None
+            current.deleteLater()
+            stale.deleteLater()
+
+    def test_start_playing_refuses_while_previous_thread_runs(self):
+        thread = _LingerThread()
+        thread.start()
+        self.addCleanup(thread.wait, 2000)
+        self.window.play_thread = thread
+        self.window.start_playing()
+        self.assertIs(self.window.play_thread, thread)
+        self.assertIn("收尾", self.window.log_text.toPlainText())
 
     def test_stop_playback_keeps_play_mode_locked(self):
         canvas = self.window.piano_roll._canvas

@@ -8,6 +8,7 @@ os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
 import gui
 import arpeggiate
+import music.paths as music_paths
 from PyQt5.QtCore import QPoint, QThread
 from PyQt5.QtWidgets import QApplication, QMessageBox
 
@@ -33,10 +34,12 @@ class PlaylistGuiTest(unittest.TestCase):
         _application()
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        self._original_midi_dir = gui.get_midi_dir_path
-        gui.get_midi_dir_path = lambda: self.tmp.name
-        self._original_play_code_dir = gui.get_play_code_dir_path
-        gui.get_play_code_dir_path = lambda: os.path.join(self.tmp.name, "play_code")
+        self._original_midi_dir = music_paths.get_midi_dir_path
+        music_paths.get_midi_dir_path = lambda: self.tmp.name
+        self._original_play_code_dir = music_paths.get_play_code_dir_path
+        music_paths.get_play_code_dir_path = lambda: os.path.join(
+            self.tmp.name, "play_code"
+        )
         self.addCleanup(self._restore_dirs)
         self.window = gui.MidiConverterGUI()
         self.addCleanup(self._close_window)
@@ -47,8 +50,8 @@ class PlaylistGuiTest(unittest.TestCase):
         self.window.close()
 
     def _restore_dirs(self):
-        gui.get_midi_dir_path = self._original_midi_dir
-        gui.get_play_code_dir_path = self._original_play_code_dir
+        music_paths.get_midi_dir_path = self._original_midi_dir
+        music_paths.get_play_code_dir_path = self._original_play_code_dir
 
     def test_new_blank_midi_loads_empty_roll(self):
         self.window.on_new_play_item()

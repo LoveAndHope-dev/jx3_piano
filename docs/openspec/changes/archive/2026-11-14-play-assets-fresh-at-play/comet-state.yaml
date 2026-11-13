@@ -1,0 +1,2032 @@
+# comet-execution: managed-run
+change_id: f3005f19-6292-4d19-9dc2-e8d442537a33
+workflow: tweak
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: b5efeee1a92175dc40a0f13f1da659c5c65e5aef
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+branch_status: pending
+created_at: 2026-11-13
+verified_at: 2026-11-13
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: db19c846b63d32f28ef136ee80feba25d893495abee65512b9f444a1c5f7bc55
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: play-assets-fresh-at-play
+    revision: 1
+    workflow:
+      id: comet-classic-tweak
+      version: "1"
+      hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    definitionHashes:
+      '["comet-classic-tweak","1"]': fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    initialStateHash: 609de4f56686f97fac3f7b147cebcef0e723cd98d0db6c6e3832c7bceb3ca784
+    input:
+      change: play-assets-fresh-at-play
+      changeDir: docs/openspec/changes/play-assets-fresh-at-play
+      workspaceBaseline:
+        ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: b5efeee1a92175dc40a0f13f1da659c5c65e5aef
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 5
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-13
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+      verifiedAt: 2026-11-13
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: tweak
+    status: running
+    sequence: 14
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-7c685493617677fa2e2f734f69f9a85abf93030fd36883cb88a585c9a88cc9a4
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: play-assets-fresh-at-play:1
+        input:
+          input:
+            change: play-assets-fresh-at-play
+            changeDir: docs/openspec/changes/play-assets-fresh-at-play
+            workspaceBaseline:
+              ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+          outputs: {}
+        inputHash: 0973f9732ca0db4e15daf3421784cdcdd77528a6b9d280068e09cdc3a008b603
+        outcome:
+          actionId: play-assets-fresh-at-play:1
+          attempt: 1
+          claimToken: portable-7c685493617677fa2e2f734f69f9a85abf93030fd36883cb88a585c9a88cc9a4
+          inputHash: 0973f9732ca0db4e15daf3421784cdcdd77528a6b9d280068e09cdc3a008b603
+          outcomeId: ab147dc9-6ab9-4afc-9179-147e0e352f15
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 0d3cfcd2669eef5f58f86b3138566ce0cdd22d738c5ff8cf943af77034cd983a
+            outcomeId: ab147dc9-6ab9-4afc-9179-147e0e352f15
+        reconciliations: []
+        ref: comet-tweak
+        requiredCapabilities: []
+        retry: manual
+        runId: play-assets-fresh-at-play
+        status: succeeded
+        stepId: tweak.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/play-assets-fresh-at-play:3/1
+          token: portable-eba8c545e9d50d9e299d260766076114e78476d4f4ef73d06120e16969740b07
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: play-assets-fresh-at-play:3
+        input:
+          input:
+            change: play-assets-fresh-at-play
+            changeDir: docs/openspec/changes/play-assets-fresh-at-play
+            workspaceBaseline:
+              ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+          outputs:
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.open.evidence:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+        inputHash: b3964467cbaab5b7924b8a356ecfae76ffce1d2e7fe5de892999b39b50e982c3
+        outcome:
+          actionId: play-assets-fresh-at-play:3
+          attempt: 1
+          claimToken: portable-eba8c545e9d50d9e299d260766076114e78476d4f4ef73d06120e16969740b07
+          inputHash: b3964467cbaab5b7924b8a356ecfae76ffce1d2e7fe5de892999b39b50e982c3
+          outcomeId: 1b4be7ca-1c6f-40f2-87de-ba58ce34b5b8
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f45e6326676f7fe00678e5e169ea9f3605e2ef45e445461af7989c7eff729d0e
+            outcomeId: 1b4be7ca-1c6f-40f2-87de-ba58ce34b5b8
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: play-assets-fresh-at-play
+        status: succeeded
+        stepId: tweak.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-cf45ab4f0956a073b3958cacc5b0fbcc554dabafd0e3bbcefcf5c56e961dec44
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: play-assets-fresh-at-play:4
+        input:
+          input:
+            change: play-assets-fresh-at-play
+            changeDir: docs/openspec/changes/play-assets-fresh-at-play
+            workspaceBaseline:
+              ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+          outputs:
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.open.evidence:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+        inputHash: 2352256ab446c9b480d8f5598e59b428f9144e98509f8541fc42720a4246828c
+        outcome:
+          actionId: play-assets-fresh-at-play:4
+          attempt: 1
+          claimToken: portable-cf45ab4f0956a073b3958cacc5b0fbcc554dabafd0e3bbcefcf5c56e961dec44
+          inputHash: 2352256ab446c9b480d8f5598e59b428f9144e98509f8541fc42720a4246828c
+          outcomeId: 81b96388-8ca6-45ba-a748-cb5f5d50656b
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+            inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+            manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+            manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: b50c12ccd528034c5b2ba6fba3f96430eadba21dc70d158deb956fda29d007f7
+            outcomeId: 81b96388-8ca6-45ba-a748-cb5f5d50656b
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: play-assets-fresh-at-play
+        status: succeeded
+        stepId: tweak.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-ec0b30827f0d0fbe8cd8e06a4a8abbcb03c283641b38eb3bb21cf0fbf18a0538
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: play-assets-fresh-at-play:6
+        input:
+          input:
+            change: play-assets-fresh-at-play
+            changeDir: docs/openspec/changes/play-assets-fresh-at-play
+            workspaceBaseline:
+              ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.open.evidence:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+        inputHash: ef1c92ed7d9f1f71165daed381e72a006583d0a449fcf9051a3442226cf091a1
+        outcome:
+          actionId: play-assets-fresh-at-play:6
+          attempt: 1
+          claimToken: portable-ec0b30827f0d0fbe8cd8e06a4a8abbcb03c283641b38eb3bb21cf0fbf18a0538
+          inputHash: ef1c92ed7d9f1f71165daed381e72a006583d0a449fcf9051a3442226cf091a1
+          outcomeId: 02834acb-c482-4783-88b9-14320d402d43
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 7efe6e7575cf516126298a962709813f7b3476960268e35f024efe1de14fbf2c
+            outcomeId: 02834acb-c482-4783-88b9-14320d402d43
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: play-assets-fresh-at-play
+        status: succeeded
+        stepId: tweak.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-e1c9235180b8cc3845b453c58dab155282c7965826e1e8a6728d6e4bf52613c1
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: play-assets-fresh-at-play:8
+        input:
+          input:
+            change: play-assets-fresh-at-play
+            changeDir: docs/openspec/changes/play-assets-fresh-at-play
+            workspaceBaseline:
+              ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.open.evidence:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.verify.report.evidence:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        inputHash: e03af1e6b139c04e2351d7c757e1521db78a8ee9bcc6a8cbad22bcf06f9ebee8
+        outcome:
+          actionId: play-assets-fresh-at-play:8
+          attempt: 1
+          claimToken: portable-e1c9235180b8cc3845b453c58dab155282c7965826e1e8a6728d6e4bf52613c1
+          inputHash: e03af1e6b139c04e2351d7c757e1521db78a8ee9bcc6a8cbad22bcf06f9ebee8
+          outcomeId: d1ac3e54-3c89-42a9-a3b3-6ca92785aea0
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+            inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+            manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+            manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 6d89e3e3bfdae5ddca6753b966bb0f5701e881a1bb3a047d88e20a9b1639def7
+            outcomeId: d1ac3e54-3c89-42a9-a3b3-6ca92785aea0
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: play-assets-fresh-at-play
+        status: succeeded
+        stepId: tweak.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-fa0db85ef5b46b5a15334ac931fb14339b21d66922de795bfea907991b68bdd9
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: play-assets-fresh-at-play:10
+        input:
+          input:
+            change: play-assets-fresh-at-play
+            changeDir: docs/openspec/changes/play-assets-fresh-at-play
+            workspaceBaseline:
+              ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.open.evidence:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+            tweak.verify.report.evidence:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        inputHash: 7a1aa2a86f62e62a28f02dee0b6a087efdf6a1a90f4b96090552ef33fd3325e9
+        outcome:
+          actionId: play-assets-fresh-at-play:10
+          attempt: 1
+          claimToken: portable-fa0db85ef5b46b5a15334ac931fb14339b21d66922de795bfea907991b68bdd9
+          inputHash: 7a1aa2a86f62e62a28f02dee0b6a087efdf6a1a90f4b96090552ef33fd3325e9
+          outcomeId: be4325c2-cc7c-403f-b793-81843be189c9
+          output:
+            summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+              JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe 已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: fac1f0e9610d4f92606d328989c34ab2f15f1f6741bccda624c0a41d7608a3c0
+            outcomeId: be4325c2-cc7c-403f-b793-81843be189c9
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: play-assets-fresh-at-play
+        status: succeeded
+        stepId: tweak.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-900a1d0618c4e8721d617bf50dd2c8aa8bb0d5b629ffa0a491a62740749fced1
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: play-assets-fresh-at-play:12
+        input:
+          input:
+            change: play-assets-fresh-at-play
+            changeDir: docs/openspec/changes/play-assets-fresh-at-play
+            workspaceBaseline:
+              ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: play-assets-fresh-at-play
+                  changeDir: docs/openspec/changes/play-assets-fresh-at-play
+                  workspaceBaseline:
+                    ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                      JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+            tweak.archive.prepare:
+              summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.open.evidence:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+            tweak.verify.report.evidence:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        inputHash: 40a45ec9b006727261dfcd708d08db874f375686bf99df538662ad6102b34c5d
+        outcome:
+          actionId: play-assets-fresh-at-play:12
+          attempt: 1
+          claimToken: portable-900a1d0618c4e8721d617bf50dd2c8aa8bb0d5b629ffa0a491a62740749fced1
+          inputHash: 40a45ec9b006727261dfcd708d08db874f375686bf99df538662ad6102b34c5d
+          outcomeId: 2614da83-d4ce-4019-b5ac-ff6012ef954a
+          output:
+            baseCommit: 3f982fc130b2f2351a49be4fd0d9f5263d0665f2
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: fc06ca05e72cbaf5f13cf71ee2a8c230274b62a9ac9a25dc4362610576b8b806
+            outcomeId: 2614da83-d4ce-4019-b5ac-ff6012ef954a
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: play-assets-fresh-at-play
+        status: succeeded
+        stepId: tweak.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-d7e5426a50170e059c168dfdd5cccbef2f433cba760ab1cce1cd8719f9b19668
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: play-assets-fresh-at-play:13
+        input:
+          input:
+            change: play-assets-fresh-at-play
+            changeDir: docs/openspec/changes/play-assets-fresh-at-play
+            workspaceBaseline:
+              ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: play-assets-fresh-at-play
+                  changeDir: docs/openspec/changes/play-assets-fresh-at-play
+                  workspaceBaseline:
+                    ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                      JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+            tweak.archive.preflight:
+              baseCommit: 3f982fc130b2f2351a49be4fd0d9f5263d0665f2
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.open.evidence:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+            tweak.verify.report.evidence:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        inputHash: 48641292fa56e52954342e532e7323826fd0e9cdd7ab4daf452edff7bb9980c2
+        outcome:
+          actionId: play-assets-fresh-at-play:13
+          artifacts:
+            - sha256: 7d207f163dcc68a6850536498fda42d73cfd177773e398c0929ddc6d15693d17
+              uri: docs/openspec/changes/archive/2026-11-14-play-assets-fresh-at-play/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-d7e5426a50170e059c168dfdd5cccbef2f433cba760ab1cce1cd8719f9b19668
+          inputHash: 48641292fa56e52954342e532e7323826fd0e9cdd7ab4daf452edff7bb9980c2
+          outcomeId: 7e1bfc20-51a5-497a-978f-432240251fa9
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-14-play-assets-fresh-at-play
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: a0590aec8877042ecb53bd80208c640c741cd547eef784a04a84dc7fe11f4318
+            outcomeId: 7e1bfc20-51a5-497a-978f-432240251fa9
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: play-assets-fresh-at-play
+        status: succeeded
+        stepId: tweak.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: play-assets-fresh-at-play:14
+        input:
+          input:
+            change: play-assets-fresh-at-play
+            changeDir: docs/openspec/changes/play-assets-fresh-at-play
+            workspaceBaseline:
+              ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: play-assets-fresh-at-play
+                  changeDir: docs/openspec/changes/play-assets-fresh-at-play
+                  workspaceBaseline:
+                    ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                      JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+            tweak.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-14-play-assets-fresh-at-play
+            tweak.archive.preflight:
+              baseCommit: 3f982fc130b2f2351a49be4fd0d9f5263d0665f2
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.open.evidence:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+            tweak.verify.report.evidence:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        inputHash: 1ee08fb1c806c9712bf8e90603b1b8fee19ee7f4e84392908414b88c373e3b83
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: play-assets-fresh-at-play
+        status: pending
+        stepId: tweak.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      play-assets-fresh-at-play:1:
+        results: {}
+        sequence: 1
+      play-assets-fresh-at-play:10:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        sequence: 10
+      play-assets-fresh-at-play:12:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: play-assets-fresh-at-play
+                  changeDir: docs/openspec/changes/play-assets-fresh-at-play
+                  workspaceBaseline:
+                    ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                      JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        sequence: 12
+      play-assets-fresh-at-play:13:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: play-assets-fresh-at-play
+                  changeDir: docs/openspec/changes/play-assets-fresh-at-play
+                  workspaceBaseline:
+                    ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                      JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 3f982fc130b2f2351a49be4fd0d9f5263d0665f2
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        sequence: 13
+      play-assets-fresh-at-play:14:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: play-assets-fresh-at-play
+                  changeDir: docs/openspec/changes/play-assets-fresh-at-play
+                  workspaceBaseline:
+                    ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                      JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+          tweak.archive.execute:
+            sequence: 13
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-14-play-assets-fresh-at-play
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 3f982fc130b2f2351a49be4fd0d9f5263d0665f2
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        sequence: 14
+      play-assets-fresh-at-play:3:
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+        sequence: 3
+      play-assets-fresh-at-play:4:
+        results:
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+        sequence: 4
+      play-assets-fresh-at-play:6:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+        sequence: 6
+      play-assets-fresh-at-play:8:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        sequence: 8
+    waits:
+      - id: play-assets-fresh-at-play:11
+        stepId: tweak.archive.confirm
+        sequence: 11
+        status: resolved
+        proposal:
+          input:
+            change: play-assets-fresh-at-play
+            changeDir: docs/openspec/changes/play-assets-fresh-at-play
+            workspaceBaseline:
+              ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+          outputs:
+            tweak.archive.prepare:
+              summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe 已重新打包。
+              targetBranch: main
+        proposalHash: bf5661632323c65ea053d4234bc45a32dc1af8111852653ffac4e4f8e37801a2
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        decision:
+          id: classic-archive-bf5661632323c65ea053d4234bc45a32dc1af8111852653ffac4e4f8e37801a2-local
+          choice: local
+          proposalHash: bf5661632323c65ea053d4234bc45a32dc1af8111852653ffac4e4f8e37801a2
+    evidenceWaits:
+      - id: play-assets-fresh-at-play:2
+        stepId: tweak.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+        receipt:
+          ref: docs/openspec/changes/play-assets-fresh-at-play
+          contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+          submissionId: f1d77967-dec6-4f5b-840c-93fc160bb34b
+      - id: play-assets-fresh-at-play:5
+        stepId: tweak.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+          contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+          submissionId: c72ed578-48ef-4018-a60e-099e76ca5b10
+      - id: play-assets-fresh-at-play:7
+        stepId: tweak.verify.report.evidence
+        sequence: 7
+        kind: classic-verification-report
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+          contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+          submissionId: 301ef5b2-a1e7-4d4c-863e-3e8aca1eb429
+      - id: play-assets-fresh-at-play:9
+        stepId: tweak.verify.check.evidence
+        sequence: 9
+        kind: classic-verify-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+              manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+              ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+                ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+              ref: docs/openspec/changes/play-assets-fresh-at-play
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+              manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+              manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+              ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+          contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+          submissionId: 3a180f81-3f52-4655-a320-21b44b0bb783
+    ready: []
+    joins: {}
+    outputs:
+      tweak.archive.confirm:
+        sequence: 11
+        value:
+          choice: local
+          proposal:
+            input:
+              change: play-assets-fresh-at-play
+              changeDir: docs/openspec/changes/play-assets-fresh-at-play
+              workspaceBaseline:
+                ref: 8c7ba021-81bc-4731-b679-553b92af2a75
+            outputs:
+              tweak.archive.prepare:
+                summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+                  JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe
+                  已重新打包。
+                targetBranch: main
+      tweak.archive.execute:
+        sequence: 13
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-14-play-assets-fresh-at-play
+      tweak.archive.preflight:
+        sequence: 12
+        value:
+          baseCommit: 3f982fc130b2f2351a49be4fd0d9f5263d0665f2
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      tweak.archive.prepare:
+        sequence: 10
+        value:
+          summary: 点击演奏前检查播放资产：音符/BPM/黄框/映射/撤销任一变化或文件缺失时，先重建 edited MIDI 与 play_code
+            JSON；未变化直接复用，避免重复写盘。演奏模式内拖黄框或改 BPM 后不再使用旧数据。218 项测试通过，exe 已重新打包。
+          targetBranch: main
+      tweak.build.check:
+        sequence: 4
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 1
+          contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+          inputBefore: f1bc5ff25d2e3906081f69da80236c159ead3aa3d14bc5f2df6d6ecdb3a3cdec
+          manifestHash: e250d9e6154b0da1a6159909bb19df7a981b144ad519edf57c54a66a663ecf50
+          manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/4f74e644-cd48-4049-bcff-364769fce774.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      tweak.build.check.evidence:
+        sequence: 5
+        value:
+          contentHash: 34d0bc6325ad28aacb01c2caa1d0212f8c3206149cda1f5709820b4b18f531ee
+          ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/85f9b8b5-5e50-4aaa-930e-e474ca982a78.log
+      tweak.build.execute:
+        sequence: 3
+        value:
+          event: build-complete
+      tweak.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+            ref: docs/openspec/changes/play-assets-fresh-at-play
+      tweak.open.evidence:
+        sequence: 2
+        value:
+          contentHash: c402fbab7a4b26368107bfe727b936060b9b62a172a98331bffac62ea44143c8
+          ref: docs/openspec/changes/play-assets-fresh-at-play
+      tweak.verify.check:
+        sequence: 8
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+          inputBefore: b6f3f88f14c607767aebf5d177dee6a25acabd6f7389fda2bf160e6dc04b09d2
+          manifestHash: 562570e3187e1a5657f9cf377657386e094e24315c0d07c9132c3c8cc907f3ec
+          manifestRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/1316c974-f704-4805-a571-455d03c06ca1.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      tweak.verify.check.evidence:
+        sequence: 9
+        value:
+          contentHash: bf32565d103f7bdf63025941aab8363f495ba8d328574dcea647c704e00cdd94
+          ref: .comet/runtime/classic-sdk-checks/d99bd41d6c0b5144e71196cf09b5b25254bf46df5d38681b871b5d4db9238d1b/bac89799-6077-4247-9af9-f35926e8b202.log
+      tweak.verify.report.evidence:
+        sequence: 7
+        value:
+          contentHash: 71eb572e16e6449b36fe81f47e776d7b8d7b39635d8cf181c3f70cae0fe54198
+          ref: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+      tweak.verify.run:
+        sequence: 6
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-14-play-assets-fresh-at-play-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 22
+  sourceHash: 5864c90501d726b5701e360c6210f238938cfaa01ec915992711964f55b25c85
+check_epoch: 5

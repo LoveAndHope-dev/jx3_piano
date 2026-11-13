@@ -1,0 +1,2713 @@
+# comet-execution: managed-run
+change_id: df2e1ed3-e36a-4851-8737-4fccb006a36c
+workflow: full
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: executing-plans
+build_pause: null
+subagent_dispatch: null
+tdd_mode: tdd
+review_mode: standard
+isolation: current
+verify_mode: null
+auto_transition: true
+base_ref: 961757ba0e037834223156d6b60ceb7bb9d22b8f
+design_doc: docs/openspec/changes/archive/2026-11-14-piano-toolbar-zoom-and-theme-modes/design.md
+plan: docs/superpowers/plans/2026-11-14-piano-toolbar-zoom-and-theme-modes.md
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-14-piano-toolbar-zoom-and-theme-modes-verification.md
+branch_status: pending
+created_at: 2026-11-13
+verified_at: 2026-11-13
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: false
+handoff_context: docs/openspec/changes/archive/2026-11-14-piano-toolbar-zoom-and-theme-modes/.comet/handoff/design-context.json
+handoff_hash: a151ce48880baa65186f9d8a83b8b717fb5f746836f344632861b84df9fbddc7
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v2
+  hash: 346d45fb2466db0e82d0fe56b12e7b9b35ec4448e93dedb92d79a2a230e692d6
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: piano-toolbar-zoom-and-theme-modes
+    revision: 1
+    workflow:
+      id: comet-classic-full
+      version: "1"
+      hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    definitionHashes:
+      '["comet-classic-full","1"]': ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    initialStateHash: 5f1781902a8960ce18652ec55da78233fdc9ca5367bb6df740829f6828be4555
+    input:
+      change: piano-toolbar-zoom-and-theme-modes
+      changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+      workspaceBaseline:
+        ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 961757ba0e037834223156d6b60ceb7bb9d22b8f
+      boundBranch: main
+      branchStatus: pending
+      buildMode: executing-plans
+      buildPause: null
+      checkEpoch: 6
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-13
+      designDoc: docs/openspec/changes/archive/2026-11-14-piano-toolbar-zoom-and-theme-modes/design.md
+      directOverride: false
+      handoffContext: docs/openspec/changes/archive/2026-11-14-piano-toolbar-zoom-and-theme-modes/.comet/handoff/design-context.json
+      handoffHash: a151ce48880baa65186f9d8a83b8b717fb5f746836f344632861b84df9fbddc7
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: docs/superpowers/plans/2026-11-14-piano-toolbar-zoom-and-theme-modes.md
+      reviewMode: standard
+      subagentDispatch: null
+      tddMode: tdd
+      verificationReport: docs/superpowers/reports/2026-11-14-piano-toolbar-zoom-and-theme-modes-verification.md
+      verifiedAt: 2026-11-13
+      verifyFailures: 0
+      verifyMode: null
+      verifyResult: pass
+      workflow: full
+    status: running
+    sequence: 24
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-0d54fb1fcbafeccfb2d4d25fe9ea0c624b44870599dc7c2a114a52857b372f37
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:1
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: 557ff832f6750a5ba4d6be24c5ff2d20dc4c09c683b8da4681881491ab735424
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:1
+          attempt: 1
+          claimToken: portable-0d54fb1fcbafeccfb2d4d25fe9ea0c624b44870599dc7c2a114a52857b372f37
+          inputHash: 557ff832f6750a5ba4d6be24c5ff2d20dc4c09c683b8da4681881491ab735424
+          outcomeId: 0330dacb-b2c8-4436-9a9c-e6c928d69722
+          output:
+            event: open-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: e17da585aa9da713f32b1e88d9189d9721f1721842705acfb77d0d7bfe15267c
+            outcomeId: 0330dacb-b2c8-4436-9a9c-e6c928d69722
+        reconciliations: []
+        ref: comet-open
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-open-revalidate
+          token: portable-d194c85cc01dae4d11f7a2ed3a4c71dd643e91ea2cc39e00e4c66a39dd23ea84
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:4
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: 2e3e8036a8dbf14561f0102112da3a75c6e5a77249aac38561506a21d47fbae6
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:4
+          attempt: 1
+          claimToken: portable-d194c85cc01dae4d11f7a2ed3a4c71dd643e91ea2cc39e00e4c66a39dd23ea84
+          inputHash: 2e3e8036a8dbf14561f0102112da3a75c6e5a77249aac38561506a21d47fbae6
+          outcomeId: piano-toolbar-zoom-and-theme-modes:4:1:executor-result
+          output:
+            contentHash: 6083754315fe00a7133a9c3d7cd945dd385f462dcf82646289ddff061b7d835d
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 5be047cedb08c06b840de363ba4a21c2953bb41e597c88efe08c683a3afcd092
+            outcomeId: piano-toolbar-zoom-and-theme-modes:4:1:executor-result
+        reconciliations: []
+        ref: classic-open-revalidate
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.open.revalidate
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-22aff1fc6636b34bbf92e7cc1616d2db7fe467d931a9dc32ac4d3eaa84b1f422
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:5
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: 59d97982bf29f30ead932c6932c2b87633daa56b93c1824408104fa967947ad3
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:5
+          attempt: 1
+          claimToken: portable-22aff1fc6636b34bbf92e7cc1616d2db7fe467d931a9dc32ac4d3eaa84b1f422
+          inputHash: 59d97982bf29f30ead932c6932c2b87633daa56b93c1824408104fa967947ad3
+          outcomeId: 0144bdb7-2497-4581-b4ff-874ed504f73b
+          output:
+            handoffContext: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/.comet/handoff/design-context.json
+            handoffHash: a151ce48880baa65186f9d8a83b8b717fb5f746836f344632861b84df9fbddc7
+            proposal: "方案：1) 工具栏改为三行：第一行标题靠左 + 演奏/编辑模式按钮靠右（addStretch
+              吸收）；第二行合并主按钮、曲谱优化、未保存标记靠左，量化与 BPM 靠右；第三行最低映射、最高映射、绝对最低、绝对最高依次靠左。标题
+              16px/600，分组间距 12。2) 保存与弹奏合并到 self.play_btn（保留属性名兼容测试），新增
+              _update_primary_btn() 按「演奏模式 +
+              播放中」计算文案（保存/演奏/停止）、objectName（primaryBtn/stopBtn）与可用状态；编辑模式点击调用
+              save_piano_roll，演奏模式调用 toggle_play；删除 piano_save_btn 并把历史/列表/加载中的
+              setEnabled 改为 _update_primary_btn，播放回调也统一调用它。3) 行高从模块常量改为画布实例
+              _row_height（默认 10，夹紧 6–24），新增 set_row_height(value,
+              anchor)；Shift+滚轮按 1.25
+              倍缩放，以鼠标所在音高为锚点，缩放后调整纵向滚动使该音高留在原视口位置；键盘与背景随行高重绘，场景高度同步，缩放不触发
+              notesChanged。4) 播放纵向聚焦：新增 focus_vertical_range_center()，在
+              set_playhead_locked(True)
+              时调用一次，把黄色音域框上下边界中点滚到视口中心；播放过程不持续强制，停止不改变滚动。5) 主题：theme.py 提供
+              DARK_TOKENS/LIGHT_TOKENS（浅色：页面 #f5f5f5、容器 #ffffff、边框 #d9d9d9、文字
+              rgba(0,0,0,0.88)），主窗口
+              apply_theme/toggle_theme，控制面板标题行在置顶按钮左侧新增主题按钮（深色时显示☀️亮色，浅色时显示🌙深色\
+              ），仅会话内记忆。关键取舍：合并按钮改变播放入口（编辑模式不再直接播放，用户确认）；不持续强制纵向居中以避免妨碍手动滚动；不做主题\
+              持久化。风险：合并按钮需同步所有状态更新点；行高变化影响场景/背景/键盘/命中测试；旧测试需按新结构更新；浅色下画布语义色对比度需\
+              截图核对。测试策略：工具栏三行结构与左右分组、按钮文案/可用态随模式与脏标记变化、编辑模式点击调用保存；set_row_height
+              夹紧、Shift+滚轮缩放与锚点、缩放不触发
+              notesChanged；播放开始时黄框居中、停止后滚动不变；水平滚动后键盘几何不变；深浅令牌切换与按钮文案；既有 200
+              项回归。Spec Patch：无。"
+            requirementsEvidence:
+              contentHash: 558d6251b32160bb83c879c97f41e73683e13b3ee26fec9167c0581b5c1404d2
+              ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            sourceEvidence:
+              contentHash: 23e15284d25ee3bfb28c770671c0c736d4aa6fc0cb0989a9f1e7851a2bda73f3
+              ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: af96fce30784876b56c35184f61ca43203513a4bb5dda16657765ef4d03a6fe7
+            outcomeId: 0144bdb7-2497-4581-b4ff-874ed504f73b
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.design.handoff
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-5ee618a99cdf584d9a4a2c086b298fb0c83067df91ad789bdbe9741ab07ac2ad
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:7
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: 09714979c578135b2c98efaaa5818f70bcd1b4e08d4272bddb6e0732c4a9b4ba
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:7
+          attempt: 1
+          claimToken: portable-5ee618a99cdf584d9a4a2c086b298fb0c83067df91ad789bdbe9741ab07ac2ad
+          inputHash: 09714979c578135b2c98efaaa5818f70bcd1b4e08d4272bddb6e0732c4a9b4ba
+          outcomeId: a5b52be3-9c8a-413f-ab5d-348fc40da6d9
+          output:
+            designDoc: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/design.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 866f8b3694963ffacd534723963ec4b20c33e325a20e47025fa10b66342af2e5
+            outcomeId: a5b52be3-9c8a-413f-ab5d-348fc40da6d9
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.design.document
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-32809329de851589fc773ec43dce88e76bbc230f8f5cb96050d31b3a984f0a77
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:9
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: e61d1ed30e888fd848abf698adfca7cf92ecc72e1a28c1607452b066e976da3d
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:9
+          attempt: 1
+          claimToken: portable-32809329de851589fc773ec43dce88e76bbc230f8f5cb96050d31b3a984f0a77
+          inputHash: e61d1ed30e888fd848abf698adfca7cf92ecc72e1a28c1607452b066e976da3d
+          outcomeId: c8a34309-4949-467e-9e3c-fbf1a25b7e1f
+          output:
+            boundBranch: main
+            buildMode: executing-plans
+            directOverride: false
+            isolation: current
+            reviewMode: standard
+            subagentDispatch: null
+            tddMode: tdd
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: b85236207c69f895fa754f43b5805a9dbf59f8037e0aa5039efe237bced0f94b
+            outcomeId: c8a34309-4949-467e-9e3c-fbf1a25b7e1f
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.build.configure
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-0ddc9cff51a3fd5a42b94779e71ef1f7d86e04494eeaae209c3d0f340f807269
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:11
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: c9ff00c032c694e6fcf8ed0ca7a9c10f8ec36dce566fbf23d0f7c488890a5445
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:11
+          attempt: 1
+          claimToken: portable-0ddc9cff51a3fd5a42b94779e71ef1f7d86e04494eeaae209c3d0f340f807269
+          inputHash: c9ff00c032c694e6fcf8ed0ca7a9c10f8ec36dce566fbf23d0f7c488890a5445
+          outcomeId: 59ce31fb-f65f-43ab-a03b-13a0232a9994
+          output:
+            designEvidence:
+              contentHash: 98cf0ca8e2d901bb4178c55b312224d9b4eb8788543c998ccb2369c91a7b248e
+              ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/design.md
+            plan: docs/superpowers/plans/2026-11-14-piano-toolbar-zoom-and-theme-modes.md
+            planEvidence:
+              contentHash: 3821fddc407e3e159624a21ffb19f24fedf3f53a33593aad33a11d372517c329
+              ref: docs/superpowers/plans/2026-11-14-piano-toolbar-zoom-and-theme-modes.md
+            taskRevision: 5f0a3fdde727671b2a3e60594a99c42ce0a9ec527f0fed6f4cbd392781f4acd4
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 4a2ad07908759da7fd22613b6dc2d7cd2c83585b798f77d4b61df87c8d1fef35
+            outcomeId: 59ce31fb-f65f-43ab-a03b-13a0232a9994
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.build.plan
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/piano-toolbar-zoom-and-theme-modes:13/1
+          token: portable-9acdf6ba45a15b1ae214e4e0df17d20304cf69974e66ca0a8d80c3634513635d
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:13
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: 4ec89b4659a4e31869b94f7747d0480ad412f4cee436e8252cc937acf4469d8e
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:13
+          attempt: 1
+          claimToken: portable-9acdf6ba45a15b1ae214e4e0df17d20304cf69974e66ca0a8d80c3634513635d
+          inputHash: 4ec89b4659a4e31869b94f7747d0480ad412f4cee436e8252cc937acf4469d8e
+          outcomeId: 0473ba05-57bd-48c5-b5af-6a33e703d525
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 383b3bec2b7f8651115b92a2223263dcf57aa011ac5f37c7ccabedb3e4bbf568
+            outcomeId: 0473ba05-57bd-48c5-b5af-6a33e703d525
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-ba06b1971cb5b4f9a762c24c3bfb97adf88a7fac63ece47b9e896e1dd14ae295
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:14
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: 702ff70ab539fef1453deac77e2b1b487a263c2ae2e19cb99b68fcb5df60f767
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:14
+          attempt: 1
+          claimToken: portable-ba06b1971cb5b4f9a762c24c3bfb97adf88a7fac63ece47b9e896e1dd14ae295
+          inputHash: 702ff70ab539fef1453deac77e2b1b487a263c2ae2e19cb99b68fcb5df60f767
+          outcomeId: 9eb7c76a-d47a-4762-912c-d17bb57b23ce
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 3b36d604ef90ac2e83a6a0bfcaa91c166cc69dfa2c77ce24a994549684f8861a
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 0bc17698a76f691487af0ff78d00a65b9051aa46feed711d0c7341c09096eea3
+            inputBefore: 0bc17698a76f691487af0ff78d00a65b9051aa46feed711d0c7341c09096eea3
+            manifestHash: 3d9d2164773f19e07a339b573af00dc3e484af52b010953f9e2a9e5641fce4b8
+            manifestRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/50df77ad-e541-4ed3-b044-51c8d59c074e.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/ff98e34d-368a-4713-afad-22327dc95152.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: b762dbe8dd84bb72b84c9eab07424d70d2762273d41101dfb94a458e64117e0f
+            outcomeId: 9eb7c76a-d47a-4762-912c-d17bb57b23ce
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-5b5ccb85750c644afa5a78abac50c7eaa8827bc333d58619c30fcf164e5cae2a
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:16
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: 75c133db7deddbfebdf67d50f3531d7238fbd466be72afbab93d11a34183f07b
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:16
+          attempt: 1
+          claimToken: portable-5b5ccb85750c644afa5a78abac50c7eaa8827bc333d58619c30fcf164e5cae2a
+          inputHash: 75c133db7deddbfebdf67d50f3531d7238fbd466be72afbab93d11a34183f07b
+          outcomeId: 4013e33f-cefb-4553-98d9-3324e5f719df
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-14-piano-toolbar-zoom-and-theme-modes-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 3c2fe78da18569af937f963099e9228546b205aa6a65c04e7f84706dd4a5755c
+            outcomeId: 4013e33f-cefb-4553-98d9-3324e5f719df
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-32f7e2465d3df96e93ad30d4fc73a73f7c5088ab59af3054e133429658d0f05e
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:18
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: 45dceb9dbe0a030842e3f4e5b9e4b6661655ae2c4f6e59d44bb49d3de9fdf3a5
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:18
+          attempt: 1
+          claimToken: portable-32f7e2465d3df96e93ad30d4fc73a73f7c5088ab59af3054e133429658d0f05e
+          inputHash: 45dceb9dbe0a030842e3f4e5b9e4b6661655ae2c4f6e59d44bb49d3de9fdf3a5
+          outcomeId: 0a15127d-7c5a-48af-b89b-f05ebcfaeda3
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 3
+            contentHash: eda9253a2d7375cbdde8f43830a552de07d8964488d3b1b339334ae42a8a7815
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: c8828d148abc276c7374e23c946ea92d7038b1e94ad34bd3154430dc5e430d00
+            inputBefore: c8828d148abc276c7374e23c946ea92d7038b1e94ad34bd3154430dc5e430d00
+            manifestHash: 09b4a184c8069648b95ca58d551821fcfe0ef3a1bcd6440bed6def6e36fd2802
+            manifestRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/f3d981bb-8734-4788-b518-3f545e7c336c.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/64d7d302-fc53-4d05-9b8c-a42d6fdacad2.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 8ee329b2cdfbaee66b256071963b9ee03ffe782e1fdcc7903907648d5011cfd2
+            outcomeId: 0a15127d-7c5a-48af-b89b-f05ebcfaeda3
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-558da31e2ffd7165e30bc00a078493ecab43fec25e365e0bf69d61c28b95eaa2
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:20
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: 1680b9302c5b3d077f6713bcd74dbaf4ee360574f351f97a76a16e5713eb2fe2
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:20
+          attempt: 1
+          claimToken: portable-558da31e2ffd7165e30bc00a078493ecab43fec25e365e0bf69d61c28b95eaa2
+          inputHash: 1680b9302c5b3d077f6713bcd74dbaf4ee360574f351f97a76a16e5713eb2fe2
+          outcomeId: d4bd6b79-49d7-4b3f-be78-6b63af5bcb30
+          output:
+            summary: 铺面工具栏改为三行（标题+模式切换右侧、主按钮/优化左+量化/BPM
+              右、键位与绝对音域左）；保存与演奏合并为按模式切换的主按钮，播放中始终可停止；钢琴窗支持
+              Shift+滚轮纵向缩放（6–24px、鼠标锚点）与播放时音域框纵向居中；控制面板新增会话内亮/暗主题切换，并补齐 antd
+              标题层级与按钮/弹窗样式。214 项测试通过，exe 重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: d18df38ebb02305c0621fac525c84bddcf4f1d32f63aaef73c0d4669719a5495
+            outcomeId: d4bd6b79-49d7-4b3f-be78-6b63af5bcb30
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-9bef0ecdfa29de4d375552cebd1cb0792e9199838b35260c6fe12c09a7e25d29
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:22
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: 83fe3a1ad0b36989649ba8309d05d10f2fced2529e91dac7d9664283c799103f
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:22
+          attempt: 1
+          claimToken: portable-9bef0ecdfa29de4d375552cebd1cb0792e9199838b35260c6fe12c09a7e25d29
+          inputHash: 83fe3a1ad0b36989649ba8309d05d10f2fced2529e91dac7d9664283c799103f
+          outcomeId: bbe3c2c3-06f7-45af-afe2-31afe1db2892
+          output:
+            baseCommit: 7d42681fc8616b593aff40a93dcba0c0ba3af236
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: e10b2c970babcb93ba7b2d82e623833c43d587a81fb64e29342d67fa07bec1cb
+            outcomeId: bbe3c2c3-06f7-45af-afe2-31afe1db2892
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-cebddc63bb205c97e5f0664d887e5fbcac394f4d4b6ccc26405bd0ce7c43d16f
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: piano-toolbar-zoom-and-theme-modes:23
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: b7ca4939a1d8173a1048daabe64393f664ec6e765db55081ae3d830133802a2e
+        outcome:
+          actionId: piano-toolbar-zoom-and-theme-modes:23
+          artifacts:
+            - sha256: 94eab7b5a108b7fb78d142274a45a4c4303215f64a58086c06d8fe4984b9d4c7
+              uri: docs/openspec/changes/archive/2026-11-14-piano-toolbar-zoom-and-theme-modes/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-cebddc63bb205c97e5f0664d887e5fbcac394f4d4b6ccc26405bd0ce7c43d16f
+          inputHash: b7ca4939a1d8173a1048daabe64393f664ec6e765db55081ae3d830133802a2e
+          outcomeId: f6f29360-d97c-402a-815a-6f9589f9001f
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-14-piano-toolbar-zoom-and-theme-modes
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 05defc4725e4ae2d227e67b110a447b22a796934f783876682cc88725bd92c26
+            outcomeId: f6f29360-d97c-402a-815a-6f9589f9001f
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: succeeded
+        stepId: full.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: piano-toolbar-zoom-and-theme-modes:24
+        input:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs: {}
+        inputHash: 9c2e102a95c37f637d51b4e5591e5ba2bad89ada4be4580a8b9367691756cd10
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: piano-toolbar-zoom-and-theme-modes
+        status: pending
+        stepId: full.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      piano-toolbar-zoom-and-theme-modes:1:
+        results: {}
+        sequence: 1
+      piano-toolbar-zoom-and-theme-modes:11:
+        results: {}
+        sequence: 11
+      piano-toolbar-zoom-and-theme-modes:13:
+        results: {}
+        sequence: 13
+      piano-toolbar-zoom-and-theme-modes:14:
+        results: {}
+        sequence: 14
+      piano-toolbar-zoom-and-theme-modes:16:
+        results: {}
+        sequence: 16
+      piano-toolbar-zoom-and-theme-modes:18:
+        results: {}
+        sequence: 18
+      piano-toolbar-zoom-and-theme-modes:20:
+        results: {}
+        sequence: 20
+      piano-toolbar-zoom-and-theme-modes:22:
+        results: {}
+        sequence: 22
+      piano-toolbar-zoom-and-theme-modes:23:
+        results: {}
+        sequence: 23
+      piano-toolbar-zoom-and-theme-modes:24:
+        results: {}
+        sequence: 24
+      piano-toolbar-zoom-and-theme-modes:4:
+        results: {}
+        sequence: 4
+      piano-toolbar-zoom-and-theme-modes:5:
+        results: {}
+        sequence: 5
+      piano-toolbar-zoom-and-theme-modes:7:
+        results: {}
+        sequence: 7
+      piano-toolbar-zoom-and-theme-modes:9:
+        results: {}
+        sequence: 9
+    waits:
+      - id: piano-toolbar-zoom-and-theme-modes:3
+        stepId: full.open.confirm
+        sequence: 3
+        status: resolved
+        proposal:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 6083754315fe00a7133a9c3d7cd945dd385f462dcf82646289ddff061b7d835d
+              ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+        proposalHash: a60ae4b8a64c08109a885aa78b59a330d759d3728194c2f10fb19dad60393395
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-open-6083754315fe00a7133a9c3d7cd945dd385f462dcf82646289ddff061b7d835d
+          choice: approved
+          proposalHash: a60ae4b8a64c08109a885aa78b59a330d759d3728194c2f10fb19dad60393395
+      - id: piano-toolbar-zoom-and-theme-modes:6
+        stepId: full.design.confirm
+        sequence: 6
+        status: resolved
+        proposal:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/.comet/handoff/design-context.json
+              handoffHash: a151ce48880baa65186f9d8a83b8b717fb5f746836f344632861b84df9fbddc7
+              proposal: "方案：1) 工具栏改为三行：第一行标题靠左 + 演奏/编辑模式按钮靠右（addStretch
+                吸收）；第二行合并主按钮、曲谱优化、未保存标记靠左，量化与 BPM
+                靠右；第三行最低映射、最高映射、绝对最低、绝对最高依次靠左。标题 16px/600，分组间距 12。2) 保存与弹奏合并到
+                self.play_btn（保留属性名兼容测试），新增 _update_primary_btn() 按「演奏模式 +
+                播放中」计算文案（保存/演奏/停止）、objectName（primaryBtn/stopBtn）与可用状态；编辑模式点击调用
+                save_piano_roll，演奏模式调用 toggle_play；删除 piano_save_btn
+                并把历史/列表/加载中的 setEnabled 改为 _update_primary_btn，播放回调也统一调用它。3)
+                行高从模块常量改为画布实例 _row_height（默认 10，夹紧 6–24），新增
+                set_row_height(value, anchor)；Shift+滚轮按 1.25
+                倍缩放，以鼠标所在音高为锚点，缩放后调整纵向滚动使该音高留在原视口位置；键盘与背景随行高重绘，场景高度同步，缩放不触发
+                notesChanged。4) 播放纵向聚焦：新增 focus_vertical_range_center()，在
+                set_playhead_locked(True)
+                时调用一次，把黄色音域框上下边界中点滚到视口中心；播放过程不持续强制，停止不改变滚动。5) 主题：theme.py 提供
+                DARK_TOKENS/LIGHT_TOKENS（浅色：页面 #f5f5f5、容器 #ffffff、边框 #d9d9d9、文字
+                rgba(0,0,0,0.88)），主窗口
+                apply_theme/toggle_theme，控制面板标题行在置顶按钮左侧新增主题按钮（深色时显示☀️亮色，浅色时显示🌙\
+                深色），仅会话内记忆。关键取舍：合并按钮改变播放入口（编辑模式不再直接播放，用户确认）；不持续强制纵向居中以避免妨碍手动滚动；\
+                不做主题持久化。风险：合并按钮需同步所有状态更新点；行高变化影响场景/背景/键盘/命中测试；旧测试需按新结构更新；浅色下画布语\
+                义色对比度需截图核对。测试策略：工具栏三行结构与左右分组、按钮文案/可用态随模式与脏标记变化、编辑模式点击调用保存；set_r\
+                ow_height 夹紧、Shift+滚轮缩放与锚点、缩放不触发
+                notesChanged；播放开始时黄框居中、停止后滚动不变；水平滚动后键盘几何不变；深浅令牌切换与按钮文案；既有 200
+                项回归。Spec Patch：无。"
+              requirementsEvidence:
+                contentHash: 558d6251b32160bb83c879c97f41e73683e13b3ee26fec9167c0581b5c1404d2
+                ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+              sourceEvidence:
+                contentHash: 23e15284d25ee3bfb28c770671c0c736d4aa6fc0cb0989a9f1e7851a2bda73f3
+                ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+        proposalHash: 246d94303af7361f2a92fc71a0f398f27b73a0a253561bc832bab4e5ebbfcf42
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-design-246d94303af7361f2a92fc71a0f398f27b73a0a253561bc832bab4e5ebbfcf42-approved
+          choice: approved
+          proposalHash: 246d94303af7361f2a92fc71a0f398f27b73a0a253561bc832bab4e5ebbfcf42
+      - id: piano-toolbar-zoom-and-theme-modes:10
+        stepId: full.build.confirm
+        sequence: 10
+        status: resolved
+        proposal:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+        proposalHash: f05a1f571e0a2d54e837d98453bc389696511d28e2484e847a0545eea81f76ef
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: 5439655d-1c51-4256-b926-31b0aad58532
+          choice: approved
+          proposalHash: f05a1f571e0a2d54e837d98453bc389696511d28e2484e847a0545eea81f76ef
+      - id: piano-toolbar-zoom-and-theme-modes:21
+        stepId: full.archive.confirm
+        sequence: 21
+        status: resolved
+        proposal:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs:
+            full.archive.prepare:
+              summary: 铺面工具栏改为三行（标题+模式切换右侧、主按钮/优化左+量化/BPM
+                右、键位与绝对音域左）；保存与演奏合并为按模式切换的主按钮，播放中始终可停止；钢琴窗支持
+                Shift+滚轮纵向缩放（6–24px、鼠标锚点）与播放时音域框纵向居中；控制面板新增会话内亮/暗主题切换，并补齐 antd
+                标题层级与按钮/弹窗样式。214 项测试通过，exe 重新打包。
+              targetBranch: main
+        proposalHash: 443d5c5c974618012e577ae073952ad1e59e23c9d9df0a2458134030b07231d1
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results: {}
+        decision:
+          id: classic-archive-443d5c5c974618012e577ae073952ad1e59e23c9d9df0a2458134030b07231d1-local
+          choice: local
+          proposalHash: 443d5c5c974618012e577ae073952ad1e59e23c9d9df0a2458134030b07231d1
+    evidenceWaits:
+      - id: piano-toolbar-zoom-and-theme-modes:2
+        stepId: full.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+          contentHash: 6083754315fe00a7133a9c3d7cd945dd385f462dcf82646289ddff061b7d835d
+          submissionId: 885b9c4e-5877-4489-b9fc-18b364106f42
+      - id: piano-toolbar-zoom-and-theme-modes:8
+        stepId: full.design.evidence
+        sequence: 8
+        kind: classic-design-document
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/design.md
+          contentHash: 98cf0ca8e2d901bb4178c55b312224d9b4eb8788543c998ccb2369c91a7b248e
+          submissionId: 8ddc7948-5658-45a2-93b6-0dcea0f86df5
+      - id: piano-toolbar-zoom-and-theme-modes:12
+        stepId: full.build.plan.evidence
+        sequence: 12
+        kind: classic-build-plan
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/plans/2026-11-14-piano-toolbar-zoom-and-theme-modes.md
+          contentHash: 3821fddc407e3e159624a21ffb19f24fedf3f53a33593aad33a11d372517c329
+          submissionId: 68b5c70c-9c70-4b95-a95a-2a6389598ee4
+      - id: piano-toolbar-zoom-and-theme-modes:15
+        stepId: full.build.check.evidence
+        sequence: 15
+        kind: classic-build-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/ff98e34d-368a-4713-afad-22327dc95152.log
+          contentHash: 3b36d604ef90ac2e83a6a0bfcaa91c166cc69dfa2c77ce24a994549684f8861a
+          submissionId: 3ed48c86-3927-4509-b7b2-188c8311e01d
+      - id: piano-toolbar-zoom-and-theme-modes:17
+        stepId: full.verify.report.evidence
+        sequence: 17
+        kind: classic-verification-report
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/reports/2026-11-14-piano-toolbar-zoom-and-theme-modes-verification.md
+          contentHash: 76a916b54419bfa7abbc54185b9085aa94369fd543cde3dd7cb12c3e4207e3c7
+          submissionId: 2b040f83-c1f4-4f56-a488-033ab4c188e7
+      - id: piano-toolbar-zoom-and-theme-modes:19
+        stepId: full.verify.check.evidence
+        sequence: 19
+        kind: classic-verify-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/64d7d302-fc53-4d05-9b8c-a42d6fdacad2.log
+          contentHash: eda9253a2d7375cbdde8f43830a552de07d8964488d3b1b339334ae42a8a7815
+          submissionId: bf14c272-f1d5-471e-8e36-404b6955349d
+    ready: []
+    joins: {}
+    outputs: {}
+    children: []
+    lineage: []
+  sourceRevision: 37
+  sourceHash: 019974921fb4b9cdca5bfb14451ecc6bee66782e8494b7bda5c69c132125751d
+  pool:
+    version: 3
+    values:
+      - event: open-complete
+      - choice: approved
+        proposal:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 6083754315fe00a7133a9c3d7cd945dd385f462dcf82646289ddff061b7d835d
+              ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+      - contentHash: 6083754315fe00a7133a9c3d7cd945dd385f462dcf82646289ddff061b7d835d
+        ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+      - contentHash: 6083754315fe00a7133a9c3d7cd945dd385f462dcf82646289ddff061b7d835d
+      - choice: approved
+        proposal:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/.comet/handoff/design-context.json
+              handoffHash: a151ce48880baa65186f9d8a83b8b717fb5f746836f344632861b84df9fbddc7
+              proposal: "方案：1) 工具栏改为三行：第一行标题靠左 + 演奏/编辑模式按钮靠右（addStretch
+                吸收）；第二行合并主按钮、曲谱优化、未保存标记靠左，量化与 BPM
+                靠右；第三行最低映射、最高映射、绝对最低、绝对最高依次靠左。标题 16px/600，分组间距 12。2) 保存与弹奏合并到
+                self.play_btn（保留属性名兼容测试），新增 _update_primary_btn() 按「演奏模式 +
+                播放中」计算文案（保存/演奏/停止）、objectName（primaryBtn/stopBtn）与可用状态；编辑模式点击调用
+                save_piano_roll，演奏模式调用 toggle_play；删除 piano_save_btn
+                并把历史/列表/加载中的 setEnabled 改为 _update_primary_btn，播放回调也统一调用它。3)
+                行高从模块常量改为画布实例 _row_height（默认 10，夹紧 6–24），新增
+                set_row_height(value, anchor)；Shift+滚轮按 1.25
+                倍缩放，以鼠标所在音高为锚点，缩放后调整纵向滚动使该音高留在原视口位置；键盘与背景随行高重绘，场景高度同步，缩放不触发
+                notesChanged。4) 播放纵向聚焦：新增 focus_vertical_range_center()，在
+                set_playhead_locked(True)
+                时调用一次，把黄色音域框上下边界中点滚到视口中心；播放过程不持续强制，停止不改变滚动。5) 主题：theme.py 提供
+                DARK_TOKENS/LIGHT_TOKENS（浅色：页面 #f5f5f5、容器 #ffffff、边框 #d9d9d9、文字
+                rgba(0,0,0,0.88)），主窗口
+                apply_theme/toggle_theme，控制面板标题行在置顶按钮左侧新增主题按钮（深色时显示☀️亮色，浅色时显示🌙\
+                深色），仅会话内记忆。关键取舍：合并按钮改变播放入口（编辑模式不再直接播放，用户确认）；不持续强制纵向居中以避免妨碍手动滚动；\
+                不做主题持久化。风险：合并按钮需同步所有状态更新点；行高变化影响场景/背景/键盘/命中测试；旧测试需按新结构更新；浅色下画布语\
+                义色对比度需截图核对。测试策略：工具栏三行结构与左右分组、按钮文案/可用态随模式与脏标记变化、编辑模式点击调用保存；set_r\
+                ow_height 夹紧、Shift+滚轮缩放与锚点、缩放不触发
+                notesChanged；播放开始时黄框居中、停止后滚动不变；水平滚动后键盘几何不变；深浅令牌切换与按钮文案；既有 200
+                项回归。Spec Patch：无。"
+              requirementsEvidence:
+                contentHash: 558d6251b32160bb83c879c97f41e73683e13b3ee26fec9167c0581b5c1404d2
+                ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+              sourceEvidence:
+                contentHash: 23e15284d25ee3bfb28c770671c0c736d4aa6fc0cb0989a9f1e7851a2bda73f3
+                ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+      - handoffContext: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/.comet/handoff/design-context.json
+        handoffHash: a151ce48880baa65186f9d8a83b8b717fb5f746836f344632861b84df9fbddc7
+        proposal: "方案：1) 工具栏改为三行：第一行标题靠左 + 演奏/编辑模式按钮靠右（addStretch
+          吸收）；第二行合并主按钮、曲谱优化、未保存标记靠左，量化与 BPM 靠右；第三行最低映射、最高映射、绝对最低、绝对最高依次靠左。标题
+          16px/600，分组间距 12。2) 保存与弹奏合并到 self.play_btn（保留属性名兼容测试），新增
+          _update_primary_btn() 按「演奏模式 +
+          播放中」计算文案（保存/演奏/停止）、objectName（primaryBtn/stopBtn）与可用状态；编辑模式点击调用
+          save_piano_roll，演奏模式调用 toggle_play；删除 piano_save_btn 并把历史/列表/加载中的
+          setEnabled 改为 _update_primary_btn，播放回调也统一调用它。3) 行高从模块常量改为画布实例
+          _row_height（默认 10，夹紧 6–24），新增 set_row_height(value, anchor)；Shift+滚轮按
+          1.25 倍缩放，以鼠标所在音高为锚点，缩放后调整纵向滚动使该音高留在原视口位置；键盘与背景随行高重绘，场景高度同步，缩放不触发
+          notesChanged。4) 播放纵向聚焦：新增 focus_vertical_range_center()，在
+          set_playhead_locked(True)
+          时调用一次，把黄色音域框上下边界中点滚到视口中心；播放过程不持续强制，停止不改变滚动。5) 主题：theme.py 提供
+          DARK_TOKENS/LIGHT_TOKENS（浅色：页面 #f5f5f5、容器 #ffffff、边框 #d9d9d9、文字
+          rgba(0,0,0,0.88)），主窗口
+          apply_theme/toggle_theme，控制面板标题行在置顶按钮左侧新增主题按钮（深色时显示☀️亮色，浅色时显示🌙深色），仅会\
+          话内记忆。关键取舍：合并按钮改变播放入口（编辑模式不再直接播放，用户确认）；不持续强制纵向居中以避免妨碍手动滚动；不做主题持久化。风险：合\
+          并按钮需同步所有状态更新点；行高变化影响场景/背景/键盘/命中测试；旧测试需按新结构更新；浅色下画布语义色对比度需截图核对。测试策略：工具\
+          栏三行结构与左右分组、按钮文案/可用态随模式与脏标记变化、编辑模式点击调用保存；set_row_height
+          夹紧、Shift+滚轮缩放与锚点、缩放不触发
+          notesChanged；播放开始时黄框居中、停止后滚动不变；水平滚动后键盘几何不变；深浅令牌切换与按钮文案；既有 200 项回归。Spec
+          Patch：无。"
+        requirementsEvidence:
+          contentHash: 558d6251b32160bb83c879c97f41e73683e13b3ee26fec9167c0581b5c1404d2
+          ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+        sourceEvidence:
+          contentHash: 23e15284d25ee3bfb28c770671c0c736d4aa6fc0cb0989a9f1e7851a2bda73f3
+          ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+      - designDoc: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/design.md
+      - contentHash: 98cf0ca8e2d901bb4178c55b312224d9b4eb8788543c998ccb2369c91a7b248e
+        ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/design.md
+      - boundBranch: main
+        buildMode: executing-plans
+        directOverride: false
+        isolation: current
+        reviewMode: standard
+        subagentDispatch: null
+        tddMode: tdd
+      - choice: approved
+        proposal:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+      - designEvidence:
+          contentHash: 98cf0ca8e2d901bb4178c55b312224d9b4eb8788543c998ccb2369c91a7b248e
+          ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/design.md
+        plan: docs/superpowers/plans/2026-11-14-piano-toolbar-zoom-and-theme-modes.md
+        planEvidence:
+          contentHash: 3821fddc407e3e159624a21ffb19f24fedf3f53a33593aad33a11d372517c329
+          ref: docs/superpowers/plans/2026-11-14-piano-toolbar-zoom-and-theme-modes.md
+        taskRevision: 5f0a3fdde727671b2a3e60594a99c42ce0a9ec527f0fed6f4cbd392781f4acd4
+      - contentHash: 3821fddc407e3e159624a21ffb19f24fedf3f53a33593aad33a11d372517c329
+        ref: docs/superpowers/plans/2026-11-14-piano-toolbar-zoom-and-theme-modes.md
+      - event: build-complete
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 2
+        contentHash: 3b36d604ef90ac2e83a6a0bfcaa91c166cc69dfa2c77ce24a994549684f8861a
+        cwd: .
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 0bc17698a76f691487af0ff78d00a65b9051aa46feed711d0c7341c09096eea3
+        inputBefore: 0bc17698a76f691487af0ff78d00a65b9051aa46feed711d0c7341c09096eea3
+        manifestHash: 3d9d2164773f19e07a339b573af00dc3e484af52b010953f9e2a9e5641fce4b8
+        manifestRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/50df77ad-e541-4ed3-b044-51c8d59c074e.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/ff98e34d-368a-4713-afad-22327dc95152.log
+        reusable: false
+        reused: false
+        scope: build
+        tier: full
+        timeoutMs: 300000
+      - contentHash: 3b36d604ef90ac2e83a6a0bfcaa91c166cc69dfa2c77ce24a994549684f8861a
+        ref: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/ff98e34d-368a-4713-afad-22327dc95152.log
+      - contentHash: 76a916b54419bfa7abbc54185b9085aa94369fd543cde3dd7cb12c3e4207e3c7
+        ref: docs/superpowers/reports/2026-11-14-piano-toolbar-zoom-and-theme-modes-verification.md
+      - event: verification-ready
+        verificationReport: docs/superpowers/reports/2026-11-14-piano-toolbar-zoom-and-theme-modes-verification.md
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 3
+        contentHash: eda9253a2d7375cbdde8f43830a552de07d8964488d3b1b339334ae42a8a7815
+        cwd: .
+        deliveryInputs: {}
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: c8828d148abc276c7374e23c946ea92d7038b1e94ad34bd3154430dc5e430d00
+        inputBefore: c8828d148abc276c7374e23c946ea92d7038b1e94ad34bd3154430dc5e430d00
+        manifestHash: 09b4a184c8069648b95ca58d551821fcfe0ef3a1bcd6440bed6def6e36fd2802
+        manifestRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/f3d981bb-8734-4788-b518-3f545e7c336c.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/64d7d302-fc53-4d05-9b8c-a42d6fdacad2.log
+        reusable: false
+        reused: false
+        scope: verify
+        tier: full
+        timeoutMs: 300000
+      - contentHash: eda9253a2d7375cbdde8f43830a552de07d8964488d3b1b339334ae42a8a7815
+        ref: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/64d7d302-fc53-4d05-9b8c-a42d6fdacad2.log
+      - choice: local
+        proposal:
+          input:
+            change: piano-toolbar-zoom-and-theme-modes
+            changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+            workspaceBaseline:
+              ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+          outputs:
+            full.archive.prepare:
+              summary: 铺面工具栏改为三行（标题+模式切换右侧、主按钮/优化左+量化/BPM
+                右、键位与绝对音域左）；保存与演奏合并为按模式切换的主按钮，播放中始终可停止；钢琴窗支持
+                Shift+滚轮纵向缩放（6–24px、鼠标锚点）与播放时音域框纵向居中；控制面板新增会话内亮/暗主题切换，并补齐 antd
+                标题层级与按钮/弹窗样式。214 项测试通过，exe 重新打包。
+              targetBranch: main
+      - summary: 铺面工具栏改为三行（标题+模式切换右侧、主按钮/优化左+量化/BPM
+          右、键位与绝对音域左）；保存与演奏合并为按模式切换的主按钮，播放中始终可停止；钢琴窗支持
+          Shift+滚轮纵向缩放（6–24px、鼠标锚点）与播放时音域框纵向居中；控制面板新增会话内亮/暗主题切换，并补齐 antd
+          标题层级与按钮/弹窗样式。214 项测试通过，exe 重新打包。
+        targetBranch: main
+      - baseCommit: 7d42681fc8616b593aff40a93dcba0c0ba3af236
+        deliveryAction: local
+        targetBranch: main
+        verifiedBranch: main
+      - archiveDirectory: docs/openspec/changes/archive/2026-11-14-piano-toolbar-zoom-and-theme-modes
+      - sequence: 9
+        value:
+          boundBranch: main
+          buildMode: executing-plans
+          directOverride: false
+          isolation: current
+          reviewMode: standard
+          subagentDispatch: null
+          tddMode: tdd
+      - sequence: 10
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: piano-toolbar-zoom-and-theme-modes
+              changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+              workspaceBaseline:
+                ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+            outputs:
+              full.build.configure:
+                boundBranch: main
+                buildMode: executing-plans
+                directOverride: false
+                isolation: current
+                reviewMode: standard
+                subagentDispatch: null
+                tddMode: tdd
+      - sequence: 6
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: piano-toolbar-zoom-and-theme-modes
+              changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+              workspaceBaseline:
+                ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+            outputs:
+              full.design.handoff:
+                handoffContext: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/.comet/handoff/design-context.json
+                handoffHash: a151ce48880baa65186f9d8a83b8b717fb5f746836f344632861b84df9fbddc7
+                proposal: "方案：1) 工具栏改为三行：第一行标题靠左 + 演奏/编辑模式按钮靠右（addStretch
+                  吸收）；第二行合并主按钮、曲谱优化、未保存标记靠左，量化与 BPM
+                  靠右；第三行最低映射、最高映射、绝对最低、绝对最高依次靠左。标题 16px/600，分组间距 12。2) 保存与弹奏合并到
+                  self.play_btn（保留属性名兼容测试），新增 _update_primary_btn() 按「演奏模式 +
+                  播放中」计算文案（保存/演奏/停止）、objectName（primaryBtn/stopBtn）与可用状态；编辑模式点击\
+                  调用 save_piano_roll，演奏模式调用 toggle_play；删除 piano_save_btn
+                  并把历史/列表/加载中的 setEnabled 改为 _update_primary_btn，播放回调也统一调用它。3)
+                  行高从模块常量改为画布实例 _row_height（默认 10，夹紧 6–24），新增
+                  set_row_height(value, anchor)；Shift+滚轮按 1.25
+                  倍缩放，以鼠标所在音高为锚点，缩放后调整纵向滚动使该音高留在原视口位置；键盘与背景随行高重绘，场景高度同步，缩放不触发
+                  notesChanged。4) 播放纵向聚焦：新增 focus_vertical_range_center()，在
+                  set_playhead_locked(True)
+                  时调用一次，把黄色音域框上下边界中点滚到视口中心；播放过程不持续强制，停止不改变滚动。5) 主题：theme.py 提供
+                  DARK_TOKENS/LIGHT_TOKENS（浅色：页面 #f5f5f5、容器 #ffffff、边框
+                  #d9d9d9、文字 rgba(0,0,0,0.88)），主窗口
+                  apply_theme/toggle_theme，控制面板标题行在置顶按钮左侧新增主题按钮（深色时显示☀️亮色，浅色时显示\
+                  🌙深色），仅会话内记忆。关键取舍：合并按钮改变播放入口（编辑模式不再直接播放，用户确认）；不持续强制纵向居中以避免妨碍手\
+                  动滚动；不做主题持久化。风险：合并按钮需同步所有状态更新点；行高变化影响场景/背景/键盘/命中测试；旧测试需按新结构更新；\
+                  浅色下画布语义色对比度需截图核对。测试策略：工具栏三行结构与左右分组、按钮文案/可用态随模式与脏标记变化、编辑模式点击调用\
+                  保存；set_row_height 夹紧、Shift+滚轮缩放与锚点、缩放不触发
+                  notesChanged；播放开始时黄框居中、停止后滚动不变；水平滚动后键盘几何不变；深浅令牌切换与按钮文案；既有 200
+                  项回归。Spec Patch：无。"
+                requirementsEvidence:
+                  contentHash: 558d6251b32160bb83c879c97f41e73683e13b3ee26fec9167c0581b5c1404d2
+                  ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+                sourceEvidence:
+                  contentHash: 23e15284d25ee3bfb28c770671c0c736d4aa6fc0cb0989a9f1e7851a2bda73f3
+                  ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+      - sequence: 7
+        value:
+          designDoc: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/design.md
+      - sequence: 8
+        value:
+          contentHash: 98cf0ca8e2d901bb4178c55b312224d9b4eb8788543c998ccb2369c91a7b248e
+          ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/design.md
+      - sequence: 5
+        value:
+          handoffContext: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/.comet/handoff/design-context.json
+          handoffHash: a151ce48880baa65186f9d8a83b8b717fb5f746836f344632861b84df9fbddc7
+          proposal: "方案：1) 工具栏改为三行：第一行标题靠左 + 演奏/编辑模式按钮靠右（addStretch
+            吸收）；第二行合并主按钮、曲谱优化、未保存标记靠左，量化与 BPM 靠右；第三行最低映射、最高映射、绝对最低、绝对最高依次靠左。标题
+            16px/600，分组间距 12。2) 保存与弹奏合并到 self.play_btn（保留属性名兼容测试），新增
+            _update_primary_btn() 按「演奏模式 +
+            播放中」计算文案（保存/演奏/停止）、objectName（primaryBtn/stopBtn）与可用状态；编辑模式点击调用
+            save_piano_roll，演奏模式调用 toggle_play；删除 piano_save_btn 并把历史/列表/加载中的
+            setEnabled 改为 _update_primary_btn，播放回调也统一调用它。3) 行高从模块常量改为画布实例
+            _row_height（默认 10，夹紧 6–24），新增 set_row_height(value,
+            anchor)；Shift+滚轮按 1.25
+            倍缩放，以鼠标所在音高为锚点，缩放后调整纵向滚动使该音高留在原视口位置；键盘与背景随行高重绘，场景高度同步，缩放不触发
+            notesChanged。4) 播放纵向聚焦：新增 focus_vertical_range_center()，在
+            set_playhead_locked(True)
+            时调用一次，把黄色音域框上下边界中点滚到视口中心；播放过程不持续强制，停止不改变滚动。5) 主题：theme.py 提供
+            DARK_TOKENS/LIGHT_TOKENS（浅色：页面 #f5f5f5、容器 #ffffff、边框 #d9d9d9、文字
+            rgba(0,0,0,0.88)），主窗口
+            apply_theme/toggle_theme，控制面板标题行在置顶按钮左侧新增主题按钮（深色时显示☀️亮色，浅色时显示🌙深色），\
+            仅会话内记忆。关键取舍：合并按钮改变播放入口（编辑模式不再直接播放，用户确认）；不持续强制纵向居中以避免妨碍手动滚动；不做主题持久化。\
+            风险：合并按钮需同步所有状态更新点；行高变化影响场景/背景/键盘/命中测试；旧测试需按新结构更新；浅色下画布语义色对比度需截图核对。测\
+            试策略：工具栏三行结构与左右分组、按钮文案/可用态随模式与脏标记变化、编辑模式点击调用保存；set_row_height
+            夹紧、Shift+滚轮缩放与锚点、缩放不触发
+            notesChanged；播放开始时黄框居中、停止后滚动不变；水平滚动后键盘几何不变；深浅令牌切换与按钮文案；既有 200
+            项回归。Spec Patch：无。"
+          requirementsEvidence:
+            contentHash: 558d6251b32160bb83c879c97f41e73683e13b3ee26fec9167c0581b5c1404d2
+            ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+          sourceEvidence:
+            contentHash: 23e15284d25ee3bfb28c770671c0c736d4aa6fc0cb0989a9f1e7851a2bda73f3
+            ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+      - sequence: 1
+        value:
+          event: open-complete
+      - sequence: 3
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: piano-toolbar-zoom-and-theme-modes
+              changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+              workspaceBaseline:
+                ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+            outputs:
+              full.open:
+                event: open-complete
+              full.open.evidence:
+                contentHash: 6083754315fe00a7133a9c3d7cd945dd385f462dcf82646289ddff061b7d835d
+                ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+      - sequence: 2
+        value:
+          contentHash: 6083754315fe00a7133a9c3d7cd945dd385f462dcf82646289ddff061b7d835d
+          ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+      - sequence: 4
+        value:
+          contentHash: 6083754315fe00a7133a9c3d7cd945dd385f462dcf82646289ddff061b7d835d
+      - sequence: 11
+        value:
+          designEvidence:
+            contentHash: 98cf0ca8e2d901bb4178c55b312224d9b4eb8788543c998ccb2369c91a7b248e
+            ref: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/design.md
+          plan: docs/superpowers/plans/2026-11-14-piano-toolbar-zoom-and-theme-modes.md
+          planEvidence:
+            contentHash: 3821fddc407e3e159624a21ffb19f24fedf3f53a33593aad33a11d372517c329
+            ref: docs/superpowers/plans/2026-11-14-piano-toolbar-zoom-and-theme-modes.md
+          taskRevision: 5f0a3fdde727671b2a3e60594a99c42ce0a9ec527f0fed6f4cbd392781f4acd4
+      - sequence: 12
+        value:
+          contentHash: 3821fddc407e3e159624a21ffb19f24fedf3f53a33593aad33a11d372517c329
+          ref: docs/superpowers/plans/2026-11-14-piano-toolbar-zoom-and-theme-modes.md
+      - sequence: 13
+        value:
+          event: build-complete
+      - sequence: 14
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: 3b36d604ef90ac2e83a6a0bfcaa91c166cc69dfa2c77ce24a994549684f8861a
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 0bc17698a76f691487af0ff78d00a65b9051aa46feed711d0c7341c09096eea3
+          inputBefore: 0bc17698a76f691487af0ff78d00a65b9051aa46feed711d0c7341c09096eea3
+          manifestHash: 3d9d2164773f19e07a339b573af00dc3e484af52b010953f9e2a9e5641fce4b8
+          manifestRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/50df77ad-e541-4ed3-b044-51c8d59c074e.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/ff98e34d-368a-4713-afad-22327dc95152.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      - sequence: 15
+        value:
+          contentHash: 3b36d604ef90ac2e83a6a0bfcaa91c166cc69dfa2c77ce24a994549684f8861a
+          ref: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/ff98e34d-368a-4713-afad-22327dc95152.log
+      - sequence: 17
+        value:
+          contentHash: 76a916b54419bfa7abbc54185b9085aa94369fd543cde3dd7cb12c3e4207e3c7
+          ref: docs/superpowers/reports/2026-11-14-piano-toolbar-zoom-and-theme-modes-verification.md
+      - sequence: 16
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-14-piano-toolbar-zoom-and-theme-modes-verification.md
+      - sequence: 18
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 3
+          contentHash: eda9253a2d7375cbdde8f43830a552de07d8964488d3b1b339334ae42a8a7815
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: c8828d148abc276c7374e23c946ea92d7038b1e94ad34bd3154430dc5e430d00
+          inputBefore: c8828d148abc276c7374e23c946ea92d7038b1e94ad34bd3154430dc5e430d00
+          manifestHash: 09b4a184c8069648b95ca58d551821fcfe0ef3a1bcd6440bed6def6e36fd2802
+          manifestRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/f3d981bb-8734-4788-b518-3f545e7c336c.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/64d7d302-fc53-4d05-9b8c-a42d6fdacad2.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      - sequence: 19
+        value:
+          contentHash: eda9253a2d7375cbdde8f43830a552de07d8964488d3b1b339334ae42a8a7815
+          ref: .comet/runtime/classic-sdk-checks/f9d848beb8e830533b90adbb7c3bee5afbc4540fda89793d936078d88d89f172/64d7d302-fc53-4d05-9b8c-a42d6fdacad2.log
+      - sequence: 21
+        value:
+          choice: local
+          proposal:
+            input:
+              change: piano-toolbar-zoom-and-theme-modes
+              changeDir: docs/openspec/changes/piano-toolbar-zoom-and-theme-modes
+              workspaceBaseline:
+                ref: 7a9b17fb-fd49-4ad0-b3c2-80d9f2125036
+            outputs:
+              full.archive.prepare:
+                summary: 铺面工具栏改为三行（标题+模式切换右侧、主按钮/优化左+量化/BPM
+                  右、键位与绝对音域左）；保存与演奏合并为按模式切换的主按钮，播放中始终可停止；钢琴窗支持
+                  Shift+滚轮纵向缩放（6–24px、鼠标锚点）与播放时音域框纵向居中；控制面板新增会话内亮/暗主题切换，并补齐 antd
+                  标题层级与按钮/弹窗样式。214 项测试通过，exe 重新打包。
+                targetBranch: main
+      - sequence: 20
+        value:
+          summary: 铺面工具栏改为三行（标题+模式切换右侧、主按钮/优化左+量化/BPM
+            右、键位与绝对音域左）；保存与演奏合并为按模式切换的主按钮，播放中始终可停止；钢琴窗支持
+            Shift+滚轮纵向缩放（6–24px、鼠标锚点）与播放时音域框纵向居中；控制面板新增会话内亮/暗主题切换，并补齐 antd
+            标题层级与按钮/弹窗样式。214 项测试通过，exe 重新打包。
+          targetBranch: main
+      - sequence: 22
+        value:
+          baseCommit: 7d42681fc8616b593aff40a93dcba0c0ba3af236
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      - sequence: 23
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-14-piano-toolbar-zoom-and-theme-modes
+    nodes:
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 1
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: 3
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 5
+        left: 6
+        right: 7
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 8
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 7
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 6
+        left: 10
+        right: 11
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 12
+        right: 7
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 13
+        right: 4
+        height: 4
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 16
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 11
+        right: 7
+        height: 2
+      - key: full.design.document
+        value: 6
+        left: 17
+        right: 18
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 19
+        right: 4
+        height: 4
+      - key: full.build.plan
+        value: 10
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 11
+        left: 21
+        right: 22
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 23
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 4
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 24
+        right: 25
+        height: 4
+      - key: full.build.execute
+        value: 12
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 27
+        height: 2
+      - key: full.build.plan.evidence
+        value: 11
+        left: null
+        right: 22
+        height: 2
+      - key: full.build.plan
+        value: 10
+        left: 28
+        right: 29
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 30
+        right: 25
+        height: 4
+      - key: full.build.check
+        value: 13
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 14
+        left: 32
+        right: 33
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 34
+        right: 27
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 35
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 25
+        height: 5
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 16
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 15
+        left: null
+        right: 39
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: 40
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 41
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 42
+        height: 5
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 18
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 15
+        left: 45
+        right: 39
+        height: 2
+      - key: full.verify.check
+        value: 17
+        left: 44
+        right: 46
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 47
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 48
+        height: 5
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 13
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 20
+        left: 50
+        right: 51
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 33
+        right: 27
+        height: 2
+      - key: full.build.check.evidence
+        value: 14
+        left: 52
+        right: 53
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 54
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 55
+        right: 48
+        height: 5
+      - key: full.archive.preflight
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: 57
+        height: 2
+      - key: full.archive.prepare
+        value: 20
+        left: 58
+        right: 51
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 53
+        right: 29
+        height: 3
+      - key: full.build.check.evidence
+        value: 14
+        left: 59
+        right: 60
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 61
+        right: 48
+        height: 5
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 22
+        left: 63
+        right: 64
+        height: 2
+      - key: full.archive.prepare
+        value: 20
+        left: 65
+        right: 51
+        height: 3
+      - key: full.build.check.evidence
+        value: 14
+        left: 66
+        right: 60
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 67
+        right: 48
+        height: 5
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 70
+        height: 2
+      - key: full.design.evidence
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: 72
+        right: 73
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: 75
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 76
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 71
+        right: 77
+        height: 4
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: 79
+        right: 80
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 81
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 82
+        right: 77
+        height: 4
+      - key: full.build.execute
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 84
+        height: 2
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: 80
+        height: 2
+      - key: full.build.plan
+        value: 33
+        left: 85
+        right: 86
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 87
+        right: 77
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: 89
+        right: 90
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 91
+        right: 84
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 92
+        right: 86
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 77
+        height: 5
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: null
+        right: 96
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: 95
+        right: 97
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 98
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 99
+        height: 5
+      - key: full.open.revalidate
+        value: 32
+        left: 95
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: 102
+        right: 96
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 101
+        right: 103
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 104
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 105
+        height: 5
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 43
+        left: 107
+        right: 108
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 90
+        right: 84
+        height: 2
+      - key: full.build.check.evidence
+        value: 37
+        left: 109
+        right: 110
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 111
+        right: 86
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 112
+        right: 105
+        height: 5
+      - key: full.archive.preflight
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: 114
+        height: 2
+      - key: full.archive.prepare
+        value: 43
+        left: 115
+        right: 108
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 110
+        right: 86
+        height: 3
+      - key: full.build.check.evidence
+        value: 37
+        left: 116
+        right: 117
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 118
+        right: 105
+        height: 5
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 45
+        left: 120
+        right: 121
+        height: 2
+      - key: full.archive.prepare
+        value: 43
+        left: 122
+        right: 108
+        height: 3
+      - key: full.build.check.evidence
+        value: 37
+        left: 123
+        right: 117
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 124
+        right: 105
+        height: 5
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 30
+        left: 126
+        right: 127
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: 129
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 126
+        right: 130
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: 132
+        right: 133
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 134
+        right: 130
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: 136
+        right: 137
+        height: 2
+      - key: full.design.handoff
+        value: 28
+        left: 138
+        right: 133
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 139
+        right: 130
+        height: 4
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: 141
+        height: 2
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 144
+        right: 145
+        height: 2
+      - key: full.open
+        value: 29
+        left: 143
+        right: 146
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: 149
+        right: 150
+        height: 2
+      - key: full.design.confirm
+        value: 25
+        left: 148
+        right: 151
+        height: 3
+      - key: full.open
+        value: 29
+        left: 152
+        right: 146
+        height: 4
+      - key: full.archive.prepare
+        value: 43
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 36
+        left: 154
+        right: 155
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: 158
+        height: 2
+      - key: full.build.execute
+        value: 35
+        left: 157
+        right: 159
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: 156
+        right: 160
+        height: 4
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 144
+        right: 162
+        height: 2
+      - key: full.verify.check.evidence
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: 164
+        right: 165
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 163
+        right: 166
+        height: 3
+      - key: full.open
+        value: 29
+        left: 151
+        right: 167
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 161
+        right: 168
+        height: 5
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: 171
+        right: 172
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 175
+        height: 2
+      - key: full.open
+        value: 29
+        left: 173
+        right: 176
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 178
+        right: 179
+        height: 2
+      - key: full.design.document
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: 181
+        right: 182
+        height: 2
+      - key: full.design.confirm
+        value: 25
+        left: 180
+        right: 183
+        height: 3
+      - key: full.open
+        value: 29
+        left: 184
+        right: 176
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: 186
+        right: null
+        height: 2
+      - key: full.build.execute
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: 188
+        right: 189
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 187
+        right: 190
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 176
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: 191
+        right: 192
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: 194
+        right: 195
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 196
+        right: 190
+        height: 3
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: 198
+        height: 2
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 199
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 200
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 197
+        right: 201
+        height: 5
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 203
+        height: 2
+      - key: full.verify.report.evidence
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: 205
+        right: null
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 204
+        right: 206
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 207
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 197
+        right: 208
+        height: 5
+    maps:
+      - null
+      - 2
+      - 5
+      - 9
+      - 14
+      - 20
+      - 26
+      - 31
+      - 37
+      - 43
+      - 49
+      - 56
+      - 62
+      - 68
+      - 78
+      - 83
+      - 88
+      - 94
+      - 100
+      - 106
+      - 113
+      - 119
+      - 125
+      - 128
+      - 131
+      - 135
+      - 140
+      - 142
+      - 147
+      - 153
+      - 169
+      - 170
+      - 177
+      - 185
+      - 193
+      - 202
+      - 209
+    bindings:
+      - path:
+          - actions
+          - "0"
+          - input
+          - outputs
+        map: 0
+      - path:
+          - actions
+          - "1"
+          - input
+          - outputs
+        map: 1
+      - path:
+          - actions
+          - "2"
+          - input
+          - outputs
+        map: 2
+      - path:
+          - actions
+          - "3"
+          - input
+          - outputs
+        map: 3
+      - path:
+          - actions
+          - "4"
+          - input
+          - outputs
+        map: 4
+      - path:
+          - actions
+          - "5"
+          - input
+          - outputs
+        map: 5
+      - path:
+          - actions
+          - "6"
+          - input
+          - outputs
+        map: 6
+      - path:
+          - actions
+          - "7"
+          - input
+          - outputs
+        map: 7
+      - path:
+          - actions
+          - "8"
+          - input
+          - outputs
+        map: 8
+      - path:
+          - actions
+          - "9"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "10"
+          - input
+          - outputs
+        map: 10
+      - path:
+          - actions
+          - "11"
+          - input
+          - outputs
+        map: 11
+      - path:
+          - actions
+          - "12"
+          - input
+          - outputs
+        map: 12
+      - path:
+          - actions
+          - "13"
+          - input
+          - outputs
+        map: 13
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:1
+          - results
+        map: 0
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:11
+          - results
+        map: 14
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:13
+          - results
+        map: 15
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:14
+          - results
+        map: 16
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:16
+          - results
+        map: 17
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:18
+          - results
+        map: 18
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:20
+          - results
+        map: 19
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:22
+          - results
+        map: 20
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:23
+          - results
+        map: 21
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:24
+          - results
+        map: 22
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:4
+          - results
+        map: 23
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:5
+          - results
+        map: 24
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:7
+          - results
+        map: 25
+      - path:
+          - actionContexts
+          - piano-toolbar-zoom-and-theme-modes:9
+          - results
+        map: 26
+      - path:
+          - outputs
+        map: 22
+      - path:
+          - waits
+          - "0"
+          - results
+        map: 27
+      - path:
+          - waits
+          - "1"
+          - results
+        map: 28
+      - path:
+          - waits
+          - "2"
+          - results
+        map: 29
+      - path:
+          - waits
+          - "3"
+          - results
+        map: 30
+      - path:
+          - evidenceWaits
+          - "0"
+          - results
+        map: 31
+      - path:
+          - evidenceWaits
+          - "1"
+          - results
+        map: 32
+      - path:
+          - evidenceWaits
+          - "2"
+          - results
+        map: 33
+      - path:
+          - evidenceWaits
+          - "3"
+          - results
+        map: 34
+      - path:
+          - evidenceWaits
+          - "4"
+          - results
+        map: 35
+      - path:
+          - evidenceWaits
+          - "5"
+          - results
+        map: 36
+  storageHash: a2a6256cb2622fea91dcd1373cfe0d0059193c9f62510873265aae3ff11f0cde
+check_epoch: 6

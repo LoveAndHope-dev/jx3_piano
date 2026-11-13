@@ -1,0 +1,18 @@
+{
+  "change": "piano-toolbar-zoom-and-theme-modes",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "task_hash_policy": "task-content-v1",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "a151ce48880baa65186f9d8a83b8b717fb5f746836f344632861b84df9fbddc7",
+  "files": [
+    { "path": "docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/proposal.md", "sha256": "c7f15dfd98c207b1cb754d845b2d2710593caba1a8a9f09d26c6ad3e1b2ff112" },
+    { "path": "docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/design.md", "sha256": "54579a70f674177b87dd2a06087d62908c1b63ffeba4e37e43c794efeb2cf471" },
+    { "path": "docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/tasks.md", "sha256": "5f0a3fdde727671b2a3e60594a99c42ce0a9ec527f0fed6f4cbd392781f4acd4" },
+    { "path": "docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/.openspec.yaml", "sha256": "2e91af4681be83038a92e715cfb64d8067b4c8399c2b25074da27a778869f3aa" },
+    { "path": "docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/specs/piano-roll-view/spec.md", "sha256": "b0785dfaffc009026bb5dddb1b438e4ecedd3a0013946525c29f391731a22cd2" },
+    { "path": "docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/specs/piano-toolbar/spec.md", "sha256": "528537db09534ac3dc1b059dd754e8f3df18a186202a641a307d59e8ae407a93" },
+    { "path": "docs/openspec/changes/piano-toolbar-zoom-and-theme-modes/specs/ui-design-system/spec.md", "sha256": "4d869f7cbad33c3b4c1c5d483189c53dbac54398e11cd893ea260df1f4073cda" }
+  ]
+}

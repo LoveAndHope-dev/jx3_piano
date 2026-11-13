@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>变更说明 · 铺面工具栏改为三行并合并保存/演奏按钮；钢琴窗支持 Shift+滚轮纵向缩放与播放纵向聚焦；控制面板新增亮/暗主题切换</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --page: #fafbfc;
+  --ink: #202a35;
+  --muted: #566575;
+  --line: #dbe2e8;
+  --accent: #245b85;
+  --highlight: #edf3f7;
+  --hover: #e9eef3;
+  --code-bg: #edf0f4;
+  --code-ink: #263443;
+  --success: #236d4f;
+  --failure: #a83131;
+  --text: 15px;
+  --small: 13px;
+  --label: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #181d23;
+    --ink: #e4eaf0;
+    --muted: #a4b1be;
+    --line: #35404b;
+    --accent: #94c6ec;
+    --highlight: #222e39;
+    --hover: #27323d;
+    --code-bg: #10161d;
+    --code-ink: #e0e8f0;
+    --success: #8ed8b5;
+    --failure: #ffb0a8;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: var(--text)/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { max-width: 1040px; margin: auto; padding: 32px 32px 48px; }
+.eyebrow { color: var(--accent); font-size: var(--label); font-weight: 500; letter-spacing: .08em; }
+h1 { margin: 8px 0 12px; max-width: 32em; font-size: 28px; font-weight: 500; line-height: 1.4; letter-spacing: -.02em; overflow-wrap: anywhere; }
+h2 { margin: 0; font-size: 18px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+h3 { margin: 0 0 4px; color: var(--muted); font-size: var(--label); font-weight: 500; }
+p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+strong { font-weight: 500; }
+.meta { margin-bottom: 24px; color: var(--muted); font-size: var(--small); overflow-wrap: anywhere; }
+.meta p + p { margin-top: 2px; }
+article { padding: 20px 0 12px; border-top: 1px solid var(--line); }
+article header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.number { color: var(--muted); font: var(--label)/1.5 ui-monospace, Consolas, monospace; font-variant-numeric: tabular-nums; }
+.comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.comparison section { min-width: 0; padding: 12px; }
+.after { background: var(--highlight); border-radius: 4px; }
+.after h3 { color: var(--accent); }
+.reason { margin-top: 12px; font-size: var(--small); color: var(--muted); }
+.reason strong { margin-right: 8px; color: var(--ink); }
+summary { min-height: 44px; padding: 10px 4px; cursor: pointer; font-size: var(--small); font-weight: 500; border-radius: 4px; }
+summary:hover { background: var(--hover); }
+summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.count, .tag { color: var(--muted); font-size: var(--label); font-weight: 400; }
+.count { margin-left: 4px; font-variant-numeric: tabular-nums; }
+.file { min-width: 0; padding: 0 0 16px; scroll-margin-top: 20px; }
+.file:target { outline: 2px solid var(--accent); outline-offset: 4px; }
+.file-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.file-heading code { min-width: 0; font-size: var(--small); overflow-wrap: anywhere; }
+.tag { white-space: nowrap; }
+pre { margin: 8px 0 0; padding: 12px 16px; overflow: auto; background: var(--code-bg); color: var(--code-ink); border-radius: 4px; font: var(--small)/1.65 ui-monospace, Consolas, monospace; tab-size: 2; }
+footer { margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--line); }
+footer h2 { margin-bottom: 8px; }
+.check { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.status { padding-top: 2px; font-size: var(--label); font-weight: 500; }
+.passed { color: var(--success); }
+.failed { color: var(--failure); }
+.not-run, .unknown { color: var(--muted); }
+.check p { margin-top: 2px; color: var(--muted); font-size: var(--small); }
+.more { border-top: 1px solid var(--line); }
+.more > summary { padding-block: 12px; }
+.diagram { margin: 0; padding: 20px 0; border-top: 1px solid var(--line); }
+.diagram figcaption { margin-bottom: 12px; font-size: 18px; font-weight: 500; overflow-wrap: anywhere; }
+.diagram-svg { display: block; max-width: 100%; height: auto; margin: auto; overflow: visible; font: 13px system-ui, -apple-system, "Segoe UI", sans-serif; }
+.diagram-svg text { fill: var(--ink); }
+.diagram-edge { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+.diagram-svg marker path { fill: var(--muted); }
+.diagram-edge-label { fill: var(--page); }
+.diagram-svg .diagram-edge-text { fill: var(--muted); font-size: 12px; }
+.diagram-node rect { fill: var(--page); stroke: var(--line); stroke-width: 1.5; }
+.diagram-node.modified rect { fill: var(--highlight); stroke: var(--accent); }
+.diagram-node.added rect { stroke: var(--success); }
+.diagram-node.deleted rect { stroke: var(--failure); stroke-dasharray: 4 3; }
+.diagram-svg .diagram-kind { fill: var(--muted); font-size: 11px; }
+.diagram-node[href] { cursor: pointer; }
+.diagram-node[href]:hover rect, .diagram-node[href]:focus-visible rect { stroke: var(--accent); stroke-width: 2.5; }
+.diagram-node[href]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.diagram-hint { margin-top: 12px; color: var(--muted); font-size: var(--small); text-align: center; }
+.diagram-comparison { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; }
+.diagram-comparison > section { min-width: 0; padding: 12px; border: 1px solid var(--line); border-radius: 4px; }
+.diagram-comparison > section > h3 { margin-bottom: 12px; }
+.diagram-compact { display: none; }
+@media (max-width: 999px) {
+  .diagram-wide { display: none; }
+  .diagram-compact { display: block; }
+}
+@media (max-width: 640px) {
+  main { padding: 24px 16px 32px; }
+  h1 { font-size: 24px; }
+  .meta { margin-bottom: 20px; }
+  article { padding-top: 16px; }
+  article header { gap: 8px; }
+  .comparison { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .check { grid-template-columns: 60px minmax(0, 1fr); gap: 8px; }
+  pre { padding: 12px; }
+  .diagram-comparison { grid-template-columns: minmax(0,1fr); }
+  .diagram-comparison > section { padding: 12px 0; border: 0; }
+}
+</style></head><body><main><div class="eyebrow">COMET / 变更说明</div><h1>铺面工具栏改为三行并合并保存/演奏按钮；钢琴窗支持 Shift+滚轮纵向缩放与播放纵向聚焦；控制面板新增亮/暗主题切换</h1><div class="meta"><p>比较范围 · 比较范围 961757b..9121a26；功能行为除「编辑模式不再直接播放」外保持不变</p><p>生成时间 · 2026-11-13T17:20:36.771Z</p></div><article><header><span class="number">01</span><h2>工具栏三行</h2></header><div class="comparison"><section><h3>原来</h3><p>两行混排：播放、保存、模式切换、键位与音域、量化与 BPM 全部挤在一起</p></section><section class="after"><h3>现在</h3><p>第一行标题+模式切换（右侧），第二行主按钮/曲谱优化靠左、量化/BPM 靠右，第三行键位与绝对音域靠左</p></section></div><p class="reason"><strong>原因</strong> 按使用频率分层，常用操作固定位置</p><details><summary>查看文件和关键代码 <span class="count">1</span></summary><div class="file" id="walkthrough-file-0-0"><div class="file-heading"><span class="tag">修改</span><code>app/ui/piano_page.py:13</code></div><pre><code>三行 QHBoxLayout 重排</code></pre></div></details></article><article><header><span class="number">02</span><h2>保存与演奏合并</h2></header><div class="comparison"><section><h3>原来</h3><p>独立的「弹奏」与「保存」两个按钮</p></section><section class="after"><h3>现在</h3><p>一个主按钮：编辑模式保存，演奏模式演奏/停止；状态由 _update_primary_btn 统一</p></section></div><p class="reason"><strong>原因</strong> 当前模式下只保留一个主操作</p><details><summary>查看文件和关键代码 <span class="count">2</span></summary><div class="file" id="walkthrough-file-1-0"><div class="file-heading"><span class="tag">修改</span><code>app/ui/piano_page.py:356</code></div><pre><code>_update_primary_btn / on_primary_action</code></pre></div><div class="file" id="walkthrough-file-1-1"><div class="file-heading"><span class="tag">修改</span><code>app/playback.py:105</code></div><pre><code>播放状态变化统一刷新主按钮</code></pre></div></details></article><article><header><span class="number">03</span><h2>纵向缩放与聚焦</h2></header><div class="comparison"><section><h3>原来</h3><p>只能横向缩放；播放时音域框可能不在视野中央</p></section><section class="after"><h3>现在</h3><p>Shift+滚轮以鼠标音高为锚点缩放行高（6–24px）；播放开始时黄框纵向居中</p></section></div><p class="reason"><strong>原因</strong> 便于查看全音域并保持播放焦点</p><details><summary>查看文件和关键代码 <span class="count">2</span></summary><div class="file" id="walkthrough-file-2-0"><div class="file-heading"><span class="tag">修改</span><code>piano_roll/canvas.py:105</code></div><pre><code>row_height / set_row_height / focus_vertical_range_center</code></pre></div><div class="file" id="walkthrough-file-2-1"><div class="file-heading"><span class="tag">修改</span><code>piano_roll/canvas_input.py:363</code></div><pre><code>Shift+滚轮纵向缩放</code></pre></div></details></article><details class="more"><summary>其余变化 (1)</summary><div><article><header><span class="number">04</span><h2>亮/暗主题</h2></header><div class="comparison"><section><h3>原来</h3><p>只有深色 antd 令牌</p></section><section class="after"><h3>现在</h3><p>控制面板切换深/浅两套令牌，会话内记忆</p></section></div><p class="reason"><strong>原因</strong> 适应不同环境光</p><details><summary>查看文件和关键代码 <span class="count">2</span></summary><div class="file" id="walkthrough-file-3-0"><div class="file-heading"><span class="tag">修改</span><code>app/ui/theme.py:1</code></div><pre><code>DARK_TOKENS / LIGHT_TOKENS</code></pre></div><div class="file" id="walkthrough-file-3-1"><div class="file-heading"><span class="tag">修改</span><code>app/main_window.py:62</code></div><pre><code>apply_theme / toggle_theme 与切换按钮</code></pre></div></details></article></div></details><footer><h2>实际验证</h2><div class="check"><span class="status passed">通过</span><div><strong>Builder 自检</strong><p>.venv\Scripts\python.exe -m unittest discover -s tests，214 项通过；exe 打包</p></div></div><div class="check"><span class="status passed">通过</span><div><strong>独立审查</strong><p>发现播放中离开演奏模式会失去停止入口的 Critical，以及停止按钮宽度、焦点重复触发、浅色禁用对比度等，均已修复并补测试</p></div></div><div class="check"><span class="status passed">通过</span><div><strong>Runtime 检查</strong><p>comet guard build ALL CHECKS PASSED</p></div></div></footer></main><template id="walkthrough-data">eyJzdW1tYXJ5Ijoi6ZO66Z2i5bel5YW35qCP5pS55Li65LiJ6KGM5bm25ZCI5bm25L+d5a2YL+a8lOWlj+aMiemSru+8m+mSoueQtOeql+aUr+aMgSBTaGlmdCvmu5rova7nurXlkJHnvKnmlL7kuI7mkq3mlL7nurXlkJHogZrnhKbvvJvmjqfliLbpnaLmnb/mlrDlop7kuq4v5pqX5Li76aKY5YiH5o2iIiwic2NvcGUiOiLmr5TovoPojIPlm7QgOTYxNzU3Yi4uOTEyMWEyNu+8m+WKn+iDveihjOS4uumZpOOAjOe8lui+keaooeW8j+S4jeWGjeebtOaOpeaSreaUvuOAjeWkluS/neaMgeS4jeWPmCIsImNoYW5nZXMiOlt7InRpdGxlIjoi5bel5YW35qCP5LiJ6KGMIiwiYmVmb3JlIjoi5Lik6KGM5re35o6S77ya5pKt5pS+44CB5L+d5a2Y44CB5qih5byP5YiH5o2i44CB6ZSu5L2N5LiO6Z+z5Z+f44CB6YeP5YyW5LiOIEJQTSDlhajpg6jmjKTlnKjkuIDotbciLCJhZnRlciI6IuesrOS4gOihjOagh+mimCvmqKHlvI/liIfmjaLvvIjlj7PkvqfvvInvvIznrKzkuozooYzkuLvmjInpkq4v5puy6LCx5LyY5YyW6Z2g5bem44CB6YeP5YyWL0JQTSDpnaDlj7PvvIznrKzkuInooYzplK7kvY3kuI7nu53lr7npn7Pln5/pnaDlt6YiLCJyZWFzb24iOiLmjInkvb/nlKjpopHnjofliIblsYLvvIzluLjnlKjmk43kvZzlm7rlrprkvY3nva4iLCJmaWxlcyI6W3sicGF0aCI6ImFwcC91aS9waWFub19wYWdlLnB5OjEzIiwia2luZCI6Im1vZGlmaWVkIiwiY29kZSI6IuS4ieihjCBRSEJveExheW91dCDph43mjpIifV19LHsidGl0bGUiOiLkv53lrZjkuI7mvJTlpY/lkIjlubYiLCJiZWZvcmUiOiLni6znq4vnmoTjgIzlvLnlpY/jgI3kuI7jgIzkv53lrZjjgI3kuKTkuKrmjInpkq4iLCJhZnRlciI6IuS4gOS4quS4u+aMiemSru+8mue8lui+keaooeW8j+S/neWtmO+8jOa8lOWlj+aooeW8j+a8lOWljy/lgZzmraLvvJvnirbmgIHnlLEgX3VwZGF0ZV9wcmltYXJ5X2J0biDnu5/kuIAiLCJyZWFzb24iOiLlvZPliY3mqKHlvI/kuIvlj6rkv53nlZnkuIDkuKrkuLvmk43kvZwiLCJmaWxlcyI6W3sicGF0aCI6ImFwcC91aS9waWFub19wYWdlLnB5OjM1NiIsImtpbmQiOiJtb2RpZmllZCIsImNvZGUiOiJfdXBkYXRlX3ByaW1hcnlfYnRuIC8gb25fcHJpbWFyeV9hY3Rpb24ifSx7InBhdGgiOiJhcHAvcGxheWJhY2sucHk6MTA1Iiwia2luZCI6Im1vZGlmaWVkIiwiY29kZSI6IuaSreaUvueKtuaAgeWPmOWMlue7n+S4gOWIt+aWsOS4u+aMiemSriJ9XX0seyJ0aXRsZSI6Iue6teWQkee8qeaUvuS4juiBmueEpiIsImJlZm9yZSI6IuWPquiDveaoquWQkee8qeaUvu+8m+aSreaUvuaXtumfs+Wfn+ahhuWPr+iDveS4jeWcqOinhumHjuS4reWkriIsImFmdGVyIjoiU2hpZnQr5rua6L2u5Lul6byg5qCH6Z+z6auY5Li66ZSa54K557yp5pS+6KGM6auY77yINuKAkzI0cHjvvInvvJvmkq3mlL7lvIDlp4vml7bpu4TmoYbnurXlkJHlsYXkuK0iLCJyZWFzb24iOiLkvr/kuo7mn6XnnIvlhajpn7Pln5/lubbkv53mjIHmkq3mlL7nhKbngrkiLCJmaWxlcyI6W3sicGF0aCI6InBpYW5vX3JvbGwvY2FudmFzLnB5OjEwNSIsImtpbmQiOiJtb2RpZmllZCIsImNvZGUiOiJyb3dfaGVpZ2h0IC8gc2V0X3Jvd19oZWlnaHQgLyBmb2N1c192ZXJ0aWNhbF9yYW5nZV9jZW50ZXIifSx7InBhdGgiOiJwaWFub19yb2xsL2NhbnZhc19pbnB1dC5weTozNjMiLCJraW5kIjoibW9kaWZpZWQiLCJjb2RlIjoiU2hpZnQr5rua6L2u57q15ZCR57yp5pS+In1dfSx7InRpdGxlIjoi5LquL+aal+S4u+mimCIsImJlZm9yZSI6IuWPquaciea3seiJsiBhbnRkIOS7pOeJjCIsImFmdGVyIjoi5o6n5Yi26Z2i5p2/5YiH5o2i5rexL+a1heS4pOWll+S7pOeJjO+8jOS8muivneWGheiusOW/hiIsInJlYXNvbiI6IumAguW6lOS4jeWQjOeOr+Wig+WFiSIsImZpbGVzIjpbeyJwYXRoIjoiYXBwL3VpL3RoZW1lLnB5OjEiLCJraW5kIjoibW9kaWZpZWQiLCJjb2RlIjoiREFSS19UT0tFTlMgLyBMSUdIVF9UT0tFTlMifSx7InBhdGgiOiJhcHAvbWFpbl93aW5kb3cucHk6NjIiLCJraW5kIjoibW9kaWZpZWQiLCJjb2RlIjoiYXBwbHlfdGhlbWUgLyB0b2dnbGVfdGhlbWUg5LiO5YiH5o2i5oyJ6ZKuIn1dfV0sInZlcmlmaWNhdGlvbiI6W3sibGFiZWwiOiJCdWlsZGVyIOiHquajgCIsInN0YXR1cyI6InBhc3NlZCIsImRldGFpbCI6Ii52ZW52XFxTY3JpcHRzXFxweXRob24uZXhlIC1tIHVuaXR0ZXN0IGRpc2NvdmVyIC1zIHRlc3Rz77yMMjE0IOmhuemAmui/h++8m2V4ZSDmiZPljIUifSx7ImxhYmVsIjoi54us56uL5a6h5p+lIiwic3RhdHVzIjoicGFzc2VkIiwiZGV0YWlsIjoi5Y+R546w5pKt5pS+5Lit56a75byA5ryU5aWP5qih5byP5Lya5aSx5Y675YGc5q2i5YWl5Y+j55qEIENyaXRpY2Fs77yM5Lul5Y+K5YGc5q2i5oyJ6ZKu5a695bqm44CB54Sm54K56YeN5aSN6Kem5Y+R44CB5rWF6Imy56aB55So5a+55q+U5bqm562J77yM5Z2H5bey5L+u5aSN5bm26KGl5rWL6K+VIn0seyJsYWJlbCI6IlJ1bnRpbWUg5qOA5p+lIiwic3RhdHVzIjoicGFzc2VkIiwiZGV0YWlsIjoiY29tZXQgZ3VhcmQgYnVpbGQgQUxMIENIRUNLUyBQQVNTRUQifV19</template></body></html>

@@ -1,0 +1,2739 @@
+# comet-execution: managed-run
+change_id: 5c90e6fd-bdd2-4078-b1f6-61e9012fad44
+workflow: full
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: executing-plans
+build_pause: null
+subagent_dispatch: null
+tdd_mode: tdd
+review_mode: standard
+isolation: current
+verify_mode: null
+auto_transition: true
+base_ref: 3479117b6d62ee87768608c1332e9418234a533c
+design_doc: docs/openspec/changes/archive/2026-11-14-refactor-project-structure-and-antd-theme/design.md
+plan: docs/superpowers/plans/2026-11-14-refactor-project-structure-and-antd-theme.md
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-14-refactor-project-structure-and-antd-theme-verification.md
+branch_status: pending
+created_at: 2026-11-13
+verified_at: 2026-11-13
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: false
+handoff_context: docs/openspec/changes/archive/2026-11-14-refactor-project-structure-and-antd-theme/.comet/handoff/design-context.json
+handoff_hash: e480ed50d692c6808bf41241991c47e10bc609f66e6ecb5611180d2a345089db
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v2
+  hash: ab9e85651ed0896a3c5a468b6618abbba6d754105552a43bee8c39996e4f7d91
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: refactor-project-structure-and-antd-theme
+    revision: 1
+    workflow:
+      id: comet-classic-full
+      version: "1"
+      hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    definitionHashes:
+      '["comet-classic-full","1"]': ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    initialStateHash: 84317ff6147e26b8af7409857648df771047ff296f9dd5fd045f4eb912ce3c9f
+    input:
+      change: refactor-project-structure-and-antd-theme
+      changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+      workspaceBaseline:
+        ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 3479117b6d62ee87768608c1332e9418234a533c
+      boundBranch: main
+      branchStatus: pending
+      buildMode: executing-plans
+      buildPause: null
+      checkEpoch: 6
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-13
+      designDoc: docs/openspec/changes/archive/2026-11-14-refactor-project-structure-and-antd-theme/design.md
+      directOverride: false
+      handoffContext: docs/openspec/changes/archive/2026-11-14-refactor-project-structure-and-antd-theme/.comet/handoff/design-context.json
+      handoffHash: e480ed50d692c6808bf41241991c47e10bc609f66e6ecb5611180d2a345089db
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: docs/superpowers/plans/2026-11-14-refactor-project-structure-and-antd-theme.md
+      reviewMode: standard
+      subagentDispatch: null
+      tddMode: tdd
+      verificationReport: docs/superpowers/reports/2026-11-14-refactor-project-structure-and-antd-theme-verification.md
+      verifiedAt: 2026-11-13
+      verifyFailures: 0
+      verifyMode: null
+      verifyResult: pass
+      workflow: full
+    status: running
+    sequence: 24
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-c42e11971c7ce8aaaa0eb412e74a73d75f830d256dfdb46dd46b4b241e30eefc
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:1
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: d74ffa1654e30e9004b1c60fb05391f34e521c2bae0ee2e92eec6269d1d9347d
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:1
+          attempt: 1
+          claimToken: portable-c42e11971c7ce8aaaa0eb412e74a73d75f830d256dfdb46dd46b4b241e30eefc
+          inputHash: d74ffa1654e30e9004b1c60fb05391f34e521c2bae0ee2e92eec6269d1d9347d
+          outcomeId: 945c09b3-9d10-43ea-a9ff-a41fd1833287
+          output:
+            event: open-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 54433c987414477f1875f177269353ae6dc258e85a0adcb637bbab467ee5cb81
+            outcomeId: 945c09b3-9d10-43ea-a9ff-a41fd1833287
+        reconciliations: []
+        ref: comet-open
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-open-revalidate
+          token: portable-b293bae6119d6b32473b5facf2edb95fa55f53effb9aee962159404e02d60934
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:4
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: 0f502d7933fd5cf23c3cd3f372da8707e3949a19b0125ebaed1ed012571d925f
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:4
+          attempt: 1
+          claimToken: portable-b293bae6119d6b32473b5facf2edb95fa55f53effb9aee962159404e02d60934
+          inputHash: 0f502d7933fd5cf23c3cd3f372da8707e3949a19b0125ebaed1ed012571d925f
+          outcomeId: refactor-project-structure-and-antd-theme:4:1:executor-result
+          output:
+            contentHash: 0600ef99a0a1b053dd23f5e8c3a845858782491c310598898a560aacb7479ec4
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: b5a272eea7ca19fb25b289f51ab930954e0cdff93ef2a62b24c9df09a425f7f0
+            outcomeId: refactor-project-structure-and-antd-theme:4:1:executor-result
+        reconciliations: []
+        ref: classic-open-revalidate
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.open.revalidate
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-319e771c21341cdce7a1186d111c5d7f4637e8a6f223c1a2c0cc91611ecb6c5c
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:5
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: e2d4743bc980987bf9a8936628c33915312db35c023cba9e04d67dca90675293
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:5
+          attempt: 1
+          claimToken: portable-319e771c21341cdce7a1186d111c5d7f4637e8a6f223c1a2c0cc91611ecb6c5c
+          inputHash: e2d4743bc980987bf9a8936628c33915312db35c023cba9e04d67dca90675293
+          outcomeId: a4ce1b29-d893-4d0e-9e6f-fc09ba5a0680
+          output:
+            handoffContext: docs/openspec/changes/refactor-project-structure-and-antd-theme/.comet/handoff/design-context.json
+            handoffHash: e480ed50d692c6808bf41241991c47e10bc609f66e6ecb5611180d2a345089db
+            proposal: "方案：1) 保留 gui.py / piano_roll.py / build_music.py 作为薄门面，只做 re-export
+              并保留测试会替换的模块级名字（QPushButton、QMessageBox、get_midi_dir_path
+              等），实现移到新包，导入路径与公开类名零改动，188 项测试与 build_exe.py 不需要修改。2) gui 按职责拆
+              mixin：app/main_window.py 只保留状态初始化、装配与 closeEvent；app/ui/theme.py
+              提供令牌与样式生成；app/ui/piano_page.py（铺面页装配、加载、BPM、量化、音域、曲谱优化、保存）、playli\
+              st_page.py（搜索/排序/列表行/导入/新建/删除/选中）、log_page.py（日志与置顶）；app/history.\
+              py（快照/撤销/前进/未保存）、app/playback.py（开始/停止/进度/完成与线程生命周期）；app/workers/\
+              （PlayThread、BatchConversionWorker）。选择 mixin 而非纯组合，因为窗口 API
+              被测试和信号广泛使用，纯组合需要数百处转发，回归风险与收益不匹配。3) piano_roll
+              拆包：geometry.py（时间/像素换算、缩放、音符数学等纯函数）、painting.py（绘制辅助）、canvas.py（状\
+              态、交互、剪贴板、信号）、ruler.py、widget.py；__init__.py re-export。4) music
+              拆包：mapping.py（键位阶梯/映射/音名/移调）、midi_io.py（extract_notes/write_notes\
+              _to_midi）、analysis.py（文件分析/速度拍号/自动选轨）、playback.py（播放数据与代码生成）、conv\
+              erter.py（MidiToKeysConverter 薄委托，公开方法不变）、cli.py；build_music.py
+              门面保留 __main__。5) antd 深色令牌：colorPrimary #1677ff、colorBgBase
+              #141414、colorBgContainer #1f1f1f、colorBorder
+              #424242、三级文字色、成功/警告/错误色、间距 4/8/12/16/24、圆角 2/4/6/8、字号
+              12/14/16/20、controlHeight 32；build_stylesheet(tokens) 生成全局
+              QSS，统一按钮/输入/下拉 32px 高 6px 圆角、卡片式分组 1px 边框 8px 圆角 16px
+              内边距、下划线标签页、8px 滚动条；铺面画布语义色保留在 piano_roll。6) 分六步迁移并每步全量测试：主题 →
+              workers/history → ui 页面 → piano_roll 包 → music 包 →
+              视觉复查与打包。关键取舍：不做完全组合式重构；不重排功能位置；不改浅色主题；不做差量重写。风险：mixin 仍共享
+              self、导入循环（从具体模块导入避免）、PyInstaller 漏收新包（必要时 hidden-import）、QSS
+              选择器变化（保留 objectName）、深色对比度（offscreen 截图核对）。测试策略：既有 188
+              项回归；新增结构冒烟（公开导入与名称、单文件行数）、主题令牌完整性与 QSS 含主色且不含旧主色
+              #3498DB；打包后启动冒烟。Spec Patch：无。"
+            requirementsEvidence:
+              contentHash: 6675e33c778e96dc1601903953aa230401372ece886ccff531a772b0691b8183
+              ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            sourceEvidence:
+              contentHash: e5e7a4a447b62e8b07b1f8ea2aa3be1e9d22358c6d566b8cf68b080290f0b72d
+              ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 6e03cbd0e641e3a9af3d6c2929c2a47d3184da1b8edbbf3167c571f1bafda774
+            outcomeId: a4ce1b29-d893-4d0e-9e6f-fc09ba5a0680
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.design.handoff
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-91e3a30bc14871d5eec36dc8f777994a9a400094c9cb6ed27e52a36a9f6a83f4
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:7
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: 54a1a65696a7eec7918563e78822deef72f5e8dd192279339ef90251c63075eb
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:7
+          attempt: 1
+          claimToken: portable-91e3a30bc14871d5eec36dc8f777994a9a400094c9cb6ed27e52a36a9f6a83f4
+          inputHash: 54a1a65696a7eec7918563e78822deef72f5e8dd192279339ef90251c63075eb
+          outcomeId: baee426b-821a-4bac-8c84-315bdbb5bd53
+          output:
+            designDoc: docs/openspec/changes/refactor-project-structure-and-antd-theme/design.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 1771dc3aedfffc9b4d589b123b7ded1c58d7dcc563464fb8bed26f412f17b29a
+            outcomeId: baee426b-821a-4bac-8c84-315bdbb5bd53
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.design.document
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-0077f96eabfca5c42c6e61a04b44561894efd2e8c2d89c65b7584c2245cc1573
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:9
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: d711c0a65847b67d876b7544f320d7feecf99d54f85730ec609f38cf387df5aa
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:9
+          attempt: 1
+          claimToken: portable-0077f96eabfca5c42c6e61a04b44561894efd2e8c2d89c65b7584c2245cc1573
+          inputHash: d711c0a65847b67d876b7544f320d7feecf99d54f85730ec609f38cf387df5aa
+          outcomeId: ce132c10-0814-4b0f-bac2-ca81f2216cbe
+          output:
+            boundBranch: main
+            buildMode: executing-plans
+            directOverride: false
+            isolation: current
+            reviewMode: standard
+            subagentDispatch: null
+            tddMode: tdd
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 415ede177619e4dee07f06b5bb8dffec44aa32adc3be73e0c658d9218267e815
+            outcomeId: ce132c10-0814-4b0f-bac2-ca81f2216cbe
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.build.configure
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-bb22f264e89e4e1b566908c3300c517e2f68f5acab1c7311a310932e9c7f2423
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:11
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: 44a25180a441ae03223ad3f1c5929f55273166b56b450cd95cf81bff2364d261
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:11
+          attempt: 1
+          claimToken: portable-bb22f264e89e4e1b566908c3300c517e2f68f5acab1c7311a310932e9c7f2423
+          inputHash: 44a25180a441ae03223ad3f1c5929f55273166b56b450cd95cf81bff2364d261
+          outcomeId: 6f6ad40f-b70c-4ceb-ae56-d3929448d0ea
+          output:
+            designEvidence:
+              contentHash: 5eab7be2a0687f6c9046be99e10d46ee635d6674477d14ba3c65cf710c9e4702
+              ref: docs/openspec/changes/refactor-project-structure-and-antd-theme/design.md
+            plan: docs/superpowers/plans/2026-11-14-refactor-project-structure-and-antd-theme.md
+            planEvidence:
+              contentHash: b91a0cd224cb884a29c08c5a6f75cd61d44cff039d2634b309f1aca73f28de87
+              ref: docs/superpowers/plans/2026-11-14-refactor-project-structure-and-antd-theme.md
+            taskRevision: 4dc86c0f5064a175f0eefa9ced4b83871023dfcfbd59516b96891df113ebc4f3
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: bceb92929ed80ee796a8eca09a982cc5f0186c22ba296fd5aaff60536557f8ba
+            outcomeId: 6f6ad40f-b70c-4ceb-ae56-d3929448d0ea
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.build.plan
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/refactor-project-structure-and-antd-theme:13/1
+          token: portable-a1c1490e7bfefefb8b2e0aa75d7b8b9e68293da903f6689f161026c9e1c70edd
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:13
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: bfdf19b6eaedd9b7a2e823e3de8a4e5943e35511825e1d38359db0e7b7848317
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:13
+          attempt: 1
+          claimToken: portable-a1c1490e7bfefefb8b2e0aa75d7b8b9e68293da903f6689f161026c9e1c70edd
+          inputHash: bfdf19b6eaedd9b7a2e823e3de8a4e5943e35511825e1d38359db0e7b7848317
+          outcomeId: 68ae9d99-57d9-428e-8c7e-f0ae8f1f835b
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 4a783161dd95cb33fe0f02e21a1b39a50b835614edfadc57c0489151d44feedb
+            outcomeId: 68ae9d99-57d9-428e-8c7e-f0ae8f1f835b
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-4ae9bcc275aafd776ffc6430412419984781302e980aff0ec774ca56c2afa890
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:14
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: c24e3714b98ae169a757b331bf44091bf2b190c4f9885cb4a7cf002fa4981aae
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:14
+          attempt: 1
+          claimToken: portable-4ae9bcc275aafd776ffc6430412419984781302e980aff0ec774ca56c2afa890
+          inputHash: c24e3714b98ae169a757b331bf44091bf2b190c4f9885cb4a7cf002fa4981aae
+          outcomeId: b18ec2e6-3220-4652-81d2-fdcd1d885552
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: a0d409aff366de5d8e02716378edf3b03d836d88c034fe4d5bc5b71b85ba4107
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 8726014861d0130c502301501e514a442633276f7d4fcaac9e96737a1c7e964a
+            inputBefore: 8726014861d0130c502301501e514a442633276f7d4fcaac9e96737a1c7e964a
+            manifestHash: db4ee84f47fcb1e1b377304038a231f33e183e468c76b9b1ff06b19d1d7dc8a8
+            manifestRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/0c7fdd4c-7f39-4826-b145-b216c5af81be.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/cdb896c6-b786-440b-ba5e-eb7df1ef7b25.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 381aa4f82d0a2975dbffe8cc9cab8b22bbc3bb315db3a6b414388c4fceb64fd5
+            outcomeId: b18ec2e6-3220-4652-81d2-fdcd1d885552
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-83b652ce7ad64dcfce974ec1c05093d10a27fb14de338a2540b2f3e03e1ffa2f
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:16
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: 0364e6cae12935492f637c73e41a8891e654fea0e69041722efb00d19977fae0
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:16
+          attempt: 1
+          claimToken: portable-83b652ce7ad64dcfce974ec1c05093d10a27fb14de338a2540b2f3e03e1ffa2f
+          inputHash: 0364e6cae12935492f637c73e41a8891e654fea0e69041722efb00d19977fae0
+          outcomeId: d540a0d1-ad5d-419f-ad0d-91c01d6056ff
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-14-refactor-project-structure-and-antd-theme-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 259f82f78835178ae616bff369ea9e2d71d4f1cd142d03eaae868968e9d0cf6f
+            outcomeId: d540a0d1-ad5d-419f-ad0d-91c01d6056ff
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-ea14f92a1c77c56ff429473844a8a9a08895f94c8111c0b252d11ecb268021a8
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:18
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: b6ac9f0cd35bacef650bc084d78a3ba0256a8bd357bac279fe31f86fbe74a322
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:18
+          attempt: 1
+          claimToken: portable-ea14f92a1c77c56ff429473844a8a9a08895f94c8111c0b252d11ecb268021a8
+          inputHash: b6ac9f0cd35bacef650bc084d78a3ba0256a8bd357bac279fe31f86fbe74a322
+          outcomeId: 2700c8ae-6a6c-4a8c-9627-c1fa1a400ee1
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 3
+            contentHash: 0a98dda537faae7d8792e3f880f4c39153464fa76c04d8300aeb33c05e1d515f
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 9d072e759c0d5fb299091e7b45103ab45583cf618b40b0b30c503f8fd85323a7
+            inputBefore: 9d072e759c0d5fb299091e7b45103ab45583cf618b40b0b30c503f8fd85323a7
+            manifestHash: 001302df7457bcb976202571434ed47c5d5cfe345c376ba36673f547ce01e90e
+            manifestRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/7e617ad2-e277-45ae-bdbc-05c085fafab8.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/22191817-57f0-492a-af4e-89075996e828.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 654414e4140dad54c2fc3592fff13d31c9ccdac094bf95c46d0d4b463542db77
+            outcomeId: 2700c8ae-6a6c-4a8c-9627-c1fa1a400ee1
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-6cd55e7a2d068b6288a530992dbf1a6e93607d5396fb221be4fc2e624be694e5
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:20
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: 659b31e6da5038ecf2c9483c33ad9506a81240f2ce8d2d52e106596d924ac789
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:20
+          attempt: 1
+          claimToken: portable-6cd55e7a2d068b6288a530992dbf1a6e93607d5396fb221be4fc2e624be694e5
+          inputHash: 659b31e6da5038ecf2c9483c33ad9506a81240f2ce8d2d52e106596d924ac789
+          outcomeId: 532c6c37-69b8-4b41-8e7d-7199acadc315
+          output:
+            summary: "把三个千行级文件拆成 app/、piano_roll/、music/ 包（所有模块 <800 行），入口保留薄门面；新增
+              app/ui/theme.py 的 Ant Design 深色令牌统一界面（主色 #1677ff、8px 网格、6px
+              圆角、32px 控件），并补齐按钮 pressed/disabled、派生选中色与弹窗样式。200 项测试通过，exe
+              重新打包并启动冒烟。"
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 909c6db817770df7bc109f23d62737cbdc21d8a540359ad5b8783dcbc65e611a
+            outcomeId: 532c6c37-69b8-4b41-8e7d-7199acadc315
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-82bce87687407c185f5602292f031fcc8ad9506a1c66bc80a2f798546bafb174
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:22
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: b59b2ad6631c923ce2a4300af85783570dc84af453c2be2c33e588d5f1f9be4b
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:22
+          attempt: 1
+          claimToken: portable-82bce87687407c185f5602292f031fcc8ad9506a1c66bc80a2f798546bafb174
+          inputHash: b59b2ad6631c923ce2a4300af85783570dc84af453c2be2c33e588d5f1f9be4b
+          outcomeId: 325f2e6a-dc47-415d-afd7-f1894b5248ec
+          output:
+            baseCommit: ab4e2257f94f88ccc8cf8be09af5db6346663604
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: d14e545e10fc70d6f95d8d44c736187c8cc600429ac3c68ee5f46a1da4ec3b3d
+            outcomeId: 325f2e6a-dc47-415d-afd7-f1894b5248ec
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-b797498698c19919980fec4d77a73d2ba6a18718016f6df18bab6a39f976a3d0
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: refactor-project-structure-and-antd-theme:23
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: 22239f5ef3d1d96123a35188c410de392703988d52aff9c1b39c0c2ab4350c4a
+        outcome:
+          actionId: refactor-project-structure-and-antd-theme:23
+          artifacts:
+            - sha256: bf5b63c3bc72670b637503332ef4d0cf41897a055bd9aa88c4785813f504a893
+              uri: docs/openspec/changes/archive/2026-11-14-refactor-project-structure-and-antd-theme/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-b797498698c19919980fec4d77a73d2ba6a18718016f6df18bab6a39f976a3d0
+          inputHash: 22239f5ef3d1d96123a35188c410de392703988d52aff9c1b39c0c2ab4350c4a
+          outcomeId: e2720cd7-eef4-4245-bcd6-0a2280a9742c
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-14-refactor-project-structure-and-antd-theme
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 61b4e92b50c644bff54a19777cb2305fb01f7e430719b2ba8d0f2db17674173d
+            outcomeId: e2720cd7-eef4-4245-bcd6-0a2280a9742c
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: succeeded
+        stepId: full.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: refactor-project-structure-and-antd-theme:24
+        input:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs: {}
+        inputHash: 94045f56d355386d944faaa9edfbc03201b72cc085ba8c8a6dab5b0f7b195504
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: refactor-project-structure-and-antd-theme
+        status: pending
+        stepId: full.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      refactor-project-structure-and-antd-theme:1:
+        results: {}
+        sequence: 1
+      refactor-project-structure-and-antd-theme:11:
+        results: {}
+        sequence: 11
+      refactor-project-structure-and-antd-theme:13:
+        results: {}
+        sequence: 13
+      refactor-project-structure-and-antd-theme:14:
+        results: {}
+        sequence: 14
+      refactor-project-structure-and-antd-theme:16:
+        results: {}
+        sequence: 16
+      refactor-project-structure-and-antd-theme:18:
+        results: {}
+        sequence: 18
+      refactor-project-structure-and-antd-theme:20:
+        results: {}
+        sequence: 20
+      refactor-project-structure-and-antd-theme:22:
+        results: {}
+        sequence: 22
+      refactor-project-structure-and-antd-theme:23:
+        results: {}
+        sequence: 23
+      refactor-project-structure-and-antd-theme:24:
+        results: {}
+        sequence: 24
+      refactor-project-structure-and-antd-theme:4:
+        results: {}
+        sequence: 4
+      refactor-project-structure-and-antd-theme:5:
+        results: {}
+        sequence: 5
+      refactor-project-structure-and-antd-theme:7:
+        results: {}
+        sequence: 7
+      refactor-project-structure-and-antd-theme:9:
+        results: {}
+        sequence: 9
+    waits:
+      - id: refactor-project-structure-and-antd-theme:3
+        stepId: full.open.confirm
+        sequence: 3
+        status: resolved
+        proposal:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 0600ef99a0a1b053dd23f5e8c3a845858782491c310598898a560aacb7479ec4
+              ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+        proposalHash: 5fe78befb649bea5de7f4fa7f7969a910576089f94bf9e11c0336a2f3b675740
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-open-0600ef99a0a1b053dd23f5e8c3a845858782491c310598898a560aacb7479ec4
+          choice: approved
+          proposalHash: 5fe78befb649bea5de7f4fa7f7969a910576089f94bf9e11c0336a2f3b675740
+      - id: refactor-project-structure-and-antd-theme:6
+        stepId: full.design.confirm
+        sequence: 6
+        status: resolved
+        proposal:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/refactor-project-structure-and-antd-theme/.comet/handoff/design-context.json
+              handoffHash: e480ed50d692c6808bf41241991c47e10bc609f66e6ecb5611180d2a345089db
+              proposal: "方案：1) 保留 gui.py / piano_roll.py / build_music.py 作为薄门面，只做 re-export
+                并保留测试会替换的模块级名字（QPushButton、QMessageBox、get_midi_dir_path
+                等），实现移到新包，导入路径与公开类名零改动，188 项测试与 build_exe.py 不需要修改。2) gui 按职责拆
+                mixin：app/main_window.py 只保留状态初始化、装配与 closeEvent；app/ui/theme.py
+                提供令牌与样式生成；app/ui/piano_page.py（铺面页装配、加载、BPM、量化、音域、曲谱优化、保存）、play\
+                list_page.py（搜索/排序/列表行/导入/新建/删除/选中）、log_page.py（日志与置顶）；app/hist\
+                ory.py（快照/撤销/前进/未保存）、app/playback.py（开始/停止/进度/完成与线程生命周期）；app/wo\
+                rkers/（PlayThread、BatchConversionWorker）。选择 mixin 而非纯组合，因为窗口 API
+                被测试和信号广泛使用，纯组合需要数百处转发，回归风险与收益不匹配。3) piano_roll
+                拆包：geometry.py（时间/像素换算、缩放、音符数学等纯函数）、painting.py（绘制辅助）、canvas.py\
+                （状态、交互、剪贴板、信号）、ruler.py、widget.py；__init__.py re-export。4) music
+                拆包：mapping.py（键位阶梯/映射/音名/移调）、midi_io.py（extract_notes/write_not\
+                es_to_midi）、analysis.py（文件分析/速度拍号/自动选轨）、playback.py（播放数据与代码生成）、\
+                converter.py（MidiToKeysConverter
+                薄委托，公开方法不变）、cli.py；build_music.py 门面保留 __main__。5) antd
+                深色令牌：colorPrimary #1677ff、colorBgBase #141414、colorBgContainer
+                #1f1f1f、colorBorder #424242、三级文字色、成功/警告/错误色、间距 4/8/12/16/24、圆角
+                2/4/6/8、字号 12/14/16/20、controlHeight 32；build_stylesheet(tokens)
+                生成全局 QSS，统一按钮/输入/下拉 32px 高 6px 圆角、卡片式分组 1px 边框 8px 圆角 16px
+                内边距、下划线标签页、8px 滚动条；铺面画布语义色保留在 piano_roll。6) 分六步迁移并每步全量测试：主题 →
+                workers/history → ui 页面 → piano_roll 包 → music 包 →
+                视觉复查与打包。关键取舍：不做完全组合式重构；不重排功能位置；不改浅色主题；不做差量重写。风险：mixin 仍共享
+                self、导入循环（从具体模块导入避免）、PyInstaller 漏收新包（必要时 hidden-import）、QSS
+                选择器变化（保留 objectName）、深色对比度（offscreen 截图核对）。测试策略：既有 188
+                项回归；新增结构冒烟（公开导入与名称、单文件行数）、主题令牌完整性与 QSS 含主色且不含旧主色
+                #3498DB；打包后启动冒烟。Spec Patch：无。"
+              requirementsEvidence:
+                contentHash: 6675e33c778e96dc1601903953aa230401372ece886ccff531a772b0691b8183
+                ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+              sourceEvidence:
+                contentHash: e5e7a4a447b62e8b07b1f8ea2aa3be1e9d22358c6d566b8cf68b080290f0b72d
+                ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+        proposalHash: c0355802eba2a5381bee344236f68f74a13591bb78eea7586bce8a069b78fc7b
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-design-c0355802eba2a5381bee344236f68f74a13591bb78eea7586bce8a069b78fc7b-approved
+          choice: approved
+          proposalHash: c0355802eba2a5381bee344236f68f74a13591bb78eea7586bce8a069b78fc7b
+      - id: refactor-project-structure-and-antd-theme:10
+        stepId: full.build.confirm
+        sequence: 10
+        status: resolved
+        proposal:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+        proposalHash: dcfb6ff095352c6db36f625295dcc581d5169edd3bb3211d8fa2e378fc299cb3
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: 87f31884-0252-4113-9043-a7f74aa8731b
+          choice: approved
+          proposalHash: dcfb6ff095352c6db36f625295dcc581d5169edd3bb3211d8fa2e378fc299cb3
+      - id: refactor-project-structure-and-antd-theme:21
+        stepId: full.archive.confirm
+        sequence: 21
+        status: resolved
+        proposal:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs:
+            full.archive.prepare:
+              summary: "把三个千行级文件拆成 app/、piano_roll/、music/ 包（所有模块 <800 行），入口保留薄门面；新增
+                app/ui/theme.py 的 Ant Design 深色令牌统一界面（主色 #1677ff、8px 网格、6px
+                圆角、32px 控件），并补齐按钮 pressed/disabled、派生选中色与弹窗样式。200 项测试通过，exe
+                重新打包并启动冒烟。"
+              targetBranch: main
+        proposalHash: 1c63cc5a8ec6c750ca511c958da38188a3f3742c4ce56cad1537a92d34e8e865
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results: {}
+        decision:
+          id: classic-archive-1c63cc5a8ec6c750ca511c958da38188a3f3742c4ce56cad1537a92d34e8e865-local
+          choice: local
+          proposalHash: 1c63cc5a8ec6c750ca511c958da38188a3f3742c4ce56cad1537a92d34e8e865
+    evidenceWaits:
+      - id: refactor-project-structure-and-antd-theme:2
+        stepId: full.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+          contentHash: 0600ef99a0a1b053dd23f5e8c3a845858782491c310598898a560aacb7479ec4
+          submissionId: 0e4383b5-c850-4cab-b5d8-df02955b2cb6
+      - id: refactor-project-structure-and-antd-theme:8
+        stepId: full.design.evidence
+        sequence: 8
+        kind: classic-design-document
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/refactor-project-structure-and-antd-theme/design.md
+          contentHash: 5eab7be2a0687f6c9046be99e10d46ee635d6674477d14ba3c65cf710c9e4702
+          submissionId: 88cae7f9-bd92-4534-a222-1dbeb84cea9c
+      - id: refactor-project-structure-and-antd-theme:12
+        stepId: full.build.plan.evidence
+        sequence: 12
+        kind: classic-build-plan
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/plans/2026-11-14-refactor-project-structure-and-antd-theme.md
+          contentHash: b91a0cd224cb884a29c08c5a6f75cd61d44cff039d2634b309f1aca73f28de87
+          submissionId: ae1c68ad-9a83-41c7-a5b7-a4fdad6425cf
+      - id: refactor-project-structure-and-antd-theme:15
+        stepId: full.build.check.evidence
+        sequence: 15
+        kind: classic-build-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/cdb896c6-b786-440b-ba5e-eb7df1ef7b25.log
+          contentHash: a0d409aff366de5d8e02716378edf3b03d836d88c034fe4d5bc5b71b85ba4107
+          submissionId: 9b22fb96-78bd-4361-90c9-fe2c1a34c5a7
+      - id: refactor-project-structure-and-antd-theme:17
+        stepId: full.verify.report.evidence
+        sequence: 17
+        kind: classic-verification-report
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/reports/2026-11-14-refactor-project-structure-and-antd-theme-verification.md
+          contentHash: 8b5a13b19b5ecabce49cba9c53272540ce09f33024a98930157837d5eab63ba7
+          submissionId: 03a760c0-75d9-434f-9858-2d99b3c99a7e
+      - id: refactor-project-structure-and-antd-theme:19
+        stepId: full.verify.check.evidence
+        sequence: 19
+        kind: classic-verify-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/22191817-57f0-492a-af4e-89075996e828.log
+          contentHash: 0a98dda537faae7d8792e3f880f4c39153464fa76c04d8300aeb33c05e1d515f
+          submissionId: dcd79c6e-5b74-494f-9daf-898d7c59661d
+    ready: []
+    joins: {}
+    outputs: {}
+    children: []
+    lineage: []
+  sourceRevision: 37
+  sourceHash: 07a1761091aba5526cc9a105e81eab233e0ee661ed2046bcbd0e8db22d5f9028
+  pool:
+    version: 3
+    values:
+      - event: open-complete
+      - choice: approved
+        proposal:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: 0600ef99a0a1b053dd23f5e8c3a845858782491c310598898a560aacb7479ec4
+              ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+      - contentHash: 0600ef99a0a1b053dd23f5e8c3a845858782491c310598898a560aacb7479ec4
+        ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+      - contentHash: 0600ef99a0a1b053dd23f5e8c3a845858782491c310598898a560aacb7479ec4
+      - choice: approved
+        proposal:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/refactor-project-structure-and-antd-theme/.comet/handoff/design-context.json
+              handoffHash: e480ed50d692c6808bf41241991c47e10bc609f66e6ecb5611180d2a345089db
+              proposal: "方案：1) 保留 gui.py / piano_roll.py / build_music.py 作为薄门面，只做 re-export
+                并保留测试会替换的模块级名字（QPushButton、QMessageBox、get_midi_dir_path
+                等），实现移到新包，导入路径与公开类名零改动，188 项测试与 build_exe.py 不需要修改。2) gui 按职责拆
+                mixin：app/main_window.py 只保留状态初始化、装配与 closeEvent；app/ui/theme.py
+                提供令牌与样式生成；app/ui/piano_page.py（铺面页装配、加载、BPM、量化、音域、曲谱优化、保存）、play\
+                list_page.py（搜索/排序/列表行/导入/新建/删除/选中）、log_page.py（日志与置顶）；app/hist\
+                ory.py（快照/撤销/前进/未保存）、app/playback.py（开始/停止/进度/完成与线程生命周期）；app/wo\
+                rkers/（PlayThread、BatchConversionWorker）。选择 mixin 而非纯组合，因为窗口 API
+                被测试和信号广泛使用，纯组合需要数百处转发，回归风险与收益不匹配。3) piano_roll
+                拆包：geometry.py（时间/像素换算、缩放、音符数学等纯函数）、painting.py（绘制辅助）、canvas.py\
+                （状态、交互、剪贴板、信号）、ruler.py、widget.py；__init__.py re-export。4) music
+                拆包：mapping.py（键位阶梯/映射/音名/移调）、midi_io.py（extract_notes/write_not\
+                es_to_midi）、analysis.py（文件分析/速度拍号/自动选轨）、playback.py（播放数据与代码生成）、\
+                converter.py（MidiToKeysConverter
+                薄委托，公开方法不变）、cli.py；build_music.py 门面保留 __main__。5) antd
+                深色令牌：colorPrimary #1677ff、colorBgBase #141414、colorBgContainer
+                #1f1f1f、colorBorder #424242、三级文字色、成功/警告/错误色、间距 4/8/12/16/24、圆角
+                2/4/6/8、字号 12/14/16/20、controlHeight 32；build_stylesheet(tokens)
+                生成全局 QSS，统一按钮/输入/下拉 32px 高 6px 圆角、卡片式分组 1px 边框 8px 圆角 16px
+                内边距、下划线标签页、8px 滚动条；铺面画布语义色保留在 piano_roll。6) 分六步迁移并每步全量测试：主题 →
+                workers/history → ui 页面 → piano_roll 包 → music 包 →
+                视觉复查与打包。关键取舍：不做完全组合式重构；不重排功能位置；不改浅色主题；不做差量重写。风险：mixin 仍共享
+                self、导入循环（从具体模块导入避免）、PyInstaller 漏收新包（必要时 hidden-import）、QSS
+                选择器变化（保留 objectName）、深色对比度（offscreen 截图核对）。测试策略：既有 188
+                项回归；新增结构冒烟（公开导入与名称、单文件行数）、主题令牌完整性与 QSS 含主色且不含旧主色
+                #3498DB；打包后启动冒烟。Spec Patch：无。"
+              requirementsEvidence:
+                contentHash: 6675e33c778e96dc1601903953aa230401372ece886ccff531a772b0691b8183
+                ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+              sourceEvidence:
+                contentHash: e5e7a4a447b62e8b07b1f8ea2aa3be1e9d22358c6d566b8cf68b080290f0b72d
+                ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+      - handoffContext: docs/openspec/changes/refactor-project-structure-and-antd-theme/.comet/handoff/design-context.json
+        handoffHash: e480ed50d692c6808bf41241991c47e10bc609f66e6ecb5611180d2a345089db
+        proposal: "方案：1) 保留 gui.py / piano_roll.py / build_music.py 作为薄门面，只做 re-export
+          并保留测试会替换的模块级名字（QPushButton、QMessageBox、get_midi_dir_path
+          等），实现移到新包，导入路径与公开类名零改动，188 项测试与 build_exe.py 不需要修改。2) gui 按职责拆
+          mixin：app/main_window.py 只保留状态初始化、装配与 closeEvent；app/ui/theme.py
+          提供令牌与样式生成；app/ui/piano_page.py（铺面页装配、加载、BPM、量化、音域、曲谱优化、保存）、playlist_p\
+          age.py（搜索/排序/列表行/导入/新建/删除/选中）、log_page.py（日志与置顶）；app/history.py（快照/撤销\
+          /前进/未保存）、app/playback.py（开始/停止/进度/完成与线程生命周期）；app/workers/（PlayThread、\
+          BatchConversionWorker）。选择 mixin 而非纯组合，因为窗口 API
+          被测试和信号广泛使用，纯组合需要数百处转发，回归风险与收益不匹配。3) piano_roll
+          拆包：geometry.py（时间/像素换算、缩放、音符数学等纯函数）、painting.py（绘制辅助）、canvas.py（状态、交互\
+          、剪贴板、信号）、ruler.py、widget.py；__init__.py re-export。4) music
+          拆包：mapping.py（键位阶梯/映射/音名/移调）、midi_io.py（extract_notes/write_notes_to_\
+          midi）、analysis.py（文件分析/速度拍号/自动选轨）、playback.py（播放数据与代码生成）、converter.py\
+          （MidiToKeysConverter 薄委托，公开方法不变）、cli.py；build_music.py 门面保留
+          __main__。5) antd 深色令牌：colorPrimary #1677ff、colorBgBase
+          #141414、colorBgContainer #1f1f1f、colorBorder
+          #424242、三级文字色、成功/警告/错误色、间距 4/8/12/16/24、圆角 2/4/6/8、字号
+          12/14/16/20、controlHeight 32；build_stylesheet(tokens) 生成全局
+          QSS，统一按钮/输入/下拉 32px 高 6px 圆角、卡片式分组 1px 边框 8px 圆角 16px 内边距、下划线标签页、8px
+          滚动条；铺面画布语义色保留在 piano_roll。6) 分六步迁移并每步全量测试：主题 → workers/history → ui 页面
+          → piano_roll 包 → music 包 →
+          视觉复查与打包。关键取舍：不做完全组合式重构；不重排功能位置；不改浅色主题；不做差量重写。风险：mixin 仍共享
+          self、导入循环（从具体模块导入避免）、PyInstaller 漏收新包（必要时 hidden-import）、QSS 选择器变化（保留
+          objectName）、深色对比度（offscreen 截图核对）。测试策略：既有 188
+          项回归；新增结构冒烟（公开导入与名称、单文件行数）、主题令牌完整性与 QSS 含主色且不含旧主色 #3498DB；打包后启动冒烟。Spec
+          Patch：无。"
+        requirementsEvidence:
+          contentHash: 6675e33c778e96dc1601903953aa230401372ece886ccff531a772b0691b8183
+          ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+        sourceEvidence:
+          contentHash: e5e7a4a447b62e8b07b1f8ea2aa3be1e9d22358c6d566b8cf68b080290f0b72d
+          ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+      - designDoc: docs/openspec/changes/refactor-project-structure-and-antd-theme/design.md
+      - contentHash: 5eab7be2a0687f6c9046be99e10d46ee635d6674477d14ba3c65cf710c9e4702
+        ref: docs/openspec/changes/refactor-project-structure-and-antd-theme/design.md
+      - boundBranch: main
+        buildMode: executing-plans
+        directOverride: false
+        isolation: current
+        reviewMode: standard
+        subagentDispatch: null
+        tddMode: tdd
+      - choice: approved
+        proposal:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+      - designEvidence:
+          contentHash: 5eab7be2a0687f6c9046be99e10d46ee635d6674477d14ba3c65cf710c9e4702
+          ref: docs/openspec/changes/refactor-project-structure-and-antd-theme/design.md
+        plan: docs/superpowers/plans/2026-11-14-refactor-project-structure-and-antd-theme.md
+        planEvidence:
+          contentHash: b91a0cd224cb884a29c08c5a6f75cd61d44cff039d2634b309f1aca73f28de87
+          ref: docs/superpowers/plans/2026-11-14-refactor-project-structure-and-antd-theme.md
+        taskRevision: 4dc86c0f5064a175f0eefa9ced4b83871023dfcfbd59516b96891df113ebc4f3
+      - contentHash: b91a0cd224cb884a29c08c5a6f75cd61d44cff039d2634b309f1aca73f28de87
+        ref: docs/superpowers/plans/2026-11-14-refactor-project-structure-and-antd-theme.md
+      - event: build-complete
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 2
+        contentHash: a0d409aff366de5d8e02716378edf3b03d836d88c034fe4d5bc5b71b85ba4107
+        cwd: .
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 8726014861d0130c502301501e514a442633276f7d4fcaac9e96737a1c7e964a
+        inputBefore: 8726014861d0130c502301501e514a442633276f7d4fcaac9e96737a1c7e964a
+        manifestHash: db4ee84f47fcb1e1b377304038a231f33e183e468c76b9b1ff06b19d1d7dc8a8
+        manifestRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/0c7fdd4c-7f39-4826-b145-b216c5af81be.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/cdb896c6-b786-440b-ba5e-eb7df1ef7b25.log
+        reusable: false
+        reused: false
+        scope: build
+        tier: full
+        timeoutMs: 300000
+      - contentHash: a0d409aff366de5d8e02716378edf3b03d836d88c034fe4d5bc5b71b85ba4107
+        ref: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/cdb896c6-b786-440b-ba5e-eb7df1ef7b25.log
+      - contentHash: 8b5a13b19b5ecabce49cba9c53272540ce09f33024a98930157837d5eab63ba7
+        ref: docs/superpowers/reports/2026-11-14-refactor-project-structure-and-antd-theme-verification.md
+      - event: verification-ready
+        verificationReport: docs/superpowers/reports/2026-11-14-refactor-project-structure-and-antd-theme-verification.md
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 3
+        contentHash: 0a98dda537faae7d8792e3f880f4c39153464fa76c04d8300aeb33c05e1d515f
+        cwd: .
+        deliveryInputs: {}
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: 9d072e759c0d5fb299091e7b45103ab45583cf618b40b0b30c503f8fd85323a7
+        inputBefore: 9d072e759c0d5fb299091e7b45103ab45583cf618b40b0b30c503f8fd85323a7
+        manifestHash: 001302df7457bcb976202571434ed47c5d5cfe345c376ba36673f547ce01e90e
+        manifestRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/7e617ad2-e277-45ae-bdbc-05c085fafab8.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/22191817-57f0-492a-af4e-89075996e828.log
+        reusable: false
+        reused: false
+        scope: verify
+        tier: full
+        timeoutMs: 300000
+      - contentHash: 0a98dda537faae7d8792e3f880f4c39153464fa76c04d8300aeb33c05e1d515f
+        ref: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/22191817-57f0-492a-af4e-89075996e828.log
+      - choice: local
+        proposal:
+          input:
+            change: refactor-project-structure-and-antd-theme
+            changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+            workspaceBaseline:
+              ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+          outputs:
+            full.archive.prepare:
+              summary: "把三个千行级文件拆成 app/、piano_roll/、music/ 包（所有模块 <800 行），入口保留薄门面；新增
+                app/ui/theme.py 的 Ant Design 深色令牌统一界面（主色 #1677ff、8px 网格、6px
+                圆角、32px 控件），并补齐按钮 pressed/disabled、派生选中色与弹窗样式。200 项测试通过，exe
+                重新打包并启动冒烟。"
+              targetBranch: main
+      - summary: "把三个千行级文件拆成 app/、piano_roll/、music/ 包（所有模块 <800 行），入口保留薄门面；新增
+          app/ui/theme.py 的 Ant Design 深色令牌统一界面（主色 #1677ff、8px 网格、6px 圆角、32px
+          控件），并补齐按钮 pressed/disabled、派生选中色与弹窗样式。200 项测试通过，exe 重新打包并启动冒烟。"
+        targetBranch: main
+      - baseCommit: ab4e2257f94f88ccc8cf8be09af5db6346663604
+        deliveryAction: local
+        targetBranch: main
+        verifiedBranch: main
+      - archiveDirectory: docs/openspec/changes/archive/2026-11-14-refactor-project-structure-and-antd-theme
+      - sequence: 9
+        value:
+          boundBranch: main
+          buildMode: executing-plans
+          directOverride: false
+          isolation: current
+          reviewMode: standard
+          subagentDispatch: null
+          tddMode: tdd
+      - sequence: 10
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: refactor-project-structure-and-antd-theme
+              changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+              workspaceBaseline:
+                ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+            outputs:
+              full.build.configure:
+                boundBranch: main
+                buildMode: executing-plans
+                directOverride: false
+                isolation: current
+                reviewMode: standard
+                subagentDispatch: null
+                tddMode: tdd
+      - sequence: 6
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: refactor-project-structure-and-antd-theme
+              changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+              workspaceBaseline:
+                ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+            outputs:
+              full.design.handoff:
+                handoffContext: docs/openspec/changes/refactor-project-structure-and-antd-theme/.comet/handoff/design-context.json
+                handoffHash: e480ed50d692c6808bf41241991c47e10bc609f66e6ecb5611180d2a345089db
+                proposal: "方案：1) 保留 gui.py / piano_roll.py / build_music.py 作为薄门面，只做 re-export
+                  并保留测试会替换的模块级名字（QPushButton、QMessageBox、get_midi_dir_path
+                  等），实现移到新包，导入路径与公开类名零改动，188 项测试与 build_exe.py 不需要修改。2) gui 按职责拆
+                  mixin：app/main_window.py 只保留状态初始化、装配与
+                  closeEvent；app/ui/theme.py
+                  提供令牌与样式生成；app/ui/piano_page.py（铺面页装配、加载、BPM、量化、音域、曲谱优化、保存）、pl\
+                  aylist_page.py（搜索/排序/列表行/导入/新建/删除/选中）、log_page.py（日志与置顶）；app/\
+                  history.py（快照/撤销/前进/未保存）、app/playback.py（开始/停止/进度/完成与线程生命周期）；\
+                  app/workers/（PlayThread、BatchConversionWorker）。选择 mixin
+                  而非纯组合，因为窗口 API 被测试和信号广泛使用，纯组合需要数百处转发，回归风险与收益不匹配。3) piano_roll
+                  拆包：geometry.py（时间/像素换算、缩放、音符数学等纯函数）、painting.py（绘制辅助）、canvas.\
+                  py（状态、交互、剪贴板、信号）、ruler.py、widget.py；__init__.py re-export。4)
+                  music
+                  拆包：mapping.py（键位阶梯/映射/音名/移调）、midi_io.py（extract_notes/write_n\
+                  otes_to_midi）、analysis.py（文件分析/速度拍号/自动选轨）、playback.py（播放数据与代码\
+                  生成）、converter.py（MidiToKeysConverter
+                  薄委托，公开方法不变）、cli.py；build_music.py 门面保留 __main__。5) antd
+                  深色令牌：colorPrimary #1677ff、colorBgBase #141414、colorBgContainer
+                  #1f1f1f、colorBorder #424242、三级文字色、成功/警告/错误色、间距 4/8/12/16/24、圆角
+                  2/4/6/8、字号 12/14/16/20、controlHeight
+                  32；build_stylesheet(tokens) 生成全局 QSS，统一按钮/输入/下拉 32px 高 6px
+                  圆角、卡片式分组 1px 边框 8px 圆角 16px 内边距、下划线标签页、8px 滚动条；铺面画布语义色保留在
+                  piano_roll。6) 分六步迁移并每步全量测试：主题 → workers/history → ui 页面 →
+                  piano_roll 包 → music 包 →
+                  视觉复查与打包。关键取舍：不做完全组合式重构；不重排功能位置；不改浅色主题；不做差量重写。风险：mixin 仍共享
+                  self、导入循环（从具体模块导入避免）、PyInstaller 漏收新包（必要时 hidden-import）、QSS
+                  选择器变化（保留 objectName）、深色对比度（offscreen 截图核对）。测试策略：既有 188
+                  项回归；新增结构冒烟（公开导入与名称、单文件行数）、主题令牌完整性与 QSS 含主色且不含旧主色
+                  #3498DB；打包后启动冒烟。Spec Patch：无。"
+                requirementsEvidence:
+                  contentHash: 6675e33c778e96dc1601903953aa230401372ece886ccff531a772b0691b8183
+                  ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+                sourceEvidence:
+                  contentHash: e5e7a4a447b62e8b07b1f8ea2aa3be1e9d22358c6d566b8cf68b080290f0b72d
+                  ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+      - sequence: 7
+        value:
+          designDoc: docs/openspec/changes/refactor-project-structure-and-antd-theme/design.md
+      - sequence: 8
+        value:
+          contentHash: 5eab7be2a0687f6c9046be99e10d46ee635d6674477d14ba3c65cf710c9e4702
+          ref: docs/openspec/changes/refactor-project-structure-and-antd-theme/design.md
+      - sequence: 5
+        value:
+          handoffContext: docs/openspec/changes/refactor-project-structure-and-antd-theme/.comet/handoff/design-context.json
+          handoffHash: e480ed50d692c6808bf41241991c47e10bc609f66e6ecb5611180d2a345089db
+          proposal: "方案：1) 保留 gui.py / piano_roll.py / build_music.py 作为薄门面，只做 re-export
+            并保留测试会替换的模块级名字（QPushButton、QMessageBox、get_midi_dir_path
+            等），实现移到新包，导入路径与公开类名零改动，188 项测试与 build_exe.py 不需要修改。2) gui 按职责拆
+            mixin：app/main_window.py 只保留状态初始化、装配与 closeEvent；app/ui/theme.py
+            提供令牌与样式生成；app/ui/piano_page.py（铺面页装配、加载、BPM、量化、音域、曲谱优化、保存）、playlist\
+            _page.py（搜索/排序/列表行/导入/新建/删除/选中）、log_page.py（日志与置顶）；app/history.py（快\
+            照/撤销/前进/未保存）、app/playback.py（开始/停止/进度/完成与线程生命周期）；app/workers/（PlayT\
+            hread、BatchConversionWorker）。选择 mixin 而非纯组合，因为窗口 API
+            被测试和信号广泛使用，纯组合需要数百处转发，回归风险与收益不匹配。3) piano_roll
+            拆包：geometry.py（时间/像素换算、缩放、音符数学等纯函数）、painting.py（绘制辅助）、canvas.py（状态、\
+            交互、剪贴板、信号）、ruler.py、widget.py；__init__.py re-export。4) music
+            拆包：mapping.py（键位阶梯/映射/音名/移调）、midi_io.py（extract_notes/write_notes_t\
+            o_midi）、analysis.py（文件分析/速度拍号/自动选轨）、playback.py（播放数据与代码生成）、converte\
+            r.py（MidiToKeysConverter 薄委托，公开方法不变）、cli.py；build_music.py 门面保留
+            __main__。5) antd 深色令牌：colorPrimary #1677ff、colorBgBase
+            #141414、colorBgContainer #1f1f1f、colorBorder
+            #424242、三级文字色、成功/警告/错误色、间距 4/8/12/16/24、圆角 2/4/6/8、字号
+            12/14/16/20、controlHeight 32；build_stylesheet(tokens) 生成全局
+            QSS，统一按钮/输入/下拉 32px 高 6px 圆角、卡片式分组 1px 边框 8px 圆角 16px 内边距、下划线标签页、8px
+            滚动条；铺面画布语义色保留在 piano_roll。6) 分六步迁移并每步全量测试：主题 → workers/history → ui
+            页面 → piano_roll 包 → music 包 →
+            视觉复查与打包。关键取舍：不做完全组合式重构；不重排功能位置；不改浅色主题；不做差量重写。风险：mixin 仍共享
+            self、导入循环（从具体模块导入避免）、PyInstaller 漏收新包（必要时 hidden-import）、QSS
+            选择器变化（保留 objectName）、深色对比度（offscreen 截图核对）。测试策略：既有 188
+            项回归；新增结构冒烟（公开导入与名称、单文件行数）、主题令牌完整性与 QSS 含主色且不含旧主色
+            #3498DB；打包后启动冒烟。Spec Patch：无。"
+          requirementsEvidence:
+            contentHash: 6675e33c778e96dc1601903953aa230401372ece886ccff531a772b0691b8183
+            ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+          sourceEvidence:
+            contentHash: e5e7a4a447b62e8b07b1f8ea2aa3be1e9d22358c6d566b8cf68b080290f0b72d
+            ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+      - sequence: 1
+        value:
+          event: open-complete
+      - sequence: 3
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: refactor-project-structure-and-antd-theme
+              changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+              workspaceBaseline:
+                ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+            outputs:
+              full.open:
+                event: open-complete
+              full.open.evidence:
+                contentHash: 0600ef99a0a1b053dd23f5e8c3a845858782491c310598898a560aacb7479ec4
+                ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+      - sequence: 2
+        value:
+          contentHash: 0600ef99a0a1b053dd23f5e8c3a845858782491c310598898a560aacb7479ec4
+          ref: docs/openspec/changes/refactor-project-structure-and-antd-theme
+      - sequence: 4
+        value:
+          contentHash: 0600ef99a0a1b053dd23f5e8c3a845858782491c310598898a560aacb7479ec4
+      - sequence: 11
+        value:
+          designEvidence:
+            contentHash: 5eab7be2a0687f6c9046be99e10d46ee635d6674477d14ba3c65cf710c9e4702
+            ref: docs/openspec/changes/refactor-project-structure-and-antd-theme/design.md
+          plan: docs/superpowers/plans/2026-11-14-refactor-project-structure-and-antd-theme.md
+          planEvidence:
+            contentHash: b91a0cd224cb884a29c08c5a6f75cd61d44cff039d2634b309f1aca73f28de87
+            ref: docs/superpowers/plans/2026-11-14-refactor-project-structure-and-antd-theme.md
+          taskRevision: 4dc86c0f5064a175f0eefa9ced4b83871023dfcfbd59516b96891df113ebc4f3
+      - sequence: 12
+        value:
+          contentHash: b91a0cd224cb884a29c08c5a6f75cd61d44cff039d2634b309f1aca73f28de87
+          ref: docs/superpowers/plans/2026-11-14-refactor-project-structure-and-antd-theme.md
+      - sequence: 13
+        value:
+          event: build-complete
+      - sequence: 14
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: a0d409aff366de5d8e02716378edf3b03d836d88c034fe4d5bc5b71b85ba4107
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 8726014861d0130c502301501e514a442633276f7d4fcaac9e96737a1c7e964a
+          inputBefore: 8726014861d0130c502301501e514a442633276f7d4fcaac9e96737a1c7e964a
+          manifestHash: db4ee84f47fcb1e1b377304038a231f33e183e468c76b9b1ff06b19d1d7dc8a8
+          manifestRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/0c7fdd4c-7f39-4826-b145-b216c5af81be.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/cdb896c6-b786-440b-ba5e-eb7df1ef7b25.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      - sequence: 15
+        value:
+          contentHash: a0d409aff366de5d8e02716378edf3b03d836d88c034fe4d5bc5b71b85ba4107
+          ref: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/cdb896c6-b786-440b-ba5e-eb7df1ef7b25.log
+      - sequence: 17
+        value:
+          contentHash: 8b5a13b19b5ecabce49cba9c53272540ce09f33024a98930157837d5eab63ba7
+          ref: docs/superpowers/reports/2026-11-14-refactor-project-structure-and-antd-theme-verification.md
+      - sequence: 16
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-14-refactor-project-structure-and-antd-theme-verification.md
+      - sequence: 18
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 3
+          contentHash: 0a98dda537faae7d8792e3f880f4c39153464fa76c04d8300aeb33c05e1d515f
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 9d072e759c0d5fb299091e7b45103ab45583cf618b40b0b30c503f8fd85323a7
+          inputBefore: 9d072e759c0d5fb299091e7b45103ab45583cf618b40b0b30c503f8fd85323a7
+          manifestHash: 001302df7457bcb976202571434ed47c5d5cfe345c376ba36673f547ce01e90e
+          manifestRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/7e617ad2-e277-45ae-bdbc-05c085fafab8.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/22191817-57f0-492a-af4e-89075996e828.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      - sequence: 19
+        value:
+          contentHash: 0a98dda537faae7d8792e3f880f4c39153464fa76c04d8300aeb33c05e1d515f
+          ref: .comet/runtime/classic-sdk-checks/7fbf4147e7758a4de77356e9e235d7bc542abf7d0f8d4e22d07314136b18f1dc/22191817-57f0-492a-af4e-89075996e828.log
+      - sequence: 21
+        value:
+          choice: local
+          proposal:
+            input:
+              change: refactor-project-structure-and-antd-theme
+              changeDir: docs/openspec/changes/refactor-project-structure-and-antd-theme
+              workspaceBaseline:
+                ref: c710eefc-c31b-4357-8126-2f6a51fb7513
+            outputs:
+              full.archive.prepare:
+                summary: "把三个千行级文件拆成 app/、piano_roll/、music/ 包（所有模块 <800 行），入口保留薄门面；新增
+                  app/ui/theme.py 的 Ant Design 深色令牌统一界面（主色 #1677ff、8px 网格、6px
+                  圆角、32px 控件），并补齐按钮 pressed/disabled、派生选中色与弹窗样式。200 项测试通过，exe
+                  重新打包并启动冒烟。"
+                targetBranch: main
+      - sequence: 20
+        value:
+          summary: "把三个千行级文件拆成 app/、piano_roll/、music/ 包（所有模块 <800 行），入口保留薄门面；新增
+            app/ui/theme.py 的 Ant Design 深色令牌统一界面（主色 #1677ff、8px 网格、6px 圆角、32px
+            控件），并补齐按钮 pressed/disabled、派生选中色与弹窗样式。200 项测试通过，exe 重新打包并启动冒烟。"
+          targetBranch: main
+      - sequence: 22
+        value:
+          baseCommit: ab4e2257f94f88ccc8cf8be09af5db6346663604
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      - sequence: 23
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-14-refactor-project-structure-and-antd-theme
+    nodes:
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 1
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: 3
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 5
+        left: 6
+        right: 7
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 8
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 7
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 6
+        left: 10
+        right: 11
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 12
+        right: 7
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 13
+        right: 4
+        height: 4
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 16
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 11
+        right: 7
+        height: 2
+      - key: full.design.document
+        value: 6
+        left: 17
+        right: 18
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 19
+        right: 4
+        height: 4
+      - key: full.build.plan
+        value: 10
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 11
+        left: 21
+        right: 22
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 23
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 4
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 24
+        right: 25
+        height: 4
+      - key: full.build.execute
+        value: 12
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 27
+        height: 2
+      - key: full.build.plan.evidence
+        value: 11
+        left: null
+        right: 22
+        height: 2
+      - key: full.build.plan
+        value: 10
+        left: 28
+        right: 29
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 30
+        right: 25
+        height: 4
+      - key: full.build.check
+        value: 13
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 14
+        left: 32
+        right: 33
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 34
+        right: 27
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 35
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 25
+        height: 5
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 16
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 15
+        left: null
+        right: 39
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: 40
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 41
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 42
+        height: 5
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 18
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 15
+        left: 45
+        right: 39
+        height: 2
+      - key: full.verify.check
+        value: 17
+        left: 44
+        right: 46
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 47
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 48
+        height: 5
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 13
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 20
+        left: 50
+        right: 51
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 33
+        right: 27
+        height: 2
+      - key: full.build.check.evidence
+        value: 14
+        left: 52
+        right: 53
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 54
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 55
+        right: 48
+        height: 5
+      - key: full.archive.preflight
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: 57
+        height: 2
+      - key: full.archive.prepare
+        value: 20
+        left: 58
+        right: 51
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 53
+        right: 29
+        height: 3
+      - key: full.build.check.evidence
+        value: 14
+        left: 59
+        right: 60
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 61
+        right: 48
+        height: 5
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 22
+        left: 63
+        right: 64
+        height: 2
+      - key: full.archive.prepare
+        value: 20
+        left: 65
+        right: 51
+        height: 3
+      - key: full.build.check.evidence
+        value: 14
+        left: 66
+        right: 60
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 67
+        right: 48
+        height: 5
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 70
+        height: 2
+      - key: full.design.evidence
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: 72
+        right: 73
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: 75
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 76
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 71
+        right: 77
+        height: 4
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: 79
+        right: 80
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 81
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 82
+        right: 77
+        height: 4
+      - key: full.build.execute
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 84
+        height: 2
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: 80
+        height: 2
+      - key: full.build.plan
+        value: 33
+        left: 85
+        right: 86
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 87
+        right: 77
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: 89
+        right: 90
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 91
+        right: 84
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 92
+        right: 86
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 77
+        height: 5
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: null
+        right: 96
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: 95
+        right: 97
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 98
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 99
+        height: 5
+      - key: full.open.revalidate
+        value: 32
+        left: 95
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: 102
+        right: 96
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 101
+        right: 103
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 104
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 105
+        height: 5
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 43
+        left: 107
+        right: 108
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 90
+        right: 84
+        height: 2
+      - key: full.build.check.evidence
+        value: 37
+        left: 109
+        right: 110
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 111
+        right: 86
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 112
+        right: 105
+        height: 5
+      - key: full.archive.preflight
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: 114
+        height: 2
+      - key: full.archive.prepare
+        value: 43
+        left: 115
+        right: 108
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 110
+        right: 86
+        height: 3
+      - key: full.build.check.evidence
+        value: 37
+        left: 116
+        right: 117
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 118
+        right: 105
+        height: 5
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 45
+        left: 120
+        right: 121
+        height: 2
+      - key: full.archive.prepare
+        value: 43
+        left: 122
+        right: 108
+        height: 3
+      - key: full.build.check.evidence
+        value: 37
+        left: 123
+        right: 117
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 124
+        right: 105
+        height: 5
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 30
+        left: 126
+        right: 127
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: 129
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 126
+        right: 130
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: 132
+        right: 133
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 134
+        right: 130
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: 136
+        right: 137
+        height: 2
+      - key: full.design.handoff
+        value: 28
+        left: 138
+        right: 133
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 139
+        right: 130
+        height: 4
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: 141
+        height: 2
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 144
+        right: 145
+        height: 2
+      - key: full.open
+        value: 29
+        left: 143
+        right: 146
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: 149
+        right: 150
+        height: 2
+      - key: full.design.confirm
+        value: 25
+        left: 148
+        right: 151
+        height: 3
+      - key: full.open
+        value: 29
+        left: 152
+        right: 146
+        height: 4
+      - key: full.archive.prepare
+        value: 43
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 36
+        left: 154
+        right: 155
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: 158
+        height: 2
+      - key: full.build.execute
+        value: 35
+        left: 157
+        right: 159
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: 156
+        right: 160
+        height: 4
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 144
+        right: 162
+        height: 2
+      - key: full.verify.check.evidence
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: 164
+        right: 165
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 163
+        right: 166
+        height: 3
+      - key: full.open
+        value: 29
+        left: 151
+        right: 167
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 161
+        right: 168
+        height: 5
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: 171
+        right: 172
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 175
+        height: 2
+      - key: full.open
+        value: 29
+        left: 173
+        right: 176
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 178
+        right: 179
+        height: 2
+      - key: full.design.document
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: 181
+        right: 182
+        height: 2
+      - key: full.design.confirm
+        value: 25
+        left: 180
+        right: 183
+        height: 3
+      - key: full.open
+        value: 29
+        left: 184
+        right: 176
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: 186
+        right: null
+        height: 2
+      - key: full.build.execute
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: 188
+        right: 189
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 187
+        right: 190
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 176
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: 191
+        right: 192
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: 194
+        right: 195
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 196
+        right: 190
+        height: 3
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: 198
+        height: 2
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 199
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 200
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 197
+        right: 201
+        height: 5
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 203
+        height: 2
+      - key: full.verify.report.evidence
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: 205
+        right: null
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 204
+        right: 206
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 207
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 197
+        right: 208
+        height: 5
+    maps:
+      - null
+      - 2
+      - 5
+      - 9
+      - 14
+      - 20
+      - 26
+      - 31
+      - 37
+      - 43
+      - 49
+      - 56
+      - 62
+      - 68
+      - 78
+      - 83
+      - 88
+      - 94
+      - 100
+      - 106
+      - 113
+      - 119
+      - 125
+      - 128
+      - 131
+      - 135
+      - 140
+      - 142
+      - 147
+      - 153
+      - 169
+      - 170
+      - 177
+      - 185
+      - 193
+      - 202
+      - 209
+    bindings:
+      - path:
+          - actions
+          - "0"
+          - input
+          - outputs
+        map: 0
+      - path:
+          - actions
+          - "1"
+          - input
+          - outputs
+        map: 1
+      - path:
+          - actions
+          - "2"
+          - input
+          - outputs
+        map: 2
+      - path:
+          - actions
+          - "3"
+          - input
+          - outputs
+        map: 3
+      - path:
+          - actions
+          - "4"
+          - input
+          - outputs
+        map: 4
+      - path:
+          - actions
+          - "5"
+          - input
+          - outputs
+        map: 5
+      - path:
+          - actions
+          - "6"
+          - input
+          - outputs
+        map: 6
+      - path:
+          - actions
+          - "7"
+          - input
+          - outputs
+        map: 7
+      - path:
+          - actions
+          - "8"
+          - input
+          - outputs
+        map: 8
+      - path:
+          - actions
+          - "9"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "10"
+          - input
+          - outputs
+        map: 10
+      - path:
+          - actions
+          - "11"
+          - input
+          - outputs
+        map: 11
+      - path:
+          - actions
+          - "12"
+          - input
+          - outputs
+        map: 12
+      - path:
+          - actions
+          - "13"
+          - input
+          - outputs
+        map: 13
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:1
+          - results
+        map: 0
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:11
+          - results
+        map: 14
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:13
+          - results
+        map: 15
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:14
+          - results
+        map: 16
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:16
+          - results
+        map: 17
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:18
+          - results
+        map: 18
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:20
+          - results
+        map: 19
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:22
+          - results
+        map: 20
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:23
+          - results
+        map: 21
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:24
+          - results
+        map: 22
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:4
+          - results
+        map: 23
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:5
+          - results
+        map: 24
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:7
+          - results
+        map: 25
+      - path:
+          - actionContexts
+          - refactor-project-structure-and-antd-theme:9
+          - results
+        map: 26
+      - path:
+          - outputs
+        map: 22
+      - path:
+          - waits
+          - "0"
+          - results
+        map: 27
+      - path:
+          - waits
+          - "1"
+          - results
+        map: 28
+      - path:
+          - waits
+          - "2"
+          - results
+        map: 29
+      - path:
+          - waits
+          - "3"
+          - results
+        map: 30
+      - path:
+          - evidenceWaits
+          - "0"
+          - results
+        map: 31
+      - path:
+          - evidenceWaits
+          - "1"
+          - results
+        map: 32
+      - path:
+          - evidenceWaits
+          - "2"
+          - results
+        map: 33
+      - path:
+          - evidenceWaits
+          - "3"
+          - results
+        map: 34
+      - path:
+          - evidenceWaits
+          - "4"
+          - results
+        map: 35
+      - path:
+          - evidenceWaits
+          - "5"
+          - results
+        map: 36
+  storageHash: 9de77772b5a34a0b509bdea1521e3aa36f9a0c596567378562fd85a5b497758c
+check_epoch: 6

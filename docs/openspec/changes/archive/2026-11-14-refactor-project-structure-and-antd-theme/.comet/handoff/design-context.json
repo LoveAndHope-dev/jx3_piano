@@ -1,0 +1,17 @@
+{
+  "change": "refactor-project-structure-and-antd-theme",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "task_hash_policy": "task-content-v1",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "e480ed50d692c6808bf41241991c47e10bc609f66e6ecb5611180d2a345089db",
+  "files": [
+    { "path": "docs/openspec/changes/refactor-project-structure-and-antd-theme/proposal.md", "sha256": "d94b2b5863383b8e5114672be09518a2b0745135368d35a54618dbd7d2fb3bc1" },
+    { "path": "docs/openspec/changes/refactor-project-structure-and-antd-theme/design.md", "sha256": "72f289981c218fcce5f695e4b8c39744ac23b92187412f7ccfb2e97beccd0332" },
+    { "path": "docs/openspec/changes/refactor-project-structure-and-antd-theme/tasks.md", "sha256": "4dc86c0f5064a175f0eefa9ced4b83871023dfcfbd59516b96891df113ebc4f3" },
+    { "path": "docs/openspec/changes/refactor-project-structure-and-antd-theme/.openspec.yaml", "sha256": "2e91af4681be83038a92e715cfb64d8067b4c8399c2b25074da27a778869f3aa" },
+    { "path": "docs/openspec/changes/refactor-project-structure-and-antd-theme/specs/project-structure/spec.md", "sha256": "ee57ff08d736bc6b2f92aee64d64c647aec5d2db6b27bfa61c05fcbc8d0c4d62" },
+    { "path": "docs/openspec/changes/refactor-project-structure-and-antd-theme/specs/ui-design-system/spec.md", "sha256": "55080cb2cf5a06cf01c8c217d00c350aa091646e66b801fa29f540f6c99d95a0" }
+  ]
+}

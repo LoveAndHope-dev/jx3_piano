@@ -528,6 +528,40 @@ class PlaylistGuiTest(unittest.TestCase):
         finally:
             self.window.is_playing = False
 
+    def test_range_change_marks_play_assets_stale(self):
+        self.window.on_new_play_item()
+        self.assertFalse(self.window._play_assets_stale)
+        self.window.piano_roll.set_instrument_range(48, 72)
+        self.assertTrue(self.window._play_assets_stale)
+
+    def test_combo_change_marks_play_assets_stale(self):
+        self.window.on_new_play_item()
+        self.assertFalse(self.window._play_assets_stale)
+        self.window.range_low_combo.setCurrentIndex(2)
+        self.assertTrue(self.window._play_assets_stale)
+
+    def test_bpm_change_marks_play_assets_stale(self):
+        self.window.on_new_play_item()
+        self.assertFalse(self.window._play_assets_stale)
+        self.window.on_bpm_changed(90.0)
+        self.assertTrue(self.window._play_assets_stale)
+
+    def test_ensure_play_assets_only_regenerates_when_stale(self):
+        self.window.on_new_play_item()
+        calls = []
+
+        def fake_save():
+            calls.append(1)
+            self.window._play_assets_stale = False
+            return True
+
+        self.window._save_current_play_assets = fake_save
+        self.assertIsNotNone(self.window._ensure_play_assets_current())
+        self.assertEqual(calls, [])
+        self.window._play_assets_stale = True
+        self.assertIsNotNone(self.window._ensure_play_assets_current())
+        self.assertEqual(calls, [1])
+
     def test_theme_toggle_switches_stylesheet(self):
         self.assertEqual(self.window.theme_mode, "dark")
         self.assertEqual(self.window.theme_btn.text(), "☀️ 亮色")

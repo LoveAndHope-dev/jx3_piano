@@ -27,6 +27,7 @@ class MidiConverterGUI(
         self.is_playing = False
         self.currently_playing_midi_path = None
         self._playback_start_seconds = 0.0  # 本次播放的起点（播放辅助线位置）
+        self._play_assets_stale = True  # play_code / edited MIDI 是否需要在播放前重建
 
         # 铺面编辑相关变量
         self.current_midi_path = None

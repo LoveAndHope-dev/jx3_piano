@@ -116,7 +116,7 @@ class PianoPageMixin:
         self.mapped_pitches = self._build_mapped_pitch_set()
         self.piano_roll = PianoRollWidget(self.mapped_pitches)
         self.piano_roll.notesChanged.connect(self.on_piano_roll_notes_changed)
-        self.piano_roll.instrumentRangeChanged.connect(lambda *_: self._refresh_range_display())
+        self.piano_roll.instrumentRangeChanged.connect(self._on_instrument_range_changed)
         self.piano_roll.undoRequested.connect(self.undo_last_edit)
         self.piano_roll.redoRequested.connect(self.redo_last_edit)
         self.piano_stack.addWidget(self.piano_roll)  # index 2
@@ -166,6 +166,11 @@ class PianoPageMixin:
         self.range_bottom_display.setText(self._note_name_for_pitch(low_pitch))
         self.range_top_display.setText(self._note_name_for_pitch(high_pitch))
 
+    def _on_instrument_range_changed(self, *args) -> None:
+        """黄框或键位映射变化：刷新显示，并把播放资产标记为过期。"""
+        self._refresh_range_display()
+        self._play_assets_stale = True
+
     def _build_mapped_pitch_set(self):
         """计算88键范围内可被映射为游戏按键的MIDI音高集合"""
         converter = MidiToKeysConverter()
@@ -203,6 +208,7 @@ class PianoPageMixin:
             self._undo_stack = []
             self._redo_stack = []
             self._history_baseline = None
+            self._play_assets_stale = True
             return
 
         self.current_midi_path = midi_path
@@ -247,6 +253,7 @@ class PianoPageMixin:
     def on_piano_roll_notes_changed(self):
         """铺面上任意一次编辑（新增/删除/移动/调整时长）完成后触发"""
         self.piano_roll_dirty = True
+        self._play_assets_stale = True
         self._update_primary_btn()
         self._update_piano_dirty_indicator()
         self._record_history()
@@ -424,10 +431,10 @@ class PianoPageMixin:
         self.piano_roll.set_instrument_span(span)
         self._refresh_range_display()
 
-    def _save_current_play_assets(self) -> None:
-        """保存当前铺面的工作 MIDI 副本与 play_code JSON（导入/进入演奏模式时调用）。"""
+    def _save_current_play_assets(self) -> bool:
+        """保存当前铺面的工作 MIDI 副本与 play_code JSON（导入/进入演奏模式/播放前调用）。"""
         if not self.current_midi_path:
-            return
+            return False
         try:
             converter = MidiToKeysConverter()
             notes = self.piano_roll.get_notes()
@@ -455,6 +462,7 @@ class PianoPageMixin:
                 transpose=target_low_pitch - low_pitch,
             )
             write_play_code(play_code_path(get_play_code_dir_path(), name), data)
+            self._play_assets_stale = False
             excluded = sum(
                 1 for n in notes if not (low_pitch - 1 <= n["pitch"] <= high_pitch + 1)
             )
@@ -464,8 +472,21 @@ class PianoPageMixin:
                     "（可拖动黄框或改映射范围）"
                 )
             self.log(f"💾 已保存铺面 MIDI 与 play_code: {name}")
+            return True
         except Exception as exc:
             self.log(f"❌ 保存铺面资源失败: {exc}")
+            return False
+
+    def _ensure_play_assets_current(self):
+        """返回可直接播放的最新数据；过期或缺失时先重建 edited MIDI / play_code。"""
+        if not self.current_midi_path:
+            return None
+        name = base_name(self.current_midi_path)
+        code_path = play_code_path(get_play_code_dir_path(), name)
+        if self._play_assets_stale or read_play_code(code_path) is None:
+            if not self._save_current_play_assets():
+                return None
+        return read_play_code(code_path)
 
     def save_piano_roll(self):
         """把铺面编辑结果另存为一个新的 MIDI 文件（不覆盖原始导入文件）"""
@@ -539,6 +560,7 @@ class PianoPageMixin:
         self._undo_stack = []
         self._redo_stack = []
         self._history_baseline = None
+        self._play_assets_stale = True
 
     def _confirm_discard_piano_changes(self) -> bool:
         """存在未保存的铺面修改时，弹出确认框询问是否放弃"""

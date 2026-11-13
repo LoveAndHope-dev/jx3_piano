@@ -46,20 +46,14 @@ class PlaybackMixin:
         try:
             filename = os.path.basename(self.current_midi_path)
 
-            # 播放数据来自 play_code JSON（进入演奏模式或导入时已自动保存），
-            # 不在每次点击「弹奏」时重新做音符→按键映射。
+            # 播放数据来自 play_code JSON；若黄框/BPM/音符自上次生成后有变化，
+            # 这里会先重建，保证「听到的 = 看到的」。
             playhead = self.piano_roll.get_playhead_position()
             notes = self.piano_roll.get_notes()
-            name = base_name(self.current_midi_path)
-            code_path = play_code_path(get_play_code_dir_path(), name)
-            play_data = read_play_code(code_path)
-            if play_data is None:
-                # 兜底：现场生成并写回，保证首次播放可用
-                self._save_current_play_assets()
-                play_data = read_play_code(code_path)
+            play_data = self._ensure_play_assets_current()
             if play_data is None:
                 QMessageBox.warning(
-                    self, "提示", "未找到可播放数据，请切换一次演奏模式后重试"
+                    self, "提示", "无法生成播放数据，请检查当前曲目或切换一次演奏模式"
                 )
                 return
 

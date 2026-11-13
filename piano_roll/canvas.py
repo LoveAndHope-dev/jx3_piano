@@ -314,6 +314,7 @@ class _PianoRollCanvas(CanvasInputMixin, CanvasPaintMixin, QGraphicsView):
         self._range_low_pitch = low_pitch
         self._range_high_pitch = high_pitch
         self._update_range_item_geometry()
+        self.instrumentRangeChanged.emit(self._range_low_pitch, self._range_high_pitch)
 
     def set_instrument_span(self, span_idx: int) -> None:
         """按最低/最高映射下拉框的位置差重新计算框体跨度，保持框体当前低边界不变，
@@ -327,6 +328,7 @@ class _PianoRollCanvas(CanvasInputMixin, CanvasPaintMixin, QGraphicsView):
         self._range_low_pitch = self._ladder[low_idx][0]
         self._range_high_pitch = self._ladder[high_idx][0]
         self._update_range_item_geometry()
+        self.instrumentRangeChanged.emit(self._range_low_pitch, self._range_high_pitch)
 
     def set_instrument_range_visible(self, visible: bool) -> None:
         """切换乐器音域框的可见性（纯视觉开关，不影响播放使用的范围）"""

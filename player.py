@@ -10,6 +10,11 @@ import sys
 from datetime import datetime
 from typing import List, Optional, Callable
 
+# 按时长调度必须使用单调时钟：系统时间被校正/回拨时不至于停播或暴冲
+DEFAULT_CLOCK = time.monotonic
+# 单组按键起始比计划晚超过该阈值时记录警告（秒）
+LATE_WARN_SECONDS = 0.03
+
 
 class JX3Player:
     """剑网三自动演奏播放器"""
@@ -33,7 +38,7 @@ class JX3Player:
         """
         self.log_callback = log_callback
         self.progress_callback = progress_callback
-        self._clock = clock or time.time
+        self._clock = clock or DEFAULT_CLOCK
         self._sleep = sleep or time.sleep
         self.should_stop = False
         self.dd = None
@@ -131,7 +136,7 @@ class JX3Player:
                 if self.is_stop_requested():
                     self._log("🛑 倒计时期间检测到停止信号，取消播放!")
                     return False
-                time.sleep(0.1)
+                self._sleep(0.1)
 
         self._log("🎶 开始播放!")
         self._log("")
@@ -199,6 +204,8 @@ class JX3Player:
         key_count = 0
         delay_count = 0
         scheduled_offset = 0.0
+        current_target = start_time
+        max_lateness = 0.0
 
         def emit_progress(force: bool = False) -> None:
             nonlocal last_progress_emit
@@ -239,6 +246,7 @@ class JX3Player:
                     delay_count += 1
                     scheduled_offset += float(item)
                     target = start_time + scheduled_offset
+                    current_target = target
                     while True:
                         if self.is_stop_requested():
                             self._log("🛑 播放被中断")
@@ -250,6 +258,10 @@ class JX3Player:
                         emit_progress()
 
             elif isinstance(item, str):
+                # 记录本组开始时的实际滞后，便于诊断“跟不上”的系统性延迟
+                lateness = self._clock() - current_target
+                if lateness > max_lateness:
+                    max_lateness = lateness
                 # 按键操作
                 try:
                     key_count += 1
@@ -272,6 +284,11 @@ class JX3Player:
         self._log(f"⏱️ 总播放时长: {elapsed:.1f}秒")
         self._log(f"🎹 共执行 {key_count} 个按键操作")
         self._log(f"⏰ 共处理 {delay_count} 个延迟操作")
+        if max_lateness > LATE_WARN_SECONDS:
+            self._log(
+                f"⚠️ 播放时序最大延迟 {max_lateness * 1000:.0f} ms，"
+                "按键可能落后于辅助线（系统繁忙或按键耗时过长）"
+            )
 
         return True
 

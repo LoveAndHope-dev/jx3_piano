@@ -5,16 +5,23 @@ from player import JX3Player
 
 
 class FakeClock:
-    """虚拟时钟：sleep 直接推进时间，便于断言绝对调度结果。"""
+    """虚拟时钟：sleep 推进时间，可模拟超时与休眠期间触发的回调。"""
 
-    def __init__(self, start: float = 1000.0):
+    def __init__(self, start: float = 1000.0, sleep_cost: float = 0.0, on_sleep=None):
         self.now = start
+        self.sleep_cost = sleep_cost
+        self.on_sleep = on_sleep
+        self.sleeps = []
 
     def time(self) -> float:
         return self.now
 
     def sleep(self, seconds: float) -> None:
-        self.now += max(0.0, float(seconds))
+        duration = max(0.0, float(seconds))
+        self.sleeps.append(duration)
+        self.now += duration + self.sleep_cost
+        if self.on_sleep is not None:
+            self.on_sleep()
 
 
 class FakeDD:
@@ -68,8 +75,27 @@ class PlaybackTimingTest(unittest.TestCase):
             data.extend([0.1, "K"])
 
         self.assertTrue(player._execute_playback_data(data))
-        last = dd.presses[-1][1] - 1000.0
-        self.assertAlmostEqual(last, 100 * 0.1, places=6)
+        for order, (_, moment) in enumerate(dd.presses, start=1):
+            self.assertAlmostEqual(moment - 1000.0, order * 0.1, places=6)
+
+    def test_sleep_overshoot_is_absorbed(self):
+        clock = FakeClock(sleep_cost=0.003)
+        dd = FakeDD(clock, press_cost=0.0)
+        player = _make_player(clock, dd)
+
+        data = [0.1, "A", 0.1, "B", 0.1, "C"]
+        self.assertTrue(player._execute_playback_data(data))
+
+        for order, (_, moment) in enumerate(dd.presses, start=1):
+            self.assertLessEqual(moment - 1000.0, order * 0.1 + 0.004)
+
+    def test_wait_steps_stay_small_for_stop_responsiveness(self):
+        clock = FakeClock()
+        player = _make_player(clock, FakeDD(clock))
+        self.assertTrue(player._execute_playback_data([0.5, "A"]))
+        self.assertTrue(clock.sleeps)
+        for step in clock.sleeps:
+            self.assertLessEqual(step, 0.0101)
 
     def test_progress_uses_wall_clock(self):
         clock = FakeClock()
@@ -82,6 +108,8 @@ class PlaybackTimingTest(unittest.TestCase):
         self.assertAlmostEqual(samples[0], 0.0, places=6)
         self.assertGreaterEqual(samples[-1], 0.4)
         self.assertEqual(samples, sorted(samples))
+        gaps = [b - a for a, b in zip(samples, samples[1:])]
+        self.assertTrue(all(gap <= 0.06 for gap in gaps), gaps)
 
     def test_stop_signal_interrupts_playback(self):
         clock = FakeClock()
@@ -96,6 +124,28 @@ class PlaybackTimingTest(unittest.TestCase):
 
         self.assertFalse(player._execute_playback_data([0.1, "A", 0.1, "B"]))
         self.assertEqual([key for key, _ in dd.presses], ["A"])
+
+    def test_stop_during_wait_is_detected(self):
+        holder = {}
+
+        def stop_on_sleep():
+            holder["player"].should_stop = True
+
+        clock = FakeClock(on_sleep=stop_on_sleep)
+        player = _make_player(clock, FakeDD(clock))
+        holder["player"] = player
+
+        self.assertFalse(player._execute_playback_data([1.0, "A"]))
+        self.assertEqual(clock.sleeps[0], 0.01)
+
+    def test_late_group_is_reported(self):
+        logs = []
+        clock = FakeClock()
+        dd = FakeDD(clock, press_cost=0.15)
+        player = _make_player(clock, dd, log=logs.append)
+
+        self.assertTrue(player._execute_playback_data([0.1, "A", 0.1, "B"]))
+        self.assertTrue(any("最大延迟" in line for line in logs), logs)
 
     def test_empty_data_returns_false(self):
         clock = FakeClock()

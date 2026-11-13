@@ -1,0 +1,3167 @@
+# comet-execution: managed-run
+change_id: a7c74007-fac6-4dd2-851f-f956e5ce3140
+workflow: tweak
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: f656636f7b81dc15bae51aee0dc3d8d5e36cf681
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+branch_status: pending
+created_at: 2026-11-13
+verified_at: 2026-11-13
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: a57c329b02818857e7f7cb1c27717e29d665b83c395c122b7f55d1e4d4e6f038
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: remove-page-headers
+    revision: 1
+    workflow:
+      id: comet-classic-tweak
+      version: "1"
+      hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    definitionHashes:
+      '["comet-classic-tweak","1"]': fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    initialStateHash: 8e96070584a1dcc7e754d52442fa63035e0512794b5bbd680ff828b08399482f
+    input:
+      change: remove-page-headers
+      changeDir: docs/openspec/changes/remove-page-headers
+      workspaceBaseline:
+        ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: f656636f7b81dc15bae51aee0dc3d8d5e36cf681
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 7
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-13
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+      verifiedAt: 2026-11-13
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: tweak
+    status: running
+    sequence: 20
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-713c005c681dffd083eed300b4d0f901c417df1e689212037613a503b0004d00
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: remove-page-headers:1
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs: {}
+        inputHash: e63f2c6c6f9c9daaec6a3d77400b0e306798fbf62e7686d36860e1b455063494
+        outcome:
+          actionId: remove-page-headers:1
+          attempt: 1
+          claimToken: portable-713c005c681dffd083eed300b4d0f901c417df1e689212037613a503b0004d00
+          inputHash: e63f2c6c6f9c9daaec6a3d77400b0e306798fbf62e7686d36860e1b455063494
+          outcomeId: 018caac4-1f95-4221-bb88-b6cdc1dccee2
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 8f4ad91901d87dce13fbc7e54b114db4867ce52a28c272e5d2cb08b1f8d559ee
+            outcomeId: 018caac4-1f95-4221-bb88-b6cdc1dccee2
+        reconciliations: []
+        ref: comet-tweak
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: succeeded
+        stepId: tweak.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/remove-page-headers:3/1
+          token: portable-2d4991ddbcbc08cede252c8a0d81fd0ab8114a98d01af1cdccca39d22240ccb1
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: remove-page-headers:3
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+            tweak.open.evidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+        inputHash: b97c9ca70a25887bbafe866638f772d50e8de7e0ae9bbdcb09dd8987dee0e647
+        outcome:
+          actionId: remove-page-headers:3
+          attempt: 1
+          claimToken: portable-2d4991ddbcbc08cede252c8a0d81fd0ab8114a98d01af1cdccca39d22240ccb1
+          inputHash: b97c9ca70a25887bbafe866638f772d50e8de7e0ae9bbdcb09dd8987dee0e647
+          outcomeId: c74fa67b-ed98-4dbf-8792-7266ed08420f
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: b541991dcf99b3c46a8ed850da70c8da088802fe7b7ac8814f9d26974d07ee77
+            outcomeId: c74fa67b-ed98-4dbf-8792-7266ed08420f
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: succeeded
+        stepId: tweak.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-d41489a911ebf2d31c98f719e2e159014f9928a6cd783a05291834cd1617c320
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: remove-page-headers:4
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+            tweak.open.evidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+        inputHash: f444a8bc5feac67e0368c336523b98bd27adfe3557de061f14e71294d64996c2
+        outcome:
+          actionId: remove-page-headers:4
+          attempt: 1
+          claimToken: portable-d41489a911ebf2d31c98f719e2e159014f9928a6cd783a05291834cd1617c320
+          inputHash: f444a8bc5feac67e0368c336523b98bd27adfe3557de061f14e71294d64996c2
+          outcomeId: 86729d53-46e7-4896-a1d2-e6f22c0ae110
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+            inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+            manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+            manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 986673990d6ceb753c69aec48aaafbb28d51174f63dc22b0296c7582d8c9790e
+            outcomeId: 86729d53-46e7-4896-a1d2-e6f22c0ae110
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: succeeded
+        stepId: tweak.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-401c817f67424520285b8487ceb2c5f9e26c40ac2fb5d711aa657f7fe2c08537
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: remove-page-headers:6
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+            tweak.open.evidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+        inputHash: ac43f8f2dc090952e39df7a8501e897f8693502359db1f3dac3b56bfbfe6f096
+        outcome:
+          actionId: remove-page-headers:6
+          attempt: 1
+          claimToken: portable-401c817f67424520285b8487ceb2c5f9e26c40ac2fb5d711aa657f7fe2c08537
+          inputHash: ac43f8f2dc090952e39df7a8501e897f8693502359db1f3dac3b56bfbfe6f096
+          outcomeId: 11061d29-8ec9-46be-a84c-d82df73fbb5b
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 3f476ec2ddd9765e03c74a21c2e740879f8badbcaa36b6c1656c8f937d5009ae
+            outcomeId: 11061d29-8ec9-46be-a84c-d82df73fbb5b
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: succeeded
+        stepId: tweak.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-0d037fe5d5a0c5082d1bad4bd14ef6ac887a7359c3e7f2d0c7a8c559a39c8647
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: remove-page-headers:8
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+            tweak.open.evidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+            tweak.verify.report.evidence:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        inputHash: 62140e3158796454a90f92101307b649a03b4a09099c05d9182455c6b2f3c6e7
+        outcome:
+          actionId: remove-page-headers:8
+          attempt: 1
+          claimToken: portable-0d037fe5d5a0c5082d1bad4bd14ef6ac887a7359c3e7f2d0c7a8c559a39c8647
+          inputHash: 62140e3158796454a90f92101307b649a03b4a09099c05d9182455c6b2f3c6e7
+          outcomeId: b0bf7cf2-14ff-4952-a939-d2e896267eba
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+            inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+            manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+            manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/38b45784-1f8a-4640-a8d9-408b576a85dd.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 487276313f1a62cab105b68aaa7f442d988b76b614304813a3aa64ad392cd047
+            outcomeId: b0bf7cf2-14ff-4952-a939-d2e896267eba
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: succeeded
+        stepId: tweak.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-4e801158328b90224ce786efe498753a6a68ba4e5e1d57a20c4a328280129dc6
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: remove-page-headers:10
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+            tweak.open.evidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/38b45784-1f8a-4640-a8d9-408b576a85dd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+            tweak.verify.report.evidence:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        inputHash: cbe8c105d25272060f0ef633c00c22129a165adcd7f777ea20e4b2e331a9b068
+        outcome:
+          actionId: remove-page-headers:10
+          attempt: 1
+          claimToken: portable-4e801158328b90224ce786efe498753a6a68ba4e5e1d57a20c4a328280129dc6
+          inputHash: cbe8c105d25272060f0ef633c00c22129a165adcd7f777ea20e4b2e331a9b068
+          outcomeId: 96d6a749-e0fa-4774-b80f-37e85add3034
+          output:
+            summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+              #pageTitle 样式。218 项测试通过，exe 重新打包。"
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 183b403a175dabfdbf3326334afd4f43129aa6b66a329a667c1395ac607d5c23
+            outcomeId: 96d6a749-e0fa-4774-b80f-37e85add3034
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: succeeded
+        stepId: tweak.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-f3b3bbd2a93b0e62c0e0995949f182b71a4ba6dfd5784b916ddbefdccfe08981
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: remove-page-headers:12
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.archive.confirm:
+              choice: reverify
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+            tweak.archive.prepare:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+            tweak.open.evidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/38b45784-1f8a-4640-a8d9-408b576a85dd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+            tweak.verify.report.evidence:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        inputHash: 07e7347543760712d87592755deb33cdf7f8bd0882055ae3639e4737e6867d40
+        outcome:
+          actionId: remove-page-headers:12
+          attempt: 1
+          claimToken: portable-f3b3bbd2a93b0e62c0e0995949f182b71a4ba6dfd5784b916ddbefdccfe08981
+          inputHash: 07e7347543760712d87592755deb33cdf7f8bd0882055ae3639e4737e6867d40
+          outcomeId: 1a6a5b07-975b-456e-a860-3a37b99e151c
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: d0230119ec9d48af86e72b82d4c5c571fbfd1794c7dbd067ce49a479e3f553e2
+            outcomeId: 1a6a5b07-975b-456e-a860-3a37b99e151c
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: succeeded
+        stepId: tweak.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-ff0c2f9f05a5fd2a872dca5d53ad6f9132aae585f858ba23dc6761aa076c4bea
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: remove-page-headers:14
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.archive.confirm:
+              choice: reverify
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+            tweak.archive.prepare:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+            tweak.open.evidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/38b45784-1f8a-4640-a8d9-408b576a85dd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+            tweak.verify.report.evidence:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        inputHash: 07e7347543760712d87592755deb33cdf7f8bd0882055ae3639e4737e6867d40
+        outcome:
+          actionId: remove-page-headers:14
+          attempt: 1
+          claimToken: portable-ff0c2f9f05a5fd2a872dca5d53ad6f9132aae585f858ba23dc6761aa076c4bea
+          inputHash: 07e7347543760712d87592755deb33cdf7f8bd0882055ae3639e4737e6867d40
+          outcomeId: c034ad14-9dc8-426e-8d86-53393c07df06
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 4
+            contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+            inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+            manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+            manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: a9d9cf5c4871e118f389ca22b2e29365c6a046e111713d7652057816d6db3c0b
+            outcomeId: c034ad14-9dc8-426e-8d86-53393c07df06
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: succeeded
+        stepId: tweak.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-562427e0ce254933a088f7ec916455d135deecfeb814dea15a1ba74143454398
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: remove-page-headers:16
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.archive.confirm:
+              choice: reverify
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+            tweak.archive.prepare:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+            tweak.open.evidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+            tweak.verify.report.evidence:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        inputHash: 8e48707ba15ab2b6ddcf03c1609373aad34074dee59d19ab9f92f54f5ad991cb
+        outcome:
+          actionId: remove-page-headers:16
+          attempt: 1
+          claimToken: portable-562427e0ce254933a088f7ec916455d135deecfeb814dea15a1ba74143454398
+          inputHash: 8e48707ba15ab2b6ddcf03c1609373aad34074dee59d19ab9f92f54f5ad991cb
+          outcomeId: 5ee55351-f2d0-4570-a460-9f9f6351493c
+          output:
+            summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+              #pageTitle 样式。218 项测试通过，exe 重新打包。"
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 2100629cb2c0701e810c532458e7959b19104ef8a834f88989f9d5517055144c
+            outcomeId: 5ee55351-f2d0-4570-a460-9f9f6351493c
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: succeeded
+        stepId: tweak.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-59cb4d6dd42061767dda84cd4a304f2f150a7078ba06d8375341752335632629
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: remove-page-headers:18
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+            tweak.archive.prepare:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+            tweak.open.evidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+            tweak.verify.report.evidence:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        inputHash: 42f244b0230a34885de662b3deeacd7c12aa0d92c7d82f983e9936d348e66229
+        outcome:
+          actionId: remove-page-headers:18
+          attempt: 1
+          claimToken: portable-59cb4d6dd42061767dda84cd4a304f2f150a7078ba06d8375341752335632629
+          inputHash: 42f244b0230a34885de662b3deeacd7c12aa0d92c7d82f983e9936d348e66229
+          outcomeId: bdeb2e44-6d61-45b2-87e0-0e53653b9ac7
+          output:
+            baseCommit: aa8200cc83bb3b2d4a212ddc1905df29aaeb38c5
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: e0d50309aed576467b63924c55f5caffde7dfdbc3ea3f1439b50f88aa73383fb
+            outcomeId: bdeb2e44-6d61-45b2-87e0-0e53653b9ac7
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: succeeded
+        stepId: tweak.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-7ef70cec9b10fc6a2841479407ef2005f3990fd785bffed1f9e0e98e01a17ca4
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: remove-page-headers:19
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+            tweak.archive.preflight:
+              baseCommit: aa8200cc83bb3b2d4a212ddc1905df29aaeb38c5
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+            tweak.open.evidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+            tweak.verify.report.evidence:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        inputHash: 4526e330e6c5359f19f6c564094fb337d209be62be65c9181af5709b779f281c
+        outcome:
+          actionId: remove-page-headers:19
+          artifacts:
+            - sha256: 53d64358e6c9858d61db8a3363e295fc3fa6fba2f30e2d99c620ee8eeffcecb0
+              uri: docs/openspec/changes/archive/2026-11-14-remove-page-headers/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-7ef70cec9b10fc6a2841479407ef2005f3990fd785bffed1f9e0e98e01a17ca4
+          inputHash: 4526e330e6c5359f19f6c564094fb337d209be62be65c9181af5709b779f281c
+          outcomeId: 1b79f12b-da2d-4920-ba0e-dee82abfdc37
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-14-remove-page-headers
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 2661ae9e2a7e1a9868b82da8a6971025c92cc78fde9702303c5edb816d905e11
+            outcomeId: 1b79f12b-da2d-4920-ba0e-dee82abfdc37
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: succeeded
+        stepId: tweak.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: remove-page-headers:20
+        input:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+            tweak.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-14-remove-page-headers
+            tweak.archive.preflight:
+              baseCommit: aa8200cc83bb3b2d4a212ddc1905df29aaeb38c5
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+            tweak.open.evidence:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+            tweak.verify.report.evidence:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        inputHash: 27721abb13025ff8073f7e8d916595efae0d28481abb79eec7b454d91d3cca97
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: remove-page-headers
+        status: pending
+        stepId: tweak.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      remove-page-headers:1:
+        results: {}
+        sequence: 1
+      remove-page-headers:10:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/38b45784-1f8a-4640-a8d9-408b576a85dd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        sequence: 10
+      remove-page-headers:12:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/38b45784-1f8a-4640-a8d9-408b576a85dd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        sequence: 12
+      remove-page-headers:14:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/38b45784-1f8a-4640-a8d9-408b576a85dd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+          tweak.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        sequence: 14
+      remove-page-headers:16:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+          tweak.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        sequence: 16
+      remove-page-headers:18:
+        results:
+          tweak.archive.confirm:
+            sequence: 17
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 16
+            value:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+          tweak.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        sequence: 18
+      remove-page-headers:19:
+        results:
+          tweak.archive.confirm:
+            sequence: 17
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+          tweak.archive.preflight:
+            sequence: 18
+            value:
+              baseCommit: aa8200cc83bb3b2d4a212ddc1905df29aaeb38c5
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 16
+            value:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+          tweak.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        sequence: 19
+      remove-page-headers:20:
+        results:
+          tweak.archive.confirm:
+            sequence: 17
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+          tweak.archive.execute:
+            sequence: 19
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-14-remove-page-headers
+          tweak.archive.preflight:
+            sequence: 18
+            value:
+              baseCommit: aa8200cc83bb3b2d4a212ddc1905df29aaeb38c5
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 16
+            value:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+          tweak.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        sequence: 20
+      remove-page-headers:3:
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+        sequence: 3
+      remove-page-headers:4:
+        results:
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+        sequence: 4
+      remove-page-headers:6:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+        sequence: 6
+      remove-page-headers:8:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        sequence: 8
+    waits:
+      - id: remove-page-headers:11
+        stepId: tweak.archive.confirm
+        sequence: 11
+        status: resolved
+        proposal:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.archive.prepare:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+        proposalHash: 08aefeab8f7f1868ed8adc16eaf013d96cc031ac5d7ffd5e201c1a37fee57b8b
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/38b45784-1f8a-4640-a8d9-408b576a85dd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        decision:
+          id: classic-archive-08aefeab8f7f1868ed8adc16eaf013d96cc031ac5d7ffd5e201c1a37fee57b8b-reverify
+          choice: reverify
+          proposalHash: 08aefeab8f7f1868ed8adc16eaf013d96cc031ac5d7ffd5e201c1a37fee57b8b
+      - id: remove-page-headers:17
+        stepId: tweak.archive.confirm
+        sequence: 17
+        status: resolved
+        proposal:
+          input:
+            change: remove-page-headers
+            changeDir: docs/openspec/changes/remove-page-headers
+            workspaceBaseline:
+              ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+          outputs:
+            tweak.archive.prepare:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+        proposalHash: 08aefeab8f7f1868ed8adc16eaf013d96cc031ac5d7ffd5e201c1a37fee57b8b
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 16
+            value:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+          tweak.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        decision:
+          id: classic-archive-08aefeab8f7f1868ed8adc16eaf013d96cc031ac5d7ffd5e201c1a37fee57b8b-local
+          choice: local
+          proposalHash: 08aefeab8f7f1868ed8adc16eaf013d96cc031ac5d7ffd5e201c1a37fee57b8b
+    evidenceWaits:
+      - id: remove-page-headers:2
+        stepId: tweak.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+        receipt:
+          ref: docs/openspec/changes/remove-page-headers
+          contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+          submissionId: d2146dae-ef5d-46be-8840-5d032192b20b
+      - id: remove-page-headers:5
+        stepId: tweak.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+          submissionId: 56d32175-196d-4976-bb9b-f5466833752d
+      - id: remove-page-headers:7
+        stepId: tweak.verify.report.evidence
+        sequence: 7
+        kind: classic-verification-report
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+          submissionId: b30f09ca-7037-4fbf-adb2-71ca21be3ac8
+      - id: remove-page-headers:9
+        stepId: tweak.verify.check.evidence
+        sequence: 9
+        kind: classic-verify-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/38b45784-1f8a-4640-a8d9-408b576a85dd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+          contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+          submissionId: ed055715-7802-420e-9543-2b27cb264ca3
+      - id: remove-page-headers:13
+        stepId: tweak.verify.report.evidence
+        sequence: 13
+        kind: classic-verification-report
+        status: resolved
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/38b45784-1f8a-4640-a8d9-408b576a85dd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+          submissionId: f3c07b93-e245-406e-b453-fb4fea61706e
+      - id: remove-page-headers:15
+        stepId: tweak.verify.check.evidence
+        sequence: 15
+        kind: classic-verify-check
+        status: resolved
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: reverify
+              proposal:
+                input:
+                  change: remove-page-headers
+                  changeDir: docs/openspec/changes/remove-page-headers
+                  workspaceBaseline:
+                    ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+                outputs:
+                  tweak.archive.prepare:
+                    summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                      #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                #pageTitle 样式。218 项测试通过，exe 重新打包。"
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+              manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+                ref: docs/openspec/changes/remove-page-headers
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+              ref: docs/openspec/changes/remove-page-headers
+          tweak.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+              manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+              manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 469ebe0f8a78ab5fba8a638bbf137d5c4a6fda2d7fc3bf8aa4e2297dad7a87fd
+              ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/43f95d22-040e-4f3a-9576-1edfb999d98e.log
+          tweak.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+              ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+          tweak.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+          contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+          submissionId: ad30de32-1957-42b6-be03-d56188a83bf8
+    ready: []
+    joins: {}
+    outputs:
+      tweak.archive.confirm:
+        sequence: 17
+        value:
+          choice: local
+          proposal:
+            input:
+              change: remove-page-headers
+              changeDir: docs/openspec/changes/remove-page-headers
+              workspaceBaseline:
+                ref: 6d58cfca-e379-46c5-8406-872fe0e123db
+            outputs:
+              tweak.archive.prepare:
+                summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+                  #pageTitle 样式。218 项测试通过，exe 重新打包。"
+                targetBranch: main
+      tweak.archive.execute:
+        sequence: 19
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-14-remove-page-headers
+      tweak.archive.preflight:
+        sequence: 18
+        value:
+          baseCommit: aa8200cc83bb3b2d4a212ddc1905df29aaeb38c5
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      tweak.archive.prepare:
+        sequence: 16
+        value:
+          summary: "删除铺面编辑页与操作日志页内重复的标题标签：标题只由标签页显示；铺面页第一行只保留右侧模式切换，日志页头部只保留右侧清空，并移除未使用的
+            #pageTitle 样式。218 项测试通过，exe 重新打包。"
+          targetBranch: main
+      tweak.build.check:
+        sequence: 4
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 1
+          contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+          inputBefore: 4db5a8261825e260b0565f74dfb38a15de3715a6e9d5ea150b6307a378e601b4
+          manifestHash: d70cc509ba85480a94df98b8de2cf095e0848400cda93553de4d02b4644d60e9
+          manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/e5b24f24-4700-41cb-94d8-0a224b4d100a.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      tweak.build.check.evidence:
+        sequence: 5
+        value:
+          contentHash: f107fd8a35cab6fd17d37ba5666b61823f63de130eef961fff46c5ba3b8db1cb
+          ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a85aeb61-a943-4aed-b6c8-e5867174960b.log
+      tweak.build.execute:
+        sequence: 3
+        value:
+          event: build-complete
+      tweak.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+            ref: docs/openspec/changes/remove-page-headers
+      tweak.open.evidence:
+        sequence: 2
+        value:
+          contentHash: e5e75d8758ee87fa678f268d53f3f716704c07040be0a0a6d9a3521653ad3ff3
+          ref: docs/openspec/changes/remove-page-headers
+      tweak.verify.check:
+        sequence: 14
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 4
+          contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+          inputBefore: e521159239a0e9d214fe7b6b5507a4655e66bc83d2b5dd6bc2a487e28998fd59
+          manifestHash: 9584bf2c16e25cec4ffbe83ab2fd78bb619a6eb5cef2938c822ce67da6818842
+          manifestRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/b27f80d6-9b21-41c6-b6a0-a48907f70018.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      tweak.verify.check.evidence:
+        sequence: 15
+        value:
+          contentHash: bb11113cc221539488e8e9220c0612f663907c94e5a754d9e7a4b89289819fd9
+          ref: .comet/runtime/classic-sdk-checks/4f1e9c9b72b55991668980e916511a0734929febb98bbf4460cad6cdc85f4753/a834def4-041f-45cb-ac3f-71a1e14a1bf0.log
+      tweak.verify.report.evidence:
+        sequence: 13
+        value:
+          contentHash: 7470f820da6063d6a3967be2f5ca5b09c8b42e8ff0694f8a152d99b121d36448
+          ref: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+      tweak.verify.run:
+        sequence: 12
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-14-remove-page-headers-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 31
+  sourceHash: 68516c5ce1db329393a2f4e3444d3caa7941013b826e3e05e3d1718d961778dd
+check_epoch: 7

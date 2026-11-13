@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>变更说明 · 去掉铺面编辑与操作日志页内重复的标题</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --page: #fafbfc;
+  --ink: #202a35;
+  --muted: #566575;
+  --line: #dbe2e8;
+  --accent: #245b85;
+  --highlight: #edf3f7;
+  --hover: #e9eef3;
+  --code-bg: #edf0f4;
+  --code-ink: #263443;
+  --success: #236d4f;
+  --failure: #a83131;
+  --text: 15px;
+  --small: 13px;
+  --label: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #181d23;
+    --ink: #e4eaf0;
+    --muted: #a4b1be;
+    --line: #35404b;
+    --accent: #94c6ec;
+    --highlight: #222e39;
+    --hover: #27323d;
+    --code-bg: #10161d;
+    --code-ink: #e0e8f0;
+    --success: #8ed8b5;
+    --failure: #ffb0a8;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: var(--text)/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { max-width: 1040px; margin: auto; padding: 32px 32px 48px; }
+.eyebrow { color: var(--accent); font-size: var(--label); font-weight: 500; letter-spacing: .08em; }
+h1 { margin: 8px 0 12px; max-width: 32em; font-size: 28px; font-weight: 500; line-height: 1.4; letter-spacing: -.02em; overflow-wrap: anywhere; }
+h2 { margin: 0; font-size: 18px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+h3 { margin: 0 0 4px; color: var(--muted); font-size: var(--label); font-weight: 500; }
+p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+strong { font-weight: 500; }
+.meta { margin-bottom: 24px; color: var(--muted); font-size: var(--small); overflow-wrap: anywhere; }
+.meta p + p { margin-top: 2px; }
+article { padding: 20px 0 12px; border-top: 1px solid var(--line); }
+article header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.number { color: var(--muted); font: var(--label)/1.5 ui-monospace, Consolas, monospace; font-variant-numeric: tabular-nums; }
+.comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.comparison section { min-width: 0; padding: 12px; }
+.after { background: var(--highlight); border-radius: 4px; }
+.after h3 { color: var(--accent); }
+.reason { margin-top: 12px; font-size: var(--small); color: var(--muted); }
+.reason strong { margin-right: 8px; color: var(--ink); }
+summary { min-height: 44px; padding: 10px 4px; cursor: pointer; font-size: var(--small); font-weight: 500; border-radius: 4px; }
+summary:hover { background: var(--hover); }
+summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.count, .tag { color: var(--muted); font-size: var(--label); font-weight: 400; }
+.count { margin-left: 4px; font-variant-numeric: tabular-nums; }
+.file { min-width: 0; padding: 0 0 16px; scroll-margin-top: 20px; }
+.file:target { outline: 2px solid var(--accent); outline-offset: 4px; }
+.file-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.file-heading code { min-width: 0; font-size: var(--small); overflow-wrap: anywhere; }
+.tag { white-space: nowrap; }
+pre { margin: 8px 0 0; padding: 12px 16px; overflow: auto; background: var(--code-bg); color: var(--code-ink); border-radius: 4px; font: var(--small)/1.65 ui-monospace, Consolas, monospace; tab-size: 2; }
+footer { margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--line); }
+footer h2 { margin-bottom: 8px; }
+.check { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.status { padding-top: 2px; font-size: var(--label); font-weight: 500; }
+.passed { color: var(--success); }
+.failed { color: var(--failure); }
+.not-run, .unknown { color: var(--muted); }
+.check p { margin-top: 2px; color: var(--muted); font-size: var(--small); }
+.more { border-top: 1px solid var(--line); }
+.more > summary { padding-block: 12px; }
+.diagram { margin: 0; padding: 20px 0; border-top: 1px solid var(--line); }
+.diagram figcaption { margin-bottom: 12px; font-size: 18px; font-weight: 500; overflow-wrap: anywhere; }
+.diagram-svg { display: block; max-width: 100%; height: auto; margin: auto; overflow: visible; font: 13px system-ui, -apple-system, "Segoe UI", sans-serif; }
+.diagram-svg text { fill: var(--ink); }
+.diagram-edge { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+.diagram-svg marker path { fill: var(--muted); }
+.diagram-edge-label { fill: var(--page); }
+.diagram-svg .diagram-edge-text { fill: var(--muted); font-size: 12px; }
+.diagram-node rect { fill: var(--page); stroke: var(--line); stroke-width: 1.5; }
+.diagram-node.modified rect { fill: var(--highlight); stroke: var(--accent); }
+.diagram-node.added rect { stroke: var(--success); }
+.diagram-node.deleted rect { stroke: var(--failure); stroke-dasharray: 4 3; }
+.diagram-svg .diagram-kind { fill: var(--muted); font-size: 11px; }
+.diagram-node[href] { cursor: pointer; }
+.diagram-node[href]:hover rect, .diagram-node[href]:focus-visible rect { stroke: var(--accent); stroke-width: 2.5; }
+.diagram-node[href]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.diagram-hint { margin-top: 12px; color: var(--muted); font-size: var(--small); text-align: center; }
+.diagram-comparison { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; }
+.diagram-comparison > section { min-width: 0; padding: 12px; border: 1px solid var(--line); border-radius: 4px; }
+.diagram-comparison > section > h3 { margin-bottom: 12px; }
+.diagram-compact { display: none; }
+@media (max-width: 999px) {
+  .diagram-wide { display: none; }
+  .diagram-compact { display: block; }
+}
+@media (max-width: 640px) {
+  main { padding: 24px 16px 32px; }
+  h1 { font-size: 24px; }
+  .meta { margin-bottom: 20px; }
+  article { padding-top: 16px; }
+  article header { gap: 8px; }
+  .comparison { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .check { grid-template-columns: 60px minmax(0, 1fr); gap: 8px; }
+  pre { padding: 12px; }
+  .diagram-comparison { grid-template-columns: minmax(0,1fr); }
+  .diagram-comparison > section { padding: 12px 0; border: 0; }
+}
+</style></head><body><main><div class="eyebrow">COMET / 变更说明</div><h1>去掉铺面编辑与操作日志页内重复的标题</h1><div class="meta"><p>比较范围 · 比较范围 f656636..2d010ee；仅 UI 文案与布局</p><p>生成时间 · 2026-11-13T17:43:43.286Z</p></div><article><header><span class="number">01</span><h2>删除页内标题</h2></header><div class="comparison"><section><h3>原来</h3><p>两个标签页内再次显示「铺面编辑」「操作日志」大标题</p></section><section class="after"><h3>现在</h3><p>标题只由标签页承担；铺面页第一行只剩右侧模式切换，日志页只剩右侧清空</p></section></div><p class="reason"><strong>原因</strong> 减少重复占位，让工具栏更紧凑</p><details><summary>查看文件和关键代码 <span class="count">3</span></summary><div class="file" id="walkthrough-file-0-0"><div class="file-heading"><span class="tag">修改</span><code>app/ui/piano_page.py:13</code></div><pre><code>删除 title_label，保留 addStretch + 模式按钮</code></pre></div><div class="file" id="walkthrough-file-0-1"><div class="file-heading"><span class="tag">修改</span><code>app/ui/log_page.py:13</code></div><pre><code>删除 log_label，保留 addStretch + 清空</code></pre></div><div class="file" id="walkthrough-file-0-2"><div class="file-heading"><span class="tag">修改</span><code>app/ui/theme.py:1</code></div><pre><code>移除 #pageTitle 样式</code></pre></div></details></article><footer><h2>实际验证</h2><div class="check"><span class="status passed">通过</span><div><strong>Builder 自检</strong><p>218 项测试通过</p></div></div><div class="check"><span class="status not-run">未执行</span><div><strong>独立审查</strong><p>纯 UI 删除</p></div></div><div class="check"><span class="status passed">通过</span><div><strong>Runtime 检查</strong><p>comet guard build ALL CHECKS PASSED</p></div></div></footer></main><template id="walkthrough-data">eyJzdW1tYXJ5Ijoi5Y675o6J6ZO66Z2i57yW6L6R5LiO5pON5L2c5pel5b+X6aG15YaF6YeN5aSN55qE5qCH6aKYIiwic2NvcGUiOiLmr5TovoPojIPlm7QgZjY1NjYzNi4uMmQwMTBlZe+8m+S7hSBVSSDmlofmoYjkuI7luIPlsYAiLCJjaGFuZ2VzIjpbeyJ0aXRsZSI6IuWIoOmZpOmhteWGheagh+mimCIsImJlZm9yZSI6IuS4pOS4quagh+etvumhteWGheWGjeasoeaYvuekuuOAjOmTuumdoue8lui+keOAjeOAjOaTjeS9nOaXpeW/l+OAjeWkp+agh+mimCIsImFmdGVyIjoi5qCH6aKY5Y+q55Sx5qCH562+6aG15om/5ouF77yb6ZO66Z2i6aG156ys5LiA6KGM5Y+q5Ymp5Y+z5L6n5qih5byP5YiH5o2i77yM5pel5b+X6aG15Y+q5Ymp5Y+z5L6n5riF56m6IiwicmVhc29uIjoi5YeP5bCR6YeN5aSN5Y2g5L2N77yM6K6p5bel5YW35qCP5pu057Sn5YeRIiwiZmlsZXMiOlt7InBhdGgiOiJhcHAvdWkvcGlhbm9fcGFnZS5weToxMyIsImtpbmQiOiJtb2RpZmllZCIsImNvZGUiOiLliKDpmaQgdGl0bGVfbGFiZWzvvIzkv53nlZkgYWRkU3RyZXRjaCArIOaooeW8j+aMiemSriJ9LHsicGF0aCI6ImFwcC91aS9sb2dfcGFnZS5weToxMyIsImtpbmQiOiJtb2RpZmllZCIsImNvZGUiOiLliKDpmaQgbG9nX2xhYmVs77yM5L+d55WZIGFkZFN0cmV0Y2ggKyDmuIXnqboifSx7InBhdGgiOiJhcHAvdWkvdGhlbWUucHk6MSIsImtpbmQiOiJtb2RpZmllZCIsImNvZGUiOiLnp7vpmaQgI3BhZ2VUaXRsZSDmoLflvI8ifV19XSwidmVyaWZpY2F0aW9uIjpbeyJsYWJlbCI6IkJ1aWxkZXIg6Ieq5qOAIiwic3RhdHVzIjoicGFzc2VkIiwiZGV0YWlsIjoiMjE4IOmhuea1i+ivlemAmui/hyJ9LHsibGFiZWwiOiLni6znq4vlrqHmn6UiLCJzdGF0dXMiOiJub3QtcnVuIiwiZGV0YWlsIjoi57qvIFVJIOWIoOmZpCJ9LHsibGFiZWwiOiJSdW50aW1lIOajgOafpSIsInN0YXR1cyI6InBhc3NlZCIsImRldGFpbCI6ImNvbWV0IGd1YXJkIGJ1aWxkIEFMTCBDSEVDS1MgUEFTU0VEIn1dfQ==</template></body></html>

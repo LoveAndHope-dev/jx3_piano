@@ -1,4 +1,4 @@
-"""Ant Design（深色）设计令牌与全局样式。
+"""Ant Design（深色/浅色）设计令牌与全局样式。
 
 界面只从这里取颜色、间距、圆角、字号与控件高度，避免样式散落在各处。
 """
@@ -157,10 +157,9 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
         }}
 
         QPushButton#importBtn:disabled,
-        QPushButton#playBtn:disabled,
         QPushButton#stopBtn:disabled {{
-            background-color: {t['colorBgContainer']};
-            border-color: {t['colorBorderSecondary']};
+            background-color: {t['colorBgBase']};
+            border-color: {t['colorBorder']};
             color: {t['colorTextDisabled']};
         }}
 
@@ -186,30 +185,9 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
         }}
 
         QPushButton#primaryBtn:disabled {{
-            background-color: {t['colorBgContainer']};
-            border-color: {t['colorBorderSecondary']};
+            background-color: {t['colorBgBase']};
+            border-color: {t['colorBorder']};
             color: {t['colorTextDisabled']};
-        }}
-
-        QPushButton#playBtn {{
-            background-color: {t['colorPrimary']};
-            border-color: {t['colorPrimary']};
-            color: {t['colorTextLightSolid']};
-            min-width: 56px;
-            font-size: {t['fontSize']}px;
-            font-weight: 600;
-        }}
-
-        QPushButton#playBtn:hover {{
-            background-color: {t['colorPrimaryHover']};
-            border-color: {t['colorPrimaryHover']};
-            color: {t['colorTextLightSolid']};
-        }}
-
-        QPushButton#playBtn:pressed {{
-            background-color: {t['colorPrimaryActive']};
-            border-color: {t['colorPrimaryActive']};
-            color: {t['colorTextLightSolid']};
         }}
 
         QPushButton#stopBtn {{
@@ -217,6 +195,7 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
             border-color: {t['colorError']};
             color: {t['colorTextLightSolid']};
             font-weight: 600;
+            min-width: 84px;
         }}
 
         QPushButton#stopBtn:hover {{
@@ -249,6 +228,19 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
         QPushButton#clearBtn:hover {{
             color: {t['colorError']};
             border-color: {t['colorError']};
+        }}
+
+        QPushButton#themeBtn {{
+            min-height: 24px;
+            max-height: 24px;
+            padding: 0 {t['spaceSM']}px;
+            font-size: {t['fontSizeSM']}px;
+            color: {t['colorTextSecondary']};
+        }}
+
+        QPushButton#themeBtn:hover {{
+            color: {t['colorPrimary']};
+            border-color: {t['colorPrimary']};
         }}
 
         QListWidget {{

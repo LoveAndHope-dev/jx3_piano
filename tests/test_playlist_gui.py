@@ -511,6 +511,23 @@ class PlaylistGuiTest(unittest.TestCase):
         self.assertEqual(self.window.play_btn.text(), "⏹️ 停止")
         self.window.is_playing = False
 
+    def test_stop_stays_available_after_leaving_play_mode(self):
+        self.window.on_new_play_item()
+        self.window.range_toggle_btn.setChecked(True)
+        self.window.on_range_toggle_clicked()
+        self.window.is_playing = True
+        self.window.range_toggle_btn.setChecked(False)
+        self.window.on_range_toggle_clicked()
+        try:
+            self.assertEqual(self.window.play_btn.text(), "⏹️ 停止")
+            self.assertTrue(self.window.play_btn.isEnabled())
+            calls = []
+            self.window.toggle_play = lambda: calls.append(1)
+            self.window.play_btn.click()
+            self.assertEqual(calls, [1])
+        finally:
+            self.window.is_playing = False
+
     def test_theme_toggle_switches_stylesheet(self):
         self.assertEqual(self.window.theme_mode, "dark")
         self.assertEqual(self.window.theme_btn.text(), "☀️ 亮色")

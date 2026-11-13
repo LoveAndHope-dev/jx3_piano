@@ -521,7 +521,6 @@ class PianoRollWidgetTest(unittest.TestCase):
         x, y = 220.0, 120.0
         old_height = self.canvas.row_height
         scene_before = self.canvas.mapToScene(QPoint(int(x), int(y)))
-        row_before = int(scene_before.y() // old_height)
         emitted = []
         self.canvas.notesChanged.connect(lambda: emitted.append(1))
 
@@ -530,8 +529,8 @@ class PianoRollWidgetTest(unittest.TestCase):
         new_height = self.canvas.row_height
         self.assertGreater(new_height, old_height)
         scene_after = self.canvas.mapToScene(QPoint(int(x), int(y)))
-        row_after = int(scene_after.y() // new_height)
-        self.assertLessEqual(abs(row_after - row_before), 1)
+        expected_scene_y = scene_before.y() * (new_height / old_height)
+        self.assertAlmostEqual(scene_after.y(), expected_scene_y, delta=1.5)
         self.assertEqual(emitted, [])
 
     def test_playhead_lock_centers_instrument_range(self):
@@ -543,13 +542,47 @@ class PianoRollWidgetTest(unittest.TestCase):
         y_top, y_bottom = self.canvas._range_band_y_bounds()
         expected = (y_top + y_bottom) / 2.0 - self.canvas.viewport().height() / 2.0
         self.assertAlmostEqual(self.canvas.verticalScrollBar().value(), expected, delta=2)
+        centered = self.canvas.verticalScrollBar().value()
+        self.canvas.set_playhead_locked(False)
+        self.assertEqual(self.canvas.verticalScrollBar().value(), centered)
+
+    def test_playhead_lock_ignores_hidden_range(self):
+        self.canvas.set_instrument_range_visible(False)
+        self.canvas.verticalScrollBar().setValue(30)
+        self.canvas.set_playhead_locked(True)
+        self.assertEqual(self.canvas.verticalScrollBar().value(), 30)
+        self.canvas.set_playhead_locked(False)
+
+    def test_playhead_lock_clamps_at_scroll_edges(self):
+        self.widget.set_instrument_range(21, 108)
+        self.canvas.set_instrument_range_visible(True)
+        self.canvas.set_playhead_locked(True)
+        bar = self.canvas.verticalScrollBar()
+        self.assertLessEqual(bar.value(), bar.maximum())
+        self.assertGreaterEqual(bar.value(), bar.minimum())
         self.canvas.set_playhead_locked(False)
 
     def test_keyboard_stays_pinned_when_scrolling_horizontally(self):
+        self.widget.set_notes(
+            [
+                {
+                    "id": 0,
+                    "pitch": 60,
+                    "start": 60.0,
+                    "duration": 1.0,
+                    "track": 0,
+                    "mapped": True,
+                }
+            ]
+        )
+        self.canvas.set_pixels_per_second(70.0)
         keyboard = self.widget._keyboard
         before = keyboard.geometry()
-        self.canvas.horizontalScrollBar().setValue(120)
+        bar = self.canvas.horizontalScrollBar()
+        self.assertGreater(bar.maximum(), 0)
+        bar.setValue(120)
         _application().processEvents()
+        self.assertEqual(bar.value(), 120)
         self.assertEqual(keyboard.geometry(), before)
         self.assertEqual(keyboard.x(), 0)
 

@@ -44,7 +44,7 @@ class ThemeTokenTest(unittest.TestCase):
     def test_stylesheet_keeps_core_selectors(self):
         stylesheet = build_stylesheet()
         for selector in (
-            "QPushButton#playBtn",
+            "QPushButton#primaryBtn",
             "QPushButton#stopBtn",
             "QPushButton#importBtn",
             "QListWidget",
@@ -63,14 +63,20 @@ class ThemeTokenTest(unittest.TestCase):
     def test_primary_buttons_have_state_selectors(self):
         stylesheet = build_stylesheet()
         for selector in (
-            "QPushButton#playBtn:pressed",
-            "QPushButton#playBtn:disabled",
+            "QPushButton#primaryBtn:pressed",
+            "QPushButton#primaryBtn:disabled",
             "QPushButton#importBtn:pressed",
             "QPushButton#importBtn:disabled",
             "QPushButton#stopBtn:pressed",
             "QPushButton#stopBtn:disabled",
+            "QPushButton#themeBtn",
         ):
             self.assertIn(selector, stylesheet)
+
+    def test_light_theme_disabled_primary_is_visible(self):
+        stylesheet = build_stylesheet(LIGHT_TOKENS)
+        self.assertIn("background-color: #f5f5f5", stylesheet)
+        self.assertIn("border-color: #d9d9d9", stylesheet)
 
 
 if __name__ == "__main__":

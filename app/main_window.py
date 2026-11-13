@@ -116,7 +116,7 @@ class MidiConverterGUI(
         panel_header.addStretch()
 
         self.theme_btn = QPushButton("☀️ 亮色")
-        self.theme_btn.setObjectName("clearBtn")
+        self.theme_btn.setObjectName("themeBtn")
         self.theme_btn.setToolTip("切换到亮色模式")
         self.theme_btn.clicked.connect(self.toggle_theme)
         panel_header.addWidget(self.theme_btn)

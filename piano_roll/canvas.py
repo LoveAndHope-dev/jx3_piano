@@ -26,7 +26,7 @@ class _PianoRollCanvas(CanvasInputMixin, CanvasPaintMixin, QGraphicsView):
 
     notesChanged = pyqtSignal()
     instrumentRangeChanged = pyqtSignal(int, int)  # 仅在拖动黄色音域框改变范围时发出
-    zoomChanged = pyqtSignal()  # 横向缩放比例变化（顶部标尺据此重绘）
+    zoomChanged = pyqtSignal()  # 横向或纵向缩放变化（顶部标尺/键盘据此重绘）
     undoRequested = pyqtSignal()  # 编辑模式下按 Ctrl+Z
     redoRequested = pyqtSignal()  # 编辑模式下按 Ctrl+Shift+Z
 
@@ -217,8 +217,10 @@ class _PianoRollCanvas(CanvasInputMixin, CanvasPaintMixin, QGraphicsView):
 
     def set_playhead_locked(self, locked: bool) -> None:
         """锁定/解锁标尺定位（播放期间锁定；演奏模式不锁定）。"""
+        was_locked = self._playhead_locked
         self._playhead_locked = bool(locked)
-        if self._playhead_locked:
+        # 仅在进入播放时聚焦一次，避免切曲/刷新时打断用户手动滚动
+        if self._playhead_locked and not was_locked:
             self.focus_vertical_range_center()
 
     def focus_vertical_range_center(self) -> None:

@@ -70,11 +70,13 @@ class PianoPageMixin:
         toolbar_row2.addWidget(QLabel("演奏最低键位映射:"))
         self.range_low_combo = QComboBox()
         self.range_low_combo.setEnabled(False)
+        self.range_low_combo.setFixedWidth(84)
         toolbar_row2.addWidget(self.range_low_combo)
 
         toolbar_row2.addWidget(QLabel("演奏最高键位映射:"))
         self.range_high_combo = QComboBox()
         self.range_high_combo.setEnabled(False)
+        self.range_high_combo.setFixedWidth(84)
         toolbar_row2.addWidget(self.range_high_combo)
 
         toolbar_row2.addWidget(QLabel("钢琴音域绝对最低键:"))
@@ -364,27 +366,28 @@ class PianoPageMixin:
         self._update_primary_btn()
 
     def _update_primary_btn(self) -> None:
-        """按模式与播放状态更新合并主按钮的文案、样式与可用状态。"""
+        """按播放状态与模式更新合并主按钮的文案、样式与可用状态。"""
         play_mode = self.range_toggle_btn.isChecked()
-        if play_mode:
-            if self.is_playing:
-                text, object_name, enabled = "⏹️ 停止", "stopBtn", True
-            else:
-                text = "▶️ 演奏"
-                object_name = "primaryBtn"
-                enabled = bool(self.current_midi_path)
+        # 播放中优先保证「停止」入口可用（即使已切回编辑模式）
+        if self.is_playing:
+            text, object_name, enabled = "⏹️ 停止", "stopBtn", True
+        elif play_mode:
+            text = "▶️ 演奏"
+            object_name = "primaryBtn"
+            enabled = bool(self.current_midi_path)
         else:
             text = "💾 保存"
             object_name = "primaryBtn"
             enabled = bool(self.current_midi_path) and bool(self.piano_roll_dirty)
         self.play_btn.setText(text)
         self.play_btn.setObjectName(object_name)
-        self.play_btn.setStyleSheet("")
+        self.play_btn.style().unpolish(self.play_btn)
+        self.play_btn.style().polish(self.play_btn)
         self.play_btn.setEnabled(enabled)
 
     def on_primary_action(self) -> None:
-        """主按钮：编辑模式保存，演奏模式播放 / 停止。"""
-        if self.range_toggle_btn.isChecked():
+        """主按钮：播放中停止；编辑模式保存；演奏模式开始播放。"""
+        if self.is_playing or self.range_toggle_btn.isChecked():
             self.toggle_play()
         else:
             self.save_piano_roll()

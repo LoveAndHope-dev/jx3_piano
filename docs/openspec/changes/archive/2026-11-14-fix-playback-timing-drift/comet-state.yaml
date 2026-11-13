@@ -1,0 +1,3136 @@
+# comet-execution: managed-run
+change_id: 6b1aa572-2f9d-43dc-b4a4-d4bf0c7ed76f
+workflow: hotfix
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: c9387a97005163238762824fa3fd8a07b52cee08
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+branch_status: pending
+created_at: 2026-11-13
+verified_at: 2026-11-13
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: 0284c8e4a17c518f484dd1012dea8e9dae00f6e168133f6682fa09d59eb42ee6
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: fix-playback-timing-drift
+    revision: 1
+    workflow:
+      id: comet-classic-hotfix
+      version: "1"
+      hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+    definitionHashes:
+      '["comet-classic-hotfix","1"]': 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+    initialStateHash: e994450df37416f58e39acac6cd27955cf7a51146822189d3f122be386e0555a
+    input:
+      change: fix-playback-timing-drift
+      changeDir: docs/openspec/changes/fix-playback-timing-drift
+      workspaceBaseline:
+        ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: c9387a97005163238762824fa3fd8a07b52cee08
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 7
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-13
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+      verifiedAt: 2026-11-13
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: hotfix
+    status: running
+    sequence: 20
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-301fa31ae1ab938d98da20af71ca8c257d1a465bfb7cafd94c118e2153043bc1
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:1
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs: {}
+        inputHash: 618eeadd5adb11029def9026e61ac2139ea5500cd7e517d841694da38b265194
+        outcome:
+          actionId: fix-playback-timing-drift:1
+          attempt: 1
+          claimToken: portable-301fa31ae1ab938d98da20af71ca8c257d1a465bfb7cafd94c118e2153043bc1
+          inputHash: 618eeadd5adb11029def9026e61ac2139ea5500cd7e517d841694da38b265194
+          outcomeId: 56a090b3-23e7-4850-b85a-e46d19bd9ba7
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: c21b5f82cc242ebda29d7c29041ba7129a48ae93f7d047c4192bfc801217561c
+            outcomeId: 56a090b3-23e7-4850-b85a-e46d19bd9ba7
+        reconciliations: []
+        ref: comet-hotfix
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/fix-playback-timing-drift:3/1
+          token: portable-51ee8221046ffb293b580272ecad33018f1a6146046a9d8175f5e16563a52498
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:3
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+        inputHash: ff0a9b3ef27e2ce6d2d310385539a90d435f92b09dfd00f5d889a66e5a7ef00a
+        outcome:
+          actionId: fix-playback-timing-drift:3
+          attempt: 1
+          claimToken: portable-51ee8221046ffb293b580272ecad33018f1a6146046a9d8175f5e16563a52498
+          inputHash: ff0a9b3ef27e2ce6d2d310385539a90d435f92b09dfd00f5d889a66e5a7ef00a
+          outcomeId: 82233280-3d32-4eff-b33a-da76668bea6b
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 2e0373ab3ce72011657f521925ec40e9c7a98c6286c47febb6b30fdd66ab802d
+            outcomeId: 82233280-3d32-4eff-b33a-da76668bea6b
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-7591ba60102b72dcceb7d1821af71a09dff9d3c8536dc29769a355c53ea2b809
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:4
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+        inputHash: fec03701d87f623bba64b57bfba439d127faa329cd4017dbbf0645a4550d76ba
+        outcome:
+          actionId: fix-playback-timing-drift:4
+          attempt: 1
+          claimToken: portable-7591ba60102b72dcceb7d1821af71a09dff9d3c8536dc29769a355c53ea2b809
+          inputHash: fec03701d87f623bba64b57bfba439d127faa329cd4017dbbf0645a4550d76ba
+          outcomeId: 0c7cfa3a-3884-4b04-966d-6a174dabd185
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+            inputBefore: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+            manifestHash: a22517bbb0ce8d704bc9eca9b468b86f59f4dcea7a2f81da6b81e0dbbaebfe1e
+            manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/ca1cf693-15e8-4305-bdd4-faa33abcc8a5.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 97517483c442dd24d916f9d458a7af885908f8dd6d8e8c8a15d73915f79ab812
+            outcomeId: 0c7cfa3a-3884-4b04-966d-6a174dabd185
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-e000504578b80969bfd667b234c5bd78b2952ef590d36a94b117929cfa044bb8
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:6
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              inputBefore: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              manifestHash: a22517bbb0ce8d704bc9eca9b468b86f59f4dcea7a2f81da6b81e0dbbaebfe1e
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/ca1cf693-15e8-4305-bdd4-faa33abcc8a5.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+        inputHash: 69b9e1a527ee634c0d297ff77e0c59c091249f44749614bdefc70020c0ce3a55
+        outcome:
+          actionId: fix-playback-timing-drift:6
+          attempt: 1
+          claimToken: portable-e000504578b80969bfd667b234c5bd78b2952ef590d36a94b117929cfa044bb8
+          inputHash: 69b9e1a527ee634c0d297ff77e0c59c091249f44749614bdefc70020c0ce3a55
+          outcomeId: 8a73bcaa-f75c-4703-9321-980f976d484c
+          output:
+            event: verify-fail
+            reason: 审查反馈后实现补强（单调时钟、最大延迟日志）与 spec 措辞调整发生在 Open 批准之后，需回到 Build 确认修订后的范围并重新验收
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 5469d9ce6d823480fc2acd0cf135c850ac8e928714764ba8f2e15470e4dea1fe
+            outcomeId: 8a73bcaa-f75c-4703-9321-980f976d484c
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-1165083493618860a9a77e7809d7853a24052dc2d408ee64d1e4642fc6d58a7b
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:7
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              inputBefore: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              manifestHash: a22517bbb0ce8d704bc9eca9b468b86f59f4dcea7a2f81da6b81e0dbbaebfe1e
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/ca1cf693-15e8-4305-bdd4-faa33abcc8a5.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.verify.run:
+              event: verify-fail
+              reason: 审查反馈后实现补强（单调时钟、最大延迟日志）与 spec 措辞调整发生在 Open 批准之后，需回到 Build 确认修订后的范围并重新验收
+        inputHash: 07580d28ccdf78eb60b60360c00bf9185c10bde932a53cfdfd27307a7fc7d96f
+        outcome:
+          actionId: fix-playback-timing-drift:7
+          attempt: 1
+          claimToken: portable-1165083493618860a9a77e7809d7853a24052dc2d408ee64d1e4642fc6d58a7b
+          inputHash: 07580d28ccdf78eb60b60360c00bf9185c10bde932a53cfdfd27307a7fc7d96f
+          outcomeId: a4890083-7736-4e6c-9251-421004e50175
+          output:
+            event: escalation-requested
+            proposal: 审阅反馈后把 spec
+              措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+            requirementsEvidence:
+              contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: c1186956e565a643e804530cf8f670475328d8908acc0adf245150fca471641b
+            outcomeId: a4890083-7736-4e6c-9251-421004e50175
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/fix-playback-timing-drift:9/1
+          token: portable-19b31ab63982e1fd8d67944e6616b1109bcf940a489dc3e004601df5ef5d3fa8
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:9
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              inputBefore: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              manifestHash: a22517bbb0ce8d704bc9eca9b468b86f59f4dcea7a2f81da6b81e0dbbaebfe1e
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/ca1cf693-15e8-4305-bdd4-faa33abcc8a5.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+            hotfix.build.escalation-confirm:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.build.execute:
+              event: escalation-requested
+              proposal: 审阅反馈后把 spec
+                措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+              requirementsEvidence:
+                contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.verify.run:
+              event: verify-fail
+              reason: 审查反馈后实现补强（单调时钟、最大延迟日志）与 spec 措辞调整发生在 Open 批准之后，需回到 Build 确认修订后的范围并重新验收
+        inputHash: c5307e974fafb44c63226ef13e862017569332ed790ea99e66d1bc5ebc80eb99
+        outcome:
+          actionId: fix-playback-timing-drift:9
+          attempt: 1
+          claimToken: portable-19b31ab63982e1fd8d67944e6616b1109bcf940a489dc3e004601df5ef5d3fa8
+          inputHash: c5307e974fafb44c63226ef13e862017569332ed790ea99e66d1bc5ebc80eb99
+          outcomeId: 9f342ca8-744b-4104-9911-363c7d50f5e1
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: a6741ae44ad8cb9a50f088358d8fc2691ad9be8972bc46a911878e7fcb741bcd
+            outcomeId: 9f342ca8-744b-4104-9911-363c7d50f5e1
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-5fcdb93de97e4b1de104811d2dd856a567b897315bf8181ee0cbfdf70e7b7670
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:10
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              inputBefore: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              manifestHash: a22517bbb0ce8d704bc9eca9b468b86f59f4dcea7a2f81da6b81e0dbbaebfe1e
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/ca1cf693-15e8-4305-bdd4-faa33abcc8a5.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+            hotfix.build.escalation-confirm:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.verify.run:
+              event: verify-fail
+              reason: 审查反馈后实现补强（单调时钟、最大延迟日志）与 spec 措辞调整发生在 Open 批准之后，需回到 Build 确认修订后的范围并重新验收
+        inputHash: 8beff2a0213cca538b3cc8f7de4079d7d6cdb527b25e6931cfd691fbecf79113
+        outcome:
+          actionId: fix-playback-timing-drift:10
+          attempt: 1
+          claimToken: portable-5fcdb93de97e4b1de104811d2dd856a567b897315bf8181ee0cbfdf70e7b7670
+          inputHash: 8beff2a0213cca538b3cc8f7de4079d7d6cdb527b25e6931cfd691fbecf79113
+          outcomeId: 9a2da10f-9836-4472-981e-13c03c45ed4c
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 3
+            contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+            inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+            manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+            manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: c319b1f01162984556a526b1a6bcab0f01fa3e286cc57d9cfdb7e8f7e8e078a1
+            outcomeId: 9a2da10f-9836-4472-981e-13c03c45ed4c
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-dff4b40568b69c486085ed9e92885982b74fafcb57ea1331162ff4330d1f588e
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:12
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+            hotfix.build.escalation-confirm:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.verify.run:
+              event: verify-fail
+              reason: 审查反馈后实现补强（单调时钟、最大延迟日志）与 spec 措辞调整发生在 Open 批准之后，需回到 Build 确认修订后的范围并重新验收
+        inputHash: ec5ab60ef4653c4c92e47565d9756a47fe58841af0361fc8a4ffba85d79733f2
+        outcome:
+          actionId: fix-playback-timing-drift:12
+          attempt: 1
+          claimToken: portable-dff4b40568b69c486085ed9e92885982b74fafcb57ea1331162ff4330d1f588e
+          inputHash: ec5ab60ef4653c4c92e47565d9756a47fe58841af0361fc8a4ffba85d79733f2
+          outcomeId: 5fe6dcc4-61a0-4948-aceb-96ef2d2c5fd2
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: edb8141a5c263426e1080c495dd215507b636becfab6dca406e2d9a609a4a270
+            outcomeId: 5fe6dcc4-61a0-4948-aceb-96ef2d2c5fd2
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-c635bae3e67139e0a0a1fe863fface9b0d4b050e2a8a374d6dd2a1baac36558c
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:14
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+            hotfix.build.escalation-confirm:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.verify.report.evidence:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        inputHash: 4fcd990f583823f8b6decf5bcdfbe6f43c9829555562b37f129a6e140dfd005b
+        outcome:
+          actionId: fix-playback-timing-drift:14
+          attempt: 1
+          claimToken: portable-c635bae3e67139e0a0a1fe863fface9b0d4b050e2a8a374d6dd2a1baac36558c
+          inputHash: 4fcd990f583823f8b6decf5bcdfbe6f43c9829555562b37f129a6e140dfd005b
+          outcomeId: 3ab49914-d7f2-4227-8a46-dc5f97171cdb
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 4
+            contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+            inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+            manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+            manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: d7d6e212c8c5ea8f6597168bc6fa83caaef3c509d882dfc01ebd66b840366c7b
+            outcomeId: 3ab49914-d7f2-4227-8a46-dc5f97171cdb
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-ebed7494c6651ddcf60f2eb95752ffcbacdae8a5130c3d79ba2c85a5f1d7f169
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:16
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+            hotfix.build.escalation-confirm:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+            hotfix.verify.report.evidence:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        inputHash: 4d204dc26777d5c85ddf20c83a0e36c586e6acbe116a804b4bbb6d7226868f8f
+        outcome:
+          actionId: fix-playback-timing-drift:16
+          attempt: 1
+          claimToken: portable-ebed7494c6651ddcf60f2eb95752ffcbacdae8a5130c3d79ba2c85a5f1d7f169
+          inputHash: 4d204dc26777d5c85ddf20c83a0e36c586e6acbe116a804b4bbb6d7226868f8f
+          outcomeId: ab32d004-a87a-42af-b7db-22202507afb6
+          output:
+            summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+              的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182 项测试通过，release exe
+              已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 789f673864b05750e1833be8e1c4794ff9a01c8661d36dcb6e2d6844de74a39a
+            outcomeId: ab32d004-a87a-42af-b7db-22202507afb6
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-b04176f0e5275f2eaa5644b217439c3a9fbb11cf3a6e05b2b24f568537481798
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:18
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                      的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.prepare:
+              summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182 项测试通过，release exe
+                已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+            hotfix.build.escalation-confirm:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+            hotfix.verify.report.evidence:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        inputHash: 9bbd987f5691941688d224cdb26916785d03bb740165b5dfc03a6a55ef6f8cfb
+        outcome:
+          actionId: fix-playback-timing-drift:18
+          attempt: 1
+          claimToken: portable-b04176f0e5275f2eaa5644b217439c3a9fbb11cf3a6e05b2b24f568537481798
+          inputHash: 9bbd987f5691941688d224cdb26916785d03bb740165b5dfc03a6a55ef6f8cfb
+          outcomeId: 883c7f8e-d2e7-4634-b690-896448e4fb54
+          output:
+            baseCommit: f0e98b824bdbe0f4dc0f46cf770f1252eac3a516
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 5c3e1329d9955e5198b4fe989a4e0f6ab3119afdb5815cdb2d3c835f7b544f0d
+            outcomeId: 883c7f8e-d2e7-4634-b690-896448e4fb54
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-3aa0dc3ffba01f422cf86d48beb4c755d2272fb0ff46a4ae9a7183416acea78b
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-playback-timing-drift:19
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                      的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.preflight:
+              baseCommit: f0e98b824bdbe0f4dc0f46cf770f1252eac3a516
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            hotfix.archive.prepare:
+              summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182 项测试通过，release exe
+                已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+            hotfix.build.escalation-confirm:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+            hotfix.verify.report.evidence:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        inputHash: 62d237084cbe0b0a52c74aa5f543df9bc52587c846cd2b2968bb449a18ae059e
+        outcome:
+          actionId: fix-playback-timing-drift:19
+          artifacts:
+            - sha256: 5a057c6752cf7d52161c5ed681b7e2bb660f593a68a68061713831a54006da5f
+              uri: docs/openspec/changes/archive/2026-11-14-fix-playback-timing-drift/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-3aa0dc3ffba01f422cf86d48beb4c755d2272fb0ff46a4ae9a7183416acea78b
+          inputHash: 62d237084cbe0b0a52c74aa5f543df9bc52587c846cd2b2968bb449a18ae059e
+          outcomeId: 2ce26771-ee2d-486b-b137-f9a486a0dc7b
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-14-fix-playback-timing-drift
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: efeb8150af82119a3cc559c33a0a254afecec64ac06d372fcb3abb38ffa61bb8
+            outcomeId: 2ce26771-ee2d-486b-b137-f9a486a0dc7b
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: succeeded
+        stepId: hotfix.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: fix-playback-timing-drift:20
+        input:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                      的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-14-fix-playback-timing-drift
+            hotfix.archive.preflight:
+              baseCommit: f0e98b824bdbe0f4dc0f46cf770f1252eac3a516
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            hotfix.archive.prepare:
+              summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182 项测试通过，release exe
+                已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+            hotfix.build.escalation-confirm:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.open.evidence:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+            hotfix.verify.report.evidence:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        inputHash: 0242920463fa424312cec964e7725bf5cab31cd8d454857f721e6298caceb1eb
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-playback-timing-drift
+        status: pending
+        stepId: hotfix.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      fix-playback-timing-drift:1:
+        results: {}
+        sequence: 1
+      fix-playback-timing-drift:10:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              inputBefore: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              manifestHash: a22517bbb0ce8d704bc9eca9b468b86f59f4dcea7a2f81da6b81e0dbbaebfe1e
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/ca1cf693-15e8-4305-bdd4-faa33abcc8a5.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 9
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verify-fail
+              reason: 审查反馈后实现补强（单调时钟、最大延迟日志）与 spec 措辞调整发生在 Open 批准之后，需回到 Build 确认修订后的范围并重新验收
+        sequence: 10
+      fix-playback-timing-drift:12:
+        results:
+          hotfix.build.check:
+            sequence: 10
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 11
+            value:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 9
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verify-fail
+              reason: 审查反馈后实现补强（单调时钟、最大延迟日志）与 spec 措辞调整发生在 Open 批准之后，需回到 Build 确认修订后的范围并重新验收
+        sequence: 12
+      fix-playback-timing-drift:14:
+        results:
+          hotfix.build.check:
+            sequence: 10
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 11
+            value:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 9
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        sequence: 14
+      fix-playback-timing-drift:16:
+        results:
+          hotfix.build.check:
+            sequence: 10
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 11
+            value:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 9
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        sequence: 16
+      fix-playback-timing-drift:18:
+        results:
+          hotfix.archive.confirm:
+            sequence: 17
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                      的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.prepare:
+            sequence: 16
+            value:
+              summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182 项测试通过，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 10
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 11
+            value:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 9
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        sequence: 18
+      fix-playback-timing-drift:19:
+        results:
+          hotfix.archive.confirm:
+            sequence: 17
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                      的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.preflight:
+            sequence: 18
+            value:
+              baseCommit: f0e98b824bdbe0f4dc0f46cf770f1252eac3a516
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          hotfix.archive.prepare:
+            sequence: 16
+            value:
+              summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182 项测试通过，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 10
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 11
+            value:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 9
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        sequence: 19
+      fix-playback-timing-drift:20:
+        results:
+          hotfix.archive.confirm:
+            sequence: 17
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                      的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182
+                      项测试通过，release exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.execute:
+            sequence: 19
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-14-fix-playback-timing-drift
+          hotfix.archive.preflight:
+            sequence: 18
+            value:
+              baseCommit: f0e98b824bdbe0f4dc0f46cf770f1252eac3a516
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          hotfix.archive.prepare:
+            sequence: 16
+            value:
+              summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182 项测试通过，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 10
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 11
+            value:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 9
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        sequence: 20
+      fix-playback-timing-drift:3:
+        results:
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+        sequence: 3
+      fix-playback-timing-drift:4:
+        results:
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+        sequence: 4
+      fix-playback-timing-drift:6:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              inputBefore: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              manifestHash: a22517bbb0ce8d704bc9eca9b468b86f59f4dcea7a2f81da6b81e0dbbaebfe1e
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/ca1cf693-15e8-4305-bdd4-faa33abcc8a5.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+        sequence: 6
+      fix-playback-timing-drift:7:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              inputBefore: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              manifestHash: a22517bbb0ce8d704bc9eca9b468b86f59f4dcea7a2f81da6b81e0dbbaebfe1e
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/ca1cf693-15e8-4305-bdd4-faa33abcc8a5.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verify-fail
+              reason: 审查反馈后实现补强（单调时钟、最大延迟日志）与 spec 措辞调整发生在 Open 批准之后，需回到 Build 确认修订后的范围并重新验收
+        sequence: 7
+      fix-playback-timing-drift:9:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              inputBefore: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              manifestHash: a22517bbb0ce8d704bc9eca9b468b86f59f4dcea7a2f81da6b81e0dbbaebfe1e
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/ca1cf693-15e8-4305-bdd4-faa33abcc8a5.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 7
+            value:
+              event: escalation-requested
+              proposal: 审阅反馈后把 spec
+                措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+              requirementsEvidence:
+                contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verify-fail
+              reason: 审查反馈后实现补强（单调时钟、最大延迟日志）与 spec 措辞调整发生在 Open 批准之后，需回到 Build 确认修订后的范围并重新验收
+        sequence: 9
+    waits:
+      - id: fix-playback-timing-drift:8
+        stepId: hotfix.build.escalation-confirm
+        sequence: 8
+        status: resolved
+        proposal:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.build.execute:
+              event: escalation-requested
+              proposal: 审阅反馈后把 spec
+                措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+              requirementsEvidence:
+                contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                ref: docs/openspec/changes/fix-playback-timing-drift
+        proposalHash: 960e2b9bebbf574c28b3caf3ff1618e2a183e2025cca4f0b6fc02868efd20872
+        choices:
+          - continue
+          - upgrade
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              inputBefore: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              manifestHash: a22517bbb0ce8d704bc9eca9b468b86f59f4dcea7a2f81da6b81e0dbbaebfe1e
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/ca1cf693-15e8-4305-bdd4-faa33abcc8a5.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+          hotfix.build.execute:
+            sequence: 7
+            value:
+              event: escalation-requested
+              proposal: 审阅反馈后把 spec
+                措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+              requirementsEvidence:
+                contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verify-fail
+              reason: 审查反馈后实现补强（单调时钟、最大延迟日志）与 spec 措辞调整发生在 Open 批准之后，需回到 Build 确认修订后的范围并重新验收
+        decision:
+          id: classic-escalation-960e2b9bebbf574c28b3caf3ff1618e2a183e2025cca4f0b6fc02868efd20872-continue
+          choice: continue
+          proposalHash: 960e2b9bebbf574c28b3caf3ff1618e2a183e2025cca4f0b6fc02868efd20872
+      - id: fix-playback-timing-drift:17
+        stepId: hotfix.archive.confirm
+        sequence: 17
+        status: resolved
+        proposal:
+          input:
+            change: fix-playback-timing-drift
+            changeDir: docs/openspec/changes/fix-playback-timing-drift
+            workspaceBaseline:
+              ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+          outputs:
+            hotfix.archive.prepare:
+              summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182 项测试通过，release exe
+                已重新打包。
+              targetBranch: main
+        proposalHash: 7356ba9f64c3c15c980cb460ebf6a9ce9cb4e71a6cacbbb7d0a739569af015c0
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          hotfix.archive.prepare:
+            sequence: 16
+            value:
+              summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182 项测试通过，release exe
+                已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 10
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 11
+            value:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 9
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 15
+            value:
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        decision:
+          id: classic-archive-7356ba9f64c3c15c980cb460ebf6a9ce9cb4e71a6cacbbb7d0a739569af015c0-local
+          choice: local
+          proposalHash: 7356ba9f64c3c15c980cb460ebf6a9ce9cb4e71a6cacbbb7d0a739569af015c0
+    evidenceWaits:
+      - id: fix-playback-timing-drift:2
+        stepId: hotfix.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+        receipt:
+          ref: docs/openspec/changes/fix-playback-timing-drift
+          contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+          submissionId: b5c60917-02ae-4943-a6ec-1d65a5f31620
+      - id: fix-playback-timing-drift:5
+        stepId: hotfix.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              inputBefore: 40fb19285b6c8952fb97b50c7f116b3f619f5778eb99873c8162d86d323ba4a6
+              manifestHash: a22517bbb0ce8d704bc9eca9b468b86f59f4dcea7a2f81da6b81e0dbbaebfe1e
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/ca1cf693-15e8-4305-bdd4-faa33abcc8a5.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+          contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+          submissionId: 5820f916-008a-4279-905c-82f82f29385a
+      - id: fix-playback-timing-drift:11
+        stepId: hotfix.build.check.evidence
+        sequence: 11
+        kind: classic-build-check
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 10
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: b7f45658837c74d68b2f5b7feffc6c6f27dfdc86a68af00d1cfea5ccd4c569ed
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/6725e238-e8dc-476b-8528-a74fcdad64a2.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 9
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verify-fail
+              reason: 审查反馈后实现补强（单调时钟、最大延迟日志）与 spec 措辞调整发生在 Open 批准之后，需回到 Build 确认修订后的范围并重新验收
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+          contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+          submissionId: d0072319-f403-4bca-8646-7d94445a86bd
+      - id: fix-playback-timing-drift:13
+        stepId: hotfix.verify.report.evidence
+        sequence: 13
+        kind: classic-verification-report
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 10
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 11
+            value:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 9
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+          contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+          submissionId: be88eb51-a1b3-4860-92a9-42d7a44cd043
+      - id: fix-playback-timing-drift:15
+        stepId: hotfix.verify.check.evidence
+        sequence: 15
+        kind: classic-verify-check
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 10
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 3
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 11
+            value:
+              contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+              ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+          hotfix.build.escalation-confirm:
+            sequence: 8
+            value:
+              choice: continue
+              proposal:
+                input:
+                  change: fix-playback-timing-drift
+                  changeDir: docs/openspec/changes/fix-playback-timing-drift
+                  workspaceBaseline:
+                    ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+                outputs:
+                  hotfix.build.execute:
+                    event: escalation-requested
+                    proposal: 审阅反馈后把 spec
+                      措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                    requirementsEvidence:
+                      contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                      ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.build.execute:
+            sequence: 9
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+                ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+              ref: docs/openspec/changes/fix-playback-timing-drift
+          hotfix.verify.check:
+            sequence: 14
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 4
+              contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+              manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+              manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.report.evidence:
+            sequence: 13
+            value:
+              contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+              ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+          hotfix.verify.run:
+            sequence: 12
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+          contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+          submissionId: adc2ba94-19b5-48cc-ac4a-610b1964ec2e
+    ready: []
+    joins: {}
+    outputs:
+      hotfix.archive.confirm:
+        sequence: 17
+        value:
+          choice: local
+          proposal:
+            input:
+              change: fix-playback-timing-drift
+              changeDir: docs/openspec/changes/fix-playback-timing-drift
+              workspaceBaseline:
+                ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+            outputs:
+              hotfix.archive.prepare:
+                summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+                  的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182 项测试通过，release
+                  exe 已重新打包。
+                targetBranch: main
+      hotfix.archive.execute:
+        sequence: 19
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-14-fix-playback-timing-drift
+      hotfix.archive.preflight:
+        sequence: 18
+        value:
+          baseCommit: f0e98b824bdbe0f4dc0f46cf770f1252eac3a516
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      hotfix.archive.prepare:
+        sequence: 16
+        value:
+          summary: 修复播放时按键相对辅助线越播越滞后：播放循环改为绝对时间轴调度（累计延时 → 目标时刻），单调时钟避免系统时间跳变，超过 30ms
+            的计划外延迟写完成日志；补充虚拟时钟测试（按键耗时、sleep 抖动、停止、进度）。182 项测试通过，release exe
+            已重新打包。
+          targetBranch: main
+      hotfix.build.check:
+        sequence: 10
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 3
+          contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+          inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+          manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+          manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/7984da58-4289-4b0a-9b79-525caeb596e7.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      hotfix.build.check.evidence:
+        sequence: 11
+        value:
+          contentHash: 7a8c073088076983d6feb18fc4ef433649419576827ad1ff808c65dfbd60e143
+          ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/743208de-74e3-45a7-ab29-e9735bde586e.log
+      hotfix.build.escalation-confirm:
+        sequence: 8
+        value:
+          choice: continue
+          proposal:
+            input:
+              change: fix-playback-timing-drift
+              changeDir: docs/openspec/changes/fix-playback-timing-drift
+              workspaceBaseline:
+                ref: ec34ab7b-9351-467f-9711-0fa32c6f6bc5
+            outputs:
+              hotfix.build.execute:
+                event: escalation-requested
+                proposal: 审阅反馈后把 spec
+                  措辞改为与实现一致（仅在按键组耗时不超过后续延时时不累积），并新增「持续跟不上时日志报告最大延迟」这一可观测性行为；实现范围仍是同一播放调度修复。
+                requirementsEvidence:
+                  contentHash: 448ffab307039dffcf8251363d68860dbd6f0e908968ba0272c399dffc1bc432
+                  ref: docs/openspec/changes/fix-playback-timing-drift
+      hotfix.build.execute:
+        sequence: 9
+        value:
+          event: build-complete
+      hotfix.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+            ref: docs/openspec/changes/fix-playback-timing-drift
+      hotfix.open.evidence:
+        sequence: 2
+        value:
+          contentHash: 9d6ff60e55d6946c0d1e29f18f7cb1aee462527d6c876707b7f9244cda8e3305
+          ref: docs/openspec/changes/fix-playback-timing-drift
+      hotfix.verify.check:
+        sequence: 14
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 4
+          contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+          inputBefore: 5c56b7c75f7b7d15d783533764fbfcf75151cf818de9c89b2e95cb3987ba2a8d
+          manifestHash: cb80b49f8dbcbee5a1e72be5b8512aa60d5708b6413ed448bd17b1f899eaa611
+          manifestRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/a6aa4638-3638-46b8-bccd-e9ae5e060b89.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      hotfix.verify.check.evidence:
+        sequence: 15
+        value:
+          contentHash: c52edf2679853d89eef368f7e18fe5d5d05682e27beb48998dc2c2f57b41d45f
+          ref: .comet/runtime/classic-sdk-checks/50b5e0932f62ad211cc6750a5289952ef6684f135a173d057d7e860b00d668a0/82555f52-c97f-4744-809d-73ca97f05c86.log
+      hotfix.verify.report.evidence:
+        sequence: 13
+        value:
+          contentHash: b26fc4576593428499c247d2e2f791a88bd0be4d59bcd208faf9ab4f35387b4b
+          ref: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+      hotfix.verify.run:
+        sequence: 12
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-13-fix-playback-timing-drift-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 32
+  sourceHash: 9875ad5d771a3c3de1c92416f426d30fb7bb576d4b975ca7f8415c647dd15d35
+check_epoch: 7

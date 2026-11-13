@@ -1,0 +1,2048 @@
+# comet-execution: managed-run
+change_id: 52f91b88-c107-4f1b-89a4-fca72e0abb90
+workflow: tweak
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: 8164dd857bc24497468d2c7dc8138bf0b6665436
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+branch_status: pending
+created_at: 2026-11-13
+verified_at: 2026-11-13
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: 145247fadcfc0a1f10a5cf37e35ac1fce7115fd014110e86c55b288da7af4376
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: cleanup-unused-files
+    revision: 1
+    workflow:
+      id: comet-classic-tweak
+      version: "1"
+      hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    definitionHashes:
+      '["comet-classic-tweak","1"]': fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    initialStateHash: 4caaf2d54d0fc75047b81847c80c3a3c5102751835e520d844c9d799030b3913
+    input:
+      change: cleanup-unused-files
+      changeDir: docs/openspec/changes/cleanup-unused-files
+      workspaceBaseline:
+        ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 8164dd857bc24497468d2c7dc8138bf0b6665436
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 5
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-13
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+      verifiedAt: 2026-11-13
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: tweak
+    status: running
+    sequence: 14
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-4cb9ea8baceb6fba2412fe96a6f12c2630c941b6bcf31155f8d1edb34c15d6e9
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: cleanup-unused-files:1
+        input:
+          input:
+            change: cleanup-unused-files
+            changeDir: docs/openspec/changes/cleanup-unused-files
+            workspaceBaseline:
+              ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+          outputs: {}
+        inputHash: 39043d56c2c161a60b53937efa7eb032ae74e0f6a981cd2a04bbb47137de76c1
+        outcome:
+          actionId: cleanup-unused-files:1
+          attempt: 1
+          claimToken: portable-4cb9ea8baceb6fba2412fe96a6f12c2630c941b6bcf31155f8d1edb34c15d6e9
+          inputHash: 39043d56c2c161a60b53937efa7eb032ae74e0f6a981cd2a04bbb47137de76c1
+          outcomeId: ea482280-379a-42f0-8074-4d9c2f876886
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f9441eedd07ee30856c5ba59fa197e9e460e5e945e9a60bcc4318209f6c6209f
+            outcomeId: ea482280-379a-42f0-8074-4d9c2f876886
+        reconciliations: []
+        ref: comet-tweak
+        requiredCapabilities: []
+        retry: manual
+        runId: cleanup-unused-files
+        status: succeeded
+        stepId: tweak.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/cleanup-unused-files:3/1
+          token: portable-fb871c5913dc5679e6d81b7ba90f8a5c6d5dc3d35c78549c6b79e564f88f62af
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: cleanup-unused-files:3
+        input:
+          input:
+            change: cleanup-unused-files
+            changeDir: docs/openspec/changes/cleanup-unused-files
+            workspaceBaseline:
+              ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+          outputs:
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+            tweak.open.evidence:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+        inputHash: 9d2612c142f5b322fa6298e520b675705c18edeaaa3568b45a5c4088f524e2b2
+        outcome:
+          actionId: cleanup-unused-files:3
+          attempt: 1
+          claimToken: portable-fb871c5913dc5679e6d81b7ba90f8a5c6d5dc3d35c78549c6b79e564f88f62af
+          inputHash: 9d2612c142f5b322fa6298e520b675705c18edeaaa3568b45a5c4088f524e2b2
+          outcomeId: 1e4d27f6-4b77-47fc-87c2-e8793f44304f
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 1e414f3434cd0d5d0b6abc72653271f39e6f55c9c35eb6478de818b4d5a5c7f4
+            outcomeId: 1e4d27f6-4b77-47fc-87c2-e8793f44304f
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: cleanup-unused-files
+        status: succeeded
+        stepId: tweak.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-8a7849807dd2167eb937898e225de60dc45e0242cbc078bf249736f2933ec632
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: cleanup-unused-files:4
+        input:
+          input:
+            change: cleanup-unused-files
+            changeDir: docs/openspec/changes/cleanup-unused-files
+            workspaceBaseline:
+              ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+          outputs:
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+            tweak.open.evidence:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+        inputHash: 3086dc64df05957a41f32823386aebf72565a74b879ba5bfc328fda907ff0c40
+        outcome:
+          actionId: cleanup-unused-files:4
+          attempt: 1
+          claimToken: portable-8a7849807dd2167eb937898e225de60dc45e0242cbc078bf249736f2933ec632
+          inputHash: 3086dc64df05957a41f32823386aebf72565a74b879ba5bfc328fda907ff0c40
+          outcomeId: c1daf48d-ba7b-4165-baf0-78c7c178025f
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+            inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+            manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+            manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: e410981ce1e0ff4c105ca8e3accd2cf8c083a736cc492f61391c26bfe53cec98
+            outcomeId: c1daf48d-ba7b-4165-baf0-78c7c178025f
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: cleanup-unused-files
+        status: succeeded
+        stepId: tweak.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-a55a59e392b53315b027c36d12db9c3f0b22dbec03815669674fc568f9eb6118
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: cleanup-unused-files:6
+        input:
+          input:
+            change: cleanup-unused-files
+            changeDir: docs/openspec/changes/cleanup-unused-files
+            workspaceBaseline:
+              ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+            tweak.open.evidence:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+        inputHash: f3876668ecaa5927531fe785c3a4fe49a268ee5528aaf01648d26dee0e9dcb9c
+        outcome:
+          actionId: cleanup-unused-files:6
+          attempt: 1
+          claimToken: portable-a55a59e392b53315b027c36d12db9c3f0b22dbec03815669674fc568f9eb6118
+          inputHash: f3876668ecaa5927531fe785c3a4fe49a268ee5528aaf01648d26dee0e9dcb9c
+          outcomeId: b5c2d670-8a6a-4f97-9e24-d2b7550fc3ac
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 7a1170dc3b6f31199b99b5b8fdcfa48669987e44630a6f5b241da8c0c66ac9a8
+            outcomeId: b5c2d670-8a6a-4f97-9e24-d2b7550fc3ac
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: cleanup-unused-files
+        status: succeeded
+        stepId: tweak.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-615da198670a5c0212f6e4da7bdb6cbbd450f8ac62cf01db625f0472aefed035
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: cleanup-unused-files:8
+        input:
+          input:
+            change: cleanup-unused-files
+            changeDir: docs/openspec/changes/cleanup-unused-files
+            workspaceBaseline:
+              ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+            tweak.open.evidence:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+            tweak.verify.report.evidence:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        inputHash: 3aa3689ba1c8b797675c4e99483d30272ab9f9daf94dd1404d67b9f519bb2b12
+        outcome:
+          actionId: cleanup-unused-files:8
+          attempt: 1
+          claimToken: portable-615da198670a5c0212f6e4da7bdb6cbbd450f8ac62cf01db625f0472aefed035
+          inputHash: 3aa3689ba1c8b797675c4e99483d30272ab9f9daf94dd1404d67b9f519bb2b12
+          outcomeId: 9bdaf4a5-f3fa-4ab7-8dff-fea73ac711c9
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+            inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+            manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+            manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 7c1ba6f642b753385cbdbd44cfd156b85457e824bfc9e82c9e46c52f35269fcc
+            outcomeId: 9bdaf4a5-f3fa-4ab7-8dff-fea73ac711c9
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: cleanup-unused-files
+        status: succeeded
+        stepId: tweak.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-1fea559e40dd22f146daffe46d99217927cc51c05221bee4dbe10a217eb70c95
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: cleanup-unused-files:10
+        input:
+          input:
+            change: cleanup-unused-files
+            changeDir: docs/openspec/changes/cleanup-unused-files
+            workspaceBaseline:
+              ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+            tweak.open.evidence:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+            tweak.verify.report.evidence:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        inputHash: 312d17fe4b2422b688b8e144a6c49e0e55d4681fdd26aad66534a78c6cb5acb7
+        outcome:
+          actionId: cleanup-unused-files:10
+          attempt: 1
+          claimToken: portable-1fea559e40dd22f146daffe46d99217927cc51c05221bee4dbe10a217eb70c95
+          inputHash: 312d17fe4b2422b688b8e144a6c49e0e55d4681fdd26aad66534a78c6cb5acb7
+          outcomeId: 65b28eb4-a19f-4be2-bc7d-c0d10f2bc56d
+          output:
+            summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+              旧目录，以及未被引用的 dd.54900.dll 与 build_config.json；保留用户曲目数据、release
+              exe、build.bat 与构建入口。214 项测试通过，模块导入正常。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: dcc4fbcc7e7163e9a0f9cdf74d995a0a32f18f471b847d38baf6f641016e1ec2
+            outcomeId: 65b28eb4-a19f-4be2-bc7d-c0d10f2bc56d
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: cleanup-unused-files
+        status: succeeded
+        stepId: tweak.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-24c55e75aafb447150830fe277b9522ef8faa5f87a6197afec7981199464ff83
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: cleanup-unused-files:12
+        input:
+          input:
+            change: cleanup-unused-files
+            changeDir: docs/openspec/changes/cleanup-unused-files
+            workspaceBaseline:
+              ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: cleanup-unused-files
+                  changeDir: docs/openspec/changes/cleanup-unused-files
+                  workspaceBaseline:
+                    ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                      旧目录，以及未被引用的 dd.54900.dll 与
+                      build_config.json；保留用户曲目数据、release exe、build.bat 与构建入口。214
+                      项测试通过，模块导入正常。
+                    targetBranch: main
+            tweak.archive.prepare:
+              summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                旧目录，以及未被引用的 dd.54900.dll 与 build_config.json；保留用户曲目数据、release
+                exe、build.bat 与构建入口。214 项测试通过，模块导入正常。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+            tweak.open.evidence:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+            tweak.verify.report.evidence:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        inputHash: 6b6f22e89ebac2eebc71058f3880cc1515ba127f9d692a772a637d3527b0bba6
+        outcome:
+          actionId: cleanup-unused-files:12
+          attempt: 1
+          claimToken: portable-24c55e75aafb447150830fe277b9522ef8faa5f87a6197afec7981199464ff83
+          inputHash: 6b6f22e89ebac2eebc71058f3880cc1515ba127f9d692a772a637d3527b0bba6
+          outcomeId: 3ffc008f-d2a2-4e8d-a722-124f31ccfe56
+          output:
+            baseCommit: 7047034085b1298a978fd2ae2fdbba7f5c520585
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 75ef417f8171ffa4b432d9338bf84ca869e07fd8af61e64517f01c29f6c51424
+            outcomeId: 3ffc008f-d2a2-4e8d-a722-124f31ccfe56
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: cleanup-unused-files
+        status: succeeded
+        stepId: tweak.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-9da16248ba6dbec501d28e510cd29b24da3cd988d2df14c191e9db3b412586a5
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: cleanup-unused-files:13
+        input:
+          input:
+            change: cleanup-unused-files
+            changeDir: docs/openspec/changes/cleanup-unused-files
+            workspaceBaseline:
+              ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: cleanup-unused-files
+                  changeDir: docs/openspec/changes/cleanup-unused-files
+                  workspaceBaseline:
+                    ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                      旧目录，以及未被引用的 dd.54900.dll 与
+                      build_config.json；保留用户曲目数据、release exe、build.bat 与构建入口。214
+                      项测试通过，模块导入正常。
+                    targetBranch: main
+            tweak.archive.preflight:
+              baseCommit: 7047034085b1298a978fd2ae2fdbba7f5c520585
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                旧目录，以及未被引用的 dd.54900.dll 与 build_config.json；保留用户曲目数据、release
+                exe、build.bat 与构建入口。214 项测试通过，模块导入正常。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+            tweak.open.evidence:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+            tweak.verify.report.evidence:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        inputHash: b7edbf5180fed669d8848b4e8429a021649a64edf0b2279cbbd2ed5a49b13971
+        outcome:
+          actionId: cleanup-unused-files:13
+          artifacts:
+            - sha256: 79b6bac91a39724616149ce84e9a5a35f29504d21babcdbbead15cda25c854c2
+              uri: docs/openspec/changes/archive/2026-11-14-cleanup-unused-files/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-9da16248ba6dbec501d28e510cd29b24da3cd988d2df14c191e9db3b412586a5
+          inputHash: b7edbf5180fed669d8848b4e8429a021649a64edf0b2279cbbd2ed5a49b13971
+          outcomeId: 1256f3d5-f2f8-4a04-853f-a66cee75807f
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-14-cleanup-unused-files
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f0eee03e8ba5a099efcef35e9a8f25c8db7a363e15753b9cbe5a42a28cc77cab
+            outcomeId: 1256f3d5-f2f8-4a04-853f-a66cee75807f
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: cleanup-unused-files
+        status: succeeded
+        stepId: tweak.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: cleanup-unused-files:14
+        input:
+          input:
+            change: cleanup-unused-files
+            changeDir: docs/openspec/changes/cleanup-unused-files
+            workspaceBaseline:
+              ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: cleanup-unused-files
+                  changeDir: docs/openspec/changes/cleanup-unused-files
+                  workspaceBaseline:
+                    ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                      旧目录，以及未被引用的 dd.54900.dll 与
+                      build_config.json；保留用户曲目数据、release exe、build.bat 与构建入口。214
+                      项测试通过，模块导入正常。
+                    targetBranch: main
+            tweak.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-14-cleanup-unused-files
+            tweak.archive.preflight:
+              baseCommit: 7047034085b1298a978fd2ae2fdbba7f5c520585
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                旧目录，以及未被引用的 dd.54900.dll 与 build_config.json；保留用户曲目数据、release
+                exe、build.bat 与构建入口。214 项测试通过，模块导入正常。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+            tweak.open.evidence:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+            tweak.verify.report.evidence:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        inputHash: 43455bf2dfbfcb3e206a8f269bfc8d169da6b20717397e6dd7c3155db3167c08
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: cleanup-unused-files
+        status: pending
+        stepId: tweak.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      cleanup-unused-files:1:
+        results: {}
+        sequence: 1
+      cleanup-unused-files:10:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        sequence: 10
+      cleanup-unused-files:12:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: cleanup-unused-files
+                  changeDir: docs/openspec/changes/cleanup-unused-files
+                  workspaceBaseline:
+                    ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                      旧目录，以及未被引用的 dd.54900.dll 与
+                      build_config.json；保留用户曲目数据、release exe、build.bat 与构建入口。214
+                      项测试通过，模块导入正常。
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                旧目录，以及未被引用的 dd.54900.dll 与 build_config.json；保留用户曲目数据、release
+                exe、build.bat 与构建入口。214 项测试通过，模块导入正常。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        sequence: 12
+      cleanup-unused-files:13:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: cleanup-unused-files
+                  changeDir: docs/openspec/changes/cleanup-unused-files
+                  workspaceBaseline:
+                    ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                      旧目录，以及未被引用的 dd.54900.dll 与
+                      build_config.json；保留用户曲目数据、release exe、build.bat 与构建入口。214
+                      项测试通过，模块导入正常。
+                    targetBranch: main
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 7047034085b1298a978fd2ae2fdbba7f5c520585
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                旧目录，以及未被引用的 dd.54900.dll 与 build_config.json；保留用户曲目数据、release
+                exe、build.bat 与构建入口。214 项测试通过，模块导入正常。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        sequence: 13
+      cleanup-unused-files:14:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: cleanup-unused-files
+                  changeDir: docs/openspec/changes/cleanup-unused-files
+                  workspaceBaseline:
+                    ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                      旧目录，以及未被引用的 dd.54900.dll 与
+                      build_config.json；保留用户曲目数据、release exe、build.bat 与构建入口。214
+                      项测试通过，模块导入正常。
+                    targetBranch: main
+          tweak.archive.execute:
+            sequence: 13
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-14-cleanup-unused-files
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 7047034085b1298a978fd2ae2fdbba7f5c520585
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                旧目录，以及未被引用的 dd.54900.dll 与 build_config.json；保留用户曲目数据、release
+                exe、build.bat 与构建入口。214 项测试通过，模块导入正常。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        sequence: 14
+      cleanup-unused-files:3:
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+        sequence: 3
+      cleanup-unused-files:4:
+        results:
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+        sequence: 4
+      cleanup-unused-files:6:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+        sequence: 6
+      cleanup-unused-files:8:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        sequence: 8
+    waits:
+      - id: cleanup-unused-files:11
+        stepId: tweak.archive.confirm
+        sequence: 11
+        status: resolved
+        proposal:
+          input:
+            change: cleanup-unused-files
+            changeDir: docs/openspec/changes/cleanup-unused-files
+            workspaceBaseline:
+              ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+          outputs:
+            tweak.archive.prepare:
+              summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                旧目录，以及未被引用的 dd.54900.dll 与 build_config.json；保留用户曲目数据、release
+                exe、build.bat 与构建入口。214 项测试通过，模块导入正常。
+              targetBranch: main
+        proposalHash: c5db99df4a7deb720a45e94b150a3ebc15c56473706eda78e5438f54ad6df535
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                旧目录，以及未被引用的 dd.54900.dll 与 build_config.json；保留用户曲目数据、release
+                exe、build.bat 与构建入口。214 项测试通过，模块导入正常。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        decision:
+          id: classic-archive-c5db99df4a7deb720a45e94b150a3ebc15c56473706eda78e5438f54ad6df535-local
+          choice: local
+          proposalHash: c5db99df4a7deb720a45e94b150a3ebc15c56473706eda78e5438f54ad6df535
+    evidenceWaits:
+      - id: cleanup-unused-files:2
+        stepId: tweak.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+        receipt:
+          ref: docs/openspec/changes/cleanup-unused-files
+          contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+          submissionId: 7b57f6dd-5b1e-4eb5-8d29-c07dc712e0a8
+      - id: cleanup-unused-files:5
+        stepId: tweak.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+          contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+          submissionId: 6403fbb6-9e41-480e-9914-e095e76604eb
+      - id: cleanup-unused-files:7
+        stepId: tweak.verify.report.evidence
+        sequence: 7
+        kind: classic-verification-report
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+          contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+          submissionId: e99b648b-f8a3-4e6e-a413-d6381b6e21e7
+      - id: cleanup-unused-files:9
+        stepId: tweak.verify.check.evidence
+        sequence: 9
+        kind: classic-verify-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+              ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+                ref: docs/openspec/changes/cleanup-unused-files
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+              ref: docs/openspec/changes/cleanup-unused-files
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+              manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+              manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+              ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+          contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+          submissionId: e3da1af6-7dfc-4809-8b4a-7cc8c037ee7c
+    ready: []
+    joins: {}
+    outputs:
+      tweak.archive.confirm:
+        sequence: 11
+        value:
+          choice: local
+          proposal:
+            input:
+              change: cleanup-unused-files
+              changeDir: docs/openspec/changes/cleanup-unused-files
+              workspaceBaseline:
+                ref: 23b1deed-6f2a-47df-89bb-2e5353b2c43b
+            outputs:
+              tweak.archive.prepare:
+                summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+                  旧目录，以及未被引用的 dd.54900.dll 与 build_config.json；保留用户曲目数据、release
+                  exe、build.bat 与构建入口。214 项测试通过，模块导入正常。
+                targetBranch: main
+      tweak.archive.execute:
+        sequence: 13
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-14-cleanup-unused-files
+      tweak.archive.preflight:
+        sequence: 12
+        value:
+          baseCommit: 7047034085b1298a978fd2ae2fdbba7f5c520585
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      tweak.archive.prepare:
+        sequence: 10
+        value:
+          summary: 删除仓库中未使用的文件：build/、dist/、gui.spec、各包 __pycache__、UAC 启动日志、.superpowers
+            旧目录，以及未被引用的 dd.54900.dll 与 build_config.json；保留用户曲目数据、release
+            exe、build.bat 与构建入口。214 项测试通过，模块导入正常。
+          targetBranch: main
+      tweak.build.check:
+        sequence: 4
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 1
+          contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+          inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+          manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+          manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/5714831c-f200-467e-a0b9-67c5054e3db1.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      tweak.build.check.evidence:
+        sequence: 5
+        value:
+          contentHash: ce813f92a739c68d09c65e851e9c6c806771f8b26e4368d6725e89b1eee0632a
+          ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/793ba468-f2aa-48e0-8014-b8bdc6167e77.log
+      tweak.build.execute:
+        sequence: 3
+        value:
+          event: build-complete
+      tweak.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+            ref: docs/openspec/changes/cleanup-unused-files
+      tweak.open.evidence:
+        sequence: 2
+        value:
+          contentHash: 13c1870796cf68bab35afd4837e68ac7dd7f5148f7eb6a9095a6262979d6957a
+          ref: docs/openspec/changes/cleanup-unused-files
+      tweak.verify.check:
+        sequence: 8
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+          inputBefore: 89f40fc4cd62c9f418d731c43c9c46718c37af31a9390f432f8f9fdd477ec620
+          manifestHash: f8bf7983fc83172219719b1cc8158257e38e9faeacc58d93e38d276fbcc09690
+          manifestRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/8381f1c5-244f-4653-83ac-71b21a3f8b77.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      tweak.verify.check.evidence:
+        sequence: 9
+        value:
+          contentHash: 7ddf362f1634195f56c622d35ddb6e38ff1c04e1fcf01e307d9f6a271b871f9d
+          ref: .comet/runtime/classic-sdk-checks/a5ad4314273559ddbf36db140a494da04838ed3167061352f754841c96b21674/277a0e01-bf2b-44c6-9240-f1b549bf745c.log
+      tweak.verify.report.evidence:
+        sequence: 7
+        value:
+          contentHash: ed20d9779d35df68d2f7bf64a7717b4aa99596b5a6f8c1127ccf1ec80ae204ab
+          ref: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+      tweak.verify.run:
+        sequence: 6
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-14-cleanup-unused-files-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 22
+  sourceHash: 69f61058f0cd9d0e27b4c0861ff6eb7fa0f394a4351e631a286adcc47d92e555
+check_epoch: 5

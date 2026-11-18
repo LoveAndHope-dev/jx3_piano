@@ -1,0 +1,2042 @@
+# comet-execution: managed-run
+change_id: b3cc0313-0d44-476e-acf6-dee9e87e68b3
+workflow: hotfix
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: 61919fb49f92cd324001b3f71323d643e590e648
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+branch_status: pending
+created_at: 2026-11-18
+verified_at: 2026-11-18
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: 5bb7f42da8e5419a3d1bcd28088684106a59b694fe6faf7ff5f1436ec192e5dc
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: fix-midi-range-and-pitch-edges
+    revision: 1
+    workflow:
+      id: comet-classic-hotfix
+      version: "1"
+      hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+    definitionHashes:
+      '["comet-classic-hotfix","1"]': 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+    initialStateHash: 25252225a65efe2c47e9c603eeb2c16083e9ce233890d7df6fc52aff014e6727
+    input:
+      change: fix-midi-range-and-pitch-edges
+      changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+      workspaceBaseline:
+        ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 61919fb49f92cd324001b3f71323d643e590e648
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 5
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-18
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+      verifiedAt: 2026-11-18
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: hotfix
+    status: running
+    sequence: 14
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-952882fb47be79c10acca4932c72a7574a276ce69f12079aa29dfe03e2e77149
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-midi-range-and-pitch-edges:1
+        input:
+          input:
+            change: fix-midi-range-and-pitch-edges
+            changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            workspaceBaseline:
+              ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+          outputs: {}
+        inputHash: fd507c6089df73204d2ce543105363ec5f9ecf9e465a5074f4ca388f364781d3
+        outcome:
+          actionId: fix-midi-range-and-pitch-edges:1
+          attempt: 1
+          claimToken: portable-952882fb47be79c10acca4932c72a7574a276ce69f12079aa29dfe03e2e77149
+          inputHash: fd507c6089df73204d2ce543105363ec5f9ecf9e465a5074f4ca388f364781d3
+          outcomeId: de1f4c14-5f4b-460c-aa1a-2c9e5253402e
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 89260b19dd4fcd1ec5437fdab5a36cabe807509b56621cfddc4b09ae2086e695
+            outcomeId: de1f4c14-5f4b-460c-aa1a-2c9e5253402e
+        reconciliations: []
+        ref: comet-hotfix
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-midi-range-and-pitch-edges
+        status: succeeded
+        stepId: hotfix.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/fix-midi-range-and-pitch-edges:3/1
+          token: portable-9b196ffdeab838b5eacc0ddc30e52d68dfe71054a3ec1a835f072503ae3eb793
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-midi-range-and-pitch-edges:3
+        input:
+          input:
+            change: fix-midi-range-and-pitch-edges
+            changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            workspaceBaseline:
+              ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+          outputs:
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.open.evidence:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+        inputHash: f896c1c3c9a068bfc7b92d8586586831b52bd0c0eb8030306e0d2c4294e77483
+        outcome:
+          actionId: fix-midi-range-and-pitch-edges:3
+          attempt: 1
+          claimToken: portable-9b196ffdeab838b5eacc0ddc30e52d68dfe71054a3ec1a835f072503ae3eb793
+          inputHash: f896c1c3c9a068bfc7b92d8586586831b52bd0c0eb8030306e0d2c4294e77483
+          outcomeId: 75bd1320-0fd6-4e33-b691-a86153ca4e66
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 5bd2a5cf6630147a7e2cbedd10e3eb9abda1756e0b78092049dc6c5bcc90d07b
+            outcomeId: 75bd1320-0fd6-4e33-b691-a86153ca4e66
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-midi-range-and-pitch-edges
+        status: succeeded
+        stepId: hotfix.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-39ad76a205b3efcf59a1570a352bece3c425447d02c1b61d3c866d69c92980d6
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-midi-range-and-pitch-edges:4
+        input:
+          input:
+            change: fix-midi-range-and-pitch-edges
+            changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            workspaceBaseline:
+              ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+          outputs:
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.open.evidence:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+        inputHash: 3f28769494c709cca6d767d0fa04cfe6064c528d1667f1fe83a3dc9edee8e17b
+        outcome:
+          actionId: fix-midi-range-and-pitch-edges:4
+          attempt: 1
+          claimToken: portable-39ad76a205b3efcf59a1570a352bece3c425447d02c1b61d3c866d69c92980d6
+          inputHash: 3f28769494c709cca6d767d0fa04cfe6064c528d1667f1fe83a3dc9edee8e17b
+          outcomeId: 2dec3931-79d0-4b85-8796-06b746768d0b
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+            inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+            manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+            manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 81ab7cee53062b926ee2740f470da71b0c952aeab35e897fe89a12d4656a7cea
+            outcomeId: 2dec3931-79d0-4b85-8796-06b746768d0b
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-midi-range-and-pitch-edges
+        status: succeeded
+        stepId: hotfix.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-1d0269d3d6aa68291fa83af916c4d96f869cc6581140662fb883fb1ae77fcd01
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-midi-range-and-pitch-edges:6
+        input:
+          input:
+            change: fix-midi-range-and-pitch-edges
+            changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            workspaceBaseline:
+              ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.open.evidence:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+        inputHash: 55efbffa74b308482dd81a73ad9f2a4fa78700412892970c7ff9f872a6acc47c
+        outcome:
+          actionId: fix-midi-range-and-pitch-edges:6
+          attempt: 1
+          claimToken: portable-1d0269d3d6aa68291fa83af916c4d96f869cc6581140662fb883fb1ae77fcd01
+          inputHash: 55efbffa74b308482dd81a73ad9f2a4fa78700412892970c7ff9f872a6acc47c
+          outcomeId: 103d1382-0729-4819-8d2a-6f7e37cba51a
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 9d203b0355af4cc6dd00c69f7c02673008b44ca356e0e1081bbac764c9ea563f
+            outcomeId: 103d1382-0729-4819-8d2a-6f7e37cba51a
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-midi-range-and-pitch-edges
+        status: succeeded
+        stepId: hotfix.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-3771ffa40d9ab218727423903df2d8ab7786242907b287ebf0acea4c50debd15
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-midi-range-and-pitch-edges:8
+        input:
+          input:
+            change: fix-midi-range-and-pitch-edges
+            changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            workspaceBaseline:
+              ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.open.evidence:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.verify.report.evidence:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        inputHash: 352ef12669d99d267b976f43e7b09f0a3556f9e5f8c49c4548e9a0a1879091e2
+        outcome:
+          actionId: fix-midi-range-and-pitch-edges:8
+          attempt: 1
+          claimToken: portable-3771ffa40d9ab218727423903df2d8ab7786242907b287ebf0acea4c50debd15
+          inputHash: 352ef12669d99d267b976f43e7b09f0a3556f9e5f8c49c4548e9a0a1879091e2
+          outcomeId: 2b7b8d45-8fa5-4cdc-9977-bb9f43423a3a
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+            inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+            manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+            manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 94d9efcb195cf97ec2818139b150310bb77d8814b5c3ec04fb5ef98d8dfec0aa
+            outcomeId: 2b7b8d45-8fa5-4cdc-9977-bb9f43423a3a
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-midi-range-and-pitch-edges
+        status: succeeded
+        stepId: hotfix.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-20d151941e07f209413d809726aba58a51a78d98015b52ce4d14afd5ef20aa97
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-midi-range-and-pitch-edges:10
+        input:
+          input:
+            change: fix-midi-range-and-pitch-edges
+            changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            workspaceBaseline:
+              ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.open.evidence:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+            hotfix.verify.report.evidence:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        inputHash: 824b92b67b733de6316003286c5b50a2f825dd9b0b811f35b75ed95aaf25d532
+        outcome:
+          actionId: fix-midi-range-and-pitch-edges:10
+          attempt: 1
+          claimToken: portable-20d151941e07f209413d809726aba58a51a78d98015b52ce4d14afd5ef20aa97
+          inputHash: 824b92b67b733de6316003286c5b50a2f825dd9b0b811f35b75ed95aaf25d532
+          outcomeId: 3c63c466-6c29-4218-a597-3ca9cffc36fc
+          output:
+            summary: 修复导入 MIDI 的 0–127
+              越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从 A0–C8
+              扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 8a0447d87414d5c0a5bfc0a5bb8885c0c989e276779e6e1eb565a1cbdcb07cf7
+            outcomeId: 3c63c466-6c29-4218-a597-3ca9cffc36fc
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-midi-range-and-pitch-edges
+        status: succeeded
+        stepId: hotfix.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-f69641da4056ee79a483b126be87e4336bae6fe0ab0400fb589da18289646091
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-midi-range-and-pitch-edges:12
+        input:
+          input:
+            change: fix-midi-range-and-pitch-edges
+            changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            workspaceBaseline:
+              ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-midi-range-and-pitch-edges
+                  changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+                  workspaceBaseline:
+                    ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复导入 MIDI 的 0–127
+                      越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从
+                      A0–C8 扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.prepare:
+              summary: 修复导入 MIDI 的 0–127
+                越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从 A0–C8
+                扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.open.evidence:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+            hotfix.verify.report.evidence:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        inputHash: d6da9b1ecbfb71214c7b057067d49eecd659d23f17d139dba4caa1513ebf7f97
+        outcome:
+          actionId: fix-midi-range-and-pitch-edges:12
+          attempt: 1
+          claimToken: portable-f69641da4056ee79a483b126be87e4336bae6fe0ab0400fb589da18289646091
+          inputHash: d6da9b1ecbfb71214c7b057067d49eecd659d23f17d139dba4caa1513ebf7f97
+          outcomeId: 0cdc5e0b-e427-48c3-8662-33937ee2abf6
+          output:
+            baseCommit: 372693fdf03980d9408ef0fd418a298ba9bf2c45
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 2fd2c05cb9fa5bb6e0f991aa6d7c470ed6e6928dc8be7e7fcd9a1617a6284f3b
+            outcomeId: 0cdc5e0b-e427-48c3-8662-33937ee2abf6
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-midi-range-and-pitch-edges
+        status: succeeded
+        stepId: hotfix.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-128d0fbe289c92dd77b362a4bcdcb663f2cc55956cb606a4325d21db63348938
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-midi-range-and-pitch-edges:13
+        input:
+          input:
+            change: fix-midi-range-and-pitch-edges
+            changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            workspaceBaseline:
+              ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-midi-range-and-pitch-edges
+                  changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+                  workspaceBaseline:
+                    ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复导入 MIDI 的 0–127
+                      越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从
+                      A0–C8 扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.preflight:
+              baseCommit: 372693fdf03980d9408ef0fd418a298ba9bf2c45
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            hotfix.archive.prepare:
+              summary: 修复导入 MIDI 的 0–127
+                越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从 A0–C8
+                扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.open.evidence:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+            hotfix.verify.report.evidence:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        inputHash: ab0ded1149107f9ce09f8abe341e4b83e2572a273e8a4af086f4a03a231c3651
+        outcome:
+          actionId: fix-midi-range-and-pitch-edges:13
+          artifacts:
+            - sha256: b30aa1a74077c3130149a5d98e91b9c43250c3c8c30c6b33ba04d09425abc1fb
+              uri: docs/openspec/changes/archive/2026-11-18-fix-midi-range-and-pitch-edges/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-128d0fbe289c92dd77b362a4bcdcb663f2cc55956cb606a4325d21db63348938
+          inputHash: ab0ded1149107f9ce09f8abe341e4b83e2572a273e8a4af086f4a03a231c3651
+          outcomeId: a9142489-36c8-4194-a26b-de8dc7f2fa85
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-18-fix-midi-range-and-pitch-edges
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 42e383530c50271047d3478abd03e53543f6fcd8d1fcb6432d0b70b78f661043
+            outcomeId: a9142489-36c8-4194-a26b-de8dc7f2fa85
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-midi-range-and-pitch-edges
+        status: succeeded
+        stepId: hotfix.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: fix-midi-range-and-pitch-edges:14
+        input:
+          input:
+            change: fix-midi-range-and-pitch-edges
+            changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            workspaceBaseline:
+              ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-midi-range-and-pitch-edges
+                  changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+                  workspaceBaseline:
+                    ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复导入 MIDI 的 0–127
+                      越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从
+                      A0–C8 扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+                    targetBranch: main
+            hotfix.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-18-fix-midi-range-and-pitch-edges
+            hotfix.archive.preflight:
+              baseCommit: 372693fdf03980d9408ef0fd418a298ba9bf2c45
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            hotfix.archive.prepare:
+              summary: 修复导入 MIDI 的 0–127
+                越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从 A0–C8
+                扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.open.evidence:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+            hotfix.verify.report.evidence:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        inputHash: dc2737c38a8aa91af2fd3e7a1d229066c4546dafae444086c18cf3a6f056fd9e
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-midi-range-and-pitch-edges
+        status: pending
+        stepId: hotfix.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      fix-midi-range-and-pitch-edges:1:
+        results: {}
+        sequence: 1
+      fix-midi-range-and-pitch-edges:10:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        sequence: 10
+      fix-midi-range-and-pitch-edges:12:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-midi-range-and-pitch-edges
+                  changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+                  workspaceBaseline:
+                    ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复导入 MIDI 的 0–127
+                      越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从
+                      A0–C8 扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复导入 MIDI 的 0–127
+                越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从 A0–C8
+                扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        sequence: 12
+      fix-midi-range-and-pitch-edges:13:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-midi-range-and-pitch-edges
+                  changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+                  workspaceBaseline:
+                    ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复导入 MIDI 的 0–127
+                      越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从
+                      A0–C8 扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 372693fdf03980d9408ef0fd418a298ba9bf2c45
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复导入 MIDI 的 0–127
+                越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从 A0–C8
+                扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        sequence: 13
+      fix-midi-range-and-pitch-edges:14:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-midi-range-and-pitch-edges
+                  changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+                  workspaceBaseline:
+                    ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 修复导入 MIDI 的 0–127
+                      越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从
+                      A0–C8 扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+                    targetBranch: main
+          hotfix.archive.execute:
+            sequence: 13
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-18-fix-midi-range-and-pitch-edges
+          hotfix.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 372693fdf03980d9408ef0fd418a298ba9bf2c45
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复导入 MIDI 的 0–127
+                越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从 A0–C8
+                扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        sequence: 14
+      fix-midi-range-and-pitch-edges:3:
+        results:
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+        sequence: 3
+      fix-midi-range-and-pitch-edges:4:
+        results:
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+        sequence: 4
+      fix-midi-range-and-pitch-edges:6:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+        sequence: 6
+      fix-midi-range-and-pitch-edges:8:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        sequence: 8
+    waits:
+      - id: fix-midi-range-and-pitch-edges:11
+        stepId: hotfix.archive.confirm
+        sequence: 11
+        status: resolved
+        proposal:
+          input:
+            change: fix-midi-range-and-pitch-edges
+            changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+            workspaceBaseline:
+              ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+          outputs:
+            hotfix.archive.prepare:
+              summary: 修复导入 MIDI 的 0–127
+                越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从 A0–C8
+                扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+              targetBranch: main
+        proposalHash: 1e3282d856446713fc07a93abb0f7dc44bd22650ab13e96ad011a32ae390d791
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复导入 MIDI 的 0–127
+                越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从 A0–C8
+                扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        decision:
+          id: classic-archive-1e3282d856446713fc07a93abb0f7dc44bd22650ab13e96ad011a32ae390d791-local
+          choice: local
+          proposalHash: 1e3282d856446713fc07a93abb0f7dc44bd22650ab13e96ad011a32ae390d791
+    evidenceWaits:
+      - id: fix-midi-range-and-pitch-edges:2
+        stepId: hotfix.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+        receipt:
+          ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+          submissionId: e13d6107-cf7a-450f-882f-34a36f82fd18
+      - id: fix-midi-range-and-pitch-edges:5
+        stepId: hotfix.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+          contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+          submissionId: 40d9508c-a13c-4f2d-8c3b-475a37d06733
+      - id: fix-midi-range-and-pitch-edges:7
+        stepId: hotfix.verify.report.evidence
+        sequence: 7
+        kind: classic-verification-report
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+          contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+          submissionId: 6394cc5f-3062-4589-9bbb-988138dc3c2d
+      - id: fix-midi-range-and-pitch-edges:9
+        stepId: hotfix.verify.check.evidence
+        sequence: 9
+        kind: classic-verify-check
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+              manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+              ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+                ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+              ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+              manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+              manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+              ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+          contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+          submissionId: b5872123-5ae6-4ff0-af54-3d77ea3c017f
+    ready: []
+    joins: {}
+    outputs:
+      hotfix.archive.confirm:
+        sequence: 11
+        value:
+          choice: local
+          proposal:
+            input:
+              change: fix-midi-range-and-pitch-edges
+              changeDir: docs/openspec/changes/fix-midi-range-and-pitch-edges
+              workspaceBaseline:
+                ref: 1bea039c-4e78-4354-b7fb-bc6be10db3d6
+            outputs:
+              hotfix.archive.prepare:
+                summary: 修复导入 MIDI 的 0–127
+                  越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从
+                  A0–C8 扩展到 MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+                targetBranch: main
+      hotfix.archive.execute:
+        sequence: 13
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-18-fix-midi-range-and-pitch-edges
+      hotfix.archive.preflight:
+        sequence: 12
+        value:
+          baseCommit: 372693fdf03980d9408ef0fd418a298ba9bf2c45
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      hotfix.archive.prepare:
+        sequence: 10
+        value:
+          summary: 修复导入 MIDI 的 0–127
+            越界报错：自动移调只接受不越界候选，音符条目防御性钳制，写回跳过残余越界音符并提示；同时把钢琴窗/键盘/音域阶梯从 A0–C8 扩展到
+            MIDI 0–127，使极低与极高音符能分行显示并移动。224 项测试通过，exe 已重新打包。
+          targetBranch: main
+      hotfix.build.check:
+        sequence: 4
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 1
+          contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+          inputBefore: 68ec370bc6121867bcf43ace7d0f4d494d5a153c7bf23fc5e279e948bb1c63d2
+          manifestHash: 8ed347b2b86f6719fdf93b4d7776d5ba8b413f45862d3d01537c6ee61ad7effb
+          manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/a3277e09-a4c2-40e4-a803-aa323bcecd29.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      hotfix.build.check.evidence:
+        sequence: 5
+        value:
+          contentHash: d1dbd519223f956c454482a1972193b951a52d71b9f11c683821956923a69dda
+          ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/74ad065d-e4a7-4d95-b583-0b7677b5374d.log
+      hotfix.build.execute:
+        sequence: 3
+        value:
+          event: build-complete
+      hotfix.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+            ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+      hotfix.open.evidence:
+        sequence: 2
+        value:
+          contentHash: 5de9ad5a3ecd13e7efab0d51eb95d0e3c83d75bd42abf40a0b8f494e07819aaf
+          ref: docs/openspec/changes/fix-midi-range-and-pitch-edges
+      hotfix.verify.check:
+        sequence: 8
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+          inputBefore: 2fb857fb8d8ce8ad8968280c6b5d30d06a9a2e3804079f857e56ef4bfc35e968
+          manifestHash: ddf5058d2f83e96542dbe007342350672cef6e3408208ad0b069cb3d99413568
+          manifestRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/893eb533-0a49-4a29-8f84-46261a3c62fa.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      hotfix.verify.check.evidence:
+        sequence: 9
+        value:
+          contentHash: a18cb46fea1ff7d5e6d46d4bbe6bf2abdca7f297888ff03235cd305280696e9a
+          ref: .comet/runtime/classic-sdk-checks/92c00656740ef17b37993b28a217464da0364b9d6ee1f68c7775f2639c633a39/d3f265e0-921d-4f02-b1ad-6580724188cf.log
+      hotfix.verify.report.evidence:
+        sequence: 7
+        value:
+          contentHash: 7f3dcafa0c9376fc516fcadda42de2bb462f30444442a5821ee355b9ac2172a0
+          ref: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+      hotfix.verify.run:
+        sequence: 6
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-18-fix-midi-range-and-pitch-edges-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 22
+  sourceHash: fef2fb88d810aad29826d0a999f6eb77d155f587a38768d7964f842dde621442
+check_epoch: 5

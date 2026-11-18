@@ -15,12 +15,28 @@ from .geometry import _is_black_key
 
 
 class CanvasPaintMixin:
+    def _pitch_in_instrument_band(self, pitch: int) -> bool:
+        """框体视觉范围：上下边界各扩展 1 个半音。"""
+        return self._range_low_pitch - 1 <= pitch <= self._range_high_pitch + 1
+
+    def _row_color(self, pitch: int) -> QColor:
+        color = QColor("#2C3E50") if _is_black_key(pitch) else QColor("#3B4A5A")
+        if not self._pitch_in_instrument_band(pitch):
+            color = color.darker(130)
+        return color
+
+    def _refresh_background_range(self) -> None:
+        """音域框移动后原地刷新每一行的淡/暗底色。"""
+        for pitch, row in self._row_items.items():
+            row.setBrush(QBrush(self._row_color(pitch)))
+
     def _build_background(self, total_seconds: float) -> None:
         # 先移除上一次绘制的背景图元，避免场景宽度增长（_ensure_scene_width）
         # 重新调用本方法时把旧的琴键行/秒线/小节线堆叠成重复的图元
         for item in self._background_items:
             self._scene.removeItem(item)
         self._background_items = []
+        self._row_items = {}
         self._current_total_seconds = total_seconds
 
         width = max(self._time_to_x(total_seconds), 400)
@@ -30,10 +46,7 @@ class CanvasPaintMixin:
         for i in range(PITCH_COUNT):
             pitch = MAX_PITCH - i
             y = i * self._row_height
-            is_black = _is_black_key(pitch)
-            color = QColor("#2C3E50") if is_black else QColor("#3B4A5A")
-            if pitch not in self._mapped_pitches:
-                color = color.darker(130)
+            color = self._row_color(pitch)
 
             row = QGraphicsRectItem(0, y, width, self._row_height)
             row.setBrush(QBrush(color))
@@ -42,6 +55,7 @@ class CanvasPaintMixin:
             row.setAcceptedMouseButtons(Qt.NoButton)
             self._scene.addItem(row)
             self._background_items.append(row)
+            self._row_items[pitch] = row
 
             if pitch % 12 == 0:  # 每个 C 音加标签
                 label = QGraphicsSimpleTextItem(f"C{pitch // 12 - 1}")
@@ -90,6 +104,7 @@ class CanvasPaintMixin:
             self._update_range_item_geometry()
 
     def _update_range_item_geometry(self) -> None:
+        self._refresh_background_range()
         if self._range_item is not None:
             self._scene.removeItem(self._range_item)
             self._range_item = None

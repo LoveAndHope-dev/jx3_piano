@@ -543,6 +543,30 @@ class PianoRollWidgetTest(unittest.TestCase):
         self.assertAlmostEqual(self.canvas.row_height, 6)
         self.canvas.set_row_height(10)
 
+    def test_background_band_follows_instrument_range(self):
+        self.canvas.set_instrument_range(36, 83)
+        self.assertEqual(len(self.canvas._row_items), 128)
+        self.assertTrue(self.canvas._pitch_in_instrument_band(35))
+        self.assertTrue(self.canvas._pitch_in_instrument_band(84))
+        self.assertFalse(self.canvas._pitch_in_instrument_band(34))
+        inside_46 = self.canvas._row_items[46].brush().color().name()
+        outside_90 = self.canvas._row_items[90].brush().color().name()
+
+        self.canvas.set_instrument_range(48, 95)
+        self.assertFalse(self.canvas._pitch_in_instrument_band(46))
+        self.assertTrue(self.canvas._pitch_in_instrument_band(90))
+        self.assertNotEqual(self.canvas._row_items[46].brush().color().name(), inside_46)
+        self.assertNotEqual(self.canvas._row_items[90].brush().color().name(), outside_90)
+
+    def test_background_band_follows_span_change(self):
+        self.canvas.set_instrument_range(36, 60)
+        self.assertFalse(self.canvas._pitch_in_instrument_band(70))
+        outside = self.canvas._row_items[70].brush().color().name()
+
+        self.canvas.set_instrument_span(40)  # 保持低边界 36，高边界上移
+        self.assertTrue(self.canvas._pitch_in_instrument_band(70))
+        self.assertNotEqual(self.canvas._row_items[70].brush().color().name(), outside)
+
     def test_shift_wheel_zooms_rows_with_pitch_anchor(self):
         self.canvas.set_row_height(10)
         self.canvas.verticalScrollBar().setValue(160)

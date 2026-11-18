@@ -49,6 +49,7 @@ class _PianoRollCanvas(CanvasInputMixin, CanvasPaintMixin, QGraphicsView):
         self._pending_create_note: Optional[Dict] = None
         self._playhead_item: Optional[QGraphicsLineItem] = None
         self._background_items: List = []
+        self._row_items: Dict[int, QGraphicsRectItem] = {}
         self._default_track = 0  # 新增音符使用的音轨号，由外部通过 set_default_track 设置
         self._current_total_seconds = MIN_SCENE_SECONDS
 
@@ -176,6 +177,7 @@ class _PianoRollCanvas(CanvasInputMixin, CanvasPaintMixin, QGraphicsView):
         self._playhead_item = None
         self._range_item = None
         self._background_items = []
+        self._row_items = {}
 
         self._notes = [dict(n) for n in notes]
         self._next_id = (max((n.get("id", 0) for n in self._notes), default=-1) + 1)

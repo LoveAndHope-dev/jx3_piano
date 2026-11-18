@@ -282,6 +282,37 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
             selection-background-color: {t['colorPrimary']};
         }}
 
+        QTextBrowser {{
+            background-color: {t['colorBgContainer']};
+            border: 1px solid {t['colorBorderSecondary']};
+            border-radius: {t['radiusLG']}px;
+            padding: {t['spaceLG']}px;
+            color: {t['colorText']};
+            selection-background-color: {t['colorPrimary']};
+        }}
+
+        QCheckBox {{
+            spacing: {t['spaceSM']}px;
+            color: {t['colorText']};
+        }}
+
+        QCheckBox::indicator {{
+            width: 14px;
+            height: 14px;
+            border: 1px solid {t['colorBorder']};
+            border-radius: {t['radiusXS']}px;
+            background-color: {t['colorBgBase']};
+        }}
+
+        QCheckBox::indicator:hover {{
+            border-color: {t['colorPrimary']};
+        }}
+
+        QCheckBox::indicator:checked {{
+            background-color: {t['colorPrimary']};
+            border-color: {t['colorPrimary']};
+        }}
+
         QLabel {{
             color: {t['colorText']};
             font-weight: normal;

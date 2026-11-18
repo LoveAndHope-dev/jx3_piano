@@ -7,6 +7,7 @@ from app.ui.log_page import LogPageMixin
 from app.ui.piano_page import PianoPageMixin
 from app.ui.playlist_page import PlaylistPageMixin
 from app.ui.theme import DARK_TOKENS, LIGHT_TOKENS, build_stylesheet
+from app.ui.guide import GuideDialog
 
 
 class MidiConverterGUI(
@@ -28,6 +29,9 @@ class MidiConverterGUI(
         self.currently_playing_midi_path = None
         self._playback_start_seconds = 0.0  # 本次播放的起点（播放辅助线位置）
         self._play_assets_stale = True  # play_code / edited MIDI 是否需要在播放前重建
+        self._checked_play_paths = set()  # 播放列表中通过复选框勾选的曲目
+        self._row_checkboxes = {}  # path -> QCheckBox（随列表重建）
+        self._guide_dialog = None
 
         # 铺面编辑相关变量
         self.current_midi_path = None
@@ -79,6 +83,13 @@ class MidiConverterGUI(
 
     def toggle_theme(self) -> None:
         self.apply_theme("light" if self.theme_mode == "dark" else "dark")
+
+    def show_guide(self) -> None:
+        """打开非模态使用向导。"""
+        if self._guide_dialog is not None:
+            self._guide_dialog.close()
+        self._guide_dialog = GuideDialog(self)
+        self._guide_dialog.show()
 
     def setup_ui(self):
         """设置用户界面"""
@@ -149,6 +160,12 @@ class MidiConverterGUI(
         self.refresh_btn.clicked.connect(self.refresh_play_list)
         btn_row1.addWidget(self.refresh_btn)
 
+        self.guide_btn = QPushButton("❓ 向导")
+        self.guide_btn.setObjectName("clearBtn")
+        self.guide_btn.setToolTip("查看各区域与快捷键说明")
+        self.guide_btn.clicked.connect(self.show_guide)
+        btn_row1.addWidget(self.guide_btn)
+
         control_layout.addLayout(btn_row1)
 
         # 添加作者信息
@@ -192,7 +209,7 @@ class MidiConverterGUI(
 
         list_row = QHBoxLayout()
         self.play_listbox = QListWidget()
-        self.play_listbox.setSelectionMode(QAbstractItemView.ExtendedSelection)
+        self.play_listbox.setSelectionMode(QAbstractItemView.SingleSelection)
         self.play_listbox.itemSelectionChanged.connect(self.on_select_play_file)
         self.play_listbox.currentItemChanged.connect(self.on_piano_roll_selection_changed)
 

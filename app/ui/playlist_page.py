@@ -55,6 +55,7 @@ class PlaylistPageMixin:
             self.play_listbox.blockSignals(True)
             try:
                 self.play_listbox.clear()
+                self._row_checkboxes = {}
                 for name, path, _mtime in entries:
                     display_name = f"🎵 {os.path.splitext(name)[0]}"
                     item = QListWidgetItem("")
@@ -76,11 +77,24 @@ class PlaylistPageMixin:
             self.log(f"❌ 刷新列表失败: {str(e)}")
 
     def _make_play_row(self, item, name: str, display_name: str) -> QWidget:
-        """生成播放列表的行控件：名称（选择由列表的多选逻辑处理）。"""
+        """生成播放列表的行控件：前置复选框 + 名称。"""
+        path = item.data(Qt.UserRole)
         row = QWidget()
         layout = QHBoxLayout(row)
         layout.setContentsMargins(4, 0, 8, 0)
-        layout.setSpacing(4)
+        layout.setSpacing(8)
+
+        checkbox = QCheckBox()
+        checkbox.setObjectName("rowCheck")
+        checkbox.setToolTip("勾选以批量删除")
+        checkbox.blockSignals(True)
+        checkbox.setChecked(path in self._checked_play_paths)
+        checkbox.blockSignals(False)
+        checkbox.toggled.connect(
+            lambda checked, p=path: self._on_play_row_checked(p, checked)
+        )
+        layout.addWidget(checkbox)
+        self._row_checkboxes[path] = checkbox
 
         label = QLabel(display_name)
         layout.addWidget(label, 1)
@@ -91,46 +105,34 @@ class PlaylistPageMixin:
         label.setAttribute(Qt.WA_TransparentForMouseEvents, True)
         return row
 
-    def _on_play_row_pressed(self, event, item) -> None:
-        """行内点击支持普通单选、Ctrl 切换与 Shift 范围选择。"""
-        modifiers = event.modifiers()
-        if modifiers & Qt.ControlModifier:
-            item.setSelected(not item.isSelected())
-            self.play_listbox.setCurrentItem(item)
-        elif modifiers & Qt.ShiftModifier:
-            current = self.play_listbox.currentItem()
-            if current is None:
-                item.setSelected(True)
-                self.play_listbox.setCurrentItem(item)
-            else:
-                start = self.play_listbox.row(current)
-                end = self.play_listbox.row(item)
-                low, high = sorted((start, end))
-                self.play_listbox.clearSelection()
-                for row in range(low, high + 1):
-                    self.play_listbox.item(row).setSelected(True)
-                self.play_listbox.setCurrentItem(item)
+    def _on_play_row_checked(self, path: str, checked: bool) -> None:
+        if checked:
+            self._checked_play_paths.add(path)
         else:
-            self.play_listbox.clearSelection()
-            item.setSelected(True)
-            self.play_listbox.setCurrentItem(item)
+            self._checked_play_paths.discard(path)
+
+    def _on_play_row_pressed(self, event, item) -> None:
+        """点击行只切换当前曲目，不产生多选。"""
+        self.play_listbox.setCurrentItem(item)
         event.accept()
 
     def select_all_play_items(self) -> None:
-        """选中当前列表中的全部曲目。"""
-        self.play_listbox.selectAll()
-        self.log(f"✅ 已全选 {self.play_listbox.count()} 个曲目")
+        """勾选当前列表中的全部曲目。"""
+        for checkbox in self._row_checkboxes.values():
+            checkbox.blockSignals(True)
+            checkbox.setChecked(True)
+            checkbox.blockSignals(False)
+        self._checked_play_paths.update(self._row_checkboxes.keys())
+        self.log(f"✅ 已勾选 {self.play_listbox.count()} 个曲目")
 
     def on_delete_selected_play_items(self) -> None:
-        """一次确认后删除所有选中曲目。"""
-        items = list(self.play_listbox.selectedItems())
-        if not items:
-            self.log("🗑 请先选择要删除的曲目")
+        """一次确认后删除所有勾选曲目。"""
+        paths = sorted(self._checked_play_paths)
+        if not paths:
+            self.log("🗑 请先勾选要删除的曲目")
             return
 
-        includes_current = any(
-            item.data(Qt.UserRole) == self.current_midi_path for item in items
-        )
+        includes_current = self.current_midi_path in paths
         extra = (
             "\n（包含当前打开且有未保存修改的曲目，删除会丢失这些修改）"
             if includes_current and self.piano_roll_dirty
@@ -139,7 +141,7 @@ class PlaylistPageMixin:
         reply = QMessageBox.question(
             self,
             "删除曲目",
-            f"删除选中的 {len(items)} 个曲目？{extra}\n"
+            f"删除勾选的 {len(paths)} 个曲目？{extra}\n"
             "会删除 midi 文件夹中的副本，导入的原始文件不受影响。",
             QMessageBox.Yes | QMessageBox.No,
             QMessageBox.No,
@@ -148,11 +150,11 @@ class PlaylistPageMixin:
             return
 
         deleted = 0
-        for item in items:
-            if self._delete_play_track(
-                item.data(Qt.UserRole), item.data(Qt.UserRole + 1)
-            ):
+        for path in paths:
+            name = os.path.basename(path)
+            if self._delete_play_track(path, name):
                 deleted += 1
+            self._checked_play_paths.discard(path)
         self.refresh_play_list()
         self.log(f"🗑 已删除 {deleted} 个曲目")
 
@@ -271,6 +273,7 @@ class PlaylistPageMixin:
         if not path or not name:
             self.log("❌ 删除失败：列表项缺少文件名")
             return False
+        self._checked_play_paths.discard(path)
         try:
             os.remove(path)
         except FileNotFoundError:

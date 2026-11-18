@@ -567,7 +567,10 @@ class PlaylistGuiTest(unittest.TestCase):
         self.window.on_new_play_item()
         self.assertEqual(self.window.play_listbox.count(), 2)
         self.window.select_all_play_items()
-        self.assertEqual(len(self.window.play_listbox.selectedItems()), 2)
+        self.assertEqual(len(self.window._checked_play_paths), 2)
+        self.assertTrue(
+            all(cb.isChecked() for cb in self.window._row_checkboxes.values())
+        )
 
     def test_delete_selected_play_items(self):
         self.window.on_new_play_item()
@@ -577,6 +580,7 @@ class PlaylistGuiTest(unittest.TestCase):
         with patch.object(gui.QMessageBox, "question", return_value=QMessageBox.Yes):
             self.window.on_delete_selected_play_items()
         self.assertEqual(self.window.play_listbox.count(), 0)
+        self.assertEqual(self.window._checked_play_paths, set())
         self.assertIsNone(self.window.current_midi_path)
         self.assertIs(
             self.window.piano_stack.currentWidget(), self.window.piano_placeholder
@@ -584,13 +588,12 @@ class PlaylistGuiTest(unittest.TestCase):
 
     def test_delete_selected_without_selection_does_not_prompt(self):
         self.window.on_new_play_item()
-        self.window.play_listbox.clearSelection()
         with patch.object(gui.QMessageBox, "question") as question:
             self.window.on_delete_selected_play_items()
         question.assert_not_called()
         self.assertEqual(self.window.play_listbox.count(), 1)
 
-    def test_ctrl_click_row_toggles_selection(self):
+    def test_ctrl_click_row_stays_single_selection(self):
         self.window.on_new_play_item()
         self.window.on_new_play_item()
         listbox = self.window.play_listbox
@@ -604,9 +607,46 @@ class PlaylistGuiTest(unittest.TestCase):
             Qt.ControlModifier,
         )
         self.window._on_play_row_pressed(event, item0)
-        self.assertTrue(item0.isSelected())
         self.window._on_play_row_pressed(event, item1)
-        self.assertEqual(len(listbox.selectedItems()), 2)
+        self.assertEqual(len(listbox.selectedItems()), 1)
+        self.assertIs(listbox.selectedItems()[0], item1)
+        self.assertEqual(self.window._checked_play_paths, set())
+
+    def test_checkbox_toggles_without_changing_current(self):
+        self.window.on_new_play_item()
+        self.window.on_new_play_item()
+        listbox = self.window.play_listbox
+        item0 = listbox.item(0)
+        path0 = item0.data(Qt.UserRole)
+        current_before = listbox.currentItem()
+
+        checkbox = self.window._row_checkboxes[path0]
+        checkbox.setChecked(True)
+        self.assertIn(path0, self.window._checked_play_paths)
+        self.assertIs(listbox.currentItem(), current_before)
+
+        checkbox.setChecked(False)
+        self.assertNotIn(path0, self.window._checked_play_paths)
+
+    def test_guide_opens_and_covers_areas(self):
+        self.window.show_guide()
+        dialog = self.window._guide_dialog
+        self.assertIsNotNone(dialog)
+        self.assertFalse(dialog.isHidden())
+        from app.ui.guide import build_guide_html
+
+        html = build_guide_html()
+        for text in (
+            "控制面板",
+            "播放列表",
+            "铺面编辑",
+            "钢琴窗",
+            "操作日志",
+            "Ctrl+Z",
+            "Shift + 滚轮",
+        ):
+            self.assertIn(text, html)
+        dialog.close()
 
     def test_theme_toggle_switches_stylesheet(self):
         self.assertEqual(self.window.theme_mode, "dark")

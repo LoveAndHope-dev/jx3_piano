@@ -33,12 +33,12 @@ class OctaveShiftTest(unittest.TestCase):
         self.assertEqual(octave_shift_pitches(notes, {1}, -12), {1: 48})
 
     def test_out_of_range_note_keeps_pitch(self):
-        notes = [{"id": 1, "pitch": 100}, {"id": 2, "pitch": 60}]
-        self.assertEqual(octave_shift_pitches(notes, {1, 2}, 12), {1: 100, 2: 72})
+        notes = [{"id": 1, "pitch": 120}, {"id": 2, "pitch": 60}]
+        self.assertEqual(octave_shift_pitches(notes, {1, 2}, 12), {1: 120, 2: 72})
 
     def test_all_out_of_range_returns_original_pitches(self):
-        notes = [{"id": 1, "pitch": 21}]
-        self.assertEqual(octave_shift_pitches(notes, {1}, -12), {1: 21})
+        notes = [{"id": 1, "pitch": 5}]
+        self.assertEqual(octave_shift_pitches(notes, {1}, -12), {1: 5})
 
     def test_unselected_notes_are_ignored(self):
         notes = [{"id": 1, "pitch": 60}, {"id": 2, "pitch": 64}]

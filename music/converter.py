@@ -116,7 +116,7 @@ def get_natural_key_ladder() -> List[Tuple[int, str]]:
     """
     converter = MidiToKeysConverter()
     ladder = []
-    for pitch in range(21, 109):
+    for pitch in range(0, 128):
         if (pitch % 12) in _LADDER_BLACK_KEY_OFFSETS:
             continue
         label = converter.base_note_mapping.get(pitch)
@@ -136,4 +136,4 @@ def get_chromatic_key_ladder() -> List[Tuple[int, str]]:
     两套不同用途的阶梯，互不影响。
     """
     converter = MidiToKeysConverter()
-    return [(pitch, converter.get_note_name(pitch)) for pitch in range(21, 109)]
+    return [(pitch, converter.get_note_name(pitch)) for pitch in range(0, 128)]

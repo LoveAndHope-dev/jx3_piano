@@ -72,17 +72,23 @@ class AnalysisMixin:
         return analysis
 
     def find_best_transpose(self, midi_file_path: str) -> int:
-        """找到最佳的移调半音数，使更多音符能被映射"""
+        """找到最佳的移调半音数，使更多音符能被映射（移调后必须仍在 MIDI 0–127）"""
         analysis = self.analyze_midi_file(midi_file_path)
         if "error" in analysis:
             return 0
 
         note_counts = analysis["音符统计"]
+        if not note_counts:
+            return 0
+        lowest = min(note_counts)
+        highest = max(note_counts)
         best_transpose = 0
         best_mapped_count = 0
 
         # 尝试±24半音的移调（±2个八度）
         for transpose in range(-24, 25):
+            if lowest + transpose < 0 or highest + transpose > 127:
+                continue
             mapped_count = 0
             temp_state = {"sharp": False, "flat": False}
             for note, count in note_counts.items():

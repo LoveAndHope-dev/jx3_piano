@@ -90,10 +90,10 @@ class PianoRollWidgetTest(unittest.TestCase):
         self.assertEqual([n["pitch"] for n in self.widget.get_notes() if n["id"] == 0], [60])
 
     def test_octave_shift_skips_notes_out_of_range(self):
-        self.widget.set_notes([{"id": 0, "pitch": 100, "start": 1.0, "duration": 0.5}])
+        self.widget.set_notes([{"id": 0, "pitch": 120, "start": 1.0, "duration": 0.5}])
         self.canvas._set_selection({0})
         self.canvas._shift_selected_octave(12)
-        self.assertEqual([n["pitch"] for n in self.widget.get_notes()], [100])
+        self.assertEqual([n["pitch"] for n in self.widget.get_notes()], [120])
 
     def test_zoom_is_clamped(self):
         self.canvas.set_pixels_per_second(1.0)
@@ -414,12 +414,40 @@ class PianoRollWidgetTest(unittest.TestCase):
 
     def test_transpose_skips_whole_group_at_boundary(self):
         self.widget.set_notes([
-            {"id": 0, "pitch": 107, "start": 1.0, "duration": 0.5, "mapped": True},
-            {"id": 1, "pitch": 108, "start": 1.0, "duration": 0.5, "mapped": True},
+            {"id": 0, "pitch": 126, "start": 1.0, "duration": 0.5, "mapped": True},
+            {"id": 1, "pitch": 127, "start": 1.0, "duration": 0.5, "mapped": True},
         ])
         self.canvas._set_selection({0, 1})
         self.canvas._transpose_selected(1)
-        self.assertEqual([n["pitch"] for n in self.widget.get_notes()], [107, 108])
+        self.assertEqual([n["pitch"] for n in self.widget.get_notes()], [126, 127])
+
+    def test_edge_pitches_occupy_distinct_rows(self):
+        pitches = [0, 12, 21, 108, 120, 127]
+        self.widget.set_notes(
+            [
+                {"id": index, "pitch": pitch, "start": 1.0, "duration": 0.5}
+                for index, pitch in enumerate(pitches)
+            ]
+        )
+        rows = [self.canvas._pitch_to_y(p) for p in pitches]
+        self.assertEqual(len(set(rows)), len(pitches))
+        self.assertLess(rows[-1], rows[0])
+
+    def test_edge_pitch_can_move_inward_but_not_outward(self):
+        self.widget.set_notes([
+            {"id": 0, "pitch": 0, "start": 1.0, "duration": 0.5},
+            {"id": 1, "pitch": 127, "start": 1.0, "duration": 0.5},
+        ])
+        self.canvas._set_selection({1})
+        self.canvas._transpose_selected(-1)
+        self.assertEqual(
+            [n["pitch"] for n in self.widget.get_notes() if n["id"] == 1], [126]
+        )
+        self.canvas._set_selection({0})
+        self.canvas._transpose_selected(-1)
+        self.assertEqual(
+            [n["pitch"] for n in self.widget.get_notes() if n["id"] == 0], [0]
+        )
 
     def test_playhead_lock_ignores_ruler(self):
         self.widget.set_playhead_anchor(1.0)

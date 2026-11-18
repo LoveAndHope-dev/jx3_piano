@@ -171,7 +171,7 @@ class PianoPageMixin:
         """计算88键范围内可被映射为游戏按键的MIDI音高集合"""
         converter = MidiToKeysConverter()
         mapped = set()
-        for pitch in range(21, 109):
+        for pitch in range(0, 128):
             key_sequence, _ = converter.midi_note_to_key_sequence(
                 pitch, {"sharp": False, "flat": False}
             )

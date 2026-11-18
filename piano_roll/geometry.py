@@ -8,9 +8,9 @@ from PyQt5.QtGui import QColor
 from build_music import tempo_us_from_bpm
 
 
-MIN_PITCH = 21  # A0
-MAX_PITCH = 108  # C8
-PITCH_COUNT = MAX_PITCH - MIN_PITCH + 1  # 88
+MIN_PITCH = 0  # C-1（MIDI 0）
+MAX_PITCH = 127  # G9（MIDI 127）
+PITCH_COUNT = MAX_PITCH - MIN_PITCH + 1  # 128
 
 ROW_HEIGHT = 10
 MIN_ROW_HEIGHT = 6

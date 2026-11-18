@@ -58,6 +58,7 @@ class MidiIoMixin:
                 track_idx = fallback_track
             notes_by_track[track_idx].append(note)
 
+        skipped_total = 0
         for track_idx in processed_tracks:
             if track_idx >= len(mid.tracks):
                 continue
@@ -78,6 +79,9 @@ class MidiIoMixin:
                 notes_by_track.get(track_idx, []), key=lambda n: n.get("start", 0.0)
             ):
                 pitch = int(note["pitch"])
+                if pitch < 0 or pitch > 127:
+                    skipped_total += 1
+                    continue
                 channel = int(note.get("channel", 0))
                 velocity = max(1, min(127, int(note.get("velocity", 100))))
                 start_seconds = float(note.get("start", 0.0))
@@ -109,6 +113,11 @@ class MidiIoMixin:
 
             new_track.append(mido.MetaMessage("end_of_track", time=0))
             mid.tracks[track_idx] = new_track
+
+        if skipped_total:
+            self._log(
+                f"⚠️ 跳过 {skipped_total} 个音高越界的音符（MIDI 有效范围 0–127）"
+            )
 
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         mid.save(output_path)
@@ -202,6 +211,8 @@ class MidiIoMixin:
         """构造单个音符条目（内部辅助方法）"""
         duration = max(end_time - start_time, 0.02)
         transposed_note = self.transpose_note(note, transpose)
+        # 防御性钳制：MIDI 音高有效范围 0–127，避免后续写回时 mido 抛错
+        transposed_note = max(0, min(127, int(transposed_note)))
         temp_state = {"sharp": False, "flat": False}
         key_sequence, _ = self.midi_note_to_key_sequence(transposed_note, temp_state)
         return {

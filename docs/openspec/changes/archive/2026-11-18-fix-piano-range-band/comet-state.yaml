@@ -1,0 +1,2032 @@
+# comet-execution: managed-run
+change_id: ce5a4f0a-db62-46ba-b165-2b7c2d887206
+workflow: hotfix
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: 6b5a2df6e5b870839d2d4643f467b2ae2e90d8cc
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+branch_status: pending
+created_at: 2026-11-18
+verified_at: 2026-11-18
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: fa699be9948c1cbd61c1612437aaeb42eb15387bb1a06a80cdbc412b6d9e9b63
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: fix-piano-range-band
+    revision: 1
+    workflow:
+      id: comet-classic-hotfix
+      version: "1"
+      hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+    definitionHashes:
+      '["comet-classic-hotfix","1"]': 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+    initialStateHash: f7e82dc4b478bc7372795231268810a99fe40b536d5a7a0fee1b1f8d04154890
+    input:
+      change: fix-piano-range-band
+      changeDir: docs/openspec/changes/fix-piano-range-band
+      workspaceBaseline:
+        ref: f88359db-cf2c-43f2-abfd-250e12002151
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 6b5a2df6e5b870839d2d4643f467b2ae2e90d8cc
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 5
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-18
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+      verifiedAt: 2026-11-18
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: hotfix
+    status: running
+    sequence: 14
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-183670cf7773d262b19898b14af9d8ea2e92b6f0516878f3ada938cd56da2b89
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-piano-range-band:1
+        input:
+          input:
+            change: fix-piano-range-band
+            changeDir: docs/openspec/changes/fix-piano-range-band
+            workspaceBaseline:
+              ref: f88359db-cf2c-43f2-abfd-250e12002151
+          outputs: {}
+        inputHash: 09472bbe7459203c4b45f4ec4ebd8a4a4a6a43ad7bd09a92cf31f1f00fae30b7
+        outcome:
+          actionId: fix-piano-range-band:1
+          attempt: 1
+          claimToken: portable-183670cf7773d262b19898b14af9d8ea2e92b6f0516878f3ada938cd56da2b89
+          inputHash: 09472bbe7459203c4b45f4ec4ebd8a4a4a6a43ad7bd09a92cf31f1f00fae30b7
+          outcomeId: ba72b92d-48c7-413d-87ec-1a7c8b3fa5a9
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: bfd20be07896fdf399c5760800ced237a86c81951f0e1961311017ed8d32af77
+            outcomeId: ba72b92d-48c7-413d-87ec-1a7c8b3fa5a9
+        reconciliations: []
+        ref: comet-hotfix
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-piano-range-band
+        status: succeeded
+        stepId: hotfix.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/fix-piano-range-band:3/1
+          token: portable-aff0b1d93f8b64bbbcdc6ac022b58cf1f5adeee890f7d4ada079a13bfff38802
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-piano-range-band:3
+        input:
+          input:
+            change: fix-piano-range-band
+            changeDir: docs/openspec/changes/fix-piano-range-band
+            workspaceBaseline:
+              ref: f88359db-cf2c-43f2-abfd-250e12002151
+          outputs:
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.open.evidence:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+        inputHash: c0ec5cfe5aab7b9adc7f9d5c5392162f49ad9f149b71c280deb5dad6f4b38d82
+        outcome:
+          actionId: fix-piano-range-band:3
+          attempt: 1
+          claimToken: portable-aff0b1d93f8b64bbbcdc6ac022b58cf1f5adeee890f7d4ada079a13bfff38802
+          inputHash: c0ec5cfe5aab7b9adc7f9d5c5392162f49ad9f149b71c280deb5dad6f4b38d82
+          outcomeId: e2f0e753-efea-4bc1-b264-d999d72cdad9
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 26bcf49c81a4834a16e4155b027be5e181e7ea3e358ddfc9227bf6d3190773cc
+            outcomeId: e2f0e753-efea-4bc1-b264-d999d72cdad9
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-piano-range-band
+        status: succeeded
+        stepId: hotfix.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-ed1f9c74e9a9906f7b76775939448c7150a7377138e3da49016b1adbbda9e346
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-piano-range-band:4
+        input:
+          input:
+            change: fix-piano-range-band
+            changeDir: docs/openspec/changes/fix-piano-range-band
+            workspaceBaseline:
+              ref: f88359db-cf2c-43f2-abfd-250e12002151
+          outputs:
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.open.evidence:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+        inputHash: c5ca186af4d10f5bb47ff0e720a232e85b2f040bfe8fe001562e8aa85131223e
+        outcome:
+          actionId: fix-piano-range-band:4
+          attempt: 1
+          claimToken: portable-ed1f9c74e9a9906f7b76775939448c7150a7377138e3da49016b1adbbda9e346
+          inputHash: c5ca186af4d10f5bb47ff0e720a232e85b2f040bfe8fe001562e8aa85131223e
+          outcomeId: 585d6973-3057-42ec-94e6-56f54c6cd3ee
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+            inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+            manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+            manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 5c5af4992c63b89cb41be564d119840ed9d18b985f7185067aee3489b58dc68d
+            outcomeId: 585d6973-3057-42ec-94e6-56f54c6cd3ee
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-piano-range-band
+        status: succeeded
+        stepId: hotfix.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-ac7637142b2542137a7962bc024b31da9584f41e52b12f5eba6a17bd82716324
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-piano-range-band:6
+        input:
+          input:
+            change: fix-piano-range-band
+            changeDir: docs/openspec/changes/fix-piano-range-band
+            workspaceBaseline:
+              ref: f88359db-cf2c-43f2-abfd-250e12002151
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.open.evidence:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+        inputHash: 8b695938607420766040026a22d634dba02a6711deb181abb68b745d6468a8d1
+        outcome:
+          actionId: fix-piano-range-band:6
+          attempt: 1
+          claimToken: portable-ac7637142b2542137a7962bc024b31da9584f41e52b12f5eba6a17bd82716324
+          inputHash: 8b695938607420766040026a22d634dba02a6711deb181abb68b745d6468a8d1
+          outcomeId: ad61901c-ae69-423f-a2ff-b8a35b98713b
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: b2d2dee00a5a8c9505e1ee0eb08066d3dceff67cf12f7a488ff1bdda55561b04
+            outcomeId: ad61901c-ae69-423f-a2ff-b8a35b98713b
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-piano-range-band
+        status: succeeded
+        stepId: hotfix.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-3d21835e0397394aa8a4dc4d8b8e12f8b83e3117fc7623a8306e2a4333d5b702
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-piano-range-band:8
+        input:
+          input:
+            change: fix-piano-range-band
+            changeDir: docs/openspec/changes/fix-piano-range-band
+            workspaceBaseline:
+              ref: f88359db-cf2c-43f2-abfd-250e12002151
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.open.evidence:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.verify.report.evidence:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        inputHash: 66f065a29d517a4c8cd0fec5fe8e9c89081890766f7850ff4b523ada68dfafd2
+        outcome:
+          actionId: fix-piano-range-band:8
+          attempt: 1
+          claimToken: portable-3d21835e0397394aa8a4dc4d8b8e12f8b83e3117fc7623a8306e2a4333d5b702
+          inputHash: 66f065a29d517a4c8cd0fec5fe8e9c89081890766f7850ff4b523ada68dfafd2
+          outcomeId: d4a916d9-b868-48fd-83ad-bbc164bb690b
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+            inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+            manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+            manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 17fa3c5c8a2ce277137b042982774b74e1b235e32e2e28843f35e008c38dfade
+            outcomeId: d4a916d9-b868-48fd-83ad-bbc164bb690b
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-piano-range-band
+        status: succeeded
+        stepId: hotfix.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-7ad95bcc280c0d52e025a5612ac4be6970c490f7d433986232ea7682a447e984
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-piano-range-band:10
+        input:
+          input:
+            change: fix-piano-range-band
+            changeDir: docs/openspec/changes/fix-piano-range-band
+            workspaceBaseline:
+              ref: f88359db-cf2c-43f2-abfd-250e12002151
+          outputs:
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.open.evidence:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+            hotfix.verify.report.evidence:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        inputHash: f84a5c254ec3fc82b015dcef79be947c0f49d69d53ea91846eb836374061b571
+        outcome:
+          actionId: fix-piano-range-band:10
+          attempt: 1
+          claimToken: portable-7ad95bcc280c0d52e025a5612ac4be6970c490f7d433986232ea7682a447e984
+          inputHash: f84a5c254ec3fc82b015dcef79be947c0f49d69d53ea91846eb836374061b571
+          outcomeId: 8a988531-11a2-416e-a2a1-813a4ca33820
+          output:
+            summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+              半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe 已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 28fe6294342810562a670493ba2ea610ba294eac3195ed437c80e994393aefaa
+            outcomeId: 8a988531-11a2-416e-a2a1-813a4ca33820
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-piano-range-band
+        status: succeeded
+        stepId: hotfix.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-407f160f923d450a6c25a0565ca34a8d02be69aa2231dc4dbc043c09f7387b02
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-piano-range-band:12
+        input:
+          input:
+            change: fix-piano-range-band
+            changeDir: docs/openspec/changes/fix-piano-range-band
+            workspaceBaseline:
+              ref: f88359db-cf2c-43f2-abfd-250e12002151
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-piano-range-band
+                  changeDir: docs/openspec/changes/fix-piano-range-band
+                  workspaceBaseline:
+                    ref: f88359db-cf2c-43f2-abfd-250e12002151
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                      半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+            hotfix.archive.prepare:
+              summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe 已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.open.evidence:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+            hotfix.verify.report.evidence:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        inputHash: d3cd9a13429574285be4c109c9ad6918b422ee9722b928061f9be8001cd5a3af
+        outcome:
+          actionId: fix-piano-range-band:12
+          attempt: 1
+          claimToken: portable-407f160f923d450a6c25a0565ca34a8d02be69aa2231dc4dbc043c09f7387b02
+          inputHash: d3cd9a13429574285be4c109c9ad6918b422ee9722b928061f9be8001cd5a3af
+          outcomeId: 41c5cfe0-e136-47b7-8523-eeb282f31338
+          output:
+            baseCommit: 2f9aa8f6d3a9816ce8912401af2eaa33660d4926
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 26761b0e5b0dbdc3875b0d2fc1127c20dab246162f4396184ff9d26cf11d82d9
+            outcomeId: 41c5cfe0-e136-47b7-8523-eeb282f31338
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-piano-range-band
+        status: succeeded
+        stepId: hotfix.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-b927cde87d0b8a2230a8787db9e7a50cc1e7b343127f6d8fe278568103c81035
+        executionOrigin:
+          workflow:
+            hash: 6f71bc84d0b99735ca7b6578709966e435eb6c732dcd702ad2771b5569fc9552
+            id: comet-classic-hotfix
+            version: "1"
+        id: fix-piano-range-band:13
+        input:
+          input:
+            change: fix-piano-range-band
+            changeDir: docs/openspec/changes/fix-piano-range-band
+            workspaceBaseline:
+              ref: f88359db-cf2c-43f2-abfd-250e12002151
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-piano-range-band
+                  changeDir: docs/openspec/changes/fix-piano-range-band
+                  workspaceBaseline:
+                    ref: f88359db-cf2c-43f2-abfd-250e12002151
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                      半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+            hotfix.archive.preflight:
+              baseCommit: 2f9aa8f6d3a9816ce8912401af2eaa33660d4926
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            hotfix.archive.prepare:
+              summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe 已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.open.evidence:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+            hotfix.verify.report.evidence:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        inputHash: 046db69432a7972ea9bb80e3a60063fc6d2e59e86039e3674c86c0c5de8c99ef
+        outcome:
+          actionId: fix-piano-range-band:13
+          artifacts:
+            - sha256: 66e4162fbabc24bb337d89cda35e6de309c0c25faab7ac31e5aebd0c7bec346c
+              uri: docs/openspec/changes/archive/2026-11-18-fix-piano-range-band/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-b927cde87d0b8a2230a8787db9e7a50cc1e7b343127f6d8fe278568103c81035
+          inputHash: 046db69432a7972ea9bb80e3a60063fc6d2e59e86039e3674c86c0c5de8c99ef
+          outcomeId: c0befdfb-c3f4-4773-ad91-8e12467baf7b
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-18-fix-piano-range-band
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 7d5faf4b774f54b2aae7f345199e73ca2dd26cd3d36106eaec8a4ed23597a3c0
+            outcomeId: c0befdfb-c3f4-4773-ad91-8e12467baf7b
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-piano-range-band
+        status: succeeded
+        stepId: hotfix.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: fix-piano-range-band:14
+        input:
+          input:
+            change: fix-piano-range-band
+            changeDir: docs/openspec/changes/fix-piano-range-band
+            workspaceBaseline:
+              ref: f88359db-cf2c-43f2-abfd-250e12002151
+          outputs:
+            hotfix.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: fix-piano-range-band
+                  changeDir: docs/openspec/changes/fix-piano-range-band
+                  workspaceBaseline:
+                    ref: f88359db-cf2c-43f2-abfd-250e12002151
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                      半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+            hotfix.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-18-fix-piano-range-band
+            hotfix.archive.preflight:
+              baseCommit: 2f9aa8f6d3a9816ce8912401af2eaa33660d4926
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            hotfix.archive.prepare:
+              summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe 已重新打包。
+              targetBranch: main
+            hotfix.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            hotfix.build.check.evidence:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+            hotfix.build.execute:
+              event: build-complete
+            hotfix.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.open.evidence:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+            hotfix.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            hotfix.verify.check.evidence:
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+            hotfix.verify.report.evidence:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+            hotfix.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        inputHash: c9a43a5f029faf133e75e4186542ad9227366446f105dfd096338183f215fa2f
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: fix-piano-range-band
+        status: pending
+        stepId: hotfix.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      fix-piano-range-band:1:
+        results: {}
+        sequence: 1
+      fix-piano-range-band:10:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        sequence: 10
+      fix-piano-range-band:12:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-piano-range-band
+                  changeDir: docs/openspec/changes/fix-piano-range-band
+                  workspaceBaseline:
+                    ref: f88359db-cf2c-43f2-abfd-250e12002151
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                      半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        sequence: 12
+      fix-piano-range-band:13:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-piano-range-band
+                  changeDir: docs/openspec/changes/fix-piano-range-band
+                  workspaceBaseline:
+                    ref: f88359db-cf2c-43f2-abfd-250e12002151
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                      半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+          hotfix.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 2f9aa8f6d3a9816ce8912401af2eaa33660d4926
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        sequence: 13
+      fix-piano-range-band:14:
+        results:
+          hotfix.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: fix-piano-range-band
+                  changeDir: docs/openspec/changes/fix-piano-range-band
+                  workspaceBaseline:
+                    ref: f88359db-cf2c-43f2-abfd-250e12002151
+                outputs:
+                  hotfix.archive.prepare:
+                    summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                      半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+          hotfix.archive.execute:
+            sequence: 13
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-18-fix-piano-range-band
+          hotfix.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 2f9aa8f6d3a9816ce8912401af2eaa33660d4926
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        sequence: 14
+      fix-piano-range-band:3:
+        results:
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+        sequence: 3
+      fix-piano-range-band:4:
+        results:
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+        sequence: 4
+      fix-piano-range-band:6:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+        sequence: 6
+      fix-piano-range-band:8:
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        sequence: 8
+    waits:
+      - id: fix-piano-range-band:11
+        stepId: hotfix.archive.confirm
+        sequence: 11
+        status: resolved
+        proposal:
+          input:
+            change: fix-piano-range-band
+            changeDir: docs/openspec/changes/fix-piano-range-band
+            workspaceBaseline:
+              ref: f88359db-cf2c-43f2-abfd-250e12002151
+          outputs:
+            hotfix.archive.prepare:
+              summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe 已重新打包。
+              targetBranch: main
+        proposalHash: 0a24f1aad441c74945d5b1d581dbf17ba57fb7621059bb073e865cc319858992
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          hotfix.archive.prepare:
+            sequence: 10
+            value:
+              summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe 已重新打包。
+              targetBranch: main
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        decision:
+          id: classic-archive-0a24f1aad441c74945d5b1d581dbf17ba57fb7621059bb073e865cc319858992-local
+          choice: local
+          proposalHash: 0a24f1aad441c74945d5b1d581dbf17ba57fb7621059bb073e865cc319858992
+    evidenceWaits:
+      - id: fix-piano-range-band:2
+        stepId: hotfix.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+        receipt:
+          ref: docs/openspec/changes/fix-piano-range-band
+          contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+          submissionId: c8f0b65b-ba58-47f7-a713-2c7b6d527c9a
+      - id: fix-piano-range-band:5
+        stepId: hotfix.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+          contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+          submissionId: ccde3224-3092-4401-a122-4135baaae54a
+      - id: fix-piano-range-band:7
+        stepId: hotfix.verify.report.evidence
+        sequence: 7
+        kind: classic-verification-report
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+          contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+          submissionId: de233142-7d3f-409c-824a-c2bb1404aeac
+      - id: fix-piano-range-band:9
+        stepId: hotfix.verify.check.evidence
+        sequence: 9
+        kind: classic-verify-check
+        status: resolved
+        results:
+          hotfix.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+              manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          hotfix.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+              ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+          hotfix.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          hotfix.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+                ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+              ref: docs/openspec/changes/fix-piano-range-band
+          hotfix.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+              manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+              manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          hotfix.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+              ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+          hotfix.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+          contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+          submissionId: 4bc8ab88-b719-455b-a544-1817c958d044
+    ready: []
+    joins: {}
+    outputs:
+      hotfix.archive.confirm:
+        sequence: 11
+        value:
+          choice: local
+          proposal:
+            input:
+              change: fix-piano-range-band
+              changeDir: docs/openspec/changes/fix-piano-range-band
+              workspaceBaseline:
+                ref: f88359db-cf2c-43f2-abfd-250e12002151
+            outputs:
+              hotfix.archive.prepare:
+                summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+                  半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe
+                  已重新打包。
+                targetBranch: main
+      hotfix.archive.execute:
+        sequence: 13
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-18-fix-piano-range-band
+      hotfix.archive.preflight:
+        sequence: 12
+        value:
+          baseCommit: 2f9aa8f6d3a9816ce8912401af2eaa33660d4926
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      hotfix.archive.prepare:
+        sequence: 10
+        value:
+          summary: 钢琴窗背景淡色区域改为由当前黄色音域框决定（上下各扩 1
+            半音），拖动框体或修改最低/最高键位映射时原地刷新行底色，不再固定按游戏键位集合着色。226 项测试通过，exe 已重新打包。
+          targetBranch: main
+      hotfix.build.check:
+        sequence: 4
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 1
+          contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+          inputBefore: c896ac0206ef21218c9160f49ddc3b75003e3b8344772d8798a27a764b3064b1
+          manifestHash: 1efb1d6ebd0745202daa2abe3183ab304c57f108b7fea1140037b5c87b26c92d
+          manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/0ceb0045-f411-45d1-93df-26d21ece3e31.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      hotfix.build.check.evidence:
+        sequence: 5
+        value:
+          contentHash: ae6790f04ef4c106164aa3ac8190630d450ef4aa8da16885e4708f07514bd1ac
+          ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/15e0d0dd-1c78-46c6-8ca7-72fbd68370de.log
+      hotfix.build.execute:
+        sequence: 3
+        value:
+          event: build-complete
+      hotfix.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+            ref: docs/openspec/changes/fix-piano-range-band
+      hotfix.open.evidence:
+        sequence: 2
+        value:
+          contentHash: 085c15cbe8da8f86ce905e45360e905705df9f9c21cbea36f3157c5f7ff66a1f
+          ref: docs/openspec/changes/fix-piano-range-band
+      hotfix.verify.check:
+        sequence: 8
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+          inputBefore: 06b3dc7db3d07f34a99bfcc18ad712ac3cf4ef0fac13d9530f506d7fa6f677df
+          manifestHash: c2dae77114c558cd6f3785bc0b27ffdd821615e0027d48fbbb40ec3665a1b5f4
+          manifestRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/6d56c158-6d53-47b6-b2bc-ca5b81c9b9dc.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      hotfix.verify.check.evidence:
+        sequence: 9
+        value:
+          contentHash: 5a19b07b92fa6cce5773dc26d78499f3fbca12e2bd10e9549c79f3524512cdfc
+          ref: .comet/runtime/classic-sdk-checks/dab80004fe6eb8f350f079cf469b342757ab77fea2197e6caa3eb9556b894d5c/2448f398-e211-4a62-b58a-3495d981a267.log
+      hotfix.verify.report.evidence:
+        sequence: 7
+        value:
+          contentHash: 1d8a16e1a6f022d310e8ea2771d948300056e4ecef0fd4c16c1c2e0c910ad080
+          ref: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+      hotfix.verify.run:
+        sequence: 6
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-18-fix-piano-range-band-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 22
+  sourceHash: c8df423d68f3c6b75be41ecda658e9e9cd3709f6c80e70fa5c51f3c1326bf7a9
+check_epoch: 5

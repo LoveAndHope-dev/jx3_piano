@@ -1,0 +1,2031 @@
+# comet-execution: managed-run
+change_id: 1ae7b4a8-2874-435b-8306-8fe73dc5e27c
+workflow: tweak
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: fcb6d634edec827d9d495b15379e74cac4af03ed
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+branch_status: pending
+created_at: 2026-11-18
+verified_at: 2026-11-18
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: dcff5550dd802c50ccd26970052d4eabaf03f749bb9a4ed461c5b7be720a6e27
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: playlist-checkboxes-and-guide
+    revision: 1
+    workflow:
+      id: comet-classic-tweak
+      version: "1"
+      hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    definitionHashes:
+      '["comet-classic-tweak","1"]': fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    initialStateHash: c2cede62a42274126f0892c53de2735c8c4ff9d36c39e6fdd962ac5e92100584
+    input:
+      change: playlist-checkboxes-and-guide
+      changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+      workspaceBaseline:
+        ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: fcb6d634edec827d9d495b15379e74cac4af03ed
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 5
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-18
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+      verifiedAt: 2026-11-18
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: tweak
+    status: running
+    sequence: 14
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-c7ba4221ba21cd53a294976f4bf7f864449e0d87cd811260ac8fabe91e9525d6
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: playlist-checkboxes-and-guide:1
+        input:
+          input:
+            change: playlist-checkboxes-and-guide
+            changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+            workspaceBaseline:
+              ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+          outputs: {}
+        inputHash: cf274327ea4298540f5703fb4641bc41eb3572812069ed114abb2645d12556ab
+        outcome:
+          actionId: playlist-checkboxes-and-guide:1
+          attempt: 1
+          claimToken: portable-c7ba4221ba21cd53a294976f4bf7f864449e0d87cd811260ac8fabe91e9525d6
+          inputHash: cf274327ea4298540f5703fb4641bc41eb3572812069ed114abb2645d12556ab
+          outcomeId: 89617924-05ea-4c55-a2d8-0e2cfea85748
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 8c183d3253f0de85f2a0e2018227f262a36b3086d7c2524adc79492b92bf1c52
+            outcomeId: 89617924-05ea-4c55-a2d8-0e2cfea85748
+        reconciliations: []
+        ref: comet-tweak
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-checkboxes-and-guide
+        status: succeeded
+        stepId: tweak.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/playlist-checkboxes-and-guide:3/1
+          token: portable-74213f5eba74b1f3bd778f384937047c57da8eb43dfe5a1c7253b2d1eaa7303e
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: playlist-checkboxes-and-guide:3
+        input:
+          input:
+            change: playlist-checkboxes-and-guide
+            changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+            workspaceBaseline:
+              ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+          outputs:
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.open.evidence:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+        inputHash: af4ddadeb4037daa843fe91e083159f24b8aba8505db453e6cadeba3921e983c
+        outcome:
+          actionId: playlist-checkboxes-and-guide:3
+          attempt: 1
+          claimToken: portable-74213f5eba74b1f3bd778f384937047c57da8eb43dfe5a1c7253b2d1eaa7303e
+          inputHash: af4ddadeb4037daa843fe91e083159f24b8aba8505db453e6cadeba3921e983c
+          outcomeId: 70e7124f-b8a3-4bec-bd62-d9723e333cf7
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 42cff16bef212c3708e3ee47fea487f763c258a438e27ae47a72dfeccea779e9
+            outcomeId: 70e7124f-b8a3-4bec-bd62-d9723e333cf7
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-checkboxes-and-guide
+        status: succeeded
+        stepId: tweak.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-85cddebded0a8c3d2f798f522f2fd120b6815e96ac0c6a95b7cde1b3f9a65a40
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: playlist-checkboxes-and-guide:4
+        input:
+          input:
+            change: playlist-checkboxes-and-guide
+            changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+            workspaceBaseline:
+              ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+          outputs:
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.open.evidence:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+        inputHash: 9bf6fabdf2931a0fa07de39a25ab0679a1c9ae875d6baf370fe0047afabb8b67
+        outcome:
+          actionId: playlist-checkboxes-and-guide:4
+          attempt: 1
+          claimToken: portable-85cddebded0a8c3d2f798f522f2fd120b6815e96ac0c6a95b7cde1b3f9a65a40
+          inputHash: 9bf6fabdf2931a0fa07de39a25ab0679a1c9ae875d6baf370fe0047afabb8b67
+          outcomeId: 60731ce5-53c5-43dd-864d-6003c6c4f2ed
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+            inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+            manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+            manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f97b4e4c15734aedfb0994ada13bcc011659f29bbd2ca16bd1da8baf2f4b684a
+            outcomeId: 60731ce5-53c5-43dd-864d-6003c6c4f2ed
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-checkboxes-and-guide
+        status: succeeded
+        stepId: tweak.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-41169003cf10dfd8097e1fc483644aa693bd7ab7afaf00cf223b1f5a09b9a4d9
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: playlist-checkboxes-and-guide:6
+        input:
+          input:
+            change: playlist-checkboxes-and-guide
+            changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+            workspaceBaseline:
+              ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.open.evidence:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+        inputHash: c47cb2889a6bcc45be9254c6e8c7bde94a5af54cf8b2662ae46d7ab10ce29426
+        outcome:
+          actionId: playlist-checkboxes-and-guide:6
+          attempt: 1
+          claimToken: portable-41169003cf10dfd8097e1fc483644aa693bd7ab7afaf00cf223b1f5a09b9a4d9
+          inputHash: c47cb2889a6bcc45be9254c6e8c7bde94a5af54cf8b2662ae46d7ab10ce29426
+          outcomeId: fb54886a-7fd0-4a68-a037-fc5d7ca172fc
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: d2faa41c7b2835727cbfa06b645b1eda99c0c6a4ecc69fb1ad50ccabd5bd68a5
+            outcomeId: fb54886a-7fd0-4a68-a037-fc5d7ca172fc
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-checkboxes-and-guide
+        status: succeeded
+        stepId: tweak.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-22b934d544fb137f9cc819f6487f0c9b48a6c6b3fb22c912e0e73dd52b5f3ac3
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: playlist-checkboxes-and-guide:8
+        input:
+          input:
+            change: playlist-checkboxes-and-guide
+            changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+            workspaceBaseline:
+              ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.open.evidence:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.verify.report.evidence:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        inputHash: 60c1b4061236c9bed1b1b7c83c01689fe04d4d803f73803de80f7ccc82c12c2f
+        outcome:
+          actionId: playlist-checkboxes-and-guide:8
+          attempt: 1
+          claimToken: portable-22b934d544fb137f9cc819f6487f0c9b48a6c6b3fb22c912e0e73dd52b5f3ac3
+          inputHash: 60c1b4061236c9bed1b1b7c83c01689fe04d4d803f73803de80f7ccc82c12c2f
+          outcomeId: 1da972d1-cc23-4c38-897b-0504b8aa0b94
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+            inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+            manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+            manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: b2c29f93e6b3be9552235cfad36210a2ac7d7d92efd99381bddb57fee9e3fcc8
+            outcomeId: 1da972d1-cc23-4c38-897b-0504b8aa0b94
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-checkboxes-and-guide
+        status: succeeded
+        stepId: tweak.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-bfc9702a5b2e96f14832c4166e794a9c45adb7c402316492b75a9fd24bad199d
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: playlist-checkboxes-and-guide:10
+        input:
+          input:
+            change: playlist-checkboxes-and-guide
+            changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+            workspaceBaseline:
+              ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.open.evidence:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+            tweak.verify.report.evidence:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        inputHash: eb3f25bb928efee7de966ad9fc1010d464c4125c1c99307c1e2e27df56f242a8
+        outcome:
+          actionId: playlist-checkboxes-and-guide:10
+          attempt: 1
+          claimToken: portable-bfc9702a5b2e96f14832c4166e794a9c45adb7c402316492b75a9fd24bad199d
+          inputHash: eb3f25bb928efee7de966ad9fc1010d464c4125c1c99307c1e2e27df56f242a8
+          outcomeId: e89c76f4-aff8-43d3-ae10-690ac10fe26a
+          output:
+            summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+              向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe 已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: b33c795af3344993a0cb97d3e47a1e7b3ad120191797cfd33daf253bc6ae5fd8
+            outcomeId: e89c76f4-aff8-43d3-ae10-690ac10fe26a
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-checkboxes-and-guide
+        status: succeeded
+        stepId: tweak.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-5735be0b21608703595e056d1569a6e2317a4f3a065a7170f89ee984e3bbea5f
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: playlist-checkboxes-and-guide:12
+        input:
+          input:
+            change: playlist-checkboxes-and-guide
+            changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+            workspaceBaseline:
+              ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: playlist-checkboxes-and-guide
+                  changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+                  workspaceBaseline:
+                    ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                      向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+            tweak.archive.prepare:
+              summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.open.evidence:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+            tweak.verify.report.evidence:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        inputHash: 6ee3d2404b88d237c8b5e25ce15d506a98c3d8e0ecfdcdaecaf073b6f94666cd
+        outcome:
+          actionId: playlist-checkboxes-and-guide:12
+          attempt: 1
+          claimToken: portable-5735be0b21608703595e056d1569a6e2317a4f3a065a7170f89ee984e3bbea5f
+          inputHash: 6ee3d2404b88d237c8b5e25ce15d506a98c3d8e0ecfdcdaecaf073b6f94666cd
+          outcomeId: a57ddb0f-a2a3-440c-9f4d-2ef3642fceb4
+          output:
+            baseCommit: e3241e4f70a2ae97d2c4a46480cf78a762872b3a
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 6da41654eb4d20373181139260806089815b14693b0a13c78921657b62cdd114
+            outcomeId: a57ddb0f-a2a3-440c-9f4d-2ef3642fceb4
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-checkboxes-and-guide
+        status: succeeded
+        stepId: tweak.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-b4628a01d6230946968c136f39edecb856b0858d4ea8e3a610664641acc450c3
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: playlist-checkboxes-and-guide:13
+        input:
+          input:
+            change: playlist-checkboxes-and-guide
+            changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+            workspaceBaseline:
+              ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: playlist-checkboxes-and-guide
+                  changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+                  workspaceBaseline:
+                    ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                      向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+            tweak.archive.preflight:
+              baseCommit: e3241e4f70a2ae97d2c4a46480cf78a762872b3a
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.open.evidence:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+            tweak.verify.report.evidence:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        inputHash: 5996072cf7ac252d5978ccb31d00174253d3c419aa93d9e8e62b51dd1a08739d
+        outcome:
+          actionId: playlist-checkboxes-and-guide:13
+          artifacts:
+            - sha256: 0a51eddfd93e62a1cd1e518cba888f5ba931f47be44f5e2faca517b483335813
+              uri: docs/openspec/changes/archive/2026-11-18-playlist-checkboxes-and-guide/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-b4628a01d6230946968c136f39edecb856b0858d4ea8e3a610664641acc450c3
+          inputHash: 5996072cf7ac252d5978ccb31d00174253d3c419aa93d9e8e62b51dd1a08739d
+          outcomeId: 1f2eb003-2f61-4882-b515-73c5f7140e66
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-18-playlist-checkboxes-and-guide
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 278cf2d23c94f0d6374f4015b220d657711b9f9161ec6a936ea95427210acec7
+            outcomeId: 1f2eb003-2f61-4882-b515-73c5f7140e66
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-checkboxes-and-guide
+        status: succeeded
+        stepId: tweak.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: playlist-checkboxes-and-guide:14
+        input:
+          input:
+            change: playlist-checkboxes-and-guide
+            changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+            workspaceBaseline:
+              ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: playlist-checkboxes-and-guide
+                  changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+                  workspaceBaseline:
+                    ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                      向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+            tweak.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-18-playlist-checkboxes-and-guide
+            tweak.archive.preflight:
+              baseCommit: e3241e4f70a2ae97d2c4a46480cf78a762872b3a
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.open.evidence:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+            tweak.verify.report.evidence:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        inputHash: 8d6a0f13e9b9882713742c2c3de4f52a4c4c678f507c9e1f2d6a270cb7634ec5
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: playlist-checkboxes-and-guide
+        status: pending
+        stepId: tweak.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      playlist-checkboxes-and-guide:1:
+        results: {}
+        sequence: 1
+      playlist-checkboxes-and-guide:10:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        sequence: 10
+      playlist-checkboxes-and-guide:12:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: playlist-checkboxes-and-guide
+                  changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+                  workspaceBaseline:
+                    ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                      向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        sequence: 12
+      playlist-checkboxes-and-guide:13:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: playlist-checkboxes-and-guide
+                  changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+                  workspaceBaseline:
+                    ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                      向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: e3241e4f70a2ae97d2c4a46480cf78a762872b3a
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        sequence: 13
+      playlist-checkboxes-and-guide:14:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: playlist-checkboxes-and-guide
+                  changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+                  workspaceBaseline:
+                    ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                      向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe
+                      已重新打包。
+                    targetBranch: main
+          tweak.archive.execute:
+            sequence: 13
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-18-playlist-checkboxes-and-guide
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: e3241e4f70a2ae97d2c4a46480cf78a762872b3a
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        sequence: 14
+      playlist-checkboxes-and-guide:3:
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+        sequence: 3
+      playlist-checkboxes-and-guide:4:
+        results:
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+        sequence: 4
+      playlist-checkboxes-and-guide:6:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+        sequence: 6
+      playlist-checkboxes-and-guide:8:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        sequence: 8
+    waits:
+      - id: playlist-checkboxes-and-guide:11
+        stepId: tweak.archive.confirm
+        sequence: 11
+        status: resolved
+        proposal:
+          input:
+            change: playlist-checkboxes-and-guide
+            changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+            workspaceBaseline:
+              ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+          outputs:
+            tweak.archive.prepare:
+              summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe 已重新打包。
+              targetBranch: main
+        proposalHash: 1645a96e3f8b190854b7a9b3b5cc6c48b855a00bb97a265e01989b43c005edc1
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        decision:
+          id: classic-archive-1645a96e3f8b190854b7a9b3b5cc6c48b855a00bb97a265e01989b43c005edc1-local
+          choice: local
+          proposalHash: 1645a96e3f8b190854b7a9b3b5cc6c48b855a00bb97a265e01989b43c005edc1
+    evidenceWaits:
+      - id: playlist-checkboxes-and-guide:2
+        stepId: tweak.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+        receipt:
+          ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+          submissionId: a9dc75ce-b6da-4793-849e-ba4de961b9de
+      - id: playlist-checkboxes-and-guide:5
+        stepId: tweak.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+          contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+          submissionId: 6fe99a2b-65f0-4a9e-94f0-901b3df2ee96
+      - id: playlist-checkboxes-and-guide:7
+        stepId: tweak.verify.report.evidence
+        sequence: 7
+        kind: classic-verification-report
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+          contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+          submissionId: 00a23fb7-5e16-4479-911a-5e4085f88c15
+      - id: playlist-checkboxes-and-guide:9
+        stepId: tweak.verify.check.evidence
+        sequence: 9
+        kind: classic-verify-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+              manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+              ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+                ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+              ref: docs/openspec/changes/playlist-checkboxes-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+              manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+              manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+              ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+          contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+          submissionId: a937087c-c0d5-4e6b-8751-5179b2950095
+    ready: []
+    joins: {}
+    outputs:
+      tweak.archive.confirm:
+        sequence: 11
+        value:
+          choice: local
+          proposal:
+            input:
+              change: playlist-checkboxes-and-guide
+              changeDir: docs/openspec/changes/playlist-checkboxes-and-guide
+              workspaceBaseline:
+                ref: a600f970-e39b-45dc-99a7-d7ab21c96497
+            outputs:
+              tweak.archive.prepare:
+                summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+                  向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe 已重新打包。
+                targetBranch: main
+      tweak.archive.execute:
+        sequence: 13
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-18-playlist-checkboxes-and-guide
+      tweak.archive.preflight:
+        sequence: 12
+        value:
+          baseCommit: e3241e4f70a2ae97d2c4a46480cf78a762872b3a
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      tweak.archive.prepare:
+        sequence: 10
+        value:
+          summary: 播放列表每行新增勾选框：点击行只单选并加载，勾选独立用于批量操作；全选改为勾选全部，删除选中只删除勾选项，刷新后保留勾选。控制面板新增「❓
+            向导」，打开可滚动说明，覆盖控制面板、播放列表、铺面工具栏、钢琴窗、日志与快捷键。234 项测试通过，exe 已重新打包。
+          targetBranch: main
+      tweak.build.check:
+        sequence: 4
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 1
+          contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+          inputBefore: 5c1d28d4539cc927874f5b161875dd3f6b29f54841284a9a21465fae061aab6e
+          manifestHash: e5c023f0498f7191d2bfc222d7cabdbe43da751d33fd4efa5bae38f8f537c010
+          manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/ab18359a-b59e-40d7-92c5-325390bdc0fd.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      tweak.build.check.evidence:
+        sequence: 5
+        value:
+          contentHash: 1623b95ea5449e66aaf1b9b9148b43825bbc51ad12c6ea2ccb134f2083f18ebd
+          ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/d0ce3f3e-8210-4e70-9061-e2722f2f9f06.log
+      tweak.build.execute:
+        sequence: 3
+        value:
+          event: build-complete
+      tweak.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+            ref: docs/openspec/changes/playlist-checkboxes-and-guide
+      tweak.open.evidence:
+        sequence: 2
+        value:
+          contentHash: 73ee4619466310bad97ffd4ad9fcd17472790600db184c27240a9e636e2b7404
+          ref: docs/openspec/changes/playlist-checkboxes-and-guide
+      tweak.verify.check:
+        sequence: 8
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+          inputBefore: 8de75c5a1ef32f28702c4a162a196baebace1a689d2b7b9b7daffc072aa8b695
+          manifestHash: 4a186b4593aff90b853c7d8ade25fbd3f7bbd1683ca1c87e1eb485e2521238a8
+          manifestRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/c95c2fd9-98fe-4257-8197-79d5fd56d6e9.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      tweak.verify.check.evidence:
+        sequence: 9
+        value:
+          contentHash: 55db83f5b5c0792e783b89407392bf7251b09ccc15afc597d9e5d1d3696247a8
+          ref: .comet/runtime/classic-sdk-checks/ccbb8480b3791a3446f597a2beb6416f26b7bb38d007e7fa2fdaf6d92c2ecab8/bc6fe20a-55ca-46f4-99b5-bf0425637517.log
+      tweak.verify.report.evidence:
+        sequence: 7
+        value:
+          contentHash: eb325dba4d7a5d1330b5cdf53d698427dfbece97c7ef11c5ce80b26ebe6023a2
+          ref: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+      tweak.verify.run:
+        sequence: 6
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-18-playlist-checkboxes-and-guide-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 22
+  sourceHash: 72c50c1dc200ea510a67736063da3c7584a28e6465f1eb81723030122ad19d56
+check_epoch: 5

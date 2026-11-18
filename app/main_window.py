@@ -175,8 +175,24 @@ class MidiConverterGUI(
         search_row.addWidget(self.play_sort_combo)
         list_layout.addLayout(search_row)
 
+        list_actions = QHBoxLayout()
+        self.select_all_btn = QPushButton("全选")
+        self.select_all_btn.setObjectName("clearBtn")
+        self.select_all_btn.setToolTip("选中当前列表中的全部曲目")
+        self.select_all_btn.clicked.connect(self.select_all_play_items)
+        list_actions.addWidget(self.select_all_btn)
+
+        self.delete_selected_btn = QPushButton("🗑 删除选中")
+        self.delete_selected_btn.setObjectName("clearBtn")
+        self.delete_selected_btn.setToolTip("删除所有已选中的曲目")
+        self.delete_selected_btn.clicked.connect(self.on_delete_selected_play_items)
+        list_actions.addWidget(self.delete_selected_btn)
+        list_actions.addStretch()
+        list_layout.addLayout(list_actions)
+
         list_row = QHBoxLayout()
         self.play_listbox = QListWidget()
+        self.play_listbox.setSelectionMode(QAbstractItemView.ExtendedSelection)
         self.play_listbox.itemSelectionChanged.connect(self.on_select_play_file)
         self.play_listbox.currentItemChanged.connect(self.on_piano_roll_selection_changed)
 

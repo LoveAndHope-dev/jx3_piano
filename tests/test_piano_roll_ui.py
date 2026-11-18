@@ -567,6 +567,31 @@ class PianoRollWidgetTest(unittest.TestCase):
         self.assertTrue(self.canvas._pitch_in_instrument_band(70))
         self.assertNotEqual(self.canvas._row_items[70].brush().color().name(), outside)
 
+    def test_note_color_follows_instrument_range(self):
+        self.widget.set_notes([
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5},
+            {"id": 1, "pitch": 90, "start": 2.0, "duration": 0.5},
+        ])
+        self.canvas.set_instrument_range(36, 83)
+        inside = self.canvas._note_items[0].brush().color().name()
+        outside = self.canvas._note_items[1].brush().color().name()
+        self.assertNotEqual(inside, outside)
+
+        self.canvas.set_instrument_range(36, 95)
+        self.assertEqual(
+            self.canvas._note_items[1].brush().color().name(),
+            self.canvas._note_items[0].brush().color().name(),
+        )
+        self.assertNotEqual(
+            self.canvas._note_items[1].brush().color().name(), outside
+        )
+
+    def test_background_contrast_between_band_and_outside(self):
+        self.canvas.set_instrument_range(36, 83)
+        inside = self.canvas._row_items[60].brush().color().lightness()
+        outside = self.canvas._row_items[20].brush().color().lightness()
+        self.assertGreaterEqual(inside - outside, 25)
+
     def test_shift_wheel_zooms_rows_with_pitch_anchor(self):
         self.canvas.set_row_height(10)
         self.canvas.verticalScrollBar().setValue(160)

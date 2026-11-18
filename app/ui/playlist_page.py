@@ -76,27 +76,85 @@ class PlaylistPageMixin:
             self.log(f"❌ 刷新列表失败: {str(e)}")
 
     def _make_play_row(self, item, name: str, display_name: str) -> QWidget:
-        """生成播放列表的行控件：名称 + 行末删除按钮。"""
+        """生成播放列表的行控件：名称（选择由列表的多选逻辑处理）。"""
         row = QWidget()
         layout = QHBoxLayout(row)
-        layout.setContentsMargins(4, 0, 2, 0)
+        layout.setContentsMargins(4, 0, 8, 0)
         layout.setSpacing(4)
 
         label = QLabel(display_name)
         layout.addWidget(label, 1)
 
-        delete_btn = QPushButton("🗑")
-        delete_btn.setFixedSize(34, 26)
-        delete_btn.setStyleSheet("padding: 0px 2px;")
-        delete_btn.setToolTip(f"从列表移除「{name}」（保留磁盘文件）")
-        delete_btn.clicked.connect(
-            lambda _checked=False, p=item.data(Qt.UserRole), n=name: self.on_delete_play_item(p, n)
+        row.mousePressEvent = (
+            lambda event, it=item: self._on_play_row_pressed(event, it)
         )
-        layout.addWidget(delete_btn)
-
-        row.mousePressEvent = lambda _event, it=item: self.play_listbox.setCurrentItem(it)
         label.setAttribute(Qt.WA_TransparentForMouseEvents, True)
         return row
+
+    def _on_play_row_pressed(self, event, item) -> None:
+        """行内点击支持普通单选、Ctrl 切换与 Shift 范围选择。"""
+        modifiers = event.modifiers()
+        if modifiers & Qt.ControlModifier:
+            item.setSelected(not item.isSelected())
+            self.play_listbox.setCurrentItem(item)
+        elif modifiers & Qt.ShiftModifier:
+            current = self.play_listbox.currentItem()
+            if current is None:
+                item.setSelected(True)
+                self.play_listbox.setCurrentItem(item)
+            else:
+                start = self.play_listbox.row(current)
+                end = self.play_listbox.row(item)
+                low, high = sorted((start, end))
+                self.play_listbox.clearSelection()
+                for row in range(low, high + 1):
+                    self.play_listbox.item(row).setSelected(True)
+                self.play_listbox.setCurrentItem(item)
+        else:
+            self.play_listbox.clearSelection()
+            item.setSelected(True)
+            self.play_listbox.setCurrentItem(item)
+        event.accept()
+
+    def select_all_play_items(self) -> None:
+        """选中当前列表中的全部曲目。"""
+        self.play_listbox.selectAll()
+        self.log(f"✅ 已全选 {self.play_listbox.count()} 个曲目")
+
+    def on_delete_selected_play_items(self) -> None:
+        """一次确认后删除所有选中曲目。"""
+        items = list(self.play_listbox.selectedItems())
+        if not items:
+            self.log("🗑 请先选择要删除的曲目")
+            return
+
+        includes_current = any(
+            item.data(Qt.UserRole) == self.current_midi_path for item in items
+        )
+        extra = (
+            "\n（包含当前打开且有未保存修改的曲目，删除会丢失这些修改）"
+            if includes_current and self.piano_roll_dirty
+            else ""
+        )
+        reply = QMessageBox.question(
+            self,
+            "删除曲目",
+            f"删除选中的 {len(items)} 个曲目？{extra}\n"
+            "会删除 midi 文件夹中的副本，导入的原始文件不受影响。",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No,
+        )
+        if reply != QMessageBox.Yes:
+            return
+
+        deleted = 0
+        for item in items:
+            if self._delete_play_track(
+                item.data(Qt.UserRole), item.data(Qt.UserRole + 1)
+            ):
+                deleted += 1
+        self.refresh_play_list()
+        self.log(f"🗑 已删除 {deleted} 个曲目")
 
     def on_select_play_file(self):
         """选择播放文件时的处理"""
@@ -204,20 +262,28 @@ class PlaylistPageMixin:
         if reply != QMessageBox.Yes:
             return
 
+        if self._delete_play_track(path, name):
+            self.refresh_play_list()
+            self.log(f"🗑 已删除曲目: {name}")
+
+    def _delete_play_track(self, path, name) -> bool:
+        """删除单个曲目的文件与工作资产；调用方负责刷新列表。"""
+        if not path or not name:
+            self.log("❌ 删除失败：列表项缺少文件名")
+            return False
         try:
             os.remove(path)
         except FileNotFoundError:
             pass
         except OSError as exc:
             QMessageBox.critical(self, "删除失败", f"删除 MIDI 文件失败：{exc}")
-            return
+            return False
 
         self._remove_play_assets(path)
 
         if path == self.current_midi_path:
             self._clear_piano_roll_cache()
-        self.refresh_play_list()
-        self.log(f"🗑 已删除曲目: {name}")
+        return True
 
     def _remove_play_assets(self, midi_path: str) -> None:
         """删除曲目时一并清理它的工作 MIDI 与 play_code JSON。"""

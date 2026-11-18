@@ -9,7 +9,8 @@ os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 import gui
 import arpeggiate
 import music.paths as music_paths
-from PyQt5.QtCore import QPoint, QThread
+from PyQt5.QtCore import QEvent, QPoint, QPointF, QThread, Qt
+from PyQt5.QtGui import QMouseEvent
 from PyQt5.QtWidgets import QApplication, QMessageBox
 
 _app = None
@@ -560,6 +561,52 @@ class PlaylistGuiTest(unittest.TestCase):
         self.window._play_assets_stale = True
         self.assertIsNotNone(self.window._ensure_play_assets_current())
         self.assertEqual(calls, [1])
+
+    def test_select_all_selects_every_item(self):
+        self.window.on_new_play_item()
+        self.window.on_new_play_item()
+        self.assertEqual(self.window.play_listbox.count(), 2)
+        self.window.select_all_play_items()
+        self.assertEqual(len(self.window.play_listbox.selectedItems()), 2)
+
+    def test_delete_selected_play_items(self):
+        self.window.on_new_play_item()
+        self.window.on_new_play_item()
+        self.assertEqual(self.window.play_listbox.count(), 2)
+        self.window.select_all_play_items()
+        with patch.object(gui.QMessageBox, "question", return_value=QMessageBox.Yes):
+            self.window.on_delete_selected_play_items()
+        self.assertEqual(self.window.play_listbox.count(), 0)
+        self.assertIsNone(self.window.current_midi_path)
+        self.assertIs(
+            self.window.piano_stack.currentWidget(), self.window.piano_placeholder
+        )
+
+    def test_delete_selected_without_selection_does_not_prompt(self):
+        self.window.on_new_play_item()
+        self.window.play_listbox.clearSelection()
+        with patch.object(gui.QMessageBox, "question") as question:
+            self.window.on_delete_selected_play_items()
+        question.assert_not_called()
+        self.assertEqual(self.window.play_listbox.count(), 1)
+
+    def test_ctrl_click_row_toggles_selection(self):
+        self.window.on_new_play_item()
+        self.window.on_new_play_item()
+        listbox = self.window.play_listbox
+        item0 = listbox.item(0)
+        item1 = listbox.item(1)
+        event = QMouseEvent(
+            QEvent.MouseButtonPress,
+            QPointF(5, 5),
+            Qt.LeftButton,
+            Qt.LeftButton,
+            Qt.ControlModifier,
+        )
+        self.window._on_play_row_pressed(event, item0)
+        self.assertTrue(item0.isSelected())
+        self.window._on_play_row_pressed(event, item1)
+        self.assertEqual(len(listbox.selectedItems()), 2)
 
     def test_theme_toggle_switches_stylesheet(self):
         self.assertEqual(self.window.theme_mode, "dark")

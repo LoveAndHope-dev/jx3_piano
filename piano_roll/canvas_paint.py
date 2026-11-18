@@ -22,13 +22,20 @@ class CanvasPaintMixin:
     def _row_color(self, pitch: int) -> QColor:
         color = QColor("#2C3E50") if _is_black_key(pitch) else QColor("#3B4A5A")
         if not self._pitch_in_instrument_band(pitch):
-            color = color.darker(130)
+            color = color.darker(190)
         return color
 
     def _refresh_background_range(self) -> None:
         """音域框移动后原地刷新每一行的淡/暗底色。"""
         for pitch, row in self._row_items.items():
             row.setBrush(QBrush(self._row_color(pitch)))
+
+    def _refresh_note_range_colors(self) -> None:
+        """音域框移动后重新计算每个音符是否显示为灰色。"""
+        for note in self._notes:
+            item = self._note_items.get(note["id"])
+            if item is not None:
+                item.setBrush(self._note_brush(note, note["id"] in self._selected_ids))
 
     def _build_background(self, total_seconds: float) -> None:
         # 先移除上一次绘制的背景图元，避免场景宽度增长（_ensure_scene_width）
@@ -105,6 +112,7 @@ class CanvasPaintMixin:
 
     def _update_range_item_geometry(self) -> None:
         self._refresh_background_range()
+        self._refresh_note_range_colors()
         if self._range_item is not None:
             self._scene.removeItem(self._range_item)
             self._range_item = None
@@ -147,7 +155,8 @@ class CanvasPaintMixin:
         return best_idx
 
     def _note_brush(self, note: Dict, selected: bool) -> QBrush:
-        if note.get("mapped", True):
+        in_band = self._pitch_in_instrument_band(int(note["pitch"]))
+        if in_band:
             color = QColor("#58D68D") if not selected else QColor("#F5B041")
         else:
             color = QColor("#7F8C8D") if not selected else QColor("#E59866")

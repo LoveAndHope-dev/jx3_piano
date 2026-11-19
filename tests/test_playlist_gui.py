@@ -746,13 +746,18 @@ class PlaylistGuiTest(unittest.TestCase):
             "_save_current_play_assets",
             side_effect=lambda: events.append(("save",)) or True,
         ), patch.object(
-            self.window, "start_playing", side_effect=lambda: events.append(("play",))
+            self.window,
+            "start_playing",
+            side_effect=lambda **kwargs: events.append(
+                ("play", kwargs.get("confirm_range"))
+            ),
         ):
             self.window.on_simple_play_clicked()
 
         self.assertEqual(select.call_count, 1)
         self.assertEqual([event[0] for event in events], ["opt", "save", "play"])
         self.assertAlmostEqual(events[0][1], 0.5)
+        self.assertIs(events[2][1], False)
         self.assertEqual(self.window.piano_roll.get_notes(), notes)
 
     def test_simple_play_reads_original_each_time(self):
@@ -792,6 +797,97 @@ class PlaylistGuiTest(unittest.TestCase):
         finally:
             self.window.is_playing = False
 
+    def test_simple_play_cancel_on_out_of_range_skips_work(self):
+        self.window.on_new_play_item()
+        self.window.simple_mode_btn.setChecked(True)
+        notes = [{"id": 0, "pitch": 10, "start": 1.0, "duration": 0.5, "track": 0}]
+        with patch.object(
+            gui.MidiToKeysConverter,
+            "auto_select_tracks_and_transpose",
+            return_value=([0], 0),
+        ), patch.object(
+            gui.MidiToKeysConverter, "extract_notes", return_value=notes
+        ), patch.object(
+            gui.MidiToKeysConverter,
+            "get_tempo_and_time_signature",
+            return_value=(120.0, 4, 4),
+        ), patch.object(
+            self.window, "_confirm_play_out_of_range", return_value=False
+        ) as confirm, patch.object(
+            self.window.piano_roll, "arpeggiate_all"
+        ) as optimize, patch.object(
+            self.window, "_save_current_play_assets"
+        ) as save, patch.object(
+            self.window, "start_playing"
+        ) as start:
+            self.window.on_simple_play_clicked()
+
+        confirm.assert_called_once()
+        self.assertEqual(confirm.call_args.args[0], notes)
+        self.assertEqual(confirm.call_args.args[1], (36, 83))
+        optimize.assert_not_called()
+        save.assert_not_called()
+        start.assert_not_called()
+
+    def test_count_unplayable_notes_uses_box_plus_one_semitone(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 35, "start": 1.0, "duration": 0.5, "track": 0},
+            {"id": 1, "pitch": 34, "start": 1.0, "duration": 0.5, "track": 0},
+            {"id": 2, "pitch": 84, "start": 1.0, "duration": 0.5, "track": 0},
+            {"id": 3, "pitch": 85, "start": 1.0, "duration": 0.5, "track": 0},
+        ])
+        self.assertEqual(self.window._count_unplayable_notes(), 2)
+
+    def test_play_prompt_cancel_does_not_start(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 10, "start": 1.0, "duration": 0.5, "track": 0},
+        ])
+        with patch.object(
+            gui.QMessageBox, "question", return_value=QMessageBox.No
+        ) as question, patch.object(
+            self.window, "_ensure_play_assets_current"
+        ) as ensure:
+            self.window.start_playing()
+
+        question.assert_called_once()
+        ensure.assert_not_called()
+        self.assertFalse(self.window.is_playing)
+        self.assertIn("已取消播放", self.window.log_text.toPlainText())
+
+    def test_play_prompt_continue_proceeds(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 10, "start": 1.0, "duration": 0.5, "track": 0},
+        ])
+        with patch.object(
+            gui.QMessageBox, "question", return_value=QMessageBox.Yes
+        ) as question, patch.object(
+            gui.QMessageBox, "warning"
+        ), patch.object(
+            self.window, "_ensure_play_assets_current", return_value=None
+        ) as ensure:
+            self.window.start_playing()
+
+        question.assert_called_once()
+        ensure.assert_called_once()
+        self.assertFalse(self.window.is_playing)
+
+    def test_play_prompt_skipped_when_all_notes_in_range(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},
+        ])
+        with patch.object(gui.QMessageBox, "question") as question, patch.object(
+            gui.QMessageBox, "warning"
+        ), patch.object(
+            self.window, "_ensure_play_assets_current", return_value=None
+        ):
+            self.window.start_playing()
+
+        question.assert_not_called()
+
     def test_guide_opens_and_covers_areas(self):
         self.window.show_guide()
         dialog = self.window._guide_dialog
@@ -810,9 +906,19 @@ class PlaylistGuiTest(unittest.TestCase):
             "Shift + 滚轮",
             "简单模式",
             "正常模式",
-            "C2 / B5",
+            "C2 至 B5",
+            "朝晖琴",
+            "+5 到 -5",
+            "数据位置",
+            "midi/",
+            "play_code/",
         ):
             self.assertIn(text, html)
+        for removed in ("重读原始 MIDI", "play_code JSON", "铺面资产"):
+            self.assertNotIn(removed, html)
+        normal_index = html.index("<h2>🎹 正常模式</h2>")
+        self.assertGreater(html.index("<h3>铺面编辑工具栏</h3>"), normal_index)
+        self.assertGreater(html.index("<h3>钢琴窗</h3>"), normal_index)
         dialog.close()
 
     def test_theme_toggle_switches_stylesheet(self):

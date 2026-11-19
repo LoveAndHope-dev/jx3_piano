@@ -102,6 +102,13 @@ class SimpleModeMixin:
             self.log(f"❌ 读取原始 MIDI 失败：{exc}")
             return
 
+        # 固定 Z / 7 与 C2 / B5，并在优化/保存前确认超范围音符
+        low_pitch = self._pitch_for_label("Z")
+        high_pitch = self._pitch_for_label("7")
+        if not self._confirm_play_out_of_range(notes, (low_pitch, high_pitch)):
+            self.log("⏹ 已取消播放：存在超出可演奏范围的音符")
+            return
+
         self.current_midi_path = path
         self.current_processed_tracks = track_filter
         self.current_transpose = transpose
@@ -121,8 +128,6 @@ class SimpleModeMixin:
         self.piano_roll.set_playhead_anchor(0.0)
 
         # 固定 Z / 7 与 C2 / B5
-        low_pitch = self._pitch_for_label("Z")
-        high_pitch = self._pitch_for_label("7")
         self._select_combo_by_pitch(self.range_low_combo, low_pitch)
         self._select_combo_by_pitch(self.range_high_combo, high_pitch)
         self.piano_roll.set_instrument_range(low_pitch, high_pitch)
@@ -149,4 +154,4 @@ class SimpleModeMixin:
         self._redo_stack = []
         self._history_baseline = baseline
 
-        self.start_playing()
+        self.start_playing(confirm_range=False)

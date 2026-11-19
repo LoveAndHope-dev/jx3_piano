@@ -28,7 +28,35 @@ class PlaybackMixin:
         else:
             self.start_playing()
 
-    def start_playing(self):
+    def _count_unplayable_notes(self, notes=None, pitch_range=None) -> int:
+        """统计超出可演奏音域（映射框外）的音符数量。"""
+        if notes is None:
+            notes = self.piano_roll.get_notes()
+        if pitch_range is None:
+            pitch_range = self.piano_roll.get_instrument_range()
+        low_pitch, high_pitch = pitch_range
+        return sum(
+            1
+            for note in notes
+            if not (low_pitch - 1 <= int(note["pitch"]) <= high_pitch + 1)
+        )
+
+    def _confirm_play_out_of_range(self, notes=None, pitch_range=None) -> bool:
+        """播放前确认：存在无法演奏的音符时让用户选择继续或取消。"""
+        count = self._count_unplayable_notes(notes, pitch_range)
+        if count <= 0:
+            return True
+        reply = QMessageBox.question(
+            self,
+            "存在无法演奏的音符",
+            f"当前曲目有 {count} 个音符超出可演奏音域，演奏时会被跳过。\n"
+            "是否继续播放？",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.Yes,
+        )
+        return reply == QMessageBox.Yes
+
+    def start_playing(self, confirm_range: bool = True):
         """开始播放（搜索过滤导致列表无选中时，仍按当前铺面曲目播放）"""
         # 上一次播放的线程可能仍在收尾；此时不能覆盖引用，否则会销毁运行中的 QThread
         if not self._drain_previous_play_thread():
@@ -41,6 +69,10 @@ class PlaybackMixin:
 
         if current_item is not None and current_item.data(Qt.UserRole) != self.current_midi_path:
             QMessageBox.warning(self, "警告", "请先在铺面中打开要播放的曲目")
+            return
+
+        if confirm_range and not self._confirm_play_out_of_range():
+            self.log("⏹ 已取消播放：存在超出可演奏范围的音符")
             return
 
         try:

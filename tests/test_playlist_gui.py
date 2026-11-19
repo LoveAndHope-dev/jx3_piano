@@ -11,6 +11,7 @@ import arpeggiate
 import music.paths as music_paths
 from PyQt5.QtCore import QEvent, QPoint, QPointF, QThread, Qt
 from PyQt5.QtGui import QMouseEvent
+from PyQt5.QtTest import QTest
 from PyQt5.QtWidgets import QApplication, QMessageBox
 
 _app = None
@@ -653,6 +654,25 @@ class PlaylistGuiTest(unittest.TestCase):
         checkbox.setChecked(False)
         self.assertNotIn(path0, self.window._checked_play_paths)
 
+    def test_checkbox_click_toggles_from_any_position(self):
+        from app.ui.widgets import AntCheckBox
+
+        self.window.on_new_play_item()
+        item = self.window.play_listbox.item(0)
+        path = item.data(Qt.UserRole)
+        checkbox = self.window._row_checkboxes[path]
+        self.assertIsInstance(checkbox, AntCheckBox)
+
+        QTest.mouseClick(checkbox, Qt.LeftButton, pos=checkbox.rect().center())
+        self.assertTrue(checkbox.isChecked())
+        self.assertIn(path, self.window._checked_play_paths)
+
+        QTest.mouseClick(
+            checkbox, Qt.LeftButton, pos=checkbox.rect().topLeft() + QPoint(1, 1)
+        )
+        self.assertFalse(checkbox.isChecked())
+        self.assertNotIn(path, self.window._checked_play_paths)
+
     def test_playlist_rows_use_painted_checkbox_and_marquee_label(self):
         from app.ui.widgets import AntCheckBox, MarqueeLabel
 
@@ -919,6 +939,7 @@ class PlaylistGuiTest(unittest.TestCase):
         normal_index = html.index("<h2>🎹 正常模式</h2>")
         self.assertGreater(html.index("<h3>铺面编辑工具栏</h3>"), normal_index)
         self.assertGreater(html.index("<h3>钢琴窗</h3>"), normal_index)
+        self.assertEqual(html.count('<ul style="margin-left: 24px;">'), 2)
         dialog.close()
 
     def test_theme_toggle_switches_stylesheet(self):

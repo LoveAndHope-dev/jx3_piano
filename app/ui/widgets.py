@@ -56,6 +56,10 @@ class AntCheckBox(QCheckBox):
 
         painter.end()
 
+    def hitButton(self, pos) -> bool:  # noqa: N802 (Qt override)
+        """整个控件都可点击：indicator 尺寸为 0 时 Qt 默认命中区域为空。"""
+        return self.rect().contains(pos)
+
 
 class MarqueeLabel(QLabel):
     """文字超出宽度时，悬停后缓慢向左循环滚动。"""

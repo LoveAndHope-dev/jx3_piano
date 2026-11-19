@@ -1,0 +1,2025 @@
+# comet-execution: managed-run
+change_id: ab8105db-358d-44c0-a365-1802beb37f21
+workflow: tweak
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: 79822879aa42645c2265bebad2dc7276bf9f0f44
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+branch_status: pending
+created_at: 2026-11-19
+verified_at: 2026-11-19
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: 83648f43837ed000d0fac917010717d308167066871547806db8a282a758e701
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: guide-heading-indent
+    revision: 1
+    workflow:
+      id: comet-classic-tweak
+      version: "1"
+      hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    definitionHashes:
+      '["comet-classic-tweak","1"]': fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    initialStateHash: fe64f0aaf0bba95f8289dfd12665d82ec2e0d356824b34dab5f7757652208f57
+    input:
+      change: guide-heading-indent
+      changeDir: docs/openspec/changes/guide-heading-indent
+      workspaceBaseline:
+        ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 79822879aa42645c2265bebad2dc7276bf9f0f44
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 5
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-19
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+      verifiedAt: 2026-11-19
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: tweak
+    status: running
+    sequence: 14
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-c1cb967d1f199e4dd1146764c1e880c65169342ff8907a8074e0eee955ef1f2d
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-heading-indent:1
+        input:
+          input:
+            change: guide-heading-indent
+            changeDir: docs/openspec/changes/guide-heading-indent
+            workspaceBaseline:
+              ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+          outputs: {}
+        inputHash: 8077188236095248c72624d0e86529318a7ffedbcf6ee294d6eaa3ae0b080d84
+        outcome:
+          actionId: guide-heading-indent:1
+          attempt: 1
+          claimToken: portable-c1cb967d1f199e4dd1146764c1e880c65169342ff8907a8074e0eee955ef1f2d
+          inputHash: 8077188236095248c72624d0e86529318a7ffedbcf6ee294d6eaa3ae0b080d84
+          outcomeId: 0df05e2a-d67c-4a59-91b6-d795c7ef6c9b
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 05c3791a93451bc75f8fb05b28c99957cab3b7824b3913c57eb32dca6a45ce93
+            outcomeId: 0df05e2a-d67c-4a59-91b6-d795c7ef6c9b
+        reconciliations: []
+        ref: comet-tweak
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-heading-indent
+        status: succeeded
+        stepId: tweak.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/guide-heading-indent:3/1
+          token: portable-d4eabe63442daca66c975c5efa3a358a1f7b51a5dfcc163fcc1e5141457663fd
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-heading-indent:3
+        input:
+          input:
+            change: guide-heading-indent
+            changeDir: docs/openspec/changes/guide-heading-indent
+            workspaceBaseline:
+              ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+          outputs:
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+            tweak.open.evidence:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+        inputHash: 99d91d31b25d5fbe84f283f66316b539fbcdde0bc5342d799c07bd36b384af7e
+        outcome:
+          actionId: guide-heading-indent:3
+          attempt: 1
+          claimToken: portable-d4eabe63442daca66c975c5efa3a358a1f7b51a5dfcc163fcc1e5141457663fd
+          inputHash: 99d91d31b25d5fbe84f283f66316b539fbcdde0bc5342d799c07bd36b384af7e
+          outcomeId: cbd14778-14fb-4ac5-9a85-f6cd6b03c1e3
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: ec42da34c23abee6a3778a4832cadf492ee8abb99e9a4ee2e486086376a77d1a
+            outcomeId: cbd14778-14fb-4ac5-9a85-f6cd6b03c1e3
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-heading-indent
+        status: succeeded
+        stepId: tweak.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-93830dde9a885614fb9f5651f12c4c67439d90fcffc517f6b0e702aa0f1f6773
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-heading-indent:4
+        input:
+          input:
+            change: guide-heading-indent
+            changeDir: docs/openspec/changes/guide-heading-indent
+            workspaceBaseline:
+              ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+          outputs:
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+            tweak.open.evidence:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+        inputHash: 88ee1df5abdc7b8a02b26f0cbe3f5c8dab4b17657fa9ac6fbbd1e5fd28bbb52e
+        outcome:
+          actionId: guide-heading-indent:4
+          attempt: 1
+          claimToken: portable-93830dde9a885614fb9f5651f12c4c67439d90fcffc517f6b0e702aa0f1f6773
+          inputHash: 88ee1df5abdc7b8a02b26f0cbe3f5c8dab4b17657fa9ac6fbbd1e5fd28bbb52e
+          outcomeId: 8c771684-6e55-466b-99a7-1469fb9cdc4e
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+            inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+            manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+            manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f0072e5d9e359936f8b832b771b36af35b8413aefd82a369209a7bd0b2b815fe
+            outcomeId: 8c771684-6e55-466b-99a7-1469fb9cdc4e
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-heading-indent
+        status: succeeded
+        stepId: tweak.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-1598274568478f5e8ebd4e179b52a3b032b312b1cfd545175e2c4dbbb42efca4
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-heading-indent:6
+        input:
+          input:
+            change: guide-heading-indent
+            changeDir: docs/openspec/changes/guide-heading-indent
+            workspaceBaseline:
+              ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+            tweak.open.evidence:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+        inputHash: 7213d7d75e7828f2dcc859cd0badfeebb18f4b23e1468f0847a96af8ab445e53
+        outcome:
+          actionId: guide-heading-indent:6
+          attempt: 1
+          claimToken: portable-1598274568478f5e8ebd4e179b52a3b032b312b1cfd545175e2c4dbbb42efca4
+          inputHash: 7213d7d75e7828f2dcc859cd0badfeebb18f4b23e1468f0847a96af8ab445e53
+          outcomeId: 9280106c-992c-468e-9bdd-cf9a3cd334ac
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 81467823c7cdb8b393d0b709a67f782344cb8ce85ee68c7f412c608e8008e225
+            outcomeId: 9280106c-992c-468e-9bdd-cf9a3cd334ac
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-heading-indent
+        status: succeeded
+        stepId: tweak.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-3c815c1c5d86235dbb2ef3dfd38a1122eed7808c84478a55430ddd44f3650bb4
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-heading-indent:8
+        input:
+          input:
+            change: guide-heading-indent
+            changeDir: docs/openspec/changes/guide-heading-indent
+            workspaceBaseline:
+              ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+            tweak.open.evidence:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+            tweak.verify.report.evidence:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        inputHash: 33333597a09d3dd12dfca69befe131936ca6d60f887ce24800eeb9ee5b96edb4
+        outcome:
+          actionId: guide-heading-indent:8
+          attempt: 1
+          claimToken: portable-3c815c1c5d86235dbb2ef3dfd38a1122eed7808c84478a55430ddd44f3650bb4
+          inputHash: 33333597a09d3dd12dfca69befe131936ca6d60f887ce24800eeb9ee5b96edb4
+          outcomeId: 6995b567-7dbb-4ca8-9239-59243d0511bc
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+            inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+            manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+            manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: c6c058441c495860b70860f02711268849043e3b9ebd1054ca4d2932f6082d57
+            outcomeId: 6995b567-7dbb-4ca8-9239-59243d0511bc
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-heading-indent
+        status: succeeded
+        stepId: tweak.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-41f296c946539d257652c53e5d588b9c5713ec35421c551a4cc10983d992e2c8
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-heading-indent:10
+        input:
+          input:
+            change: guide-heading-indent
+            changeDir: docs/openspec/changes/guide-heading-indent
+            workspaceBaseline:
+              ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+            tweak.open.evidence:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+            tweak.verify.report.evidence:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        inputHash: c4166721e62090661c921ca7c075127cf5625ef398b5dab3fab1b872111a86cd
+        outcome:
+          actionId: guide-heading-indent:10
+          attempt: 1
+          claimToken: portable-41f296c946539d257652c53e5d588b9c5713ec35421c551a4cc10983d992e2c8
+          inputHash: c4166721e62090661c921ca7c075127cf5625ef398b5dab3fab1b872111a86cd
+          outcomeId: c7e43f59-2815-487c-8a52-1ed6940fe4ba
+          output:
+            summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+              项测试通过，exe 已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 82c10a9d15e6c9daf705c259af7ad2dbc98e61c6e0908f1a8c93cd169b3c6464
+            outcomeId: c7e43f59-2815-487c-8a52-1ed6940fe4ba
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-heading-indent
+        status: succeeded
+        stepId: tweak.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-2b72ad5731e78feb74401eb5858af5837746eb5b7e0cd07b9ecd7055d77bd00b
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-heading-indent:12
+        input:
+          input:
+            change: guide-heading-indent
+            changeDir: docs/openspec/changes/guide-heading-indent
+            workspaceBaseline:
+              ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: guide-heading-indent
+                  changeDir: docs/openspec/changes/guide-heading-indent
+                  workspaceBaseline:
+                    ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+            tweak.archive.prepare:
+              summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+            tweak.open.evidence:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+            tweak.verify.report.evidence:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        inputHash: ee93dd411e5bd6c117490f5796555c602c798e125c2de2e38d9c7cec504a53ab
+        outcome:
+          actionId: guide-heading-indent:12
+          attempt: 1
+          claimToken: portable-2b72ad5731e78feb74401eb5858af5837746eb5b7e0cd07b9ecd7055d77bd00b
+          inputHash: ee93dd411e5bd6c117490f5796555c602c798e125c2de2e38d9c7cec504a53ab
+          outcomeId: c041892a-1d15-4457-ba96-ebc7fe056df8
+          output:
+            baseCommit: b3b460bffc34ab572f759d79d5c0f2b72101f320
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 80857156de981e7e0e34ec2440a083156c5543931ef734d9f6f0b969e62b537e
+            outcomeId: c041892a-1d15-4457-ba96-ebc7fe056df8
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-heading-indent
+        status: succeeded
+        stepId: tweak.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-626400da06bcc7f4a11c6b562d8494bd4d1edec1eca7b3b3798052c3865a17ed
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-heading-indent:13
+        input:
+          input:
+            change: guide-heading-indent
+            changeDir: docs/openspec/changes/guide-heading-indent
+            workspaceBaseline:
+              ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: guide-heading-indent
+                  changeDir: docs/openspec/changes/guide-heading-indent
+                  workspaceBaseline:
+                    ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+            tweak.archive.preflight:
+              baseCommit: b3b460bffc34ab572f759d79d5c0f2b72101f320
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+            tweak.open.evidence:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+            tweak.verify.report.evidence:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        inputHash: 5baa558e7574744c386bbdda87a2ab60985fa6ba723794561a6060396acb03c7
+        outcome:
+          actionId: guide-heading-indent:13
+          artifacts:
+            - sha256: 97272dfc3c5346603fd61a1bbd0043d7f6b2a7f6f09f7cf0a54e877962926314
+              uri: docs/openspec/changes/archive/2026-11-20-guide-heading-indent/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-626400da06bcc7f4a11c6b562d8494bd4d1edec1eca7b3b3798052c3865a17ed
+          inputHash: 5baa558e7574744c386bbdda87a2ab60985fa6ba723794561a6060396acb03c7
+          outcomeId: caca7ba4-8021-4b27-9e12-c225a4946004
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-20-guide-heading-indent
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 68aa5c406e53782c173628fee96bb13b36a85ac9dd06cf79c10a258d738ec52d
+            outcomeId: caca7ba4-8021-4b27-9e12-c225a4946004
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-heading-indent
+        status: succeeded
+        stepId: tweak.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: guide-heading-indent:14
+        input:
+          input:
+            change: guide-heading-indent
+            changeDir: docs/openspec/changes/guide-heading-indent
+            workspaceBaseline:
+              ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: guide-heading-indent
+                  changeDir: docs/openspec/changes/guide-heading-indent
+                  workspaceBaseline:
+                    ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+            tweak.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-20-guide-heading-indent
+            tweak.archive.preflight:
+              baseCommit: b3b460bffc34ab572f759d79d5c0f2b72101f320
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+            tweak.open.evidence:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+            tweak.verify.report.evidence:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        inputHash: 38332648d43bac9c32e6ab2df02e4ad0af22be4dcece65daac4591041fadb80d
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-heading-indent
+        status: pending
+        stepId: tweak.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      guide-heading-indent:1:
+        results: {}
+        sequence: 1
+      guide-heading-indent:10:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        sequence: 10
+      guide-heading-indent:12:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: guide-heading-indent
+                  changeDir: docs/openspec/changes/guide-heading-indent
+                  workspaceBaseline:
+                    ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        sequence: 12
+      guide-heading-indent:13:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: guide-heading-indent
+                  changeDir: docs/openspec/changes/guide-heading-indent
+                  workspaceBaseline:
+                    ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: b3b460bffc34ab572f759d79d5c0f2b72101f320
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        sequence: 13
+      guide-heading-indent:14:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: guide-heading-indent
+                  changeDir: docs/openspec/changes/guide-heading-indent
+                  workspaceBaseline:
+                    ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+          tweak.archive.execute:
+            sequence: 13
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-20-guide-heading-indent
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: b3b460bffc34ab572f759d79d5c0f2b72101f320
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        sequence: 14
+      guide-heading-indent:3:
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+        sequence: 3
+      guide-heading-indent:4:
+        results:
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+        sequence: 4
+      guide-heading-indent:6:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+        sequence: 6
+      guide-heading-indent:8:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        sequence: 8
+    waits:
+      - id: guide-heading-indent:11
+        stepId: tweak.archive.confirm
+        sequence: 11
+        status: resolved
+        proposal:
+          input:
+            change: guide-heading-indent
+            changeDir: docs/openspec/changes/guide-heading-indent
+            workspaceBaseline:
+              ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+          outputs:
+            tweak.archive.prepare:
+              summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+        proposalHash: 0db8fcaf4d97686896c86df6519f6c3865a4f8dc622799ce0046311327b857ad
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        decision:
+          id: classic-archive-0db8fcaf4d97686896c86df6519f6c3865a4f8dc622799ce0046311327b857ad-local
+          choice: local
+          proposalHash: 0db8fcaf4d97686896c86df6519f6c3865a4f8dc622799ce0046311327b857ad
+    evidenceWaits:
+      - id: guide-heading-indent:2
+        stepId: tweak.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+        receipt:
+          ref: docs/openspec/changes/guide-heading-indent
+          contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+          submissionId: a37b7669-2b3f-4b11-b48d-5cf1e1eabe6d
+      - id: guide-heading-indent:5
+        stepId: tweak.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+          contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+          submissionId: d7b03ea2-9be8-48d1-bcd5-9b7217cb1891
+      - id: guide-heading-indent:7
+        stepId: tweak.verify.report.evidence
+        sequence: 7
+        kind: classic-verification-report
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+          contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+          submissionId: caba92bf-1502-4e4f-b381-81dc92259fbc
+      - id: guide-heading-indent:9
+        stepId: tweak.verify.check.evidence
+        sequence: 9
+        kind: classic-verify-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+              manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+              ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+                ref: docs/openspec/changes/guide-heading-indent
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+              ref: docs/openspec/changes/guide-heading-indent
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+              manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+              manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+              ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+          contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+          submissionId: daebf55d-d1aa-47b1-b8d3-dc3925863915
+    ready: []
+    joins: {}
+    outputs:
+      tweak.archive.confirm:
+        sequence: 11
+        value:
+          choice: local
+          proposal:
+            input:
+              change: guide-heading-indent
+              changeDir: docs/openspec/changes/guide-heading-indent
+              workspaceBaseline:
+                ref: 233a76bd-a849-4d34-ad36-8b9c22efb60b
+            outputs:
+              tweak.archive.prepare:
+                summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+                  项测试通过，exe 已重新打包。
+                targetBranch: main
+      tweak.archive.execute:
+        sequence: 13
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-20-guide-heading-indent
+      tweak.archive.preflight:
+        sequence: 12
+        value:
+          baseCommit: b3b460bffc34ab572f759d79d5c0f2b72101f320
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      tweak.archive.prepare:
+        sequence: 10
+        value:
+          summary: 向导中「铺面编辑工具栏」与「钢琴窗」的标题增加 24px 左缩进，与两个小节的列表对齐，使标题和列表作为整体归入正常模式。251
+            项测试通过，exe 已重新打包。
+          targetBranch: main
+      tweak.build.check:
+        sequence: 4
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 1
+          contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+          inputBefore: 05fec5c1fb1f83c645ad33cd3b87a0eb03f755ac269b5a3dc4dd6f18548cc33c
+          manifestHash: b0a99d4fafc1a219032528671e32135c9d7102603b0b17860d823a99afeea8f9
+          manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/d77eaf11-11eb-4b16-ae58-fea797a4c243.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      tweak.build.check.evidence:
+        sequence: 5
+        value:
+          contentHash: 171c493d87d7a79852672fa1c895d4d053976e4eee809cfb2a88b9ad8e34205b
+          ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/5a50c4ff-621b-428b-b5eb-d72616ca6c45.log
+      tweak.build.execute:
+        sequence: 3
+        value:
+          event: build-complete
+      tweak.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+            ref: docs/openspec/changes/guide-heading-indent
+      tweak.open.evidence:
+        sequence: 2
+        value:
+          contentHash: f9d471c5ae84df056a45ad62820e0a846101c20324b622e2e7df0d68d14fb38d
+          ref: docs/openspec/changes/guide-heading-indent
+      tweak.verify.check:
+        sequence: 8
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+          inputBefore: d11a65317862b8ed72e3358b57ad872d875bb2c1a758fdd1c904367917bb1d41
+          manifestHash: e6b832f56878bbf81ca9dbd09189a0013880d6657cc2ad5ba331b9d0668a408b
+          manifestRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/93ed83de-8d6c-4fca-9193-5d77044c448c.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      tweak.verify.check.evidence:
+        sequence: 9
+        value:
+          contentHash: d54b55d5a5ea7c9637a7cf8bb2569ba59da3360873758ef7534b3c975b77cca9
+          ref: .comet/runtime/classic-sdk-checks/deff925bf25fcf5ff4738b7d1a623510af1841353b6fe8fcc017a696aa22fa6f/7adf00d8-ebe3-435c-85b6-dd4b06d58de0.log
+      tweak.verify.report.evidence:
+        sequence: 7
+        value:
+          contentHash: 5d671fc46a67408e2063283c6c35e4bee9faa3bcfd004d7989cd8b9f64d71758
+          ref: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+      tweak.verify.run:
+        sequence: 6
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-20-guide-heading-indent-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 22
+  sourceHash: ba16ccadbb53f70c6d608cd8b334735970a8f11b901e75320d11fe53d2378a4a
+check_epoch: 5

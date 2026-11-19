@@ -1,0 +1,2042 @@
+# comet-execution: managed-run
+change_id: 81058b06-2ad9-4c74-9079-a457f7f8f504
+workflow: tweak
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: a2a69fc44da774d9cac262ef46139a76c02f701d
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+branch_status: pending
+created_at: 2026-11-19
+verified_at: 2026-11-19
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: d0354679c9d634b838a10eb5527f812d417dde5566cd17f0a3adbc58e847b9af
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: guide-indent-and-checkbox-fix
+    revision: 1
+    workflow:
+      id: comet-classic-tweak
+      version: "1"
+      hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    definitionHashes:
+      '["comet-classic-tweak","1"]': fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    initialStateHash: 498ebb5a0dbf2338bc6a846a196a76845a347f39a1780813720c7334aef6615e
+    input:
+      change: guide-indent-and-checkbox-fix
+      changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+      workspaceBaseline:
+        ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: a2a69fc44da774d9cac262ef46139a76c02f701d
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 5
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-19
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+      verifiedAt: 2026-11-19
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: tweak
+    status: running
+    sequence: 14
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-7a3df454c5790539ae7a4a8b3d10778a7eaffd1540188a2d9039d3ccb67ac1de
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-indent-and-checkbox-fix:1
+        input:
+          input:
+            change: guide-indent-and-checkbox-fix
+            changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+            workspaceBaseline:
+              ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+          outputs: {}
+        inputHash: ea2bfbe7ae48810c9f2b9bdac427e90a87608ad4c67e31e3fbf54907f65da503
+        outcome:
+          actionId: guide-indent-and-checkbox-fix:1
+          attempt: 1
+          claimToken: portable-7a3df454c5790539ae7a4a8b3d10778a7eaffd1540188a2d9039d3ccb67ac1de
+          inputHash: ea2bfbe7ae48810c9f2b9bdac427e90a87608ad4c67e31e3fbf54907f65da503
+          outcomeId: 28757985-5dd6-47ab-8908-5a39a71d1c7c
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 9c831934dfd0498e9486b70e43a7cfab85afd688fd7f70e130fe04672c3fd2ab
+            outcomeId: 28757985-5dd6-47ab-8908-5a39a71d1c7c
+        reconciliations: []
+        ref: comet-tweak
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-indent-and-checkbox-fix
+        status: succeeded
+        stepId: tweak.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/guide-indent-and-checkbox-fix:3/1
+          token: portable-b6b96540c051f4fea4fab6e0e9f3cb0eb228995b8f21561bbdaf812a7d60492b
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-indent-and-checkbox-fix:3
+        input:
+          input:
+            change: guide-indent-and-checkbox-fix
+            changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+            workspaceBaseline:
+              ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+          outputs:
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.open.evidence:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+        inputHash: 9e345d1543ecf43554c589f7c1e142a2178b830c1afd786f13d60a9108f69224
+        outcome:
+          actionId: guide-indent-and-checkbox-fix:3
+          attempt: 1
+          claimToken: portable-b6b96540c051f4fea4fab6e0e9f3cb0eb228995b8f21561bbdaf812a7d60492b
+          inputHash: 9e345d1543ecf43554c589f7c1e142a2178b830c1afd786f13d60a9108f69224
+          outcomeId: c21e7037-4179-41ed-9f4a-fa23a49c233f
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 0a4ef67c5bf5d5596c73f2fd2dd9e214a4454c8d481c56436e23e178634ee246
+            outcomeId: c21e7037-4179-41ed-9f4a-fa23a49c233f
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-indent-and-checkbox-fix
+        status: succeeded
+        stepId: tweak.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-d6375b70c9ca75908eeec0355c8c88afd5669d12c74dd828270c6ba6f603a91a
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-indent-and-checkbox-fix:4
+        input:
+          input:
+            change: guide-indent-and-checkbox-fix
+            changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+            workspaceBaseline:
+              ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+          outputs:
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.open.evidence:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+        inputHash: 46cb49c9ebbf0ec88f9e8355a5a5fca6a55df79e86b6b79cae9aa29d6ef8908c
+        outcome:
+          actionId: guide-indent-and-checkbox-fix:4
+          attempt: 1
+          claimToken: portable-d6375b70c9ca75908eeec0355c8c88afd5669d12c74dd828270c6ba6f603a91a
+          inputHash: 46cb49c9ebbf0ec88f9e8355a5a5fca6a55df79e86b6b79cae9aa29d6ef8908c
+          outcomeId: 81b824a4-8d69-410b-8c93-038e75612fd7
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+            inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+            manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+            manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: c2ad356f6f451ee2c9b22009ee24dc79164eb0fd0a43187517268b06e54978ce
+            outcomeId: 81b824a4-8d69-410b-8c93-038e75612fd7
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-indent-and-checkbox-fix
+        status: succeeded
+        stepId: tweak.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-685414443d52331b18590f79a2f6c6f6cdb2db2b90055b864447968953d5b328
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-indent-and-checkbox-fix:6
+        input:
+          input:
+            change: guide-indent-and-checkbox-fix
+            changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+            workspaceBaseline:
+              ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.open.evidence:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+        inputHash: 83157ffadce01112adb8b67c1fdf61ca425b340fa4212f791075e5e971f5824c
+        outcome:
+          actionId: guide-indent-and-checkbox-fix:6
+          attempt: 1
+          claimToken: portable-685414443d52331b18590f79a2f6c6f6cdb2db2b90055b864447968953d5b328
+          inputHash: 83157ffadce01112adb8b67c1fdf61ca425b340fa4212f791075e5e971f5824c
+          outcomeId: 620e2a42-9504-43ae-938a-ccec6cce2d7a
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: e1c293d9ee94fc98b981f08d838779a882ce7b120f5ed038cdf189e13a695b86
+            outcomeId: 620e2a42-9504-43ae-938a-ccec6cce2d7a
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-indent-and-checkbox-fix
+        status: succeeded
+        stepId: tweak.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-eda3ff0f4a23bbc50ce452b69779ce7292fc5189143ee8692648c355cd11742a
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-indent-and-checkbox-fix:8
+        input:
+          input:
+            change: guide-indent-and-checkbox-fix
+            changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+            workspaceBaseline:
+              ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.open.evidence:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.verify.report.evidence:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        inputHash: 85f459450e2df4d9967e0a84c8a9c60054e2d0a8a7cbce93f5151818763efa62
+        outcome:
+          actionId: guide-indent-and-checkbox-fix:8
+          attempt: 1
+          claimToken: portable-eda3ff0f4a23bbc50ce452b69779ce7292fc5189143ee8692648c355cd11742a
+          inputHash: 85f459450e2df4d9967e0a84c8a9c60054e2d0a8a7cbce93f5151818763efa62
+          outcomeId: e2c0135b-bf65-4058-8d53-5de064ff078f
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+            inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+            manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+            manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 1f4a6ffa27a62f850883479b1b54cd6ba18cd46435ccc0206de733666a6d594c
+            outcomeId: e2c0135b-bf65-4058-8d53-5de064ff078f
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-indent-and-checkbox-fix
+        status: succeeded
+        stepId: tweak.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-92742d5e63c082d8b2331c4067588fbd7f57c8c4ae592a2b9d69e223cb4a92b8
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-indent-and-checkbox-fix:10
+        input:
+          input:
+            change: guide-indent-and-checkbox-fix
+            changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+            workspaceBaseline:
+              ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.open.evidence:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+            tweak.verify.report.evidence:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        inputHash: 16f20ad6306f440eeba5c27e152bb8278f94f35f6930ac538e708174dfead56d
+        outcome:
+          actionId: guide-indent-and-checkbox-fix:10
+          attempt: 1
+          claimToken: portable-92742d5e63c082d8b2331c4067588fbd7f57c8c4ae592a2b9d69e223cb4a92b8
+          inputHash: 16f20ad6306f440eeba5c27e152bb8278f94f35f6930ac538e708174dfead56d
+          outcomeId: 79f3246a-cfa7-4c92-a577-3e134d8c4d9d
+          output:
+            summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+              让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+              项测试通过，exe 已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: ff33ea08ce8a346137391b98675712efe83177ed72d3bb14b7980792495002e1
+            outcomeId: 79f3246a-cfa7-4c92-a577-3e134d8c4d9d
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-indent-and-checkbox-fix
+        status: succeeded
+        stepId: tweak.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-b5d4789e2fda93d55b7ba4d2c6ca1fa78e24ed1010a57b3b9c01e7069b316506
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-indent-and-checkbox-fix:12
+        input:
+          input:
+            change: guide-indent-and-checkbox-fix
+            changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+            workspaceBaseline:
+              ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: guide-indent-and-checkbox-fix
+                  changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+                  workspaceBaseline:
+                    ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                      让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+            tweak.archive.prepare:
+              summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.open.evidence:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+            tweak.verify.report.evidence:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        inputHash: 66bf1418f4149809698f7c7b21673613fd71e56ec4c93b950ff3cf1dcb736f35
+        outcome:
+          actionId: guide-indent-and-checkbox-fix:12
+          attempt: 1
+          claimToken: portable-b5d4789e2fda93d55b7ba4d2c6ca1fa78e24ed1010a57b3b9c01e7069b316506
+          inputHash: 66bf1418f4149809698f7c7b21673613fd71e56ec4c93b950ff3cf1dcb736f35
+          outcomeId: f759eb83-6ff0-41a3-8d04-4ba6aa28c666
+          output:
+            baseCommit: cd2605da6dd6bec07365f129cd1b614968e5a070
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f441a49e7f76a5c9cc414b7c4337c6938eda4b5aef755b53074f0f0d26085104
+            outcomeId: f759eb83-6ff0-41a3-8d04-4ba6aa28c666
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-indent-and-checkbox-fix
+        status: succeeded
+        stepId: tweak.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-5fb82c5980cceeb61f581a67041ade8ff40c0b2437774bb084d69d2d3309eaf4
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: guide-indent-and-checkbox-fix:13
+        input:
+          input:
+            change: guide-indent-and-checkbox-fix
+            changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+            workspaceBaseline:
+              ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: guide-indent-and-checkbox-fix
+                  changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+                  workspaceBaseline:
+                    ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                      让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+            tweak.archive.preflight:
+              baseCommit: cd2605da6dd6bec07365f129cd1b614968e5a070
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.open.evidence:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+            tweak.verify.report.evidence:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        inputHash: f866f460557b7b98afb0e1c0179aa22da43848da0e8ba3c92e0ddd49620bb5a6
+        outcome:
+          actionId: guide-indent-and-checkbox-fix:13
+          artifacts:
+            - sha256: 9348bcebc6ed666ca1defc93365eb5416344cbd95b294d72742222ba8c9c731f
+              uri: docs/openspec/changes/archive/2026-11-20-guide-indent-and-checkbox-fix/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-5fb82c5980cceeb61f581a67041ade8ff40c0b2437774bb084d69d2d3309eaf4
+          inputHash: f866f460557b7b98afb0e1c0179aa22da43848da0e8ba3c92e0ddd49620bb5a6
+          outcomeId: eecb12b4-3f41-47cc-8958-495d9b95ddea
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-20-guide-indent-and-checkbox-fix
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 02dacd3ce3efd3f75fe792e36c4295e245fc9b28022b7ebf6001a9e5fe179581
+            outcomeId: eecb12b4-3f41-47cc-8958-495d9b95ddea
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-indent-and-checkbox-fix
+        status: succeeded
+        stepId: tweak.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: guide-indent-and-checkbox-fix:14
+        input:
+          input:
+            change: guide-indent-and-checkbox-fix
+            changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+            workspaceBaseline:
+              ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: guide-indent-and-checkbox-fix
+                  changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+                  workspaceBaseline:
+                    ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                      让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+            tweak.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-20-guide-indent-and-checkbox-fix
+            tweak.archive.preflight:
+              baseCommit: cd2605da6dd6bec07365f129cd1b614968e5a070
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.open.evidence:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+            tweak.verify.report.evidence:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        inputHash: 4f8dec5a72830f3e77d93411ddb066db6a4cba8f26542e0d1985913ed09fbc26
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: guide-indent-and-checkbox-fix
+        status: pending
+        stepId: tweak.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      guide-indent-and-checkbox-fix:1:
+        results: {}
+        sequence: 1
+      guide-indent-and-checkbox-fix:10:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        sequence: 10
+      guide-indent-and-checkbox-fix:12:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: guide-indent-and-checkbox-fix
+                  changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+                  workspaceBaseline:
+                    ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                      让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        sequence: 12
+      guide-indent-and-checkbox-fix:13:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: guide-indent-and-checkbox-fix
+                  changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+                  workspaceBaseline:
+                    ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                      让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: cd2605da6dd6bec07365f129cd1b614968e5a070
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        sequence: 13
+      guide-indent-and-checkbox-fix:14:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: guide-indent-and-checkbox-fix
+                  changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+                  workspaceBaseline:
+                    ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                      让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                      项测试通过，exe 已重新打包。
+                    targetBranch: main
+          tweak.archive.execute:
+            sequence: 13
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-20-guide-indent-and-checkbox-fix
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: cd2605da6dd6bec07365f129cd1b614968e5a070
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        sequence: 14
+      guide-indent-and-checkbox-fix:3:
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+        sequence: 3
+      guide-indent-and-checkbox-fix:4:
+        results:
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+        sequence: 4
+      guide-indent-and-checkbox-fix:6:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+        sequence: 6
+      guide-indent-and-checkbox-fix:8:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        sequence: 8
+    waits:
+      - id: guide-indent-and-checkbox-fix:11
+        stepId: tweak.archive.confirm
+        sequence: 11
+        status: resolved
+        proposal:
+          input:
+            change: guide-indent-and-checkbox-fix
+            changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+            workspaceBaseline:
+              ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+          outputs:
+            tweak.archive.prepare:
+              summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+        proposalHash: 57a6ffd6743e658f8aca6c6631f95490bc20e57aee91ce1463c6da1f080de81d
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        decision:
+          id: classic-archive-57a6ffd6743e658f8aca6c6631f95490bc20e57aee91ce1463c6da1f080de81d-local
+          choice: local
+          proposalHash: 57a6ffd6743e658f8aca6c6631f95490bc20e57aee91ce1463c6da1f080de81d
+    evidenceWaits:
+      - id: guide-indent-and-checkbox-fix:2
+        stepId: tweak.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+        receipt:
+          ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+          submissionId: fadc5cf3-e8ec-4020-9758-3aee9cec6425
+      - id: guide-indent-and-checkbox-fix:5
+        stepId: tweak.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+          contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+          submissionId: 20822127-50fc-4f86-b01a-0c84818dcc94
+      - id: guide-indent-and-checkbox-fix:7
+        stepId: tweak.verify.report.evidence
+        sequence: 7
+        kind: classic-verification-report
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+          contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+          submissionId: b27fee48-8531-41eb-834e-29ceda48779b
+      - id: guide-indent-and-checkbox-fix:9
+        stepId: tweak.verify.check.evidence
+        sequence: 9
+        kind: classic-verify-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+              manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+              ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+                ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+              ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+              manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+              manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+              ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+          contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+          submissionId: d85c9592-cc3d-4151-83cb-f19a66361d02
+    ready: []
+    joins: {}
+    outputs:
+      tweak.archive.confirm:
+        sequence: 11
+        value:
+          choice: local
+          proposal:
+            input:
+              change: guide-indent-and-checkbox-fix
+              changeDir: docs/openspec/changes/guide-indent-and-checkbox-fix
+              workspaceBaseline:
+                ref: e8b7099b-02a2-49bf-ad42-020c10d27a35
+            outputs:
+              tweak.archive.prepare:
+                summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+                  让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251
+                  项测试通过，exe 已重新打包。
+                targetBranch: main
+      tweak.archive.execute:
+        sequence: 13
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-20-guide-indent-and-checkbox-fix
+      tweak.archive.preflight:
+        sequence: 12
+        value:
+          baseCommit: cd2605da6dd6bec07365f129cd1b614968e5a070
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      tweak.archive.prepare:
+        sequence: 10
+        value:
+          summary: 修复播放列表自绘复选框点击命中：重写 hitButton
+            让整个控件可点击，点击中心与边框都能切换勾选。向导中铺面编辑工具栏与钢琴窗的每行说明增加 24px 左缩进。251 项测试通过，exe
+            已重新打包。
+          targetBranch: main
+      tweak.build.check:
+        sequence: 4
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 1
+          contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+          inputBefore: 86e839fdfd81c0fabdc80f7f709a400e70d60f0bf68b0895ccb1bd9d5909185a
+          manifestHash: c823d42afb81b4403ca5acacb8f47de04ec4a2c7484dc7d3ed478d7b8b2617f3
+          manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/50aa4b3b-ab06-4cc2-a4e9-275cc42fe266.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      tweak.build.check.evidence:
+        sequence: 5
+        value:
+          contentHash: a3dcce99c7407ee600fef5e207534fb341e1953f6b9fda0abf9f81c1349ecb03
+          ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/da6afb0d-beab-4399-ad22-8a05d1500be8.log
+      tweak.build.execute:
+        sequence: 3
+        value:
+          event: build-complete
+      tweak.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+            ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+      tweak.open.evidence:
+        sequence: 2
+        value:
+          contentHash: c43ec116bfd9e65aee3e7834c600e739f3a0d09832b20f2b07ae7f3b09a8d420
+          ref: docs/openspec/changes/guide-indent-and-checkbox-fix
+      tweak.verify.check:
+        sequence: 8
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+          inputBefore: 6785a9b41005aaa7bc3a92cb6f99f40885c97afea0286aeee5f7d623839dd855
+          manifestHash: 9c0f7deff0ea879b3a662b1671650ee6066b2c8c4480e65a63b63b44940249dd
+          manifestRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/6552ab84-3626-4d89-b248-64f6109d5bb7.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      tweak.verify.check.evidence:
+        sequence: 9
+        value:
+          contentHash: 2a49df3eb42862a070024329844d1a3005f59360d090ae7e4c086cc1acd664bf
+          ref: .comet/runtime/classic-sdk-checks/0b229cde0d1a5c67feaf5201a0e28f590abbf561725e17277b5c481ff0f5bdec/403944ae-0568-466b-8f96-40185806b7bd.log
+      tweak.verify.report.evidence:
+        sequence: 7
+        value:
+          contentHash: 0e7bb14ee5bcfee7171b1aac08374d71f0e9fa2cb2f27c2b176e03d49c23fe63
+          ref: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+      tweak.verify.run:
+        sequence: 6
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-20-guide-indent-and-checkbox-fix-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 22
+  sourceHash: 4d136e0d51b9b50922136c158c6ec30c5622d7b959fe194e6936efc6290f6b1a
+check_epoch: 5

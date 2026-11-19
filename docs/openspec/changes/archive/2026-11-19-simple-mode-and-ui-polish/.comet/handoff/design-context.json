@@ -1,0 +1,18 @@
+{
+  "change": "simple-mode-and-ui-polish",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "task_hash_policy": "task-content-v1",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "fcbebf4ba4994cc12c8f365e29754d2f0daf3982ae5fb59e1de08893f3c0858d",
+  "files": [
+    { "path": "docs/openspec/changes/simple-mode-and-ui-polish/proposal.md", "sha256": "18ceed7457199f58fa956bf8d47e878575897d68e88ed497643e1bab442516ff" },
+    { "path": "docs/openspec/changes/simple-mode-and-ui-polish/design.md", "sha256": "8e2d7de28cb7e97651c5f3f053466544ef852d35366ca64e875cbe4606c7474a" },
+    { "path": "docs/openspec/changes/simple-mode-and-ui-polish/tasks.md", "sha256": "607f71ffb99437bef6b248840d3ef3cfcb8df8aa308d594530f3bdef36b474f7" },
+    { "path": "docs/openspec/changes/simple-mode-and-ui-polish/.openspec.yaml", "sha256": "4c809c0a23df2b5d2324425b77ae5ff9b6d93d0a0f8c42e9dc20695839cf2478" },
+    { "path": "docs/openspec/changes/simple-mode-and-ui-polish/specs/simple-mode/spec.md", "sha256": "7a08faa1cb5f8a7e7913a1b21feb9a7c144d7eb0f2ee7d958025a791e5361329" },
+    { "path": "docs/openspec/changes/simple-mode-and-ui-polish/specs/ui-grouping/spec.md", "sha256": "a238486bb0ef60c05dc316760ba3ca1a12aa93fdf1c1cd49681d15b7ac201d5e" },
+    { "path": "docs/openspec/changes/simple-mode-and-ui-polish/specs/usage-guide/spec.md", "sha256": "7aef85d8d115250c8347a24047a9c07e96314199314ba684dbb5aa19c227e4dd" }
+  ]
+}

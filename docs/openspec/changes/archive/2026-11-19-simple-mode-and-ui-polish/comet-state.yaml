@@ -1,0 +1,2751 @@
+# comet-execution: managed-run
+change_id: 0da58e83-8383-4c18-a5ce-334984dc46de
+workflow: full
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: executing-plans
+build_pause: null
+subagent_dispatch: null
+tdd_mode: tdd
+review_mode: standard
+isolation: current
+verify_mode: null
+auto_transition: true
+base_ref: 0ea6c4e4c239e53e6b3606f90e85b25932c2e02c
+design_doc: docs/openspec/changes/archive/2026-11-19-simple-mode-and-ui-polish/design.md
+plan: docs/superpowers/plans/2026-11-19-simple-mode-and-ui-polish.md
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-19-simple-mode-and-ui-polish-verification.md
+branch_status: pending
+created_at: 2026-11-19
+verified_at: 2026-11-19
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: false
+handoff_context: docs/openspec/changes/archive/2026-11-19-simple-mode-and-ui-polish/.comet/handoff/design-context.json
+handoff_hash: fcbebf4ba4994cc12c8f365e29754d2f0daf3982ae5fb59e1de08893f3c0858d
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v2
+  hash: 758bf99545cef39c4ad03f7458cabd95013c3f55db7b7ddcd6888b9680a5646f
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: simple-mode-and-ui-polish
+    revision: 1
+    workflow:
+      id: comet-classic-full
+      version: "1"
+      hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    definitionHashes:
+      '["comet-classic-full","1"]': ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+    initialStateHash: c75169ad5f78049e6d5dda6c54018cf9878edb6565836bfc456d0c854aa0b81b
+    input:
+      change: simple-mode-and-ui-polish
+      changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+      workspaceBaseline:
+        ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 0ea6c4e4c239e53e6b3606f90e85b25932c2e02c
+      boundBranch: main
+      branchStatus: pending
+      buildMode: executing-plans
+      buildPause: null
+      checkEpoch: 6
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-19
+      designDoc: docs/openspec/changes/archive/2026-11-19-simple-mode-and-ui-polish/design.md
+      directOverride: false
+      handoffContext: docs/openspec/changes/archive/2026-11-19-simple-mode-and-ui-polish/.comet/handoff/design-context.json
+      handoffHash: fcbebf4ba4994cc12c8f365e29754d2f0daf3982ae5fb59e1de08893f3c0858d
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: docs/superpowers/plans/2026-11-19-simple-mode-and-ui-polish.md
+      reviewMode: standard
+      subagentDispatch: null
+      tddMode: tdd
+      verificationReport: docs/superpowers/reports/2026-11-19-simple-mode-and-ui-polish-verification.md
+      verifiedAt: 2026-11-19
+      verifyFailures: 0
+      verifyMode: null
+      verifyResult: pass
+      workflow: full
+    status: running
+    sequence: 24
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-283ac23861fcaa8f1aa51afb39c99b91ea67ab5c9f099ece31dd77c8c7e7ecc0
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:1
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 019481ac8b074856e8eb1ecb141cb22c291ed0814a3136dc6b74e7a1d5ecba34
+        outcome:
+          actionId: simple-mode-and-ui-polish:1
+          attempt: 1
+          claimToken: portable-283ac23861fcaa8f1aa51afb39c99b91ea67ab5c9f099ece31dd77c8c7e7ecc0
+          inputHash: 019481ac8b074856e8eb1ecb141cb22c291ed0814a3136dc6b74e7a1d5ecba34
+          outcomeId: cf785284-27fb-4763-8399-c03a0c68970b
+          output:
+            event: open-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: d22c06e615b3cd96cbfc3f128a46cfe31c7addedeb9df5d84e39a3d5ec14924f
+            outcomeId: cf785284-27fb-4763-8399-c03a0c68970b
+        reconciliations: []
+        ref: comet-open
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-open-revalidate
+          token: portable-0b8c2f275033f8c8c7a575f24828412b584829df7101e89c70e3b56c11a23a08
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:4
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 55613dab114cb452ed268805933e77b82380cc88828d04f44f1fc7fee009c9d0
+        outcome:
+          actionId: simple-mode-and-ui-polish:4
+          attempt: 1
+          claimToken: portable-0b8c2f275033f8c8c7a575f24828412b584829df7101e89c70e3b56c11a23a08
+          inputHash: 55613dab114cb452ed268805933e77b82380cc88828d04f44f1fc7fee009c9d0
+          outcomeId: simple-mode-and-ui-polish:4:1:executor-result
+          output:
+            contentHash: bd74d4fae1f9657dc48cc4b5ab857d2b440449a79787d8b97139892b3a8b5491
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 0bcdf8d1f331c279c69a91d49a5950eaaf3a293ce1fdca59aa862a854a3c0b63
+            outcomeId: simple-mode-and-ui-polish:4:1:executor-result
+        reconciliations: []
+        ref: classic-open-revalidate
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.open.revalidate
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-f9bd86fe4263690795887217a8042753eb743aa29d5237bb11be17a92a885a45
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:5
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: c64d675ce09356427258eaadc10cdcade77071d71616213616fc04e710b7b505
+        outcome:
+          actionId: simple-mode-and-ui-polish:5
+          attempt: 1
+          claimToken: portable-f9bd86fe4263690795887217a8042753eb743aa29d5237bb11be17a92a885a45
+          inputHash: c64d675ce09356427258eaadc10cdcade77071d71616213616fc04e710b7b505
+          outcomeId: 894d47ad-a0d6-4119-b3af-b3448696ad2a
+          output:
+            handoffContext: docs/openspec/changes/simple-mode-and-ui-polish/.comet/handoff/design-context.json
+            handoffHash: fcbebf4ba4994cc12c8f365e29754d2f0daf3982ae5fb59e1de08893f3c0858d
+            proposal: "方案：1) 控制面板标题行只保留「🎛️
+              控制面板」，在其下方新增一行依次放置「简单模式（可切换）」「亮色/深色」「置顶」「向导」，全部小号按钮；移除标题行与导入按钮行中的\
+              旧位置。2) 左侧面板宽度 350→438（+25%），splitter 初始比例同步；新增
+              app/ui/widgets.py：AntCheckBox 自绘 14px 圆角方框与白色勾选折线，颜色读取
+              theme.current_tokens()，主题切换时统一刷新；MarqueeLabel 在文字超出宽度且鼠标悬停时每 40ms
+              左移 1px，到末尾（宽度+40px）停顿 1s 后回到 0 循环，移出停止并复位到从头显示；列表行改为「AntCheckBox +
+              MarqueeLabel」。3) 简单模式：新增 simple_mode
+              状态与切换按钮。进入时停止播放、丢弃未保存标记（不保存）、清空铺面 notes 与历史基线、从标签栏移除「铺面编辑」页、映射下拉固定
+              Z/7 且绝对音域固定 C2/B5（黄色框 36–83）并禁用映射下拉、显示「▶️
+              播放」按钮；退出时隐藏播放按钮、重新插入标签页、恢复映射控件，并根据 current_midi_path 重新加载原始
+              MIDI（覆盖优化后的资产）。4) 简单播放
+              on_simple_play_clicked：若正在播放则提示返回；解析当前曲目路径；用 MidiToKeysConverter
+              重新读取原始 MIDI 音符并 set_notes；固定映射与音域；调用新增的
+              PianoRollCanvas.arpeggiate_all（临时全选后复用
+              arpeggiate_selected，再恢复选择）对全部音符做 1/32 拍优化；调用
+              _save_current_play_assets 保存优化后的 edited MIDI 与 play_code
+              JSON，清未保存标记与历史基线；最后 start_playing 读取 JSON 播放；每次点击都从原始 MIDI
+              重新开始，避免叠加优化。5) 亮色框线：central_widget 设置 objectName centralWidget，QSS
+              用 colorBgBase
+              作为背景；QFrame#leftPanel/rightPanel、QGroupBox、QFrame#controlPanel
+              边框统一改为 colorBorder（亮色 #d9d9d9、深色 #424242）；apply_theme 后刷新所有
+              AntCheckBox。6)
+              向导新增「简单模式」「正常模式」两个独立小节，并补更新按钮行、勾选与悬停滚动、简单播放说明。关键取舍：不用 QSS
+              图片资源实现勾选（打包路径复杂，改为自绘）；简单模式不缓存优化结果（重复点击会叠加，改为每次重读原始
+              MIDI）；不保留编辑标签只禁用（用户要求标签消失）。风险：简单模式会静默丢弃未保存修改（用户已确认）；每次简单播放多一次 MIDI
+              解析；自绘控件需跟随主题重绘；亮色边框统一后深色主题边框会更明显。测试策略：控制面板四按钮同一行、左栏宽度
+              438；勾选状态与悬停滚动启停；简单模式隐藏/恢复标签、清空铺面、固定 Z/7 与
+              C2/B5、简单播放调用优化+保存+播放、重复点击幂等、退出重载原始 MIDI；亮色 centralWidget 背景与边框使用
+              colorBorder；向导包含简单/正常小节；既有 234 项回归。Spec Patch：无。"
+            requirementsEvidence:
+              contentHash: 75633316cb6af1e545f9595aa4e7e1868ba34a7f31801f125132e42e7d4a8741
+              ref: docs/openspec/changes/simple-mode-and-ui-polish
+            sourceEvidence:
+              contentHash: 3547af320a3a86e5a698fc6a929be455b3906f09f5487db91b5185e989a633b2
+              ref: docs/openspec/changes/simple-mode-and-ui-polish
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 909ae1bd4dfe55c4974ded6d7fecd609a02c86508b2e8a013b993a66f87ba0fb
+            outcomeId: 894d47ad-a0d6-4119-b3af-b3448696ad2a
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.design.handoff
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-c224cebfdfe1edeb45ceb0e45a4ffba52e8c23b2c5a6280fe2c9a2e4220a0a35
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:7
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 2a64b6f33025da563e20382070ba335a18acfd25834ec4873c1c2c9dabde287c
+        outcome:
+          actionId: simple-mode-and-ui-polish:7
+          attempt: 1
+          claimToken: portable-c224cebfdfe1edeb45ceb0e45a4ffba52e8c23b2c5a6280fe2c9a2e4220a0a35
+          inputHash: 2a64b6f33025da563e20382070ba335a18acfd25834ec4873c1c2c9dabde287c
+          outcomeId: 220eb307-5db7-47b0-a406-7e80e1cde39d
+          output:
+            designDoc: docs/openspec/changes/simple-mode-and-ui-polish/design.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 375838bed3475d7c643f175e51fb0876d62654fc7f23cdb8900ff1268c18f664
+            outcomeId: 220eb307-5db7-47b0-a406-7e80e1cde39d
+        reconciliations: []
+        ref: comet-design
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.design.document
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-8d60699bcdd1a275c9623608c225449a90c74c0fec18252f6c8f92324b1ed4d5
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:9
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 208ebefdad65bbb931f96fea1275aa9b89886c4d7a09bfae192ee18e74a6a52a
+        outcome:
+          actionId: simple-mode-and-ui-polish:9
+          attempt: 1
+          claimToken: portable-8d60699bcdd1a275c9623608c225449a90c74c0fec18252f6c8f92324b1ed4d5
+          inputHash: 208ebefdad65bbb931f96fea1275aa9b89886c4d7a09bfae192ee18e74a6a52a
+          outcomeId: c4531f32-6008-4d64-8afb-f03f4bbf356b
+          output:
+            boundBranch: main
+            buildMode: executing-plans
+            directOverride: false
+            isolation: current
+            reviewMode: standard
+            subagentDispatch: null
+            tddMode: tdd
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f19ddc828573cbf15f14976aca17635669d401b8989f711730e4bbf61116f759
+            outcomeId: c4531f32-6008-4d64-8afb-f03f4bbf356b
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.build.configure
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-f63a1f1699787da87824ac35204f5867cc75d8b8baf977d1df61713c825b6d38
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:11
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 435fe5c84cd4b73dba19ea6e213700070e79b344ec34fc3e626d9c9629af3e74
+        outcome:
+          actionId: simple-mode-and-ui-polish:11
+          attempt: 1
+          claimToken: portable-f63a1f1699787da87824ac35204f5867cc75d8b8baf977d1df61713c825b6d38
+          inputHash: 435fe5c84cd4b73dba19ea6e213700070e79b344ec34fc3e626d9c9629af3e74
+          outcomeId: 3a1abc98-c373-4cfb-9c7b-98c7e61a3cbe
+          output:
+            designEvidence:
+              contentHash: c3228a0e4ede84afc0095a9188d07a7abd67625b2646078f97d35e9eabc0bb77
+              ref: docs/openspec/changes/simple-mode-and-ui-polish/design.md
+            plan: docs/superpowers/plans/2026-11-19-simple-mode-and-ui-polish.md
+            planEvidence:
+              contentHash: ccb2bdf673cae7e54f7ab48fa0ad7f8900b4ce37b7606db1bef1bb91d6e744a8
+              ref: docs/superpowers/plans/2026-11-19-simple-mode-and-ui-polish.md
+            taskRevision: 607f71ffb99437bef6b248840d3ef3cfcb8df8aa308d594530f3bdef36b474f7
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 854979820e5e8f0464fe139c18e89318dd380dadc57e18d497f4851062ea2743
+            outcomeId: 3a1abc98-c373-4cfb-9c7b-98c7e61a3cbe
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.build.plan
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/simple-mode-and-ui-polish:13/1
+          token: portable-adc1be14fc38acca450811b953e2aa0b49147d50a1ce08ac0028f009051e485b
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:13
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 2b93004e90c073ea3870ccfc7f72db2e34b678d0ebd82c70405d52b20b6d95c5
+        outcome:
+          actionId: simple-mode-and-ui-polish:13
+          attempt: 1
+          claimToken: portable-adc1be14fc38acca450811b953e2aa0b49147d50a1ce08ac0028f009051e485b
+          inputHash: 2b93004e90c073ea3870ccfc7f72db2e34b678d0ebd82c70405d52b20b6d95c5
+          outcomeId: f8f9f87b-6d40-4648-abcc-3617c7673197
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: d15f7dd1277348e19157ef678ea3762d0675f8866b138efca37615e14a5d5a75
+            outcomeId: f8f9f87b-6d40-4648-abcc-3617c7673197
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-f287e15ceb4b79898ab6c3e548251921b6e1b9fb88d3aae94c56f7bc310a543f
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:14
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 7c55f82b7633f7674f7508596b50f513866b6858b92bf0153da7764fee85e8bf
+        outcome:
+          actionId: simple-mode-and-ui-polish:14
+          attempt: 1
+          claimToken: portable-f287e15ceb4b79898ab6c3e548251921b6e1b9fb88d3aae94c56f7bc310a543f
+          inputHash: 7c55f82b7633f7674f7508596b50f513866b6858b92bf0153da7764fee85e8bf
+          outcomeId: 4709dedf-b650-4bdf-a9fa-dde6f1028ae8
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: e5ce8861dc873fc78f14d20a1f68d100f3806fb19c877e24df5dc2467b600aed
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: e7b4aa22fbc49cb7fc556b8b8d776e1fec87129ea54258fc6cf97a655a7850fb
+            inputBefore: e7b4aa22fbc49cb7fc556b8b8d776e1fec87129ea54258fc6cf97a655a7850fb
+            manifestHash: 69e259c336b478d9b502bffa9e4884e73a2fd4b34b4cdd178acbcd28e7007d94
+            manifestRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/cadd417d-f111-417c-acfd-0e41691403ca.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/e97f9ac1-b894-4c40-a9fa-383253a4ac18.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f3d4e485edc72676401f8b95592b08e5157e5ba6cd9d713a0dd2d5cb8b22c51a
+            outcomeId: 4709dedf-b650-4bdf-a9fa-dde6f1028ae8
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-7fbe54cbedc97120a6eabe57b85716ce88abefadf89aa2c80952d57ec89c284f
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:16
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 453decfe18bf4e38ed0d48cc9e26790626af23f48847bcd98b76ac91961b61f1
+        outcome:
+          actionId: simple-mode-and-ui-polish:16
+          attempt: 1
+          claimToken: portable-7fbe54cbedc97120a6eabe57b85716ce88abefadf89aa2c80952d57ec89c284f
+          inputHash: 453decfe18bf4e38ed0d48cc9e26790626af23f48847bcd98b76ac91961b61f1
+          outcomeId: 2b11bad4-e8ce-492c-b82b-85ae9af3fd72
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-19-simple-mode-and-ui-polish-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 4ac36b2dfb08bf1f8e39576dc9d5ba606cb6840f840e1fe554879cadea1e5df9
+            outcomeId: 2b11bad4-e8ce-492c-b82b-85ae9af3fd72
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-fb2ac00c87a9f04816f2356e7b1f58c97c475534872c0dccdb438220b1d11f9e
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:18
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 2ef8ee8df6e7d71948b522a5fd3d209d41530a6475e4b5d2d1cb39496b7706c2
+        outcome:
+          actionId: simple-mode-and-ui-polish:18
+          attempt: 1
+          claimToken: portable-fb2ac00c87a9f04816f2356e7b1f58c97c475534872c0dccdb438220b1d11f9e
+          inputHash: 2ef8ee8df6e7d71948b522a5fd3d209d41530a6475e4b5d2d1cb39496b7706c2
+          outcomeId: e4ad249c-af0e-4512-8d71-703870e47b38
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 3
+            contentHash: dfc492bc8f1f8c446ab8fccb2290cdddced7cc496622dd719b9506c3c6e0201f
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: c988e27262c1b6f5230a7370ff31f35e260d1d641b0a6e860412d788e6d8642b
+            inputBefore: c988e27262c1b6f5230a7370ff31f35e260d1d641b0a6e860412d788e6d8642b
+            manifestHash: f24617ec0abde181d101feced9eaf5fc43574c49d87041057990d0ddc4874434
+            manifestRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/502334c8-6b6f-4fb8-bb9a-52d30a9da0ea.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/04c7178b-a17c-4101-ae1f-a4ac185915b8.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: be6faf131aae2cda6f0d33ca38edcc61e4139ffc438dbe1bc06bb7abde9d3055
+            outcomeId: e4ad249c-af0e-4512-8d71-703870e47b38
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-e528b85ca0f9f9c48282f0b3e060e63b13266bfc3b64589c4c14cb8917885f28
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:20
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 813b63920513c54aedcbeebdd9a28f9a40c711a242b72b92b0702f6c114e282d
+        outcome:
+          actionId: simple-mode-and-ui-polish:20
+          attempt: 1
+          claimToken: portable-e528b85ca0f9f9c48282f0b3e060e63b13266bfc3b64589c4c14cb8917885f28
+          inputHash: 813b63920513c54aedcbeebdd9a28f9a40c711a242b72b92b0702f6c114e282d
+          outcomeId: 7ebdc915-b322-4731-b2bd-770495e75062
+          output:
+            summary: 控制面板标题下新增简单模式/亮色/置顶/向导一行，左栏加宽到
+              438px；列表使用自绘勾选框与悬停滚动歌名。新增简单模式：隐藏铺面编辑、静默清空、固定 Z/7 与 C2–B5，点击「▶️
+              播放」时重读原始 MIDI、全量曲谱优化、保存资产后播放，重复点击不叠加；退出恢复标签并重载原始 MIDI。亮色下
+              centralWidget 与面板/分组框边框改为淡灰，向导补充简单/正常模式说明。245 项测试通过，exe 已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 3a4a067593fb2b60847d6c7e595c226b2d7aaf948a6344045f9926d6e96a5cff
+            outcomeId: 7ebdc915-b322-4731-b2bd-770495e75062
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-23a124bd9098d12c55f5fb038ed541b8c8823e3cd2e8d3972ccaa7c08050e51b
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:22
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 6c9c950297c5e6b6380173daa55fcbc84f88e0c4ce3d8f83ac8fa3aaf5e8f997
+        outcome:
+          actionId: simple-mode-and-ui-polish:22
+          attempt: 1
+          claimToken: portable-23a124bd9098d12c55f5fb038ed541b8c8823e3cd2e8d3972ccaa7c08050e51b
+          inputHash: 6c9c950297c5e6b6380173daa55fcbc84f88e0c4ce3d8f83ac8fa3aaf5e8f997
+          outcomeId: c502887c-cd31-47c9-92ca-993c8623db9c
+          output:
+            baseCommit: 28622aba0a4b18e76d7825c30c878b733aa253b3
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: f9f26b336da54f0c8b33ad46ea31d453535fb0872570bf582a84482221aedd12
+            outcomeId: c502887c-cd31-47c9-92ca-993c8623db9c
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-ba08d4dcd6ad4dd1d251a4480dd30bf86e05c42ba19355fcb0e46753c520706c
+        executionOrigin:
+          workflow:
+            hash: ee198afdb53add0c23f98202aae8cdbe4079b9f4ebf7a62ed4ab8411ed591db5
+            id: comet-classic-full
+            version: "1"
+        id: simple-mode-and-ui-polish:23
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 228cc77f78b64619d6556af769b9b1f6ddac3a7a8c58cc4da76b470b3e929b0f
+        outcome:
+          actionId: simple-mode-and-ui-polish:23
+          artifacts:
+            - sha256: 00bfd5d45077d7bd228478251a99f2bcc66153b3f657a7a4c06806f1731508bd
+              uri: docs/openspec/changes/archive/2026-11-19-simple-mode-and-ui-polish/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-ba08d4dcd6ad4dd1d251a4480dd30bf86e05c42ba19355fcb0e46753c520706c
+          inputHash: 228cc77f78b64619d6556af769b9b1f6ddac3a7a8c58cc4da76b470b3e929b0f
+          outcomeId: 4df91c32-444e-4e77-b71e-5555d9f510be
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-19-simple-mode-and-ui-polish
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 1edf4a851904d2e661981d1c3a92f02ca59a43fb487c48dc42d4bc25b0161ff7
+            outcomeId: 4df91c32-444e-4e77-b71e-5555d9f510be
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: succeeded
+        stepId: full.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: simple-mode-and-ui-polish:24
+        input:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs: {}
+        inputHash: 08e692fb2a617fad1bc79724656286ca89361242086e13ac10f11745580da047
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: simple-mode-and-ui-polish
+        status: pending
+        stepId: full.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      simple-mode-and-ui-polish:1:
+        results: {}
+        sequence: 1
+      simple-mode-and-ui-polish:11:
+        results: {}
+        sequence: 11
+      simple-mode-and-ui-polish:13:
+        results: {}
+        sequence: 13
+      simple-mode-and-ui-polish:14:
+        results: {}
+        sequence: 14
+      simple-mode-and-ui-polish:16:
+        results: {}
+        sequence: 16
+      simple-mode-and-ui-polish:18:
+        results: {}
+        sequence: 18
+      simple-mode-and-ui-polish:20:
+        results: {}
+        sequence: 20
+      simple-mode-and-ui-polish:22:
+        results: {}
+        sequence: 22
+      simple-mode-and-ui-polish:23:
+        results: {}
+        sequence: 23
+      simple-mode-and-ui-polish:24:
+        results: {}
+        sequence: 24
+      simple-mode-and-ui-polish:4:
+        results: {}
+        sequence: 4
+      simple-mode-and-ui-polish:5:
+        results: {}
+        sequence: 5
+      simple-mode-and-ui-polish:7:
+        results: {}
+        sequence: 7
+      simple-mode-and-ui-polish:9:
+        results: {}
+        sequence: 9
+    waits:
+      - id: simple-mode-and-ui-polish:3
+        stepId: full.open.confirm
+        sequence: 3
+        status: resolved
+        proposal:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: bd74d4fae1f9657dc48cc4b5ab857d2b440449a79787d8b97139892b3a8b5491
+              ref: docs/openspec/changes/simple-mode-and-ui-polish
+        proposalHash: 56b91b0767a80027267c4c09f61be16c5a48f6467a598fff4af1c8b40b21ae9b
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-open-bd74d4fae1f9657dc48cc4b5ab857d2b440449a79787d8b97139892b3a8b5491
+          choice: approved
+          proposalHash: 56b91b0767a80027267c4c09f61be16c5a48f6467a598fff4af1c8b40b21ae9b
+      - id: simple-mode-and-ui-polish:6
+        stepId: full.design.confirm
+        sequence: 6
+        status: resolved
+        proposal:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/simple-mode-and-ui-polish/.comet/handoff/design-context.json
+              handoffHash: fcbebf4ba4994cc12c8f365e29754d2f0daf3982ae5fb59e1de08893f3c0858d
+              proposal: "方案：1) 控制面板标题行只保留「🎛️
+                控制面板」，在其下方新增一行依次放置「简单模式（可切换）」「亮色/深色」「置顶」「向导」，全部小号按钮；移除标题行与导入按钮行\
+                中的旧位置。2) 左侧面板宽度 350→438（+25%），splitter 初始比例同步；新增
+                app/ui/widgets.py：AntCheckBox 自绘 14px 圆角方框与白色勾选折线，颜色读取
+                theme.current_tokens()，主题切换时统一刷新；MarqueeLabel 在文字超出宽度且鼠标悬停时每
+                40ms 左移 1px，到末尾（宽度+40px）停顿 1s 后回到 0
+                循环，移出停止并复位到从头显示；列表行改为「AntCheckBox + MarqueeLabel」。3) 简单模式：新增
+                simple_mode 状态与切换按钮。进入时停止播放、丢弃未保存标记（不保存）、清空铺面 notes
+                与历史基线、从标签栏移除「铺面编辑」页、映射下拉固定 Z/7 且绝对音域固定 C2/B5（黄色框
+                36–83）并禁用映射下拉、显示「▶️ 播放」按钮；退出时隐藏播放按钮、重新插入标签页、恢复映射控件，并根据
+                current_midi_path 重新加载原始 MIDI（覆盖优化后的资产）。4) 简单播放
+                on_simple_play_clicked：若正在播放则提示返回；解析当前曲目路径；用 MidiToKeysConverter
+                重新读取原始 MIDI 音符并 set_notes；固定映射与音域；调用新增的
+                PianoRollCanvas.arpeggiate_all（临时全选后复用
+                arpeggiate_selected，再恢复选择）对全部音符做 1/32 拍优化；调用
+                _save_current_play_assets 保存优化后的 edited MIDI 与 play_code
+                JSON，清未保存标记与历史基线；最后 start_playing 读取 JSON 播放；每次点击都从原始 MIDI
+                重新开始，避免叠加优化。5) 亮色框线：central_widget 设置 objectName
+                centralWidget，QSS 用 colorBgBase
+                作为背景；QFrame#leftPanel/rightPanel、QGroupBox、QFrame#controlPanel
+                边框统一改为 colorBorder（亮色 #d9d9d9、深色 #424242）；apply_theme 后刷新所有
+                AntCheckBox。6)
+                向导新增「简单模式」「正常模式」两个独立小节，并补更新按钮行、勾选与悬停滚动、简单播放说明。关键取舍：不用 QSS
+                图片资源实现勾选（打包路径复杂，改为自绘）；简单模式不缓存优化结果（重复点击会叠加，改为每次重读原始
+                MIDI）；不保留编辑标签只禁用（用户要求标签消失）。风险：简单模式会静默丢弃未保存修改（用户已确认）；每次简单播放多一次
+                MIDI 解析；自绘控件需跟随主题重绘；亮色边框统一后深色主题边框会更明显。测试策略：控制面板四按钮同一行、左栏宽度
+                438；勾选状态与悬停滚动启停；简单模式隐藏/恢复标签、清空铺面、固定 Z/7 与
+                C2/B5、简单播放调用优化+保存+播放、重复点击幂等、退出重载原始 MIDI；亮色 centralWidget 背景与边框使用
+                colorBorder；向导包含简单/正常小节；既有 234 项回归。Spec Patch：无。"
+              requirementsEvidence:
+                contentHash: 75633316cb6af1e545f9595aa4e7e1868ba34a7f31801f125132e42e7d4a8741
+                ref: docs/openspec/changes/simple-mode-and-ui-polish
+              sourceEvidence:
+                contentHash: 3547af320a3a86e5a698fc6a929be455b3906f09f5487db91b5185e989a633b2
+                ref: docs/openspec/changes/simple-mode-and-ui-polish
+        proposalHash: 501d91e5a88649d6c060471a29a8069bea4e0589806f80d196e715faf27ad7c2
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: classic-design-501d91e5a88649d6c060471a29a8069bea4e0589806f80d196e715faf27ad7c2-approved
+          choice: approved
+          proposalHash: 501d91e5a88649d6c060471a29a8069bea4e0589806f80d196e715faf27ad7c2
+      - id: simple-mode-and-ui-polish:10
+        stepId: full.build.confirm
+        sequence: 10
+        status: resolved
+        proposal:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+        proposalHash: dc0c8ac3ff5a83646717e4418323d5c1a556127b97256ca91f50b45103d9e1f8
+        choices:
+          - approved
+          - rejected
+        results: {}
+        decision:
+          id: 15f0b52c-bdb6-4d99-83a6-b78059b208d8
+          choice: approved
+          proposalHash: dc0c8ac3ff5a83646717e4418323d5c1a556127b97256ca91f50b45103d9e1f8
+      - id: simple-mode-and-ui-polish:21
+        stepId: full.archive.confirm
+        sequence: 21
+        status: resolved
+        proposal:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs:
+            full.archive.prepare:
+              summary: 控制面板标题下新增简单模式/亮色/置顶/向导一行，左栏加宽到
+                438px；列表使用自绘勾选框与悬停滚动歌名。新增简单模式：隐藏铺面编辑、静默清空、固定 Z/7 与 C2–B5，点击「▶️
+                播放」时重读原始 MIDI、全量曲谱优化、保存资产后播放，重复点击不叠加；退出恢复标签并重载原始 MIDI。亮色下
+                centralWidget 与面板/分组框边框改为淡灰，向导补充简单/正常模式说明。245 项测试通过，exe 已重新打包。
+              targetBranch: main
+        proposalHash: 41d8bed8fbf02b054ea65e6ef6aba73acf6fabbaf1a1e2aa713ca0570016871e
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results: {}
+        decision:
+          id: classic-archive-41d8bed8fbf02b054ea65e6ef6aba73acf6fabbaf1a1e2aa713ca0570016871e-local
+          choice: local
+          proposalHash: 41d8bed8fbf02b054ea65e6ef6aba73acf6fabbaf1a1e2aa713ca0570016871e
+    evidenceWaits:
+      - id: simple-mode-and-ui-polish:2
+        stepId: full.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/simple-mode-and-ui-polish
+          contentHash: bd74d4fae1f9657dc48cc4b5ab857d2b440449a79787d8b97139892b3a8b5491
+          submissionId: 3bfff939-f138-4c9b-bbf9-9167d9be2723
+      - id: simple-mode-and-ui-polish:8
+        stepId: full.design.evidence
+        sequence: 8
+        kind: classic-design-document
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/openspec/changes/simple-mode-and-ui-polish/design.md
+          contentHash: c3228a0e4ede84afc0095a9188d07a7abd67625b2646078f97d35e9eabc0bb77
+          submissionId: 1924d63b-8052-4e0c-b935-153d3786e21a
+      - id: simple-mode-and-ui-polish:12
+        stepId: full.build.plan.evidence
+        sequence: 12
+        kind: classic-build-plan
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/plans/2026-11-19-simple-mode-and-ui-polish.md
+          contentHash: ccb2bdf673cae7e54f7ab48fa0ad7f8900b4ce37b7606db1bef1bb91d6e744a8
+          submissionId: d1c33e32-2fc7-41ff-b68f-53455d7d8519
+      - id: simple-mode-and-ui-polish:15
+        stepId: full.build.check.evidence
+        sequence: 15
+        kind: classic-build-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/e97f9ac1-b894-4c40-a9fa-383253a4ac18.log
+          contentHash: e5ce8861dc873fc78f14d20a1f68d100f3806fb19c877e24df5dc2467b600aed
+          submissionId: 50ed971c-4c54-42c4-b56a-260abedb5e0d
+      - id: simple-mode-and-ui-polish:17
+        stepId: full.verify.report.evidence
+        sequence: 17
+        kind: classic-verification-report
+        status: resolved
+        results: {}
+        receipt:
+          ref: docs/superpowers/reports/2026-11-19-simple-mode-and-ui-polish-verification.md
+          contentHash: 2946a01eb641b53e2977e40c4194c622bd5bf4321773063b2b2dcc82a99a09b5
+          submissionId: 52be131b-5bf3-481d-8ac3-923269664c7c
+      - id: simple-mode-and-ui-polish:19
+        stepId: full.verify.check.evidence
+        sequence: 19
+        kind: classic-verify-check
+        status: resolved
+        results: {}
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/04c7178b-a17c-4101-ae1f-a4ac185915b8.log
+          contentHash: dfc492bc8f1f8c446ab8fccb2290cdddced7cc496622dd719b9506c3c6e0201f
+          submissionId: 6b4c3935-f5ea-46cf-bcfb-6f3d0acc8ebd
+    ready: []
+    joins: {}
+    outputs: {}
+    children: []
+    lineage: []
+  sourceRevision: 37
+  sourceHash: b04437b1dbb2b41750386123eac9a5e0dd6dce178d26eb2b2acefb4f56e1a3d7
+  pool:
+    version: 3
+    values:
+      - event: open-complete
+      - choice: approved
+        proposal:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs:
+            full.open:
+              event: open-complete
+            full.open.evidence:
+              contentHash: bd74d4fae1f9657dc48cc4b5ab857d2b440449a79787d8b97139892b3a8b5491
+              ref: docs/openspec/changes/simple-mode-and-ui-polish
+      - contentHash: bd74d4fae1f9657dc48cc4b5ab857d2b440449a79787d8b97139892b3a8b5491
+        ref: docs/openspec/changes/simple-mode-and-ui-polish
+      - contentHash: bd74d4fae1f9657dc48cc4b5ab857d2b440449a79787d8b97139892b3a8b5491
+      - choice: approved
+        proposal:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs:
+            full.design.handoff:
+              handoffContext: docs/openspec/changes/simple-mode-and-ui-polish/.comet/handoff/design-context.json
+              handoffHash: fcbebf4ba4994cc12c8f365e29754d2f0daf3982ae5fb59e1de08893f3c0858d
+              proposal: "方案：1) 控制面板标题行只保留「🎛️
+                控制面板」，在其下方新增一行依次放置「简单模式（可切换）」「亮色/深色」「置顶」「向导」，全部小号按钮；移除标题行与导入按钮行\
+                中的旧位置。2) 左侧面板宽度 350→438（+25%），splitter 初始比例同步；新增
+                app/ui/widgets.py：AntCheckBox 自绘 14px 圆角方框与白色勾选折线，颜色读取
+                theme.current_tokens()，主题切换时统一刷新；MarqueeLabel 在文字超出宽度且鼠标悬停时每
+                40ms 左移 1px，到末尾（宽度+40px）停顿 1s 后回到 0
+                循环，移出停止并复位到从头显示；列表行改为「AntCheckBox + MarqueeLabel」。3) 简单模式：新增
+                simple_mode 状态与切换按钮。进入时停止播放、丢弃未保存标记（不保存）、清空铺面 notes
+                与历史基线、从标签栏移除「铺面编辑」页、映射下拉固定 Z/7 且绝对音域固定 C2/B5（黄色框
+                36–83）并禁用映射下拉、显示「▶️ 播放」按钮；退出时隐藏播放按钮、重新插入标签页、恢复映射控件，并根据
+                current_midi_path 重新加载原始 MIDI（覆盖优化后的资产）。4) 简单播放
+                on_simple_play_clicked：若正在播放则提示返回；解析当前曲目路径；用 MidiToKeysConverter
+                重新读取原始 MIDI 音符并 set_notes；固定映射与音域；调用新增的
+                PianoRollCanvas.arpeggiate_all（临时全选后复用
+                arpeggiate_selected，再恢复选择）对全部音符做 1/32 拍优化；调用
+                _save_current_play_assets 保存优化后的 edited MIDI 与 play_code
+                JSON，清未保存标记与历史基线；最后 start_playing 读取 JSON 播放；每次点击都从原始 MIDI
+                重新开始，避免叠加优化。5) 亮色框线：central_widget 设置 objectName
+                centralWidget，QSS 用 colorBgBase
+                作为背景；QFrame#leftPanel/rightPanel、QGroupBox、QFrame#controlPanel
+                边框统一改为 colorBorder（亮色 #d9d9d9、深色 #424242）；apply_theme 后刷新所有
+                AntCheckBox。6)
+                向导新增「简单模式」「正常模式」两个独立小节，并补更新按钮行、勾选与悬停滚动、简单播放说明。关键取舍：不用 QSS
+                图片资源实现勾选（打包路径复杂，改为自绘）；简单模式不缓存优化结果（重复点击会叠加，改为每次重读原始
+                MIDI）；不保留编辑标签只禁用（用户要求标签消失）。风险：简单模式会静默丢弃未保存修改（用户已确认）；每次简单播放多一次
+                MIDI 解析；自绘控件需跟随主题重绘；亮色边框统一后深色主题边框会更明显。测试策略：控制面板四按钮同一行、左栏宽度
+                438；勾选状态与悬停滚动启停；简单模式隐藏/恢复标签、清空铺面、固定 Z/7 与
+                C2/B5、简单播放调用优化+保存+播放、重复点击幂等、退出重载原始 MIDI；亮色 centralWidget 背景与边框使用
+                colorBorder；向导包含简单/正常小节；既有 234 项回归。Spec Patch：无。"
+              requirementsEvidence:
+                contentHash: 75633316cb6af1e545f9595aa4e7e1868ba34a7f31801f125132e42e7d4a8741
+                ref: docs/openspec/changes/simple-mode-and-ui-polish
+              sourceEvidence:
+                contentHash: 3547af320a3a86e5a698fc6a929be455b3906f09f5487db91b5185e989a633b2
+                ref: docs/openspec/changes/simple-mode-and-ui-polish
+      - handoffContext: docs/openspec/changes/simple-mode-and-ui-polish/.comet/handoff/design-context.json
+        handoffHash: fcbebf4ba4994cc12c8f365e29754d2f0daf3982ae5fb59e1de08893f3c0858d
+        proposal: "方案：1) 控制面板标题行只保留「🎛️
+          控制面板」，在其下方新增一行依次放置「简单模式（可切换）」「亮色/深色」「置顶」「向导」，全部小号按钮；移除标题行与导入按钮行中的旧位置。\
+          2) 左侧面板宽度 350→438（+25%），splitter 初始比例同步；新增
+          app/ui/widgets.py：AntCheckBox 自绘 14px 圆角方框与白色勾选折线，颜色读取
+          theme.current_tokens()，主题切换时统一刷新；MarqueeLabel 在文字超出宽度且鼠标悬停时每 40ms 左移
+          1px，到末尾（宽度+40px）停顿 1s 后回到 0 循环，移出停止并复位到从头显示；列表行改为「AntCheckBox +
+          MarqueeLabel」。3) 简单模式：新增 simple_mode 状态与切换按钮。进入时停止播放、丢弃未保存标记（不保存）、清空铺面
+          notes 与历史基线、从标签栏移除「铺面编辑」页、映射下拉固定 Z/7 且绝对音域固定 C2/B5（黄色框
+          36–83）并禁用映射下拉、显示「▶️ 播放」按钮；退出时隐藏播放按钮、重新插入标签页、恢复映射控件，并根据
+          current_midi_path 重新加载原始 MIDI（覆盖优化后的资产）。4) 简单播放
+          on_simple_play_clicked：若正在播放则提示返回；解析当前曲目路径；用 MidiToKeysConverter
+          重新读取原始 MIDI 音符并 set_notes；固定映射与音域；调用新增的
+          PianoRollCanvas.arpeggiate_all（临时全选后复用
+          arpeggiate_selected，再恢复选择）对全部音符做 1/32 拍优化；调用 _save_current_play_assets
+          保存优化后的 edited MIDI 与 play_code JSON，清未保存标记与历史基线；最后 start_playing 读取
+          JSON 播放；每次点击都从原始 MIDI 重新开始，避免叠加优化。5) 亮色框线：central_widget 设置 objectName
+          centralWidget，QSS 用 colorBgBase
+          作为背景；QFrame#leftPanel/rightPanel、QGroupBox、QFrame#controlPanel 边框统一改为
+          colorBorder（亮色 #d9d9d9、深色 #424242）；apply_theme 后刷新所有 AntCheckBox。6)
+          向导新增「简单模式」「正常模式」两个独立小节，并补更新按钮行、勾选与悬停滚动、简单播放说明。关键取舍：不用 QSS
+          图片资源实现勾选（打包路径复杂，改为自绘）；简单模式不缓存优化结果（重复点击会叠加，改为每次重读原始
+          MIDI）；不保留编辑标签只禁用（用户要求标签消失）。风险：简单模式会静默丢弃未保存修改（用户已确认）；每次简单播放多一次 MIDI
+          解析；自绘控件需跟随主题重绘；亮色边框统一后深色主题边框会更明显。测试策略：控制面板四按钮同一行、左栏宽度
+          438；勾选状态与悬停滚动启停；简单模式隐藏/恢复标签、清空铺面、固定 Z/7 与
+          C2/B5、简单播放调用优化+保存+播放、重复点击幂等、退出重载原始 MIDI；亮色 centralWidget 背景与边框使用
+          colorBorder；向导包含简单/正常小节；既有 234 项回归。Spec Patch：无。"
+        requirementsEvidence:
+          contentHash: 75633316cb6af1e545f9595aa4e7e1868ba34a7f31801f125132e42e7d4a8741
+          ref: docs/openspec/changes/simple-mode-and-ui-polish
+        sourceEvidence:
+          contentHash: 3547af320a3a86e5a698fc6a929be455b3906f09f5487db91b5185e989a633b2
+          ref: docs/openspec/changes/simple-mode-and-ui-polish
+      - designDoc: docs/openspec/changes/simple-mode-and-ui-polish/design.md
+      - contentHash: c3228a0e4ede84afc0095a9188d07a7abd67625b2646078f97d35e9eabc0bb77
+        ref: docs/openspec/changes/simple-mode-and-ui-polish/design.md
+      - boundBranch: main
+        buildMode: executing-plans
+        directOverride: false
+        isolation: current
+        reviewMode: standard
+        subagentDispatch: null
+        tddMode: tdd
+      - choice: approved
+        proposal:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs:
+            full.build.configure:
+              boundBranch: main
+              buildMode: executing-plans
+              directOverride: false
+              isolation: current
+              reviewMode: standard
+              subagentDispatch: null
+              tddMode: tdd
+      - designEvidence:
+          contentHash: c3228a0e4ede84afc0095a9188d07a7abd67625b2646078f97d35e9eabc0bb77
+          ref: docs/openspec/changes/simple-mode-and-ui-polish/design.md
+        plan: docs/superpowers/plans/2026-11-19-simple-mode-and-ui-polish.md
+        planEvidence:
+          contentHash: ccb2bdf673cae7e54f7ab48fa0ad7f8900b4ce37b7606db1bef1bb91d6e744a8
+          ref: docs/superpowers/plans/2026-11-19-simple-mode-and-ui-polish.md
+        taskRevision: 607f71ffb99437bef6b248840d3ef3cfcb8df8aa308d594530f3bdef36b474f7
+      - contentHash: ccb2bdf673cae7e54f7ab48fa0ad7f8900b4ce37b7606db1bef1bb91d6e744a8
+        ref: docs/superpowers/plans/2026-11-19-simple-mode-and-ui-polish.md
+      - event: build-complete
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 2
+        contentHash: e5ce8861dc873fc78f14d20a1f68d100f3806fb19c877e24df5dc2467b600aed
+        cwd: .
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: e7b4aa22fbc49cb7fc556b8b8d776e1fec87129ea54258fc6cf97a655a7850fb
+        inputBefore: e7b4aa22fbc49cb7fc556b8b8d776e1fec87129ea54258fc6cf97a655a7850fb
+        manifestHash: 69e259c336b478d9b502bffa9e4884e73a2fd4b34b4cdd178acbcd28e7007d94
+        manifestRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/cadd417d-f111-417c-acfd-0e41691403ca.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/e97f9ac1-b894-4c40-a9fa-383253a4ac18.log
+        reusable: false
+        reused: false
+        scope: build
+        tier: full
+        timeoutMs: 300000
+      - contentHash: e5ce8861dc873fc78f14d20a1f68d100f3806fb19c877e24df5dc2467b600aed
+        ref: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/e97f9ac1-b894-4c40-a9fa-383253a4ac18.log
+      - contentHash: 2946a01eb641b53e2977e40c4194c622bd5bf4321773063b2b2dcc82a99a09b5
+        ref: docs/superpowers/reports/2026-11-19-simple-mode-and-ui-polish-verification.md
+      - event: verification-ready
+        verificationReport: docs/superpowers/reports/2026-11-19-simple-mode-and-ui-polish-verification.md
+      - argv:
+          - .venv\Scripts\python.exe
+          - -m
+          - unittest
+          - discover
+          - -s
+          - tests
+          - -v
+        changedDuringExecution: []
+        checkEpoch: 3
+        contentHash: dfc492bc8f1f8c446ab8fccb2290cdddced7cc496622dd719b9506c3c6e0201f
+        cwd: .
+        deliveryInputs: {}
+        environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+        exitCode: 0
+        inputAfter: c988e27262c1b6f5230a7370ff31f35e260d1d641b0a6e860412d788e6d8642b
+        inputBefore: c988e27262c1b6f5230a7370ff31f35e260d1d641b0a6e860412d788e6d8642b
+        manifestHash: f24617ec0abde181d101feced9eaf5fc43574c49d87041057990d0ddc4874434
+        manifestRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/502334c8-6b6f-4fb8-bb9a-52d30a9da0ea.manifest
+        receiptRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/04c7178b-a17c-4101-ae1f-a4ac185915b8.log
+        reusable: false
+        reused: false
+        scope: verify
+        tier: full
+        timeoutMs: 300000
+      - contentHash: dfc492bc8f1f8c446ab8fccb2290cdddced7cc496622dd719b9506c3c6e0201f
+        ref: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/04c7178b-a17c-4101-ae1f-a4ac185915b8.log
+      - choice: local
+        proposal:
+          input:
+            change: simple-mode-and-ui-polish
+            changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+            workspaceBaseline:
+              ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+          outputs:
+            full.archive.prepare:
+              summary: 控制面板标题下新增简单模式/亮色/置顶/向导一行，左栏加宽到
+                438px；列表使用自绘勾选框与悬停滚动歌名。新增简单模式：隐藏铺面编辑、静默清空、固定 Z/7 与 C2–B5，点击「▶️
+                播放」时重读原始 MIDI、全量曲谱优化、保存资产后播放，重复点击不叠加；退出恢复标签并重载原始 MIDI。亮色下
+                centralWidget 与面板/分组框边框改为淡灰，向导补充简单/正常模式说明。245 项测试通过，exe 已重新打包。
+              targetBranch: main
+      - summary: 控制面板标题下新增简单模式/亮色/置顶/向导一行，左栏加宽到
+          438px；列表使用自绘勾选框与悬停滚动歌名。新增简单模式：隐藏铺面编辑、静默清空、固定 Z/7 与 C2–B5，点击「▶️
+          播放」时重读原始 MIDI、全量曲谱优化、保存资产后播放，重复点击不叠加；退出恢复标签并重载原始 MIDI。亮色下
+          centralWidget 与面板/分组框边框改为淡灰，向导补充简单/正常模式说明。245 项测试通过，exe 已重新打包。
+        targetBranch: main
+      - baseCommit: 28622aba0a4b18e76d7825c30c878b733aa253b3
+        deliveryAction: local
+        targetBranch: main
+        verifiedBranch: main
+      - archiveDirectory: docs/openspec/changes/archive/2026-11-19-simple-mode-and-ui-polish
+      - sequence: 9
+        value:
+          boundBranch: main
+          buildMode: executing-plans
+          directOverride: false
+          isolation: current
+          reviewMode: standard
+          subagentDispatch: null
+          tddMode: tdd
+      - sequence: 10
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: simple-mode-and-ui-polish
+              changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+              workspaceBaseline:
+                ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+            outputs:
+              full.build.configure:
+                boundBranch: main
+                buildMode: executing-plans
+                directOverride: false
+                isolation: current
+                reviewMode: standard
+                subagentDispatch: null
+                tddMode: tdd
+      - sequence: 6
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: simple-mode-and-ui-polish
+              changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+              workspaceBaseline:
+                ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+            outputs:
+              full.design.handoff:
+                handoffContext: docs/openspec/changes/simple-mode-and-ui-polish/.comet/handoff/design-context.json
+                handoffHash: fcbebf4ba4994cc12c8f365e29754d2f0daf3982ae5fb59e1de08893f3c0858d
+                proposal: "方案：1) 控制面板标题行只保留「🎛️
+                  控制面板」，在其下方新增一行依次放置「简单模式（可切换）」「亮色/深色」「置顶」「向导」，全部小号按钮；移除标题行与导入按\
+                  钮行中的旧位置。2) 左侧面板宽度 350→438（+25%），splitter 初始比例同步；新增
+                  app/ui/widgets.py：AntCheckBox 自绘 14px 圆角方框与白色勾选折线，颜色读取
+                  theme.current_tokens()，主题切换时统一刷新；MarqueeLabel 在文字超出宽度且鼠标悬停时每
+                  40ms 左移 1px，到末尾（宽度+40px）停顿 1s 后回到 0
+                  循环，移出停止并复位到从头显示；列表行改为「AntCheckBox + MarqueeLabel」。3) 简单模式：新增
+                  simple_mode 状态与切换按钮。进入时停止播放、丢弃未保存标记（不保存）、清空铺面 notes
+                  与历史基线、从标签栏移除「铺面编辑」页、映射下拉固定 Z/7 且绝对音域固定 C2/B5（黄色框
+                  36–83）并禁用映射下拉、显示「▶️ 播放」按钮；退出时隐藏播放按钮、重新插入标签页、恢复映射控件，并根据
+                  current_midi_path 重新加载原始 MIDI（覆盖优化后的资产）。4) 简单播放
+                  on_simple_play_clicked：若正在播放则提示返回；解析当前曲目路径；用
+                  MidiToKeysConverter 重新读取原始 MIDI 音符并 set_notes；固定映射与音域；调用新增的
+                  PianoRollCanvas.arpeggiate_all（临时全选后复用
+                  arpeggiate_selected，再恢复选择）对全部音符做 1/32 拍优化；调用
+                  _save_current_play_assets 保存优化后的 edited MIDI 与 play_code
+                  JSON，清未保存标记与历史基线；最后 start_playing 读取 JSON 播放；每次点击都从原始 MIDI
+                  重新开始，避免叠加优化。5) 亮色框线：central_widget 设置 objectName
+                  centralWidget，QSS 用 colorBgBase
+                  作为背景；QFrame#leftPanel/rightPanel、QGroupBox、QFrame#controlPanel
+                  边框统一改为 colorBorder（亮色 #d9d9d9、深色 #424242）；apply_theme 后刷新所有
+                  AntCheckBox。6)
+                  向导新增「简单模式」「正常模式」两个独立小节，并补更新按钮行、勾选与悬停滚动、简单播放说明。关键取舍：不用 QSS
+                  图片资源实现勾选（打包路径复杂，改为自绘）；简单模式不缓存优化结果（重复点击会叠加，改为每次重读原始
+                  MIDI）；不保留编辑标签只禁用（用户要求标签消失）。风险：简单模式会静默丢弃未保存修改（用户已确认）；每次简单播放多一次
+                  MIDI 解析；自绘控件需跟随主题重绘；亮色边框统一后深色主题边框会更明显。测试策略：控制面板四按钮同一行、左栏宽度
+                  438；勾选状态与悬停滚动启停；简单模式隐藏/恢复标签、清空铺面、固定 Z/7 与
+                  C2/B5、简单播放调用优化+保存+播放、重复点击幂等、退出重载原始 MIDI；亮色 centralWidget
+                  背景与边框使用 colorBorder；向导包含简单/正常小节；既有 234 项回归。Spec Patch：无。"
+                requirementsEvidence:
+                  contentHash: 75633316cb6af1e545f9595aa4e7e1868ba34a7f31801f125132e42e7d4a8741
+                  ref: docs/openspec/changes/simple-mode-and-ui-polish
+                sourceEvidence:
+                  contentHash: 3547af320a3a86e5a698fc6a929be455b3906f09f5487db91b5185e989a633b2
+                  ref: docs/openspec/changes/simple-mode-and-ui-polish
+      - sequence: 7
+        value:
+          designDoc: docs/openspec/changes/simple-mode-and-ui-polish/design.md
+      - sequence: 8
+        value:
+          contentHash: c3228a0e4ede84afc0095a9188d07a7abd67625b2646078f97d35e9eabc0bb77
+          ref: docs/openspec/changes/simple-mode-and-ui-polish/design.md
+      - sequence: 5
+        value:
+          handoffContext: docs/openspec/changes/simple-mode-and-ui-polish/.comet/handoff/design-context.json
+          handoffHash: fcbebf4ba4994cc12c8f365e29754d2f0daf3982ae5fb59e1de08893f3c0858d
+          proposal: "方案：1) 控制面板标题行只保留「🎛️
+            控制面板」，在其下方新增一行依次放置「简单模式（可切换）」「亮色/深色」「置顶」「向导」，全部小号按钮；移除标题行与导入按钮行中的旧位\
+            置。2) 左侧面板宽度 350→438（+25%），splitter 初始比例同步；新增
+            app/ui/widgets.py：AntCheckBox 自绘 14px 圆角方框与白色勾选折线，颜色读取
+            theme.current_tokens()，主题切换时统一刷新；MarqueeLabel 在文字超出宽度且鼠标悬停时每 40ms 左移
+            1px，到末尾（宽度+40px）停顿 1s 后回到 0 循环，移出停止并复位到从头显示；列表行改为「AntCheckBox +
+            MarqueeLabel」。3) 简单模式：新增 simple_mode
+            状态与切换按钮。进入时停止播放、丢弃未保存标记（不保存）、清空铺面 notes 与历史基线、从标签栏移除「铺面编辑」页、映射下拉固定
+            Z/7 且绝对音域固定 C2/B5（黄色框 36–83）并禁用映射下拉、显示「▶️
+            播放」按钮；退出时隐藏播放按钮、重新插入标签页、恢复映射控件，并根据 current_midi_path 重新加载原始
+            MIDI（覆盖优化后的资产）。4) 简单播放 on_simple_play_clicked：若正在播放则提示返回；解析当前曲目路径；用
+            MidiToKeysConverter 重新读取原始 MIDI 音符并 set_notes；固定映射与音域；调用新增的
+            PianoRollCanvas.arpeggiate_all（临时全选后复用
+            arpeggiate_selected，再恢复选择）对全部音符做 1/32 拍优化；调用
+            _save_current_play_assets 保存优化后的 edited MIDI 与 play_code
+            JSON，清未保存标记与历史基线；最后 start_playing 读取 JSON 播放；每次点击都从原始 MIDI
+            重新开始，避免叠加优化。5) 亮色框线：central_widget 设置 objectName centralWidget，QSS 用
+            colorBgBase
+            作为背景；QFrame#leftPanel/rightPanel、QGroupBox、QFrame#controlPanel
+            边框统一改为 colorBorder（亮色 #d9d9d9、深色 #424242）；apply_theme 后刷新所有
+            AntCheckBox。6) 向导新增「简单模式」「正常模式」两个独立小节，并补更新按钮行、勾选与悬停滚动、简单播放说明。关键取舍：不用
+            QSS 图片资源实现勾选（打包路径复杂，改为自绘）；简单模式不缓存优化结果（重复点击会叠加，改为每次重读原始
+            MIDI）；不保留编辑标签只禁用（用户要求标签消失）。风险：简单模式会静默丢弃未保存修改（用户已确认）；每次简单播放多一次 MIDI
+            解析；自绘控件需跟随主题重绘；亮色边框统一后深色主题边框会更明显。测试策略：控制面板四按钮同一行、左栏宽度
+            438；勾选状态与悬停滚动启停；简单模式隐藏/恢复标签、清空铺面、固定 Z/7 与
+            C2/B5、简单播放调用优化+保存+播放、重复点击幂等、退出重载原始 MIDI；亮色 centralWidget 背景与边框使用
+            colorBorder；向导包含简单/正常小节；既有 234 项回归。Spec Patch：无。"
+          requirementsEvidence:
+            contentHash: 75633316cb6af1e545f9595aa4e7e1868ba34a7f31801f125132e42e7d4a8741
+            ref: docs/openspec/changes/simple-mode-and-ui-polish
+          sourceEvidence:
+            contentHash: 3547af320a3a86e5a698fc6a929be455b3906f09f5487db91b5185e989a633b2
+            ref: docs/openspec/changes/simple-mode-and-ui-polish
+      - sequence: 1
+        value:
+          event: open-complete
+      - sequence: 3
+        value:
+          choice: approved
+          proposal:
+            input:
+              change: simple-mode-and-ui-polish
+              changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+              workspaceBaseline:
+                ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+            outputs:
+              full.open:
+                event: open-complete
+              full.open.evidence:
+                contentHash: bd74d4fae1f9657dc48cc4b5ab857d2b440449a79787d8b97139892b3a8b5491
+                ref: docs/openspec/changes/simple-mode-and-ui-polish
+      - sequence: 2
+        value:
+          contentHash: bd74d4fae1f9657dc48cc4b5ab857d2b440449a79787d8b97139892b3a8b5491
+          ref: docs/openspec/changes/simple-mode-and-ui-polish
+      - sequence: 4
+        value:
+          contentHash: bd74d4fae1f9657dc48cc4b5ab857d2b440449a79787d8b97139892b3a8b5491
+      - sequence: 11
+        value:
+          designEvidence:
+            contentHash: c3228a0e4ede84afc0095a9188d07a7abd67625b2646078f97d35e9eabc0bb77
+            ref: docs/openspec/changes/simple-mode-and-ui-polish/design.md
+          plan: docs/superpowers/plans/2026-11-19-simple-mode-and-ui-polish.md
+          planEvidence:
+            contentHash: ccb2bdf673cae7e54f7ab48fa0ad7f8900b4ce37b7606db1bef1bb91d6e744a8
+            ref: docs/superpowers/plans/2026-11-19-simple-mode-and-ui-polish.md
+          taskRevision: 607f71ffb99437bef6b248840d3ef3cfcb8df8aa308d594530f3bdef36b474f7
+      - sequence: 12
+        value:
+          contentHash: ccb2bdf673cae7e54f7ab48fa0ad7f8900b4ce37b7606db1bef1bb91d6e744a8
+          ref: docs/superpowers/plans/2026-11-19-simple-mode-and-ui-polish.md
+      - sequence: 13
+        value:
+          event: build-complete
+      - sequence: 14
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: e5ce8861dc873fc78f14d20a1f68d100f3806fb19c877e24df5dc2467b600aed
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: e7b4aa22fbc49cb7fc556b8b8d776e1fec87129ea54258fc6cf97a655a7850fb
+          inputBefore: e7b4aa22fbc49cb7fc556b8b8d776e1fec87129ea54258fc6cf97a655a7850fb
+          manifestHash: 69e259c336b478d9b502bffa9e4884e73a2fd4b34b4cdd178acbcd28e7007d94
+          manifestRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/cadd417d-f111-417c-acfd-0e41691403ca.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/e97f9ac1-b894-4c40-a9fa-383253a4ac18.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      - sequence: 15
+        value:
+          contentHash: e5ce8861dc873fc78f14d20a1f68d100f3806fb19c877e24df5dc2467b600aed
+          ref: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/e97f9ac1-b894-4c40-a9fa-383253a4ac18.log
+      - sequence: 17
+        value:
+          contentHash: 2946a01eb641b53e2977e40c4194c622bd5bf4321773063b2b2dcc82a99a09b5
+          ref: docs/superpowers/reports/2026-11-19-simple-mode-and-ui-polish-verification.md
+      - sequence: 16
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-19-simple-mode-and-ui-polish-verification.md
+      - sequence: 18
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 3
+          contentHash: dfc492bc8f1f8c446ab8fccb2290cdddced7cc496622dd719b9506c3c6e0201f
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: c988e27262c1b6f5230a7370ff31f35e260d1d641b0a6e860412d788e6d8642b
+          inputBefore: c988e27262c1b6f5230a7370ff31f35e260d1d641b0a6e860412d788e6d8642b
+          manifestHash: f24617ec0abde181d101feced9eaf5fc43574c49d87041057990d0ddc4874434
+          manifestRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/502334c8-6b6f-4fb8-bb9a-52d30a9da0ea.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/04c7178b-a17c-4101-ae1f-a4ac185915b8.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      - sequence: 19
+        value:
+          contentHash: dfc492bc8f1f8c446ab8fccb2290cdddced7cc496622dd719b9506c3c6e0201f
+          ref: .comet/runtime/classic-sdk-checks/e59828d85cb2bc1ef5a7205c36dbf7ecb66863723106485d602eef173474540e/04c7178b-a17c-4101-ae1f-a4ac185915b8.log
+      - sequence: 21
+        value:
+          choice: local
+          proposal:
+            input:
+              change: simple-mode-and-ui-polish
+              changeDir: docs/openspec/changes/simple-mode-and-ui-polish
+              workspaceBaseline:
+                ref: 854bacc7-30e1-4c77-855d-8ac30783918e
+            outputs:
+              full.archive.prepare:
+                summary: 控制面板标题下新增简单模式/亮色/置顶/向导一行，左栏加宽到
+                  438px；列表使用自绘勾选框与悬停滚动歌名。新增简单模式：隐藏铺面编辑、静默清空、固定 Z/7 与 C2–B5，点击「▶️
+                  播放」时重读原始 MIDI、全量曲谱优化、保存资产后播放，重复点击不叠加；退出恢复标签并重载原始 MIDI。亮色下
+                  centralWidget 与面板/分组框边框改为淡灰，向导补充简单/正常模式说明。245 项测试通过，exe 已重新打包。
+                targetBranch: main
+      - sequence: 20
+        value:
+          summary: 控制面板标题下新增简单模式/亮色/置顶/向导一行，左栏加宽到
+            438px；列表使用自绘勾选框与悬停滚动歌名。新增简单模式：隐藏铺面编辑、静默清空、固定 Z/7 与 C2–B5，点击「▶️
+            播放」时重读原始 MIDI、全量曲谱优化、保存资产后播放，重复点击不叠加；退出恢复标签并重载原始 MIDI。亮色下
+            centralWidget 与面板/分组框边框改为淡灰，向导补充简单/正常模式说明。245 项测试通过，exe 已重新打包。
+          targetBranch: main
+      - sequence: 22
+        value:
+          baseCommit: 28622aba0a4b18e76d7825c30c878b733aa253b3
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      - sequence: 23
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-19-simple-mode-and-ui-polish
+    nodes:
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 1
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: 3
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 0
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 0
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 5
+        left: 6
+        right: 7
+        height: 2
+      - key: full.open.confirm
+        value: 1
+        left: 8
+        right: 4
+        height: 3
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 7
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 6
+        left: 10
+        right: 11
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 12
+        right: 7
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 13
+        right: 4
+        height: 4
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 16
+        height: 2
+      - key: full.design.handoff
+        value: 5
+        left: 11
+        right: 7
+        height: 2
+      - key: full.design.document
+        value: 6
+        left: 17
+        right: 18
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 19
+        right: 4
+        height: 4
+      - key: full.build.plan
+        value: 10
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 4
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 11
+        left: 21
+        right: 22
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 23
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 4
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 24
+        right: 25
+        height: 4
+      - key: full.build.execute
+        value: 12
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 9
+        left: 15
+        right: 27
+        height: 2
+      - key: full.build.plan.evidence
+        value: 11
+        left: null
+        right: 22
+        height: 2
+      - key: full.build.plan
+        value: 10
+        left: 28
+        right: 29
+        height: 3
+      - key: full.design.document
+        value: 6
+        left: 30
+        right: 25
+        height: 4
+      - key: full.build.check
+        value: 13
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 8
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 14
+        left: 32
+        right: 33
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 34
+        right: 27
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 35
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 25
+        height: 5
+      - key: full.open.evidence
+        value: 2
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 16
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 15
+        left: null
+        right: 39
+        height: 2
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: 40
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 41
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 42
+        height: 5
+      - key: full.open.revalidate
+        value: 3
+        left: 38
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 18
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 15
+        left: 45
+        right: 39
+        height: 2
+      - key: full.verify.check
+        value: 17
+        left: 44
+        right: 46
+        height: 3
+      - key: full.open.confirm
+        value: 1
+        left: 18
+        right: 47
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 36
+        right: 48
+        height: 5
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 13
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 20
+        left: 50
+        right: 51
+        height: 2
+      - key: full.build.confirm
+        value: 9
+        left: 33
+        right: 27
+        height: 2
+      - key: full.build.check.evidence
+        value: 14
+        left: 52
+        right: 53
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 54
+        right: 29
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 55
+        right: 48
+        height: 5
+      - key: full.archive.preflight
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: 57
+        height: 2
+      - key: full.archive.prepare
+        value: 20
+        left: 58
+        right: 51
+        height: 3
+      - key: full.build.plan
+        value: 10
+        left: 53
+        right: 29
+        height: 3
+      - key: full.build.check.evidence
+        value: 14
+        left: 59
+        right: 60
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 61
+        right: 48
+        height: 5
+      - key: full.archive.confirm
+        value: 19
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 21
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 22
+        left: 63
+        right: 64
+        height: 2
+      - key: full.archive.prepare
+        value: 20
+        left: 65
+        right: 51
+        height: 3
+      - key: full.build.check.evidence
+        value: 14
+        left: 66
+        right: 60
+        height: 4
+      - key: full.design.document
+        value: 6
+        left: 67
+        right: 48
+        height: 5
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 70
+        height: 2
+      - key: full.design.evidence
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: 72
+        right: 73
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: 75
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 76
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 71
+        right: 77
+        height: 4
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: 79
+        right: 80
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 81
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 82
+        right: 77
+        height: 4
+      - key: full.build.execute
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 69
+        right: 84
+        height: 2
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: 80
+        height: 2
+      - key: full.build.plan
+        value: 33
+        left: 85
+        right: 86
+        height: 3
+      - key: full.design.document
+        value: 26
+        left: 87
+        right: 77
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: 89
+        right: 90
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 91
+        right: 84
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 92
+        right: 86
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 77
+        height: 5
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: null
+        right: 96
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: 95
+        right: 97
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 98
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 99
+        height: 5
+      - key: full.open.revalidate
+        value: 32
+        left: 95
+        right: null
+        height: 2
+      - key: full.verify.check.evidence
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: 102
+        right: 96
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 101
+        right: 103
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 74
+        right: 104
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 93
+        right: 105
+        height: 5
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.prepare
+        value: 43
+        left: 107
+        right: 108
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 90
+        right: 84
+        height: 2
+      - key: full.build.check.evidence
+        value: 37
+        left: 109
+        right: 110
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 111
+        right: 86
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 112
+        right: 105
+        height: 5
+      - key: full.archive.preflight
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: 114
+        height: 2
+      - key: full.archive.prepare
+        value: 43
+        left: 115
+        right: 108
+        height: 3
+      - key: full.build.plan
+        value: 33
+        left: 110
+        right: 86
+        height: 3
+      - key: full.build.check.evidence
+        value: 37
+        left: 116
+        right: 117
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 118
+        right: 105
+        height: 5
+      - key: full.archive.confirm
+        value: 42
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.preflight
+        value: 44
+        left: null
+        right: null
+        height: 1
+      - key: full.archive.execute
+        value: 45
+        left: 120
+        right: 121
+        height: 2
+      - key: full.archive.prepare
+        value: 43
+        left: 122
+        right: 108
+        height: 3
+      - key: full.build.check.evidence
+        value: 37
+        left: 123
+        right: 117
+        height: 4
+      - key: full.design.document
+        value: 26
+        left: 124
+        right: 105
+        height: 5
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 30
+        left: 126
+        right: 127
+        height: 2
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: 129
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 126
+        right: 130
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: 132
+        right: 133
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: 134
+        right: 130
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: 136
+        right: 137
+        height: 2
+      - key: full.design.handoff
+        value: 28
+        left: 138
+        right: 133
+        height: 3
+      - key: full.open.confirm
+        value: 30
+        left: 139
+        right: 130
+        height: 4
+      - key: full.open.evidence
+        value: 31
+        left: null
+        right: null
+        height: 1
+      - key: full.open
+        value: 29
+        left: null
+        right: 141
+        height: 2
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.open.confirm
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 144
+        right: 145
+        height: 2
+      - key: full.open
+        value: 29
+        left: 143
+        right: 146
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: 149
+        right: 150
+        height: 2
+      - key: full.design.confirm
+        value: 25
+        left: 148
+        right: 151
+        height: 3
+      - key: full.open
+        value: 29
+        left: 152
+        right: 146
+        height: 4
+      - key: full.archive.prepare
+        value: 43
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check
+        value: 36
+        left: 154
+        right: 155
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: 158
+        height: 2
+      - key: full.build.execute
+        value: 35
+        left: 157
+        right: 159
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: 156
+        right: 160
+        height: 4
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 144
+        right: 162
+        height: 2
+      - key: full.verify.check.evidence
+        value: 41
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.report.evidence
+        value: 38
+        left: 164
+        right: 165
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 163
+        right: 166
+        height: 3
+      - key: full.open
+        value: 29
+        left: 151
+        right: 167
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 161
+        right: 168
+        height: 5
+      - key: full.open
+        value: 29
+        left: null
+        right: null
+        height: 1
+      - key: full.design.confirm
+        value: 25
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.document
+        value: 26
+        left: 171
+        right: 172
+        height: 2
+      - key: full.open.confirm
+        value: 30
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 175
+        height: 2
+      - key: full.open
+        value: 29
+        left: 173
+        right: 176
+        height: 3
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: null
+        right: null
+        height: 1
+      - key: full.build.confirm
+        value: 24
+        left: 178
+        right: 179
+        height: 2
+      - key: full.design.document
+        value: 26
+        left: null
+        right: null
+        height: 1
+      - key: full.design.handoff
+        value: 28
+        left: null
+        right: null
+        height: 1
+      - key: full.design.evidence
+        value: 27
+        left: 181
+        right: 182
+        height: 2
+      - key: full.design.confirm
+        value: 25
+        left: 180
+        right: 183
+        height: 3
+      - key: full.open
+        value: 29
+        left: 184
+        right: 176
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: 186
+        right: null
+        height: 2
+      - key: full.build.execute
+        value: 35
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan.evidence
+        value: 34
+        left: null
+        right: null
+        height: 1
+      - key: full.build.plan
+        value: 33
+        left: 188
+        right: 189
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 187
+        right: 190
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 176
+        height: 3
+      - key: full.design.confirm
+        value: 25
+        left: 191
+        right: 192
+        height: 4
+      - key: full.build.check
+        value: 36
+        left: null
+        right: null
+        height: 1
+      - key: full.build.configure
+        value: 23
+        left: null
+        right: null
+        height: 1
+      - key: full.build.check.evidence
+        value: 37
+        left: 194
+        right: 195
+        height: 2
+      - key: full.build.confirm
+        value: 24
+        left: 196
+        right: 190
+        height: 3
+      - key: full.verify.run
+        value: 39
+        left: null
+        right: null
+        height: 1
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: 198
+        height: 2
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 199
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 200
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 197
+        right: 201
+        height: 5
+      - key: full.open.revalidate
+        value: 32
+        left: null
+        right: null
+        height: 1
+      - key: full.open.evidence
+        value: 31
+        left: 174
+        right: 203
+        height: 2
+      - key: full.verify.report.evidence
+        value: 38
+        left: null
+        right: null
+        height: 1
+      - key: full.verify.run
+        value: 39
+        left: 205
+        right: null
+        height: 2
+      - key: full.verify.check
+        value: 40
+        left: 204
+        right: 206
+        height: 3
+      - key: full.open
+        value: 29
+        left: 183
+        right: 207
+        height: 4
+      - key: full.design.confirm
+        value: 25
+        left: 197
+        right: 208
+        height: 5
+    maps:
+      - null
+      - 2
+      - 5
+      - 9
+      - 14
+      - 20
+      - 26
+      - 31
+      - 37
+      - 43
+      - 49
+      - 56
+      - 62
+      - 68
+      - 78
+      - 83
+      - 88
+      - 94
+      - 100
+      - 106
+      - 113
+      - 119
+      - 125
+      - 128
+      - 131
+      - 135
+      - 140
+      - 142
+      - 147
+      - 153
+      - 169
+      - 170
+      - 177
+      - 185
+      - 193
+      - 202
+      - 209
+    bindings:
+      - path:
+          - actions
+          - "0"
+          - input
+          - outputs
+        map: 0
+      - path:
+          - actions
+          - "1"
+          - input
+          - outputs
+        map: 1
+      - path:
+          - actions
+          - "2"
+          - input
+          - outputs
+        map: 2
+      - path:
+          - actions
+          - "3"
+          - input
+          - outputs
+        map: 3
+      - path:
+          - actions
+          - "4"
+          - input
+          - outputs
+        map: 4
+      - path:
+          - actions
+          - "5"
+          - input
+          - outputs
+        map: 5
+      - path:
+          - actions
+          - "6"
+          - input
+          - outputs
+        map: 6
+      - path:
+          - actions
+          - "7"
+          - input
+          - outputs
+        map: 7
+      - path:
+          - actions
+          - "8"
+          - input
+          - outputs
+        map: 8
+      - path:
+          - actions
+          - "9"
+          - input
+          - outputs
+        map: 9
+      - path:
+          - actions
+          - "10"
+          - input
+          - outputs
+        map: 10
+      - path:
+          - actions
+          - "11"
+          - input
+          - outputs
+        map: 11
+      - path:
+          - actions
+          - "12"
+          - input
+          - outputs
+        map: 12
+      - path:
+          - actions
+          - "13"
+          - input
+          - outputs
+        map: 13
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:1
+          - results
+        map: 0
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:11
+          - results
+        map: 14
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:13
+          - results
+        map: 15
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:14
+          - results
+        map: 16
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:16
+          - results
+        map: 17
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:18
+          - results
+        map: 18
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:20
+          - results
+        map: 19
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:22
+          - results
+        map: 20
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:23
+          - results
+        map: 21
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:24
+          - results
+        map: 22
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:4
+          - results
+        map: 23
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:5
+          - results
+        map: 24
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:7
+          - results
+        map: 25
+      - path:
+          - actionContexts
+          - simple-mode-and-ui-polish:9
+          - results
+        map: 26
+      - path:
+          - outputs
+        map: 22
+      - path:
+          - waits
+          - "0"
+          - results
+        map: 27
+      - path:
+          - waits
+          - "1"
+          - results
+        map: 28
+      - path:
+          - waits
+          - "2"
+          - results
+        map: 29
+      - path:
+          - waits
+          - "3"
+          - results
+        map: 30
+      - path:
+          - evidenceWaits
+          - "0"
+          - results
+        map: 31
+      - path:
+          - evidenceWaits
+          - "1"
+          - results
+        map: 32
+      - path:
+          - evidenceWaits
+          - "2"
+          - results
+        map: 33
+      - path:
+          - evidenceWaits
+          - "3"
+          - results
+        map: 34
+      - path:
+          - evidenceWaits
+          - "4"
+          - results
+        map: 35
+      - path:
+          - evidenceWaits
+          - "5"
+          - results
+        map: 36
+  storageHash: 396d08ce0c3c5273a15b3df4040e252a737d1e55f75b668b2f2394eb6c3a8fc2
+check_epoch: 6

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>变更说明 · 控制面板重排、列表体验优化、简单模式一键优化播放与亮色框线修正</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --page: #fafbfc;
+  --ink: #202a35;
+  --muted: #566575;
+  --line: #dbe2e8;
+  --accent: #245b85;
+  --highlight: #edf3f7;
+  --hover: #e9eef3;
+  --code-bg: #edf0f4;
+  --code-ink: #263443;
+  --success: #236d4f;
+  --failure: #a83131;
+  --text: 15px;
+  --small: 13px;
+  --label: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #181d23;
+    --ink: #e4eaf0;
+    --muted: #a4b1be;
+    --line: #35404b;
+    --accent: #94c6ec;
+    --highlight: #222e39;
+    --hover: #27323d;
+    --code-bg: #10161d;
+    --code-ink: #e0e8f0;
+    --success: #8ed8b5;
+    --failure: #ffb0a8;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: var(--text)/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { max-width: 1040px; margin: auto; padding: 32px 32px 48px; }
+.eyebrow { color: var(--accent); font-size: var(--label); font-weight: 500; letter-spacing: .08em; }
+h1 { margin: 8px 0 12px; max-width: 32em; font-size: 28px; font-weight: 500; line-height: 1.4; letter-spacing: -.02em; overflow-wrap: anywhere; }
+h2 { margin: 0; font-size: 18px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+h3 { margin: 0 0 4px; color: var(--muted); font-size: var(--label); font-weight: 500; }
+p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+strong { font-weight: 500; }
+.meta { margin-bottom: 24px; color: var(--muted); font-size: var(--small); overflow-wrap: anywhere; }
+.meta p + p { margin-top: 2px; }
+article { padding: 20px 0 12px; border-top: 1px solid var(--line); }
+article header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.number { color: var(--muted); font: var(--label)/1.5 ui-monospace, Consolas, monospace; font-variant-numeric: tabular-nums; }
+.comparison { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.comparison section { min-width: 0; padding: 12px; }
+.after { background: var(--highlight); border-radius: 4px; }
+.after h3 { color: var(--accent); }
+.reason { margin-top: 12px; font-size: var(--small); color: var(--muted); }
+.reason strong { margin-right: 8px; color: var(--ink); }
+summary { min-height: 44px; padding: 10px 4px; cursor: pointer; font-size: var(--small); font-weight: 500; border-radius: 4px; }
+summary:hover { background: var(--hover); }
+summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.count, .tag { color: var(--muted); font-size: var(--label); font-weight: 400; }
+.count { margin-left: 4px; font-variant-numeric: tabular-nums; }
+.file { min-width: 0; padding: 0 0 16px; scroll-margin-top: 20px; }
+.file:target { outline: 2px solid var(--accent); outline-offset: 4px; }
+.file-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.file-heading code { min-width: 0; font-size: var(--small); overflow-wrap: anywhere; }
+.tag { white-space: nowrap; }
+pre { margin: 8px 0 0; padding: 12px 16px; overflow: auto; background: var(--code-bg); color: var(--code-ink); border-radius: 4px; font: var(--small)/1.65 ui-monospace, Consolas, monospace; tab-size: 2; }
+footer { margin-top: 12px; padding-top: 20px; border-top: 1px solid var(--line); }
+footer h2 { margin-bottom: 8px; }
+.check { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.status { padding-top: 2px; font-size: var(--label); font-weight: 500; }
+.passed { color: var(--success); }
+.failed { color: var(--failure); }
+.not-run, .unknown { color: var(--muted); }
+.check p { margin-top: 2px; color: var(--muted); font-size: var(--small); }
+.more { border-top: 1px solid var(--line); }
+.more > summary { padding-block: 12px; }
+.diagram { margin: 0; padding: 20px 0; border-top: 1px solid var(--line); }
+.diagram figcaption { margin-bottom: 12px; font-size: 18px; font-weight: 500; overflow-wrap: anywhere; }
+.diagram-svg { display: block; max-width: 100%; height: auto; margin: auto; overflow: visible; font: 13px system-ui, -apple-system, "Segoe UI", sans-serif; }
+.diagram-svg text { fill: var(--ink); }
+.diagram-edge { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+.diagram-svg marker path { fill: var(--muted); }
+.diagram-edge-label { fill: var(--page); }
+.diagram-svg .diagram-edge-text { fill: var(--muted); font-size: 12px; }
+.diagram-node rect { fill: var(--page); stroke: var(--line); stroke-width: 1.5; }
+.diagram-node.modified rect { fill: var(--highlight); stroke: var(--accent); }
+.diagram-node.added rect { stroke: var(--success); }
+.diagram-node.deleted rect { stroke: var(--failure); stroke-dasharray: 4 3; }
+.diagram-svg .diagram-kind { fill: var(--muted); font-size: 11px; }
+.diagram-node[href] { cursor: pointer; }
+.diagram-node[href]:hover rect, .diagram-node[href]:focus-visible rect { stroke: var(--accent); stroke-width: 2.5; }
+.diagram-node[href]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.diagram-hint { margin-top: 12px; color: var(--muted); font-size: var(--small); text-align: center; }
+.diagram-comparison { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 16px; }
+.diagram-comparison > section { min-width: 0; padding: 12px; border: 1px solid var(--line); border-radius: 4px; }
+.diagram-comparison > section > h3 { margin-bottom: 12px; }
+.diagram-compact { display: none; }
+@media (max-width: 999px) {
+  .diagram-wide { display: none; }
+  .diagram-compact { display: block; }
+}
+@media (max-width: 640px) {
+  main { padding: 24px 16px 32px; }
+  h1 { font-size: 24px; }
+  .meta { margin-bottom: 20px; }
+  article { padding-top: 16px; }
+  article header { gap: 8px; }
+  .comparison { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .check { grid-template-columns: 60px minmax(0, 1fr); gap: 8px; }
+  pre { padding: 12px; }
+  .diagram-comparison { grid-template-columns: minmax(0,1fr); }
+  .diagram-comparison > section { padding: 12px 0; border: 0; }
+}
+</style></head><body><main><div class="eyebrow">COMET / 变更说明</div><h1>控制面板重排、列表体验优化、简单模式一键优化播放与亮色框线修正</h1><div class="meta"><p>比较范围 · 比较范围 0ea6c4e..28622ab；控制面板/列表/简单模式/主题/向导</p><p>生成时间 · 2026-11-19T15:39:04.539Z</p></div><article><header><span class="number">01</span><h2>控制按钮集中一行与左栏加宽</h2></header><div class="comparison"><section><h3>原来</h3><p>主题/置顶在标题行，向导在导入行；左栏 350px</p></section><section class="after"><h3>现在</h3><p>标题行只剩标题，下方一行放简单模式/亮色/置顶/向导；左栏 438px</p></section></div><p class="reason"><strong>原因</strong> 减少视线跳转并给长歌名更多空间</p><details><summary>查看文件和关键代码 <span class="count">1</span></summary><div class="file" id="walkthrough-file-0-0"><div class="file-heading"><span class="tag">修改</span><code>app/main_window.py:125</code></div><pre><code>panel_actions 行；left_frame 438；splitter [438, 562]</code></pre></div></details></article><article><header><span class="number">02</span><h2>勾选标记与歌名悬停滚动</h2></header><div class="comparison"><section><h3>原来</h3><p>原生复选框无自绘勾选；长歌名被截断</p></section><section class="after"><h3>现在</h3><p>AntCheckBox 绘制白色勾选；MarqueeLabel 悬停缓慢循环，移出复位</p></section></div><p class="reason"><strong>原因</strong> 让批量选择状态清晰、长歌名可读</p><details><summary>查看文件和关键代码 <span class="count">2</span></summary><div class="file" id="walkthrough-file-1-0"><div class="file-heading"><span class="tag">新增</span><code>app/ui/widgets.py:1</code></div><pre><code>AntCheckBox / MarqueeLabel / _token_color</code></pre></div><div class="file" id="walkthrough-file-1-1"><div class="file-heading"><span class="tag">修改</span><code>app/ui/playlist_page.py:78</code></div><pre><code>行控件接入新控件与 enter/leave</code></pre></div></details></article><article><header><span class="number">03</span><h2>简单模式与一键优化播放</h2></header><div class="comparison"><section><h3>原来</h3><p>只有完整编辑界面；播放前需手动优化</p></section><section class="after"><h3>现在</h3><p>进入后隐藏铺面编辑标签、清空未保存数据、固定 Z/7 与 C2–B5；「▶️ 播放」先全量优化并保存再播放；退出重载原始 MIDI</p></section></div><p class="reason"><strong>原因</strong> 为只想选曲播放的用户提供懒人流程</p><details><summary>查看文件和关键代码 <span class="count">4</span></summary><div class="file" id="walkthrough-file-2-0"><div class="file-heading"><span class="tag">新增</span><code>app/simple_mode.py:1</code></div><pre><code>SimpleModeMixin：切换 / 进入 / 退出 / 一键播放</code></pre></div><div class="file" id="walkthrough-file-2-1"><div class="file-heading"><span class="tag">修改</span><code>piano_roll/canvas.py:529</code></div><pre><code>arpeggiate_all 全量优化</code></pre></div><div class="file" id="walkthrough-file-2-2"><div class="file-heading"><span class="tag">修改</span><code>piano_roll/widget.py:98</code></div><pre><code>转发 arpeggiate_all</code></pre></div><div class="file" id="walkthrough-file-2-3"><div class="file-heading"><span class="tag">修改</span><code>app/ui/piano_page.py:125</code></div><pre><code>保存标签引用；简单模式禁用映射下拉</code></pre></div></details></article><details class="more"><summary>其余变化 (1)</summary><div><article><header><span class="number">04</span><h2>亮色框线与向导</h2></header><div class="comparison"><section><h3>原来</h3><p>亮色下两大面板外框偏深；向导无简单/正常模式说明</p></section><section class="after"><h3>现在</h3><p>centralWidget 用浅色底，面板/分组框边框统一淡灰；向导分简单/正常两节</p></section></div><p class="reason"><strong>原因</strong> 修复亮色视觉割裂并补全新功能说明</p><details><summary>查看文件和关键代码 <span class="count">2</span></summary><div class="file" id="walkthrough-file-3-0"><div class="file-heading"><span class="tag">修改</span><code>app/ui/theme.py:117</code></div><pre><code>centralWidget 背景与 colorBorder 边框</code></pre></div><div class="file" id="walkthrough-file-3-1"><div class="file-heading"><span class="tag">修改</span><code>app/ui/guide.py:11</code></div><pre><code>简单模式/正常模式小节与列表滚动说明</code></pre></div></details></article></div></details><footer><h2>实际验证</h2><div class="check"><span class="status passed">通过</span><div><strong>Builder 自检</strong><p>245 项测试通过（新增 13 项：布局/宽度、勾选与滚动、简单模式全流程、全量优化、亮色边框）</p></div></div><div class="check"><span class="status not-run">未执行</span><div><strong>独立审查</strong><p>full 流程由测试与 Runtime 检查覆盖</p></div></div><div class="check"><span class="status passed">通过</span><div><strong>Runtime 检查</strong><p>comet guard build ALL CHECKS PASSED</p></div></div><div class="check"><span class="status passed">通过</span><div><strong>界面核对</strong><p>offscreen 截图确认亮色框线、简单模式标签隐藏与播放按钮位置</p></div></div></footer></main><template id="walkthrough-data">eyJzdW1tYXJ5Ijoi5o6n5Yi26Z2i5p2/6YeN5o6S44CB5YiX6KGo5L2T6aqM5LyY5YyW44CB566A5Y2V5qih5byP5LiA6ZSu5LyY5YyW5pKt5pS+5LiO5Lqu6Imy5qGG57q/5L+u5q2jIiwic2NvcGUiOiLmr5TovoPojIPlm7QgMGVhNmM0ZS4uMjg2MjJhYu+8m+aOp+WItumdouadvy/liJfooagv566A5Y2V5qih5byPL+S4u+mimC/lkJHlr7wiLCJjaGFuZ2VzIjpbeyJ0aXRsZSI6IuaOp+WItuaMiemSrumbhuS4reS4gOihjOS4juW3puagj+WKoOWuvSIsImJlZm9yZSI6IuS4u+mimC/nva7pobblnKjmoIfpopjooYzvvIzlkJHlr7zlnKjlr7zlhaXooYzvvJvlt6bmoI8gMzUwcHgiLCJhZnRlciI6Iuagh+mimOihjOWPquWJqeagh+mimO+8jOS4i+aWueS4gOihjOaUvueugOWNleaooeW8jy/kuq7oibIv572u6aG2L+WQkeWvvO+8m+W3puagjyA0MzhweCIsInJlYXNvbiI6IuWHj+Wwkeinhue6v+i3s+i9rOW5tue7memVv+atjOWQjeabtOWkmuepuumXtCIsImZpbGVzIjpbeyJwYXRoIjoiYXBwL21haW5fd2luZG93LnB5OjEyNSIsImtpbmQiOiJtb2RpZmllZCIsImNvZGUiOiJwYW5lbF9hY3Rpb25zIOihjO+8m2xlZnRfZnJhbWUgNDM477ybc3BsaXR0ZXIgWzQzOCwgNTYyXSJ9XX0seyJ0aXRsZSI6IuWLvumAieagh+iusOS4juatjOWQjeaCrOWBnOa7muWKqCIsImJlZm9yZSI6IuWOn+eUn+WkjemAieahhuaXoOiHque7mOWLvumAie+8m+mVv+atjOWQjeiiq+aIquaWrSIsImFmdGVyIjoiQW50Q2hlY2tCb3gg57uY5Yi255m96Imy5Yu+6YCJ77ybTWFycXVlZUxhYmVsIOaCrOWBnOe8k+aFouW+queOr++8jOenu+WHuuWkjeS9jSIsInJlYXNvbiI6IuiuqeaJuemHj+mAieaLqeeKtuaAgea4heaZsOOAgemVv+atjOWQjeWPr+ivuyIsImZpbGVzIjpbeyJwYXRoIjoiYXBwL3VpL3dpZGdldHMucHk6MSIsImtpbmQiOiJhZGRlZCIsImNvZGUiOiJBbnRDaGVja0JveCAvIE1hcnF1ZWVMYWJlbCAvIF90b2tlbl9jb2xvciJ9LHsicGF0aCI6ImFwcC91aS9wbGF5bGlzdF9wYWdlLnB5Ojc4Iiwia2luZCI6Im1vZGlmaWVkIiwiY29kZSI6IuihjOaOp+S7tuaOpeWFpeaWsOaOp+S7tuS4jiBlbnRlci9sZWF2ZSJ9XX0seyJ0aXRsZSI6IueugOWNleaooeW8j+S4juS4gOmUruS8mOWMluaSreaUviIsImJlZm9yZSI6IuWPquacieWujOaVtOe8lui+keeVjOmdou+8m+aSreaUvuWJjemcgOaJi+WKqOS8mOWMliIsImFmdGVyIjoi6L+b5YWl5ZCO6ZqQ6JeP6ZO66Z2i57yW6L6R5qCH562+44CB5riF56m65pyq5L+d5a2Y5pWw5o2u44CB5Zu65a6aIFovNyDkuI4gQzLigJNCNe+8m+OAjOKWtu+4jyDmkq3mlL7jgI3lhYjlhajph4/kvJjljJblubbkv53lrZjlho3mkq3mlL7vvJvpgIDlh7rph43ovb3ljp/lp4sgTUlESSIsInJlYXNvbiI6IuS4uuWPquaDs+mAieabsuaSreaUvueahOeUqOaIt+aPkOS+m+aHkuS6uua1geeoiyIsImZpbGVzIjpbeyJwYXRoIjoiYXBwL3NpbXBsZV9tb2RlLnB5OjEiLCJraW5kIjoiYWRkZWQiLCJjb2RlIjoiU2ltcGxlTW9kZU1peGlu77ya5YiH5o2iIC8g6L+b5YWlIC8g6YCA5Ye6IC8g5LiA6ZSu5pKt5pS+In0seyJwYXRoIjoicGlhbm9fcm9sbC9jYW52YXMucHk6NTI5Iiwia2luZCI6Im1vZGlmaWVkIiwiY29kZSI6ImFycGVnZ2lhdGVfYWxsIOWFqOmHj+S8mOWMliJ9LHsicGF0aCI6InBpYW5vX3JvbGwvd2lkZ2V0LnB5Ojk4Iiwia2luZCI6Im1vZGlmaWVkIiwiY29kZSI6Iui9rOWPkSBhcnBlZ2dpYXRlX2FsbCJ9LHsicGF0aCI6ImFwcC91aS9waWFub19wYWdlLnB5OjEyNSIsImtpbmQiOiJtb2RpZmllZCIsImNvZGUiOiLkv53lrZjmoIfnrb7lvJXnlKjvvJvnroDljZXmqKHlvI/npoHnlKjmmKDlsITkuIvmi4kifV19LHsidGl0bGUiOiLkuq7oibLmoYbnur/kuI7lkJHlr7wiLCJiZWZvcmUiOiLkuq7oibLkuIvkuKTlpKfpnaLmnb/lpJbmoYblgY/mt7HvvJvlkJHlr7zml6DnroDljZUv5q2j5bi45qih5byP6K+05piOIiwiYWZ0ZXIiOiJjZW50cmFsV2lkZ2V0IOeUqOa1heiJsuW6le+8jOmdouadvy/liIbnu4TmoYbovrnmoYbnu5/kuIDmt6HngbDvvJvlkJHlr7zliIbnroDljZUv5q2j5bi45Lik6IqCIiwicmVhc29uIjoi5L+u5aSN5Lqu6Imy6KeG6KeJ5Ymy6KOC5bm26KGl5YWo5paw5Yqf6IO96K+05piOIiwiZmlsZXMiOlt7InBhdGgiOiJhcHAvdWkvdGhlbWUucHk6MTE3Iiwia2luZCI6Im1vZGlmaWVkIiwiY29kZSI6ImNlbnRyYWxXaWRnZXQg6IOM5pmv5LiOIGNvbG9yQm9yZGVyIOi+ueahhiJ9LHsicGF0aCI6ImFwcC91aS9ndWlkZS5weToxMSIsImtpbmQiOiJtb2RpZmllZCIsImNvZGUiOiLnroDljZXmqKHlvI8v5q2j5bi45qih5byP5bCP6IqC5LiO5YiX6KGo5rua5Yqo6K+05piOIn1dfV0sInZlcmlmaWNhdGlvbiI6W3sibGFiZWwiOiJCdWlsZGVyIOiHquajgCIsInN0YXR1cyI6InBhc3NlZCIsImRldGFpbCI6IjI0NSDpobnmtYvor5XpgJrov4fvvIjmlrDlop4gMTMg6aG577ya5biD5bGAL+WuveW6puOAgeWLvumAieS4jua7muWKqOOAgeeugOWNleaooeW8j+WFqOa1geeoi+OAgeWFqOmHj+S8mOWMluOAgeS6ruiJsui+ueahhu+8iSJ9LHsibGFiZWwiOiLni6znq4vlrqHmn6UiLCJzdGF0dXMiOiJub3QtcnVuIiwiZGV0YWlsIjoiZnVsbCDmtYHnqIvnlLHmtYvor5XkuI4gUnVudGltZSDmo4Dmn6Xopobnm5YifSx7ImxhYmVsIjoiUnVudGltZSDmo4Dmn6UiLCJzdGF0dXMiOiJwYXNzZWQiLCJkZXRhaWwiOiJjb21ldCBndWFyZCBidWlsZCBBTEwgQ0hFQ0tTIFBBU1NFRCJ9LHsibGFiZWwiOiLnlYzpnaLmoLjlr7kiLCJzdGF0dXMiOiJwYXNzZWQiLCJkZXRhaWwiOiJvZmZzY3JlZW4g5oiq5Zu+56Gu6K6k5Lqu6Imy5qGG57q/44CB566A5Y2V5qih5byP5qCH562+6ZqQ6JeP5LiO5pKt5pS+5oyJ6ZKu5L2N572uIn1dfQ==</template></body></html>

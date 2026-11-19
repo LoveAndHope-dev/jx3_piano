@@ -1,0 +1,2042 @@
+# comet-execution: managed-run
+change_id: 1d42582c-4f0f-4430-a99e-1da4d89aa583
+workflow: tweak
+language: zh-CN
+phase: archive
+context_compression: off
+build_mode: direct
+build_pause: null
+subagent_dispatch: null
+tdd_mode: direct
+review_mode: off
+isolation: current
+verify_mode: light
+auto_transition: true
+base_ref: 3272d3a85dddda6ac8cc2d32b2f43428179070f6
+design_doc: null
+plan: null
+verify_result: pass
+verify_failures: 0
+verification_report: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+branch_status: pending
+created_at: 2026-11-19
+verified_at: 2026-11-19
+archive_confirmation: confirmed
+archived: true
+bound_branch: main
+direct_override: null
+handoff_context: null
+handoff_hash: null
+classic_profile: null
+classic_migration: null
+run_checkpoint:
+  schema: comet.workflow-run-checkpoint.v1
+  hash: 7ba89aa582905d883f81bc5e09cc3df912dd196585a6b96c5875fd5b47ca5263
+  run:
+    protocolVersion: 1
+    schemaVersion: 1
+    runId: out-of-range-play-prompt-and-guide
+    revision: 1
+    workflow:
+      id: comet-classic-tweak
+      version: "1"
+      hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    definitionHashes:
+      '["comet-classic-tweak","1"]': fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+    initialStateHash: 8c60baa3c91d5bebea153885c0a3b0f3bb0ac25873eed3959078fd049a7db8ec
+    input:
+      change: out-of-range-play-prompt-and-guide
+      changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+      workspaceBaseline:
+        ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+    state:
+      archiveConfirmation: confirmed
+      archived: true
+      autoTransition: true
+      baseRef: 3272d3a85dddda6ac8cc2d32b2f43428179070f6
+      boundBranch: main
+      branchStatus: pending
+      buildMode: direct
+      buildPause: null
+      checkEpoch: 5
+      classicMigration: null
+      classicProfile: null
+      contextCompression: off
+      createdAt: 2026-11-19
+      designDoc: null
+      directOverride: null
+      handoffContext: null
+      handoffHash: null
+      isolation: current
+      language: zh-CN
+      phase: archive
+      plan: null
+      reviewMode: off
+      subagentDispatch: null
+      tddMode: direct
+      verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+      verifiedAt: 2026-11-19
+      verifyFailures: 0
+      verifyMode: light
+      verifyResult: pass
+      workflow: tweak
+    status: running
+    sequence: 14
+    actions:
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-0f77b0d4fbf670999aabf3b0f39c26719ed5b99d9d316682cd726705cfc4d901
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: out-of-range-play-prompt-and-guide:1
+        input:
+          input:
+            change: out-of-range-play-prompt-and-guide
+            changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            workspaceBaseline:
+              ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+          outputs: {}
+        inputHash: 0747ad70f7fdb4912abec7f9ace3f58e3439a7364ae888620dc024e969f40d7c
+        outcome:
+          actionId: out-of-range-play-prompt-and-guide:1
+          attempt: 1
+          claimToken: portable-0f77b0d4fbf670999aabf3b0f39c26719ed5b99d9d316682cd726705cfc4d901
+          inputHash: 0747ad70f7fdb4912abec7f9ace3f58e3439a7364ae888620dc024e969f40d7c
+          outcomeId: 944b2ca5-45a3-4443-96c2-7d9ab581871d
+          output:
+            event: open-complete
+            requirementsEvidence:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 868183bec278805ce29c9f5562594aff4c44c1d6a200daabba6ff946afefaea0
+            outcomeId: 944b2ca5-45a3-4443-96c2-7d9ab581871d
+        reconciliations: []
+        ref: comet-tweak
+        requiredCapabilities: []
+        retry: manual
+        runId: out-of-range-play-prompt-and-guide
+        status: succeeded
+        stepId: tweak.open
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          sessionId: classic-builder/out-of-range-play-prompt-and-guide:3/1
+          token: portable-d51a325e5ace9dd04639678dfd698a25029cb34291999568872a7b9926eb8cac
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: out-of-range-play-prompt-and-guide:3
+        input:
+          input:
+            change: out-of-range-play-prompt-and-guide
+            changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            workspaceBaseline:
+              ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+          outputs:
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.open.evidence:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+        inputHash: 65ecb22ac9cdd8c4f91c6f0434a33329d60cf05bb388f2679e018991bc92e90c
+        outcome:
+          actionId: out-of-range-play-prompt-and-guide:3
+          attempt: 1
+          claimToken: portable-d51a325e5ace9dd04639678dfd698a25029cb34291999568872a7b9926eb8cac
+          inputHash: 65ecb22ac9cdd8c4f91c6f0434a33329d60cf05bb388f2679e018991bc92e90c
+          outcomeId: ef4344f4-f742-4c05-a8ec-2d3ef4547b26
+          output:
+            event: build-complete
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: a24e3e08d6c7b5ea016be63a80335934e1239a69ab3cf20370343c49aeeacc42
+            outcomeId: ef4344f4-f742-4c05-a8ec-2d3ef4547b26
+        reconciliations: []
+        ref: comet-build
+        requiredCapabilities: []
+        retry: manual
+        runId: out-of-range-play-prompt-and-guide
+        status: succeeded
+        stepId: tweak.build.execute
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-854cc852ff225226bd1defad59e80749c2be864bf8f7cf85c204df36e5a2f89b
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: out-of-range-play-prompt-and-guide:4
+        input:
+          input:
+            change: out-of-range-play-prompt-and-guide
+            changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            workspaceBaseline:
+              ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+          outputs:
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.open.evidence:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+        inputHash: 10b28f76d87db6c470cec06e1c2cb81a1cd91264c13901cef35734140f9cb232
+        outcome:
+          actionId: out-of-range-play-prompt-and-guide:4
+          attempt: 1
+          claimToken: portable-854cc852ff225226bd1defad59e80749c2be864bf8f7cf85c204df36e5a2f89b
+          inputHash: 10b28f76d87db6c470cec06e1c2cb81a1cd91264c13901cef35734140f9cb232
+          outcomeId: 6ee309d5-e89c-4db8-bb03-be9f76b98e78
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 1
+            contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+            cwd: .
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+            inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+            manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+            manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+            reusable: false
+            reused: false
+            scope: build
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: c4dffbe4d075cbb380be28f9da70ca67a7aa70149665897d2f66fcdbcd74b378
+            outcomeId: 6ee309d5-e89c-4db8-bb03-be9f76b98e78
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: out-of-range-play-prompt-and-guide
+        status: succeeded
+        stepId: tweak.build.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-guard
+          token: portable-ba7877779397bf8b91e8e48bc62fc8626561397262b9b977f2e10fd4d499c165
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: out-of-range-play-prompt-and-guide:6
+        input:
+          input:
+            change: out-of-range-play-prompt-and-guide
+            changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            workspaceBaseline:
+              ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.open.evidence:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+        inputHash: 548bf090ac38a4ca472eeae1dab94ecafdfdeb7d9a16e280c9bb397c7b509986
+        outcome:
+          actionId: out-of-range-play-prompt-and-guide:6
+          attempt: 1
+          claimToken: portable-ba7877779397bf8b91e8e48bc62fc8626561397262b9b977f2e10fd4d499c165
+          inputHash: 548bf090ac38a4ca472eeae1dab94ecafdfdeb7d9a16e280c9bb397c7b509986
+          outcomeId: 0a9d28b4-550b-4a57-baa7-c0c7e0941a43
+          output:
+            event: verification-ready
+            verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 142ca55bd35ed55f280ee1ce3db52965d6c8955c6c0494a3f4564e52e934fc20
+            outcomeId: 0a9d28b4-550b-4a57-baa7-c0c7e0941a43
+        reconciliations: []
+        ref: comet-verify
+        requiredCapabilities: []
+        retry: manual
+        runId: out-of-range-play-prompt-and-guide
+        status: succeeded
+        stepId: tweak.verify.run
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-check
+          token: portable-f141c27ebf247b47854d2def7c6bb2c758116e5fc00fc315c9304709cf5e1bd6
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: out-of-range-play-prompt-and-guide:8
+        input:
+          input:
+            change: out-of-range-play-prompt-and-guide
+            changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            workspaceBaseline:
+              ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.open.evidence:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.verify.report.evidence:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        inputHash: bc31789ae5f1b288c4856fc12718f2310c9852d05b57840c7a05cdc2ac9a9b72
+        outcome:
+          actionId: out-of-range-play-prompt-and-guide:8
+          attempt: 1
+          claimToken: portable-f141c27ebf247b47854d2def7c6bb2c758116e5fc00fc315c9304709cf5e1bd6
+          inputHash: bc31789ae5f1b288c4856fc12718f2310c9852d05b57840c7a05cdc2ac9a9b72
+          outcomeId: 18efa762-11fe-449d-9841-1453b307d67c
+          output:
+            argv:
+              - .venv\Scripts\python.exe
+              - -m
+              - unittest
+              - discover
+              - -s
+              - tests
+              - -v
+            changedDuringExecution: []
+            checkEpoch: 2
+            contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+            cwd: .
+            deliveryInputs: {}
+            environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+            exitCode: 0
+            inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+            inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+            manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+            manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+            receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+            reusable: false
+            reused: false
+            scope: verify
+            tier: full
+            timeoutMs: 300000
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 144f2f891d58cdd0a335340d02a9605198fd5f2b3a403cbdce6229efe0a5849b
+            outcomeId: 18efa762-11fe-449d-9841-1453b307d67c
+        reconciliations: []
+        ref: classic-check
+        requiredCapabilities: []
+        retry: manual
+        runId: out-of-range-play-prompt-and-guide
+        status: succeeded
+        stepId: tweak.verify.check
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-state
+          token: portable-8694fe31be3574ee90bf13eaee574217c78a0403a9d0aba64e6fa54121262992
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: out-of-range-play-prompt-and-guide:10
+        input:
+          input:
+            change: out-of-range-play-prompt-and-guide
+            changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            workspaceBaseline:
+              ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+          outputs:
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.open.evidence:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+            tweak.verify.report.evidence:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        inputHash: 892b82cfcaacc3ebdfe6e157025319f4003e6c6ec6f8c634eadcfc7bba91d4dc
+        outcome:
+          actionId: out-of-range-play-prompt-and-guide:10
+          attempt: 1
+          claimToken: portable-8694fe31be3574ee90bf13eaee574217c78a0403a9d0aba64e6fa54121262992
+          inputHash: 892b82cfcaacc3ebdfe6e157025319f4003e6c6ec6f8c634eadcfc7bba91d4dc
+          outcomeId: 7ae0d70e-9d38-4934-8185-fa4cf322048a
+          output:
+            summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+              midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+              的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+            targetBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 04965ef01e26c7aecd68c466473384e0eef676a9e2fb83ebf065619447fb72a0
+            outcomeId: 7ae0d70e-9d38-4934-8185-fa4cf322048a
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: out-of-range-play-prompt-and-guide
+        status: succeeded
+        stepId: tweak.archive.prepare
+        type: invoke_skill
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive-preflight
+          token: portable-3f0144d5f527c1ae99992d589298f17e730ffbf4f39d0455c9a758c38c0a0649
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: out-of-range-play-prompt-and-guide:12
+        input:
+          input:
+            change: out-of-range-play-prompt-and-guide
+            changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            workspaceBaseline:
+              ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: out-of-range-play-prompt-and-guide
+                  changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+                  workspaceBaseline:
+                    ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                      midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                      的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+                    targetBranch: main
+            tweak.archive.prepare:
+              summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.open.evidence:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+            tweak.verify.report.evidence:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        inputHash: b79795dee65c4f6de033b3feeea57d8e0110157d658d7c64f87db391e49e41b2
+        outcome:
+          actionId: out-of-range-play-prompt-and-guide:12
+          attempt: 1
+          claimToken: portable-3f0144d5f527c1ae99992d589298f17e730ffbf4f39d0455c9a758c38c0a0649
+          inputHash: b79795dee65c4f6de033b3feeea57d8e0110157d658d7c64f87db391e49e41b2
+          outcomeId: bb720196-6cda-486e-ad38-699c4394d06d
+          output:
+            baseCommit: 94bf198b4d623e89a34387c2be977ab0bceb6532
+            deliveryAction: local
+            targetBranch: main
+            verifiedBranch: main
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 061f878ede233d24abba1a456040b7c8051bbb3bf1518493bc9446d453660c1f
+            outcomeId: bb720196-6cda-486e-ad38-699c4394d06d
+        reconciliations: []
+        ref: classic-archive-preflight
+        requiredCapabilities: []
+        retry: manual
+        runId: out-of-range-play-prompt-and-guide
+        status: succeeded
+        stepId: tweak.archive.preflight
+        type: call_tool
+      - attempt: 1
+        claim:
+          executorId: comet-classic-archive
+          token: portable-0a1e59c3aaa3f95f30ce073057044941fdb627e179ce41dd772ac04cc764a499
+        executionOrigin:
+          workflow:
+            hash: fdf07b67da7ac398b4edb7c9909de416a5ef83a8db900f0772e4859731a215cd
+            id: comet-classic-tweak
+            version: "1"
+        id: out-of-range-play-prompt-and-guide:13
+        input:
+          input:
+            change: out-of-range-play-prompt-and-guide
+            changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            workspaceBaseline:
+              ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: out-of-range-play-prompt-and-guide
+                  changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+                  workspaceBaseline:
+                    ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                      midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                      的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+                    targetBranch: main
+            tweak.archive.preflight:
+              baseCommit: 94bf198b4d623e89a34387c2be977ab0bceb6532
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.open.evidence:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+            tweak.verify.report.evidence:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        inputHash: 58c545c77269ac3da8a316c0565b9141f3b4acf6b99e94c3536afd3900c56ef2
+        outcome:
+          actionId: out-of-range-play-prompt-and-guide:13
+          artifacts:
+            - sha256: d34dc4f78e4a2979102f188d53661ca0ba056b1683570c2fc496c741dca4a2cc
+              uri: docs/openspec/changes/archive/2026-11-19-out-of-range-play-prompt-and-guide/.comet/archive-manifest.json
+          attempt: 1
+          claimToken: portable-0a1e59c3aaa3f95f30ce073057044941fdb627e179ce41dd772ac04cc764a499
+          inputHash: 58c545c77269ac3da8a316c0565b9141f3b4acf6b99e94c3536afd3900c56ef2
+          outcomeId: b55d302b-7daf-41d2-a07d-38e0ef199ce9
+          output:
+            archiveDirectory: docs/openspec/changes/archive/2026-11-19-out-of-range-play-prompt-and-guide
+          status: succeeded
+        protocolVersion: 1
+        receipts:
+          - hash: 431188dfa29048f214ecbd50a9051662b63014bfb67ceeeb630a01f6ba51509a
+            outcomeId: b55d302b-7daf-41d2-a07d-38e0ef199ce9
+        reconciliations: []
+        ref: classic-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: out-of-range-play-prompt-and-guide
+        status: succeeded
+        stepId: tweak.archive.execute
+        type: call_tool
+      - attempt: 1
+        id: out-of-range-play-prompt-and-guide:14
+        input:
+          input:
+            change: out-of-range-play-prompt-and-guide
+            changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            workspaceBaseline:
+              ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+          outputs:
+            tweak.archive.confirm:
+              choice: local
+              proposal:
+                input:
+                  change: out-of-range-play-prompt-and-guide
+                  changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+                  workspaceBaseline:
+                    ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                      midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                      的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+                    targetBranch: main
+            tweak.archive.execute:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-19-out-of-range-play-prompt-and-guide
+            tweak.archive.preflight:
+              baseCommit: 94bf198b4d623e89a34387c2be977ab0bceb6532
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+            tweak.archive.prepare:
+              summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+              targetBranch: main
+            tweak.build.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+            tweak.build.check.evidence:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+            tweak.build.execute:
+              event: build-complete
+            tweak.open:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.open.evidence:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            tweak.verify.check:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+            tweak.verify.check.evidence:
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+            tweak.verify.report.evidence:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+            tweak.verify.run:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        inputHash: 333321c9a9ebb341fd02d6ef783337a6bf1ea5573373db4b845f47140d60addb
+        protocolVersion: 1
+        receipts: []
+        reconciliations: []
+        ref: comet-archive
+        requiredCapabilities: []
+        retry: manual
+        runId: out-of-range-play-prompt-and-guide
+        status: pending
+        stepId: tweak.archive.deliver
+        type: invoke_skill
+    actionContexts:
+      out-of-range-play-prompt-and-guide:1:
+        results: {}
+        sequence: 1
+      out-of-range-play-prompt-and-guide:10:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        sequence: 10
+      out-of-range-play-prompt-and-guide:12:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: out-of-range-play-prompt-and-guide
+                  changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+                  workspaceBaseline:
+                    ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                      midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                      的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+                    targetBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        sequence: 12
+      out-of-range-play-prompt-and-guide:13:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: out-of-range-play-prompt-and-guide
+                  changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+                  workspaceBaseline:
+                    ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                      midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                      的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+                    targetBranch: main
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 94bf198b4d623e89a34387c2be977ab0bceb6532
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        sequence: 13
+      out-of-range-play-prompt-and-guide:14:
+        results:
+          tweak.archive.confirm:
+            sequence: 11
+            value:
+              choice: local
+              proposal:
+                input:
+                  change: out-of-range-play-prompt-and-guide
+                  changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+                  workspaceBaseline:
+                    ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+                outputs:
+                  tweak.archive.prepare:
+                    summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                      midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                      的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+                    targetBranch: main
+          tweak.archive.execute:
+            sequence: 13
+            value:
+              archiveDirectory: docs/openspec/changes/archive/2026-11-19-out-of-range-play-prompt-and-guide
+          tweak.archive.preflight:
+            sequence: 12
+            value:
+              baseCommit: 94bf198b4d623e89a34387c2be977ab0bceb6532
+              deliveryAction: local
+              targetBranch: main
+              verifiedBranch: main
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        sequence: 14
+      out-of-range-play-prompt-and-guide:3:
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+        sequence: 3
+      out-of-range-play-prompt-and-guide:4:
+        results:
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+        sequence: 4
+      out-of-range-play-prompt-and-guide:6:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+        sequence: 6
+      out-of-range-play-prompt-and-guide:8:
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        sequence: 8
+    waits:
+      - id: out-of-range-play-prompt-and-guide:11
+        stepId: tweak.archive.confirm
+        sequence: 11
+        status: resolved
+        proposal:
+          input:
+            change: out-of-range-play-prompt-and-guide
+            changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+            workspaceBaseline:
+              ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+          outputs:
+            tweak.archive.prepare:
+              summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+              targetBranch: main
+        proposalHash: 460c706e2b38cacbb53fd3d42f6360e762189d06f6022d0a0e181c8773c7132a
+        choices:
+          - local
+          - push
+          - pr
+          - reverify
+          - later
+        results:
+          tweak.archive.prepare:
+            sequence: 10
+            value:
+              summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+              targetBranch: main
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.check.evidence:
+            sequence: 9
+            value:
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        decision:
+          id: classic-archive-460c706e2b38cacbb53fd3d42f6360e762189d06f6022d0a0e181c8773c7132a-local
+          choice: local
+          proposalHash: 460c706e2b38cacbb53fd3d42f6360e762189d06f6022d0a0e181c8773c7132a
+    evidenceWaits:
+      - id: out-of-range-play-prompt-and-guide:2
+        stepId: tweak.open.evidence
+        sequence: 2
+        kind: classic-open-artifacts
+        status: resolved
+        results:
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+        receipt:
+          ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+          submissionId: bac2d309-a16f-4174-ba77-90ced10caa80
+      - id: out-of-range-play-prompt-and-guide:5
+        stepId: tweak.build.check.evidence
+        sequence: 5
+        kind: classic-build-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+          contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+          submissionId: 2bfa40da-fd15-49cf-90ed-2b5927efc48b
+      - id: out-of-range-play-prompt-and-guide:7
+        stepId: tweak.verify.report.evidence
+        sequence: 7
+        kind: classic-verification-report
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        receipt:
+          ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+          contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+          submissionId: 20a58a4d-d1c6-42fd-ba60-ddf2bcaa5127
+      - id: out-of-range-play-prompt-and-guide:9
+        stepId: tweak.verify.check.evidence
+        sequence: 9
+        kind: classic-verify-check
+        status: resolved
+        results:
+          tweak.build.check:
+            sequence: 4
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 1
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              cwd: .
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+              manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+              reusable: false
+              reused: false
+              scope: build
+              tier: full
+              timeoutMs: 300000
+          tweak.build.check.evidence:
+            sequence: 5
+            value:
+              contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+              ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+          tweak.build.execute:
+            sequence: 3
+            value:
+              event: build-complete
+          tweak.open:
+            sequence: 1
+            value:
+              event: open-complete
+              requirementsEvidence:
+                contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+                ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.open.evidence:
+            sequence: 2
+            value:
+              contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+              ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+          tweak.verify.check:
+            sequence: 8
+            value:
+              argv:
+                - .venv\Scripts\python.exe
+                - -m
+                - unittest
+                - discover
+                - -s
+                - tests
+                - -v
+              changedDuringExecution: []
+              checkEpoch: 2
+              contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+              cwd: .
+              deliveryInputs: {}
+              environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+              exitCode: 0
+              inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+              manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+              manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+              receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+              reusable: false
+              reused: false
+              scope: verify
+              tier: full
+              timeoutMs: 300000
+          tweak.verify.report.evidence:
+            sequence: 7
+            value:
+              contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+              ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+          tweak.verify.run:
+            sequence: 6
+            value:
+              event: verification-ready
+              verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+        receipt:
+          ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+          contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+          submissionId: 42dec847-c7ab-4db1-affd-5e0c58367051
+    ready: []
+    joins: {}
+    outputs:
+      tweak.archive.confirm:
+        sequence: 11
+        value:
+          choice: local
+          proposal:
+            input:
+              change: out-of-range-play-prompt-and-guide
+              changeDir: docs/openspec/changes/out-of-range-play-prompt-and-guide
+              workspaceBaseline:
+                ref: 31a05a34-f4d2-4a56-9bcd-38328559adda
+            outputs:
+              tweak.archive.prepare:
+                summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+                  midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+                  的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+                targetBranch: main
+      tweak.archive.execute:
+        sequence: 13
+        value:
+          archiveDirectory: docs/openspec/changes/archive/2026-11-19-out-of-range-play-prompt-and-guide
+      tweak.archive.preflight:
+        sequence: 12
+        value:
+          baseCommit: 94bf198b4d623e89a34387c2be977ab0bceb6532
+          deliveryAction: local
+          targetBranch: main
+          verifiedBranch: main
+      tweak.archive.prepare:
+        sequence: 10
+        value:
+          summary: 正常模式与简单模式播放前都会统计超出可演奏音域的音符并弹窗，由用户选择播放或取消；简单模式取消时不优化、不保存。向导保留数据位置与
+            midi/play_code 说明，新增拨奏类乐器移调 +5~-5 和简单模式音符需在 C2~B5
+            的说明，删除模式小节内部术语，并把铺面编辑与钢琴窗说明移入正常模式。250 项测试通过，exe 已重新打包。
+          targetBranch: main
+      tweak.build.check:
+        sequence: 4
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 1
+          contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+          cwd: .
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+          inputBefore: e79e06fe82ef44f00ce93d29d89b30e82022a47aedf04a34b795f45e74a403ec
+          manifestHash: dd6f77da2d2333c35407ec1e4d9b060f6942caac8b809017aab6a0805ccb241c
+          manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/c227ac14-1a81-4aa7-9f08-ecf0ee89c5eb.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+          reusable: false
+          reused: false
+          scope: build
+          tier: full
+          timeoutMs: 300000
+      tweak.build.check.evidence:
+        sequence: 5
+        value:
+          contentHash: 1751dc78d517dbefc631c3550cbf067c926fb19f7e554cde0fc0bf933a54d5b1
+          ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/5f929254-481b-43d9-8246-d3441f71605e.log
+      tweak.build.execute:
+        sequence: 3
+        value:
+          event: build-complete
+      tweak.open:
+        sequence: 1
+        value:
+          event: open-complete
+          requirementsEvidence:
+            contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+            ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+      tweak.open.evidence:
+        sequence: 2
+        value:
+          contentHash: 151c3e64c1ef28f7d452eb85c603a0037d2812bec668887c6e70a099ff74c02d
+          ref: docs/openspec/changes/out-of-range-play-prompt-and-guide
+      tweak.verify.check:
+        sequence: 8
+        value:
+          argv:
+            - .venv\Scripts\python.exe
+            - -m
+            - unittest
+            - discover
+            - -s
+            - tests
+            - -v
+          changedDuringExecution: []
+          checkEpoch: 2
+          contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+          cwd: .
+          deliveryInputs: {}
+          environment: fb1299fa54d86ff48d794ed6efc77ee583517d2f7fbff48d9b82e97065d313c1
+          exitCode: 0
+          inputAfter: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+          inputBefore: 3e1ef713ce4a579ddf73b9407ab3fd63869cb3ef4aa358795b47e7ab14c0d2b9
+          manifestHash: 8bedac09984a74ccd9c16f783413ac0374c64ee9e3e13643114fb84e31d1f4d9
+          manifestRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/7e1935f5-afa7-4092-a45e-b74e143c6438.manifest
+          receiptRef: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+          reusable: false
+          reused: false
+          scope: verify
+          tier: full
+          timeoutMs: 300000
+      tweak.verify.check.evidence:
+        sequence: 9
+        value:
+          contentHash: 6137ebb1007b35e35f92dbd62dcaeed92a3e9449a056ae287a9880c9b008472b
+          ref: .comet/runtime/classic-sdk-checks/87f4beefd65af58f670b7c04f59dd29dc0ded06ebfb92f68d60a53938e7a290a/e26148da-177a-43f1-80b7-f8249c8ebe3e.log
+      tweak.verify.report.evidence:
+        sequence: 7
+        value:
+          contentHash: ba9324c33ecc974c93bba896953a47b6cb83e0cccc8c86630a2317f8b5be29ae
+          ref: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+      tweak.verify.run:
+        sequence: 6
+        value:
+          event: verification-ready
+          verificationReport: docs/superpowers/reports/2026-11-19-out-of-range-play-prompt-and-guide-verification.md
+    children: []
+    lineage: []
+  sourceRevision: 22
+  sourceHash: 0f9a6884b36bf8d8dc626b682d8567020e235f02477adac2ade6496e40197e63
+check_epoch: 5

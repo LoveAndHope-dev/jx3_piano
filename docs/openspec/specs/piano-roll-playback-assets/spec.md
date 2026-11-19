@@ -76,10 +76,22 @@ TBD - created by archiving change fix-json-seek-and-assets. Update Purpose after
 
 保存 play_code 时 SHALL 统计黄色映射框外的音符数量并在日志中提示；框内音符 MUST 全部参与按键生成（含边界 ±1 半音扩展），不得静默丢弃。
 
+每次开始播放前（正常模式与简单模式）SHALL 重新统计当前音符中超出可演奏音域（映射框外）的数量；数量大于 0 时 MUST 弹出确认框说明将被跳过的音符数量，并让用户选择继续播放或取消。取消时 MUST NOT 开始播放。
+
 #### Scenario: 存在框外音符
 
 - **WHEN** 曲目有音符落在黄色映射框外
 - **THEN** 日志提示被跳过的音符数量与调整方法
+
+#### Scenario: 播放前确认
+
+- **WHEN** 曲目存在超出可演奏音域的音符并点击播放
+- **THEN** 弹窗显示将被跳过的音符数量，用户选择继续后才开始播放
+
+#### Scenario: 取消播放
+
+- **WHEN** 播放前确认框中选择取消
+- **THEN** 不开始播放，日志记录已取消
 
 ### Requirement: 播放前按需重建 play_code
 

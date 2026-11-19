@@ -937,9 +937,15 @@ class PlaylistGuiTest(unittest.TestCase):
         for removed in ("重读原始 MIDI", "play_code JSON", "铺面资产"):
             self.assertNotIn(removed, html)
         normal_index = html.index("<h2>🎹 正常模式</h2>")
-        self.assertGreater(html.index("<h3>铺面编辑工具栏</h3>"), normal_index)
-        self.assertGreater(html.index("<h3>钢琴窗</h3>"), normal_index)
+        self.assertGreater(
+            html.index('<h3 style="margin-left: 24px;">铺面编辑工具栏</h3>'),
+            normal_index,
+        )
+        self.assertGreater(
+            html.index('<h3 style="margin-left: 24px;">钢琴窗</h3>'), normal_index
+        )
         self.assertEqual(html.count('<ul style="margin-left: 24px;">'), 2)
+        self.assertEqual(html.count('<h3 style="margin-left: 24px;">'), 2)
         dialog.close()
 
     def test_theme_toggle_switches_stylesheet(self):

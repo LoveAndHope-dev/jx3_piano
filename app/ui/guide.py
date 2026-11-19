@@ -39,7 +39,7 @@ def build_guide_html() -> str:
       <li>播放使用「演奏模式」或主按钮。</li>
     </ul>
 
-    <h3>铺面编辑工具栏</h3>
+    <h3 style="margin-left: 24px;">铺面编辑工具栏</h3>
     <ul style="margin-left: 24px;">
       <li><b>第一行</b>：右侧「演奏模式 / 编辑模式」切换。进入演奏模式会自动保存当前铺面。</li>
       <li><b>第二行左侧</b>：合并主按钮——编辑模式显示「保存」，演奏模式显示「演奏」，
@@ -48,7 +48,7 @@ def build_guide_html() -> str:
       <li><b>第三行</b>：演奏最低/最高键位映射，以及黄色框体的绝对音域显示。</li>
     </ul>
 
-    <h3>钢琴窗</h3>
+    <h3 style="margin-left: 24px;">钢琴窗</h3>
     <ul style="margin-left: 24px;">
       <li>拖动音符可改音高与时间；拖左右边缘调整时长；空白处拖动框选，双击空白新建。</li>
       <li><b>Ctrl + 滚轮</b>：横向缩放时间轴；<b>Shift + 滚轮</b>：纵向缩放行高（以鼠标音高为锚点）。</li>

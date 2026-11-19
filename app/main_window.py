@@ -6,8 +6,15 @@ from app.playback import PlaybackMixin
 from app.ui.log_page import LogPageMixin
 from app.ui.piano_page import PianoPageMixin
 from app.ui.playlist_page import PlaylistPageMixin
-from app.ui.theme import DARK_TOKENS, LIGHT_TOKENS, build_stylesheet
+from app.ui.theme import (
+    DARK_TOKENS,
+    LIGHT_TOKENS,
+    build_stylesheet,
+    set_active_tokens,
+)
 from app.ui.guide import GuideDialog
+from app.simple_mode import SimpleModeMixin
+from app.ui.widgets import AntCheckBox
 
 
 class MidiConverterGUI(
@@ -16,6 +23,7 @@ class MidiConverterGUI(
     PianoPageMixin,
     PlaylistPageMixin,
     LogPageMixin,
+    SimpleModeMixin,
     QMainWindow,
 ):
     def __init__(self):
@@ -32,6 +40,9 @@ class MidiConverterGUI(
         self._checked_play_paths = set()  # 播放列表中通过复选框勾选的曲目
         self._row_checkboxes = {}  # path -> QCheckBox（随列表重建）
         self._guide_dialog = None
+        self.simple_mode = False
+        self._piano_tab_widget = None
+        self._piano_tab_index = 0
 
         # 铺面编辑相关变量
         self.current_midi_path = None
@@ -72,7 +83,10 @@ class MidiConverterGUI(
         """切换深色/浅色主题（仅本次运行内记忆）。"""
         self.theme_mode = mode
         tokens = LIGHT_TOKENS if mode == "light" else DARK_TOKENS
+        set_active_tokens(tokens)
         self.setStyleSheet(build_stylesheet(tokens))
+        for checkbox in self.findChildren(AntCheckBox):
+            checkbox.update()
         if hasattr(self, "theme_btn"):
             if mode == "light":
                 self.theme_btn.setText("🌙 深色")
@@ -94,6 +108,7 @@ class MidiConverterGUI(
     def setup_ui(self):
         """设置用户界面"""
         central_widget = QWidget()
+        central_widget.setObjectName("centralWidget")
         self.setCentralWidget(central_widget)
 
         # 主布局
@@ -107,7 +122,7 @@ class MidiConverterGUI(
         # 左侧面板
         left_frame = QFrame()
         left_frame.setObjectName("leftPanel")
-        left_frame.setFixedWidth(350)
+        left_frame.setFixedWidth(438)
         splitter.addWidget(left_frame)
 
         left_layout = QVBoxLayout(left_frame)
@@ -126,20 +141,39 @@ class MidiConverterGUI(
         panel_title.setObjectName("panelTitle")
         panel_header.addWidget(panel_title)
         panel_header.addStretch()
+        control_layout.addLayout(panel_header)
+
+        # 次要操作集中一行：简单模式 / 主题 / 置顶 / 向导
+        panel_actions = QHBoxLayout()
+        panel_actions.setSpacing(6)
+
+        self.simple_mode_btn = QPushButton("🧩 简单模式")
+        self.simple_mode_btn.setObjectName("clearBtn")
+        self.simple_mode_btn.setCheckable(True)
+        self.simple_mode_btn.setToolTip("隐藏铺面编辑，只保留选曲与一键优化播放")
+        self.simple_mode_btn.toggled.connect(self.on_simple_mode_toggled)
+        panel_actions.addWidget(self.simple_mode_btn)
 
         self.theme_btn = QPushButton("☀️ 亮色")
         self.theme_btn.setObjectName("themeBtn")
         self.theme_btn.setToolTip("切换到亮色模式")
         self.theme_btn.clicked.connect(self.toggle_theme)
-        panel_header.addWidget(self.theme_btn)
+        panel_actions.addWidget(self.theme_btn)
 
         self.topmost_btn = QPushButton("📌 置顶")
         self.topmost_btn.setObjectName("clearBtn")
         self.topmost_btn.setCheckable(True)
         self.topmost_btn.clicked.connect(self.toggle_topmost)
-        panel_header.addWidget(self.topmost_btn)
+        panel_actions.addWidget(self.topmost_btn)
 
-        control_layout.addLayout(panel_header)
+        self.guide_btn = QPushButton("❓ 向导")
+        self.guide_btn.setObjectName("clearBtn")
+        self.guide_btn.setToolTip("查看各区域与快捷键说明")
+        self.guide_btn.clicked.connect(self.show_guide)
+        panel_actions.addWidget(self.guide_btn)
+
+        panel_actions.addStretch()
+        control_layout.addLayout(panel_actions)
 
         # 按钮行1
         btn_row1 = QHBoxLayout()
@@ -159,12 +193,6 @@ class MidiConverterGUI(
         self.refresh_btn.setToolTip("刷新列表")
         self.refresh_btn.clicked.connect(self.refresh_play_list)
         btn_row1.addWidget(self.refresh_btn)
-
-        self.guide_btn = QPushButton("❓ 向导")
-        self.guide_btn.setObjectName("clearBtn")
-        self.guide_btn.setToolTip("查看各区域与快捷键说明")
-        self.guide_btn.clicked.connect(self.show_guide)
-        btn_row1.addWidget(self.guide_btn)
 
         control_layout.addLayout(btn_row1)
 
@@ -204,6 +232,14 @@ class MidiConverterGUI(
         self.delete_selected_btn.setToolTip("删除所有已选中的曲目")
         self.delete_selected_btn.clicked.connect(self.on_delete_selected_play_items)
         list_actions.addWidget(self.delete_selected_btn)
+
+        self.simple_play_btn = QPushButton("▶️ 播放")
+        self.simple_play_btn.setObjectName("primaryBtn")
+        self.simple_play_btn.setToolTip("优化当前曲目并直接播放（简单模式）")
+        self.simple_play_btn.clicked.connect(self.on_simple_play_clicked)
+        self.simple_play_btn.setVisible(False)
+        list_actions.addWidget(self.simple_play_btn)
+
         list_actions.addStretch()
         list_layout.addLayout(list_actions)
 
@@ -231,7 +267,7 @@ class MidiConverterGUI(
         self._setup_log_tab()
 
         # 设置分割器比例
-        splitter.setSizes([350, 650])
+        splitter.setSizes([438, 562])
 
     def closeEvent(self, event):
         """程序关闭事件"""

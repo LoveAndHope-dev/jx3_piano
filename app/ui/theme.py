@@ -66,6 +66,18 @@ LIGHT_TOKENS: Dict[str, object] = {
 # 兼容旧引用：默认主题为深色
 TOKENS = DARK_TOKENS
 
+_ACTIVE_TOKENS: Dict[str, object] = DARK_TOKENS
+
+
+def current_tokens() -> Dict[str, object]:
+    """返回当前生效的令牌（自绘控件读取）。"""
+    return _ACTIVE_TOKENS
+
+
+def set_active_tokens(tokens: Dict[str, object]) -> None:
+    global _ACTIVE_TOKENS
+    _ACTIVE_TOKENS = tokens
+
 REQUIRED_TOKEN_KEYS = (
     "colorPrimary",
     "colorBgBase",
@@ -99,6 +111,10 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
     primary_bg = _rgba(str(t["colorPrimary"]), 0.22)
     return f"""
         QMainWindow {{
+            background-color: {t['colorBgBase']};
+        }}
+
+        QWidget#centralWidget {{
             background-color: {t['colorBgBase']};
         }}
 
@@ -326,7 +342,7 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
         }}
 
         QGroupBox {{
-            border: 1px solid {t['colorBorderSecondary']};
+            border: 1px solid {t['colorBorder']};
             border-radius: {t['radiusLG']}px;
             margin-top: {t['spaceMD']}px;
             padding: {t['spaceLG']}px {t['spaceMD']}px {t['spaceMD']}px {t['spaceMD']}px;
@@ -345,7 +361,7 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
         }}
 
         QFrame#controlPanel {{
-            border: 1px solid {t['colorBorderSecondary']};
+            border: 1px solid {t['colorBorder']};
             border-radius: {t['radiusLG']}px;
             background-color: {t['colorBgContainer']};
         }}
@@ -360,14 +376,14 @@ def build_stylesheet(tokens: Optional[Dict[str, object]] = None) -> str:
 
         QFrame#leftPanel {{
             background-color: {t['colorBgContainer']};
-            border: 1px solid {t['colorBorderSecondary']};
+            border: 1px solid {t['colorBorder']};
             border-radius: {t['radiusLG']}px;
             margin: {t['spaceXS']}px;
         }}
 
         QFrame#rightPanel {{
             background-color: {t['colorBgContainer']};
-            border: 1px solid {t['colorBorderSecondary']};
+            border: 1px solid {t['colorBorder']};
             border-radius: {t['radiusLG']}px;
             margin: {t['spaceXS']}px;
         }}

@@ -526,6 +526,19 @@ class _PianoRollCanvas(CanvasInputMixin, CanvasPaintMixin, QGraphicsView):
         self.notesChanged.emit()
         return changed
 
+    def arpeggiate_all(self, seconds_per_beat: float) -> int:
+        """对全部音符执行 1/32 拍琶音展开；返回实际发生变化的音符数。"""
+        if self._read_only or not self._notes:
+            return 0
+        original = set(self._selected_ids)
+        self._set_selection({n["id"] for n in self._notes})
+        try:
+            count = self.arpeggiate_selected(seconds_per_beat)
+        finally:
+            remaining = {n["id"] for n in self._notes}
+            self._set_selection(original & remaining)
+        return count
+
     # ------------------------------------------------------------------
     # 鼠标 / 键盘交互
     # ------------------------------------------------------------------

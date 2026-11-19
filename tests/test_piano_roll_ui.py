@@ -73,6 +73,28 @@ class PianoRollWidgetTest(unittest.TestCase):
         self.canvas._paste_clipboard()
         self.assertEqual(len(self.widget.get_notes()), 2)
 
+    def test_arpeggiate_all_spreads_every_note_and_keeps_selection(self):
+        self.widget.set_notes(
+            [
+                {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0, "mapped": True},
+                {"id": 1, "pitch": 64, "start": 1.0, "duration": 0.5, "track": 0, "mapped": True},
+                {"id": 2, "pitch": 67, "start": 1.0, "duration": 0.5, "track": 0, "mapped": True},
+            ]
+        )
+        self.canvas._set_selection({1})
+
+        count = self.widget.arpeggiate_all(0.5)
+
+        self.assertGreater(count, 0)
+        starts = sorted(n["start"] for n in self.widget.get_notes())
+        self.assertGreater(len({round(start, 6) for start in starts}), 1)
+        self.assertEqual(self.canvas._selected_ids, {1})
+
+    def test_arpeggiate_all_is_noop_when_read_only(self):
+        self.widget.set_read_only(True)
+        self.assertEqual(self.widget.arpeggiate_all(0.5), 0)
+        self.assertEqual(len(self.widget.get_notes()), 2)
+
     def test_cut_removes_notes_and_keeps_clipboard(self):
         self.canvas._set_selection({0})
         self.canvas._copy_selected()

@@ -95,6 +95,10 @@ class PianoRollWidget(QWidget):
         """对选中音符执行 1/32 拍琶音展开；返回被处理的音符数"""
         return self._canvas.arpeggiate_selected(seconds_per_beat)
 
+    def arpeggiate_all(self, seconds_per_beat: float) -> int:
+        """对全部音符执行 1/32 拍琶音展开；返回被处理的音符数"""
+        return self._canvas.arpeggiate_all(seconds_per_beat)
+
     def clipboard_notes(self) -> List[Dict]:
         """返回内部剪贴板副本"""
         return self._canvas.clipboard_notes()

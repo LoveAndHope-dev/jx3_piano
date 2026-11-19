@@ -438,19 +438,44 @@ class PlaylistGuiTest(unittest.TestCase):
                     return found
         return None
 
-    def test_topmost_button_lives_in_control_panel_header(self):
-        button = self.window.topmost_btn
-        self.assertEqual(button.parentWidget().objectName(), "controlPanel")
-        header = button.parentWidget().layout().itemAt(0).layout()
+    def test_control_actions_share_one_row(self):
+        buttons = [
+            self.window.simple_mode_btn,
+            self.window.theme_btn,
+            self.window.topmost_btn,
+            self.window.guide_btn,
+        ]
+        control_panel = self.window.topmost_btn.parentWidget()
+        self.assertEqual(control_panel.objectName(), "controlPanel")
+        row = self._find_layout_containing(control_panel.layout(), buttons[0])
+        self.assertIsNotNone(row)
+        for button in buttons[1:]:
+            self.assertIs(self._find_layout_containing(row, button), row)
+        for button in buttons:
+            self.assertEqual(button.parentWidget(), control_panel)
+
+        header = control_panel.layout().itemAt(0).layout()
         title = next(
             header.itemAt(i).widget()
             for i in range(header.count())
             if header.itemAt(i).widget() is not None
             and header.itemAt(i).widget().objectName() == "panelTitle"
         )
-        self.assertLess(header.indexOf(title), header.indexOf(button))
-        log_tab = self.window.right_tabs.widget(1)
-        self.assertNotIn(button, log_tab.findChildren(gui.QPushButton))
+        self.assertEqual(header.count(), 2)  # 标题 + 弹簧
+        self.assertIs(header.itemAt(0).widget(), title)
+        for button in buttons:
+            self.assertIsNone(self._find_layout_containing(header, button))
+
+        import_btn = self.window.import_btn
+        import_row = self._find_layout_containing(control_panel.layout(), import_btn)
+        for button in buttons:
+            self.assertIsNone(self._find_layout_containing(import_row, button))
+
+    def test_left_panel_is_twenty_five_percent_wider(self):
+        left_frame = self.window.findChild(gui.QFrame, "leftPanel")
+        self.assertIsNotNone(left_frame)
+        self.assertEqual(left_frame.minimumWidth(), 438)
+        self.assertEqual(left_frame.maximumWidth(), 438)
 
     def test_piano_toolbar_three_rows(self):
         piano_tab = self.window.right_tabs.widget(0)
@@ -628,6 +653,145 @@ class PlaylistGuiTest(unittest.TestCase):
         checkbox.setChecked(False)
         self.assertNotIn(path0, self.window._checked_play_paths)
 
+    def test_playlist_rows_use_painted_checkbox_and_marquee_label(self):
+        from app.ui.widgets import AntCheckBox, MarqueeLabel
+
+        self.window.on_new_play_item()
+        item = self.window.play_listbox.item(0)
+        row = self.window.play_listbox.itemWidget(item)
+        self.assertIsNotNone(row)
+        self.assertTrue(row.findChildren(AntCheckBox))
+        self.assertTrue(row.findChildren(MarqueeLabel))
+
+    def test_marquee_label_scrolls_only_for_overflowing_text(self):
+        from app.ui.widgets import MarqueeLabel
+
+        long_label = MarqueeLabel("超长歌名" * 40)
+        long_label.resize(40, 20)
+        self.assertFalse(long_label.is_scrolling())
+        long_label.start_marquee()
+        self.assertTrue(long_label.is_scrolling())
+        long_label.stop_marquee()
+        self.assertFalse(long_label.is_scrolling())
+
+        short_label = MarqueeLabel("短")
+        short_label.resize(200, 20)
+        short_label.start_marquee()
+        self.assertFalse(short_label.is_scrolling())
+
+    def test_simple_mode_hides_tab_and_fixes_mapping(self):
+        self.window.on_new_play_item()
+        self.window.piano_roll.set_notes([
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},
+        ])
+        self.window.piano_roll_dirty = True
+
+        self.window.simple_mode_btn.setChecked(True)
+
+        self.assertTrue(self.window.simple_mode)
+        self.assertEqual(
+            self.window.right_tabs.indexOf(self.window._piano_tab_widget), -1
+        )
+        self.assertEqual(self.window.piano_roll.get_notes(), [])
+        self.assertFalse(self.window.piano_roll_dirty)
+        self.assertEqual(self.window.range_low_combo.currentData(), 36)
+        self.assertEqual(self.window.range_high_combo.currentData(), 83)
+        self.assertEqual(self.window.piano_roll.get_instrument_range(), (36, 83))
+        self.assertFalse(self.window.range_low_combo.isEnabled())
+        self.assertFalse(self.window.range_high_combo.isEnabled())
+        self.assertFalse(self.window.simple_play_btn.isHidden())
+        self.assertEqual(self.window.simple_mode_btn.text(), "🧩 正常模式")
+
+    def test_simple_mode_exit_restores_tab_and_range_controls(self):
+        self.window.on_new_play_item()
+        path = self.window.current_midi_path
+
+        self.window.simple_mode_btn.setChecked(True)
+        self.window.simple_mode_btn.setChecked(False)
+
+        self.assertFalse(self.window.simple_mode)
+        self.assertNotEqual(
+            self.window.right_tabs.indexOf(self.window._piano_tab_widget), -1
+        )
+        self.assertEqual(self.window.current_midi_path, path)
+        self.assertTrue(self.window.range_low_combo.isEnabled())
+        self.assertTrue(self.window.range_high_combo.isEnabled())
+        self.assertTrue(self.window.simple_play_btn.isHidden())
+        self.assertEqual(self.window.simple_mode_btn.text(), "🧩 简单模式")
+
+    def test_simple_play_optimizes_saves_then_plays(self):
+        self.window.on_new_play_item()
+        self.window.simple_mode_btn.setChecked(True)
+        events = []
+        notes = [
+            {"id": 0, "pitch": 60, "start": 1.0, "duration": 0.5, "track": 0},
+            {"id": 1, "pitch": 64, "start": 1.0, "duration": 0.5, "track": 0},
+        ]
+        with patch.object(
+            gui.MidiToKeysConverter,
+            "auto_select_tracks_and_transpose",
+            return_value=([0], 0),
+        ) as select, patch.object(
+            gui.MidiToKeysConverter, "extract_notes", return_value=notes
+        ), patch.object(
+            gui.MidiToKeysConverter,
+            "get_tempo_and_time_signature",
+            return_value=(120.0, 4, 4),
+        ), patch.object(
+            self.window.piano_roll,
+            "arpeggiate_all",
+            side_effect=lambda spb: events.append(("opt", spb)) or 1,
+        ), patch.object(
+            self.window,
+            "_save_current_play_assets",
+            side_effect=lambda: events.append(("save",)) or True,
+        ), patch.object(
+            self.window, "start_playing", side_effect=lambda: events.append(("play",))
+        ):
+            self.window.on_simple_play_clicked()
+
+        self.assertEqual(select.call_count, 1)
+        self.assertEqual([event[0] for event in events], ["opt", "save", "play"])
+        self.assertAlmostEqual(events[0][1], 0.5)
+        self.assertEqual(self.window.piano_roll.get_notes(), notes)
+
+    def test_simple_play_reads_original_each_time(self):
+        self.window.on_new_play_item()
+        self.window.simple_mode_btn.setChecked(True)
+        with patch.object(
+            gui.MidiToKeysConverter,
+            "auto_select_tracks_and_transpose",
+            return_value=([0], 0),
+        ) as select, patch.object(
+            gui.MidiToKeysConverter, "extract_notes", return_value=[]
+        ) as extract, patch.object(
+            gui.MidiToKeysConverter,
+            "get_tempo_and_time_signature",
+            return_value=(120.0, 4, 4),
+        ), patch.object(
+            self.window.piano_roll, "arpeggiate_all", return_value=0
+        ), patch.object(
+            self.window, "_save_current_play_assets", return_value=True
+        ), patch.object(
+            self.window, "start_playing"
+        ):
+            self.window.on_simple_play_clicked()
+            self.window.on_simple_play_clicked()
+
+        self.assertEqual(select.call_count, 2)
+        self.assertEqual(extract.call_count, 2)
+
+    def test_simple_play_ignored_while_playing(self):
+        self.window.on_new_play_item()
+        self.window.simple_mode_btn.setChecked(True)
+        self.window.is_playing = True
+        try:
+            with patch.object(self.window, "start_playing") as start:
+                self.window.on_simple_play_clicked()
+            start.assert_not_called()
+        finally:
+            self.window.is_playing = False
+
     def test_guide_opens_and_covers_areas(self):
         self.window.show_guide()
         dialog = self.window._guide_dialog
@@ -644,6 +808,9 @@ class PlaylistGuiTest(unittest.TestCase):
             "操作日志",
             "Ctrl+Z",
             "Shift + 滚轮",
+            "简单模式",
+            "正常模式",
+            "C2 / B5",
         ):
             self.assertIn(text, html)
         dialog.close()

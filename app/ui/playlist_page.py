@@ -1,6 +1,7 @@
 """播放列表页。"""
 
 from app.common import *  # noqa: F401,F403
+from app.ui.widgets import AntCheckBox, MarqueeLabel
 
 
 class PlaylistPageMixin:
@@ -84,8 +85,7 @@ class PlaylistPageMixin:
         layout.setContentsMargins(4, 0, 8, 0)
         layout.setSpacing(8)
 
-        checkbox = QCheckBox()
-        checkbox.setObjectName("rowCheck")
+        checkbox = AntCheckBox()
         checkbox.setToolTip("勾选以批量删除")
         checkbox.blockSignals(True)
         checkbox.setChecked(path in self._checked_play_paths)
@@ -96,12 +96,14 @@ class PlaylistPageMixin:
         layout.addWidget(checkbox)
         self._row_checkboxes[path] = checkbox
 
-        label = QLabel(display_name)
+        label = MarqueeLabel(display_name)
         layout.addWidget(label, 1)
 
         row.mousePressEvent = (
             lambda event, it=item: self._on_play_row_pressed(event, it)
         )
+        row.enterEvent = lambda event, l=label: l.start_marquee()
+        row.leaveEvent = lambda event, l=label: l.stop_marquee()
         label.setAttribute(Qt.WA_TransparentForMouseEvents, True)
         return row
 

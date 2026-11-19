@@ -77,6 +77,16 @@ class ThemeTokenTest(unittest.TestCase):
         self.assertIn("background-color: #f5f5f5", stylesheet)
         self.assertIn("border-color: #d9d9d9", stylesheet)
 
+    def test_light_theme_central_background_and_panel_borders(self):
+        stylesheet = build_stylesheet(LIGHT_TOKENS)
+        central = stylesheet.split("QWidget#centralWidget")[1].split("}")[0]
+        self.assertIn("#f5f5f5", central)
+        for selector in ("QFrame#leftPanel", "QFrame#rightPanel", "QFrame#controlPanel"):
+            section = stylesheet.split(selector)[1].split("}")[0]
+            self.assertIn("border: 1px solid #d9d9d9", section)
+        group_box = stylesheet.split("QGroupBox {")[1].split("}")[0]
+        self.assertIn("border: 1px solid #d9d9d9", group_box)
+
 
 if __name__ == "__main__":
     unittest.main()

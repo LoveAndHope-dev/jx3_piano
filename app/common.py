@@ -21,6 +21,7 @@ from PyQt5.QtCore import (
     QEasingCurve,
     QPropertyAnimation,
     QRect,
+    QRectF,
     QSize,
     Qt,
     QThread,
@@ -34,7 +35,9 @@ from PyQt5.QtGui import (
     QIcon,
     QLinearGradient,
     QPainter,
+    QPainterPath,
     QPalette,
+    QPen,
     QPixmap,
     QTextCharFormat,
 )

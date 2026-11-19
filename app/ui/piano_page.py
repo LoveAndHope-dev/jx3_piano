@@ -122,6 +122,8 @@ class PianoPageMixin:
         self.piano_stack.setCurrentWidget(self.piano_placeholder)
         piano_layout.addWidget(self.piano_stack)
 
+        self._piano_tab_widget = piano_tab
+        self._piano_tab_index = self.right_tabs.count()
         self.right_tabs.addTab(piano_tab, "🎼 铺面编辑")
 
     def _populate_range_combos(self):
@@ -256,8 +258,9 @@ class PianoPageMixin:
 
     def _set_range_controls_enabled(self, enabled: bool):
         self.range_toggle_btn.setEnabled(enabled)
-        self.range_low_combo.setEnabled(enabled)
-        self.range_high_combo.setEnabled(enabled)
+        mapping_enabled = enabled and not self.simple_mode
+        self.range_low_combo.setEnabled(mapping_enabled)
+        self.range_high_combo.setEnabled(mapping_enabled)
         self.quantize_combo.setEnabled(enabled)
         self._sync_bpm_enabled()
         if not enabled:
